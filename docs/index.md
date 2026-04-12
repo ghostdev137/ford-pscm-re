@@ -16,10 +16,25 @@ Unlocking driver-assist features on the 2025 Ford Transit by patching the Power 
 
 ## Docs
 
-- [VBF container format](vbf-format.html)
+### Feature deep-dives
+- **[LKA — Lane Keep Aid lockout removal](lka.html)** ⭐ flashed and working
+- **[LCA / TJA — Lane Centering Assist](lca.html)** — cal + AS-built analysis
+- **[APA — Active Park Assist speed unlock](apa.html)**
+
+### Reference
+- [PSCM firmware architecture](architecture.html)
 - [Calibration map](calibration-map.html)
+- [VBF container format](vbf-format.html)
+- [CAN IDs & UDS reference](can-ids.html)
+- [Firmware inventory (every file, by vehicle)](firmware-versions.html)
+- [Flashing guide (FORScan)](flashing.html)
+
+### For the openpilot / comma.ai community
+- **[Notes for openpilot devs](openpilot.html)** — how to use this for lateral control
+
+### Tooling
 - [Emulator notes (Athrill + autoas)](emulator-notes.html)
-- [Full README on GitHub](https://github.com/ghostdev137/ford-pscm-re)
+- [Source on GitHub](https://github.com/ghostdev137/ford-pscm-re)
 
 ## Repo layout
 

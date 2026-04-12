@@ -6,6 +6,18 @@ Reverse engineering of the Ford Power Steering Control Module (PSCM) firmware us
 
 ---
 
+**Documentation site:** <https://ghostdev137.github.io/ford-pscm-re/>
+
+## Deep dives (start here)
+- **[LKA — Lane Keep Aid lockout removal](docs/lka.md)** — the patch that works
+- **[LCA — Lane Centering Assist](docs/lca.md)** — what blocks it on Transit
+- **[APA — Active Park Assist speed unlock](docs/apa.md)**
+- **[Notes for openpilot devs](docs/openpilot.md)**
+- **[Flashing guide](docs/flashing.md)**
+- **[PSCM architecture](docs/architecture.md)**
+- **[CAN / UDS reference](docs/can-ids.md)**
+- **[Firmware inventory](docs/firmware-versions.md)**
+
 ## Table of Contents
 - [Hardware](#hardware)
 - [Firmware Layout](#firmware-layout)
