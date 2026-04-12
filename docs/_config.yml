@@ -1,4 +1,22 @@
 title: Ford PSCM Firmware RE
-description: Reverse engineering Ford Power Steering Control Module firmware (2025 Transit + cross-platform)
-theme: jekyll-theme-cayman
+description: Reverse engineering Ford Power Steering Control Module firmware — LKA, LCA, APA unlocks across Transit, Escape, F-150
+remote_theme: just-the-docs/just-the-docs
 markdown: kramdown
+url: https://ghostdev137.github.io
+baseurl: /ford-pscm-re
+
+search_enabled: true
+heading_anchors: true
+
+aux_links:
+  "GitHub repo":
+    - "https://github.com/ghostdev137/ford-pscm-re"
+
+color_scheme: dark
+
+nav_external_links:
+  - title: GitHub
+    url: https://github.com/ghostdev137/ford-pscm-re
+
+plugins:
+  - jekyll-remote-theme

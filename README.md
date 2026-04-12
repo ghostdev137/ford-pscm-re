@@ -1,22 +1,26 @@
 # Ford PSCM Firmware Reverse Engineering
 
-Reverse engineering of the Ford Power Steering Control Module (PSCM) firmware used on the 2025 Transit and related platforms (Escape, F-150). Goal: unlock disabled driver-assist features (LKA lockout removal, APA high-speed, Lane Centering Assist) via targeted calibration/strategy patches.
+Reverse engineering of the Ford Power Steering Control Module (PSCM) firmware across **2025 Transit**, **2026 Transit**, **2022/2024 Escape**, and **2022 F-150**. Primary goal: unlock disabled driver-assist features on Transit (LKA lockout removal, APA high-speed, Lane Centering Assist) via calibration/strategy patches. Cross-platform documentation included to help others port the work to other vehicles.
 
-> **Status:** `LKA_NO_LOCKOUT.VBF` successfully flashed via FORScan. APA and LCA patches built and ready. Full firmware docs, cal offsets, VBF tooling, and emulator notes below.
+> **📖 Full documentation site:** **<https://ghostdev137.github.io/ford-pscm-re/>** — start with [Getting Started](https://ghostdev137.github.io/ford-pscm-re/getting-started.html) if you're new to firmware hacking.
+
+> **Status:** `LKA_NO_LOCKOUT.VBF` successfully flashed via FORScan. APA and LCA patches built. Full firmware docs, cal offsets, VBF tooling, and emulator notes are on the Pages site — this README is a quick index.
 
 ---
 
-**Documentation site:** <https://ghostdev137.github.io/ford-pscm-re/>
+## Quick links
 
-## Deep dives (start here)
-- **[LKA — Lane Keep Aid lockout removal](docs/lka.md)** — the patch that works
-- **[LCA — Lane Centering Assist](docs/lca.md)** — what blocks it on Transit
-- **[APA — Active Park Assist speed unlock](docs/apa.md)**
-- **[Notes for openpilot devs](docs/openpilot.md)**
-- **[Flashing guide](docs/flashing.md)**
-- **[PSCM architecture](docs/architecture.md)**
-- **[CAN / UDS reference](docs/can-ids.md)**
-- **[Firmware inventory](docs/firmware-versions.md)**
+**New to firmware hacking?** → [Getting Started](docs/getting-started.md) → [Glossary](docs/glossary.md) → [VBF Files Explained](docs/vbf-explained.md)
+
+**Know your way around?** →
+- [LKA lockout removal](docs/lka.md) (works, flashed)
+- [LCA enable attempt](docs/lca.md) (partial — help wanted)
+- [APA speed unlock](docs/apa.md)
+- [Per-file VBF catalog](docs/per-file-catalog.md) — every file explained
+- [Vehicles](docs/vehicles/) — Transit 2025/2026, Escape 2022/2024, F-150 2022
+- [Flashing guide](docs/flashing.md) · [PSCM architecture](docs/architecture.md) · [CAN/UDS reference](docs/can-ids.md)
+
+**openpilot dev?** → [Notes for openpilot](docs/openpilot.md)
 
 ## Table of Contents
 - [Hardware](#hardware)

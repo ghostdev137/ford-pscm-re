@@ -1,10 +1,11 @@
 ---
-title: Flashing Guide (FORScan + VCM-II / TOPDON RLink)
+title: Flashing Guide
+nav_order: 13
 ---
 
 # Flashing the PSCM
 
-> **Warning:** A failed flash can brick the PSCM and disable power steering. This has happened to the author's friends. Have a donor PSCM ready if you are not willing to tow the vehicle to a dealer for recovery.
+> **Warning:** A failed flash can brick the PSCM and disable power steering. **This has happened to me.** Have a donor PSCM on hand, or be prepared to tow the vehicle to a dealer for recovery, before you flash anything.
 
 ## Hardware
 

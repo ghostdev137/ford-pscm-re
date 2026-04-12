@@ -1,5 +1,6 @@
 ---
-title: PSCM Firmware Architecture
+title: PSCM Architecture
+nav_order: 6
 ---
 
 # PSCM Firmware Architecture

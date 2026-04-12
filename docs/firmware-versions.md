@@ -1,5 +1,6 @@
 ---
-title: Firmware Inventory & Cross-Vehicle Compare
+title: Firmware Inventory
+nav_order: 23
 ---
 
 # Firmware Inventory

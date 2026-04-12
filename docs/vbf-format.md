@@ -1,3 +1,8 @@
+---
+title: VBF Format Spec
+nav_order: 22
+---
+
 # VBF (Versatile Binary Format) — Ford/Volvo ECU Programming Container
 
 ## File structure

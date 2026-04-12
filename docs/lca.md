@@ -1,5 +1,6 @@
 ---
-title: LCA / TJA — Lane Centering Assist
+title: LCA — Lane Centering
+nav_order: 11
 ---
 
 # LCA / TJA (Lane Centering Assist, Traffic Jam Assist)

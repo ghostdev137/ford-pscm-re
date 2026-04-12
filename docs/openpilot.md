@@ -1,5 +1,6 @@
 ---
-title: Notes for openpilot / commaai community
+title: Notes for openpilot
+nav_order: 14
 ---
 
 # Notes for openpilot / comma.ai community

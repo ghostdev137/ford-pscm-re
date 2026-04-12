@@ -1,3 +1,8 @@
+---
+title: Emulator Notes
+nav_order: 30
+---
+
 # PSCM Emulator Notes (Athrill2 + autoas)
 
 ## Stack
