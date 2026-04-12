@@ -1,0 +1,4 @@
+title: Ford PSCM Firmware RE
+description: Reverse engineering Ford Power Steering Control Module firmware (2025 Transit + cross-platform)
+theme: jekyll-theme-cayman
+markdown: kramdown
