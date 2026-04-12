@@ -45,9 +45,9 @@ Short definitions of every acronym and term used in this repo.
 |---|---|
 | **VBF** | Versatile Binary Format — Ford/Volvo firmware file container. See [vbf-explained](vbf-explained.html). |
 | **Block** | A contiguous chunk of binary inside a VBF, targeted at a specific flash address. |
-| **block0** | Strategy — main application code. |
+| **block0** | Strategy — main application code (includes EPS inner-loop on this platform). |
 | **block1** | RAM init image — pre-initialized data copied to RAM on boot. |
-| **block2** | EPS core — low-level motor control. |
+| **block2** | *(historical term used elsewhere in this repo)* — on the Transit/Escape PSCM there is no separate EPS-core block in flash; `-14D005-*` is the SBL, not block2. |
 | **Strategy** | Ford's high-level control code (when/how to steer). In block0 of the VBF. |
 | **Calibration / cal** | Tables of numbers (thresholds, curves) that tune strategy. Stored separately at `0x00FD0000` on this platform. |
 | **AS-built** | Non-volatile configuration bits set by the dealer when the car is built. Enable/disable optional features. |

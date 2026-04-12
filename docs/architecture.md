@@ -20,7 +20,7 @@ nav_order: 6
 | Vectors / boot | `0x00000000` | Reset vector, exception table, boot ROM check |
 | Strategy (block0) | ~`0x00F00000` | AUTOSAR BSW + Ford strategy code |
 | Strategy continued | `0x010E1000` area | EPS lateral control, LKA/LCA/APA handlers |
-| EPS core (block2) | separate | Low-level motor control loop (separate safety rating) |
+| EPS inner-loop code | inside block0 strategy | Low-level motor control runs on same MCU as strategy; safety checks in-line |
 | Calibration | `0x00FD0000`–`0x00FDFFF0` | 65,520 bytes, our patch target |
 | RAM (EP window) | `0x40000000`+ | AUTOSAR BSW state, stacks, heap |
 | Peripherals | `0xFF000000`+ | CAN, SPI, ADC, timers |
@@ -31,9 +31,9 @@ Each programming-session flash delivers 3 blocks:
 
 1. **block0 — strategy.** Main application image. Contains AUTOSAR BSW (EcuM, Com, CanIf, PduR, CanTp, Dcm, NvM, ComM, CanSM) and Ford's EPS strategy (LKA, APA, LCA handlers, steering math, fault detection).
 2. **block1 — RAM init image.** Pre-initialized data copied into RAM on boot. AUTOSAR `.data` segment basically.
-3. **block2 — EPS core.** Separately-certified low-level motor control. We don't touch this — it runs the inner current/torque loop at high rate and contains functional-safety code.
+3. **(No separate block2.)** Earlier versions of this doc claimed `-14D005-*` was an EPS core block; **that was wrong.** `sw_part_type = SBL` in that file's header confirms it's the Secondary Bootloader, uploaded to RAM during flashing and not persisted in flash at all. The EPS inner-loop code lives **inside block0** alongside the strategy.
 
-Plus the **calibration partition** (`14D007`) as a separate VBF and the **SBL** (`14D005`) as another separate VBF. SBL is uploaded to RAM by FORScan before erasing application flash.
+Plus the **calibration partition** (`-14D007-*`) as a separate VBF, the **supplementary** (`-14D004-*`) as another, and the **SBL** (`-14D005-*`). SBL is uploaded to RAM by FORScan before erasing application flash.
 
 ## AUTOSAR layer
 
@@ -85,6 +85,6 @@ A full field-by-field map is a long-term RE project. Our current annotations liv
 
 ## What we don't touch
 
-- **EPS core block.** Runs the inner motor-control loop, has safety certification. Modifying it can cause unintended steering torque.
+- **EPS inner-loop code within block0.** Runs the motor current/torque loop; contains functional-safety checks. Be extra careful patching strategy near these routines.
 - **Bootloader.** On-chip, not in our VBFs.
 - **Vectors / exception handlers.** Same.

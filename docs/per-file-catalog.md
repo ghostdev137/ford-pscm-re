@@ -18,12 +18,12 @@ KK21  -  14D003  -  AG
 
 ## Part function codes
 
-| Suffix | What it is | Block/partition |
+| Suffix | `sw_part_type` | What it is |
 |---|---|---|
-| `-14D003-*` | PSCM strategy (application code) | block0 + block1 |
-| `-14D004-*` | PSCM supplementary / MPU config | varies |
-| `-14D005-*` | PSCM EPS core (low-level motor) | block2 |
-| `-14D007-*` | PSCM calibration | cal partition at `0x00FD0000` |
+| `-14D003-*` | `EXE` | PSCM strategy (application code / block0 + block1) |
+| `-14D004-*` | `DATA` | PSCM supplementary (MPU config / secondary data block) |
+| `-14D005-*` | `SBL` | **Secondary Bootloader** — uploaded to RAM by FORScan during flashing, not flashed to permanent storage |
+| `-14D007-*` | `DATA` | PSCM calibration (cal partition at `0x00FD0000` on Transit/Escape platform) |
 | `-14F397-*` / `-14F398-*` / `-14F399-*` | IPMA camera firmware (not PSCM) | IPMA internal |
 | `-14H102-*` / `-14H103-*` etc. | APIM / SYNC firmware (not PSCM) | — |
 
@@ -38,7 +38,7 @@ This is our primary target. PSCM split across three platforms for this model yea
 | `KK21-14D003-AL.VBF` | Strategy | block0 | Removed ~40 instructions at `0x010E1000`. |
 | `KK21-14D003-AM.VBF` | Strategy | block0 | Removed another ~40 instructions. **Not** the LCA handler (verified). |
 | `KK21-14D003-AM_LCA_ENABLED.VBF` | Strategy (my experiment) | block0 | AM strategy + speculative LCA code patches — did not work. |
-| `KK21-14D005-AB.vbf` | EPS core | block2 (separate partition) | Motor control + safety. We do not modify. |
+| `KK21-14D005-AB.vbf` | SBL | uploaded to RAM during flashing | Secondary Bootloader — not permanent. |
 | `LK41-14D007-AD.VBF` | Calibration | cal → `0x00FD0000` (65,520 B) | Early cal. |
 | `LK41-14D007-AF.VBF` | Calibration | cal | Intermediate cal. |
 | `LK41-14D007-AH.VBF` | Calibration | cal | **Current production cal. Base for all our patches.** |
@@ -64,7 +64,7 @@ See [vehicles/transit-2026](vehicles/transit-2026.html).
 | File | Role | Block | Notes |
 |---|---|---|---|
 | `LX6C-14D003-AL` | Strategy | block0 | Escape strategy — **different** from Transit strategy. Contains LCA code paths. |
-| `LX6C-14D005-AB` | EPS core | block2 | Likely same HW, same code as Transit. |
+| `LX6C-14D005-AB` | SBL | uploaded to RAM during flashing | Secondary Bootloader. |
 | `LX6C-14D007-ABH` | Calibration | cal | **LCA cal donor.** Regions `+0x06C3..0xFFDC` copied to our patched file. |
 
 See [vehicles/escape-2022](vehicles/escape-2022.html).
@@ -77,8 +77,8 @@ Newer Escape revision. Prefix `PZ11`. Same family as LX6C but with updates.
 |---|---|---|---|
 | `PZ11-14D003-FB` | Strategy | block0 | Newer Escape strategy. |
 | `PZ11-14D004-FAB` | Supplementary | varies | |
-| `PZ11-14D005-AA` | EPS core | block2 | |
-| `PZ11-14D005-AB` | EPS core | block2 | Later revision. |
+| `PZ11-14D005-AA` | SBL | uploaded to RAM during flashing | SBL rev AA. |
+| `PZ11-14D005-AB` | SBL | uploaded to RAM during flashing | SBL rev AB. |
 | `PZ11-14D007-EBC` | Calibration | cal | Newer cal — may have revised layout vs LX6C. |
 
 See [vehicles/escape-2024](vehicles/escape-2024.html).
@@ -90,13 +90,36 @@ See [vehicles/escape-2024](vehicles/escape-2024.html).
 | File | Role | Block | Notes |
 |---|---|---|---|
 | `ML34-14D004-BP` | Supplementary | varies | |
-| `ML34-14D005-AB` | EPS core | block2 | Different motor driver. |
+| `ML34-14D005-AB` | SBL | uploaded to RAM during flashing | Secondary Bootloader. |
 | `ML34-14D007-BDL` | Calibration | cal | **Different layout** — offsets do not align with Transit. |
 | `ML3T-14H106-EFE` | APIM (SYNC) | — | Not PSCM. Included by accident; ignore. |
 | `ML3T-14H310-EDD` | APIM | — | Not PSCM. Ignore. |
 | `ML3V-14D003-BD` | Strategy | block0 | F-150 strategy. |
 
 See [vehicles/f150-2022](vehicles/f150-2022.html).
+
+## 2021 F-150 Lariat 502A — BlueCruise (`firmware/F150_2021_Lariat_BlueCruise/`)
+
+Donor set from a friend's 2021 F-150 Lariat 502A with BlueCruise. Same `ML34` / `ML3V` PSCM platform as the 2022 F-150 files, but **newer revisions**. This vehicle ships with APA fully functional and LKA without the 10-second lockout that plagues Transit — but LKA has a ~23 mph minimum-speed gate.
+
+| File | `sw_part_type` | Role | Header checksum | Size |
+|---|---|---|---|---|
+| `ML34-14D004-EP.VBF` | `DATA` | Supplementary | `0x06D9A00D` | 66,332 B |
+| `ML34-14D005-AB.VBF` | `SBL` | Secondary Bootloader | `0x53BDD722` | 10,583 B |
+| `ML34-14D007-EDL.VBF` | `DATA` | Calibration | `0xA95DEAB1` | 197,409 B |
+| `ML3V-14D003-BD.VBF` | `EXE` | Strategy | `0x8DF103F0` | 1,573,660 B |
+
+All four use `frame_format = CAN_STANDARD` and `ecu_address = 0x730` on the diagnostic channel (the data bus on F-150 BlueCruise is CAN FD, but UDS flashing still runs over classical CAN).
+
+**Notes on revisions:**
+- `ML34-14D004-EP` — newer than our existing `ML34-14D004-BP` (2022 folder)
+- `ML34-14D007-EDL` — newer than our existing `ML34-14D007-BDL` (2022 folder)
+- `ML3V-14D003-BD` — same revision as our existing file
+- `ML34-14D005-AB` — same revision as our existing file (SBL rarely changes)
+
+**VBF format note:** The F-150 cal VBF uses a different internal block structure than Transit/Escape. After the `};` header terminator there is a 16-byte embedded part-name tag, then block data. Our existing `tools/vbf_decompress.py` needs to be extended to parse this variant.
+
+See [vehicles/f150-2021-lariat](vehicles/f150-2021-lariat.html).
 
 ## Patched output (`firmware/patched/`)
 

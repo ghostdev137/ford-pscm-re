@@ -14,6 +14,8 @@ Unlock driver-assist features Ford disables in firmware on the 2025 Transit — 
 - **Automotive reverse engineers** interested in the TKP EPS / V850E2M PSCM platform.
 - **Curious people** who've never touched firmware before — start with [Getting Started](getting-started.html).
 
+> **Correction (2026-04-12):** Earlier drafts of these docs claimed the `-14D005-*` VBF was a separate "EPS core" block. That was wrong — `sw_part_type` in those files is `SBL` (Secondary Bootloader). The EPS inner-loop code lives *inside block0* alongside the strategy. Docs have been updated.
+
 ## Current status
 
 | Patch | Status |

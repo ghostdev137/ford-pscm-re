@@ -83,9 +83,9 @@ For the PSCM, flashing the complete application requires **three** VBFs, each co
 |---|---|---|---|
 | **block0 / strategy** | `KK21-14D003-*` | Main application code — AUTOSAR BSW + Ford strategy | ~`0x00F00000` |
 | **block1 / RAM init** | (usually bundled with block0) | Initialized data copied to RAM on boot | varies |
-| **block2 / EPS core** | `KK21-14D005-*` | Low-level motor control, safety | separate |
+| **SBL** | `KK21-14D005-*` | Secondary Bootloader — uploaded to RAM during flashing, not persisted | RAM only |
 | **calibration** | `LK41-14D007-*` | The 65,520-byte cal table | `0x00FD0000` |
-| **SBL** | part of programming sequence | Secondary Bootloader | uploaded to RAM by FORScan |
+| **supplementary** | `KK21-14D004-*` | MPU config / secondary data block | varies |
 
 (Different vehicles use different PN prefixes — see [per-file-catalog](per-file-catalog.html).)
 
@@ -93,9 +93,9 @@ For the PSCM, flashing the complete application requires **three** VBFs, each co
 
 Because Ford split the firmware:
 1. **Strategy (block0)** changes between model years, trims, and software revisions. Ford re-releases it often.
-2. **EPS core (block2)** is safety-certified and rarely changes. Different certification authority.
-3. **Calibration** is tuned per vehicle variant (Transit passenger vs. cargo vs. LWB, etc.) without recompiling.
-4. **SBL** is the same across all PSCMs of this platform — it's the uploader that runs during flashing.
+2. **Calibration** is tuned per vehicle variant (Transit passenger vs. cargo vs. LWB, etc.) without recompiling.
+3. **SBL** (`-14D005-*`) is the uploader that runs in RAM during flashing; it rarely changes.
+4. **Supplementary (`-14D004-*`)** carries MPU config or a secondary data block used by the strategy.
 
 Splitting means when Ford tweaks a cal value they only ship a new `14D007` file, not the whole stack.
 
@@ -117,7 +117,7 @@ When you tell FORScan "program the PSCM," it's actually doing:
 3. Tell PSCM "run SBL."
 4. SBL erases the application flash.
 5. Upload block0 (strategy) VBF → flash.
-6. Upload block2 (EPS core) VBF → flash.
+6. Upload supplementary VBF (if any) → flash.
 7. Upload cal VBF → flash.
 8. Checksum verify.
 9. Reset PSCM → it boots the new firmware.

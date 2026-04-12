@@ -46,7 +46,7 @@ See [per-file-catalog](../per-file-catalog.html#2025-transit-firmwaretransit_202
 
 - `firmware/Transit_2025/LK41-14D007-AH.VBF` — base cal, patches derived from this.
 - `firmware/Transit_2025/KK21-14D003-AG..AM.VBF` — four strategy revisions we diffed.
-- `firmware/Transit_2025/KK21-14D005-AB.vbf` — EPS core (do not touch).
+- `firmware/Transit_2025/KK21-14D005-AB.vbf` — SBL (Secondary Bootloader).
 - `firmware/patched/*.VBF` — our modified output.
 
 ## Strategy revision history (Transit 2025)

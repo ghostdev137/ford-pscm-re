@@ -15,3 +15,4 @@ PSCM firmware documentation organized by vehicle. Not all of these are cross-com
 | [2022 Escape](escape-2022.html) | `LX6C` | ✅ cal layout matches — our LCA donor |
 | [2024 Escape](escape-2024.html) | `PZ11` | ⚠ unconfirmed |
 | [2022 F-150](f150-2022.html) | `ML34` / `ML3V` | ❌ different vendor, different cal layout |
+| [2021 F-150 Lariat 502A BlueCruise](f150-2021-lariat.html) | `ML34` / `ML3V` (newer revs) | ❌ same platform as 2022 F-150, not Transit-compatible |
