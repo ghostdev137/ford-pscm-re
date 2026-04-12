@@ -84,13 +84,38 @@ cal+0x0120: 00 00 20 41  →  00 00 00 3F
 
 ---
 
+## Finding 1b: LKA 10-sec lockout timer pair at `cal+0x07ADC`/`0x07ADE` (HIGH confidence)
+
+**Correction to earlier interpretation:** LKA has a lockout on every Ford — F-150 included. Looking for the classic `10000 × 1ms = 10 s` signature uncovered:
+
+```
+cal+0x07ADC:  10 27   (u16 LE = 10000)   arm timer
+cal+0x07ADE:  10 27   (u16 LE = 10000)   re-arm timer
+cal+0x07AE0:  1500, 300, 257, 3, 256, 257, 0, 1   (related debounce/state params)
+```
+
+Two adjacent u16 = 10000 in a mixed float/int struct region. This pair is **identical between BDL and EDL** — Ford never relaxes the LKA lockout. Patching both to `00 00` should remove the 10-s gap after each LKA intervention.
+
+A third `10000` at `cal+0x07E64` has neighbors `300, 1500` — probably a related subsystem timer (ESA / TJA / confirmation).
+
+### Revised LKA-unlock patch
+```
+cal+0x07ADC: 10 27 → 00 00  (arm timer: 10 s → 0)
+cal+0x07ADE: 10 27 → 00 00  (re-arm timer: 10 s → 0)
+cal+0x0114:  00 00 20 41 → 00 00 00 00  (engage min-speed: 10 m/s → 0)
+```
+
+**Leave `cal+0x0120` alone** — almost certainly the LCA engage min-speed, and LCA is already continuous (no patch needed).
+
 ## Finding 2: BDL→EDL changes reveal Ford's tuning philosophy
 
 Diffing the newer `EDL` against older `BDL` cal (both 195,584 bytes):
 - **2,782 byte-level diffs** organized into **67 regions**
 - Most changes appear in **4 identical copies** spaced ~0xF00 apart — Ford uses four variant calibrations (trim-dependent or profile-dependent)
 
-### Key diff: `cal+0x1402..0x1416` — EDL **zeroed** a timer table
+### Key diff: `cal+0x1402..0x1416` — EDL **zeroed** a timer-like table
+*(Not the LKA lockout — see Finding 1b. All Fords keep LKA locked. Most likely this is a re-located or deprecated table — Ford reworked it rather than removing a safety feature.)*
+
 ```
 BDL: [..., 0, 655, 655, 655, 655, 655, 655, 655, 655, 655, 655, 0]
 EDL: [..., 0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0, 0]
