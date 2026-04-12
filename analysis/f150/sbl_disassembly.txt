@@ -1,0 +1,204 @@
+=== F-150 2021 SBL Disassembly ===
+File: ML34-14D005-AB.VBF
+VBF header ends at: 0x593
+Block addr: 0xFEBE0000, len: 0x2284 (8836 bytes)
+Trailer: 312 bytes starting at file offset 0x281F
+
+=== Trailer Structure ===
+[000:004] 8A FD FE BE  = magic/entry-point marker (0xBEFEFD8A LE)
+[004:008] 2C 00 00 00  = field = 44 (0x2C)
+[008:009] 01           = version byte
+[009:010] 2C           = 0x2C = 44 (length field?)
+[010:266] [256 bytes]  = sw_signature (from ASCII header, 7.19 bits entropy)
+[266:270] 00 00 00 01  = block count = 1
+[270:274] FE BE 00 00  = block start addr = 0xFEBE0000
+[274:278] 00 00 22 84  = block length = 0x2284 (8836)
+[278:310] [32 bytes]   = SHA-256 of code block (VERIFIED MATCH)
+[310:312] 96 31        = 2 extra bytes (possibly version/flags)
+
+=== SHA-256 Verification ===
+SHA256(code_block): 543b5593bcbc745ebfb87a466687c258c6c1f3d77d0dc387f32f686a2fd08ec9
+Trailer hash field: 543b5593bcbc745ebfb87a466687c258c6c1f3d77d0dc387f32f686a2fd08ec9
+MATCH: True
+
+=== SHA Hardware Registers (0xFFFF36xx) Found in SBL Code ===
+  Code offset 0x0442: 0xFFFF3613  (SHA hardware register write)
+  Code offset 0x057A: 0xFFFF3609  (SHA hardware register write)
+  Code offset 0x1D98: 0xFFFF3612  (SHA hardware register write)
+  -> These are Renesas RH850 SHA2/hash peripheral registers
+  -> SBL uses HARDWARE SHA-256 acceleration (no software constants needed)
+
+=== Cryptographic Constants Search ===
+  CRC32 polynomial 0xEDB88320:     NOT FOUND
+  CRC32 polynomial 0x04C11DB7:     NOT FOUND
+  CRC32 lookup table (1KB):        NOT FOUND
+  SHA-256 H0 0x6A09E667:           NOT FOUND
+  SHA-256 H1 0xBB67AE85:           NOT FOUND
+  SHA-256 K[0] 0x428A2F98:         NOT FOUND
+  SHA-1 K1 0x5A827999:             NOT FOUND
+  SHA-1 K2 0x6ED9EBA1:             NOT FOUND
+  AES S-box:                       NOT FOUND
+  MD5 init values:                 NOT FOUND
+
+  NOTE: Absence of SHA constants is EXPECTED if using hardware SHA accelerator
+  NOTE: Absence of RSA/bignum constants confirms NO RSA implementation
+
+=== Embedded Public Key Search ===
+  High-entropy (>7.5 bits) 64-byte windows in SBL code:   0 found
+  High-entropy (>7.6 bits) regions in entire VBF file:    0 found
+  256-byte RSA public key candidate:                       NOT FOUND
+  -> No RSA public key embedded in this SBL
+
+=== ISA Identification ===
+  MCU: Renesas RH850 (confirmed by):
+  1. Part name in code 'AH850S54G...V101' = RH850/F1x variant
+  2. Vector table at 0x0000 with FEBE-range (0xFEBExxxx) RAM addresses
+  3. PREPARE/DISPOSE instruction pattern (V850E2/RH850 calling convention)
+  4. 0xFFFF36xx SFR addresses match RH850 SHA2 hardware peripheral
+  5. Load address 0xFEBE0000 = RAM-resident bootloader (typical RH850)
+
+=== Function Summary ===
+  PREPARE instructions (function prologues): 54
+  JMP [lp] (function returns):               75
+  BF FF call patterns (JARL):               200
+
+=== Key Code Regions ===
+  0xFEBE0000: Vector table (5 FEBE-range pointer entries + code)
+  0xFEBE0068: Main initialization/dispatch loop
+  0xFEBE0400: SHA verification function #1 (uses 0xFFFF3613)
+  0xFEBE054C: SHA verification function #2 (uses 0xFFFF3609)
+  0xFEBE1574: Function from vector entry [1]
+  0xFEBE1618: Function from vector entry [2]
+  0xFEBE1D74: SHA verification function #3 (uses 0xFFFF3612)
+  0xFEBE1B18: ERASED FLASH (padding region)
+
+
+=== RAW HEXDUMP (first 512 lines) ===
+FEBE0000: 81 00 00 86 74 15 BE FE 18 16 BE FE 40 16 BE FE   ....t.......@...
+FEBE0010: AA 16 BE FE 1A 17 BE FE 06 F0 80 3B 7F 00 40 76   ...........;..@v
+FEBE0020: 01 01 2E 77 71 AF 3E 06 18 1B BE FE 2E 6F C1 00   ...wq.>......o..
+FEBE0030: 0D 78 95 7A 05 7D 83 6A 2E 8F C5 00 8D 00 90 6B   .x.z.}.j.......k
+FEBE0040: D1 00 85 8A 07 8D 2E 97 35 00 9E 92 F2 86 07 00   ........5.......
+FEBE0050: 80 07 09 90 10 F1 D2 66 07 00 2E 97 CD 00 5F 62   .......f......_b
+FEBE0060: CC 81 91 83 92 00 12 06 AB FF E2 5F 00 00 CF 89   ..........._....
+FEBE0070: 0D 5D C3 6A C5 8A CD 89 11 06 00 F8 D9 05 80 66   .].j...........f
+FEBE0080: 00 80 03 65 E5 05 03 05 10 56 1C 00 91 53 00 62   ...e.....V...S.b
+FEBE0090: 2E 97 C9 00 D2 00 CA 92 AC 91 01 95 7F 00 32 06   ..............2.
+FEBE00A0: 00 B0 00 01 32 8F F9 0F 3E 06 DC 1A BE FE 2D 06   ....2...>.....-.
+FEBE00B0: 00 20 A1 FF C2 8A 2D 8D 32 77 FD 0F 2F 75 32 F5   . ....-.2w../u2.
+FEBE00C0: CD F1 1E 7E 00 10 E5 05 32 87 01 00 44 92 01 85   ...~....2...D...
+FEBE00D0: 44 F2 EF F1 A1 FD 7F 00 58 1A 03 F0 03 FD 01 ED   D.......X.......
+FEBE00E0: F8 8F 40 20 91 96 00 01 F2 C7 20 20 F8 87 40 20   ..@ ......  ..@ 
+FEBE00F0: 89 82 D1 FD 1C 00 E6 7F 40 08 CF 96 E0 00 12 06   ........@.......
+FEBE0100: E0 FF 8A 15 26 06 00 07 BC FF 00 3A BF FF 0C FF   ....&......:....
+FEBE0110: 01 3A BF FF 06 FF 00 3A BF FF 00 FF 1F 00 1C 00   .:.....:........
+FEBE0120: 95 0D F8 77 40 68 8E 96 02 00 F2 C7 20 68 F8 6F   ...w@h...... h.o
+FEBE0130: 40 68 03 F0 02 FD 00 ED 48 1A 7F 00 5C 1A 63 FF   @h......H...\.c.
+FEBE0140: 01 00 1F 00 06 38 87 00 26 06 08 90 C5 FF BF FF   .....8..&.......
+FEBE0150: CA FE A0 07 85 98 20 8B 1F 00 1C 00 BF FF 7C FF   ...... .......|.
+FEBE0160: 23 FF 01 00 44 1A 7F 00 3E 06 18 1B BE FE 9E 4F   #...D...>......O
+FEBE0170: 11 00 09 90 CD 92 F2 31 D9 05 06 98 01 52 8D 9A   .......1.....R..
+FEBE0180: C5 1D 04 8D 1F 9A 00 52 CF 8A D2 89 F1 31 F9 05   .......R.....1..
+FEBE0190: B2 31 09 98 8F 32 02 52 C6 99 F5 0D 40 46 80 00   .1...2.R....@F..
+FEBE01A0: E8 31 B1 0D 06 85 CF 82 50 86 80 00 F0 31 D9 05   .1......P....1..
+FEBE01B0: 46 9E 80 7F 03 52 8F 9A 67 9F 00 00 7F 00 40 F6   F....R..g.....@.
+FEBE01C0: BE FE 3E F7 3D 1B 5E F6 A1 FF DE FF 00 00 EA 57   ..>.=.^........W
+FEBE01D0: 00 00 7F 00 03 1E EC FF 03 F0 09 FD 07 D5 05 DD   ................
+FEBE01E0: 03 E5 01 ED 3D 06 E4 1A BE FE 3D 7F 05 00 E0 79   ....=.....=....y
+FEBE01F0: B2 0D 3D 97 09 00 12 86 C0 FF 10 06 4F FF C1 05   ..=.........O...
+FEBE0200: D2 06 0F 00 E2 05 20 6E 11 00 7D 6F 11 00 C5 25   ...... n..}o...%
+FEBE0210: 01 32 BF FF 2A FF 40 5E A1 FF 2B 5F AD 80 CB 06   .2..*.@^..+_....
+FEBE0220: 1E 00 BA 15 1D F0 04 E5 02 DD 20 D6 10 00 5C E6   .......... ...\.
+FEBE0230: 28 FF 9C 3F 01 00 1B 30 BF FF E0 FD 41 DA 41 E2   (..?...0....A.A.
+FEBE0240: 01 8A FA 06 11 00 B5 05 20 8E 13 00 7D 8F 11 00   ........ ...}...
+FEBE0250: 00 32 BF FF EA FE 03 F0 08 FD 00 ED 02 E5 04 DD   .2..............
+FEBE0260: 06 D5 03 1E 14 00 7F 00 58 1A 03 F0 03 FD 01 ED   ........X.......
+FEBE0270: 3D 06 DC 1A BE FE 3D 8F 69 00 20 3E B3 00 51 36   =.....=.i. >..Q6
+FEBE0280: A2 FF BF FF 96 FD 3D F7 61 00 30 06 80 00 A1 FF   ......=.a.0.....
+FEBE0290: D0 F1 00 7D CF 96 00 80 12 06 00 80 DA F5 03 F0   ...}............
+FEBE02A0: 02 FD 00 ED 48 1A 7F 00 58 1A 03 F0 03 FD 01 ED   ....H...X.......
+FEBE02B0: 3D 06 DC 1A BE FE 3D 37 61 00 32 06 F0 FF 5E 00   =.....=7a.2...^.
+FEBE02C0: B2 31 26 8F 71 00 D1 9E 00 40 13 06 00 C0 FA 05   .1&.q....@......
+FEBE02D0: 86 9F 01 00 D3 3E 77 00 BF FF 40 FD 3D 37 69 00   .....>w...@.=7i.
+FEBE02E0: 20 3E 50 00 46 36 A2 FF BF FF 30 FD 03 F0 02 FD    >P.F6....0.....
+FEBE02F0: 00 ED 48 1A 7F 00 50 1A 03 F0 03 E5 07 FD 06 E0   ..H...P.........
+FEBE0300: 05 DD 01 ED 3D 06 DC 1A BE FE 3D F7 61 00 01 DA   ....=.....=.a...
+FEBE0310: 29 06 D0 FF 5E 00 A9 F1 E0 31 FE 8F 55 00 CA 15   )...^....1..U...
+FEBE0320: 28 3D 87 3A B9 05 BF FF 42 FF BF FF 7E FF 3D F7   (=.:....B...~.=.
+FEBE0330: 61 00 7D E7 39 00 30 06 84 00 A1 FF D0 F1 1C 96   a.}.9.0.........
+FEBE0340: 00 AA 80 94 F5 1D D1 06 01 00 AA 1D 88 8A 81 1D   ................
+FEBE0350: BF FF 6E FE 61 32 EA 05 61 52 C2 05 20 DE 10 00   ..n.a2..aR.. ...
+FEBE0360: 95 15 3D F7 61 00 32 06 30 00 A1 FF 12 8E 04 00   ..=.a.2.0.......
+FEBE0370: D2 F1 01 05 3D F7 61 00 D1 F1 01 05 95 DD 20 DE   ....=.a....... .
+FEBE0380: 13 00 1B 50 03 F0 06 FD 00 ED 02 E5 04 DD 03 1E   ...P............
+FEBE0390: 10 00 7F 00 58 1A 03 F0 03 FD 01 ED 3D 06 DC 1A   ....X.......=...
+FEBE03A0: BE FE 3D 47 0D 00 E0 41 B2 0D 3D 97 11 00 12 4E   ..=G...A..=....N
+FEBE03B0: C0 FF 09 06 4F FF C1 05 D2 06 0F 00 E2 05 20 36   ....O......... 6
+FEBE03C0: 11 00 7D 37 19 00 D5 15 20 36 80 00 BF FF 2A FF   ..}7.... 6....*.
+FEBE03D0: 61 52 DA 0D 1D F0 08 8D 06 9D 03 92 1B 95 51 8E   aR............Q.
+FEBE03E0: 28 FF 11 8D 13 9D 09 8A 17 8D B5 05 7D 57 19 00   (...........}W..
+FEBE03F0: 03 F0 02 FD 00 ED 48 1A 7F 00 40 9E 01 00 62 32   ......H...@...b2
+FEBE0400: 32 06 00 80 00 00 E0 9F 14 8B 3E 06 DC 1A BE FE   2.........>.....
+FEBE0410: 35 8D E0 97 14 93 33 95 31 95 7F 00 50 1A 03 F0   5.....3.1...P...
+FEBE0420: 07 FD 05 E5 03 ED 3D 06 DC 1A BE FE 3D 37 11 00   ......=.....=7..
+FEBE0430: 23 3E 02 00 BF FF 34 FD 1D F0 0A 9D 08 45 0A E0   #>....4......E..
+FEBE0440: C8 99 13 36 FF FF BF FF 22 FD 62 E2 AA 15 62 52   ...6....".b...bR
+FEBE0450: 8A 15 3D 7F 11 00 D1 7A AA 65 3D 97 15 00 12 06   ..=....z.e=.....
+FEBE0460: 00 80 D9 5D D2 06 FF 7F AA 5D 8F 92 01 32 E5 2D   ...].....]...2.-
+FEBE0470: 61 E2 AA 45 61 52 8A 15 3D 77 11 00 D3 72 FA 4D   a..EaR..=w...r.M
+FEBE0480: 3D 97 15 00 12 06 00 E0 A9 4D D2 06 FF 1F FA 45   =........M.....E
+FEBE0490: 8D 92 0A 30 B5 1D 62 52 FA 2D 3D 87 11 00 D0 06   ...0..bR.-=.....
+FEBE04A0: FF 1F DA 3D 3D 97 15 00 80 8E 00 A0 F1 91 F1 35   ...==..........5
+FEBE04B0: 9D 8F 4D 00 D0 91 CD 8A B1 91 D2 06 FF 7F FA 2D   ..M............-
+FEBE04C0: B0 89 8F 92 8D 8A 1C 30 D1 91 7D 97 28 00 BF FF   .......0..}.(...
+FEBE04D0: 2C FF 3D 4F 19 00 09 06 EF FF 82 2D 01 32 BF FF   ,.=O.......-.2..
+FEBE04E0: 18 FE 61 52 9A 25 1D F0 08 65 03 5A 09 52 1B 5D   ..aR.%...e.Z.R.]
+FEBE04F0: 17 55 11 65 B5 1D 63 E2 AA 15 63 52 8A 15 3D 6F   .U.e..c...cR..=o
+FEBE0500: 11 00 D1 6A CA 0D 3D 97 15 00 12 06 00 80 F9 05   ...j..=.........
+FEBE0510: D2 06 FF 7F CA 05 8F 92 02 32 85 DD 20 6E 11 00   .........2.. n..
+FEBE0520: 7D 6F 19 00 B5 05 7D 57 19 00 03 F0 06 FD 02 ED   }o....}W........
+FEBE0530: 04 E5 03 1E 10 00 7F 00 50 1A 03 F0 07 FD 05 E5   ........P.......
+FEBE0540: 03 ED 3D 06 DC 1A BE FE 3D 97 0D 00 E0 91 C2 2D   ..=.....=......-
+FEBE0550: 3D 37 11 00 06 88 D8 8A FA 25 3D 47 15 00 08 06   =7.......%=G....
+FEBE0560: 00 FF A9 25 D8 42 8A 25 23 3E 02 00 BF FF FC FB   ...%.B.%#>......
+FEBE0570: 1D F0 0A 4D 08 3D 0A E0 C7 49 09 36 FF FF 23 3E   ...M.=...I.6..#>
+FEBE0580: 02 00 BF FF E6 FB 61 E2 DA 05 61 52 A2 15 62 52   ......a...aR..bR
+FEBE0590: 82 15 62 E2 CA 05 62 52 01 32 C2 0D 63 E2 CA 05   ..b...bR.2..c...
+FEBE05A0: 63 52 02 32 F2 05 20 36 11 00 7D 37 19 00 A5 1D   cR.2.. 6..}7....
+FEBE05B0: 1C 30 BF FF 48 FE 3D 9F 19 00 13 06 EF FF A2 15   .0..H.=.........
+FEBE05C0: 01 32 BF FF 34 FD 61 52 BA 0D 1D F0 08 9D 06 95   .2..4.aR........
+FEBE05D0: 03 8A 1B 8D 09 82 17 85 11 9D 13 95 B5 05 7D 57   ..............}W
+FEBE05E0: 19 00 03 F0 06 FD 02 ED 04 E5 03 1E 10 00 7F 00   ................
+FEBE05F0: 26 97 05 00 3E 06 DC 1A BE FE 26 9F 01 00 03 35   &...>.....&....5
+FEBE0600: 07 95 26 8F 0D 00 05 9D 6F 9A 0B 8D C2 05 26 87   ..&.....o.....&.
+FEBE0610: 09 00 09 85 02 7A 0D 7D 7F 00 5C 1A 63 FF 01 00   .....z.}..\.c...
+FEBE0620: BF FF D0 FF 3E 06 DC 1A BE FE 06 8D 03 9A 1B 9D   ....>...........
+FEBE0630: 0A 92 17 95 0C 55 13 8D 23 FF 01 00 44 1A 7F 00   .....U..#...D...
+FEBE0640: 50 1A 03 F0 07 FD 05 E5 03 ED 3D 06 DC 1A BE FE   P.........=.....
+FEBE0650: 3D 47 0D 00 E0 41 F2 15 3D E7 11 00 DC 06 FF 7F   =G...A..=.......
+FEBE0660: AA 15 1C 30 23 3E 02 00 BF FF 00 FB 63 52 82 15   ...0#>......cR..
+FEBE0670: 62 52 B2 05 61 52 FA 05 5C 36 80 00 BF FF EC FA   bR..aR..\6......
+FEBE0680: 63 52 E2 0D 20 9E 11 00 7D 9F 19 00 95 25 26 06   cR.. ...}....%&.
+FEBE0690: 00 80 7F 00 9C 31 BF FF D2 FA 62 52 CA F5 3D 4F   .....1....bR..=O
+FEBE06A0: 19 00 09 06 EF FF C2 15 01 32 BF FF 50 FD BF FF   .........2..P...
+FEBE06B0: 48 FC 61 52 BA 0D 1D F0 08 95 06 8D 03 82 1B 85   H.aR............
+FEBE06C0: 09 7A 17 7D 11 95 13 8D B5 05 7D 57 19 00 03 F0   .z.}......}W....
+FEBE06D0: 06 FD 02 ED 04 E5 03 1E 10 00 7F 00 50 1A 03 F0   ............P...
+FEBE06E0: 07 FD 05 E5 03 ED 3D 06 DC 1A BE FE 3D 37 11 00   ......=.....=7..
+FEBE06F0: 23 3E 02 00 BF FF 74 FA E0 51 B2 1D 3D 4F 0D 00   #>....t..Q..=O..
+FEBE0700: E0 49 DA 05 3D 47 09 00 65 42 B2 15 61 52 DA 05   .I..=G..eB..aR..
+FEBE0710: 3D 97 11 00 D3 92 DA 0D 62 52 DA 05 3D 8F 11 00   =.......bR..=...
+FEBE0720: D1 8A FA 05 63 52 AA 0D 3D 87 11 00 D1 82 E2 05   ....cR..=.......
+FEBE0730: 20 3E 11 00 7D 3F 19 00 C5 1D 61 52 B2 05 62 52    >..}?....aR..bR
+FEBE0740: CA 05 01 32 BF FF B6 FC 63 52 CA 05 02 32 BF FF   ...2....cR...2..
+FEBE0750: AC FC 01 32 BF FF A2 FB 61 52 9A 0D 1D F0 08 35   ...2....aR.....5
+FEBE0760: 03 9A 09 92 1B 9D 17 95 11 35 B5 05 7D 57 19 00   .........5..}W..
+FEBE0770: 03 F0 06 FD 02 ED 04 E5 03 1E 10 00 7F 00 03 1E   ................
+FEBE0780: EC FF 03 F0 09 FD 07 DD 05 E5 03 ED 3D 06 DC 1A   ............=...
+FEBE0790: BE FE 3D 4F 55 00 61 4A CA 05 7D 4F 19 00 85 6D   ..=OU.aJ..}O...m
+FEBE07A0: 3D 37 11 00 23 3E 02 00 BF FF C0 F9 61 52 DA 05   =7..#>......aR..
+FEBE07B0: 3D 87 11 00 D3 82 FA 0D 62 52 DA 05 3D 7F 11 00   =.......bR..=...
+FEBE07C0: D1 7A 9A 0D 63 52 DA 05 3D 77 11 00 D1 72 BA 05   .z..cR..=w...r..
+FEBE07D0: E0 51 EA 05 20 46 11 00 7D 47 19 00 95 4D 00 92   .Q.. F..}G...M..
+FEBE07E0: 12 F0 1D DE 6C 00 DD F1 1F 3A EC 3B 41 92 12 06   ....l....:.;A...
+FEBE07F0: F0 FF F9 F5 7D DF 25 00 61 52 B2 05 62 52 9A 0D   ....}.%.aR..bR..

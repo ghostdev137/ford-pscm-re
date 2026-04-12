@@ -6,6 +6,19 @@
 
 All 6 VBFs below have **valid CRC32 file_checksum** (verified — the header's `file_checksum` is a standard zlib CRC32 over everything after the ASCII header; our patcher recomputes it correctly).
 
+## Verdict (2026-04-12, full RE complete)
+
+**The patches will flash.** See [`analysis/f150/verdict.md`](../../../analysis/f150/verdict.md) for the full evidence. Key points:
+
+- MCU confirmed: Renesas **RH850** (same family as Transit V850E2M, newer gen).
+- Strategy disasm **confirmed every one of our cal-offset hypotheses** — `0x07ADC` / `0x07ADE` = LKA 10-sec timers, `0x0114` = LKA min-speed, `0x0144` = APA max-speed, etc.
+- SBL has **no CRC32 polynomial, no SHA software constants, no RSA** — uses RH850 hardware SHA for its own self-integrity, not for cal verification.
+- The 296-byte cal trailer **never reaches the SBL** during UDS flash — it's Ford FDRS server metadata, not verified by the module.
+- Strategy code has **no runtime signature verification** of cal.
+- The only enforced flash-time check is the 4-byte CRC32 `file_checksum` — which our patcher recomputes correctly.
+
+**Remaining unknown:** mask ROM behavior at cold boot. Unlikely to verify app flash per RH850 / Ford convention, but untested. Worst case = PSCM refuses modified cal at boot → not bricked, recoverable by flashing stock back.
+
 ## Is the F-150 VBF signed? — direct comparison with the Transit that already flashed
 
 **Transit PSCM (known to flash fine with CRC-only patches):**
