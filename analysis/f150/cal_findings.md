@@ -7,9 +7,18 @@
 
 ---
 
-## ⚠️ CRITICAL: F-150 VBF is RSA-signed
+## ⚠️ F-150 VBF verification structure (updated)
 
-Unlike the Transit/Escape PSCM (CRC-only checks), the F-150 VBF has a **256-byte RSA-2048 signature + 32-byte hash trailer** after the block data. `file_checksum` in the header is not a CRC32 of the data.
+Unlike my first guess, the `file_checksum` in the header **IS a standard zlib CRC32** of everything after the ASCII header (covers block header + name tag + data + trailer). It's recomputable.
+
+However, the file also has a **296-byte trailer** after the block data containing:
+- ~256 bytes of high-entropy data (likely RSA-2048 signature)
+- 12 bytes of block-count + block-header repeat
+- 32 bytes of hash (algorithm not yet identified — not a straight SHA-256 of any obvious region)
+
+**All four F-150 VBF types** (cal `DATA`, supplementary `DATA`, strategy `EXE`, bootloader `SBL`) have this trailer structure. So the signature layer is present on every file type, not just cal.
+
+The CRC32 is definitely enforced by the SBL during flashing. The trailer hash/signature MAY be enforced by the SBL or MAY only be checked at boot by the PSCM's mask ROM — unknown without testing. Our patches recompute CRC32 correctly; they cannot update the RSA layer without Ford's signing key.
 
 ```
 File layout (ML34-14D007-EDL.VBF):
