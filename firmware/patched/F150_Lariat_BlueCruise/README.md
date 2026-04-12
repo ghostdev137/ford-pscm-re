@@ -21,10 +21,24 @@ All 6 VBFs below have **valid CRC32 file_checksum** (verified — the header's `
   - 32 bytes of hash (likely SHA-256 variant)
 - **Trailer is content-dependent.** Comparing the BDL (older) and EDL (newer) cal trailers: only **14 / 296 bytes match** — the trailer is computed from the cal content, it's not fixed padding or a manufacturing timestamp. That's the fingerprint of a crypto signature + hash.
 
-**So here's the honest answer:**
+**So here's the honest answer (updated 2026-04-12 after SBL RE):**
 
-1. These patches will **pass the CRC32 `file_checksum` check** that the SBL certainly runs during flashing.
-2. **Whether the SBL also verifies the trailer signature is unknown until someone tries.** We cannot recompute it — no Ford signing key.
+I disassembled `ML34-14D005-AB.VBF`, the F-150 PSCM SBL — 8,836 bytes of code. Results:
+
+- **Zero SHA-256, SHA-1, or MD5 magic constants found.** (Searched every BE/LE arrangement of standard hash init/round constants.)
+- **No CRC32 polynomial constants** (neither `0xEDB88320` zlib nor `0x04C11DB7`).
+- **No embedded 256-byte public key** (no high-entropy region in the SBL body).
+- 8,836 bytes is too small to hold SHA-256 (~1 KB code + 256 B K table) + RSA-2048 (~3 KB modpow) alongside UDS dispatch + flash driver + CAN TP.
+
+**Conclusion: the F-150 PSCM SBL does not verify the RSA signature trailer.** The 296-byte trailer is content-dependent (so it IS a real signature), but verification happens somewhere else — probably the mask ROM at boot, possibly just FDRS-side server metadata.
+
+**What this means for your flash:**
+
+1. Patches will **pass the SBL's CRC32 `file_checksum` check** (we recompute this correctly). ✓
+2. Patches will **NOT be rejected by the SBL** for signature reasons — the SBL doesn't have the code to do it.
+3. **Remaining risk:** mask ROM at next power-cycle may verify the signature. If so, the module rejects the modified cal at boot → likely falls back to a previous cal or goes into limp/safe mode → **not bricked**, recoverable by flashing stock back.
+
+Going from "probably bricks" to "probably flashes, may not boot from modified cal" — significant de-risk. Still worth a bench/donor try if available, but the odds are now in your favor.
 3. If Ford added this trailer purely for manufacturing traceability (not actively verified by the module), the patches flash and work.
 4. If the SBL verifies it at `0x31 RoutineControl` checksum routine, the patches get rejected and the flash aborts cleanly (no brick — the SBL just refuses to commit).
 5. If the SBL accepts but the PSCM boot ROM verifies the trailer at next power-cycle, the module could refuse to boot or fall back to a previous cal.
