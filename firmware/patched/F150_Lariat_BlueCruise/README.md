@@ -6,9 +6,32 @@
 
 All 6 VBFs below have **valid CRC32 file_checksum** (verified — the header's `file_checksum` is a standard zlib CRC32 over everything after the ASCII header; our patcher recomputes it correctly).
 
-## Is the F-150 VBF signed?
+## Is the F-150 VBF signed? — direct comparison with the Transit that already flashed
 
-**Partially.** Here's what we know after full RE:
+**Transit PSCM (known to flash fine with CRC-only patches):**
+- `file_checksum` is a **zlib CRC32** over `block_header + data`.
+- **No trailer.** File ends immediately after the cal data.
+- Patching: change bytes, recompute CRC32, flash. Confirmed working — the author's Transit has been running `LKA_NO_LOCKOUT.VBF` built this way since 2026-04-11.
+
+**F-150 PSCM (unknown — untested):**
+- `file_checksum` is the **same zlib CRC32** algorithm (confirmed — see the CRC breakthrough below).
+- **But the F-150 adds a 296-byte trailer** after the cal data, structured as:
+  - ~248 bytes of high-entropy content (likely RSA-2048 signature)
+  - 12 bytes of block-header repeat
+  - 32 bytes of hash (likely SHA-256 variant)
+- **Trailer is content-dependent.** Comparing the BDL (older) and EDL (newer) cal trailers: only **14 / 296 bytes match** — the trailer is computed from the cal content, it's not fixed padding or a manufacturing timestamp. That's the fingerprint of a crypto signature + hash.
+
+**So here's the honest answer:**
+
+1. These patches will **pass the CRC32 `file_checksum` check** that the SBL certainly runs during flashing.
+2. **Whether the SBL also verifies the trailer signature is unknown until someone tries.** We cannot recompute it — no Ford signing key.
+3. If Ford added this trailer purely for manufacturing traceability (not actively verified by the module), the patches flash and work.
+4. If the SBL verifies it at `0x31 RoutineControl` checksum routine, the patches get rejected and the flash aborts cleanly (no brick — the SBL just refuses to commit).
+5. If the SBL accepts but the PSCM boot ROM verifies the trailer at next power-cycle, the module could refuse to boot or fall back to a previous cal.
+
+Given the risk, **bench/donor module test is the right first step.**
+
+### Full verification layers table
 
 | Verification layer | What it is | Enforced by | Recomputed in our patches? |
 |---|---|---|---|
