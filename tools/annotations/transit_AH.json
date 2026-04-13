@@ -1,0 +1,5206 @@
+{
+  "01003110": {
+    "name": "maybe_pscm_control_flow_handler",
+    "purpose": "Handles control flow by calling a function pointer from a call table based on a ushort offset",
+    "vars": {
+      "in_CTBP": "call_table_base"
+    },
+    "struct_fields": []
+  },
+  "01009d86": {
+    "name": "maybe_update_steering_angle",
+    "purpose": "Updates the steering angle sensor data in the power steering control module",
+    "vars": {
+      "in_r14": "steering_angle_data",
+      "in_ep": "pscmm_base"
+    },
+    "struct_fields": [
+      [
+        "0x78",
+        "uint16_t",
+        "steering_angle_raw"
+      ]
+    ]
+  },
+  "0100bbfc": {
+    "name": "maybe_unknown_function",
+    "purpose": "Unknown function with unimplemented instructions and halt call",
+    "vars": {},
+    "struct_fields": []
+  },
+  "010062a8": {
+    "name": "maybe_calibration_function_dispatch",
+    "purpose": "Dispatches calibration-related functions via call table using offsets from CTBP.",
+    "vars": {
+      "in_CTBP": "call_table_base"
+    },
+    "struct_fields": [
+      [
+        "0x0",
+        "uint16_t",
+        "function_offset_1"
+      ],
+      [
+        "0x2",
+        "uint16_t",
+        "function_offset_2"
+      ],
+      [
+        "0x4",
+        "uint16_t",
+        "function_offset_3"
+      ]
+    ]
+  },
+  "0100bb3c": {
+    "name": "maybe_unimplemented_function",
+    "purpose": "Contains unimplemented instructions and halts execution",
+    "vars": {},
+    "struct_fields": []
+  },
+  "0100a118": {
+    "name": "maybe_clear_and_assign",
+    "purpose": "Clears a memory location and assigns a value from a register to another memory location",
+    "vars": {
+      "in_ep": "element_pointer",
+      "in_lp": "local_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x08",
+        "uint32_t",
+        "unknown_field_1"
+      ],
+      [
+        "0xb4",
+        "uint16_t",
+        "unknown_field_2"
+      ]
+    ]
+  },
+  "0100c454": {
+    "name": "maybe_empty_function",
+    "purpose": "Contains only NOP instructions and an unimplemented halt instruction, likely a placeholder or padding",
+    "vars": {},
+    "struct_fields": []
+  },
+  "0100bcbc": {
+    "name": "maybe_unimplemented_function",
+    "purpose": "This function appears to be a placeholder or stub with unimplemented instructions that halts execution.",
+    "vars": {},
+    "struct_fields": []
+  },
+  "0100cab8": {
+    "name": "maybe_update_steering_calibration",
+    "purpose": "Updates steering calibration values based on input parameters and pointer comparisons",
+    "vars": {
+      "in_r11": "calibration_value",
+      "in_ep": "element_pointer",
+      "in_lp": "calibration_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x02",
+        "ushort",
+        "calibration_id"
+      ],
+      [
+        "0x9c",
+        "short",
+        "steering_offset"
+      ]
+    ]
+  },
+  "0100d00c": {
+    "name": "maybe_initialize_power_steering_control",
+    "purpose": "Initialize or configure the power steering control module by setting up calibration data and calling control functions.",
+    "vars": {
+      "param_1": "input_value",
+      "iVar1": "calculated_offset",
+      "uVar2": "calibration_index",
+      "uVar3": "scaled_value",
+      "uVar4": "another_calibration_value",
+      "in_CTBP": "call_table_base"
+    },
+    "struct_fields": [
+      [
+        "0x00005101",
+        "uint8*",
+        "calibration_pointer"
+      ],
+      [
+        "0x00001501",
+        "int8",
+        "calibrated_value"
+      ],
+      [
+        "0x00001201",
+        "uint32",
+        "control_flag"
+      ],
+      [
+        "0x00004800",
+        "uint8*",
+        "control_data_pointer"
+      ]
+    ]
+  },
+  "0100d18c": {
+    "name": "maybe_power_steering_calibration_lookup",
+    "purpose": "Perform calibration data lookup and execute a function pointer from the call table using indexed values from a data structure.",
+    "vars": {
+      "param_1": "input_value",
+      "in_CTBP": "call_table_base_ptr"
+    },
+    "struct_fields": [
+      [
+        "0x5101",
+        "uint32",
+        "calibration_index_offset"
+      ],
+      [
+        "0x1501",
+        "int8",
+        "calibrated_value_a"
+      ],
+      [
+        "0x1201",
+        "uint32",
+        "zero_flag"
+      ],
+      [
+        "0x4800",
+        "uint32",
+        "unknown_calibration_param"
+      ],
+      [
+        "0x5c01",
+        "int8",
+        "offset_into_calibration_data"
+      ]
+    ]
+  },
+  "0100e458": {
+    "name": "maybe_steering_control_init",
+    "purpose": "Initialize steering control parameters and perform boundary checks on input values",
+    "vars": {
+      "param_1": "steering_angle_input_1",
+      "param_2": "steering_angle_input_2",
+      "param_3": "steering_angle_input_3",
+      "param_4": "calibration_flag",
+      "in_ep": "element_pointer",
+      "in_CTBP": "call_table_base",
+      "unaff_gp": "calibration_base"
+    },
+    "struct_fields": [
+      [
+        "0x06",
+        "short",
+        "unknown_field_1"
+      ],
+      [
+        "0x12",
+        "short",
+        "element_pointer_ref"
+      ],
+      [
+        "0x14",
+        "short",
+        "calculated_value_1"
+      ],
+      [
+        "0x1a",
+        "ushort",
+        "input_calibration_flag"
+      ],
+      [
+        "0x1c",
+        "short",
+        "input_value_2"
+      ],
+      [
+        "0x24",
+        "ushort",
+        "calibration_flag_with_bit_set"
+      ]
+    ]
+  },
+  "0100e218": {
+    "name": "maybe_power_steering_calculate",
+    "purpose": "Calculate and update power steering control parameters based on input variables and calibration data",
+    "vars": {
+      "param_1": "input_value",
+      "in_r11": "unknown_register_11",
+      "in_r12": "unknown_register_12",
+      "in_r13": "unknown_register_13",
+      "in_r14": "unknown_register_14",
+      "in_r17": "unknown_register_17",
+      "in_r20": "unknown_register_20",
+      "in_r21": "unknown_register_21",
+      "in_r23": "unknown_register_23",
+      "in_r24": "unknown_register_24",
+      "in_r25": "unknown_register_25",
+      "in_r26": "unknown_register_26",
+      "in_ep": "element_pointer",
+      "in_CTBP": "call_table_base"
+    },
+    "struct_fields": [
+      [
+        "0x04",
+        "short",
+        "field_4"
+      ],
+      [
+        "0x06",
+        "short",
+        "field_6"
+      ],
+      [
+        "0x0c",
+        "short",
+        "field_c"
+      ],
+      [
+        "0x0e",
+        "short",
+        "field_e"
+      ],
+      [
+        "0x12",
+        "short",
+        "field_12"
+      ],
+      [
+        "0x16",
+        "short",
+        "field_16"
+      ],
+      [
+        "0x1a",
+        "ushort",
+        "field_1a"
+      ],
+      [
+        "0x1c",
+        "short",
+        "field_1c"
+      ],
+      [
+        "0x20",
+        "short",
+        "field_20"
+      ],
+      [
+        "0xf6",
+        "ushort",
+        "calibration_data"
+      ]
+    ]
+  },
+  "0100f9ac": {
+    "name": "maybe_calculate_steering_ratio",
+    "purpose": "Calculate steering ratio from calibration data and input value",
+    "vars": {
+      "in_r1": "input_value",
+      "unaff_gp": "calibration_base",
+      "in_ep": "element_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x3c",
+        "char",
+        "steering_ratio_result"
+      ]
+    ]
+  },
+  "0100fb2c": {
+    "name": "maybe_update_power_steering_data",
+    "purpose": "Updates power steering control module data fields in the struct pointed to by ep",
+    "vars": {
+      "in_r1": "steering_data_value",
+      "in_r21": "steering_status_flag",
+      "in_ep": "pscm_struct_ptr"
+    },
+    "struct_fields": [
+      [
+        "0x37",
+        "uint8_t",
+        "steering_status"
+      ],
+      [
+        "0x84",
+        "uint32_t",
+        "steering_data"
+      ]
+    ]
+  },
+  "0100fb56": {
+    "name": "maybe_unimplemented_function",
+    "purpose": "This function appears to be a placeholder or stub that halts execution when encountered",
+    "vars": {},
+    "struct_fields": []
+  },
+  "0100f068": {
+    "name": "maybe_steering_control_limit",
+    "purpose": "Apply clamping limits to steering control parameters and perform calibration adjustments",
+    "vars": {
+      "param_1": "steering_ratio_factor",
+      "param_2": "calibration_offset",
+      "in_r1": "input_value_a",
+      "in_r2": "input_value_b",
+      "unaff_gp": "calibration_base",
+      "in_r10": "limit_param_1",
+      "in_r11": "limit_param_2",
+      "in_r18": "calibrated_value_1",
+      "in_r19": "limit_param_3",
+      "in_r20": "calibrated_value_2",
+      "in_r21": "limit_param_4",
+      "in_r22": "calibrated_value_3",
+      "in_r27": "calibration_index",
+      "in_r28": "final_calibration_value",
+      "in_ep": "element_pointer",
+      "in_lp": "steering_angle_input"
+    },
+    "struct_fields": [
+      [
+        "0x00",
+        "short",
+        "steering_ratio_factor"
+      ],
+      [
+        "0x02",
+        "short",
+        "calibration_offset"
+      ],
+      [
+        "0x04",
+        "short",
+        "input_value_a"
+      ],
+      [
+        "0x06",
+        "short",
+        "input_value_b"
+      ],
+      [
+        "0x7e",
+        "short",
+        "calibrated_value_1"
+      ],
+      [
+        "0x7f",
+        "char",
+        "steering_angle_input"
+      ],
+      [
+        "0xfe",
+        "short",
+        "calibrated_value_2"
+      ],
+      [
+        "0xff",
+        "short",
+        "calibrated_value_3"
+      ]
+    ]
+  },
+  "010105fc": {
+    "name": "maybe_power_steering_control",
+    "purpose": "Handles power steering control logic based on input parameters and calibration data",
+    "vars": {
+      "in_r2": "input_mask",
+      "uVar2": "masked_input",
+      "in_r11": "calibration_value",
+      "uVar4": "calibration_address",
+      "unaff_tp": "calibration_base",
+      "in_r29": "calibration_offset",
+      "in_ep": "element_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x02",
+        "uint16",
+        "calibration_id"
+      ],
+      [
+        "0x1e",
+        "uint16",
+        "output_value"
+      ],
+      [
+        "0x3d",
+        "uint8",
+        "calibration_index"
+      ],
+      [
+        "0x7e",
+        "uint16",
+        "control_parameter"
+      ]
+    ]
+  },
+  "01012088": {
+    "name": "maybe_power_steering_calibration_init",
+    "purpose": "Initialize power steering control module calibration and set up control parameters based on input values",
+    "vars": {
+      "param_1": "calibration_value",
+      "in_r1": "input_value_1",
+      "in_r2": "control_byte_ptr",
+      "in_ep": "element_pointer",
+      "in_lp": "limit_value"
+    },
+    "struct_fields": [
+      [
+        "0x1c",
+        "uint8_t",
+        "calibration_flag"
+      ],
+      [
+        "0x78",
+        "int32_t",
+        "self_reference"
+      ],
+      [
+        "0x80",
+        "uint32_t",
+        "control_status"
+      ],
+      [
+        "0xa8",
+        "uint32_t",
+        "calibration_data"
+      ],
+      [
+        "0xdc",
+        "uint32_t",
+        "calibration_result"
+      ]
+    ]
+  },
+  "0101461c": {
+    "name": "maybe_empty_function",
+    "purpose": "Contains only NOP instructions and halts execution, likely a placeholder or padding",
+    "vars": {},
+    "struct_fields": []
+  },
+  "01014a28": {
+    "name": "maybe_power_steering_calibrate",
+    "purpose": "Calibrates power steering control parameters based on input parameters and updates calibration data",
+    "vars": {
+      "param_1": "calibration_index",
+      "param_2": "calibration_value"
+    },
+    "struct_fields": [
+      [
+        "0x1c",
+        "int32",
+        "calibration_table_ptr"
+      ],
+      [
+        "0x78",
+        "int32",
+        "current_calibration_value"
+      ],
+      [
+        "0x7c",
+        "uint16",
+        "calibration_flags"
+      ],
+      [
+        "0xe",
+        "uint16",
+        "calibration_status"
+      ]
+    ]
+  },
+  "01014e9a": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize or configure power steering control module based on input parameters",
+    "vars": {
+      "in_r1": "unknown_flag_or_value",
+      "in_r2": "calibration_base_ptr",
+      "in_ep": "element_pointer",
+      "in_lp": "loop_condition"
+    },
+    "struct_fields": [
+      [
+        "0x78",
+        "int*",
+        "self_reference"
+      ],
+      [
+        "0x4c3e",
+        "byte",
+        "control_status_flag"
+      ]
+    ]
+  },
+  "0101783a": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize or configure power steering control module based on input parameters",
+    "vars": {
+      "in_r1": "unknown_flag",
+      "in_r2": "calibration_base_ptr",
+      "in_ep": "element_pointer",
+      "in_lp": "loop_counter"
+    },
+    "struct_fields": [
+      [
+        "0x78",
+        "int*",
+        "element_pointer_field"
+      ],
+      [
+        "0x4c3e",
+        "byte",
+        "calibration_flag_byte"
+      ]
+    ]
+  },
+  "010188a8": {
+    "name": "maybe_power_steering_calibrate",
+    "purpose": "Calibrates power steering control parameters based on input and updates calibration data",
+    "vars": {
+      "param_1": "calibration_value",
+      "param_2": "calibration_data"
+    },
+    "struct_fields": [
+      [
+        "0x1c",
+        "int32",
+        "calibration_offset"
+      ],
+      [
+        "0xe",
+        "uint16",
+        "steering_angle"
+      ],
+      [
+        "0x78",
+        "uint32",
+        "calibration_status"
+      ],
+      [
+        "0x7c",
+        "uint16",
+        "calibration_flag"
+      ]
+    ]
+  },
+  "0101ee9e": {
+    "name": "maybe_update_steering_status",
+    "purpose": "Updates steering system status variables and performs arithmetic operations on input parameters",
+    "vars": {
+      "param_1": "input_value",
+      "in_ep": "element_pointer",
+      "in_CTBP": "call_table_base",
+      "in_r15": "register_15",
+      "in_r18": "register_18",
+      "in_r21": "register_21",
+      "in_r28": "register_28",
+      "in_r29": "register_29",
+      "unaff_tp": "temp_register"
+    },
+    "struct_fields": [
+      [
+        "0x15",
+        "char",
+        "steering_status"
+      ],
+      [
+        "0x1f",
+        "undefined1",
+        "unknown_flag"
+      ],
+      [
+        "0x3f",
+        "undefined1",
+        "calibration_flag"
+      ]
+    ]
+  },
+  "0101f11e": {
+    "name": "maybe_power_steering_control_init",
+    "purpose": "Initialize or configure power steering control module parameters based on input values and calibration data",
+    "vars": {
+      "param_1": "input_value",
+      "in_r15": "unknown_register_15",
+      "in_r18": "unknown_register_18",
+      "in_r21": "unknown_register_21",
+      "in_r28": "unknown_register_28",
+      "in_r29": "unknown_register_29",
+      "in_ep": "element_pointer",
+      "in_CTBP": "call_table_base"
+    },
+    "struct_fields": [
+      [
+        "0x15",
+        "char",
+        "steering_status_flag"
+      ],
+      [
+        "0x1f",
+        "undefined1",
+        "control_byte"
+      ],
+      [
+        "0x3f",
+        "undefined1",
+        "calibration_byte"
+      ]
+    ]
+  },
+  "01031ece": {
+    "name": "maybe_adjust_steering_input",
+    "purpose": "Clamps input steering angle and dispatches to appropriate steering control handler based on calibration and input values.",
+    "vars": {
+      "param_1": "steering_angle_input",
+      "unaff_tp": "calibration_value",
+      "in_r22": "is_calibration_valid",
+      "in_ep": "pscm_struct_ptr"
+    },
+    "struct_fields": [
+      [
+        "0x54",
+        "uint8_t",
+        "calibration_valid_flag"
+      ],
+      [
+        "0x60",
+        "int32_t",
+        "clamped_steering_angle"
+      ],
+      [
+        "0x62",
+        "uint8_t",
+        "control_command_flag"
+      ]
+    ]
+  },
+  "01035b16": {
+    "name": "maybe_power_steering_control_init",
+    "purpose": "Initializes power steering control module by setting up calibration and calling control function",
+    "vars": {
+      "unaff_tp": "calibration_value",
+      "in_r17": "input_param1",
+      "in_r20": "control_mask",
+      "in_r21": "control_flags",
+      "in_r26": "invert_mask",
+      "in_ep": "module_base_ptr"
+    },
+    "struct_fields": [
+      [
+        "0x20",
+        "uint32_t",
+        "status_register"
+      ],
+      [
+        "0xa8",
+        "uint32_t",
+        "calibration_data"
+      ]
+    ]
+  },
+  "0102f686": {
+    "name": "maybe_update_steering_control_params",
+    "purpose": "Updates various steering control parameters in the PSCM struct based on input parameters and calibration data.",
+    "vars": {
+      "param_1": "input_param",
+      "in_r1": "register_1",
+      "unaff_tp": "tp_register",
+      "in_r10": "register_10",
+      "in_r13": "register_13",
+      "in_r15": "register_15",
+      "in_r17": "register_17",
+      "in_r18": "register_18",
+      "in_r25": "register_25",
+      "uVar2": "calibration_value",
+      "in_ep": "element_pointer",
+      "in_lp": "loop_counter"
+    },
+    "struct_fields": [
+      [
+        "0x28",
+        "uint16",
+        "steering_angle_raw"
+      ],
+      [
+        "0x60",
+        "uint32",
+        "steering_input_scaled"
+      ],
+      [
+        "0x68",
+        "uint32",
+        "unknown_68"
+      ],
+      [
+        "0x6c",
+        "uint32",
+        "unknown_6c"
+      ],
+      [
+        "0x94",
+        "uint32",
+        "calibration_data_94"
+      ],
+      [
+        "0xa0",
+        "uint32",
+        "calibration_base_ptr"
+      ],
+      [
+        "0xa2",
+        "uint16",
+        "calibration_offset_1"
+      ],
+      [
+        "0xa8",
+        "uint32",
+        "calibration_division_result"
+      ],
+      [
+        "0xba",
+        "int16",
+        "steering_ratio_factor"
+      ],
+      [
+        "0xbc",
+        "uint32",
+        "calibration_data_bc"
+      ],
+      [
+        "0xfe",
+        "uint16",
+        "zero_flag"
+      ]
+    ]
+  },
+  "01042a08": {
+    "name": "maybe_update_steering_calibration",
+    "purpose": "Updates steering calibration values based on input parameters and clamps the result to 32-bit signed integer range",
+    "vars": {
+      "in_r16": "calibration_value_1",
+      "in_r17": "calibration_value_2",
+      "in_r26": "calibration_offset",
+      "in_ep": "calibration_base_ptr"
+    },
+    "struct_fields": [
+      [
+        "0x0",
+        "int32",
+        "calibrated_value"
+      ],
+      [
+        "0xa4",
+        "uint32",
+        "combined_calibration_flags"
+      ]
+    ]
+  },
+  "010481a0": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initializes power steering control module and sets up calibration data",
+    "vars": {
+      "param_1": "calibration_index",
+      "in_r12": "negative_check_value",
+      "in_r17": "calibration_data",
+      "in_ep": "module_base_ptr"
+    },
+    "struct_fields": [
+      [
+        "0x66",
+        "uint8_t",
+        "init_flag"
+      ],
+      [
+        "0x68",
+        "uint32_t",
+        "calibration_value"
+      ],
+      [
+        "0xcc",
+        "uint16_t",
+        "status_word"
+      ],
+      [
+        "0x98",
+        "uint16_t",
+        "control_word"
+      ]
+    ]
+  },
+  "0104b186": {
+    "name": "maybe_update_steering_calibration",
+    "purpose": "Updates steering calibration values in the PSCM based on input parameter",
+    "vars": {
+      "param_1": "calibration_index",
+      "in_r17": "calibration_value",
+      "in_ep": "psc_module_base"
+    },
+    "struct_fields": [
+      [
+        "0xa0",
+        "uint32_t",
+        "calibration_offset_1"
+      ],
+      [
+        "0xa8",
+        "uint32_t",
+        "calibration_offset_2"
+      ]
+    ]
+  },
+  "01053696": {
+    "name": "maybe_power_steering_control_loop",
+    "purpose": "Processes power steering control signals and updates calibration data in a loop.",
+    "vars": {
+      "param_1": "steering_input",
+      "param_2": "calibration_value",
+      "in_r12": "unknown_flag_1",
+      "in_r14": "steering_angle_raw",
+      "in_r16": "control_signal_mask",
+      "in_r17": "calibration_divisor",
+      "in_r18": "sensor_readings",
+      "in_r19": "inverted_calibration",
+      "in_r20": "control_register_value",
+      "in_r21": "inverted_calib_divisor",
+      "in_r23": "additional_mask",
+      "in_r28": "calibration_mask",
+      "in_ep": "element_pointer",
+      "in_lp": "loop_counter",
+      "in_PSW": "processor_status_word"
+    },
+    "struct_fields": [
+      [
+        "0x10",
+        "char",
+        "steering_angle_byte"
+      ],
+      [
+        "0x28",
+        "uint",
+        "calibration_data"
+      ],
+      [
+        "0x2a",
+        "uint",
+        "unknown_calib_field"
+      ],
+      [
+        "0x3c",
+        "uint",
+        "loop_counter_backup"
+      ],
+      [
+        "0x42",
+        "char",
+        "steering_input_byte"
+      ],
+      [
+        "0x43",
+        "undefined1",
+        "status_flag"
+      ],
+      [
+        "0x52",
+        "ushort",
+        "sensor_calibration_word"
+      ],
+      [
+        "0x62",
+        "ushort",
+        "control_register_word"
+      ]
+    ]
+  },
+  "01054cf4": {
+    "name": "maybe_power_steering_control_init",
+    "purpose": "Initialize or configure power steering control parameters based on input and calibration data",
+    "vars": {
+      "param_1": "input_value",
+      "in_r2": "calibration_data_1",
+      "unaff_gp": "calibration_base_offset",
+      "in_r11": "calibration_data_2",
+      "in_r18": "input_byte_1",
+      "in_r19": "input_word_1",
+      "in_r20": "calibration_word_1",
+      "in_r21": "input_word_2",
+      "in_r22": "input_word_3",
+      "in_r29": "base_address_1",
+      "in_ep": "struct_base_ptr",
+      "in_CTBP": "call_table_base_ptr"
+    },
+    "struct_fields": [
+      [
+        "0x53",
+        "char",
+        "steering_input_byte"
+      ],
+      [
+        "0x66",
+        "char",
+        "steering_status_flag"
+      ],
+      [
+        "0xc6",
+        "ushort",
+        "calibration_word_2"
+      ],
+      [
+        "0x2c",
+        "uint",
+        "calibration_data_3"
+      ],
+      [
+        "0x31",
+        "short",
+        "calculated_value_1"
+      ],
+      [
+        "0x32",
+        "ushort",
+        "calculated_value_2"
+      ],
+      [
+        "0x33",
+        "byte",
+        "calculated_value_3"
+      ],
+      [
+        "0x62",
+        "char",
+        "steering_status_flag_2"
+      ],
+      [
+        "0x27",
+        "ushort",
+        "calibration_word_3"
+      ],
+      [
+        "0xf2",
+        "ushort",
+        "calibration_word_4"
+      ],
+      [
+        "0xe",
+        "ushort",
+        "calibration_word_5"
+      ],
+      [
+        "0x3c",
+        "uint",
+        "calibration_data_4"
+      ]
+    ]
+  },
+  "0105b778": {
+    "name": "maybe_power_steering_control_update",
+    "purpose": "Updates power steering control parameters based on input values and calibration data",
+    "vars": {
+      "param_1": "input_value",
+      "in_ep": "calibration_base",
+      "in_lp": "calibration_value"
+    },
+    "struct_fields": [
+      [
+        "0x0",
+        "ushort",
+        "unknown_field_0"
+      ],
+      [
+        "0x2",
+        "ushort",
+        "calibration_param_1"
+      ],
+      [
+        "0xa2",
+        "ushort",
+        "calibration_param_2"
+      ]
+    ]
+  },
+  "0105e672": {
+    "name": "maybe_power_steering_calibration_update",
+    "purpose": "Updates power steering calibration values based on input parameters and performs related calculations.",
+    "vars": {
+      "param_1": "calibration_value",
+      "in_r10": "input_signal",
+      "in_r21": "calibration_word",
+      "in_r24": "calibration_base_addr",
+      "in_r27": "steering_angle_input",
+      "in_ep": "element_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x21",
+        "uint8_t",
+        "calibration_status_flag"
+      ],
+      [
+        "0x2a",
+        "uint8_t",
+        "steering_sensitivity_factor"
+      ],
+      [
+        "0x48",
+        "int32_t",
+        "calibration_parameter"
+      ],
+      [
+        "0x60",
+        "uint16_t",
+        "calibration_result"
+      ],
+      [
+        "0x61",
+        "uint16_t",
+        "steering_angle_value"
+      ],
+      [
+        "0x65",
+        "uint16_t",
+        "derived_steering_input"
+      ],
+      [
+        "0x1fe8",
+        "uint16_t",
+        "calibration_word_store"
+      ]
+    ]
+  },
+  "010607ea": {
+    "name": "maybe_update_steering_calibration",
+    "purpose": "Updates steering system calibration values based on input parameters and stores computed results in the PSCM struct.",
+    "vars": {
+      "param_1": "calibration_index",
+      "param_2": "calibration_value",
+      "in_r2": "calibration_byte",
+      "in_r17": "calibration_word",
+      "in_r21": "input_value",
+      "in_r25": "calibration_word2",
+      "in_r29": "divisor",
+      "in_ep": "psc_struct_ptr"
+    },
+    "struct_fields": [
+      [
+        "0x5a",
+        "char",
+        "calibration_byte_result"
+      ],
+      [
+        "0x60",
+        "undefined4",
+        "unknown_calib_value"
+      ],
+      [
+        "0x68",
+        "undefined4",
+        "calib_base_addr"
+      ],
+      [
+        "0x6c",
+        "undefined4",
+        "calibration_word2"
+      ],
+      [
+        "0xac",
+        "uint",
+        "computed_division_result"
+      ],
+      [
+        "0xd0",
+        "short",
+        "element_pointer"
+      ]
+    ]
+  },
+  "010608e0": {
+    "name": "maybe_update_steering_status",
+    "purpose": "Updates steering system status flags by combining two uint values and storing them at offset 0xa8 of the struct base",
+    "vars": {
+      "unaff_tp": "status_flags_1",
+      "in_r25": "status_flags_2",
+      "in_ep": "struct_base"
+    },
+    "struct_fields": [
+      [
+        "0xa8",
+        "uint",
+        "steering_status"
+      ]
+    ]
+  },
+  "01061df2": {
+    "name": "maybe_update_steering_status",
+    "purpose": "Updates steering control parameters and triggers a calibration readback function based on processor state",
+    "vars": {
+      "param_1": "steering_input_value",
+      "param_2": "calibration_index",
+      "unaff_gp": "calibration_base_ptr",
+      "unaff_tp": "status_byte",
+      "in_r22": "alternate_steering_value",
+      "in_ep": "element_pointer",
+      "in_PSW": "processor_status_word"
+    },
+    "struct_fields": [
+      [
+        "0x6408",
+        "uint8_t",
+        "steering_status_flag"
+      ],
+      [
+        "0x61",
+        "uint16_t",
+        "calibration_lookup_index"
+      ]
+    ]
+  },
+  "0106da7e": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize power steering control module and set calibration parameters based on input values",
+    "vars": {
+      "in_r11": "calibration_value_1",
+      "in_r12": "calibration_value_2",
+      "in_r14": "calibration_value_3",
+      "in_r28": "flag_condition",
+      "in_ep": "ep_struct_base",
+      "in_CTBP": "call_table_base"
+    },
+    "struct_fields": [
+      [
+        "0x28",
+        "uint8_t",
+        "unknown_flag_1"
+      ],
+      [
+        "0x3e",
+        "int8_t",
+        "steering_angle_offset"
+      ],
+      [
+        "0x60",
+        "uint32_t",
+        "calibration_data"
+      ],
+      [
+        "0x62",
+        "uint8_t",
+        "unknown_flag_2"
+      ],
+      [
+        "0x2d",
+        "uint8_t",
+        "offset_2d"
+      ],
+      [
+        "0x5a",
+        "uint16_t",
+        "offset_5a"
+      ],
+      [
+        "0x60",
+        "uint32_t",
+        "calibration_data_2"
+      ]
+    ]
+  },
+  "01066306": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize or configure power steering control module settings and calibration data",
+    "vars": {
+      "param_1": "calibration_value",
+      "unaff_gp": "calibration_base",
+      "unaff_tp": "table_base",
+      "in_r10": "flag_condition",
+      "in_r11": "memory_address",
+      "in_r13": "config_pointer",
+      "in_r14": "initial_value",
+      "in_r16": "control_register",
+      "in_r17": "mask_value",
+      "in_r20": "divisor",
+      "in_r24": "data_pointer",
+      "in_ep": "struct_base"
+    },
+    "struct_fields": [
+      [
+        "0x18",
+        "int",
+        "unknown_config"
+      ],
+      [
+        "0x60",
+        "int",
+        "calibration_data"
+      ],
+      [
+        "0x66",
+        "byte",
+        "status_flag"
+      ],
+      [
+        "0x68",
+        "int",
+        "table_pointer"
+      ],
+      [
+        "0x98",
+        "int",
+        "value_storage"
+      ],
+      [
+        "0x9a",
+        "ushort",
+        "steering_angle"
+      ],
+      [
+        "0xa0",
+        "int",
+        "calibration_ref"
+      ],
+      [
+        "0xa2",
+        "ushort",
+        "calibration_index"
+      ],
+      [
+        "0xa8",
+        "int",
+        "control_pointer"
+      ],
+      [
+        "0xc2",
+        "ushort",
+        "config_value"
+      ],
+      [
+        "0xd0",
+        "undefined2",
+        "unknown_flag"
+      ]
+    ]
+  },
+  "0106fc66": {
+    "name": "maybe_power_steering_calibration_update",
+    "purpose": "Updates power steering calibration values and handles overflow protection for steering angle input",
+    "vars": {
+      "in_r1": "steering_angle_input",
+      "in_r25": "calibration_value",
+      "in_ep": "calibration_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x0",
+        "uint32",
+        "calibration_data"
+      ],
+      [
+        "0x4",
+        "uint32",
+        "steering_angle_raw"
+      ],
+      [
+        "0x8",
+        "uint32",
+        "calibration_offset"
+      ]
+    ]
+  },
+  "010718c6": {
+    "name": "maybe_power_steering_control_update",
+    "purpose": "Updates power steering control parameters and triggers related calibration or state changes based on input parameters.",
+    "vars": {
+      "param_1": "steering_input",
+      "param_2": "calibration_index",
+      "in_r2": "calibration_value",
+      "in_r11": "divisor",
+      "in_r13": "control_flag",
+      "in_r23": "mask",
+      "in_r24": "function_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x14",
+        "uint",
+        "steering_status"
+      ],
+      [
+        "0x15",
+        "uint",
+        "calibration_offset"
+      ],
+      [
+        "0x1a",
+        "uint",
+        "calibration_base"
+      ],
+      [
+        "0x1b",
+        "uint",
+        "control_flags"
+      ],
+      [
+        "0x2a",
+        "uint",
+        "calibration_data_ptr"
+      ],
+      [
+        "0x2b",
+        "uint",
+        "calibration_value_store"
+      ],
+      [
+        "0x31",
+        "uint",
+        "steering_input_mask"
+      ]
+    ]
+  },
+  "010718ee": {
+    "name": "maybe_power_steering_control_update",
+    "purpose": "Updates power steering control parameters and triggers a jumptable-based function call based on input parameters.",
+    "vars": {
+      "param_1": "input_value",
+      "param_2": "control_signal",
+      "in_r1": "base_address",
+      "in_r11": "divisor_value",
+      "in_r23": "mask_value",
+      "in_r29": "calibration_index"
+    },
+    "struct_fields": [
+      [
+        "0x10",
+        "uint8_t",
+        "status_flag"
+      ],
+      [
+        "0x15",
+        "uint32_t",
+        "calibration_id"
+      ],
+      [
+        "0x2b",
+        "uint32_t",
+        "control_input"
+      ],
+      [
+        "0x31",
+        "uint32_t",
+        "config_value"
+      ],
+      [
+        "0x56",
+        "uint16_t",
+        "dividend_value"
+      ]
+    ]
+  },
+  "01071f54": {
+    "name": "maybe_power_steering_calibration_update",
+    "purpose": "Updates power steering calibration values based on input parameter and modifies related struct fields.",
+    "vars": {
+      "param_1": "calibration_value_1",
+      "param_2": "index_or_offset",
+      "in_ep": "ep_struct_base",
+      "unaff_tp": "tp_base_address",
+      "in_r12": "calibration_value_2",
+      "in_r16": "calibration_value_3"
+    },
+    "struct_fields": [
+      [
+        "0x54",
+        "int",
+        "calibration_data_pointer"
+      ],
+      [
+        "0x64",
+        "short",
+        "index_value"
+      ],
+      [
+        "0x16",
+        "undefined1",
+        "calibration_byte"
+      ],
+      [
+        "0x19",
+        "char",
+        "calibration_char"
+      ],
+      [
+        "0x5030",
+        "undefined2",
+        "status_flag_register"
+      ]
+    ]
+  },
+  "01072134": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initializes power steering control module settings and calibrations.",
+    "vars": {
+      "unaff_gp": "calibration_base",
+      "unaff_tp": "unknown_flag",
+      "in_r11": "divisor_value",
+      "in_r15": "dividend_value",
+      "in_r17": "calibration_index",
+      "in_ep": "element_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x60",
+        "uint8",
+        "unknown_flag_1"
+      ],
+      [
+        "0x61",
+        "uint8",
+        "unknown_flag_2"
+      ],
+      [
+        "0xa0",
+        "int32",
+        "calibration_value"
+      ],
+      [
+        "0x7d",
+        "uint8",
+        "steering_status"
+      ]
+    ]
+  },
+  "01073424": {
+    "name": "maybe_power_steering_control_update",
+    "purpose": "Updates power steering control parameters based on input and calibration data",
+    "vars": {
+      "param_1": "input_selector",
+      "param_2": "calibration_value"
+    },
+    "struct_fields": [
+      [
+        "0x60",
+        "uint32_t",
+        "status_register"
+      ],
+      [
+        "0xa0",
+        "int32_t",
+        "control_offset"
+      ]
+    ]
+  },
+  "01072dbe": {
+    "name": "maybe_power_steering_calibration_update",
+    "purpose": "Updates power steering calibration values and triggers related functions based on input parameters.",
+    "vars": {
+      "param_1": "calibration_index",
+      "in_r2": "calibration_value",
+      "in_r12": "flag_byte_1",
+      "in_r15": "offset_value",
+      "in_r17": "calibration_data_4",
+      "in_r21": "calibration_data_1",
+      "in_r28": "flag_byte_2",
+      "in_ep": "base_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x68",
+        "char",
+        "steering_status"
+      ],
+      [
+        "0xbc",
+        "uint32_t",
+        "calibration_update_flag"
+      ],
+      [
+        "0x9c",
+        "uint32_t",
+        "data_source_1"
+      ],
+      [
+        "0xa8",
+        "uint32_t",
+        "data_source_2"
+      ]
+    ]
+  },
+  "0107575e": {
+    "name": "maybe_update_steering_status",
+    "purpose": "Updates steering control module status flags and calibration data in the PSCM structure",
+    "vars": {
+      "param_1": "steering_angle_raw",
+      "param_2": "calibration_value",
+      "unaff_tp": "timestamp",
+      "in_r13": "calibration_base",
+      "in_r14": "steering_sensitivity",
+      "in_r18": "torque_feedback",
+      "in_r22": "steering_mode",
+      "in_ep": "psc_module"
+    },
+    "struct_fields": [
+      [
+        "0x11",
+        "uint8_t",
+        "steering_angle_raw"
+      ],
+      [
+        "0x12",
+        "uint8_t",
+        "steering_mode"
+      ],
+      [
+        "0x14",
+        "uint8_t",
+        "steering_sensitivity"
+      ],
+      [
+        "0x15",
+        "uint8_t",
+        "torque_feedback"
+      ],
+      [
+        "0x68",
+        "uint32_t",
+        "calibration_value"
+      ],
+      [
+        "0x6c",
+        "uint32_t",
+        "timestamp"
+      ]
+    ]
+  },
+  "01075dc4": {
+    "name": "maybe_update_steering_calibration",
+    "purpose": "Updates steering calibration values based on input parameters and calls a function from the call table.",
+    "vars": {
+      "param_1": "calibration_index",
+      "in_r16": "calibration_byte_value",
+      "in_r17": "calibration_offset",
+      "in_r21": "calibration_address",
+      "in_r24": "calibration_divisor",
+      "in_ep": "struct_base_pointer",
+      "in_lp": "calibration_word_value"
+    },
+    "struct_fields": [
+      [
+        "0x18",
+        "uint8_t",
+        "calibration_flag"
+      ],
+      [
+        "0x38",
+        "uint8_t",
+        "calibration_result_byte"
+      ],
+      [
+        "0xa0",
+        "uint32_t",
+        "calibration_flag_copy"
+      ],
+      [
+        "0xa4",
+        "uint16_t",
+        "call_table_index"
+      ],
+      [
+        "0xfe",
+        "uint16_t",
+        "calibration_result_word"
+      ]
+    ]
+  },
+  "01077a66": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize power steering control module by setting up calibration and configuration registers.",
+    "vars": {
+      "in_r13": "calibration_value_1",
+      "in_r17": "index_offset",
+      "in_r20": "calibration_byte",
+      "in_r23": "calibration_value_2",
+      "in_ep": "psc_module_base"
+    },
+    "struct_fields": [
+      [
+        "0x40",
+        "uint32_t",
+        "calibration_register_1"
+      ],
+      [
+        "0x48",
+        "uint8_t*",
+        "pointer_to_config_block"
+      ],
+      [
+        "0x62",
+        "uint8_t",
+        "config_byte_1"
+      ],
+      [
+        "0xa0",
+        "uint32_t",
+        "status_register_1"
+      ],
+      [
+        "0xa6",
+        "uint16_t",
+        "calibration_index"
+      ],
+      [
+        "0xa8",
+        "uint32_t",
+        "calibration_register_2"
+      ]
+    ]
+  },
+  "01079370": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize power steering control module settings and perform calibration",
+    "vars": {
+      "UNRECOVERED_JUMPTABLE": "call_table_ptr",
+      "param_2": "calibration_value",
+      "in_r13": "calibration_data_1",
+      "in_r17": "calibration_data_2",
+      "in_r20": "division_factor",
+      "in_ep": "base_struct_ptr"
+    },
+    "struct_fields": [
+      [
+        "0x65",
+        "byte",
+        "calibration_flag"
+      ],
+      [
+        "0x68",
+        "uint32",
+        "calibration_value_1"
+      ],
+      [
+        "0xa0",
+        "uint32",
+        "calibration_value_2"
+      ],
+      [
+        "0xa2",
+        "uint16",
+        "calibration_source"
+      ],
+      [
+        "0xa8",
+        "uint32",
+        "calibration_value_3"
+      ],
+      [
+        "0xc4",
+        "uint16",
+        "status_register"
+      ]
+    ]
+  },
+  "01079c34": {
+    "name": "maybe_power_steering_calibration_update",
+    "purpose": "Updates power steering calibration values and calls related functions based on input parameters.",
+    "vars": {
+      "param_1": "input_value",
+      "in_r12": "calibration_byte",
+      "in_r17": "calibration_base_ptr",
+      "in_ep": "struct_base_ptr",
+      "in_CTBP": "call_table_base_ptr"
+    },
+    "struct_fields": [
+      [
+        "0xb0",
+        "ushort",
+        "steering_ratio"
+      ],
+      [
+        "0x90",
+        "uint",
+        "calibration_data_1"
+      ],
+      [
+        "0x42",
+        "uchar",
+        "calibration_flag"
+      ],
+      [
+        "0xfe",
+        "ushort",
+        "calibration_data_2"
+      ],
+      [
+        "0xf8",
+        "uint",
+        "output_value"
+      ],
+      [
+        "0xfa",
+        "ushort",
+        "output_source"
+      ]
+    ]
+  },
+  "0107add8": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize or configure power steering control module settings and calibration data",
+    "vars": {
+      "param_1": "steering_input_value",
+      "in_r11": "calibration_data",
+      "in_r17": "pscm_base_addr",
+      "in_r18": "calibration_offset",
+      "in_r21": "mask_value_1",
+      "in_r29": "mask_value_2",
+      "in_ep": "element_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x24",
+        "ushort",
+        "steering_angle_register"
+      ],
+      [
+        "0x35",
+        "byte",
+        "calibration_index"
+      ],
+      [
+        "0x40",
+        "byte",
+        "status_flag_1"
+      ],
+      [
+        "0x5d",
+        "byte",
+        "calibration_base_offset"
+      ],
+      [
+        "0x80",
+        "byte",
+        "status_flag_2"
+      ],
+      [
+        "0x81",
+        "byte",
+        "status_flag_3"
+      ],
+      [
+        "0xae4",
+        "ushort",
+        "control_register"
+      ],
+      [
+        "0x81e",
+        "undefined4",
+        "offset_value"
+      ]
+    ]
+  },
+  "0107b312": {
+    "name": "maybe_power_steering_control",
+    "purpose": "Processes power steering control signals based on input parameters and updates calibration data.",
+    "vars": {
+      "param_1": "steering_input",
+      "param_2": "calibration_value",
+      "uVar1": "divisor",
+      "in_r10": "short_data",
+      "in_r12": "byte_data",
+      "in_r17": "calibration_base",
+      "in_ep": "element_pointer",
+      "in_PSW": "processor_status_word",
+      "UNRECOVERED_JUMPTABLE": "function_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x01",
+        "char",
+        "steering_input_flag"
+      ],
+      [
+        "0x22",
+        "undefined2",
+        "short_data_field"
+      ],
+      [
+        "0x41",
+        "undefined1",
+        "byte_data_field"
+      ],
+      [
+        "0x62",
+        "undefined1",
+        "zero_byte_field"
+      ],
+      [
+        "0xc2",
+        "undefined2",
+        "calibration_output_field"
+      ],
+      [
+        "0xfa",
+        "short",
+        "divisor_field"
+      ]
+    ]
+  },
+  "0107b31a": {
+    "name": "maybe_handle_power_steering_input",
+    "purpose": "Process power steering control input based on calibration and parameter values, potentially handling special cases for extreme values.",
+    "vars": {
+      "param_1": "input_value",
+      "param_2": "calibration_divisor"
+    },
+    "struct_fields": [
+      [
+        "0x01",
+        "char",
+        "input_byte"
+      ],
+      [
+        "0x22",
+        "undefined2",
+        "unknown_field_22"
+      ],
+      [
+        "0x41",
+        "undefined1",
+        "unknown_field_41"
+      ],
+      [
+        "0x62",
+        "undefined1",
+        "unknown_field_62"
+      ],
+      [
+        "0xc2",
+        "undefined2",
+        "unknown_field_c2"
+      ],
+      [
+        "0xfa",
+        "short",
+        "calibration_factor"
+      ]
+    ]
+  },
+  "0107b6ce": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initializes power steering control module settings and calibrations",
+    "vars": {
+      "param_1": "calibration_address",
+      "param_2": "init_flag",
+      "in_r15": "unknown_byte_1",
+      "in_r19": "unknown_byte_2",
+      "in_r23": "unknown_word",
+      "in_r27": "unknown_byte_3",
+      "in_r29": "base_address",
+      "in_ep": "element_pointer",
+      "in_lp": "local_pointer",
+      "in_CTBP": "call_table_base"
+    },
+    "struct_fields": [
+      [
+        "0x2c",
+        "ushort",
+        "steering_angle_raw"
+      ],
+      [
+        "0x2d",
+        "ushort",
+        "steering_angle_filtered"
+      ],
+      [
+        "0x2e",
+        "ushort",
+        "calibration_index"
+      ],
+      [
+        "0x5d",
+        "byte",
+        "calibration_id"
+      ],
+      [
+        "0x70",
+        "ushort",
+        "calibration_offset"
+      ]
+    ]
+  },
+  "0107b5ec": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize or configure the power steering control module based on input parameters and calibration data.",
+    "vars": {
+      "param_1": "calibration_value",
+      "param_2": "input_parameter",
+      "in_ep": "element_pointer",
+      "in_CTBP": "call_table_base",
+      "in_r11": "unknown_byte",
+      "in_r14": "unknown_short",
+      "in_r15": "unknown_long",
+      "in_r16": "unknown_int",
+      "in_r17": "unknown_int",
+      "in_r19": "unknown_int",
+      "in_r23": "unknown_short",
+      "in_r27": "unknown_long",
+      "in_r28": "unknown_long"
+    },
+    "struct_fields": [
+      [
+        "0x20",
+        "ushort",
+        "steering_input"
+      ],
+      [
+        "0x38",
+        "byte",
+        "calibration_flag"
+      ],
+      [
+        "0x49",
+        "undefined1",
+        "unknown_config_byte"
+      ],
+      [
+        "0x5c",
+        "ushort",
+        "control_value_1"
+      ],
+      [
+        "0x5d",
+        "ushort",
+        "control_value_2"
+      ],
+      [
+        "0x72",
+        "undefined4",
+        "calibration_data"
+      ]
+    ]
+  },
+  "0107f36a": {
+    "name": "maybe_power_steering_calculate",
+    "purpose": "Perform power steering control calculations and update calibration parameters based on input values.",
+    "vars": {
+      "param_1": "steering_input",
+      "param_2": "calibration_value",
+      "in_r10": "raw_input_value",
+      "in_r11": "control_signal",
+      "in_r28": "steering_angle",
+      "in_ep": "calibration_base"
+    },
+    "struct_fields": [
+      [
+        "0x28",
+        "uint8",
+        "calibration_flag"
+      ],
+      [
+        "0x60",
+        "uint32",
+        "calibration_data"
+      ],
+      [
+        "0x62",
+        "uint8",
+        "steering_angle_output"
+      ],
+      [
+        "0x66",
+        "uint8",
+        "status_flag"
+      ],
+      [
+        "0xcc",
+        "uint16",
+        "input_signal"
+      ]
+    ]
+  },
+  "01081a42": {
+    "name": "maybe_unimplemented_function",
+    "purpose": "This function appears to be a placeholder or stub that halts execution when encountered, likely due to unimplemented instructions during decompilation.",
+    "vars": {},
+    "struct_fields": []
+  },
+  "01081a80": {
+    "name": "maybe_jumptable_handler",
+    "purpose": "Handles indirect function calls through a jump table using calibration data",
+    "vars": {
+      "in_ep": "element_pointer",
+      "in_CTBP": "call_table_base"
+    },
+    "struct_fields": [
+      [
+        "0xfa",
+        "uint16",
+        "unknown_data"
+      ]
+    ]
+  },
+  "01081efe": {
+    "name": "maybe_update_calibration_value",
+    "purpose": "Updates a calibration value in the PSCM based on gp and ep registers",
+    "vars": {
+      "unaff_gp": "calibration_index",
+      "unaff_tp": "calibration_value",
+      "in_ep": "element_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x00",
+        "uint16",
+        "unknown_field_0"
+      ],
+      [
+        "0x02",
+        "uint16",
+        "unknown_field_2"
+      ],
+      [
+        "0x04",
+        "uint16",
+        "unknown_field_4"
+      ],
+      [
+        "0x06",
+        "uint16",
+        "call_table_offset"
+      ]
+    ]
+  },
+  "01080aa2": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize or configure power steering control module settings and calibration data",
+    "vars": {
+      "param_1": "calibration_base_addr",
+      "param_2": "calibration_value",
+      "in_r1": "unknown_register_1",
+      "in_r2": "unknown_register_2",
+      "unaff_gp": "calibration_data",
+      "in_r17": "unknown_register_17",
+      "in_r18": "offset_from_ep",
+      "in_r21": "calibration_param",
+      "in_r28": "base_address_for_steering",
+      "in_ep": "element_pointer",
+      "in_CTBP": "call_table_base_ptr",
+      "in_lp": "loop_counter_or_flag"
+    },
+    "struct_fields": [
+      [
+        "0x52",
+        "uint32",
+        "calibration_param_1"
+      ],
+      [
+        "0x54",
+        "uint32",
+        "calibration_param_2"
+      ],
+      [
+        "0x56",
+        "uint32",
+        "calibration_param_3"
+      ],
+      [
+        "0x6a",
+        "uint16",
+        "steering_control_flag"
+      ],
+      [
+        "0x5e",
+        "uint16",
+        "unknown_field_1"
+      ],
+      [
+        "0x24",
+        "uint16",
+        "control_command"
+      ],
+      [
+        "0x50",
+        "uint32",
+        "command_table_offset"
+      ],
+      [
+        "0x1c",
+        "uint32",
+        "calibration_value_1"
+      ],
+      [
+        "0xb",
+        "uint16",
+        "unknown_field_2"
+      ],
+      [
+        "0x31",
+        "uint16",
+        "calibration_value_2"
+      ],
+      [
+        "0x51",
+        "uint16",
+        "calibration_value_3"
+      ],
+      [
+        "0x75",
+        "uint8",
+        "calibration_flag"
+      ],
+      [
+        "0x55",
+        "uint16",
+        "unknown_field_3"
+      ],
+      [
+        "0x7f",
+        "uint16",
+        "loop_counter_squared"
+      ],
+      [
+        "0x41",
+        "uint16",
+        "zero_value_1"
+      ],
+      [
+        "0x52",
+        "uint16",
+        "zero_value_2"
+      ]
+    ]
+  },
+  "01082208": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize power steering control module and set up calibration parameters",
+    "vars": {
+      "param_1": "calibration_data",
+      "in_r20": "control_register_base",
+      "in_r23": "calibration_index",
+      "in_ep": "module_struct_ptr",
+      "in_CTBP": "call_table_base"
+    },
+    "struct_fields": [
+      [
+        "0x00",
+        "ushort",
+        "module_id"
+      ],
+      [
+        "0x52",
+        "undefined4",
+        "calibration_pointer"
+      ],
+      [
+        "0x59",
+        "ushort",
+        "calibration_offset"
+      ],
+      [
+        "0x24",
+        "ushort",
+        "status_flag_1"
+      ],
+      [
+        "0x20",
+        "ushort",
+        "status_flag_2"
+      ],
+      [
+        "0x32",
+        "uint",
+        "calibration_value"
+      ]
+    ]
+  },
+  "0108233e": {
+    "name": "maybe_power_steering_control",
+    "purpose": "Handles power steering control logic by executing function pointers from call table and updating calibration data",
+    "vars": {
+      "param_1": "input_value",
+      "in_r12": "calibration_byte",
+      "in_r23": "xor_mask",
+      "in_r25": "calibration_offset",
+      "in_r29": "bitmask",
+      "in_ep": "element_pointer",
+      "in_CTBP": "call_table_base"
+    },
+    "struct_fields": [
+      [
+        "0x00",
+        "uint16_t",
+        "unknown_field_0"
+      ],
+      [
+        "0x02",
+        "uint16_t",
+        "unknown_field_1"
+      ],
+      [
+        "0x04",
+        "uint16_t",
+        "unknown_field_2"
+      ],
+      [
+        "0x200",
+        "uint8_t",
+        "calibration_data"
+      ]
+    ]
+  },
+  "0108310a": {
+    "name": "maybe_power_steering_control_update",
+    "purpose": "Updates power steering control parameters based on input signals and calibration data.",
+    "vars": {
+      "param_1": "calibration_id",
+      "in_r1": "steering_input_signal",
+      "in_r12": "control_mask_1",
+      "in_r16": "calibration_value",
+      "in_r23": "control_mask_2",
+      "in_r24": "offset_value",
+      "in_r25": "local_address",
+      "in_CTBP": "call_table_base_ptr",
+      "in_ep": "element_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x22",
+        "undefined1",
+        "steering_input_signal"
+      ],
+      [
+        "0xa8",
+        "undefined4",
+        "calibration_value"
+      ],
+      [
+        "0x4f",
+        "undefined1",
+        "calibration_flag"
+      ]
+    ]
+  },
+  "01083ecc": {
+    "name": "maybe_power_steering_control_update",
+    "purpose": "Updates power steering control parameters based on calibration and element pointer values",
+    "vars": {
+      "unaff_gp": "calibration_base",
+      "unaff_tp": "calibration_value",
+      "in_r24": "calibration_data",
+      "in_r28": "call_table_base",
+      "in_ep": "element_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x6",
+        "ushort",
+        "control_register_offset"
+      ],
+      [
+        "0x4a1d",
+        "undefined1",
+        "calibration_parameter"
+      ]
+    ]
+  },
+  "010838ce": {
+    "name": "maybe_power_steering_control_init",
+    "purpose": "Initialize or update power steering control parameters based on input and calibration data.",
+    "vars": {
+      "param_1": "control_input",
+      "param_2": "calibration_index",
+      "puVar1": "control_struct_ptr",
+      "uVar2": "adjusted_value",
+      "bVar3": "config_byte_1",
+      "bVar4": "config_byte_2",
+      "uVar5": "steering_angle_raw",
+      "uVar6": "calibrated_value",
+      "uVar7": "mask_value",
+      "uVar9": "calibration_mask",
+      "UNRECOVERED_JUMPTABLE": "function_pointer_table",
+      "in_r25": "calibration_data_1",
+      "in_r28": "base_offset_1",
+      "in_r29": "base_address_1",
+      "in_ep": "element_pointer",
+      "in_lp": "local_pointer",
+      "in_CTBP": "call_table_base"
+    },
+    "struct_fields": [
+      [
+        "0x19",
+        "byte",
+        "config_byte_2"
+      ],
+      [
+        "0xa8",
+        "uint",
+        "config_value_1"
+      ],
+      [
+        "0x32",
+        "ushort",
+        "steering_angle_raw"
+      ],
+      [
+        "0x30",
+        "uint",
+        "config_value_2"
+      ],
+      [
+        "0x50",
+        "uint",
+        "steering_angle_scaled"
+      ],
+      [
+        "0x32",
+        "int",
+        "base_address_1"
+      ],
+      [
+        "0x4f",
+        "byte",
+        "calibration_byte"
+      ],
+      [
+        "0x58",
+        "ushort",
+        "calibration_mask"
+      ],
+      [
+        "0x52",
+        "undefined4",
+        "calibration_data_1"
+      ]
+    ]
+  },
+  "01084076": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize or configure power steering control module settings and calibration data",
+    "vars": {
+      "in_r1": "unknown_param_1",
+      "in_r12": "calibration_value",
+      "in_r13": "calibration_data",
+      "in_r20": "unknown_param_2",
+      "in_r23": "calibration_mask",
+      "in_r28": "calibration_base",
+      "in_r29": "calibration_offset",
+      "in_ep": "element_pointer",
+      "in_CTBP": "call_table_base"
+    },
+    "struct_fields": [
+      [
+        "0x0006",
+        "ushort",
+        "unknown_field_1"
+      ],
+      [
+        "0x00a8",
+        "uint",
+        "calibration_address"
+      ],
+      [
+        "0x00b0",
+        "uint",
+        "calibration_status"
+      ]
+    ]
+  },
+  "01084fa0": {
+    "name": "maybe_power_steering_control_update",
+    "purpose": "Updates power steering control based on calibration data and parameter input",
+    "vars": {
+      "param_1": "input_parameter",
+      "in_r1": "calibration_byte",
+      "in_r21": "xor_mask",
+      "UNRECOVERED_JUMPTABLE": "function_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x62",
+        "uint8_t",
+        "steering_control_status"
+      ],
+      [
+        "0x18",
+        "uint8_t",
+        "calibration_data_byte"
+      ]
+    ]
+  },
+  "01088412": {
+    "name": "maybe_power_steering_control_update",
+    "purpose": "Updates power steering control module state based on input parameters and calibration data.",
+    "vars": {
+      "param_1": "input_value",
+      "in_r1": "calibration_index",
+      "in_r15": "calibration_data",
+      "in_r28": "calibration_base_offset",
+      "in_ep": "element_pointer",
+      "in_CTBP": "call_table_base"
+    },
+    "struct_fields": [
+      [
+        "0x00",
+        "undefined4",
+        "unknown_0"
+      ],
+      [
+        "0x2",
+        "undefined2",
+        "steering_angle_raw"
+      ],
+      [
+        "0x8a",
+        "undefined2",
+        "function_pointer_offset"
+      ],
+      [
+        "0xac",
+        "undefined2",
+        "calibrated_steering_value"
+      ],
+      [
+        "0xfc",
+        "undefined4",
+        "input_parameter"
+      ]
+    ]
+  },
+  "0108adf8": {
+    "name": "maybe_steering_control_update",
+    "purpose": "Updates steering control parameters and manages calibration data through function calls and memory writes.",
+    "vars": {
+      "param_1": "calibration_base",
+      "in_r11": "unknown_data_1",
+      "in_r14": "unknown_data_2",
+      "in_r20": "base_address_1",
+      "in_r21": "base_address_2",
+      "in_r22": "base_address_3",
+      "in_r23": "base_address_4",
+      "in_r27": "unknown_data_3",
+      "in_r29": "pointer_to_calibration_data",
+      "in_CTBP": "call_table_base"
+    },
+    "struct_fields": [
+      [
+        "0x1c5",
+        "uint8_t",
+        "steering_status_flag"
+      ],
+      [
+        "0x200",
+        "int16_t",
+        "calibration_offset"
+      ],
+      [
+        "0x4a",
+        "uint8_t",
+        "control_parameter"
+      ],
+      [
+        "0x1d",
+        "uint8_t",
+        "data_byte_1"
+      ],
+      [
+        "0x8a",
+        "uint16_t",
+        "data_word_1"
+      ],
+      [
+        "0x3a",
+        "uint16_t",
+        "index_value"
+      ],
+      [
+        "0x400",
+        "uint8_t",
+        "control_flag_1"
+      ],
+      [
+        "0x800",
+        "uint8_t",
+        "control_flag_2"
+      ],
+      [
+        "0xc00",
+        "uint8_t",
+        "control_flag_3"
+      ],
+      [
+        "0x1400",
+        "int8_t",
+        "calibration_index"
+      ],
+      [
+        "0x1c5",
+        "uint8_t",
+        "status_byte"
+      ],
+      [
+        "0x1d5",
+        "uint8_t",
+        "calibration_entry"
+      ]
+    ]
+  },
+  "0108fbce": {
+    "name": "maybe_update_steering_calibration",
+    "purpose": "Update steering calibration values based on input parameters and perform related register writes.",
+    "vars": {
+      "param_1": "input_value",
+      "param_2": "calibration_value",
+      "iVar1": "difference",
+      "bVar2": "is_input_negative",
+      "bVar3": "is_difference_negative",
+      "uVar4": "current_calibration",
+      "uVar5": "adjusted_calibration",
+      "in_r1": "calibration_byte",
+      "in_r2": "calibration_word",
+      "unaff_tp": "calibration_flag",
+      "in_r12": "base_address",
+      "in_r16": "scaled_offset",
+      "in_ep": "element_pointer",
+      "in_PSW": "processor_status_word"
+    },
+    "struct_fields": [
+      [
+        "0x44",
+        "ushort",
+        "calibration_value"
+      ],
+      [
+        "0x61",
+        "undefined1",
+        "calibration_byte_field"
+      ],
+      [
+        "0x68",
+        "undefined1",
+        "flag_field"
+      ],
+      [
+        "0xc2",
+        "ushort",
+        "inverted_calibration"
+      ],
+      [
+        "0xfc",
+        "undefined2",
+        "calibration_setting"
+      ]
+    ]
+  },
+  "01095a9a": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize power steering control module parameters and calibration data",
+    "vars": {
+      "param_1": "calibration_value",
+      "in_r16": "ctbp_base",
+      "in_r25": "control_flags",
+      "in_r29": "steering_angle_raw",
+      "in_ep": "pscmt_base"
+    },
+    "struct_fields": [
+      [
+        "0x2a",
+        "char",
+        "steering_angle_byte"
+      ],
+      [
+        "0x38",
+        "uint16_t",
+        "steering_angle_raw"
+      ],
+      [
+        "0x68",
+        "uint32_t",
+        "calibration_data"
+      ],
+      [
+        "0xb4",
+        "int16_t",
+        "steering_control_output"
+      ],
+      [
+        "0xbc",
+        "uint32_t",
+        "calibration_checksum"
+      ]
+    ]
+  },
+  "01096cb0": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize or configure power steering control module based on input parameters and calibration data",
+    "vars": {
+      "in_r25": "input_byte_1",
+      "in_r29": "input_int_1",
+      "in_ep": "struct_base_ptr",
+      "in_lp": "loop_counter",
+      "in_CTBP": "call_table_base_ptr"
+    },
+    "struct_fields": [
+      [
+        "0x18",
+        "int32",
+        "calibration_value_1"
+      ],
+      [
+        "0x20",
+        "byte",
+        "input_byte_2"
+      ],
+      [
+        "0x32",
+        "char",
+        "calibration_value_2"
+      ],
+      [
+        "0x33",
+        "byte",
+        "inverted_calibration_value_1"
+      ],
+      [
+        "0x3e",
+        "byte",
+        "calibration_index"
+      ],
+      [
+        "0x66",
+        "short",
+        "calibration_pointer"
+      ],
+      [
+        "0xd",
+        "short",
+        "unknown_field_1"
+      ],
+      [
+        "0x143a",
+        "short",
+        "unknown_field_2"
+      ]
+    ]
+  },
+  "01096cde": {
+    "name": "maybe_update_steering_control",
+    "purpose": "Updates steering control parameters and handles conditional logic based on input values before calling a function from the call table.",
+    "vars": {
+      "param_1": "steering_input",
+      "in_r1": "unknown_value_1",
+      "in_r2": "unknown_value_2",
+      "in_r25": "calibration_flag",
+      "in_ep": "element_pointer",
+      "in_lp": "loop_counter",
+      "in_CTBP": "call_table_base"
+    },
+    "struct_fields": [
+      [
+        "0x18",
+        "undefined2",
+        "steering_input_1"
+      ],
+      [
+        "0x66",
+        "undefined2",
+        "steering_input_2"
+      ],
+      [
+        "0x20",
+        "undefined4",
+        "calibration_data"
+      ],
+      [
+        "0x33",
+        "byte",
+        "inverted_steering_input"
+      ],
+      [
+        "0x32",
+        "char",
+        "signed_steering_input"
+      ],
+      [
+        "0x100",
+        "undefined2",
+        "unknown_value_3"
+      ]
+    ]
+  },
+  "010985da": {
+    "name": "maybe_unknown_calibration_setup",
+    "purpose": "Initializes calibration data and calls a function through an indirect jump using a value from the ep structure",
+    "vars": {
+      "param_1": "calibration_byte_1",
+      "in_r17": "calibration_base_addr",
+      "in_r25": "unknown_base_addr",
+      "UNRECOVERED_JUMPTABLE": "function_pointer_table",
+      "in_ep": "element_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x0",
+        "undefined4",
+        "field_0"
+      ],
+      [
+        "0x600",
+        "undefined1",
+        "calibration_byte_2"
+      ],
+      [
+        "0x1000",
+        "undefined1",
+        "calibration_byte_3"
+      ]
+    ]
+  },
+  "010987fa": {
+    "name": "maybe_power_steering_control_update",
+    "purpose": "Updates power steering control parameters based on input values and calls a function from a jump table",
+    "vars": {
+      "param_1": "offset_from_element_pointer",
+      "param_2": "index_into_call_table",
+      "in_r1": "xor_mask",
+      "in_r17": "calibration_value",
+      "in_r29": "calibration_base_address",
+      "in_ep": "element_pointer_address"
+    },
+    "struct_fields": [
+      [
+        "0x8e",
+        "short",
+        "steering_control_output"
+      ],
+      [
+        "0x2e3c",
+        "undefined4",
+        "calibration_data"
+      ]
+    ]
+  },
+  "0109a284": {
+    "name": "maybe_power_steering_calibration_update",
+    "purpose": "Updates power steering calibration values based on conditional logic and stores result in ep + 0xf8",
+    "vars": {
+      "in_r13": "input_value",
+      "in_r16": "calibration_value",
+      "in_ep": "element_pointer",
+      "in_CTBP": "call_table_base"
+    },
+    "struct_fields": [
+      [
+        "0x1a",
+        "uint8_t",
+        "calibration_index"
+      ],
+      [
+        "0x64",
+        "int8_t",
+        "calibration_result"
+      ],
+      [
+        "0xf8",
+        "uint32_t",
+        "stored_calibration_value"
+      ],
+      [
+        "0x48",
+        "uint8_t",
+        "status_flag"
+      ]
+    ]
+  },
+  "01099c7c": {
+    "name": "maybe_power_steering_calibration_update",
+    "purpose": "Updates power steering calibration values and triggers related control functions based on input parameters.",
+    "vars": {
+      "param_1": "calibration_base_addr",
+      "param_2": "steering_input_value",
+      "unaff_gp": "global_calibration_pointer",
+      "in_r15": "calibration_byte_value",
+      "in_r17": "control_module_base",
+      "in_r19": "offset_value",
+      "in_r22": "steering_angle_input",
+      "in_r24": "calibration_mask",
+      "in_r25": "module_data_pointer",
+      "in_ep": "element_pointer",
+      "in_lp": "calibration_lookup_value"
+    },
+    "struct_fields": [
+      [
+        "0x8e",
+        "uint16_t",
+        "steering_angle_register"
+      ],
+      [
+        "0x400",
+        "uint8_t",
+        "calibration_flag_byte"
+      ],
+      [
+        "0xc4",
+        "int16_t",
+        "calibration_offset_value"
+      ],
+      [
+        "0xc0",
+        "uint16_t",
+        "input_steering_value"
+      ],
+      [
+        "0x1f",
+        "uint8_t",
+        "calibration_index"
+      ],
+      [
+        "0x6e",
+        "uint16_t",
+        "calibration_lookup_result"
+      ],
+      [
+        "0x1d",
+        "uint8_t",
+        "calibration_config_index"
+      ],
+      [
+        "0xa2",
+        "uint16_t",
+        "calibration_config_value"
+      ],
+      [
+        "0xd0",
+        "int32_t",
+        "control_function_pointer"
+      ],
+      [
+        "0x290",
+        "int16_t",
+        "control_register_value"
+      ]
+    ]
+  },
+  "0109a5b0": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize power steering control module by setting up calibration and control registers",
+    "vars": {
+      "in_r1": "calibration_value_1",
+      "in_r2": "calibration_index",
+      "in_r15": "calibration_value_2",
+      "in_r29": "calibration_base_ptr",
+      "in_lp": "control_base_ptr"
+    },
+    "struct_fields": [
+      [
+        "0x78d2",
+        "int",
+        "calibration_base_offset"
+      ],
+      [
+        "0x2c",
+        "undefined2",
+        "calibration_register_1"
+      ],
+      [
+        "0xc4",
+        "undefined2",
+        "calibration_register_2"
+      ],
+      [
+        "0x3900",
+        "undefined2",
+        "control_register"
+      ]
+    ]
+  },
+  "0109a62a": {
+    "name": "maybe_pscm_init_steering_control",
+    "purpose": "Initialize power steering control module by setting up calibration and calling a function based on indirect table lookup.",
+    "vars": {
+      "param_1": "input_param",
+      "in_r10": "calibration_value",
+      "in_r19": "offset_param",
+      "in_r24": "base_offset",
+      "in_r25": "target_address",
+      "in_ep": "element_pointer",
+      "in_lp": "local_param"
+    },
+    "struct_fields": [
+      [
+        "0x3c",
+        "uint32_t",
+        "calibration_data"
+      ],
+      [
+        "0x68",
+        "uint8_t",
+        "init_flag"
+      ],
+      [
+        "0x65ee",
+        "uint32_t",
+        "control_register"
+      ]
+    ]
+  },
+  "0109a6a6": {
+    "name": "maybe_power_steering_calculate",
+    "purpose": "Perform power steering control calculations based on input parameters and update calibration data.",
+    "vars": {
+      "param_1": "steering_input",
+      "param_2": "vehicle_speed",
+      "in_ep": "ep",
+      "in_r13": "calibration_value",
+      "in_r25": "call_table_base",
+      "in_r28": "calibration_offset",
+      "in_lp": "return_address"
+    },
+    "struct_fields": [
+      [
+        "0x00",
+        "uint8_t",
+        "unknown_flag"
+      ],
+      [
+        "0x30",
+        "uint16_t",
+        "function_pointer_offset"
+      ],
+      [
+        "0x48",
+        "uint8_t",
+        "calibration_update_flag"
+      ],
+      [
+        "0x62",
+        "uint8_t",
+        "calibration_data_byte"
+      ]
+    ]
+  },
+  "0109ac3e": {
+    "name": "maybe_power_steering_control_update",
+    "purpose": "Updates power steering control parameters based on input values and calls a function from a jump table",
+    "vars": {
+      "param_1": "control_data_ptr",
+      "param_2": "function_index",
+      "in_r19": "offset_base",
+      "in_r25": "output_buffer_ptr"
+    },
+    "struct_fields": [
+      [
+        "0x3a",
+        "uint16_t",
+        "calibration_value"
+      ],
+      [
+        "0x59",
+        "uint8_t",
+        "control_flag"
+      ]
+    ]
+  },
+  "0109b0c0": {
+    "name": "maybe_unimplemented_function",
+    "purpose": "This function appears to be a placeholder or stub that halts execution when encountered, likely due to unimplemented instructions during decompilation.",
+    "vars": {},
+    "struct_fields": []
+  },
+  "0109ac76": {
+    "name": "maybe_unhandled_jumptable_handler",
+    "purpose": "Handles an unhandled jump table case in the power steering control module firmware",
+    "vars": {
+      "param_1": "calibration_value"
+    },
+    "struct_fields": [
+      [
+        "0x00",
+        "uint32_t",
+        "calibration_data"
+      ],
+      [
+        "0x04",
+        "uint16_t",
+        "unknown_parameter"
+      ]
+    ]
+  },
+  "0109deb8": {
+    "name": "maybe_steering_control_logic",
+    "purpose": "Processes steering input parameters and handles conditional control logic with potential jumptable dispatch based on sign comparisons.",
+    "vars": {
+      "param_1": "steering_input",
+      "param_2": "steering_angle",
+      "param_3": "steering_rate"
+    },
+    "struct_fields": []
+  },
+  "0109df10": {
+    "name": "maybe_unknown_function",
+    "purpose": "Unknown function with unimplemented instructions that halts execution",
+    "vars": {},
+    "struct_fields": []
+  },
+  "0109c552": {
+    "name": "maybe_power_steering_calibration_update",
+    "purpose": "Updates power steering calibration values and jumps to a function based on a recovered jumptable",
+    "vars": {
+      "param_1": "calibration_value_1",
+      "in_r17": "calibration_value_2",
+      "in_r25": "calibration_base_addr",
+      "in_ep": "ep_struct_base",
+      "in_lp": "return_address"
+    },
+    "struct_fields": [
+      [
+        "0x8c",
+        "uint16",
+        "calibration_field_1"
+      ],
+      [
+        "0x39de",
+        "uint16",
+        "calibration_field_2"
+      ]
+    ]
+  },
+  "010a0bf8": {
+    "name": "maybe_update_steering_calibration",
+    "purpose": "Updates steering calibration data based on input parameters and stores it in the calibration table",
+    "vars": {
+      "in_r23": "calibration_address",
+      "in_r25": "data_storage_address",
+      "in_ep": "element_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x1e",
+        "uint16_t",
+        "calibration_index"
+      ],
+      [
+        "0x67",
+        "uint8_t",
+        "steering_input_value"
+      ]
+    ]
+  },
+  "010a22ea": {
+    "name": "maybe_power_steering_calculate",
+    "purpose": "Perform power steering control calculations based on input parameters and calibration data",
+    "vars": {
+      "param_1": "input_value",
+      "in_r16": "clamped_input",
+      "in_r25": "calibration_base",
+      "in_r29": "stack_pointer",
+      "in_ep": "element_pointer",
+      "in_lp": "local_parameter"
+    },
+    "struct_fields": [
+      [
+        "0x36",
+        "uint8",
+        "calibration_index"
+      ],
+      [
+        "0x3c08",
+        "uint16",
+        "output_value"
+      ]
+    ]
+  },
+  "010a52ec": {
+    "name": "maybe_update_steering_calibration",
+    "purpose": "Updates steering calibration data in the power steering control module",
+    "vars": {
+      "in_r25": "calibration_address",
+      "in_ep": "calibration_data"
+    },
+    "struct_fields": [
+      [
+        "0xFFA2",
+        "uint16",
+        "steering_angle_offset"
+      ],
+      [
+        "0xFFA4",
+        "uint16",
+        "torque_sensor_gain"
+      ],
+      [
+        "0xFFA6",
+        "uint16",
+        "assist_level_calibration"
+      ],
+      [
+        "0xFFA8",
+        "uint16",
+        "steering_ratio_factor"
+      ]
+    ]
+  },
+  "010a2ab0": {
+    "name": "maybe_handle_power_steering_control",
+    "purpose": "Handles power steering control logic by updating calibration and calling a function based on input parameters.",
+    "vars": {
+      "param_1": "control_module_base",
+      "in_r1": "steering_input_value",
+      "in_r2": "calibration_index",
+      "in_r24": "function_pointer_offset",
+      "in_r25": "calibration_base_address",
+      "in_lp": "calibration_data"
+    },
+    "struct_fields": [
+      [
+        "0xFFFE9C70",
+        "uint8_t",
+        "steering_input_value"
+      ],
+      [
+        "0xFFFF8349",
+        "uint16_t*",
+        "calibration_table_pointer"
+      ],
+      [
+        "0xFFFCB26",
+        "uint16_t",
+        "calibration_value"
+      ],
+      [
+        "0x13E8",
+        "uint32_t",
+        "calibration_data"
+      ]
+    ]
+  },
+  "010a6186": {
+    "name": "maybe_update_steering_calibration",
+    "purpose": "Updates steering system calibration values and resets certain control registers based on input parameters",
+    "vars": {
+      "param_1": "calibration_base_addr",
+      "param_2": "control_register_addr",
+      "in_r19": "offset_value",
+      "in_r21": "calibration_value",
+      "in_ep": "element_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x00",
+        "uint8_t",
+        "unknown_flag"
+      ],
+      [
+        "0xcc",
+        "uint16_t",
+        "calibration_register_1"
+      ],
+      [
+        "0xc",
+        "uint8_t",
+        "calibration_index"
+      ],
+      [
+        "0xfa",
+        "uint16_t",
+        "calibration_register_2"
+      ]
+    ]
+  },
+  "010a9584": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize power steering control module and set up calibration data structures",
+    "vars": {
+      "in_ep": "element_pointer",
+      "in_r1": "unknown_register_1",
+      "in_r2": "unknown_register_2",
+      "in_r12": "unknown_register_12",
+      "in_r25": "calibration_base_ptr",
+      "in_lp": "link_pointer",
+      "in_PSW": "processor_status_word"
+    },
+    "struct_fields": [
+      [
+        "0x36",
+        "uint32_t",
+        "link_pointer_backup"
+      ],
+      [
+        "0x48",
+        "uint16_t",
+        "calibration_field_48"
+      ],
+      [
+        "0x49",
+        "uint16_t",
+        "calibration_field_49"
+      ],
+      [
+        "0xc",
+        "uint16_t",
+        "calibration_field_c"
+      ],
+      [
+        "0x28",
+        "uint16_t",
+        "calibration_field_28"
+      ]
+    ]
+  },
+  "010a95dc": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize power steering control module by setting up calibration and calling a jumptable function",
+    "vars": {
+      "in_r25": "ctbp",
+      "in_ep": "ep"
+    },
+    "struct_fields": [
+      [
+        "0x0",
+        "undefined2",
+        "unknown_field_0"
+      ],
+      [
+        "0xc",
+        "undefined2",
+        "calibration_value"
+      ],
+      [
+        "0x48",
+        "undefined4",
+        "unknown_field_48"
+      ],
+      [
+        "0x28",
+        "undefined2",
+        "calibration_value_copy"
+      ]
+    ]
+  },
+  "010aa962": {
+    "name": "maybe_update_steering_calibration",
+    "purpose": "Updates steering calibration data based on input parameter and performs a callback operation",
+    "vars": {
+      "param_1": "calibration_data_ptr",
+      "in_r2": "unknown_short_value",
+      "unaff_gp": "calibration_flag_byte",
+      "in_r24": "steering_status_byte",
+      "in_r25": "base_address"
+    },
+    "struct_fields": [
+      [
+        "0x3a",
+        "uint16_t*",
+        "data_pointer_offset"
+      ],
+      [
+        "0xa2",
+        "uint16_t",
+        "calibration_value"
+      ],
+      [
+        "0x5360",
+        "uint32_t",
+        "calibration_storage_location"
+      ]
+    ]
+  },
+  "010aae84": {
+    "name": "maybe_power_steering_calibration_update",
+    "purpose": "Updates power steering control module calibration values and performs boundary checks on input data.",
+    "vars": {
+      "in_r10": "calibration_base_ptr",
+      "in_r16": "unknown_base_ptr",
+      "in_r23": "calibration_byte_value",
+      "in_r24": "calibration_uint_value",
+      "in_r25": "calibration_ushort_value",
+      "in_r26": "calibration_ushort_value2",
+      "in_r28": "calibration_int_value",
+      "in_ep": "element_pointer",
+      "in_lp": "loop_counter_or_offset"
+    },
+    "struct_fields": [
+      [
+        "0x40",
+        "ushort",
+        "steering_angle_calibration"
+      ],
+      [
+        "0x6c",
+        "uint",
+        "calibration_data_uint"
+      ],
+      [
+        "0x18",
+        "undefined4",
+        "calibration_data_undefined4"
+      ],
+      [
+        "0xfe",
+        "short",
+        "calibrated_steering_output"
+      ],
+      [
+        "0xea",
+        "ushort",
+        "calibration_ushort_field"
+      ],
+      [
+        "0x54",
+        "ushort",
+        "another_calibration_ushort"
+      ],
+      [
+        "0x62",
+        "undefined1",
+        "calibration_flag_byte"
+      ],
+      [
+        "0xa0",
+        "undefined2",
+        "steering_input_offset"
+      ],
+      [
+        "0x60",
+        "int",
+        "calibration_table_ptr"
+      ]
+    ]
+  },
+  "010ac7dc": {
+    "name": "maybe_power_steering_control_init",
+    "purpose": "Initialize power steering control module parameters and execute a jump table function",
+    "vars": {
+      "param_1": "control_command",
+      "in_r13": "stack_pointer",
+      "UNRECOVERED_JUMPTABLE": "dynamic_function_ptr",
+      "in_r29": "steering_angle_input",
+      "in_ep": "module_base_ptr"
+    },
+    "struct_fields": [
+      [
+        "0x88",
+        "ushort",
+        "steering_sensitivity"
+      ],
+      [
+        "0x94",
+        "undefined2",
+        "unknown_94"
+      ],
+      [
+        "0xa4",
+        "undefined2",
+        "unknown_a4"
+      ],
+      [
+        "0xa8",
+        "undefined4",
+        "control_command_copy"
+      ],
+      [
+        "0xc2",
+        "undefined2",
+        "steering_angle_input_copy"
+      ],
+      [
+        "0xf8",
+        "uint",
+        "steering_sensitivity_copy"
+      ]
+    ]
+  },
+  "010ae3c0": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize or configure power steering control module based on input parameters and calibration data.",
+    "vars": {
+      "param_1": "input_value",
+      "in_r1": "steering_angle_factor",
+      "in_r21": "calibration_value",
+      "in_r28": "calibration_base_addr",
+      "in_r29": "control_register_addr",
+      "in_ep": "element_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x29",
+        "char",
+        "steering_status"
+      ],
+      [
+        "0x48",
+        "undefined4",
+        "calibration_data"
+      ],
+      [
+        "0x50",
+        "short",
+        "control_value"
+      ],
+      [
+        "0x2c",
+        "short",
+        "register_offset"
+      ],
+      [
+        "0x59",
+        "undefined1",
+        "init_flag"
+      ]
+    ]
+  },
+  "010aeb30": {
+    "name": "maybe_power_steering_control_update",
+    "purpose": "Updates power steering control module state variables and jumps to a function based on current configuration",
+    "vars": {
+      "param_1": "control_command",
+      "in_r2": "steering_angle_input",
+      "unaff_tp": "system_status_flag",
+      "UNRECOVERED_JUMPTABLE": "function_dispatch_table",
+      "in_ep": "module_state_ptr"
+    },
+    "struct_fields": [
+      [
+        "0x54",
+        "uint16_t",
+        "steering_angle_raw"
+      ],
+      [
+        "0x66",
+        "uint8_t",
+        "system_status"
+      ],
+      [
+        "0x74",
+        "uint16_t",
+        "output_torque_request"
+      ],
+      [
+        "0x94",
+        "uint16_t",
+        "calculated_torque"
+      ],
+      [
+        "0xfc",
+        "void*",
+        "function_pointer"
+      ]
+    ]
+  },
+  "010aed26": {
+    "name": "maybe_power_steering_calibrate",
+    "purpose": "Performs power steering calibration by adjusting a value within bounds and triggering a callback function.",
+    "vars": {
+      "param_1": "calibration_value",
+      "in_ep": "struct_base_ptr",
+      "in_r27": "calibration_param"
+    },
+    "struct_fields": [
+      [
+        "0x7f",
+        "undefined2",
+        "calibration_entry"
+      ]
+    ]
+  },
+  "010b1188": {
+    "name": "maybe_calculate_steering_offset",
+    "purpose": "Calculate and clamp a steering offset value based on input parameters and store it at a specific memory location.",
+    "vars": {
+      "in_r1": "unknown_register_1",
+      "in_r23": "unknown_register_23",
+      "in_r25": "unknown_register_25",
+      "in_ep": "element_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x18",
+        "int32",
+        "calculated_offset"
+      ],
+      [
+        "0x90",
+        "int32",
+        "source_value"
+      ]
+    ]
+  },
+  "010b11b6": {
+    "name": "maybe_validate_and_copy_data",
+    "purpose": "Validates and copies data from one memory location to another based on calculated offset",
+    "vars": {
+      "iVar1": "calculated_offset",
+      "in_r25": "base_address"
+    },
+    "struct_fields": [
+      [
+        "0x18",
+        "uint32_t",
+        "destination_data"
+      ],
+      [
+        "0x90",
+        "uint32_t",
+        "source_data"
+      ]
+    ]
+  },
+  "010b4c60": {
+    "name": "maybe_power_steering_calibration_update",
+    "purpose": "Updates power steering calibration values and handles related control operations",
+    "vars": {
+      "param_1": "calibration_index",
+      "unaff_gp": "calibration_base",
+      "in_r16": "scale_factor",
+      "in_r17": "output_pointer",
+      "in_r19": "output_value",
+      "in_r25": "address_base",
+      "in_ep": "element_pointer",
+      "in_lp": "local_param"
+    },
+    "struct_fields": [
+      [
+        "0xa0",
+        "uint16_t",
+        "calibration_offset"
+      ],
+      [
+        "0x74fe",
+        "uint16_t",
+        "status_register"
+      ],
+      [
+        "0x2efe",
+        "uint16_t",
+        "control_register"
+      ]
+    ]
+  },
+  "010b2902": {
+    "name": "maybe_power_steering_control_init",
+    "purpose": "Initialize or configure power steering control parameters based on input flags and calibration data.",
+    "vars": {
+      "param_1": "control_function_ptr",
+      "param_2": "input_flag",
+      "in_r2": "steering_angle_raw",
+      "in_gp": "calibration_base_addr",
+      "in_r24": "steering_sensitivity_factor",
+      "in_r25": "control_table_base",
+      "in_r26": "system_status_flags",
+      "in_r29": "torque_request",
+      "in_ep": "element_pointer",
+      "in_PSW": "processor_status_word"
+    },
+    "struct_fields": [
+      [
+        "0x48",
+        "uint8_t",
+        "steering_sensitivity"
+      ],
+      [
+        "0x50",
+        "int16_t",
+        "torque_adjustment"
+      ],
+      [
+        "0x62",
+        "int8_t",
+        "steering_angle_offset"
+      ],
+      [
+        "0xa2",
+        "uint16_t",
+        "control_function_index"
+      ]
+    ]
+  },
+  "010b80ce": {
+    "name": "maybe_handle_power_steering_request",
+    "purpose": "Process power steering control requests based on input parameters and system state.",
+    "vars": {
+      "param_1": "request_id",
+      "param_2": "control_flags"
+    },
+    "struct_fields": [
+      [
+        "0x14",
+        "ushort",
+        "steering_angle"
+      ],
+      [
+        "0x28",
+        "ushort",
+        "calibration_value"
+      ],
+      [
+        "0x34",
+        "char",
+        "status_byte"
+      ],
+      [
+        "0x44",
+        "ushort",
+        "torque_request"
+      ],
+      [
+        "0x50",
+        "undefined4",
+        "calibration_base_ptr"
+      ],
+      [
+        "0x5a",
+        "ushort",
+        "control_register"
+      ],
+      [
+        "0x61",
+        "ushort",
+        "output_value"
+      ],
+      [
+        "0xc",
+        "ushort",
+        "sensor_data"
+      ],
+      [
+        "0xd",
+        "ushort",
+        "function_pointer"
+      ]
+    ]
+  },
+  "010b93fc": {
+    "name": "maybe_pscm_steering_control_init",
+    "purpose": "Initialize or configure power steering control based on input parameters and system state flags.",
+    "vars": {
+      "param_1": "steering_input_value",
+      "param_2": "control_signal",
+      "param_3": "calibration_id"
+    },
+    "struct_fields": [
+      [
+        "0xb0",
+        "int",
+        "control_signal_store"
+      ],
+      [
+        "0x66",
+        "undefined1",
+        "status_flag"
+      ],
+      [
+        "0x711c",
+        "short",
+        "steering_angle_input"
+      ],
+      [
+        "0xcc",
+        "short",
+        "stack_pointer_backup"
+      ],
+      [
+        "0x84",
+        "undefined2",
+        "calibration_offset"
+      ],
+      [
+        "0x80",
+        "undefined2",
+        "return_address"
+      ],
+      [
+        "0x88",
+        "undefined2",
+        "calibration_data"
+      ],
+      [
+        "0xa8",
+        "undefined2",
+        "control_parameter"
+      ]
+    ]
+  },
+  "010b9998": {
+    "name": "maybe_power_steering_control",
+    "purpose": "Handles power steering control logic based on input parameter and lookup table",
+    "vars": {
+      "param_1": "input_value"
+    },
+    "struct_fields": []
+  },
+  "010ba2f4": {
+    "name": "maybe_update_steering_calibration",
+    "purpose": "Updates steering system calibration values in the PSCM struct",
+    "vars": {
+      "in_r11": "calibration_value_1",
+      "in_r14": "calibration_value_2",
+      "in_r28": "calibration_value_3",
+      "in_ep": "psc_struct_ptr"
+    },
+    "struct_fields": [
+      [
+        "0x41",
+        "uint16",
+        "steering_cal_1"
+      ],
+      [
+        "0x52",
+        "uint16",
+        "steering_cal_2"
+      ],
+      [
+        "0x42",
+        "uint16",
+        "steering_cal_3"
+      ],
+      [
+        "0x66",
+        "uint16",
+        "steering_cal_4"
+      ],
+      [
+        "0x43",
+        "uint16",
+        "steering_cal_5"
+      ]
+    ]
+  },
+  "010ba6d0": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize or configure power steering control module based on input parameters and calibration data",
+    "vars": {
+      "param_1": "input_value",
+      "param_2": "calibration_data",
+      "in_ep": "element_pointer",
+      "unaff_gp": "calibration_base",
+      "unaff_tp": "timestamp",
+      "in_r2": "control_flag",
+      "in_r29": "counter_value",
+      "in_r28": "steering_angle",
+      "in_r24": "module_config",
+      "in_r21": "loop_counter",
+      "in_r16": "calibration_index",
+      "in_r12": "config_param",
+      "in_r10": "status_flag",
+      "in_r15": "return_value"
+    },
+    "struct_fields": [
+      [
+        "0x33",
+        "uint8_t",
+        "status_byte"
+      ],
+      [
+        "0x50",
+        "uint32_t",
+        "calibration_data_ptr"
+      ],
+      [
+        "0x66",
+        "uint16_t",
+        "config_flag"
+      ],
+      [
+        "0x68",
+        "uint16_t",
+        "steering_input"
+      ],
+      [
+        "0x2c",
+        "uint16_t",
+        "calibration_index"
+      ],
+      [
+        "0x42",
+        "uint8_t",
+        "init_complete_flag"
+      ],
+      [
+        "0x34",
+        "int8_t",
+        "steering_direction"
+      ],
+      [
+        "0x22",
+        "uint32_t",
+        "module_config_data"
+      ]
+    ]
+  },
+  "010ba858": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize or configure power steering control module based on input parameters and calibration data",
+    "vars": {
+      "param_1": "input_value_1",
+      "param_2": "input_value_2",
+      "param_3": "calibration_data",
+      "in_ep": "element_pointer",
+      "in_r21": "register_21",
+      "in_r29": "register_29",
+      "in_r10": "register_10",
+      "in_r11": "register_11",
+      "in_r12": "register_12",
+      "in_r24": "register_24",
+      "in_PSW": "processor_status_word"
+    },
+    "struct_fields": [
+      [
+        "0x0",
+        "uint32",
+        "calibration_data"
+      ],
+      [
+        "0x33",
+        "uint8",
+        "status_flag_1"
+      ],
+      [
+        "0x42",
+        "uint16",
+        "control_value_1"
+      ],
+      [
+        "0x50",
+        "void*",
+        "pointer_to_data"
+      ],
+      [
+        "0x66",
+        "uint16",
+        "control_value_2"
+      ],
+      [
+        "0x68",
+        "uint16",
+        "control_value_3"
+      ],
+      [
+        "0x34",
+        "int8",
+        "calibration_byte"
+      ],
+      [
+        "0x3a",
+        "uint8",
+        "calibration_flag"
+      ],
+      [
+        "0x22",
+        "uint32",
+        "calibration_base_address"
+      ],
+      [
+        "0x2c",
+        "int16",
+        "division_factor"
+      ]
+    ]
+  },
+  "010bcdea": {
+    "name": "maybe_pscm_steering_control_init",
+    "purpose": "Initialize or configure power steering control module settings based on input parameters and calibration data.",
+    "vars": {
+      "param_1": "steering_input_value",
+      "in_r16": "calibration_base_ptr",
+      "in_r18": "config_table_ptr",
+      "in_ep": "element_pointer",
+      "in_r22": "output_buffer_ptr",
+      "in_r23": "output_data_byte",
+      "in_r25": "local_stack_offset",
+      "unaff_tp": "calibration_index"
+    },
+    "struct_fields": [
+      [
+        "0x200",
+        "short",
+        "config_table_offset"
+      ],
+      [
+        "0x2a",
+        "byte",
+        "calibration_flag"
+      ],
+      [
+        "0x60",
+        "undefined4",
+        "steering_command_value"
+      ],
+      [
+        "0xd8",
+        "undefined2",
+        "calibration_parameter"
+      ],
+      [
+        "0x400",
+        "char",
+        "output_data_flag"
+      ]
+    ]
+  },
+  "010bd18e": {
+    "name": "maybe_power_steering_control_update",
+    "purpose": "Updates power steering control module state based on input parameters and jumps to a function pointer",
+    "vars": {
+      "param_1": "calibration_index",
+      "in_r1": "steering_input_byte",
+      "in_r15": "steering_angle_word",
+      "in_r25": "control_module_base",
+      "in_ep": "element_pointer",
+      "in_lp": "link_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x24",
+        "uint8_t",
+        "steering_input_byte"
+      ],
+      [
+        "0xc4",
+        "uint16_t",
+        "steering_angle_word"
+      ],
+      [
+        "0x3316",
+        "uint16_t",
+        "link_pointer"
+      ]
+    ]
+  },
+  "010bed8c": {
+    "name": "maybe_update_steering_calibration",
+    "purpose": "Updates steering system calibration values in the PSCM struct",
+    "vars": {
+      "param_1": "calibration_value",
+      "in_ep": "psc_struct_ptr",
+      "unaff_gp": "calibration_base"
+    },
+    "struct_fields": [
+      [
+        "0x30",
+        "uint32_t",
+        "steering_calib_data"
+      ],
+      [
+        "0x36",
+        "uint32_t",
+        "calibration_offset"
+      ]
+    ]
+  },
+  "010bec64": {
+    "name": "maybe_steering_control_loop",
+    "purpose": "Continuously processes steering input and updates control parameters for power steering system.",
+    "vars": {
+      "param_1": "steering_angle_input",
+      "in_r2": "steering_input_raw",
+      "in_r13": "steering_input_filtered",
+      "in_r17": "steering_sensitivity_factor",
+      "in_r20": "calibration_index",
+      "in_r23": "calibration_table_ptr",
+      "in_r25": "steering_offset_value",
+      "in_r26": "control_output_value",
+      "in_r28": "output_buffer_base",
+      "in_ep": "struct_base_ptr",
+      "in_CTBP": "call_table_base_ptr"
+    },
+    "struct_fields": [
+      [
+        "0x37",
+        "uint8_t",
+        "calibration_flag"
+      ],
+      [
+        "0x38",
+        "int32_t*",
+        "calibration_data_ptr"
+      ],
+      [
+        "0x4a",
+        "int8_t",
+        "steering_status"
+      ],
+      [
+        "0x62",
+        "uint8_t",
+        "control_state"
+      ],
+      [
+        "0x66",
+        "uint8_t",
+        "processed_steering_value"
+      ],
+      [
+        "0x6c",
+        "uint32_t",
+        "output_value"
+      ],
+      [
+        "0xcc",
+        "int16_t",
+        "control_output"
+      ],
+      [
+        "0x4040",
+        "uint16_t",
+        "steering_control_register"
+      ]
+    ]
+  },
+  "010bf75a": {
+    "name": "maybe_steering_control_update",
+    "purpose": "Updates steering control parameters and calibration values in the PSCM module.",
+    "vars": {
+      "in_r1": "steering_angle_raw",
+      "unaff_tp": "calibration_value_1",
+      "in_r15": "torque_sensor_offset",
+      "in_r16": "steering_ratio_factor",
+      "in_r27": "assist_level_setting",
+      "in_r28": "steering_response_gain",
+      "in_ep": "module_base_ptr",
+      "in_lp": "calibration_index"
+    },
+    "struct_fields": [
+      [
+        "0x22",
+        "uint16_t",
+        "steering_angle_raw"
+      ],
+      [
+        "0xee",
+        "uint16_t",
+        "assist_level_setting"
+      ],
+      [
+        "0xf0",
+        "int32_t",
+        "calibrated_torque_value"
+      ],
+      [
+        "0xf2",
+        "uint16_t",
+        "torque_sensor_offset"
+      ],
+      [
+        "0xf4",
+        "uint16_t",
+        "steering_response_gain"
+      ]
+    ]
+  },
+  "010c01c4": {
+    "name": "maybe_power_steering_control",
+    "purpose": "Processes power steering control input and calls a function based on calculated parameters",
+    "vars": {
+      "param_1": "input_param",
+      "in_r10": "calibration_value",
+      "in_r18": "division_factor",
+      "in_r24": "function_pointer",
+      "in_r25": "base_value",
+      "in_ep": "element_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x4a",
+        "uint8_t",
+        "steering_status"
+      ],
+      [
+        "0x80",
+        "int16_t",
+        "calibration_result"
+      ]
+    ]
+  },
+  "010c06f4": {
+    "name": "maybe_unimplemented_function",
+    "purpose": "This function appears to be a placeholder or stub that halts execution when encountered, likely due to unimplemented instructions in the decompiled code.",
+    "vars": {},
+    "struct_fields": []
+  },
+  "010c072a": {
+    "name": "maybe_update_steering_calibration",
+    "purpose": "Updates steering system calibration data in the power steering control module",
+    "vars": {
+      "in_ep": "calibration_base_ptr",
+      "in_lp": "calibration_data"
+    },
+    "struct_fields": [
+      [
+        "0xf0",
+        "uint32_t",
+        "calibration_update_flag"
+      ]
+    ]
+  },
+  "010c1da4": {
+    "name": "maybe_power_steering_control",
+    "purpose": "Execute power steering control function from call table and update calibration data",
+    "vars": {
+      "in_r1": "calibration_value_1",
+      "in_r14": "calibration_value_2",
+      "in_r17": "control_parameter",
+      "in_ep": "element_pointer",
+      "in_CTBP": "call_table_base"
+    },
+    "struct_fields": [
+      [
+        "0x00",
+        "uint16",
+        "unknown_0"
+      ],
+      [
+        "0x66",
+        "uint8",
+        "calibration_data_byte"
+      ]
+    ]
+  },
+  "010c16d8": {
+    "name": "maybe_steering_control_loop",
+    "purpose": "Processes steering control inputs and updates calibration data in the power steering control module.",
+    "vars": {
+      "param_1": "steering_input",
+      "param_2": "calibration_index",
+      "unaff_gp": "calibration_base",
+      "in_ep": "struct_base",
+      "in_r16": "loop_counter",
+      "in_r17": "input_value",
+      "in_r20": "control_word",
+      "in_r21": "xor_mask",
+      "in_r23": "config_value",
+      "in_r24": "status_flag",
+      "in_r26": "reference_value",
+      "in_r28": "current_value",
+      "in_r29": "adjustment_factor"
+    },
+    "struct_fields": [
+      [
+        "0x31",
+        "char",
+        "steering_input_byte"
+      ],
+      [
+        "0x51",
+        "short",
+        "calibration_offset"
+      ],
+      [
+        "0x60",
+        "undefined2",
+        "control_output_word"
+      ],
+      [
+        "0x62",
+        "short",
+        "adjustment_value"
+      ],
+      [
+        "0x66",
+        "short",
+        "final_adjustment"
+      ],
+      [
+        "0x70",
+        "uint",
+        "difference_value"
+      ]
+    ]
+  },
+  "010c210c": {
+    "name": "maybe_power_steering_control_loop",
+    "purpose": "Process power steering control loop data using calibration and call table pointers",
+    "vars": {
+      "param_1": "loop_increment",
+      "param_2": "calibration_value",
+      "in_r11": "calibration_data",
+      "in_r15": "control_byte",
+      "in_r17": "calibration_base_ptr",
+      "in_r19": "calibration_offset_ptr",
+      "in_r21": "base_address",
+      "in_r23": "offset_value",
+      "in_r24": "mask_value",
+      "in_r29": "status_byte",
+      "in_ep": "element_pointer",
+      "in_lp": "loop_counter"
+    },
+    "struct_fields": [
+      [
+        "0x60",
+        "int",
+        "calibration_data_field"
+      ],
+      [
+        "0xa0",
+        "int",
+        "control_value"
+      ],
+      [
+        "0xf0",
+        "int",
+        "loop_pointer"
+      ],
+      [
+        "0xf2",
+        "short",
+        "loop_counter_field"
+      ],
+      [
+        "0x37",
+        "char",
+        "loop_condition_flag"
+      ],
+      [
+        "0x4a",
+        "byte",
+        "data_byte"
+      ]
+    ]
+  },
+  "010c4ce4": {
+    "name": "maybe_unimplemented_function",
+    "purpose": "This function appears to be a placeholder or stub that halts execution due to unimplemented instructions.",
+    "vars": {},
+    "struct_fields": []
+  },
+  "010c4ea4": {
+    "name": "maybe_update_steering_status",
+    "purpose": "Updates steering status parameters and calls a function based on a stored value",
+    "vars": {
+      "param_1": "status_value"
+    },
+    "struct_fields": [
+      [
+        "0x68",
+        "uint32_t",
+        "steering_status"
+      ],
+      [
+        "0x6a",
+        "uint16_t",
+        "function_selector"
+      ]
+    ]
+  },
+  "010c50a6": {
+    "name": "maybe_handle_power_steering_command",
+    "purpose": "Processes a power steering command by updating calibration data and invoking a function based on calculated offset.",
+    "vars": {
+      "param_1": "command_offset",
+      "in_r1": "calibration_base_xor",
+      "in_r17": "calibration_index",
+      "in_r20": "steering_status_flag",
+      "in_r24": "calibration_table_index",
+      "in_r27": "base_address_offset",
+      "in_ep": "element_pointer",
+      "unaff_tp": "command_base_address"
+    },
+    "struct_fields": [
+      [
+        "0xf0",
+        "int",
+        "command_data"
+      ],
+      [
+        "0x34",
+        "char",
+        "steering_status"
+      ],
+      [
+        "0x4a",
+        "char",
+        "command_type"
+      ]
+    ]
+  },
+  "010c5d5a": {
+    "name": "maybe_power_steering_control_init",
+    "purpose": "Initialize power steering control module based on parameter and ep context",
+    "vars": {
+      "param_1": "calibration_index",
+      "in_r16": "calibration_value_1",
+      "in_r28": "calibration_value_2",
+      "in_ep": "element_pointer",
+      "in_PSW": "processor_status_word"
+    },
+    "struct_fields": [
+      [
+        "0xf0",
+        "byte*",
+        "element_pointer_field"
+      ],
+      [
+        "0xbe",
+        "ushort",
+        "calibration_value_2_store"
+      ],
+      [
+        "0xc4",
+        "undefined2",
+        "calibration_value_1_copy"
+      ],
+      [
+        "0xf8",
+        "undefined2",
+        "calibration_value_1_source"
+      ],
+      [
+        "0x49",
+        "byte",
+        "calibration_byte_1"
+      ],
+      [
+        "0x51",
+        "byte",
+        "calibration_byte_2"
+      ]
+    ]
+  },
+  "010c6e78": {
+    "name": "maybe_power_steering_control_init",
+    "purpose": "Initialize or configure power steering control module based on input parameters and system state",
+    "vars": {
+      "param_1": "input_signal",
+      "unaff_0001fa00": "clamped_value",
+      "uVar1": "calibration_entry",
+      "in_r10": "control_flag",
+      "in_r14": "steering_angle_input",
+      "in_r17": "output_address",
+      "in_r20": "system_status_byte",
+      "in_r24": "control_mask",
+      "in_r25": "base_value",
+      "in_r28": "calibration_table_ptr",
+      "in_r29": "data_buffer_ptr",
+      "in_ep": "element_pointer",
+      "in_lp": "call_table_base"
+    },
+    "struct_fields": [
+      [
+        "0x10",
+        "uint16_t*",
+        "calibration_entry_ptr"
+      ],
+      [
+        "0x31",
+        "uint8_t",
+        "system_status"
+      ],
+      [
+        "0x61",
+        "uint16_t",
+        "calibration_value"
+      ]
+    ]
+  },
+  "010c7842": {
+    "name": "maybe_power_steering_control_update",
+    "purpose": "Updates power steering control parameters based on input values and calibration data.",
+    "vars": {
+      "param_1": "steering_input",
+      "param_2": "status_flag",
+      "param_3": "calibration_base",
+      "in_r10": "control_condition",
+      "in_r20": "address_mask",
+      "in_r24": "function_index",
+      "in_r25": "calibration_value",
+      "in_r28": "output_offset",
+      "in_ep": "element_pointer",
+      "in_lp": "local_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x3c",
+        "undefined1",
+        "status_flag"
+      ],
+      [
+        "0xf0",
+        "undefined4",
+        "local_pointer"
+      ]
+    ]
+  },
+  "010c785c": {
+    "name": "maybe_update_power_steering_calibration",
+    "purpose": "Updates power steering calibration values in the PSCM module",
+    "vars": {
+      "in_r16": "calibration_base",
+      "in_r23": "calibration_byte_value",
+      "in_r25": "calibration_word_value",
+      "in_ep": "element_pointer"
+    },
+    "struct_fields": [
+      [
+        "0xc4",
+        "uint16_t",
+        "calibration_word_field"
+      ],
+      [
+        "0x285e",
+        "uint8_t",
+        "calibration_byte_field"
+      ]
+    ]
+  },
+  "010c794e": {
+    "name": "maybe_update_steering_calibration",
+    "purpose": "Update steering calibration values based on input parameters and store results in memory.",
+    "vars": {
+      "param_1": "calibration_address",
+      "in_r24": "call_table_index",
+      "in_r25": "input_value_1",
+      "in_r28": "calibration_offset",
+      "in_r29": "output_address",
+      "in_ep": "element_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x14",
+        "ushort",
+        "steering_input_raw"
+      ],
+      [
+        "0x448",
+        "char",
+        "calibration_flag"
+      ],
+      [
+        "0x62",
+        "undefined2",
+        "calibration_id"
+      ]
+    ]
+  },
+  "010ccf38": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initializes power steering control module by setting a flag and calling a function from the call table",
+    "vars": {
+      "in_ep": "psc_module_base",
+      "in_CTBP": "call_table_base"
+    },
+    "struct_fields": [
+      [
+        "0xf8",
+        "uint32_t",
+        "init_flag"
+      ]
+    ]
+  },
+  "010c7b44": {
+    "name": "maybe_power_steering_control_init",
+    "purpose": "Initialize power steering control module parameters and handle conditional branching based on input values",
+    "vars": {
+      "param_1": "input_value",
+      "in_r10": "calibration_byte",
+      "in_r16": "divisor_short",
+      "UNRECOVERED_JUMPTABLE": "function_pointer_table",
+      "in_r29": "stack_pointer",
+      "in_ep": "element_pointer"
+    },
+    "struct_fields": [
+      [
+        "0xf8",
+        "uint32_t",
+        "unknown_field_1"
+      ],
+      [
+        "0xcc",
+        "uint16_t",
+        "unknown_field_2"
+      ],
+      [
+        "0x09",
+        "uint8_t",
+        "unknown_field_3"
+      ],
+      [
+        "0x0a",
+        "uint8_t",
+        "unknown_field_4"
+      ]
+    ]
+  },
+  "010cf580": {
+    "name": "maybe_power_steering_control_update",
+    "purpose": "Updates power steering control module state and calls a function based on stored value",
+    "vars": {
+      "in_r2": "unknown_value_1",
+      "unaff_tp": "unknown_value_2",
+      "in_r25": "calibration_base",
+      "in_ep": "element_pointer",
+      "in_lp": "calibration_value"
+    },
+    "struct_fields": [
+      [
+        "0xc4",
+        "uint16_t",
+        "steering_status"
+      ],
+      [
+        "0xd0",
+        "uint16_t",
+        "control_flags"
+      ]
+    ]
+  },
+  "010d2716": {
+    "name": "maybe_power_steering_control_update",
+    "purpose": "Updates power steering control parameters based on input values and calibration data.",
+    "vars": {
+      "param_1": "input_value",
+      "in_r18": "calibration_offset_a",
+      "in_r21": "calibration_offset_b",
+      "in_ep": "base_struct_ptr",
+      "in_CTBP": "call_table_base_ptr",
+      "in_PSW": "processor_status_word"
+    },
+    "struct_fields": [
+      [
+        "0x66",
+        "char",
+        "steering_input_byte"
+      ],
+      [
+        "0xd0",
+        "undefined2",
+        "steering_input_word"
+      ],
+      [
+        "0xa4",
+        "short",
+        "calibrated_steering_output"
+      ]
+    ]
+  },
+  "010d81dc": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize or configure power steering control module settings and calibrations.",
+    "vars": {
+      "param_1": "input_value",
+      "param_2": "calibration_address",
+      "in_r20": "unknown_pointer_1",
+      "in_r24": "calibration_data_word",
+      "in_r28": "calibration_base_addr",
+      "in_ep": "element_pointer",
+      "in_CTBP": "call_table_base_ptr",
+      "in_lp": "local_param"
+    },
+    "struct_fields": [
+      [
+        "0x1a",
+        "ushort",
+        "steering_angle_raw"
+      ],
+      [
+        "0x51",
+        "byte",
+        "control_flags"
+      ],
+      [
+        "0x61",
+        "undefined1",
+        "unknown_flag_1"
+      ],
+      [
+        "0x65",
+        "byte",
+        "unknown_flag_2"
+      ],
+      [
+        "0x2e52",
+        "undefined2",
+        "calibration_word_1"
+      ],
+      [
+        "0x2e5a",
+        "undefined2",
+        "calibration_word_2"
+      ]
+    ]
+  },
+  "010dd864": {
+    "name": "maybe_empty_function",
+    "purpose": "Contains only NOP instructions and no actual functionality",
+    "vars": {},
+    "struct_fields": []
+  },
+  "010dda1e": {
+    "name": "maybe_nop_sequence",
+    "purpose": "Contains a long sequence of no-operation instructions, likely padding or placeholder code.",
+    "vars": {},
+    "struct_fields": []
+  },
+  "010dfbb0": {
+    "name": "maybe_empty_function",
+    "purpose": "This function appears to be empty or contains only NOP instructions, likely a placeholder or padding in the firmware.",
+    "vars": {},
+    "struct_fields": []
+  },
+  "010da7be": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize or configure power steering control module parameters",
+    "vars": {
+      "param_1": "steering_input_1",
+      "param_2": "steering_input_2",
+      "unaff_gp": "calibration_data",
+      "in_r11": "unknown_register_11",
+      "in_r12": "unknown_register_12",
+      "in_r15": "unknown_register_15",
+      "in_r17": "unknown_register_17",
+      "in_r18": "unknown_register_18",
+      "in_r19": "unknown_register_19",
+      "in_r20": "unknown_register_20",
+      "in_r22": "unknown_register_22",
+      "in_r23": "unknown_register_23",
+      "in_r25": "unknown_register_25",
+      "in_r26": "unknown_register_26",
+      "in_r27": "unknown_register_27",
+      "in_r28": "unknown_register_28",
+      "in_r29": "unknown_register_29",
+      "in_ep": "element_pointer",
+      "puVar5": "struct_base_ptr",
+      "in_lp": "link_pointer",
+      "in_CTBP": "call_table_base"
+    },
+    "struct_fields": [
+      [
+        "0x1a",
+        "uint16",
+        "steering_control_value"
+      ],
+      [
+        "0x26",
+        "uint16",
+        "control_register_1"
+      ],
+      [
+        "0x27",
+        "uint16",
+        "control_register_2"
+      ],
+      [
+        "0x2e",
+        "uint16",
+        "calibration_reference"
+      ],
+      [
+        "0x56",
+        "uint16",
+        "calibration_value_1"
+      ],
+      [
+        "0x6a",
+        "uint16",
+        "steering_input_buffer"
+      ],
+      [
+        "0x96",
+        "uint16",
+        "calibration_value_2"
+      ]
+    ]
+  },
+  "010e02d2": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize power steering control module and set up calibration parameters.",
+    "vars": {
+      "param_1": "calibration_base",
+      "in_r2": "steering_input",
+      "unaff_gp": "calibration_offset",
+      "in_r12": "control_value",
+      "in_r17": "calibration_table_ptr",
+      "in_r28": "module_config_ptr",
+      "in_ep": "element_pointer",
+      "in_lp": "low_precision_value",
+      "in_PSW": "processor_status_word"
+    },
+    "struct_fields": [
+      [
+        "0x18",
+        "int32",
+        "control_value"
+      ],
+      [
+        "0x40",
+        "int32*",
+        "element_base_ptr"
+      ],
+      [
+        "0x19",
+        "uint8",
+        "calibration_flag"
+      ],
+      [
+        "0x08",
+        "int16",
+        "low_precision_input"
+      ],
+      [
+        "0x64",
+        "int8",
+        "steering_angle"
+      ],
+      [
+        "0x720",
+        "int16",
+        "calibrated_steering_value"
+      ],
+      [
+        "0x711c",
+        "int16",
+        "config_value"
+      ],
+      [
+        "0x76d0",
+        "uint8",
+        "init_flag"
+      ]
+    ]
+  },
+  "010e1576": {
+    "name": "maybe_unrecovered_jumptable_handler",
+    "purpose": "Handles an unrecovered jump table, likely dispatching to different functions based on a lookup table",
+    "vars": {},
+    "struct_fields": []
+  },
+  "010e05be": {
+    "name": "maybe_power_steering_calibration_update",
+    "purpose": "Updates power steering calibration values based on input parameters and performs arithmetic operations on steering data.",
+    "vars": {
+      "param_1": "input_value",
+      "uVar1": "normalized_input",
+      "iVar2": "calibrated_value",
+      "in_r2": "calibration_flag",
+      "unaff_gp": "calibration_data",
+      "in_r10": "steering_ratio",
+      "in_r12": "steering_status",
+      "in_r16": "adjusted_calibrated_value",
+      "in_r17": "status_address",
+      "in_r28": "calibration_offset",
+      "in_ep": "element_pointer",
+      "in_lp": "call_table_entry"
+    },
+    "struct_fields": [
+      [
+        "0x0",
+        "undefined2*",
+        "base_pointer"
+      ],
+      [
+        "0x4",
+        "undefined2*",
+        "call_table_base"
+      ],
+      [
+        "0x33",
+        "undefined1",
+        "steering_flag"
+      ],
+      [
+        "0x60",
+        "undefined2",
+        "calibration_result"
+      ],
+      [
+        "0x7c",
+        "undefined2",
+        "calibration_reference"
+      ],
+      [
+        "0x1800",
+        "undefined1",
+        "steering_status_byte"
+      ]
+    ]
+  },
+  "010e2000": {
+    "name": "maybe_power_steering_calibration_update",
+    "purpose": "Updates power steering calibration data based on input parameters and calls a calibration function",
+    "vars": {
+      "param_1": "calibration_id",
+      "param_2": "calibration_type",
+      "param_3": "calibration_value"
+    },
+    "struct_fields": [
+      [
+        "0x79",
+        "uint8_t",
+        "calibration_table_offset"
+      ],
+      [
+        "0x6d",
+        "uint8_t",
+        "calibration_byte_value"
+      ],
+      [
+        "0x82",
+        "uint16_t",
+        "calibration_word_value"
+      ]
+    ]
+  },
+  "010e324a": {
+    "name": "maybe_power_steering_control_update",
+    "purpose": "Updates power steering control parameters based on input conditions and calls a function via an indirect jump table.",
+    "vars": {
+      "param_1": "input_value",
+      "param_2": "offset_value",
+      "param_3": "divider_value"
+    },
+    "struct_fields": [
+      [
+        "0xa0",
+        "uint32_t",
+        "calibration_data_1"
+      ],
+      [
+        "0xa8",
+        "uint32_t",
+        "calibration_data_2"
+      ],
+      [
+        "0xac",
+        "int32_t",
+        "computed_value"
+      ]
+    ]
+  },
+  "010e37a4": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize or configure power steering control module based on input parameters and system state",
+    "vars": {
+      "param_1": "input_value",
+      "param_2": "scaling_factor",
+      "in_ep": "element_pointer",
+      "in_r12": "control_register_base",
+      "in_r25": "calibration_table_base",
+      "in_lp": "loop_counter",
+      "in_PSW": "processor_status_word",
+      "puVar7": "calibration_entry_ptr"
+    },
+    "struct_fields": [
+      [
+        "0x25",
+        "char",
+        "steering_angle_flag"
+      ],
+      [
+        "0x28",
+        "byte",
+        "system_status_byte"
+      ],
+      [
+        "0x33",
+        "undefined1",
+        "init_flag"
+      ],
+      [
+        "0x36",
+        "undefined4",
+        "calibration_data_32bit"
+      ],
+      [
+        "0x49",
+        "char",
+        "last_processed_angle"
+      ],
+      [
+        "0x4b",
+        "undefined1",
+        "error_code_byte"
+      ],
+      [
+        "0x50",
+        "ushort",
+        "calibration_index"
+      ],
+      [
+        "0x56",
+        "undefined4",
+        "control_data_32bit"
+      ],
+      [
+        "0x79",
+        "byte",
+        "calibration_offset"
+      ]
+    ]
+  },
+  "010e4486": {
+    "name": "maybe_power_steering_control_init",
+    "purpose": "Initialize or configure power steering control module based on input parameter and system state",
+    "vars": {
+      "param_1": "steering_input_signal",
+      "unaff_tp": "calibration_address_base",
+      "uVar1": "calibration_offset",
+      "sVar2": "steering_angle_raw",
+      "iVar3": "steering_input_processed",
+      "in_r15": "calibration_value_1",
+      "in_r19": "system_flag_byte",
+      "in_r20": "control_register_address",
+      "in_r21": "calibration_base_offset",
+      "in_r23": "steering_sensitivity_factor",
+      "in_r25": "configuration_word",
+      "uVar4": "function_call_constant",
+      "in_ep": "element_pointer_base",
+      "in_lp": "loop_counter_value",
+      "in_PSW": "processor_status_word",
+      "in_CTBP": "call_table_base_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x66",
+        "ushort",
+        "steering_control_flag"
+      ],
+      [
+        "0x0",
+        "undefined2",
+        "calibration_value_1"
+      ],
+      [
+        "0x64",
+        "short",
+        "control_register_value"
+      ]
+    ]
+  },
+  "010e4590": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize power steering control module by setting up calibration and control registers",
+    "vars": {
+      "uVar1": "calibration_address",
+      "in_r11": "calibration_byte_1",
+      "in_r17": "control_register_1_addr",
+      "in_r20": "control_register_2_addr",
+      "in_r21": "control_register_3_addr",
+      "in_r23": "calibration_byte_2",
+      "in_ep": "base_struct_ptr",
+      "in_lp": "calibration_byte_3"
+    },
+    "struct_fields": [
+      [
+        "0x32",
+        "ushort",
+        "calibration_offset"
+      ],
+      [
+        "0x4a",
+        "undefined1",
+        "status_flag"
+      ],
+      [
+        "0xb2",
+        "short",
+        "control_register_value"
+      ]
+    ]
+  },
+  "010e4a78": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initialize power steering control module by setting up calibration flags and updating control registers.",
+    "vars": {
+      "param_1": "calibration_offset",
+      "in_r1": "steering_angle_raw",
+      "unaff_gp": "calibration_base_ptr",
+      "in_r17": "steering_sensitivity_factor",
+      "in_r21": "torque_input",
+      "in_ep": "control_module_base_ptr"
+    },
+    "struct_fields": [
+      [
+        "0x32",
+        "ushort",
+        "steering_control_register"
+      ],
+      [
+        "0x54",
+        "undefined4",
+        "module_status_word"
+      ],
+      [
+        "0x59",
+        "byte",
+        "control_flags"
+      ],
+      [
+        "0x5e51",
+        "byte",
+        "calibration_data_byte"
+      ],
+      [
+        "0xcc",
+        "undefined2",
+        "angle_input_register"
+      ],
+      [
+        "0xfa",
+        "ushort",
+        "torque_control_register"
+      ]
+    ]
+  },
+  "010e5fbe": {
+    "name": "maybe_unrecovered_jumptable_handler",
+    "purpose": "Handles a recovered jumptable with too many branches, likely for dispatching different power steering control functions",
+    "vars": {
+      "param_1": "base_offset"
+    },
+    "struct_fields": [
+      [
+        "0x0",
+        "uint32_t",
+        "unknown_field_0"
+      ],
+      [
+        "0x4",
+        "uint32_t",
+        "unknown_field_4"
+      ],
+      [
+        "0x8",
+        "uint32_t",
+        "unknown_field_8"
+      ],
+      [
+        "0xc",
+        "-0xb",
+        "calibration_offset"
+      ]
+    ]
+  },
+  "010e4aa8": {
+    "name": "maybe_power_steering_init",
+    "purpose": "Initializes power steering control module by setting flags and configuring calibration data",
+    "vars": {
+      "param_1": "psc_module_base",
+      "param_2": "calibration_base",
+      "in_r21": "unknown_value",
+      "in_ep": "element_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x32",
+        "ushort",
+        "calibration_offset_1"
+      ],
+      [
+        "0xfa",
+        "ushort",
+        "calibration_offset_2"
+      ],
+      [
+        "0x5e51",
+        "byte",
+        "control_flags"
+      ],
+      [
+        "0x1b0",
+        "byte",
+        "calibration_flag_offset"
+      ]
+    ]
+  },
+  "010ea15c": {
+    "name": "maybe_unknown_control_flow_function",
+    "purpose": "Unknown function with unimplemented control flow instructions and potential calibration or call table execution.",
+    "vars": {
+      "in_r1": "element_pointer_value",
+      "unaff_gp": "calibration_value",
+      "in_ep": "element_pointer_base",
+      "in_CTBP": "call_table_base"
+    },
+    "struct_fields": [
+      [
+        "0x0",
+        "undefined4",
+        "unknown_field_0"
+      ],
+      [
+        "0x4",
+        "undefined4",
+        "unknown_field_1"
+      ],
+      [
+        "0x8",
+        "undefined4",
+        "unknown_field_2"
+      ],
+      [
+        "0xC",
+        "undefined4",
+        "unknown_field_3"
+      ],
+      [
+        "0x10",
+        "undefined4",
+        "unknown_field_4"
+      ],
+      [
+        "0x14",
+        "undefined4",
+        "unknown_field_5"
+      ],
+      [
+        "0x18",
+        "undefined4",
+        "unknown_field_6"
+      ],
+      [
+        "0x1C",
+        "undefined2",
+        "calibration_field"
+      ]
+    ]
+  },
+  "010e8060": {
+    "name": "maybe_initialize_power_steering_control",
+    "purpose": "Initialize or reset power steering control module parameters and trigger a callback function.",
+    "vars": {
+      "param_1": "callback_param",
+      "in_r11": "calibration_base",
+      "in_r19": "calibration_base_copy",
+      "in_r25": "module_context_ptr",
+      "in_r28": "module_context_ptr_copy",
+      "in_ep": "element_pointer"
+    },
+    "struct_fields": [
+      [
+        "0x31",
+        "uint8_t",
+        "steering_angle_offset"
+      ],
+      [
+        "0x33",
+        "uint8_t",
+        "torque_sensor_status"
+      ],
+      [
+        "0x42",
+        "uint16_t",
+        "current_steering_angle"
+      ],
+      [
+        "0x50",
+        "uint32_t",
+        "calibration_data_ptr"
+      ],
+      [
+        "0x54",
+        "uint32_t",
+        "calibration_data_ptr_copy"
+      ],
+      [
+        "0x7c",
+        "uint32_t",
+        "calibration_base_addr"
+      ],
+      [
+        "0x7842",
+        "int32_t",
+        "context_pointer"
+      ]
+    ]
+  },
+  "010ecc46": {
+    "name": "maybe_unimplemented_function",
+    "purpose": "This function appears to be a placeholder or stub that halts execution when encountered, likely due to unimplemented instructions during decompilation.",
+    "vars": {},
+    "struct_fields": []
+  }
+}
