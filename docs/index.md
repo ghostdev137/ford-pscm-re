@@ -14,15 +14,15 @@ Unlock driver-assist features Ford disables in firmware on the 2025 Transit — 
 - **Automotive reverse engineers** interested in the TKP EPS / V850E2M PSCM platform.
 - **Curious people** who've never touched firmware before — start with [Getting Started](getting-started.html).
 
-> **Correction (2026-04-12):** Earlier drafts of these docs claimed the `-14D005-*` VBF was a separate "EPS core" block. That was wrong — `sw_part_type` in those files is `SBL` (Secondary Bootloader). The EPS inner-loop code lives *inside block0* alongside the strategy. Docs have been updated.
-
 ## Current status
 
-| Patch | Status |
+| Item | Status |
 |---|---|
-| [LKA 10-s lockout removal](lka.html) | ✅ **Flashed, working** |
-| [APA high-speed unlock](apa.html) | Built, not yet road-tested |
+| [LKA lockout removal + full authority](lka.html) | ✅ **Flashed, drive-confirmed** — torque median +184% |
+| [APA high-speed / standstill](apa.html) | Built, not yet road-tested |
 | [LCA enable](lca.html) | Cal done, AS-built reverts — help wanted |
+| Ghidra decompiler (RH850 patch) | ✅ 42% → 90% clean on Transit firmware |
+| F-150 cal RE | ✅ All offsets confirmed, patched VBFs built — pending test-flash |
 
 ## Learning path
 
@@ -38,31 +38,44 @@ If you're new, read in this order:
 
 ## For openpilot developers specifically
 
-See [Notes for openpilot](openpilot.html). TL;DR: flash [`LKA_NO_LOCKOUT.VBF`](https://github.com/ghostdev137/ford-pscm-re/blob/main/firmware/patched/LKA_NO_LOCKOUT.VBF), drive `0x213 DesTorq` continuously on MS-CAN. Don't bother enabling Ford LCA.
+See [Notes for openpilot](openpilot.html). TL;DR: flash [`LKA_FULL_AUTHORITY.VBF`](../firmware/patched/LKA_FULL_AUTHORITY.VBF), drive `0x213 DesTorq` continuously on MS-CAN. Don't bother enabling Ford LCA.
 
 ## Reference
 
-- [Calibration map](calibration-map.html) — known fields in the 65,520-byte cal.
+- [Calibration map](calibration-map.html) — known cal fields and patch targets.
+- [VBF patches](vbf-patches.html) — what each patched VBF changes and why.
 - [CAN / UDS reference](can-ids.html) — message catalog and UDS commands.
+- [PSCM Architecture](architecture.html) — MCU, memory map, CAN dispatch.
+- [Decompiler setup](decompiler.html) — Ghidra + RH850 patch, scripts, AI pipeline.
+- [Simulator](simulator.html) — Athrill status and limitations.
 - [VBF format spec](vbf-format.html) — terse format reference.
 - [Vehicles](vehicles/) — per-vehicle PSCM docs.
-- [Emulator notes](emulator-notes.html) — Athrill + autoas integration.
 
 ## Repository layout
 
 ```
 ford-pscm-re/
 ├── firmware/
-│   ├── Transit_2025/   ← our primary target (KK21 / LK41)
-│   ├── Transit_2026/   ← new platform (RK31) — mostly unmapped
-│   ├── Escape_2022/    ← LCA donor (LX6C) — same platform as Transit
-│   ├── Escape_2024/    ← newer Escape (PZ11)
-│   ├── F150_2022/      ← different platform (ML34/ML3V) — reference only
-│   └── patched/        ← our modified VBFs ready to flash
+│   ├── Transit_2025/              ← primary target (KK21 / LK41)
+│   ├── Transit_2026/              ← new platform (RK31) — unmapped
+│   ├── Escape_2022/               ← LCA donor (LX6C) — same platform as Transit
+│   ├── Escape_2024/               ← newer Escape (PZ11)
+│   ├── F150_2022/                 ← different platform (ML34/ML3V) — reference
+│   ├── F150_2021_Lariat_BlueCruise/  ← BlueCruise donor for torque curves
+│   └── patched/                   ← modified VBFs ready to flash
+├── analysis/
+│   ├── transit/                   ← APA gate analysis, CAN dispatch
+│   └── f150/                      ← F-150 cal RE, flash verdict
 ├── simulator/
-│   └── athrill/        ← V850E2M emulator with Ford patches
-├── tools/              ← VBF parsing, decompilation, UDS harness, etc.
-└── docs/               ← you are here
+│   └── athrill/                   ← V850E2M emulator with Ford patches
+├── tools/
+│   ├── ghidra_v850_patched/       ← forked SLEIGH: 42%→90% on Transit
+│   ├── scripts/                   ← Ghidra headless scripts
+│   ├── pipeline/                  ← AI annotation client
+│   └── *.py                       ← VBF tooling, UDS harness
+└── docs/
+    ├── archive/                   ← superseded docs (kept for history)
+    └── ...
 ```
 
 ## Contributing

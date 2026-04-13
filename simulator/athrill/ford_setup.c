@@ -136,6 +136,54 @@ static void ford_prefill_ep_area(void)
            FORD_EP_BASE, FORD_EP_BASE + 0x200);
 }
 
+static void ford_install_exit_handlers(void);
+static void ford_minimal_setup(void) {
+    extern int cal_log_enabled;
+    extern uint32 cal_log_count;
+    extern CpuType virtual_cpu;
+    TargetCoreType *core = &virtual_cpu.cores[0].core;
+
+    cal_log_count = 0;
+    cal_log_enabled = 1;
+    setvbuf(stdout, NULL, _IOLBF, 0);
+    ford_install_exit_handlers();
+
+    /* Basic register setup — F-150 V850.
+     * Cal lives at 0x101D0000-0x101FFFFF (F-150 calibration block).
+     * gp should point there so gp-relative loads hit cal.
+     * SP: high RAM. EP: mid-RAM element pointer. */
+    core->reg.r[REG_SP] = 0x4001FF00u;
+    core->reg.r[REG_GP] = 0x101D0000u;   /* F-150 cal base */
+    core->reg.r[REG_EP] = 0x40010100u;
+    core->reg.r[REG_LP] = 0xFFFFFFF0u;   /* trap on return */
+    core->reg.sys.grp[0][0].r[5] = 0x20; /* PSW supervisor */
+
+    /* Prestage a fake CAN 0x3CA frame at 0x40020000, pass ptr in r6 */
+    {
+        uint32 buf = 0x40020000u;
+        uint8 frame[8] = { 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88 };
+        for (int i = 0; i < 8; i++) bus_put_data8(0, buf + i, frame[i]);
+        core->reg.r[6] = buf;
+        core->reg.r[7] = 0x3CA;
+        core->reg.r[8] = 8;  /* dlc */
+    }
+
+    /* Override PC if env var set, else use device config */
+    const char *pc_env = getenv("FORD_ENTRY_PC");
+    if (pc_env) {
+        uint32 pc = (uint32)strtoul(pc_env, NULL, 0);
+        core->reg.pc = pc;
+        printf("=== Ford minimal setup — PC forced to 0x%08X ===\n", pc);
+    } else {
+        printf("=== Ford minimal setup — PC from device config (0x%08X) ===\n", core->reg.pc);
+    }
+    printf("  SP=0x%08X  GP=0x%08X  EP=0x%08X  LP=0x%08X\n",
+           core->reg.r[REG_SP], core->reg.r[REG_GP], core->reg.r[REG_EP], core->reg.r[REG_LP]);
+    printf("  r6(buf)=0x%08X r7(canid)=0x%X r8(dlc)=%u\n",
+           core->reg.r[6], core->reg.r[7], core->reg.r[8]);
+    printf("=== cal logging ON ===\n\n");
+}
+
 static void ford_setup_cpu(void)
 {
     extern CpuType virtual_cpu;
@@ -192,8 +240,9 @@ static void ford_setup_cpu(void)
     /* Pre-fill EP area to fake BSW init flags */
     ford_prefill_ep_area();
 
-    /* PC is set by DEBUG_FUNC_RESET_PC in device config — don't override */
-    printf("  PC   = 0x%08X (from device config)\n", core->reg.pc);
+    /* Force PC to application entry at 0x01000000 (strategy block 0) */
+    core->reg.pc = 0x01000000;
+    printf("  PC   = 0x%08X (forced to strategy entry)\n", core->reg.pc);
 
     /* Enable cal access logging */
     {
@@ -212,6 +261,9 @@ static void ford_setup_cpu(void)
             bus_put_data8(0, a, 0x01);
     }
 
+    setvbuf(stdout, NULL, _IOLBF, 0);
+    ford_install_exit_handlers();
+
     printf("=== Setup complete (cal logging ON) ===\n\n");
 }
 
@@ -219,8 +271,10 @@ static void ford_print_cal_log(void) {
     extern uint32 cal_log_pc[];
     extern uint32 cal_log_addr[];
     extern uint32 cal_log_count;
+    extern uint64 total_bus_reads;
+    printf("\n=== Cal Access Log: %u reads (of %llu total bus reads) ===\n",
+           cal_log_count, (unsigned long long)total_bus_reads);
     if (cal_log_count == 0) return;
-    printf("\n=== Cal Access Log: %u reads ===\n", cal_log_count);
     uint32 i, printed = 0;
     for (i = 0; i < cal_log_count && printed < 300; i++) {
         uint32 cal_off = cal_log_addr[i] - 0x00FD0000u;
@@ -229,4 +283,19 @@ static void ford_print_cal_log(void) {
     }
 }
 
-static void ford_atexit_handler(void) { ford_print_cal_log(); }
+static void ford_atexit_handler(void) { ford_print_cal_log(); fflush(stdout); }
+
+#include <signal.h>
+#include <stdlib.h>
+static void ford_signal_handler(int sig) {
+    ford_atexit_handler();
+    _exit(128 + sig);
+}
+static void ford_install_exit_handlers(void) {
+    static int installed = 0;
+    if (installed) return;
+    installed = 1;
+    atexit(ford_atexit_handler);
+    signal(SIGINT,  ford_signal_handler);
+    signal(SIGTERM, ford_signal_handler);
+}

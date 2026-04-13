@@ -47,8 +47,9 @@ LZSS variant: 8-flag byte, each bit = literal (1) or back-reference (0). Back-re
 6. Concatenate all block data, compute CRC32, update `file_checksum` in header.
 7. Write out.
 
-## PSCM-specific
+## PSCM-specific (Transit/Escape)
 
-- 3 blocks: strategy (`~0x00F00000`), RAM init (`~0x40000000`), EPS core.
-- Cal is part of strategy block at `0x00FD0000` (65,520 bytes).
-- SBL is a separate VBF uploaded first by FORScan during flashing.
+- Strategy VBF (`-14D003-*`) contains 2 blocks: strategy code (`0x01000000`) and RAM init image (`0x10000400`).
+- Cal VBF (`-14D007-*`) contains 1 block at `0x00FD0000` (65,520 bytes) — this is our patch target.
+- SBL VBF (`-14D005-*`) is uploaded to RAM during flashing and never written to flash storage.
+- There is no separate "EPS core" block — motor control code lives inside the strategy block.

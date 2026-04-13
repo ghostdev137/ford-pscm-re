@@ -1,193 +1,133 @@
 # Ford PSCM Firmware Reverse Engineering
 
-Reverse engineering of the Ford Power Steering Control Module (PSCM) firmware across **2025 Transit**, **2026 Transit**, **2022/2024 Escape**, and **2022 F-150**. Primary goal: unlock disabled driver-assist features on Transit (LKA lockout removal, APA high-speed, Lane Centering Assist) via calibration/strategy patches. Cross-platform documentation included to help others port the work to other vehicles.
+Reverse engineering of the Ford Power Steering Control Module (PSCM) firmware across **2025 Transit**, **2022/2024 Escape**, and **2022/2021 F-150**. Primary goals: unlock disabled driver-assist features on Transit (LKA authority expansion, APA standstill, Lane Centering) via calibration patches, and document the platform fully so others can port the work.
 
-> **📖 Full documentation site:** **<https://ghostdev137.github.io/ford-pscm-re/>** — start with [Getting Started](https://ghostdev137.github.io/ford-pscm-re/getting-started.html) if you're new to firmware hacking.
-
-> **Status:** `LKA_NO_LOCKOUT.VBF` successfully flashed via FORScan. APA and LCA patches built. Full firmware docs, cal offsets, VBF tooling, and emulator notes are on the Pages site — this README is a quick index.
+> **Status (2026-04-13):** `LKA_FULL_AUTHORITY.VBF` flashed and drive-confirmed — column torque median +184% vs stock. Ghidra decompiler patched to 90% clean-decompile on Transit firmware. F-150 (V850 baseline) and Transit (RH850 extended) ISAs confirmed and distinguished.
 
 ---
 
-## Quick links
+## What works today
 
-**New to firmware hacking?** → [Getting Started](docs/getting-started.md) → [Glossary](docs/glossary.md) → [VBF Files Explained](docs/vbf-explained.md)
+| Patch | File | Status |
+|---|---|---|
+| LKA lockout removal | `LKA_NO_LOCKOUT.VBF` | Flashed, confirmed |
+| LKA full authority (F-150 BlueCruise envelope) | `LKA_FULL_AUTHORITY.VBF` | **Flashed, drive-confirmed** — torque median 0.44 → 1.25 Nm (+184%) |
+| LKA + APA high-speed | `LKA_NO_LOCKOUT_APA_HIGH_SPEED.VBF` | Ready |
+| LKA + APA standstill | `LKA_APA_STANDSTILL.VBF` | Ready |
+| LCA enable attempt | `LCA_ENABLED.VBF` | Cal works, AS-built reverts on power cycle |
 
-**Know your way around?** →
-- [LKA lockout removal](docs/lka.md) (works, flashed)
-- [LCA enable attempt](docs/lca.md) (partial — help wanted)
-- [APA speed unlock](docs/apa.md)
-- [Per-file VBF catalog](docs/per-file-catalog.md) — every file explained
-- [Vehicles](docs/vehicles/) — Transit 2025/2026, Escape 2022/2024, F-150 2022
-- [Flashing guide](docs/flashing.md) · [PSCM architecture](docs/architecture.md) · [CAN/UDS reference](docs/can-ids.md)
-
-**openpilot dev?** → [Notes for openpilot](docs/openpilot.md)
-
-## Table of Contents
-- [Hardware](#hardware)
-- [Firmware Layout](#firmware-layout)
-- [VBF Container Format](#vbf-container-format)
-- [Calibration Map (PSCM)](#calibration-map-pscm)
-- [Patches](#patches)
-- [CAN / UDS Protocol](#can--uds-protocol)
-- [Cross-Vehicle Comparison](#cross-vehicle-comparison)
-- [Emulator (Athrill / autoas)](#emulator)
-- [Flashing Workflow](#flashing)
-- [Open Questions](#open-questions)
-- [References](#references)
+All patched VBFs are in `firmware/patched/`. Flash with FORScan → PSCM → Module Programming → Load from file.
 
 ---
 
 ## Hardware
 
-| Item | Value |
-|---|---|
-| Vendor | ThyssenKrupp Presta (TKP) EPS EPU |
-| Platform ID | `TKP_INFO:35.13.8.0_FIH` |
-| MCU | Renesas V850E2M / RH850 |
-| Flash base | `0x00FD0000` (calibration) |
-| Strategy base | `0x00F00000` approx. |
-| RAM base | `0x40000000` (EP window at `0x40010100`) |
-| ECU address | `0x730` (req) / `0x738` (resp) — ISO-15765 |
-| Bus | MS-CAN (not HS-CAN — J2534/VCM-II required) |
-
-## Firmware Layout
-
-Each VBF typically contains 3 blocks:
-
-| Block | Address | Purpose |
+| Item | Transit 2025 | F-150 2022/2021 |
 |---|---|---|
-| block0 | strategy | Main application code (AUTOSAR + EPS strategy) |
-| block1 | RAM init | Initialized data image copied to RAM on boot |
-| block2 | EPS core | Low-level motor control / safety code |
-| cal | `0x00FD0000` | 65,520 byte calibration table (this is what we patch) |
-| SBL | — | Secondary Bootloader, delivered separately during flashing |
+| Vendor | ThyssenKrupp Presta (TKP) EPU | Different vendor |
+| MCU | Renesas **RH850** (V850-family, extended ops) | Renesas **V850** (baseline — Ghidra stock decodes it) |
+| Endianness | Little-endian | Little-endian |
+| Cal base | `0x00FD0000` (65,520 B, big-endian tables) | `0x101D0000` (195,584 B, little-endian tables) |
+| ECU address | `0x730` (req) / `0x738` (resp) | `0x730` / `0x738` |
+| Bus | MS-CAN | CAN FD (UDS over classical CAN) |
 
-## VBF Container Format
-
-```
-header { ... } ;            # ASCII key=value block, terminated by '};'
-for each block:
-    u32 start_address        (big-endian)
-    u32 length               (big-endian)
-    u8  data[length]         # raw or LZSS (data_format_identifier=0x10)
-    u16 crc16                # CRC16-CCITT on DECOMPRESSED data
-u32 file_checksum            # CRC32 over all block data
-```
-
-Key header fields: `sw_part_number`, `sw_part_type`, `ecu_address=0x730`, `data_format_identifier` (`0x00` uncompressed / `0x10` LZSS), `file_checksum`.
-
-- CRC16 = CRC16-CCITT over decompressed data.
-- CRC32 = standard over the block data section.
-- For uncompressed VBFs, CRC16 is on raw data.
-
-## Calibration Map (PSCM)
-
-Big-endian throughout. Offsets relative to `0x00FD0000`.
-
-| Offset | Type | Field | Original | Patched | Confidence |
-|---|---|---|---|---|---|
-| `+0x02C4..02E0` | `float[]` | APA speed table (kph) | 4.6 / 8.0 cap | 50.0 / 200.0 | MEDIUM |
-| `+0x02DC` | `float` | APA low-speed thresh | 4.6 | 50.0 | MEDIUM |
-| `+0x02E0` | `float` | APA high-speed cap | 8.0 | 200.0 | MEDIUM |
-| `+0x06B0..06C2` | `u16[]` | LKA lockout timer table (×10 ms) | various | all zero | HIGH |
-| `+0x06B6` | `u16` | LKA main lockout timer | 0x03E8 (1000 = 10 s) | 0x0000 | **HIGH** |
-| `+0xF188` DID | ASCII | Strategy PN | `LK41-14D007-AH` | — | — |
-| `+0xF10A` DID | ASCII | Calibration PN | — | — | — |
-
-GP-relative LCA data regions copied from Escape 2022 cal (`1FMCU9J98NUA09141`, LX6C PSCM, same platform & memory map):
-
-`0x06C3, 0x06C8, 0x0E79, 0x0E82, 0x21BC, 0x2FCE, 0x327C, 0x33DD, 0x3AD1, 0x41AD, 0xFFDC` — total 4,460 bytes across 11 regions, populating all 12 GP-relative LCA offsets.
-
-## Patches
-
-| File | Changes | Status |
-|---|---|---|
-| `patched/LKA_NO_LOCKOUT.VBF` | Timer table `+0x06B0..06C2` zeroed (13 bytes) | **FLASHED ✓** |
-| `patched/APA_HIGH_SPEED.VBF` | APA speed 50/200 kph | Ready |
-| `patched/LCA_ENABLED.VBF` | Timer + 4.5 KB Escape LCA cal data | Ready (AS-built reverts on AM — likely strategy-level gate) |
-
-All patched VBFs: CRC16 PASS, CRC32 PASS, 66,915 bytes, `data_format_identifier=0x00`, `ecu_address=0x00FD0000`.
-
-## CAN / UDS Protocol
-
-| CAN ID | Name | Purpose |
-|---|---|---|
-| `0x082` | EPAS_INFO | EPS status broadcast |
-| `0x07E` | StePinion | Steering pinion angle |
-| `0x091` | Yaw | Yaw rate |
-| `0x213` | DesTorq | Desired torque (from IPMA) |
-| `0x3A8` | APA | Active Park Assist cmd |
-| `0x3CA` | LKA | Lane Keep Aid cmd |
-| `0x3CC` | LKA_Stat | LKA status |
-| `0x3D3` | LCA | Lane Centering Assist cmd |
-| `0x415` | BrkSpeed | Brake + wheel speed |
-| `0x730` | PSCM_Diag | UDS request |
-| `0x738` | PSCM_Resp | UDS response |
-
-UDS services used during RE:
-- `0x10 0x03` — Extended diagnostic session
-- `0x3E 0x00` — Tester Present
-- `0x22 F188 / F10A` — Read strategy / cal PN
-- `0x23 0x44 <addr32> <len32>` — ReadMemoryByAddress (dumps cal/RAM)
-
-## Cross-Vehicle Comparison
-
-| Vehicle | Strategy PN prefix | PSCM platform | LCA |
-|---|---|---|---|
-| 2025 Transit | `LK41` / `KK21` | TKP EPS EPU | **Disabled** |
-| 2022 Escape | `LX6C` | TKP EPS EPU (same) | Enabled |
-| 2022 F-150 | `ML34` / `ML3V` | different | Enabled |
-| 2025 Transit IPMA | `NK3T` | — | Camera (Mobileye EyeQ3 + Mando LKAS) |
-
-Escape & Transit share same PSCM memory map and 65,520-byte cal layout — this is what enables the cross-flash experiment.
-
-## Emulator
-
-`tools/v850/emu/athrill/` — TOPPERS Athrill2 V850E2M ISS, patched to:
-- Suppress loader errors (missing DWARF/symbols in stripped Ford ELF)
-- Load RAM segments directly from ELF
-- Ignore undefined instruction exceptions (PC += 2 and continue)
-- Track `cal_current_pc` for memory-access logging
-- Inject AUTOSAR BSW state at EP-window addresses
-
-BSW init values (derived from `reference/autoas/` source):
-
-```c
-bus_put_data32(0, 0x40010100, 0x00030003);  // Com/CanIf states
-bus_put_data8 (0, 0x4001010E, 0x03);         // CanIf = STARTED
-bus_put_data8 (0, 0x40010140, 0x02);         // EcuM = RUN
-bus_put_data8 (0, 0x40010170, 0x03);         // main loop = RUNNING
-```
-
-**Blocker:** AUTOSAR COM is interrupt-driven. Sequential entry-by-entry execution in Athrill never reaches cal reads. Next step: wire autoas CAN socket simulator to Athrill's RS-CAN controller so BSW handles routing while the real firmware processes messages.
-
-## Flashing
-
-1. Put VCM-II (or TOPDON RLink X3 with Ford DLL) on OBD.
-2. Open FORScan → Service → Module Programming → select **PSCM**.
-3. Point at patched `.VBF`. FORScan handles SBL upload + erase + flash + activate.
-4. Cycle ignition. Check for `P0600`/`C0051` DTCs.
-5. Drive and test the feature.
-
-> Only FORScan reliably routes UDS to `0x730` via the Ford J2534 stack.
-> Direct ctypes calls to `RLink-FDRS.dll` (32-bit) only see `0x59E` — bus routing not set up without the Rlink Platform middleware.
-
-## Open Questions
-
-- LCA AS-built config reverts on power cycle even with cal data filled — strategy-level gate somewhere in block0?
-- Removed code at `0x010E1000` (between AG→AH→AL→AM revisions): 80 EP-relative accesses, no cal reads, no CAN refs — **not** the LCA handler.
-- `RJ6T` / `PZ11` firmware are IPMA, not PSCM — still hunting for shipped Escape PSCM binary for full diff.
-- Can we bypass FORScan and drive the flash sequence directly via J2534?
-
-## References
-
-- [autoas/as](https://github.com/parai/as) — AUTOSAR 4.4 BSW reference
-- [TOPPERS Athrill](https://github.com/toppers/athrill) — V850E2M ISS
-- [icanhack.nl](https://icanhack.nl/) — Ford MS-CAN / UDS notes
-- [openpilot comma.ai](https://github.com/commaai/openpilot) — LKAS architecture
-- Ford FDSP: `www.fdspcl.dealerconnection.com` (requires dealer auth)
-- VBF format: Volvo/Ford binary programming container (LZSS + CRC16-CCITT + CRC32)
+Transit and 2022 Escape share the same PSCM platform (`TKP_INFO:35.13.8.0_FIH`), same 65,520-byte cal layout. F-150 is a completely different platform — not cross-compatible.
 
 ---
 
-**Disclaimer:** For research and personal-vehicle use only. Flashing modified firmware to a PSCM can disable power steering. Understand the risk before writing to your own ECU.
+## Repository layout
+
+```
+ford-pscm-re/
+├── firmware/
+│   ├── Transit_2025/       ← primary target (KK21 / LK41)
+│   ├── Transit_2026/       ← new platform (RK31) — unmapped
+│   ├── Escape_2022/        ← LCA cal donor (LX6C) — same platform as Transit
+│   ├── Escape_2024/        ← newer Escape (PZ11)
+│   ├── F150_2022/          ← different platform (ML34/ML3V) — reference
+│   ├── F150_2021_Lariat_BlueCruise/  ← BlueCruise donor for torque curves
+│   └── patched/            ← modified VBFs ready to flash
+├── analysis/
+│   ├── transit/            ← APA gate analysis, CAN dispatch map
+│   └── f150/               ← F-150 cal RE, SBL/strategy findings, flash verdict
+├── simulator/
+│   └── athrill/            ← V850E2M emulator (Transit executes, limited by SP/GP)
+├── tools/
+│   ├── ghidra_v850_patched/  ← forked SLEIGH: 42% → 90% clean-decompile on Transit
+│   ├── scripts/              ← Ghidra headless scripts (ProbeWithSeed, DumpDecomps, etc.)
+│   ├── pipeline/             ← annotate.py: OpenAI-compatible client → GLM-4.7-Flash
+│   └── *.py                  ← VBF tooling, UDS harness, etc.
+└── docs/                   ← reference docs
+```
+
+---
+
+## Reproducing the key results
+
+### 1. Verify the LKA_FULL_AUTHORITY patch
+```bash
+python tools/vbf_decompress.py firmware/patched/LKA_FULL_AUTHORITY.VBF
+# Expect: CRC16 PASS, CRC32 PASS, addr=0x00FD0000
+```
+Flash via FORScan. Read cal `+0x03C4` (32 bytes) via UDS to confirm the new torque curve is live:
+```
+req  0x730  10 12 23 44 00 FD 03 C4 00 20
+resp 0x738  63 <32 bytes>
+# Decoded as 8 BE float32: [0, 0.7, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5] Nm
+```
+
+### 2. Run Ghidra decompiler at 90%
+```bash
+# Install patched SLEIGH:
+cp -r tools/ghidra_v850_patched ~/Library/ghidra/ghidra_<VERSION>_PUBLIC/Extensions/ghidra_v850
+$(brew --prefix)/Cellar/ghidra/*/libexec/support/sleigh tools/ghidra_v850_patched/data/languages/v850e3.slaspec
+
+# Headless decompile probe (requires transit_AH_blk0_0x01000000.bin extracted first):
+$(brew --prefix)/Cellar/ghidra/*/libexec/support/analyzeHeadless /tmp/proj TestRun \
+  -import /tmp/pscm/transit_AH_blk0_0x01000000.bin \
+  -loader BinaryLoader -loader-baseAddr 0x01000000 \
+  -processor "v850e3:LE:32:default" \
+  -scriptPath tools/scripts \
+  -postScript ProbeWithSeed.java -deleteProject \
+  2>&1 | grep RESULT
+# Expect: 90/100 clean
+```
+
+### 3. AI-annotate decompile output
+```bash
+# Dumps all clean decompiles to decompiles_clean/<addr>.c, then annotates:
+python tools/pipeline/annotate.py \
+  --input /tmp/pscm/decompiled/ \
+  --endpoint http://100.69.219.3:8000/v1 \
+  --model glm-4-flash
+```
+
+---
+
+## Open questions
+
+1. **LCA AS-built revert** — after filling LCA cal data from Escape, AS-built enable bits revert on power cycle. Suspected strategy-level VIN/vehicle-code check in block0.
+2. **Cal addressing mode** — no `movhi 0x00FD` in Transit strategy. Cal is probably accessed via a data-space mirror address. Finding it unlocks static tracing of all cal reads.
+3. **CAN 0x3CA vs 0x3A8 dispatch** — 178 raw-byte hits for 0x3A8 in Transit firmware vs 1 for 0x3CA, but 0x3CA is confirmed to work (LKA patches prove it). Likely matched via lookup table, not literal compare.
+4. **Angle limit 5.86°** — `LaRefAng_No_Req` DBC 12-bit signed scale-0.05 artifact, not a PSCM firmware clamp. Could be changed by rescaling in opendbc.
+5. **F-150 BlueCruise flash** — patched VBFs have valid CRC32. SBL confirmed no crypto verification of cal. Unknown: mask ROM boot behavior. Test on donor/bench module first.
+
+---
+
+## Quick links
+
+**New here?** → [docs/getting-started.md](docs/getting-started.md) → [docs/glossary.md](docs/glossary.md)
+
+**Flashing?** → [docs/vbf-patches.md](docs/vbf-patches.md) · [docs/flashing.md](docs/flashing.md)
+
+**RE work?** → [docs/architecture.md](docs/architecture.md) · [docs/decompiler.md](docs/decompiler.md) · [docs/calibration-map.md](docs/calibration-map.md)
+
+**openpilot?** → [docs/openpilot.md](docs/openpilot.md) — TL;DR: flash `LKA_FULL_AUTHORITY.VBF`, drive `0x213 DesTorq` on MS-CAN.
+
+**CAN/UDS?** → [docs/can-ids.md](docs/can-ids.md)
+
+**Emulator?** → [docs/simulator.md](docs/simulator.md)
+
+---
+
+**Disclaimer:** For research and personal-vehicle use only. Flashing modified firmware to a PSCM can disable power steering. One PSCM was bricked during this project. Understand the risk before writing to your own ECU.

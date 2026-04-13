@@ -53,9 +53,9 @@ A Windows app (~$40 extended license) that speaks UDS to Ford modules. It can re
 
 1. Buy/borrow a J2534 adapter.
 2. Install FORScan (Extended license trial works for one flash).
-3. Download [`LKA_NO_LOCKOUT.VBF`](https://github.com/ghostdev137/ford-pscm-re/blob/main/firmware/patched/LKA_NO_LOCKOUT.VBF) from this repo.
+3. Download [`LKA_FULL_AUTHORITY.VBF`](https://github.com/ghostdev137/ford-pscm-re/blob/main/firmware/patched/LKA_FULL_AUTHORITY.VBF) from this repo. (This is the recommended patch — removes the lockout, lowers the speed floor, and raises torque to F-150 BlueCruise levels. If you want the minimal change only, use `LKA_NO_LOCKOUT.VBF` instead.)
 4. Follow the [flashing guide](flashing.html).
-5. Drive and feel continuous LKA instead of 10-second dropouts.
+5. Drive and feel continuous, authority-full LKA instead of the factory "one weak tug every 10 seconds."
 
 That's it — that's the whole "quick win" of this project. Everything else is context, exploration, or advanced work.
 
@@ -74,7 +74,7 @@ Read the above, then:
 - **Drive the patched firmware and report what happens.** This is the highest-value contribution.
 - **Help with LCA.** The AS-built revert mystery needs more eyes. See [lca](lca.html).
 - **Fill in the calibration map.** Most of the 65,520-byte cal is still undocumented. See [calibration-map](calibration-map.html).
-- **Help get the emulator working.** See [emulator notes](emulator-notes.html).
+- **Help get the emulator working.** See [simulator notes](simulator.html).
 
 ## Safety / ethics / legal
 

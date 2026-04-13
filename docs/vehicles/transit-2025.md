@@ -15,14 +15,14 @@ nav_order: 1
 | Platform | Transit 2024+ (T-series 4G) |
 | PSCM vendor | ThyssenKrupp Presta EPU |
 | Platform ID (cal string) | `TKP_INFO:35.13.8.0_FIH` |
-| MCU | Renesas V850E2M / RH850 |
+| MCU | Renesas **RH850** (V850-family, extended ops) |
 | Ford base-part prefix (strategy) | `KK21` |
 | Ford base-part prefix (cal) | `LK41` |
 | IPMA (camera) prefix | `NK3T` |
 | CAN ID (UDS request) | `0x730` |
 | CAN ID (UDS response) | `0x738` |
 | Bus | MS-CAN |
-| Cal flash address | `0x00FD0000` (65,520 bytes) |
+| Cal flash address | `0x00FD0000` (65,520 bytes, big-endian) |
 
 ## Stock feature state
 
@@ -36,9 +36,9 @@ nav_order: 1
 
 ## What we've done
 
-- **Flashed `LKA_NO_LOCKOUT.VBF`.** Timer table zeroed. Lockout removed. Works.
-- **Built `APA_HIGH_SPEED.VBF`.** APA caps raised to 50/200 kph. Not yet driven.
-- **Flashed `LCA_ENABLED.VBF`.** Timer zeroed + Escape LCA cal data copied in. Cal data sticks but AS-built enable bits revert on power cycle — cause unknown.
+- **Flashed `LKA_FULL_AUTHORITY.VBF`.** Cumulative: lockout zeroed + min-speed 3 m/s + torque curve at F-150 BlueCruise level. Drive-confirmed: torque median +184%, engages at 10.7 m/s.
+- **Built `LKA_NO_LOCKOUT_APA_HIGH_SPEED.VBF` and `LKA_APA_STANDSTILL.VBF`.** APA caps raised; not yet driven.
+- **Flashed `LCA_ENABLED.VBF`.** Cal data persists, AS-built enable bits revert on power cycle — strategy-level gate suspected.
 
 ## Related files in this repo
 

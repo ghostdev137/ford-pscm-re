@@ -77,16 +77,32 @@ Location: `firmware/F150_2022/`
 
 Excluded from repo: `PJ6T-*`, `RJ6T-*`, `RJ8T-*`, `SL3T-*`, `PL3T-*`, `H1BT-*`, `NK3T-*` — these are IPMA / APIM / PAM firmware, not PSCM, and some are >60 MB. They live in the separate research archive.
 
+## 2021 Ford F-150 Lariat 502A — BlueCruise (`firmware/F150_2021_Lariat_BlueCruise/`)
+
+Donor set from a 2021 F-150 Lariat 502A with BlueCruise. Same `ML34`/`ML3V` PSCM platform as the 2022 F-150 files, newer revisions.
+
+| File | `sw_part_type` | Role | Size |
+|---|---|---|---|
+| `ML34-14D004-EP.VBF` | `DATA` | Supplementary | 66,332 B |
+| `ML34-14D005-AB.VBF` | `SBL` | Secondary Bootloader | 10,583 B |
+| `ML34-14D007-EDL.VBF` | `DATA` | Calibration | 197,409 B |
+| `ML3V-14D003-BD.VBF` | `EXE` | Strategy | 1,573,660 B |
+
+Cal is little-endian (unlike Transit/Escape big-endian). Full RE complete — see `analysis/f150/`.
+
 ## Patched output
 
 Location: `firmware/patched/`
 
-| File | Base | Changes |
-|---|---|---|
-| `LKA_NO_LOCKOUT.VBF` | `LK41-14D007-AH` cal | Timer table `+0x06B0..06C2` → zero. **Flashed.** |
-| `APA_HIGH_SPEED.VBF` | `LK41-14D007-AH` cal | APA speeds 50/200 kph. Ready. |
-| `LCA_ENABLED.VBF` | `LK41-14D007-AH` cal | Timer zeroed + 4.5 KB Escape LCA cal data. Flashed, AS-built reverts. |
-| `cal_*.bin` | — | Decompressed calibration blobs for diffing |
+| File | Base | Changes | Status |
+|---|---|---|---|
+| `LKA_NO_LOCKOUT.VBF` | `LK41-14D007-AH` cal | Timer table `+0x06B0..06C2` → zero | Flashed |
+| `LKA_FULL_AUTHORITY.VBF` | `LK41-14D007-AH` cal | Timer + min-speed (3 m/s) + torque curve raised | **Flashed, drive-confirmed** |
+| `LKA_NO_LOCKOUT_APA_HIGH_SPEED.VBF` | `LK41-14D007-AH` cal | Timer + APA 50/200 kph | Ready |
+| `LKA_APA_STANDSTILL.VBF` | `LK41-14D007-AH` cal | Timer + APA standstill-capable | Ready |
+| `LCA_ENABLED.VBF` | `LK41-14D007-AH` cal | Timer + 4,460 B Escape LCA data | Flashed; AS-built reverts |
+| `cal_*.bin` | — | Decompressed calibration blobs for diffing | Reference only |
+| `F150_Lariat_BlueCruise/*.VBF` | `ML34-14D007-EDL` | 6 variants — LKA lockout, min-speed, APA cap | Built, not yet test-flashed |
 
 ## Cross-platform compatibility matrix
 

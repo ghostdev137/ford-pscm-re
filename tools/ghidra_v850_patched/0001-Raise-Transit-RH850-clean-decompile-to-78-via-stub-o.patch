@@ -1,0 +1,777 @@
+From d476843763bb0c6386e6c1a4c53f3f6612aa752b Mon Sep 17 00:00:00 2001
+From: rossfisher <ross@local>
+Date: Mon, 13 Apr 2026 03:48:37 -0400
+Subject: [PATCH] Raise Transit RH850 clean decompile to 78% via stub opcodes +
+ case fixes
+
+---
+ data/languages/v850_arithmetic.sinc        |  34 +--
+ data/languages/v850_arithmetic.sinc.bak    | 261 +++++++++++++++++++++
+ data/languages/v850_common.sinc            |   1 +
+ data/languages/v850_cond.sinc              |   4 +-
+ data/languages/v850_data_manipulation.sinc |  20 +-
+ data/languages/v850_func.sinc              |   8 +-
+ data/languages/v850_load_store.sinc        |  28 +--
+ data/languages/v850_load_store.sinc.bak    | 151 ++++++++++++
+ data/languages/v850_special.sinc           |   2 +-
+ data/languages/v850e3.sinc                 |  26 +-
+ 10 files changed, 480 insertions(+), 55 deletions(-)
+ create mode 100644 data/languages/v850_arithmetic.sinc.bak
+ create mode 100644 data/languages/v850_load_store.sinc.bak
+
+diff --git a/data/languages/v850_arithmetic.sinc b/data/languages/v850_arithmetic.sinc
+index 9d444bf..b535835 100644
+--- a/data/languages/v850_arithmetic.sinc
++++ b/data/languages/v850_arithmetic.sinc
+@@ -8,17 +8,17 @@
+ 
+ 
+ # MOV reg1, reg2
+-:mov R0004, r1115 is op0510=0x00 & R0004 & r1115 {
+-	r1115 = R0004;
++:mov R0004, R1115 is op0510=0x00 & R0004 & R1115 {
++	R1115 = R0004;
+ }
+ 
+ # DIVH reg1, reg2
+-:divh r0004, r1115 is op0510=0x02 & r0004 & r1115 {
+-	local reg2:4 = r1115;
+-	local reg1:4 = sext(r0004:2);
++:divh R0004, R1115 is op0510=0x02 & R0004 & R1115 {
++	local reg2:4 = R1115;
++	local reg1:4 = sext(R0004:2);
+ 	setOV ((reg2 == 0x80000000 && reg1 == 0xFFFFFFFF) || reg1 == 0);
+-	r1115 = reg2 / reg1;
+-	set_S_Z (r1115);
++	R1115 = reg2 / reg1;
++	set_S_Z (R1115);
+ }
+ 
+ macro saturate(value) {
+@@ -100,10 +100,10 @@ macro saturate(value) {
+ }
+ 
+ # ADD imm5, reg2
+-:add s0004, r1115 is op0510=0x12 & s0004 & r1115 {
+-	local res = r1115 + s0004;
+-	flags_add (r1115, s0004);
+-	r1115 = res;
++:add s0004, R1115 is op0510=0x12 & s0004 & R1115 {
++	local res = R1115 + s0004;
++	flags_add (R1115, s0004);
++	R1115 = res;
+ }
+ 
+ # CMP imm5, reg2
+@@ -112,8 +112,8 @@ macro saturate(value) {
+ }
+ 
+ # MULH imm5, reg2
+-:mulh s0004, r1115 is op0510=0x17 & s0004 & r1115 {
+-	r1115 = sext(r1115:2) * s0004;
++:mulh s0004, R1115 is op0510=0x17 & s0004 & R1115 {
++	R1115 = sext(R1115:2) * s0004;
+ }
+ 
+ # ADDI imm16, reg1, reg2
+@@ -251,11 +251,11 @@ macro saturate(value) {
+ }
+ 
+ # MAC reg1, reg2, reg3, reg4
+-:mac R0004, R1115, R2731pair, R1620pair is op0510=0x3F & R0004 & R1115; op2126=0x1E & op1616=0 & R1620pair & R2731pair {
+-	R1620pair = R2731pair + sext(R0004) * sext(R1115);
++:mac R0004, R1115, R2731pairEx, R1620pair is op0510=0x3F & R0004 & R1115; op2126=0x1E & op1616=0 & R1620pair & R2731pairEx {
++	R1620pair = R2731pairEx + sext(R0004) * sext(R1115);
+ }
+ # MACU reg1, reg2, reg3, reg4
+-:macu R0004, R1115, R2731pair, R1620pair is op0510=0x3F & R0004 & R1115; op2126=0x1F & op1616=0 & R1620pair & R2731pair {
+-	R1620pair = R2731pair + zext(R0004) * zext(R1115);
++:macu R0004, R1115, R2731pairEx, R1620pair is op0510=0x3F & R0004 & R1115; op2126=0x1F & op1616=0 & R1620pair & R2731pairEx {
++	R1620pair = R2731pairEx + zext(R0004) * zext(R1115);
+ }
+ 
+diff --git a/data/languages/v850_arithmetic.sinc.bak b/data/languages/v850_arithmetic.sinc.bak
+new file mode 100644
+index 0000000..9d444bf
+--- /dev/null
++++ b/data/languages/v850_arithmetic.sinc.bak
+@@ -0,0 +1,261 @@
++
++# (3) Multiply instructions
++# (4) Multiply-accumulate instructions
++# (5) Arithmetic instructions
++# (7) Saturated operation instructions
++# (11) Divide instructions
++# (12) High-speed divide instructions
++
++
++# MOV reg1, reg2
++:mov R0004, r1115 is op0510=0x00 & R0004 & r1115 {
++	r1115 = R0004;
++}
++
++# DIVH reg1, reg2
++:divh r0004, r1115 is op0510=0x02 & r0004 & r1115 {
++	local reg2:4 = r1115;
++	local reg1:4 = sext(r0004:2);
++	setOV ((reg2 == 0x80000000 && reg1 == 0xFFFFFFFF) || reg1 == 0);
++	r1115 = reg2 / reg1;
++	set_S_Z (r1115);
++}
++
++macro saturate(value) {
++	if (value s>  0x7fffffff) goto <pos_sat>;
++	if (value s< -0x80000000) goto <neg_sat>;
++	goto <end>;
++	<pos_sat> value =  0x7fffffff; goto <end>;
++	<neg_sat> value = -0x80000000; goto <end>;
++	<end>
++}
++
++# SATSUBR reg1, reg2
++:satsubr R0004, r1115 is op0510=0x04 & R0004 & r1115 & op1115!=0 {
++	local res:5 = sext(R0004) - sext(r1115);
++	flags_sub(R0004, r1115);
++	$(PSW_SAT) = $(PSW_SAT) || $(PSW_CY);
++	saturate(res);
++	r1115 = res:4;
++}
++# SATSUB reg1, reg2
++:satsub R0004, r1115 is op0510=0x05 & R0004 & r1115 & op1115!=0 {
++	local res:5 = sext(r1115) - sext(R0004);
++	flags_sub(r1115, R0004);
++	$(PSW_SAT) = $(PSW_SAT) || $(PSW_CY);
++	saturate(res);
++	r1115 = res:4;
++}
++# SATADD reg1, reg2
++:satadd R0004, r1115 is op0510=0x06 & R0004 & r1115 & op1115!=0 {
++	local res:5 = sext(R0004) + sext(r1115);
++	flags_add(R0004, r1115);
++	$(PSW_SAT) = $(PSW_SAT) || $(PSW_CY);
++	saturate(res);
++	r1115 = res:4;
++}
++
++# MULH reg1, reg2
++:mulh R0004, R1115 is op0510=0x07 & R0004 & R1115 & op1115!=0 {
++	local reg1 = sext(R0004:2);
++	local reg2 = sext(R1115:2);
++	R1115 = reg1 * reg2;
++}
++
++# SUBR reg1, reg2
++:subr R0004, R1115 is op0510=0x0C & R0004 & R1115 {
++	local res = R0004 - R1115;
++	flags_sub(R0004, R1115);
++	R1115 = res;
++}
++# SUB reg1, reg2
++:sub R0004, R1115 is op0510=0x0D & R0004 & R1115 {
++	local res = R1115 - R0004;
++	flags_sub(R1115, R0004);
++	R1115 = res;
++}
++# ADD reg1, reg2
++:add R0004, R1115 is op0510=0x0E & R0004 & R1115 {
++	local res = R1115 + R0004;
++	flags_add(R1115, R0004);
++	R1115 = res;
++}
++# CMP reg1, reg2
++:cmp R0004, R1115 is op0510=0x0F & R0004 & R1115 {
++	flags_sub(R1115, R0004);
++}
++
++# MOV imm5, reg2
++:mov s0004, r1115 is op0510=0x10 & s0004 & r1115 & op1115!=0 {
++	r1115 = s0004;
++}
++
++#SATADD imm5, reg2
++:satadd s0004, r1115 is op0510=0x11 & s0004 & r1115 & op1115!=0 {
++	local res:5 = s0004 + sext(r1115);
++	flags_add(s0004, r1115);
++	$(PSW_SAT) = $(PSW_SAT) || $(PSW_CY);
++	saturate(res);
++	r1115 = res:4;
++}
++
++# ADD imm5, reg2
++:add s0004, r1115 is op0510=0x12 & s0004 & r1115 {
++	local res = r1115 + s0004;
++	flags_add (r1115, s0004);
++	r1115 = res;
++}
++
++# CMP imm5, reg2
++:cmp s0004, R1115 is op0510=0x13 & s0004 & R1115 {
++	flags_sub(R1115, s0004);
++}
++
++# MULH imm5, reg2
++:mulh s0004, r1115 is op0510=0x17 & s0004 & r1115 {
++	r1115 = sext(r1115:2) * s0004;
++}
++
++# ADDI imm16, reg1, reg2
++:addi s1631, R0004, R1115 is op0510=0x30 & R1115 & R0004; s1631 {
++	R1115 = R0004 + s1631;
++	flags_add (R0004, s1631);
++}
++
++# MOV imm32, reg1
++:mov imm32, R0004 is op0515=0x031 & R0004; op1631; op3247
++[ imm32 = (op3247 << 16) | op1631; ] {
++	R0004 = imm32;
++}
++# MOVEA imm16, reg1, reg2
++:movea s1631, R0004, r1115 is op0510=0x31 & op1115!=0 & R0004 & r1115; s1631 {
++	r1115 = R0004 + s1631;
++}
++# MOVHI imm16, reg1, reg2
++:movhi s1631, R0004, r1115 is op0510=0x32 & op1115!=0 & R0004 & r1115; s1631 {
++	r1115 = R0004 + (s1631 << 16);
++}
++
++# SATSUBI imm16, reg1, reg2
++:satsubi s1631, R0004, r1115 is op0510=0x33 & op1115!=0 & R0004 & r1115; s1631 {
++	local res:5 = sext(R0004) - s1631;
++	flags_sub(R0004, s1631);
++	$(PSW_SAT) = $(PSW_SAT) || $(PSW_CY);
++	saturate(res);
++	r1115 = res:4;}
++
++# MULHI imm16, reg1, reg2
++:mulhi s1631, R0004, R1115 is op0510=0x37 & R1115 & R0004; s1631 {
++	R1115 = sext(R0004:2) * s1631;
++}
++
++# MUL reg1, reg2, reg3
++:mul R0004, R1115, R2731 is op0510=0x3F & R0004 & R1115; op1626=0x220 & R2731 {
++	local tmp:8 = sext(R1115) * sext(R0004);
++	R1115 = tmp[0,32];
++	R2731 = tmp[32,32];
++}
++# MULU reg1, reg2, reg3
++:mulu R0004, R1115, R2731 is op0510=0x3F & R0004 & R1115; op1626=0x222 & R2731 {
++	local tmp:8 = zext(R1115) * zext(R0004);
++	R1115 = tmp[0,32];
++	R2731 = tmp[32,32];
++}
++# MUL imm9, reg2, reg3
++:mul imm9, R1115, R2731 is op0510=0x3F & op0004 & R1115; op2226=9 & op1617=0 & s1821 & R2731
++[ imm9 = (s1821 << 5) | op0004; ] {
++	local tmp:8 = sext(R1115) * imm9;
++	R1115 = tmp[0,32];
++	R2731 = tmp[32,32];
++}
++# MULU imm9, reg2, reg3
++:mulu imm9, R1115, R2731 is op0510=0x3F & op0004 & R1115; op2226=9 & op1617=2 & op1821 & R2731 
++[ imm9 = (op1821 << 5) | op0004; ] {
++	local tmp:8 = zext(R1115) * imm9;
++	R1115 = tmp[0,32];
++	R2731 = tmp[32,32];
++}
++# DIVH reg1, reg2, reg3
++:divh R0004, R1115, R2731 is op0510=0x3F & R0004 & R1115; op1626=0x280 & R2731 {
++	local divisor:4 = sext(R0004[0,16]);
++	local quot:4 = R1115 s/ divisor;
++	local mod:4 = R1115 s% divisor;
++	setOV ((R1115 == 0x80000000 && divisor == 0xFFFFFFFF) || divisor == 0);
++	set_S_Z (quot);
++	R1115 = quot;
++	R2731 = mod;
++}
++# DIVHU reg1, reg2, reg3
++:divhu R0004, R1115, R2731 is op0510=0x3F & R0004 & R1115; op1626=0x282 & R2731 {
++	local divisor:4 = zext(R0004[0,16]);
++	local quot:4 = R1115 / divisor;
++	local mod:4 = R1115 % divisor;
++	setOV (divisor == 0);
++	set_S_Z (quot);
++	R1115 = quot;
++	R2731 = mod;
++}
++# DIV reg1, reg2, reg3
++:div R0004, R1115, R2731 is op0510=0x3F & R0004 & R1115; op1626=0x2C0 & R2731 {
++	local quot:4 = R1115 s/ R0004;
++	local mod:4 = R1115 s% R0004;
++	setOV ((R1115 == 0x80000000 && R0004 == 0xFFFFFFFF) || R0004 == 0);
++	set_S_Z (quot);
++	R1115 = quot;
++	R2731 = mod;
++}
++# DIVQ reg1, reg2, reg3
++:div R0004, R1115, R2731 is op0510=0x3F & R0004 & R1115; op1626=0x2FC & R2731 {
++	local quot:4 = R1115 s/ R0004;
++	local mod:4 = R1115 s% R0004;
++	setOV ((R1115 == 0x80000000 && R0004 == 0xFFFFFFFF) || R0004 == 0);
++	set_S_Z (quot);
++	R1115 = quot;
++	R2731 = mod;
++}
++# DIVU reg1, reg2, reg3
++:divu R0004, R1115, R2731 is op0510=0x3F & R0004 & R1115; op1626=0x2C2 & R2731 {
++	local quot:4 = R1115 / R0004;
++	local mod:4 = R1115 % R0004;
++	setOV (R0004 == 0);
++	set_S_Z (quot);
++	R1115 = quot;
++	R2731 = mod;
++}
++# DIVQU reg1, reg2, reg3
++:divqu R0004, R1115, R2731 is op0510=0x3F & R0004 & R1115; op1626=0x2FE & R2731 {
++	local quot:4 = R1115 / R0004;
++	local mod:4 = R1115 % R0004;
++	setOV (R0004 == 0);
++	set_S_Z (quot);
++	R1115 = quot;
++	R2731 = mod;
++}
++
++# SATSUB reg1, reg2, reg3
++:satsub R0004, R1115, R2731 is op0510=0x3F & R0004 & R1115; op1626=0x39A & R2731 {
++	local res:5 = sext(R1115) - sext(R0004);
++	flags_sub(R1115, R0004);
++	$(PSW_SAT) = $(PSW_SAT) || $(PSW_CY);
++	saturate(res);
++	R2731 = res:4;
++}
++
++# SATADD reg1, reg2, reg3
++:satadd R0004, R1115, R2731 is op0510=0x3F & R0004 & R1115; op1626=0x3BA & R2731 {
++	local res:5 = sext(R0004) + sext(R1115);
++	flags_add(R0004, R1115);
++	$(PSW_SAT) = $(PSW_SAT) || $(PSW_CY);
++	saturate(res);
++	R2731 = res:4;
++}
++
++# MAC reg1, reg2, reg3, reg4
++:mac R0004, R1115, R2731pair, R1620pair is op0510=0x3F & R0004 & R1115; op2126=0x1E & op1616=0 & R1620pair & R2731pair {
++	R1620pair = R2731pair + sext(R0004) * sext(R1115);
++}
++# MACU reg1, reg2, reg3, reg4
++:macu R0004, R1115, R2731pair, R1620pair is op0510=0x3F & R0004 & R1115; op2126=0x1F & op1616=0 & R1620pair & R2731pair {
++	R1620pair = R2731pair + zext(R0004) * zext(R1115);
++}
++
+diff --git a/data/languages/v850_common.sinc b/data/languages/v850_common.sinc
+index 4c8f8bb..13994b9 100644
+--- a/data/languages/v850_common.sinc
++++ b/data/languages/v850_common.sinc
+@@ -157,6 +157,7 @@ define token instr(16)
+ define token instr2(16)
+ 	op1616 = (0,0)
+ 	op1617 = (0,1)
++	op1718 = (1,2)
+ 	op1619 = (0,3)
+ 	op1620 = (0,4)
+ 	op1624 = (0,8)
+diff --git a/data/languages/v850_cond.sinc b/data/languages/v850_cond.sinc
+index a463eca..70770f2 100644
+--- a/data/languages/v850_cond.sinc
++++ b/data/languages/v850_cond.sinc
+@@ -49,11 +49,11 @@ cc1720: "gt"	is op1720=0xF		{ tmp:1 = !($(PSW_S) ^^ $(PSW_OV) || $(PSW_Z));	expo
+ }
+ 
+ # SETF cond, reg2
+-:setf^cc0003 R1115 is op0410=0x7E & cc0003 & R1115; op1631=0 {
++:setf^cc0003 R1115 is op0410=0x7E & cc0003 & R1115; op2126=0x00 {
+ 	R1115 = zext(cc0003);
+ }
+ # SASF cccc, reg2
+-:sasf^cc0003 R1115 is op0410=0x7E & cc0003 & R1115; op1631=0x0200 {
++:sasf^cc0003 R1115 is op0410=0x7E & cc0003 & R1115; op2126=0x10 {
+ 	R1115 = (R1115 << 1) | zext(cc0003);
+ }
+ 
+diff --git a/data/languages/v850_data_manipulation.sinc b/data/languages/v850_data_manipulation.sinc
+index fd6d558..74b1700 100644
+--- a/data/languages/v850_data_manipulation.sinc
++++ b/data/languages/v850_data_manipulation.sinc
+@@ -49,16 +49,16 @@ macro shift_left (res, _val, _shift) {
+ 
+ 
+ # SHR imm5, reg2
+-:shr op0004, r1115 is op0510=0x14 & op0004 & r1115 {
+-	shift_right_u (r1115, r1115, op0004);
++:shr op0004, R1115 is op0510=0x14 & op0004 & R1115 {
++	shift_right_u (R1115, R1115, op0004);
+ }
+ # SAR imm5, reg2
+-:sar op0004, r1115 is op0510=0x15 & op0004 & r1115 {
+-	shift_right_s (r1115, r1115, op0004);
++:sar op0004, R1115 is op0510=0x15 & op0004 & R1115 {
++	shift_right_s (R1115, R1115, op0004);
+ }
+ # SHL imm5, reg2
+-:shl op0004, r1115 is op0510=0x16 & op0004 & r1115 {
+-	shift_left (r1115, r1115, op0004);
++:shl op0004, R1115 is op0510=0x16 & op0004 & R1115 {
++	shift_left (R1115, R1115, op0004);
+ }
+ 
+ # SHR reg1, reg2
+@@ -87,7 +87,7 @@ macro shift_left (res, _val, _shift) {
+ }
+ 
+ # BSW reg2, reg3
+-:bsw R1115, R2731 is op0010=0x7E0 & R1115; op1626=0x340 & R2731 {
++:bsw R1115, R2731 is op0510=0x3F & R1115; op2126=0x1A & op1718=0b00 & R2731 {
+ 	local x0 = R1115[0,8];
+ 	local x1 = R1115[8,8];
+ 	local x2 = R1115[16,8];
+@@ -97,7 +97,7 @@ macro shift_left (res, _val, _shift) {
+ 	set_C ((x0 == 0) || (x1 == 0) || (x2 == 0) || (x3 == 0));
+ }
+ # BSH reg2, reg3
+-:bsh R1115, R2731 is op0010=0x7E0 & R1115; op1626=0x342 & R2731 {
++:bsh R1115, R2731 is op0510=0x3F & R1115; op2126=0x1A & op1718=0b01 & R2731 {
+ 	local x0 = R1115[0,8];
+ 	local x1 = R1115[8,8];
+ 	local x2 = R1115[16,8];
+@@ -107,7 +107,7 @@ macro shift_left (res, _val, _shift) {
+ 	set_C ((x0 == 0) || (x1 == 0));
+ }
+ # HSW reg2, reg3
+-:hsw R1115, R2731 is op0010=0x7E0 & R1115; op1626=0x344 & R2731 {
++:hsw R1115, R2731 is op0510=0x3F & R1115; op2126=0x1A & op1718=0b10 & R2731 {
+ 	# reg3 = reg2(15:0) || reg2(31:16)
+ 	local x0 = R1115[0,16];
+ 	local x1 = R1115[16,16];
+@@ -116,7 +116,7 @@ macro shift_left (res, _val, _shift) {
+ 	set_C ((x0 == 0) || (x1 == 0));
+ }
+ # HSH reg2, reg3
+-:hsh R1115, R2731 is op0010=0x7E0 & R1115; op1626=0x346 & R2731 {
++:hsh R1115, R2731 is op0510=0x3F & R1115; op2126=0x1A & op1718=0b11 & R2731 {
+ 	local x0 = R1115[0,16];
+ 	R2731 = R1115;
+ 	set_nOV_S_Z (R2731);
+diff --git a/data/languages/v850_func.sinc b/data/languages/v850_func.sinc
+index 408ace6..458a23c 100644
+--- a/data/languages/v850_func.sinc
++++ b/data/languages/v850_func.sinc
+@@ -20,8 +20,8 @@
+ }
+ 
+ # JARL disp32, reg1
+-:jarl addr32, r0004 is op0515=0x017 & r0004; op1616=0 ... & addr32 {
+-	r0004 = inst_next;
++:jarl addr32, R0004 is op0515=0x017 & R0004; op1616=0 ... & addr32 {
++	R0004 = inst_next;
+ 	PC = & addr32;
+ 	call addr32;
+ }
+@@ -40,8 +40,8 @@
+ 
+ 
+ # JARL disp22, reg2
+-:jarl addr22, r1115 is (op0610=0x1E & r1115) ... & addr22 {
+-	r1115 = inst_next;
++:jarl addr22, R1115 is (op0610=0x1E & R1115) ... & addr22 {
++	R1115 = inst_next;
+ 	PC = & addr22;
+ 	call addr22;
+ }
+diff --git a/data/languages/v850_load_store.sinc b/data/languages/v850_load_store.sinc
+index d804caa..715535f 100644
+--- a/data/languages/v850_load_store.sinc
++++ b/data/languages/v850_load_store.sinc
+@@ -5,16 +5,16 @@
+ 
+ 
+ # SLD.BU disp4[ep],reg2
+-:sld.bu op0003[ep], r1115 is op0410=0x06 & r1115 & op0003 & ep {
++:sld.bu op0003[ep], R1115 is op0410=0x06 & R1115 & op0003 & ep {
+ 	local addr:4 = ep + op0003;
+-	r1115 = zext(*:1 addr);
++	R1115 = zext(*:1 addr);
+ }
+ 
+ # SLD.HU disp5[ep],reg2
+-:sld.hu disp5[ep], r1115 is op0410=0x07 & r1115 & op0003 & ep
++:sld.hu disp5[ep], R1115 is op0410=0x07 & R1115 & op0003 & ep
+ [ disp5 = op0003*2; ] {
+ 	local addr:4 = ep + disp5;
+-	r1115 = zext(*:2 addr);
++	R1115 = zext(*:2 addr);
+ }
+ 
+ # SLD.B disp7[ep], reg2
+@@ -53,20 +53,20 @@
+ }
+ 
+ # LD.B disp16[reg1], reg2
+-:ld.b s1631[R0004], r1115 is op0510=0x38 & R0004 & r1115; s1631 {
++:ld.b s1631[R0004], R1115 is op0510=0x38 & R0004 & R1115; s1631 {
+ 	local addr:4 = s1631 + R0004;
+-	r1115 = sext(*:1 addr);
++	R1115 = sext(*:1 addr);
+ }
+ # LD.H disp16[reg1], reg2
+-:ld.h s1631[R0004], r1115 is op0510=0x39 & R0004 & r1115; s1631 & op1616=0 {
++:ld.h s1631[R0004], R1115 is op0510=0x39 & R0004 & R1115; s1631 & op1616=0 {
+ 	local addr:4 = s1631 + R0004;
+-	r1115 = sext(*:2 addr);
++	R1115 = sext(*:2 addr);
+ }
+ # LD.W disp16[reg1], reg2
+-:ld.w disp16[R0004], r1115 is op0510=0x39 & R0004 & r1115; s1731 & op1616=1 
++:ld.w disp16[R0004], R1115 is op0510=0x39 & R0004 & R1115; s1731 & op1616=1
+ [ disp16 = s1731 * 2; ]{
+ 	local addr:4 = disp16 + R0004;
+-	r1115 = *:4 addr;
++	R1115 = *:4 addr;
+ }
+ # ST.B reg2, disp16[reg1]
+ :st.b R1115, s1631[R0004] is op0510=0x3A & R0004 & R1115; s1631 {
+@@ -135,17 +135,17 @@
+ }
+ 
+ # LD.BU disp16[reg1], reg2
+-:ld.bu disp16[R0004], r1115 is op0610=0x1E & R0004 & r1115 & op0505; op1616=1 & s1731 
++:ld.bu disp16[R0004], R1115 is op0610=0x1E & R0004 & R1115 & op0505; op1616=1 & s1731
+ [ disp16 = (s1731 << 1) | op0505; ] {
+ 	local addr:4 = disp16 + R0004;
+-	r1115 = zext(*:1 addr);
++	R1115 = zext(*:1 addr);
+ }
+ 
+ # LD.HU disp16[reg1], reg2
+-:ld.hu disp16[R0004], r1115 is op0510=0x3F & R0004 & r1115; op1616=1 & s1731 
++:ld.hu disp16[R0004], R1115 is op0510=0x3F & R0004 & R1115; op1616=1 & s1731
+ [ disp16 = s1731 << 1; ] {
+ 	local addr:4 = disp16 + R0004;
+-	r1115 = zext(*:2 addr);
++	R1115 = zext(*:2 addr);
+ }
+ 
+ 
+diff --git a/data/languages/v850_load_store.sinc.bak b/data/languages/v850_load_store.sinc.bak
+new file mode 100644
+index 0000000..d804caa
+--- /dev/null
++++ b/data/languages/v850_load_store.sinc.bak
+@@ -0,0 +1,151 @@
++
++# (1) Load instructions
++# (2) Store instructions
++
++
++
++# SLD.BU disp4[ep],reg2
++:sld.bu op0003[ep], r1115 is op0410=0x06 & r1115 & op0003 & ep {
++	local addr:4 = ep + op0003;
++	r1115 = zext(*:1 addr);
++}
++
++# SLD.HU disp5[ep],reg2
++:sld.hu disp5[ep], r1115 is op0410=0x07 & r1115 & op0003 & ep
++[ disp5 = op0003*2; ] {
++	local addr:4 = ep + disp5;
++	r1115 = zext(*:2 addr);
++}
++
++# SLD.B disp7[ep], reg2
++:sld.b op0006[ep], R1115 is op0710=0x06 & op0006 & R1115 & ep {
++	local addr:4 = ep + op0006;
++	R1115 = zext(*:1 addr);
++}
++# SST.B disp7[ep], reg2
++:sst.b op0006[ep], R1115 is op0710=0x07 & op0006 & R1115 & ep {
++	local addr:4 = op0006 + ep;
++	*:1 addr = R1115 : 1;
++}
++# SLD.H disp8[ep], reg2
++:sld.h disp8[ep], R1115 is op0710=0x08 & op0006 & R1115 & ep
++[ disp8 = op0006 * 2; ] {
++	local addr:4 = ep + disp8;
++	R1115 = zext(*:2 addr);
++}
++# SST.H disp8[ep], reg2
++:sst.h disp8[ep], R1115 is op0710=0x09 & op0006 & R1115 & ep
++[ disp8 = op0006 * 2; ] {
++	local addr:4 = disp8 + ep;
++	*:2 addr = R1115 : 2;
++}
++# SLD.W disp8[ep], reg2
++:sld.w disp8[ep], R1115 is op0710=0x0A & op0000 = 0 & op0106 & R1115 & ep
++[ disp8 = op0106 * 4; ] {
++	local addr:4 = ep + disp8;
++	R1115 = *:4 addr;
++}
++# SST.W disp8[ep], reg2
++:sst.w disp8[ep], R1115 is op0710=0x0A & op0000 = 1 & op0106 & R1115 & ep
++[ disp8 = op0106 * 4; ] {
++	local addr:4 = disp8 + ep;
++	*:4 addr = R1115;
++}
++
++# LD.B disp16[reg1], reg2
++:ld.b s1631[R0004], r1115 is op0510=0x38 & R0004 & r1115; s1631 {
++	local addr:4 = s1631 + R0004;
++	r1115 = sext(*:1 addr);
++}
++# LD.H disp16[reg1], reg2
++:ld.h s1631[R0004], r1115 is op0510=0x39 & R0004 & r1115; s1631 & op1616=0 {
++	local addr:4 = s1631 + R0004;
++	r1115 = sext(*:2 addr);
++}
++# LD.W disp16[reg1], reg2
++:ld.w disp16[R0004], r1115 is op0510=0x39 & R0004 & r1115; s1731 & op1616=1 
++[ disp16 = s1731 * 2; ]{
++	local addr:4 = disp16 + R0004;
++	r1115 = *:4 addr;
++}
++# ST.B reg2, disp16[reg1]
++:st.b R1115, s1631[R0004] is op0510=0x3A & R0004 & R1115; s1631 {
++	local addr:4 = s1631 + R0004;
++	*:1 addr = R1115 : 1;
++}
++# ST.H reg2, disp16[reg1]
++:st.h R1115, s1631[R0004] is op0510=0x3B & R0004 & R1115; s1631 & op1616=0 {
++	local addr:4 = s1631 + R0004;
++	*:2 addr = R1115 : 2;
++}
++# ST.W reg2, disp16[reg1]
++:st.w R1115, disp16[R0004] is op0510=0x3B & R0004 & R1115; s1731 & op1616=1 
++[ disp16 = s1731 * 2; ]{
++	local addr:4 = disp16 + R0004;
++	*:4 addr = R1115;
++}
++
++# LD.B disp23[reg1], reg3
++:ld.b disp23[R0004], R2731 is op0515=0x03C & R0004; R2731 & op2026 & op1619=5; s3247
++[ disp23 = (s3247 << 7) | op2026; ] {
++	local addr:4 = disp23 + R0004;
++	R2731 = sext(*:1 addr);
++}
++# LD.H disp23[reg1], reg3
++:ld.h disp23[R0004], R2731 is op0515=0x03C & R0004; R2731 & op2126 & op1620=7; s3247
++[ disp23 = (s3247 << 7) | (op2126 << 1); ] {
++	local addr:4 = disp23 + R0004;
++	R2731 = sext(*:2 addr);
++}
++# LD.W disp23[reg1], reg3
++:ld.w disp23[R0004], R2731 is op0515=0x03C & R0004; R2731 & op2126 & op1620=9; s3247
++[ disp23 = (s3247 << 7) | (op2126 << 1); ] {
++	local addr:4 = disp23 + R0004;
++	R2731 = *:4 addr;
++}
++# ST.B reg3, disp23[reg1]
++:st.b R2731, disp23[R0004] is op0515=0x03C & R0004; R2731 & op2026 & op1619=0xD; s3247
++[ disp23 = (s3247 << 7) | op2026; ] {
++	local addr:4 = disp23 + R0004;
++	*:1 addr = R2731 : 1;
++}
++# ST.W reg3, disp23[reg1]
++:st.w R2731, disp23[R0004] is op0515=0x03C & R0004; R2731 & op2126 & op1620=0xF; s3247
++[ disp23 = (s3247 << 7) | (op2126 << 1); ] {
++	local addr:4 = disp23 + R0004;
++	*:4 addr = R2731;
++}
++# LD.BU disp23[reg1], reg3
++:ld.bu disp23[R0004], R2731 is op0515=0x03D & R0004; R2731 & op2026 & op1619=5; s3247
++[ disp23 = (s3247 << 7) | op2026; ] {
++	local addr:4 = disp23 + R0004;
++	R2731 = zext(*:1 addr);
++}
++# LD.HU disp23[reg1], reg3
++:ld.hu disp23[R0004], R2731 is op0515=0x03D & R0004; R2731 & op2026 & op1619=7; s3247
++[ disp23 = (s3247 << 7) | op2026; ] {
++	local addr:4 = disp23 + R0004;
++	R2731 = zext(*:2 addr);
++}
++# ST.H reg3, disp23[reg1]
++:st.h R2731, disp23[R0004] is op0515=0x03D & R0004; R2731 & op2126 & op1620=0xD; s3247
++[ disp23 = (s3247 << 7) | (op2126 << 1); ] {
++	local addr:4 = disp23 + R0004;
++	*:2 addr = R2731 : 2;
++}
++
++# LD.BU disp16[reg1], reg2
++:ld.bu disp16[R0004], r1115 is op0610=0x1E & R0004 & r1115 & op0505; op1616=1 & s1731 
++[ disp16 = (s1731 << 1) | op0505; ] {
++	local addr:4 = disp16 + R0004;
++	r1115 = zext(*:1 addr);
++}
++
++# LD.HU disp16[reg1], reg2
++:ld.hu disp16[R0004], r1115 is op0510=0x3F & R0004 & r1115; op1616=1 & s1731 
++[ disp16 = s1731 << 1; ] {
++	local addr:4 = disp16 + R0004;
++	r1115 = zext(*:2 addr);
++}
++
++
+diff --git a/data/languages/v850_special.sinc b/data/languages/v850_special.sinc
+index b276614..ce97917 100644
+--- a/data/languages/v850_special.sinc
++++ b/data/languages/v850_special.sinc
+@@ -60,7 +60,7 @@
+ }
+ 
+ # RIE
+-:rie is op0410=0x7F; op1631=0 unimpl # reserved instruction for future expansion
++:rie is op0410=0x7F; op2126=0x00 unimpl # reserved instruction for future expansion
+ 
+ # LDSR reg2, regID
+ :ldsr R0004, SR1115 is op0510=0x3F & SR1115 & R0004; op1631=0x20 {
+diff --git a/data/languages/v850e3.sinc b/data/languages/v850e3.sinc
+index 6a5912b..f09c8a9 100644
+--- a/data/languages/v850e3.sinc
++++ b/data/languages/v850e3.sinc
+@@ -1,7 +1,7 @@
+ # V850E3 (RH850) specific instructions
+ # got from gcc binutils sources
+ # RH850/U2A-EVA Group User's Manual: Hardware (RH850G4MH2 cores)
+-# RH850G3M User’s Manual: Software
++# RH850G3M Userï¿½s Manual: Software
+ 
+ 
+ # More special registers
+@@ -234,12 +234,12 @@ attach variables [ VR0004 VR1115 ] [
+ 
+ # loop reg1, disp16
+ #{ "loop",	two (0x06e0, 0x0001),	two (0xffe0, 0x0001), 	{R1, D16_LOOP}, 	0, PROCESSOR_V850E3V5_UP },
+-:loop r0004, addr16loop		is op0515=0x037 & r0004 ; op1616=1 & addr16loop {
+-    local cnt:4 = r0004 - 1;
++:loop R0004, addr16loop		is op0515=0x037 & R0004 ; op1616=1 & addr16loop {
++    local cnt:4 = R0004 - 1;
+     if (cnt == 0) goto inst_next;
+ 
+-    flags_add(r0004, -1);	# carry as add, not sub!
+-    r0004 = cnt;
++    flags_add(R0004, -1);	# carry as add, not sub!
++    R0004 = cnt;
+ 
+     goto addr16loop;
+ }
+@@ -693,7 +693,19 @@ with : op2026=0x0D {		# msb < 16, lsb < 16
+ 	R2731 = R2731 f- R0004 f* R1115;
+ }
+ 
+-
+-
++# RH850/V850E3v5 extended instructions - stub decoders for firmware coverage
++# These op2126 values are not in binutils v850e3v5 table nor in V850E2M/athrill.
++# Likely RH850G3M/G4MH2 proprietary instruction extensions.
++# Format XI: reg1(hw0[4:0]), reg2(hw0[15:11]), reg3(hw1[15:11])
++# op2126=0x03: 499 firmware occurrences (op1626=0x060..0x07F)
++:unk_op03 R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op2126=0x03 & R2731 unimpl
++# op2126=0x0a: 154 firmware occurrences (op1626=0x140..0x15F)
++:unk_op0a R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op2126=0x0a & R2731 unimpl
++# op2126=0x0d: 3 firmware occurrences (op1626=0x1a0..0x1bF)
++:unk_op0d R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op2126=0x0d & R2731 unimpl
++:unk_op31 R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op2126=0x31 & R2731 unimpl
++:unk_op32 R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op2126=0x32 & R2731 unimpl
++:unk_op37 R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op2126=0x37 & R2731 unimpl
++:unk_op39 R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op2126=0x39 & R2731 unimpl
+ 
+ 
+-- 
+2.50.1 (Apple Git-155)
+

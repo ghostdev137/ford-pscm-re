@@ -69,8 +69,10 @@ Not worth the effort unless FORScan doesn't support your scenario.
 
 | Goal | File | Risk |
 |---|---|---|
-| Remove LKA 10-s lockout (no other changes) | `LKA_NO_LOCKOUT.VBF` | Low — minimal diff |
-| Raise APA speed ceiling | `APA_HIGH_SPEED.VBF` | Medium — untested at speed |
+| Remove LKA lockout only (minimal diff) | `LKA_NO_LOCKOUT.VBF` | Low |
+| **Recommended: full authority (lockout + min-speed + torque)** | **`LKA_FULL_AUTHORITY.VBF`** | **Low — drive-confirmed** |
+| Raise APA speed ceiling (+ LKA lockout) | `LKA_NO_LOCKOUT_APA_HIGH_SPEED.VBF` | Medium — APA at speed untested |
+| APA from true standstill | `LKA_APA_STANDSTILL.VBF` | Medium — standstill path untested |
 | Attempt LCA enable | `LCA_ENABLED.VBF` | Medium — AS-built reverts, not bricking |
 
-Flash the minimal patch first. Verify the vehicle still drives correctly, then layer additional patches only if needed.
+See [docs/vbf-patches.md](vbf-patches.html) for the full description of each patch.

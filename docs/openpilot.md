@@ -9,8 +9,8 @@ If you are coming here to build a Ford Transit openpilot port, this is the short
 
 ## TL;DR
 
-1. **Flash [`LKA_NO_LOCKOUT.VBF`](../firmware/patched/LKA_NO_LOCKOUT.VBF)** to remove the 10-second active steering lockout. This is the only firmware change you actually need for lateral control.
-2. **Drive `0x213 DesTorq` on MS-CAN** continuously. The PSCM accepts it as a torque command. With the LKA lockout gone, the authority window stays open indefinitely.
+1. **Flash [`LKA_FULL_AUTHORITY.VBF`](../firmware/patched/LKA_FULL_AUTHORITY.VBF)** — removes the 10-second lockout, lowers the min-speed floor to ~11 kph, and raises torque authority to F-150 BlueCruise levels (3.5 Nm at 70 kph, peak 6.5 Nm). Drive-confirmed +184% torque median vs stock.
+2. **Drive `0x213 DesTorq` on MS-CAN** continuously. The PSCM accepts it as a torque command. With the lockout removed, the authority window stays open indefinitely.
 3. You do **not** need to enable Ford LCA to do lane centering. Ford's LCA state machine is bypassed when you drive `0x213` directly.
 
 ## What the PSCM expects
@@ -69,6 +69,6 @@ See [can-ids.html](can-ids.html) for the full catalog.
 Open RE questions we'd love help on:
 - **AS-built revert root cause.** Why does the PSCM revert AS-built bits after a cold boot when LCA is enabled? Suspected to be a VIN/vehicle-code check in strategy block.
 - **Full cal map.** ~60% of the 65,520-byte cal is undocumented. Contributions welcome in [docs/calibration-map.md](https://github.com/ghostdev137/ford-pscm-re/blob/main/docs/calibration-map.md).
-- **Emulator completion.** Athrill + autoas integration needs a CAN socket bridge. See [emulator-notes.html](emulator-notes.html).
+- **Emulator completion.** Athrill + autoas integration needs a CAN socket bridge. See [simulator.html](simulator.html).
 
 File issues / PRs at <https://github.com/ghostdev137/ford-pscm-re>.
