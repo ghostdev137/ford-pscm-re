@@ -1,0 +1,202 @@
+<patternlist>
+  <!-- Function-start patterns for ccrh / RH850 G3MH Ford PSCM firmware.
+       Same core prologue shapes as stock V850_patterns.xml, registered against
+       the patched v850e3:LE:32:default language id so the FunctionStartAnalyzer
+       actually promotes matches in Transit PSCM images.
+
+       ccrh emits `prepare {rlist, lp}, 0` (stack-form, subopcode .00001) as the
+       first instruction of essentially every non-leaf function; leaf functions
+       tend to sit right after a preceding `jmp [lp]` (0x7f 0x00). Both cases
+       are covered by the patternpairs below. -->
+
+  <patternpairs totalbits="31" postbits="15">
+    <!-- totalbits = total # of bits pre/post that must be a 0/1 not '.' -->
+    <!-- postbits  = number of bits of that total that must come from post-pattern bits -->
+    <prepatterns>
+      <data>01111111 00000000</data> <!-- jmp [lp]         (0x7f 0x00 LE) -->
+    </prepatterns>
+    <postpatterns>
+      <data>10...... 00000111 ...00001 ........</data> <!-- PREPARE list12, imm5        (ccrh default, e.g. 80 07 21 00) -->
+      <data>10...... 00000111 ...00011 ........</data> <!-- PREPARE list12, imm5, sp -->
+      <data>00000011 00011110 ........ ........</data> <!-- ADDI  imm16, sp, sp         (large frame alloc) -->
+      <data>10...... 00000111 ...01011 ........ ........ ........</data> <!-- PREPARE list12, imm5, simm16 -->
+      <data>10...... 00000111 ...10011 ........ ........ ........</data> <!-- PREPARE list12, imm5, imm16  -->
+      <data>10...... 00000111 ...11011 ........ ........ ........ ........ ........</data> <!-- PREPARE list12, imm5, imm32 -->
+      <codeboundary/>
+      <possiblefuncstart/>
+    </postpatterns>
+  </patternpairs>
+
+  <patternpairs totalbits="25" postbits="15">
+    <prepatterns>
+      <data>01...... 00000110 ........ ........</data> <!-- DISPOSE imm5, list12, [reg1] -->
+      <data>11100000 00000111 01001010 00000001</data> <!-- FERET -->
+      <data>11100000 00000111 01001000 00000001</data> <!-- EIRET -->
+      <data>11100000 00000111 01000100 00000001</data> <!-- CTRET -->
+    </prepatterns>
+    <postpatterns>
+      <data>10...... 00000111 ...00001 ........</data> <!-- PREPARE list12, imm5 -->
+      <data>10...... 00000111 ...00011 ........</data> <!-- PREPARE list12, imm5, sp -->
+      <data>00000011 00011110 ........ ........</data> <!-- ADDI imm16, sp, sp -->
+      <data>10...... 00000111 ...11011 ........ ........ ........ ........ ........</data> <!-- PREPARE list12, imm5, imm32 -->
+      <data>10...... 00000111 ...01011 ........ ........ ........</data> <!-- PREPARE list12, imm5, simm16 -->
+      <data>10...... 00000111 ...10011 ........ ........ ........</data> <!-- PREPARE list12, imm5, imm16 -->
+      <codeboundary/>
+      <possiblefuncstart/>
+    </postpatterns>
+  </patternpairs>
+
+  <patternpairs totalbits="22" postbits="6">
+    <prepatterns>
+      <data>01111111 00000000</data> <!-- jmp [lp] -->
+    </prepatterns>
+    <postpatterns>
+      <data>000..... .....000</data> <!-- mov   rX, rY -->
+      <data>010..... .....000</data> <!-- divh  rX, rY -->
+      <data>100..... .....000</data> <!-- satsubr rX, rY -->
+      <data>101..... .....000</data> <!-- satsub rX, rY -->
+      <data>110..... .....000</data> <!-- satadd rX, rY -->
+      <data>111..... .....000</data> <!-- mulh  rX, rY -->
+      <data>000..... .....010</data> <!-- mov   imm5, rY -->
+      <data>001..... .....010</data> <!-- satadd imm5, rY -->
+      <data>100..... .....010</data> <!-- shr   imm5, rY -->
+      <data>101..... .....010</data> <!-- sar   imm5, rY -->
+      <data>110..... .....010</data> <!-- shl   imm5, rY -->
+      <data>111..... .....010</data> <!-- mulh  imm5, rY -->
+      <data>111..... .....001</data> <!-- cmp   rX, rY -->
+      <data>011..... .....010</data> <!-- cmp   imm5, rY -->
+      <data>001..... .....000</data> <!-- not   rX, rY -->
+      <data>000..... .....001</data> <!-- or    rX, rY -->
+      <data>001..... .....001</data> <!-- xor   rX, rY -->
+      <data>010..... .....001</data> <!-- and   rX, rY -->
+      <data>011..... .....001</data> <!-- tst   rX, rY -->
+      <data>100..... .....001</data> <!-- subr  rX, rY -->
+      <data>101..... .....001</data> <!-- sub   rX, rY -->
+      <data>110..... .....001</data> <!-- add   rX, rY -->
+      <data>010..... .....010</data> <!-- add   imm5, rY -->
+      <data>0110.... .....000</data> <!-- sld.bu disp4[ep], rY -->
+      <data>0111.... .....000</data> <!-- sld.hu disp5[ep], rY -->
+      <data>0....... .....011</data> <!-- sld.b  disp7[ep], rY -->
+      <data>1....... .....011</data> <!-- sst.b  disp7[ep], rY -->
+      <data>0....... .....100</data> <!-- sld.h  disp8[ep], rY -->
+      <data>1....... .....100</data> <!-- sst.h  disp8[ep], rY -->
+      <data>0....... .....101</data> <!-- sld.w  disp8[ep], rY -->
+      <data>1....... .....101</data> <!-- sst.w  disp8[ep], rY -->
+      <data>000..... .....111 ........ ........</data> <!-- ld.b  disp16[rX], rY -->
+      <data>10...... .....111 ........ ........</data> <!-- ld.bu disp16[rX], rY -->
+      <data>111..... .....111 ........ ........</data> <!-- ld.hu disp16[rX], rY -->
+      <data>001..... .....111 ........ ........</data> <!-- ld.w  disp16[rX], rY -->
+      <data>010..... .....111 ........ ........</data> <!-- st.b  rY, disp16[rX] -->
+      <data>011..... .....111 ........ ........</data> <!-- st.w  rY, disp16[rX] -->
+      <data>000..... .....110 ........ ........</data> <!-- addi  imm16, rX, rY -->
+      <data>001..... .....110 ........ ........</data> <!-- movea imm16, rX, rY -->
+      <data>010..... .....110 ........ ........</data> <!-- movhi imm16, rX, rY -->
+      <data>100..... .....110 ........ ........</data> <!-- ori   imm16, rX, rY -->
+      <data>101..... .....110 ........ ........</data> <!-- xori  imm16, rX, rY -->
+      <data>111..... .....110 ........ ........</data> <!-- mulhi imm16, rX, rY -->
+      <data>110..... .....110 ........ ........</data> <!-- andi  imm16, rX, rY -->
+      <codeboundary/>
+      <possiblefuncstart validcode="4" contiguous="true"/>
+    </postpatterns>
+  </patternpairs>
+
+  <patternpairs totalbits="16" postbits="6">
+    <prepatterns>
+      <data>01...... 00000110 ........ ........</data> <!-- DISPOSE imm5, list12, [reg1] -->
+      <data>11100000 00000111 01001010 00000001</data> <!-- FERET -->
+      <data>11100000 00000111 01001000 00000001</data> <!-- EIRET -->
+      <data>11100000 00000111 01000100 00000001</data> <!-- CTRET -->
+    </prepatterns>
+    <postpatterns>
+      <data>000..... .....000</data> <!-- mov   rX, rY -->
+      <data>010..... .....000</data> <!-- divh  rX, rY -->
+      <data>100..... .....000</data> <!-- satsubr rX, rY -->
+      <data>101..... .....000</data> <!-- satsub rX, rY -->
+      <data>110..... .....000</data> <!-- satadd rX, rY -->
+      <data>111..... .....000</data> <!-- mulh  rX, rY -->
+      <data>000..... .....010</data> <!-- mov   imm5, rY -->
+      <data>001..... .....010</data> <!-- satadd imm5, rY -->
+      <data>100..... .....010</data> <!-- shr   imm5, rY -->
+      <data>101..... .....010</data> <!-- sar   imm5, rY -->
+      <data>110..... .....010</data> <!-- shl   imm5, rY -->
+      <data>111..... .....010</data> <!-- mulh  imm5, rY -->
+      <data>111..... .....001</data> <!-- cmp   rX, rY -->
+      <data>011..... .....010</data> <!-- cmp   imm5, rY -->
+      <data>001..... .....000</data> <!-- not   rX, rY -->
+      <data>000..... .....001</data> <!-- or    rX, rY -->
+      <data>001..... .....001</data> <!-- xor   rX, rY -->
+      <data>010..... .....001</data> <!-- and   rX, rY -->
+      <data>011..... .....001</data> <!-- tst   rX, rY -->
+      <data>100..... .....001</data> <!-- subr  rX, rY -->
+      <data>101..... .....001</data> <!-- sub   rX, rY -->
+      <data>110..... .....001</data> <!-- add   rX, rY -->
+      <data>010..... .....010</data> <!-- add   imm5, rY -->
+      <data>0110.... .....000</data> <!-- sld.bu disp4[ep], rY -->
+      <data>0111.... .....000</data> <!-- sld.hu disp5[ep], rY -->
+      <data>0....... .....011</data> <!-- sld.b  disp7[ep], rY -->
+      <data>1....... .....011</data> <!-- sst.b  disp7[ep], rY -->
+      <data>0....... .....100</data> <!-- sld.h  disp8[ep], rY -->
+      <data>1....... .....100</data> <!-- sst.h  disp8[ep], rY -->
+      <data>0....... .....101</data> <!-- sld.w  disp8[ep], rY -->
+      <data>1....... .....101</data> <!-- sst.w  disp8[ep], rY -->
+      <data>000..... .....111 ........ ........</data> <!-- ld.b  disp16[rX], rY -->
+      <data>10...... .....111 ........ ........</data> <!-- ld.bu disp16[rX], rY -->
+      <data>111..... .....111 ........ ........</data> <!-- ld.hu disp16[rX], rY -->
+      <data>001..... .....111 ........ ........</data> <!-- ld.w  disp16[rX], rY -->
+      <data>010..... .....111 ........ ........</data> <!-- st.b  rY, disp16[rX] -->
+      <data>011..... .....111 ........ ........</data> <!-- st.w  rY, disp16[rX] -->
+      <data>000..... .....110 ........ ........</data> <!-- addi  imm16, rX, rY -->
+      <data>001..... .....110 ........ ........</data> <!-- movea imm16, rX, rY -->
+      <data>010..... .....110 ........ ........</data> <!-- movhi imm16, rX, rY -->
+      <data>100..... .....110 ........ ........</data> <!-- ori   imm16, rX, rY -->
+      <data>101..... .....110 ........ ........</data> <!-- xori  imm16, rX, rY -->
+      <data>111..... .....110 ........ ........</data> <!-- mulhi imm16, rX, rY -->
+      <data>110..... .....110 ........ ........</data> <!-- andi  imm16, rX, rY -->
+      <codeboundary/>
+      <possiblefuncstart validcode="4" contiguous="true"/>
+    </postpatterns>
+  </patternpairs>
+
+  <!-- Transit ccrh images don't bootstrap from a preceding return site: the ELF
+       entry decodes out of erased flash and many real functions are reached only
+       by global pre-search. Promote the common ccrh frame-setup instructions as
+       possible starts, but require a short run of valid contiguous code to keep
+       false positives bounded. -->
+
+  <pattern>
+    <data>10...... 00000111 ...00001 ........</data> <!-- PREPARE list12, imm5 -->
+    <codeboundary/>
+    <possiblefuncstart validcode="4" contiguous="true"/>
+  </pattern>
+
+  <pattern>
+    <data>10...... 00000111 ...00011 ........</data> <!-- PREPARE list12, imm5, sp -->
+    <codeboundary/>
+    <possiblefuncstart validcode="4" contiguous="true"/>
+  </pattern>
+
+  <pattern>
+    <data>00000011 00011110 ........ ........</data> <!-- ADDI imm16, sp, sp -->
+    <codeboundary/>
+    <possiblefuncstart validcode="4" contiguous="true"/>
+  </pattern>
+
+  <pattern>
+    <data>10...... 00000111 ...01011 ........ ........ ........</data> <!-- PREPARE list12, imm5, simm16 -->
+    <codeboundary/>
+    <possiblefuncstart validcode="4" contiguous="true"/>
+  </pattern>
+
+  <pattern>
+    <data>10...... 00000111 ...10011 ........ ........ ........</data> <!-- PREPARE list12, imm5, imm16 -->
+    <codeboundary/>
+    <possiblefuncstart validcode="4" contiguous="true"/>
+  </pattern>
+
+  <pattern>
+    <data>10...... 00000111 ...11011 ........ ........ ........ ........ ........</data> <!-- PREPARE list12, imm5, imm32 -->
+    <codeboundary/>
+    <possiblefuncstart validcode="4" contiguous="true"/>
+  </pattern>
+
+</patternlist>
