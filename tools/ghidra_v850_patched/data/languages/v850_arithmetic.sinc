@@ -31,32 +31,36 @@ macro saturate(value) {
 }
 
 # SATSUBR reg1, reg2
-:satsubr R0004, r1115 is op0510=0x04 & R0004 & r1115 & op1115!=0 {
-	local res:5 = sext(R0004) - sext(r1115);
-	flags_sub(R0004, r1115);
+# Note: op1115!=0 constraint removed — SATSUBR with r0 dest is valid (result discarded).
+# No disambiguation needed here; JR/JARL use op0510=0x17, not 0x04/0x05/0x06/0x07.
+:satsubr R0004, R1115 is op0510=0x04 & R0004 & R1115 {
+	local res:5 = sext(R0004) - sext(R1115);
+	flags_sub(R0004, R1115);
 	$(PSW_SAT) = $(PSW_SAT) || $(PSW_CY);
 	saturate(res);
-	r1115 = res:4;
+	R1115 = res:4;
 }
 # SATSUB reg1, reg2
-:satsub R0004, r1115 is op0510=0x05 & R0004 & r1115 & op1115!=0 {
-	local res:5 = sext(r1115) - sext(R0004);
-	flags_sub(r1115, R0004);
+:satsub R0004, R1115 is op0510=0x05 & R0004 & R1115 {
+	local res:5 = sext(R1115) - sext(R0004);
+	flags_sub(R1115, R0004);
 	$(PSW_SAT) = $(PSW_SAT) || $(PSW_CY);
 	saturate(res);
-	r1115 = res:4;
+	R1115 = res:4;
 }
 # SATADD reg1, reg2
-:satadd R0004, r1115 is op0510=0x06 & R0004 & r1115 & op1115!=0 {
-	local res:5 = sext(R0004) + sext(r1115);
-	flags_add(R0004, r1115);
+:satadd R0004, R1115 is op0510=0x06 & R0004 & R1115 {
+	local res:5 = sext(R0004) + sext(R1115);
+	flags_add(R0004, R1115);
 	$(PSW_SAT) = $(PSW_SAT) || $(PSW_CY);
 	saturate(res);
-	r1115 = res:4;
+	R1115 = res:4;
 }
 
 # MULH reg1, reg2
-:mulh R0004, R1115 is op0510=0x07 & R0004 & R1115 & op1115!=0 {
+# Note: op1115!=0 constraint removed — MULH with r0 dest/src is valid.
+# JR/JARL disambiguation uses op0510=0x17, not 0x07, so no conflict.
+:mulh R0004, R1115 is op0510=0x07 & R0004 & R1115 {
 	local reg1 = sext(R0004:2);
 	local reg2 = sext(R1115:2);
 	R1115 = reg1 * reg2;
@@ -86,17 +90,19 @@ macro saturate(value) {
 }
 
 # MOV imm5, reg2
-:mov s0004, r1115 is op0510=0x10 & s0004 & r1115 & op1115!=0 {
-	r1115 = s0004;
+# Note: op1115!=0 removed — MOV imm5, r0 is a valid (if pointless) instruction.
+:mov s0004, R1115 is op0510=0x10 & s0004 & R1115 {
+	R1115 = s0004;
 }
 
 #SATADD imm5, reg2
-:satadd s0004, r1115 is op0510=0x11 & s0004 & r1115 & op1115!=0 {
-	local res:5 = s0004 + sext(r1115);
-	flags_add(s0004, r1115);
+# Note: op1115!=0 removed — SATADD imm5, r0 is valid (result discarded to r0).
+:satadd s0004, R1115 is op0510=0x11 & s0004 & R1115 {
+	local res:5 = s0004 + sext(R1115);
+	flags_add(s0004, R1115);
 	$(PSW_SAT) = $(PSW_SAT) || $(PSW_CY);
 	saturate(res);
-	r1115 = res:4;
+	R1115 = res:4;
 }
 
 # ADD imm5, reg2
