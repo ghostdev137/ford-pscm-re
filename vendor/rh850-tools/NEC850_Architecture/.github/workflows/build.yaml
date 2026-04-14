@@ -1,0 +1,65 @@
+name: Build
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  BUILD_TYPE: RelWithDebInfo
+
+jobs:
+  build:
+    runs-on: ${{matrix.config.os}}
+    strategy:
+      matrix:
+        config:
+        - {
+            os: windows-2019,
+            name: windows
+          }
+        - {
+            os: macos-13,
+            name: macos
+          }
+        - {
+            os: ubuntu-22.04,
+            name: ubuntu
+          }
+        version: 
+        # These work but are excessive for building
+        # - v03.02.03814
+        # - v3.3.3996
+        # - v3.4.4271-stable
+        - v3.5.4526-stable
+        - v4.0.4958-stable
+        - dev
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: 'true'
+    - uses: seanmiddleditch/gha-setup-ninja@master
+    - uses: ilammy/msvc-dev-cmd@v1
+    - name: Update submodule
+      run: |
+        cd binaryninjaapi
+        git fetch --tags
+        git checkout --force ${{matrix.version}}
+        git submodule update --init --recursive
+    - name: Patch api to allow building headlessly
+      shell: bash
+      run: |
+        cd binaryninjaapi
+        git apply --verbose ../.github/workflows/4.1_0001-Support-building-plugins-without-an-install.patch \
+        || git apply --verbose ../.github/workflows/4.0_0001-Support-building-plugins-without-an-install.patch \
+        || git apply --verbose ../.github/workflows/3.5_0001-Support-building-plugins-without-an-install.patch 
+    - name: Configure CMake
+      run: cmake -B ${{github.workspace}}/build -G Ninja -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{matrix.config.name}}-${{matrix.version}}
+        path: ${{github.workspace}}/build/*nec850_arch*

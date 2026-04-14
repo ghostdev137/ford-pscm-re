@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "binja-v850"
+version = "0.1.0"
+description = ""
+authors = ["Tomonori Izumida <tizmd@iij.ad.jp>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+ipython = "^7.28.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
