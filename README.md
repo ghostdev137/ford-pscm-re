@@ -2,7 +2,7 @@
 
 Reverse engineering of the Ford Power Steering Control Module (PSCM) firmware across **2025 Transit**, **2022/2024 Escape**, and **2022/2021 F-150**. Primary goals: unlock disabled driver-assist features on Transit (LKA authority expansion, APA standstill, Lane Centering) via calibration patches, and document the platform fully so others can port the work.
 
-> **Status (2026-04-13):** `LKA_FULL_AUTHORITY.VBF` flashed and drive-confirmed — column torque median +184% vs stock. Ghidra decompiler patched to 90% clean-decompile on Transit firmware. F-150 (V850 baseline) and Transit (RH850 extended) ISAs confirmed and distinguished.
+> **Status (2026-04-13):** `LKA_FULL_AUTHORITY.VBF` flashed and drive-confirmed — column torque median +184% vs stock. Ghidra decompiler patched to 90% clean-decompile on Transit firmware. F-150 and Transit remain distinct V850-family targets; in this Ghidra setup the F-150 full ELF also lifts best under `v850e3`.
 
 ---
 
@@ -25,7 +25,7 @@ All patched VBFs are in `firmware/patched/`. Flash with FORScan → PSCM → Mod
 | Item | Transit 2025 | F-150 2022/2021 |
 |---|---|---|
 | Vendor | ThyssenKrupp Presta (TKP) EPU | Different vendor |
-| MCU | Renesas **RH850** (V850-family, extended ops) | Renesas **V850** (baseline — Ghidra stock decodes it) |
+| MCU | Renesas **RH850** (V850-family, extended ops) | Renesas **V850-family** (`v850e3` gives the best full-ELF lift in this repo) |
 | Endianness | Little-endian | Little-endian |
 | Cal base | `0x00FD0000` (65,520 B, big-endian tables) | `0x101D0000` (195,584 B, little-endian tables) |
 | ECU address | `0x730` (req) / `0x738` (resp) | `0x730` / `0x738` |

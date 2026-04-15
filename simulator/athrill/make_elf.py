@@ -79,12 +79,22 @@ def make_elf(segments, entry_point, output_path):
     phdrs = []
     file_offset = data_offset
 
+    # Cal + block1 (RAM-image) are data-only; strategy + block2 are code.
+    # Marking cal as non-executable stops Ghidra/BN from treating ccrh-prologue
+    # byte patterns in cal data as phantom functions, while leaving xrefs from
+    # strategy into cal addresses fully resolvable.
+    CODE_SEGMENTS = {0x01000000, 0x20FF0000, 0x00000000}  # strategy, block2, sbl
     for vaddr, data in segments:
         filesz = len(data)
         memsz = filesz
         # Align file offset to 4 bytes
         padding = (4 - (file_offset % 4)) % 4
         file_offset += padding
+
+        if vaddr in CODE_SEGMENTS:
+            p_flags = PF_R | PF_X       # code: read+execute, no write
+        else:
+            p_flags = PF_R | PF_W       # data (cal, block1 RAM image)
 
         phdrs.append(struct.pack('<IIIIIIII',
             PT_LOAD,        # p_type
@@ -93,7 +103,7 @@ def make_elf(segments, entry_point, output_path):
             vaddr,          # p_paddr
             filesz,         # p_filesz
             memsz,          # p_memsz
-            PF_R | PF_W | PF_X,  # p_flags
+            p_flags,
             4,              # p_align
         ))
         file_offset += filesz

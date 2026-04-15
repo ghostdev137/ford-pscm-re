@@ -8,9 +8,12 @@ LZSS params: EI=10, EJ=4, P=1, N=1024, ring_init=0x20 (space)
 Block format: [addr:4BE][len:4BE][compressed_data:len][CRC16:2]
 """
 
+import json
+import os
+import re
 import struct
 import sys
-import os
+import zlib
 from pathlib import Path
 
 EI = 10
@@ -91,21 +94,106 @@ def crc16(data: bytes) -> int:
     return crc
 
 
+def crc32_file(raw: bytes) -> int:
+    """CRC32 over the full file bytes."""
+    return zlib.crc32(raw) & 0xFFFFFFFF
+
+
+def _match_brace(raw: bytes, open_brace: int) -> int:
+    """Find the matching closing brace, respecting quoted strings."""
+    depth = 0
+    in_string = False
+    escape = False
+
+    for i in range(open_brace, len(raw)):
+        ch = raw[i]
+        if in_string:
+            if escape:
+                escape = False
+                continue
+            if ch == 0x5C:  # backslash
+                escape = True
+                continue
+            if ch == 0x22:  # double quote
+                in_string = False
+            continue
+
+        if ch == 0x22:  # double quote
+            in_string = True
+            continue
+        if ch == 0x7B:  # {
+            depth += 1
+            continue
+        if ch == 0x7D:  # }
+            depth -= 1
+            if depth == 0:
+                return i
+
+    return -1
+
+
 def parse_vbf_header(raw: bytes) -> tuple:
     """Parse VBF text header, return (header_text, end_offset)."""
-    depth = 0
-    in_header = False
-    for i in range(len(raw)):
-        if not in_header and raw[i:i+6] == b'header':
-            in_header = True
-        if in_header:
-            if raw[i] == 0x7B:  # {
-                depth += 1
-            elif raw[i] == 0x7D:  # }
-                depth -= 1
-                if depth == 0:
-                    return raw[:i+1].decode('ascii', errors='replace'), i + 1
-    raise ValueError("Could not find end of VBF header")
+    lower = raw.lower()
+    header_idx = lower.find(b'header')
+    if header_idx < 0:
+        head = lower[:min(2_000_000, len(raw))]
+        vbf_idx = head.find(b'vbf_version')
+        if vbf_idx < 0:
+            raise ValueError("Could not find VBF header")
+        open_brace = head.find(b'{', vbf_idx)
+        if open_brace < 0:
+            raise ValueError("Could not find VBF header opening brace")
+    else:
+        open_brace = lower.find(b'{', header_idx)
+        if open_brace < 0:
+            raise ValueError("Found 'header' but no opening brace")
+
+    close_brace = _match_brace(raw, open_brace)
+    if close_brace < 0:
+        raise ValueError("Could not find end of VBF header")
+
+    return raw[:close_brace + 1].decode('latin-1', errors='replace'), close_brace + 1
+
+
+def parse_header_fields(header_text: str) -> tuple:
+    """Parse simple VBF header fields and return (fields, file_checksum)."""
+    lines = []
+    for line in header_text.splitlines():
+        if '//' in line:
+            line = line.split('//', 1)[0]
+        lines.append(line)
+    text = '\n'.join(lines)
+
+    fields = {}
+    file_checksum = None
+    for match in re.finditer(r'([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*?);', text, re.DOTALL):
+        key = match.group(1)
+        value = match.group(2).strip()
+        if value.startswith('{') and value.endswith('}'):
+            fields[key] = value[1:-1].strip()
+            continue
+        if value.startswith('"') and value.endswith('"'):
+            fields[key] = value[1:-1]
+            continue
+        lowered = value.lower()
+        if lowered.startswith('0x'):
+            try:
+                num = int(lowered, 16)
+                fields[key] = num
+                if key.lower() == 'file_checksum':
+                    file_checksum = num & 0xFFFFFFFF
+                continue
+            except ValueError:
+                pass
+        try:
+            if '.' in value:
+                fields[key] = float(value)
+            else:
+                fields[key] = int(value)
+        except ValueError:
+            fields[key] = value
+    return fields, file_checksum
 
 
 def parse_vbf_blocks(raw: bytes, header_end: int) -> list:
@@ -126,7 +214,6 @@ def parse_vbf_blocks(raw: bytes, header_end: int) -> list:
 
 def get_data_format(header_text: str) -> int:
     """Extract data_format_identifier from header."""
-    import re
     m = re.search(r'data_format_identifier\s*=\s*(0x[0-9a-fA-F]+)', header_text)
     if m:
         return int(m.group(1), 16)
@@ -140,22 +227,48 @@ def decompress_vbf(vbf_path: str, output_dir: str, prefix: str = None) -> list:
     """
     raw = open(vbf_path, 'rb').read()
     header_text, header_end = parse_vbf_header(raw)
+    header_fields, file_checksum = parse_header_fields(header_text)
+    file_checksum_calc = crc32_file(raw)
     dfi = get_data_format(header_text)
     is_compressed = (dfi >> 4) != 0
 
     blocks = parse_vbf_blocks(raw, header_end)
     os.makedirs(output_dir, exist_ok=True)
 
+    header_json_path = os.path.join(output_dir, f"{Path(vbf_path).name}.header.json")
+    with open(header_json_path, 'w', encoding='utf-8') as f:
+        json.dump(
+            {
+                "source_file": str(vbf_path),
+                "header_end_offset": header_end,
+                "header_fields": header_fields,
+                "file_checksum_header": file_checksum,
+                "file_checksum_calc": file_checksum_calc,
+                "file_checksum_match": (
+                    None if file_checksum is None else file_checksum == file_checksum_calc
+                ),
+            },
+            f,
+            indent=2,
+            sort_keys=True,
+        )
+    if file_checksum is None:
+        print(f"  file_checksum: not present in header")
+    else:
+        status = "OK" if file_checksum == file_checksum_calc else "MISMATCH"
+        print(
+            f"  file_checksum: header=0x{file_checksum:08X} "
+            f"calc=0x{file_checksum_calc:08X} {status}"
+        )
+
     results = []
     for idx, (addr, compressed, crc_stored) in enumerate(blocks):
-        # Verify CRC16 on compressed data
-        crc_calc = crc16(compressed)
-        crc_ok = (crc_calc == crc_stored)
-
         if is_compressed:
             data = lzss_decode(compressed)
         else:
             data = compressed
+        crc_calc = crc16(data)
+        crc_ok = (crc_calc == crc_stored)
 
         if prefix:
             out_name = f"{prefix}_block{idx}_0x{addr:08X}.bin"
@@ -220,9 +333,7 @@ def main():
         print(f"  Blocks found: {len(blocks)}")
 
         for idx, (addr, compressed, crc_stored) in enumerate(blocks):
-            # CRC16 covers addr(4) + len(4) + compressed_data
-            # CRC16 stored per-block; polynomial is Ford-proprietary, not verified here
-            # Decompression correctness is verified against reference .bin files instead
+            # VBF block CRC16 is over the stored payload bytes for each block.
 
             if is_compressed:
                 data = lzss_decode(compressed)

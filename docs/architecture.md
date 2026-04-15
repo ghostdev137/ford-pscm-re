@@ -10,11 +10,15 @@ nav_order: 6
 | Vehicle | MCU | Ghidra treatment | Notes |
 |---|---|---|---|
 | 2025 Transit / 2022 Escape | Renesas **RH850** (V850-family, extended instruction set) | Use `v850e3:LE:32:default` from patched SLEIGH | Stock Ghidra 12 V850 spec decodes 0/48; our patch reaches 90/100 |
-| 2022/2021 F-150 | Renesas **V850** (baseline) | Stock Ghidra V850 decodes it cleanly | Older-generation PSCM |
+| 2022/2021 F-150 | Renesas **V850-family** | In this repo/toolchain, use `v850e3:LE:32:default` for the best full-ELF lift | Older-generation PSCM |
 
 > **TriCore/Aurix was a false lead.** Earlier sessions saw peripherals named `LDRAM_13`/`SPRAM_13` and suspected Infineon TriCore. Those names appeared only because we loaded the binary as TC172x in Ghidra — they were not evidence. Both Transit and F-150 are confirmed Renesas V850-family.
 
-Both are 32-bit little-endian cores. The Transit's RH850 adds extended 32-bit instruction encodings not present in baseline V850 — that is why the stock Ghidra V850 spec fails on Transit but decodes F-150 correctly.
+Both are 32-bit little-endian cores. The Transit's RH850 adds extended 32-bit
+instruction encodings not present in baseline V850. In practice, our patched
+`v850e3` language is also the right choice for the F-150 full ELF: it matches
+Ghidra auto-detect and reproduces the measured `3349 clean / 716 warning / 34
+baddata / 5 failed` lift, while forcing plain `v850` degrades the result.
 
 ## Transit hardware identity
 

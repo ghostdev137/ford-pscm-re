@@ -6,8 +6,8 @@ from openai import OpenAI
 DECOMP_DIR = "/tmp/pscm/decompiles_clean"
 OUT_PATH = "/tmp/pscm/annotations.json"
 ENDPOINT = "http://100.69.219.3:8000/v1"
-MODEL = "glm-4.7-flash"
-PARALLEL = 8
+MODEL = "qwen3-coder"
+PARALLEL = 2
 
 PROMPT = """You are reverse-engineering Ford Transit PSCM (Power Steering Control Module) firmware on Renesas RH850.
 The function below was decompiled by Ghidra. V850 register notes: ep is element-pointer (struct base), CTBP is call-table base, gp is calibration base.

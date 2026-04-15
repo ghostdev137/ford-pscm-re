@@ -9,7 +9,9 @@ nav_order: 31
 
 The Transit PSCM (2025) runs Renesas RH850 — the V850 family with extended 32-bit instruction encodings. Ghidra 12's stock V850 spec (`v850e2`) does not know these extensions and emits `halt_baddata()` for ~660 instruction instances in the Transit firmware, causing the decompiler to fail or produce garbage on affected functions.
 
-The F-150 PSCM (2022/2021) runs **baseline V850** — stock Ghidra decodes it cleanly with no patches needed.
+The F-150 PSCM (2022/2021) is still a V850-family target, but in **this**
+Ghidra extension/workflow the full ELF lifts materially better when imported as
+`v850e3:LE:32:default` than as plain `v850:LE:32:default`.
 
 ## Our patched SLEIGH
 
@@ -43,8 +45,17 @@ $(brew --prefix)/Cellar/ghidra/*/libexec/support/sleigh data/languages/v850e2.sl
 $(brew --prefix)/Cellar/ghidra/*/libexec/support/sleigh data/languages/v850e3.slaspec
 ```
 
-Restart Ghidra. Language picker shows `v850e3:LE:32:default` — use this for Transit firmware.  
-For F-150 firmware, stock `v850e2:LE:32:default` or `v850:LE:32:default` works.
+Restart Ghidra. Language picker shows `v850e3:LE:32:default` — use this for
+Transit firmware.  
+For the F-150 full ELF in this repo, also use `v850e3:LE:32:default`.
+`v850:LE:32:default` is measurably worse on the same image.
+
+Measured on `f150_pscm_ML34-14D007-BDL_full.elf`:
+
+| Processor | Clean | Warnings | Baddata | Failed |
+|---|---|---|---|---|
+| `v850e3:LE:32:default` | 3349 | 716 | 34 | 5 |
+| `v850:LE:32:default` | 2691 | 965 | 383 | 2 |
 
 ## Headless scripts
 
