@@ -5,7 +5,8 @@
 **Base cal:** `LK41-14D007-AH`
 **Flash address:** `0x00FD0000`
 **Built on:** `LKA_APA_STANDSTILL.VBF` (lockout-zeroed + APA standstill)
-**file_checksum:** `0xCF1A7818`
+**file_checksum:** `0xAF8DF48C`
+**block CRC16:** `0x5842`
 
 ## Goal
 

@@ -5,7 +5,8 @@
 **Base cal:** `LK41-14D007-AH`  
 **Flash address:** `0x00FD0000`  
 **Built on:** `LKA_TORQUE2X_06AE0.VBF` (cleaned active-table patch, no shifted writes)  
-**file_checksum:** `0x55E9ABA3`
+**file_checksum:** `0x3DA76C9F`
+**block CRC16:** `0x42E7`
 
 ## Goal
 
