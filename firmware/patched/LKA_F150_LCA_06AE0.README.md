@@ -5,15 +5,16 @@
 **Base cal:** `LK41-14D007-AH`  
 **Flash address:** `0x00FD0000`  
 **Built on:** `LKA_TORQUE2X_06AE0.VBF` (cleaned active-table patch, no shifted writes)  
-**file_checksum:** `0x28E643DC`
+**file_checksum:** `0x55E9ABA3`
 
 ## Goal
 
 Keep the same cleaned Transit patch stack:
 
-1. `+0x06AE = 0`
-2. `+0x06B0..+0x06C2 = 0`
-3. inherited APA standstill / high-speed changes
+1. `+0x0690 = 3.0 m/s`
+2. `+0x06AE = 0`
+3. `+0x06B0..+0x06C2 = 0`
+4. inherited APA standstill / high-speed changes
 
 But replace the active LKA torque curve with the F-150 LCA / BlueCruise-style envelope already documented in this repo:
 
@@ -21,7 +22,7 @@ But replace the active LKA torque curve with the F-150 LCA / BlueCruise-style en
 
 This is the same curve described in [LKA_FULL_AUTHORITY.README.md](/Users/rossfisher/ford-pscm-re/firmware/patched/LKA_FULL_AUTHORITY.README.md) as the Transit patch intended to match the F-150 production lane-centering envelope.
 
-Unlike `LKA_FULL_AUTHORITY.VBF`, this file does **not** include the `MIN_3` speed-floor change. `+0x0690` remains stock.
+This file now also includes the `MIN_3` speed-floor change, so the engage floor is reduced from stock `10.0 m/s` to `3.0 m/s`.
 
 ## Changes from Stock
 
@@ -30,7 +31,7 @@ Unlike `LKA_FULL_AUTHORITY.VBF`, this file does **not** include the `MIN_3` spee
 | Active LKA torque table | `+0x03C4..+0x03E0` | `[0, 0.2, 0.4, 0.7, 1.0, 1.5, 2.0, 7.0]` | **`[0, 0.7, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5]`** | Match the repo's F-150 LCA / BlueCruise reference envelope |
 | Companion shaping table | `+0x03E4..+0x0400` | `[0.8, 0.8, 0.9, 1.0, 1.0, 1.0, 1.0, 1.0]` | unchanged | Clean table layout preserved |
 | Speed axis | `+0x0404..+0x0420` | `[0, 10, 30, 50, 70, 90, 130, 250]` | unchanged | Clean table layout preserved |
-| LKA min-speed float | `+0x0690` | `10.0 m/s` | unchanged | This artifact does not include the `MIN_3` tweak |
+| LKA min-speed float | `+0x0690` | `10.0 m/s` | **`3.0 m/s`** | Include the `MIN_3` engage-floor tweak |
 | Supervisor settle const | `+0x06AE` | `1500` | **`0`** | Keep the adjacent settle / hysteresis term removed |
 | LKA lockout table | `+0x06B0..+0x06C2` | `[0, 100, 0, 1000, 2000, 1000, 500, 400, 5, 255]` | all `0` | Keep the known 10-second lockout supervisor removed |
 | Boundary word | `+0x06C4..+0x06C7` | `FF 01 FF 02` | unchanged | Left alone |
@@ -94,17 +95,20 @@ Real bins:
 1. `+0x03C4..+0x03E0`
    Changes the real active LKA torque curve to the repo's F-150 reference envelope.
 
-2. `+0x06AE: 1500 -> 0`
+2. `+0x0690: 10.0 m/s -> 3.0 m/s`
+   Lowers the stock LKA minimum-speed floor so the system can engage much earlier.
+
+3. `+0x06AE: 1500 -> 0`
    Keeps the adjacent settle / hysteresis constant removed.
    Best current guess: this changes how the PSCM decides the supervisor state has fully started or fully cleared.
 
-3. `+0x06B0..+0x06C2 -> all 0`
+4. `+0x06B0..+0x06C2 -> all 0`
    Keeps the known LKA lockout supervisor removed, including the proven 10-second entry at `+0x06B6`.
 
-4. `+0x06C4..+0x06C7 = FF 01 FF 02`
+5. `+0x06C4..+0x06C7 = FF 01 FF 02`
    Unchanged boundary / sentinel word after the timer cluster.
 
-5. APA standstill / high-speed changes remain inherited from `LKA_APA_STANDSTILL.VBF`.
+6. APA standstill / high-speed changes remain inherited from `LKA_APA_STANDSTILL.VBF`.
 
 ## Verification
 
@@ -114,6 +118,7 @@ Final artifact state:
 +0x03C4..+0x03E0 = [0.0, 0.7, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5]
 +0x03E4..+0x0400 = stock
 +0x0404..+0x0420 = stock
++0x0690 = 3.0 m/s
 +0x06AE = 0000
 +0x06B0..+0x06C2 = 0000
 +0x06C4..+0x06C7 = FF01FF02
