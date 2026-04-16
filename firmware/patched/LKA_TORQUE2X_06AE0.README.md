@@ -1,6 +1,6 @@
 # Transit — 2x Active LKA Torque + Supervisor Settle Zero (+0x06AE)
 
-**File:** `LKA_TORQUE25_06AE0.VBF` (66,915 bytes)
+**File:** `LKA_TORQUE2X_06AE0.VBF` (66,915 bytes)
 **Vehicle:** 2025 Ford Transit
 **Base cal:** `LK41-14D007-AH`
 **Flash address:** `0x00FD0000`
