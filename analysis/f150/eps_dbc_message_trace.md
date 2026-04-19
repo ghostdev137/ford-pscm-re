@@ -247,6 +247,21 @@ Current trace:
   - `gp-0xe1dc`, `gp-0xe1d8`, `gp-0xe1d0`, `gp-0xe1d4`
   - mirrored live copies at `gp-0x154ec..gp-0x154e0`
   - plus associated status bytes at `gp-0xc397`, `gp-0xc395`, `gp-0xc390`, `gp-0xc392`
+- one step tighter than the older note: the same `FUN_1005ea9c` body also writes the
+  gp-backed halfwords at:
+  - `gp-0x151a2`
+  - `gp-0x1519e`
+  - `gp-0x1519c`
+- those are exactly the getter shims used by the lane-centering locals:
+  - `FUN_10096f70()` -> `gp-0x151a2`
+  - `FUN_10096f78()` -> `gp-0x1519e`
+  - `FUN_10096f80()` -> `gp-0x1519c`
+- and those getters land directly in the proven `LCA / BlueCruise` path:
+  - `FUN_101ad86c` reads all three
+  - `FUN_101ab934` reads `FUN_10096f70()` and `FUN_10096f80()`
+- so the shared-supervisor branch is no longer just “near” the lane-centering path:
+  three concrete `LCA` ingress channels are now pinned to the `FUN_100586d0 -> FUN_1005ea9c`
+  sideband-normalization family
 - those physical-value shapes are a strong match for the `0x3D7` object-sideband DBC family.
   This last step is still an inference from the code-backed scales plus descriptor-list placement, not a mailbox-local proof from the receive dispatcher boundary.
 - importantly, this branch does **not** land in `fef21a**` (`LKA`) or `fef211**` (`APA`) local namespaces.
@@ -255,7 +270,7 @@ Current trace:
 Confidence:
 
 - **High** that the F-150 strategy has a dedicated periodic shared-supervisor consumer for an ESA / object-sideband message family
-- **Medium** that this exact branch is `0x3D7 Steer_Assist_Data` rather than another sibling PSCM-facing sideband PDU
+- **Medium / High** that this exact branch is `0x3D7 Steer_Assist_Data` rather than another sibling PSCM-facing sideband PDU, because part of its normalized output is now pinned into concrete `LCA / BlueCruise` getter shims
 
 ## APA message trace
 
