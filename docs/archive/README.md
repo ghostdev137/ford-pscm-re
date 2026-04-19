@@ -9,3 +9,5 @@ These docs were accurate at the time of writing but have been superseded by curr
 | `lka-signal-space.md` | `docs/lka.md` + `docs/calibration-map.md` | Agent handoff notes; specific findings folded into canonical docs |
 | `openpilot-drive-findings.md` | `docs/lka.md` + drive logs on-device | Per-drive analysis; key findings (torque cap evidence, speed floor) are now in lka.md |
 | `pscm-telemetry-observed.md` | (open question) | EPAS_INFO signal decode issues noted; kept here because SteMdule_I_Est decode question unresolved |
+| `OVERNIGHT_STATUS.md` | `docs/calibration-map.md` + `docs/lka.md` | Single 2026-04-14 overnight session log; patch coordinates & test results absorbed into canonical docs |
+| `can_reader_hunt_state.md` | `docs/transit-arbiter-map.md` | Unresolved 0x3A8 RX-scaling hunt; superseded by the Q15 multiplier patch path at `FUN_010babf2` / `0x010babf8` |

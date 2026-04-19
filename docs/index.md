@@ -49,6 +49,8 @@ See [Notes for openpilot](openpilot.html). TL;DR: flash [`LKA_FULL_AUTHORITY.VBF
 - [Decompiler setup](decompiler.html) — Ghidra + RH850 patch, scripts, AI pipeline.
 - [Simulator](simulator.html) — Athrill status and limitations.
 - [VBF format spec](vbf-format.html) — terse format reference.
+- [Transit torque arbitration map](transit-arbiter-map.html) — arbiter entry points, Q15 scaling, TAUB writes.
+- [Transit LCA hunt (0x3CC / 0x3D6)](transit-lca-hunt.html) — PDU-table gate blocking LCA.
 - [Vehicles](vehicles/) — per-vehicle PSCM docs.
 
 ## Repository layout

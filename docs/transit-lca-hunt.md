@@ -1,4 +1,11 @@
+---
+title: Transit LCA Hunt (0x3CC / 0x3D6)
+nav_order: 15
+---
+
 # Transit PSCM LCA Hunt — 0x3CC TX / 0x3D6 RX Gate
+
+Canonical LCA blocker diagnosis: 0x3D6 unregistered in the PDU dispatch table; enabling LCA requires injecting a descriptor at `0x1002b50`. Companion to [LCA](lca.html).
 
 **Binary:** `transit_AM_blk0_0x01000000.bin.bndb`
 **Segment:** 0x1000000–0x10FFFF0 (1 MB, single executable block)

@@ -67,6 +67,10 @@ For folks coming from openpilot: the PSCM accepts a continuous steering-torque c
 
 Relevant openpilot DBC tokens: `DesTorq`, `EPAS_INFO`, `Steering_Pinion_Data`.
 
+## Firmware-side findings
+
+The [Transit LCA hunt](transit-lca-hunt.html) documents the PDU-table gate: CAN ID `0x3D6` is not registered in the PSCM's PDU dispatch table, so frames never reach the LCA code path even with cal and AS-built set correctly. Enabling the full LCA path requires injecting a descriptor at `0x1002b50` — a firmware-side change, not a cal patch.
+
 ## Files
 
 - `firmware/patched/LCA_ENABLED.VBF` — Transit + Escape LCA cal + LKA patch

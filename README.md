@@ -2,7 +2,7 @@
 
 Reverse engineering of the Ford Power Steering Control Module (PSCM) firmware across **2025 Transit**, **2022/2024 Escape**, and **2022/2021 F-150**. Primary goals: unlock disabled driver-assist features on Transit (LKA authority expansion, APA standstill, Lane Centering) via calibration patches, and document the platform fully so others can port the work.
 
-> **Status (2026-04-13):** `LKA_FULL_AUTHORITY.VBF` flashed and drive-confirmed — column torque median +184% vs stock. Ghidra decompiler patched to 90% clean-decompile on Transit firmware. F-150 and Transit remain distinct V850-family targets; in this Ghidra setup the F-150 full ELF also lifts best under `v850e3`.
+> **Status (2026-04-19):** `LKA_FULL_AUTHORITY.VBF` flashed and drive-confirmed — column torque median +184% vs stock. Ghidra decompiler patched to 90% clean-decompile on Transit firmware. Transit angle scaler located at `FUN_010babf2` (`mulhi 0x67c2` @ `0x010babf8`) — 2-byte firmware patch site for amplifying commanded LKA angle beyond the DBC ceiling. Binary Ninja v850 lifter brought to ~99.81% decode coverage via the 2026-04 sprint (see `docs/transit-arbiter-map.md`). F-150 and Transit remain distinct V850-family targets; in this Ghidra setup the F-150 full ELF also lifts best under `v850e3`.
 
 ---
 

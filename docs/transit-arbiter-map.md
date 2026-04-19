@@ -1,5 +1,13 @@
+---
+title: Transit Torque Arbitration Map
+nav_order: 14
+---
+
 # Transit PSCM Torque Arbitration Map
-## Session Date: 2026-04-14 | Binary: transit_AM_blk0_0x01000000.bin.bndb
+
+**Session Date:** 2026-04-14 | **Binary:** `transit_AM_blk0_0x01000000.bin.bndb`
+
+Canonical RE artifact: maps torque-arbitration entry points, Q15 scaling, and TAUB MMIO writes in the Transit PSCM strategy. Referenced from [LKA](lka.html).
 
 ---
 

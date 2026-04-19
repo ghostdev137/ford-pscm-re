@@ -58,7 +58,11 @@ resp 0x738  63 40 40 00 00  (= 3.0 m/s in BE float32)
 
 - **Driver-override threshold (~0.7–1.5 Nm)** — PSCM cuts out when driver applies light torque. This is enforced in strategy, not cal, and has not been located.
 - **Angle clip ±5.86°** — `LaRefAng_No_Req` in the `0x3CA` CAN message is a 12-bit signed field with scale 0.05°/LSB. This is a DBC-level constraint, not a PSCM firmware clamp. Going beyond it requires the LCA path (`0x3D3 LateralMotionControl`, `LatCtl_D_Rq=1`).
-- **LCA itself still blocked** — see `docs/lca.md`.
+- **LCA itself still blocked** — see [LCA](lca.html) and the [Transit LCA hunt](transit-lca-hunt.html).
+
+## Firmware-side reference
+
+The torque arbitration chain (manual driver torque + APA angle → Q15 scaling → TAUB MMIO output) is mapped in [Transit torque arbitration map](transit-arbiter-map.html). The Transit-side angle scaler lives at `FUN_010babf2` — `mulhi 0x67c2` @ `0x010babf8` is a 2-byte patch site for amplifying commanded LKA angle beyond the `LaRefAng_No_Req` DBC ceiling.
 
 ## Risks
 

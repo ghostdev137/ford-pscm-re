@@ -139,6 +139,18 @@ for i in range(8):
 
 ---
 
+## LKA actuator scaler — firmware-side, not cal
+
+Not every LKA authority knob lives in cal. The Transit-side angle scaler that converts commanded `LaRefAng_No_Req` into the internal wheel-angle request is a code-path constant inside `FUN_010babf2`:
+
+- Instruction: `mulhi 0x67c2` at `0x010babf8` (Q15 multiplier, 2-byte patch site)
+- Functional equivalent of the F-150's `movhi 0x4480` (float `1024.0`) at file offset `0x569d0`
+- Raising this multiplier is the path for expanding LKA angle beyond the `LaRefAng_No_Req` DBC ceiling (12-bit signed, 0.05 mrad/bit, ±5.86° wheel) — cal patches alone cannot move that ceiling.
+
+See [Transit torque arbitration map](transit-arbiter-map.html) for the full arbitration chain this multiplier feeds into.
+
+---
+
 ## Open: cal addressing mode
 
 No `movhi 0x00FD` instruction pair appears in Transit strategy — the cal base is not embedded as a literal. Cal is probably accessed via a data-space mirror address initialized by the SBL or startup code. Finding this mirror address is the highest-value static-RE task: it would allow tracing exactly which functions read each cal offset.
