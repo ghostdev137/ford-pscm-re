@@ -1,0 +1,1185 @@
+start_hex,start_abs_hex,end_hex,length,class,confidence,repr_values,note
+0x00000,0x101d0000,0x00022,34,reserved_zero,high,0x00 × 34,may be deprecated/disabled field cleared by Ford
+0x00022,0x101d0022,0x00046,36,timer_cluster,medium,"[16880, 0, 17066, 0, 16880, 0, 16880, 0, ... (18 total)]",9/18 look like timer sentinels
+0x00046,0x101d0046,0x00050,10,reserved_zero,high,0x00 × 10,may be deprecated/disabled field cleared by Ford
+0x00050,0x101d0050,0x00060,16,float_table,low,"[0.001, 25, 1, 50]",contiguous plausible float32s
+0x00060,0x101d0060,0x0008a,42,u16_table,low,"[0, 480, 960, 1440, 0, 480, 960, 1440, ... (21 total)]",contiguous u16 values in plausible range
+0x0008a,0x101d008a,0x0008c,2,unknown,low,03 3b,no classifier heuristic matched
+0x0008c,0x101d008c,0x00094,8,u16_table,low,"[1, 0, 3641, 7281]",contiguous u16 values in plausible range
+0x00094,0x101d0094,0x00098,4,float_scalar,low,0.000107845,standalone float32
+0x00098,0x101d0098,0x000a8,16,unknown,low,1e 47 56 55 8f 63 c7 71 00 80 00 00 ...,no classifier heuristic matched
+0x000a8,0x101d00a8,0x000ac,4,float_scalar,low,0.000108798,standalone float32
+0x000ac,0x101d00ac,0x000b8,12,unknown,low,1c 47 55 55 8e 63 c7 71 00 80 00 00,no classifier heuristic matched
+0x000b8,0x101d00b8,0x000d4,28,float_table,low,"[0.8, 0.5, 200, 10, 3.5, 0.055, ... (7 total)]",contiguous plausible float32s
+0x000d4,0x101d00d4,0x000d6,2,unknown,low,66 66,no classifier heuristic matched
+0x000d6,0x101d00d6,0x000ec,22,timer_cluster,medium,"[16486, 0, 16320, 0, 16880, 0, 16988, 0, ... (11 total)]",5/11 look like timer sentinels
+0x000ec,0x101d00ec,0x000f6,10,reserved_zero,high,0x00 × 10,may be deprecated/disabled field cleared by Ford
+0x000f6,0x101d00f6,0x000f8,2,unknown,low,20 40,no classifier heuristic matched
+0x000f8,0x101d00f8,0x00148,80,float_table,low,"[0.5, 0.1, 40, 40, 250, 40, ... (20 total)]",contiguous plausible float32s
+0x00148,0x101d0148,0x0014a,2,unknown,low,cd cc,no classifier heuristic matched
+0x0014a,0x101d014a,0x0018c,66,timer_cluster,medium,"[15692, 0, 16800, 0, 16800, 0, 16928, 0, ... (33 total)]",16/33 look like timer sentinels
+0x0018c,0x101d018c,0x00198,12,float_axis,medium,"[30, 3, 0.0126]",monotonic dec
+0x00198,0x101d0198,0x001b6,30,u16_table,low,"[5000, 0, 4608, 3683, 5000, 3000, 100, 50, ... (15 total)]",contiguous u16 values in plausible range
+0x001b6,0x101d01b6,0x001c4,14,unknown,low,3c 64 00 00 64 4d 4c 33 56 2d 31 34 ...,no classifier heuristic matched
+0x001c4,0x101d01c4,0x001c8,4,float_scalar,low,43.3,standalone float32
+0x001c8,0x101d01c8,0x001c9,1,unknown,low,44,no classifier heuristic matched
+0x001c9,0x101d01c9,0x001db,18,reserved_zero,high,0x00 × 18,may be deprecated/disabled field cleared by Ford
+0x001db,0x101d01db,0x001dd,2,unknown,low,01 01,no classifier heuristic matched
+0x001dd,0x101d01dd,0x001e8,11,reserved_zero,high,0x00 × 11,may be deprecated/disabled field cleared by Ford
+0x001e8,0x101d01e8,0x00206,30,u16_table,low,"[257, 0, 256, 257, 257, 257, 257, 257, ... (15 total)]",contiguous u16 values in plausible range
+0x00206,0x101d0206,0x00207,1,unknown,low,01,no classifier heuristic matched
+0x00207,0x101d0207,0x00210,9,reserved_zero,high,0x00 × 9,may be deprecated/disabled field cleared by Ford
+0x00210,0x101d0210,0x00211,1,unknown,low,01,no classifier heuristic matched
+0x00211,0x101d0211,0x0021d,12,reserved_zero,high,0x00 × 12,may be deprecated/disabled field cleared by Ford
+0x0021d,0x101d021d,0x0021e,1,unknown,low,01,no classifier heuristic matched
+0x0021e,0x101d021e,0x00244,38,reserved_zero,high,0x00 × 38,may be deprecated/disabled field cleared by Ford
+0x00244,0x101d0244,0x00245,1,unknown,low,01,no classifier heuristic matched
+0x00245,0x101d0245,0x00251,12,reserved_zero,high,0x00 × 12,may be deprecated/disabled field cleared by Ford
+0x00251,0x101d0251,0x00252,1,unknown,low,01,no classifier heuristic matched
+0x00252,0x101d0252,0x0025c,10,reserved_zero,high,0x00 × 10,may be deprecated/disabled field cleared by Ford
+0x0025c,0x101d025c,0x0025f,3,unknown,low,01 00 01,no classifier heuristic matched
+0x0025f,0x101d025f,0x00269,10,reserved_zero,high,0x00 × 10,may be deprecated/disabled field cleared by Ford
+0x00269,0x101d0269,0x0026a,1,unknown,low,01,no classifier heuristic matched
+0x0026a,0x101d026a,0x002a0,54,timer_cluster,medium,"[256, 0, 0, 0, 256, 0, 0, 1, ... (27 total)]",13/27 look like timer sentinels
+0x002a0,0x101d02a0,0x002aa,10,reserved_zero,high,0x00 × 10,may be deprecated/disabled field cleared by Ford
+0x002aa,0x101d02aa,0x002ad,3,unknown,low,01 00 01,no classifier heuristic matched
+0x002ad,0x101d02ad,0x002b9,12,reserved_zero,high,0x00 × 12,may be deprecated/disabled field cleared by Ford
+0x002b9,0x101d02b9,0x002ba,1,unknown,low,01,no classifier heuristic matched
+0x002ba,0x101d02ba,0x002c6,12,reserved_zero,high,0x00 × 12,may be deprecated/disabled field cleared by Ford
+0x002c6,0x101d02c6,0x00314,78,u16_table,low,"[1, 0, 257, 257, 257, 257, 257, 257, ... (39 total)]",contiguous u16 values in plausible range
+0x00314,0x101d0314,0x00322,14,timer_cluster,medium,"[257, 257, 0, 0, 0, 256, 256]",3/7 look like timer sentinels
+0x00322,0x101d0322,0x0032c,10,reserved_zero,high,0x00 × 10,may be deprecated/disabled field cleared by Ford
+0x0032c,0x101d032c,0x00336,10,u16_table,low,"[1, 1, 0, 8192, 8192]",contiguous u16 values in plausible range
+0x00336,0x101d0336,0x00344,14,timer_cluster,medium,"[8192, 8192, 8192, 8192, 0, 0, 0]",3/7 look like timer sentinels
+0x00344,0x101d0344,0x00345,1,unknown,low,01,no classifier heuristic matched
+0x00345,0x101d0345,0x00354,15,reserved_zero,high,0x00 × 15,may be deprecated/disabled field cleared by Ford
+0x00354,0x101d0354,0x00355,1,unknown,low,02,no classifier heuristic matched
+0x00355,0x101d0355,0x00368,19,reserved_zero,high,0x00 × 19,may be deprecated/disabled field cleared by Ford
+0x00368,0x101d0368,0x003c6,94,u16_table,low,"[255, 255, 255, 255, 255, 255, 255, 255, ... (47 total)]",contiguous u16 values in plausible range
+0x003c6,0x101d03c6,0x003ca,4,unknown,low,00 28 00 32,no classifier heuristic matched
+0x003ca,0x101d03ca,0x003fa,48,u16_table,low,"[102, 102, 102, 102, 77, 0, 0, 0, ... (24 total)]",contiguous u16 values in plausible range
+0x003fa,0x101d03fa,0x0040a,16,u16_axis,medium,"[0, 3840, 7680, 10240, 12800, 15360, 20480, 32000]","monotonic u16 axis, inc"
+0x0040a,0x101d040a,0x0041a,16,reserved_zero,high,0x00 × 16,may be deprecated/disabled field cleared by Ford
+0x0041a,0x101d041a,0x00440,38,u16_table,low,"[640, 640, 640, 640, 640, 640, 640, 640, ... (19 total)]",contiguous u16 values in plausible range
+0x00440,0x101d0440,0x00450,16,unknown,low,00 28 00 32 00 3c 00 50 00 64 00 00 ...,no classifier heuristic matched
+0x00450,0x101d0450,0x00454,4,float_scalar,low,2.00293,standalone float32
+0x00454,0x101d0454,0x0045c,8,unknown,low,00 70 00 00 00 10 00 20,no classifier heuristic matched
+0x0045c,0x101d045c,0x00460,4,float_scalar,low,2.00293,standalone float32
+0x00460,0x101d0460,0x00468,8,unknown,low,00 70 00 00 00 10 00 20,no classifier heuristic matched
+0x00468,0x101d0468,0x0046c,4,float_scalar,low,2.00293,standalone float32
+0x0046c,0x101d046c,0x00474,8,unknown,low,00 70 00 00 00 10 00 20,no classifier heuristic matched
+0x00474,0x101d0474,0x00478,4,float_scalar,low,2.00293,standalone float32
+0x00478,0x101d0478,0x00480,8,unknown,low,00 70 00 00 00 10 00 20,no classifier heuristic matched
+0x00480,0x101d0480,0x00484,4,float_scalar,low,2.00293,standalone float32
+0x00484,0x101d0484,0x0048c,8,unknown,low,00 70 00 00 00 10 00 20,no classifier heuristic matched
+0x0048c,0x101d048c,0x00490,4,float_scalar,low,2.00293,standalone float32
+0x00490,0x101d0490,0x00498,8,unknown,low,00 70 00 00 00 10 00 20,no classifier heuristic matched
+0x00498,0x101d0498,0x0049c,4,float_scalar,low,2.00293,standalone float32
+0x0049c,0x101d049c,0x004a4,8,unknown,low,00 70 00 00 00 10 00 20,no classifier heuristic matched
+0x004a4,0x101d04a4,0x004a8,4,float_scalar,low,2.00293,standalone float32
+0x004a8,0x101d04a8,0x004b0,8,unknown,low,00 70 00 00 00 10 00 20,no classifier heuristic matched
+0x004b0,0x101d04b0,0x004b4,4,float_scalar,low,2.00293,standalone float32
+0x004b4,0x101d04b4,0x004bc,8,unknown,low,00 70 00 00 00 10 00 20,no classifier heuristic matched
+0x004bc,0x101d04bc,0x004c0,4,float_scalar,low,2.00293,standalone float32
+0x004c0,0x101d04c0,0x004c8,8,unknown,low,00 70 00 00 00 10 00 20,no classifier heuristic matched
+0x004c8,0x101d04c8,0x004cc,4,float_scalar,low,2.00293,standalone float32
+0x004cc,0x101d04cc,0x004d4,8,unknown,low,00 70 00 00 00 10 00 20,no classifier heuristic matched
+0x004d4,0x101d04d4,0x004d8,4,float_scalar,low,2.00293,standalone float32
+0x004d8,0x101d04d8,0x004da,2,unknown,low,00 70,no classifier heuristic matched
+0x004da,0x101d04da,0x0068a,432,u16_table,low,"[256, 384, 512, 1024, 1280, 2560, 256, 384, ... (216 total)]",contiguous u16 values in plausible range
+0x0068a,0x101d068a,0x006ba,48,unknown,low,00 64 00 64 00 64 00 64 00 64 00 64 ...,no classifier heuristic matched
+0x006ba,0x101d06ba,0x006c4,10,u16_table,low,"[0, 640, 1920, 3840, 7680]",contiguous u16 values in plausible range
+0x006c4,0x101d06c4,0x006c8,4,unknown,low,00 28 00 32,no classifier heuristic matched
+0x006c8,0x101d06c8,0x006cc,4,float_scalar,low,8.40397e+06,standalone float32
+0x006cc,0x101d06cc,0x006d2,6,unknown,low,00 5a 00 64 00 7d,no classifier heuristic matched
+0x006d2,0x101d06d2,0x0070a,56,u16_table,low,"[640, 640, 640, 384, 256, 256, 0, 0, ... (28 total)]",contiguous u16 values in plausible range
+0x0070a,0x101d070a,0x00712,8,unknown,low,00 32 00 4b 00 64 00 7d,no classifier heuristic matched
+0x00712,0x101d0712,0x00738,38,u16_table,low,"[128, 128, 128, 128, 128, 128, 128, 128, ... (19 total)]",contiguous u16 values in plausible range
+0x00738,0x101d0738,0x00742,10,unknown,low,00 28 00 32 00 3c 00 50 00 64,no classifier heuristic matched
+0x00742,0x101d0742,0x0074a,8,u16_table,low,"[0, 1920, 5120, 8960]",contiguous u16 values in plausible range
+0x0074a,0x101d074a,0x00752,8,unknown,low,00 32 00 4b 80 63 00 64,no classifier heuristic matched
+0x00752,0x101d0752,0x00768,22,u16_table,low,"[4096, 4096, 4096, 3840, 3840, 3072, 1536, 0, ... (11 total)]",contiguous u16 values in plausible range
+0x00768,0x101d0768,0x0076e,6,unknown,low,00 32 00 55 00 64,no classifier heuristic matched
+0x0076e,0x101d076e,0x00778,10,u16_axis,medium,"[0, 4480, 8960, 16640, 38400]","monotonic u16 axis, inc"
+0x00778,0x101d0778,0x00782,10,unknown,low,ff ff 00 e8 00 ec 00 f0 00 f8,no classifier heuristic matched
+0x00782,0x101d0782,0x0078c,10,u16_table,low,"[0, 2048, 4096, 5120, 6144]",contiguous u16 values in plausible range
+0x0078c,0x101d078c,0x00794,8,unknown,low,00 e8 00 ec 00 f0 00 f8,no classifier heuristic matched
+0x00794,0x101d0794,0x0079e,10,u16_table,low,"[0, 2048, 4096, 5120, 6144]",contiguous u16 values in plausible range
+0x0079e,0x101d079e,0x007a6,8,unknown,low,00 e8 00 ec 00 f0 00 f8,no classifier heuristic matched
+0x007a6,0x101d07a6,0x007b0,10,u16_table,low,"[0, 2048, 4096, 5120, 6144]",contiguous u16 values in plausible range
+0x007b0,0x101d07b0,0x007b8,8,unknown,low,00 e8 00 ec 00 f0 00 f8,no classifier heuristic matched
+0x007b8,0x101d07b8,0x007c2,10,u16_table,low,"[0, 2048, 4096, 5120, 6144]",contiguous u16 values in plausible range
+0x007c2,0x101d07c2,0x007ca,8,unknown,low,00 e8 00 ec 00 f0 00 f8,no classifier heuristic matched
+0x007ca,0x101d07ca,0x007d4,10,u16_table,low,"[0, 2048, 4096, 5120, 6144]",contiguous u16 values in plausible range
+0x007d4,0x101d07d4,0x007dc,8,unknown,low,00 e8 00 ec 00 f0 00 f8,no classifier heuristic matched
+0x007dc,0x101d07dc,0x007e6,10,u16_table,low,"[0, 2048, 4096, 5120, 6144]",contiguous u16 values in plausible range
+0x007e6,0x101d07e6,0x007ee,8,unknown,low,00 e8 00 ec 00 f0 00 f8,no classifier heuristic matched
+0x007ee,0x101d07ee,0x007f8,10,u16_table,low,"[0, 2048, 4096, 5120, 6144]",contiguous u16 values in plausible range
+0x007f8,0x101d07f8,0x00800,8,unknown,low,00 e8 00 ec 00 f0 00 f8,no classifier heuristic matched
+0x00800,0x101d0800,0x0080a,10,u16_axis,medium,"[0, 2048, 4096, 5120, 6144]","monotonic u16 axis, inc"
+0x0080a,0x101d080a,0x0080c,2,unknown,low,ec ff,no classifier heuristic matched
+0x0080c,0x101d080c,0x0081c,16,timer_cluster,medium,"[10, 20, 30, 80, 100, 100, 100, 100]",4/8 look like timer sentinels
+0x0081c,0x101d081c,0x0081e,2,unknown,low,ec ff,no classifier heuristic matched
+0x0081e,0x101d081e,0x0082e,16,timer_cluster,medium,"[10, 20, 30, 80, 100, 100, 100, 100]",4/8 look like timer sentinels
+0x0082e,0x101d082e,0x00830,2,unknown,low,ec ff,no classifier heuristic matched
+0x00830,0x101d0830,0x00840,16,timer_cluster,medium,"[10, 20, 30, 80, 100, 100, 100, 100]",4/8 look like timer sentinels
+0x00840,0x101d0840,0x00842,2,unknown,low,ec ff,no classifier heuristic matched
+0x00842,0x101d0842,0x00852,16,timer_cluster,medium,"[10, 20, 30, 80, 100, 100, 100, 100]",4/8 look like timer sentinels
+0x00852,0x101d0852,0x00854,2,unknown,low,d8 ff,no classifier heuristic matched
+0x00854,0x101d0854,0x00864,16,u16_table,low,"[5, 10, 15, 60, 80, 80, 80, 80]",contiguous u16 values in plausible range
+0x00864,0x101d0864,0x00866,2,unknown,low,d8 ff,no classifier heuristic matched
+0x00866,0x101d0866,0x00876,16,u16_table,low,"[0, 5, 10, 30, 40, 40, 40, 40]",contiguous u16 values in plausible range
+0x00876,0x101d0876,0x00878,2,unknown,low,d8 ff,no classifier heuristic matched
+0x00878,0x101d0878,0x00888,16,u16_table,low,"[0, 5, 10, 20, 30, 30, 30, 30]",contiguous u16 values in plausible range
+0x00888,0x101d0888,0x0088a,2,unknown,low,d8 ff,no classifier heuristic matched
+0x0088a,0x101d088a,0x008a2,24,u16_table,low,"[0, 5, 10, 20, 30, 30, 30, 30, ... (12 total)]",contiguous u16 values in plausible range
+0x008a2,0x101d08a2,0x008aa,8,unknown,low,00 32 00 4b 00 64 00 7d,no classifier heuristic matched
+0x008aa,0x101d08aa,0x008b2,8,u16_table,low,"[0, 3277, 6554, 9830]",contiguous u16 values in plausible range
+0x008b2,0x101d08b2,0x008be,12,unknown,low,33 33 cd 4c 9a 59 66 66 33 73 00 80,no classifier heuristic matched
+0x008be,0x101d08be,0x008d2,20,u16_axis,medium,"[0, 786, 3113, 6750, 11305, 21463, 26018, 29655, ... (10 total)]","monotonic u16 axis, inc"
+0x008d2,0x101d08d2,0x008da,8,reserved_zero,high,0x00 × 8,may be deprecated/disabled field cleared by Ford
+0x008da,0x101d08da,0x008dc,2,unknown,low,a0 40,no classifier heuristic matched
+0x008dc,0x101d08dc,0x0091c,64,float_table,low,"[0.15, 7, 1, 0.5, 0.6, 0.85, ... (16 total)]",contiguous plausible float32s
+0x0091c,0x101d091c,0x00924,8,reserved_zero,high,0x00 × 8,may be deprecated/disabled field cleared by Ford
+0x00924,0x101d0924,0x00930,12,float_axis,medium,"[0.8855, 0.99, 1]",monotonic inc
+0x00930,0x101d0930,0x00a80,336,u16_table,low,"[2851, 2532, 2412, 2303, 2207, 2124, 2052, 1926, ... (168 total)]",contiguous u16 values in plausible range
+0x00a80,0x101d0a80,0x00a82,2,unknown,low,00 40,no classifier heuristic matched
+0x00a82,0x101d0a82,0x00a9a,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x00a9a,0x101d0a9a,0x00a9c,2,unknown,low,00 40,no classifier heuristic matched
+0x00a9c,0x101d0a9c,0x00ab4,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x00ab4,0x101d0ab4,0x00ab6,2,unknown,low,00 40,no classifier heuristic matched
+0x00ab6,0x101d0ab6,0x00ace,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x00ace,0x101d0ace,0x00ad0,2,unknown,low,00 40,no classifier heuristic matched
+0x00ad0,0x101d0ad0,0x00ae8,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x00ae8,0x101d0ae8,0x00aea,2,unknown,low,00 40,no classifier heuristic matched
+0x00aea,0x101d0aea,0x00b02,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x00b02,0x101d0b02,0x00b04,2,unknown,low,00 40,no classifier heuristic matched
+0x00b04,0x101d0b04,0x00b1c,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x00b1c,0x101d0b1c,0x00b1e,2,unknown,low,00 40,no classifier heuristic matched
+0x00b1e,0x101d0b1e,0x00b36,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x00b36,0x101d0b36,0x00b38,2,unknown,low,00 40,no classifier heuristic matched
+0x00b38,0x101d0b38,0x00b50,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x00b50,0x101d0b50,0x00b52,2,unknown,low,00 40,no classifier heuristic matched
+0x00b52,0x101d0b52,0x00b6a,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x00b6a,0x101d0b6a,0x00b6c,2,unknown,low,00 40,no classifier heuristic matched
+0x00b6c,0x101d0b6c,0x00b84,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x00b84,0x101d0b84,0x00b86,2,unknown,low,00 40,no classifier heuristic matched
+0x00b86,0x101d0b86,0x00b9e,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x00b9e,0x101d0b9e,0x00ba0,2,unknown,low,00 40,no classifier heuristic matched
+0x00ba0,0x101d0ba0,0x00da6,518,u16_table,low,"[0, 53, 86, 108, 130, 151, 173, 194, ... (259 total)]",contiguous u16 values in plausible range
+0x00da6,0x101d0da6,0x00da8,2,unknown,low,00 50,no classifier heuristic matched
+0x00da8,0x101d0da8,0x00dce,38,u16_table,low,"[0, 51, 66, 78, 100, 135, 182, 240, ... (19 total)]",contiguous u16 values in plausible range
+0x00dce,0x101d0dce,0x00dd0,2,unknown,low,00 50,no classifier heuristic matched
+0x00dd0,0x101d0dd0,0x00df6,38,u16_table,low,"[0, 51, 74, 86, 111, 143, 186, 240, ... (19 total)]",contiguous u16 values in plausible range
+0x00df6,0x101d0df6,0x00df8,2,unknown,low,00 30,no classifier heuristic matched
+0x00df8,0x101d0df8,0x00f64,364,u16_table,low,"[0, 41, 70, 86, 111, 147, 197, 254, ... (182 total)]",contiguous u16 values in plausible range
+0x00f64,0x101d0f64,0x00f66,2,unknown,low,00 80,no classifier heuristic matched
+0x00f66,0x101d0f66,0x011ec,646,u16_table,low,"[0, 0, 400, 800, 1200, 1600, 2400, 3200, ... (323 total)]",contiguous u16 values in plausible range
+0x011ec,0x101d11ec,0x01212,38,unknown,low,3d 2a 7b 54 00 80 00 00 3d 2a 7b 54 ...,no classifier heuristic matched
+0x01212,0x101d1212,0x01264,82,u16_table,low,"[0, 524, 0, 524, 0, 524, 0, 524, ... (41 total)]",contiguous u16 values in plausible range
+0x01264,0x101d1264,0x0126a,6,unknown,low,b3 30 18 35 00 38,no classifier heuristic matched
+0x0126a,0x101d126a,0x01274,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x01274,0x101d1274,0x0127a,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x0127a,0x101d127a,0x01284,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x01284,0x101d1284,0x0128a,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x0128a,0x101d128a,0x01294,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x01294,0x101d1294,0x0129a,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x0129a,0x101d129a,0x012a4,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x012a4,0x101d12a4,0x012aa,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x012aa,0x101d12aa,0x012b4,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x012b4,0x101d12b4,0x012ba,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x012ba,0x101d12ba,0x012c4,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x012c4,0x101d12c4,0x012ca,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x012ca,0x101d12ca,0x012d4,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x012d4,0x101d12d4,0x012da,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x012da,0x101d12da,0x012e4,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x012e4,0x101d12e4,0x012ea,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x012ea,0x101d12ea,0x012f4,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x012f4,0x101d12f4,0x012fa,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x012fa,0x101d12fa,0x01304,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x01304,0x101d1304,0x0130a,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x0130a,0x101d130a,0x01314,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x01314,0x101d1314,0x0131a,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x0131a,0x101d131a,0x013da,192,u16_table,low,"[4096, 4096, 4009, 3891, 2432, 345, 73, 0, ... (96 total)]",contiguous u16 values in plausible range
+0x013da,0x101d13da,0x013ee,20,u16_axis,medium,"[0, 2048, 4096, 6144, 8192, 10240, 12288, 14336, ... (10 total)]","monotonic u16 axis, inc"
+0x013ee,0x101d13ee,0x01402,20,reserved_zero,high,0x00 × 20,may be deprecated/disabled field cleared by Ford
+0x01402,0x101d1402,0x0142e,44,u16_table,low,"[655, 655, 655, 655, 655, 655, 655, 655, ... (22 total)]",contiguous u16 values in plausible range
+0x0142e,0x101d142e,0x01430,2,unknown,low,00 80,no classifier heuristic matched
+0x01430,0x101d1430,0x01434,4,float_scalar,low,2.00781,standalone float32
+0x01434,0x101d1434,0x0144d,25,reserved_zero,high,0x00 × 25,may be deprecated/disabled field cleared by Ford
+0x0144d,0x101d144d,0x01450,3,unknown,low,40 00 40,no classifier heuristic matched
+0x01450,0x101d1450,0x0145c,12,float_table,low,"[2.004, 2.004, 2.004]",contiguous plausible float32s
+0x0145c,0x101d145c,0x0145e,2,unknown,low,00 40,no classifier heuristic matched
+0x0145e,0x101d145e,0x0149c,62,u16_table,low,"[0, 48, 96, 144, 192, 288, 480, 640, ... (31 total)]",contiguous u16 values in plausible range
+0x0149c,0x101d149c,0x0149e,2,unknown,low,c0 2b,no classifier heuristic matched
+0x0149e,0x101d149e,0x014bc,30,u16_table,low,"[0, 40, 80, 120, 160, 240, 320, 400, ... (15 total)]",contiguous u16 values in plausible range
+0x014bc,0x101d14bc,0x014be,2,unknown,low,c0 2b,no classifier heuristic matched
+0x014be,0x101d14be,0x014dc,30,u16_table,low,"[0, 40, 80, 120, 160, 240, 320, 400, ... (15 total)]",contiguous u16 values in plausible range
+0x014dc,0x101d14dc,0x014de,2,unknown,low,c0 2b,no classifier heuristic matched
+0x014de,0x101d14de,0x014fc,30,u16_table,low,"[0, 40, 80, 120, 160, 240, 320, 400, ... (15 total)]",contiguous u16 values in plausible range
+0x014fc,0x101d14fc,0x014fe,2,unknown,low,c0 2b,no classifier heuristic matched
+0x014fe,0x101d14fe,0x0151c,30,u16_table,low,"[0, 32, 64, 96, 128, 192, 256, 320, ... (15 total)]",contiguous u16 values in plausible range
+0x0151c,0x101d151c,0x0151e,2,unknown,low,c0 2b,no classifier heuristic matched
+0x0151e,0x101d151e,0x0153c,30,u16_table,low,"[0, 32, 64, 96, 128, 192, 256, 320, ... (15 total)]",contiguous u16 values in plausible range
+0x0153c,0x101d153c,0x0153e,2,unknown,low,c0 2b,no classifier heuristic matched
+0x0153e,0x101d153e,0x0155c,30,u16_table,low,"[0, 16, 32, 48, 64, 96, 128, 160, ... (15 total)]",contiguous u16 values in plausible range
+0x0155c,0x101d155c,0x0155e,2,unknown,low,c0 2b,no classifier heuristic matched
+0x0155e,0x101d155e,0x0157e,32,u16_axis,medium,"[0, 16, 32, 48, 64, 96, 128, 160, ... (16 total)]","monotonic u16 axis, inc"
+0x0157e,0x101d157e,0x015a0,34,reserved_zero,high,0x00 × 34,may be deprecated/disabled field cleared by Ford
+0x015a0,0x101d15a0,0x01648,168,u16_table,low,"[132, 264, 402, 472, 505, 509, 509, 509, ... (84 total)]",contiguous u16 values in plausible range
+0x01648,0x101d1648,0x01654,12,u16_axis,medium,"[107, 105, 98, 73, 47, 31]","monotonic u16 axis, dec"
+0x01654,0x101d1654,0x01655,1,unknown,low,0f,no classifier heuristic matched
+0x01655,0x101d1655,0x01660,11,reserved_zero,high,0x00 × 11,may be deprecated/disabled field cleared by Ford
+0x01660,0x101d1660,0x0166a,10,u16_table,low,"[14, 25, 32, 40, 43]",contiguous u16 values in plausible range
+0x0166a,0x101d166a,0x01674,10,u16_axis,medium,"[44, 42, 33, 23, 14]","monotonic u16 axis, dec"
+0x01674,0x101d1674,0x01675,1,unknown,low,09,no classifier heuristic matched
+0x01675,0x101d1675,0x016a0,43,reserved_zero,high,0x00 × 43,may be deprecated/disabled field cleared by Ford
+0x016a0,0x101d16a0,0x017c2,290,u16_table,low,"[77, 230, 435, 717, 1024, 1126, 2560, 0, ... (145 total)]",contiguous u16 values in plausible range
+0x017c2,0x101d17c2,0x01806,68,unknown,low,00 32 00 50 00 00 00 1e 00 32 00 50 ...,no classifier heuristic matched
+0x01806,0x101d1806,0x0185c,86,u16_table,low,"[256, 174, 128, 0, 256, 174, 128, 0, ... (43 total)]",contiguous u16 values in plausible range
+0x0185c,0x101d185c,0x01860,4,unknown,low,00 28 00 32,no classifier heuristic matched
+0x01860,0x101d1860,0x01878,24,u16_axis,medium,"[0, 1280, 3840, 6400, 9600, 12800, 15360, 17920, ... (12 total)]","monotonic u16 axis, inc"
+0x01878,0x101d1878,0x01884,12,float_axis,medium,"[0.8855, 0.99, 1]",monotonic inc
+0x01884,0x101d1884,0x019d4,336,u16_table,low,"[2851, 2532, 2412, 2303, 2207, 2124, 2052, 1926, ... (168 total)]",contiguous u16 values in plausible range
+0x019d4,0x101d19d4,0x019d6,2,unknown,low,00 40,no classifier heuristic matched
+0x019d6,0x101d19d6,0x019ee,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x019ee,0x101d19ee,0x019f0,2,unknown,low,00 40,no classifier heuristic matched
+0x019f0,0x101d19f0,0x01a08,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x01a08,0x101d1a08,0x01a0a,2,unknown,low,00 40,no classifier heuristic matched
+0x01a0a,0x101d1a0a,0x01a22,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x01a22,0x101d1a22,0x01a24,2,unknown,low,00 40,no classifier heuristic matched
+0x01a24,0x101d1a24,0x01a3c,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x01a3c,0x101d1a3c,0x01a3e,2,unknown,low,00 40,no classifier heuristic matched
+0x01a3e,0x101d1a3e,0x01a56,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x01a56,0x101d1a56,0x01a58,2,unknown,low,00 40,no classifier heuristic matched
+0x01a58,0x101d1a58,0x01a70,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x01a70,0x101d1a70,0x01a72,2,unknown,low,00 40,no classifier heuristic matched
+0x01a72,0x101d1a72,0x01a8a,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x01a8a,0x101d1a8a,0x01a8c,2,unknown,low,00 40,no classifier heuristic matched
+0x01a8c,0x101d1a8c,0x01aa4,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x01aa4,0x101d1aa4,0x01aa6,2,unknown,low,00 40,no classifier heuristic matched
+0x01aa6,0x101d1aa6,0x01abe,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x01abe,0x101d1abe,0x01ac0,2,unknown,low,00 40,no classifier heuristic matched
+0x01ac0,0x101d1ac0,0x01ad8,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x01ad8,0x101d1ad8,0x01ada,2,unknown,low,00 40,no classifier heuristic matched
+0x01ada,0x101d1ada,0x01af2,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x01af2,0x101d1af2,0x01af4,2,unknown,low,00 40,no classifier heuristic matched
+0x01af4,0x101d1af4,0x01cfa,518,u16_table,low,"[0, 53, 84, 105, 126, 148, 169, 190, ... (259 total)]",contiguous u16 values in plausible range
+0x01cfa,0x101d1cfa,0x01cfc,2,unknown,low,00 50,no classifier heuristic matched
+0x01cfc,0x101d1cfc,0x01d22,38,u16_table,low,"[0, 53, 61, 72, 92, 121, 162, 215, ... (19 total)]",contiguous u16 values in plausible range
+0x01d22,0x101d1d22,0x01d24,2,unknown,low,00 50,no classifier heuristic matched
+0x01d24,0x101d1d24,0x01d4a,38,u16_table,low,"[0, 53, 68, 76, 96, 123, 160, 207, ... (19 total)]",contiguous u16 values in plausible range
+0x01d4a,0x101d1d4a,0x01d4c,2,unknown,low,00 30,no classifier heuristic matched
+0x01d4c,0x101d1d4c,0x01eb8,364,u16_table,low,"[0, 43, 61, 72, 92, 121, 158, 203, ... (182 total)]",contiguous u16 values in plausible range
+0x01eb8,0x101d1eb8,0x01eba,2,unknown,low,00 80,no classifier heuristic matched
+0x01eba,0x101d1eba,0x02140,646,u16_table,low,"[0, 0, 400, 800, 1200, 1600, 2400, 3200, ... (323 total)]",contiguous u16 values in plausible range
+0x02140,0x101d2140,0x02166,38,unknown,low,3d 2a 7b 54 00 80 00 00 3d 2a 7b 54 ...,no classifier heuristic matched
+0x02166,0x101d2166,0x021b8,82,u16_table,low,"[0, 524, 0, 524, 0, 524, 0, 524, ... (41 total)]",contiguous u16 values in plausible range
+0x021b8,0x101d21b8,0x021be,6,unknown,low,b3 30 18 35 00 38,no classifier heuristic matched
+0x021be,0x101d21be,0x021c8,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x021c8,0x101d21c8,0x021ce,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x021ce,0x101d21ce,0x021d8,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x021d8,0x101d21d8,0x021de,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x021de,0x101d21de,0x021e8,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x021e8,0x101d21e8,0x021ee,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x021ee,0x101d21ee,0x021f8,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x021f8,0x101d21f8,0x021fe,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x021fe,0x101d21fe,0x02208,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x02208,0x101d2208,0x0220e,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x0220e,0x101d220e,0x02218,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x02218,0x101d2218,0x0221e,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x0221e,0x101d221e,0x02228,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x02228,0x101d2228,0x0222e,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x0222e,0x101d222e,0x02238,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x02238,0x101d2238,0x0223e,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x0223e,0x101d223e,0x02248,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x02248,0x101d2248,0x0224e,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x0224e,0x101d224e,0x02258,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x02258,0x101d2258,0x0225e,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x0225e,0x101d225e,0x02268,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x02268,0x101d2268,0x0226e,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x0226e,0x101d226e,0x0232e,192,u16_table,low,"[4096, 4096, 4009, 3891, 2432, 345, 73, 0, ... (96 total)]",contiguous u16 values in plausible range
+0x0232e,0x101d232e,0x02342,20,u16_axis,medium,"[0, 2048, 4096, 6144, 8192, 10240, 12288, 14336, ... (10 total)]","monotonic u16 axis, inc"
+0x02342,0x101d2342,0x02356,20,reserved_zero,high,0x00 × 20,may be deprecated/disabled field cleared by Ford
+0x02356,0x101d2356,0x02382,44,u16_table,low,"[655, 655, 655, 655, 655, 655, 655, 655, ... (22 total)]",contiguous u16 values in plausible range
+0x02382,0x101d2382,0x02384,2,unknown,low,00 80,no classifier heuristic matched
+0x02384,0x101d2384,0x02388,4,float_scalar,low,2.00781,standalone float32
+0x02388,0x101d2388,0x023a1,25,reserved_zero,high,0x00 × 25,may be deprecated/disabled field cleared by Ford
+0x023a1,0x101d23a1,0x023a4,3,unknown,low,40 00 40,no classifier heuristic matched
+0x023a4,0x101d23a4,0x023b0,12,float_table,low,"[2.004, 2.004, 2.004]",contiguous plausible float32s
+0x023b0,0x101d23b0,0x023b2,2,unknown,low,00 40,no classifier heuristic matched
+0x023b2,0x101d23b2,0x023f0,62,u16_table,low,"[0, 48, 96, 144, 192, 288, 480, 640, ... (31 total)]",contiguous u16 values in plausible range
+0x023f0,0x101d23f0,0x023f2,2,unknown,low,c0 2b,no classifier heuristic matched
+0x023f2,0x101d23f2,0x02410,30,u16_table,low,"[0, 40, 80, 120, 160, 240, 320, 400, ... (15 total)]",contiguous u16 values in plausible range
+0x02410,0x101d2410,0x02412,2,unknown,low,c0 2b,no classifier heuristic matched
+0x02412,0x101d2412,0x02430,30,u16_table,low,"[0, 40, 80, 120, 160, 240, 320, 400, ... (15 total)]",contiguous u16 values in plausible range
+0x02430,0x101d2430,0x02432,2,unknown,low,c0 2b,no classifier heuristic matched
+0x02432,0x101d2432,0x02450,30,u16_table,low,"[0, 40, 80, 120, 160, 240, 320, 400, ... (15 total)]",contiguous u16 values in plausible range
+0x02450,0x101d2450,0x02452,2,unknown,low,c0 2b,no classifier heuristic matched
+0x02452,0x101d2452,0x02470,30,u16_table,low,"[0, 32, 64, 96, 128, 192, 256, 320, ... (15 total)]",contiguous u16 values in plausible range
+0x02470,0x101d2470,0x02472,2,unknown,low,c0 2b,no classifier heuristic matched
+0x02472,0x101d2472,0x02490,30,u16_table,low,"[0, 32, 64, 96, 128, 192, 256, 320, ... (15 total)]",contiguous u16 values in plausible range
+0x02490,0x101d2490,0x02492,2,unknown,low,c0 2b,no classifier heuristic matched
+0x02492,0x101d2492,0x024b0,30,u16_table,low,"[0, 16, 32, 48, 64, 96, 128, 160, ... (15 total)]",contiguous u16 values in plausible range
+0x024b0,0x101d24b0,0x024b2,2,unknown,low,c0 2b,no classifier heuristic matched
+0x024b2,0x101d24b2,0x024d2,32,u16_axis,medium,"[0, 16, 32, 48, 64, 96, 128, 160, ... (16 total)]","monotonic u16 axis, inc"
+0x024d2,0x101d24d2,0x024f4,34,reserved_zero,high,0x00 × 34,may be deprecated/disabled field cleared by Ford
+0x024f4,0x101d24f4,0x0259c,168,u16_table,low,"[132, 264, 402, 472, 505, 509, 509, 509, ... (84 total)]",contiguous u16 values in plausible range
+0x0259c,0x101d259c,0x025a8,12,u16_axis,medium,"[107, 105, 98, 73, 47, 31]","monotonic u16 axis, dec"
+0x025a8,0x101d25a8,0x025a9,1,unknown,low,0f,no classifier heuristic matched
+0x025a9,0x101d25a9,0x025b4,11,reserved_zero,high,0x00 × 11,may be deprecated/disabled field cleared by Ford
+0x025b4,0x101d25b4,0x025be,10,u16_table,low,"[14, 25, 32, 40, 43]",contiguous u16 values in plausible range
+0x025be,0x101d25be,0x025c8,10,u16_axis,medium,"[44, 42, 33, 23, 14]","monotonic u16 axis, dec"
+0x025c8,0x101d25c8,0x025c9,1,unknown,low,09,no classifier heuristic matched
+0x025c9,0x101d25c9,0x025f4,43,reserved_zero,high,0x00 × 43,may be deprecated/disabled field cleared by Ford
+0x025f4,0x101d25f4,0x02716,290,u16_table,low,"[77, 230, 435, 717, 1024, 1126, 2560, 0, ... (145 total)]",contiguous u16 values in plausible range
+0x02716,0x101d2716,0x0275a,68,unknown,low,00 32 00 50 00 00 00 1e 00 32 00 50 ...,no classifier heuristic matched
+0x0275a,0x101d275a,0x027b0,86,u16_table,low,"[256, 174, 128, 0, 256, 174, 128, 0, ... (43 total)]",contiguous u16 values in plausible range
+0x027b0,0x101d27b0,0x027b4,4,unknown,low,00 28 00 32,no classifier heuristic matched
+0x027b4,0x101d27b4,0x027cc,24,u16_axis,medium,"[0, 1280, 3840, 6400, 9600, 12800, 15360, 17920, ... (12 total)]","monotonic u16 axis, inc"
+0x027cc,0x101d27cc,0x027d8,12,float_axis,medium,"[0.8855, 0.99, 1]",monotonic inc
+0x027d8,0x101d27d8,0x02928,336,u16_table,low,"[2851, 2532, 2412, 2303, 2207, 2124, 2052, 1926, ... (168 total)]",contiguous u16 values in plausible range
+0x02928,0x101d2928,0x0292a,2,unknown,low,00 40,no classifier heuristic matched
+0x0292a,0x101d292a,0x02942,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x02942,0x101d2942,0x02944,2,unknown,low,00 40,no classifier heuristic matched
+0x02944,0x101d2944,0x0295c,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x0295c,0x101d295c,0x0295e,2,unknown,low,00 40,no classifier heuristic matched
+0x0295e,0x101d295e,0x02976,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x02976,0x101d2976,0x02978,2,unknown,low,00 40,no classifier heuristic matched
+0x02978,0x101d2978,0x02990,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x02990,0x101d2990,0x02992,2,unknown,low,00 40,no classifier heuristic matched
+0x02992,0x101d2992,0x029aa,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x029aa,0x101d29aa,0x029ac,2,unknown,low,00 40,no classifier heuristic matched
+0x029ac,0x101d29ac,0x029c4,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x029c4,0x101d29c4,0x029c6,2,unknown,low,00 40,no classifier heuristic matched
+0x029c6,0x101d29c6,0x029de,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x029de,0x101d29de,0x029e0,2,unknown,low,00 40,no classifier heuristic matched
+0x029e0,0x101d29e0,0x029f8,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x029f8,0x101d29f8,0x029fa,2,unknown,low,00 40,no classifier heuristic matched
+0x029fa,0x101d29fa,0x02a12,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x02a12,0x101d2a12,0x02a14,2,unknown,low,00 40,no classifier heuristic matched
+0x02a14,0x101d2a14,0x02a2c,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x02a2c,0x101d2a2c,0x02a2e,2,unknown,low,00 40,no classifier heuristic matched
+0x02a2e,0x101d2a2e,0x02a46,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x02a46,0x101d2a46,0x02a48,2,unknown,low,00 40,no classifier heuristic matched
+0x02a48,0x101d2a48,0x02c4e,518,u16_table,low,"[0, 53, 86, 108, 130, 151, 173, 194, ... (259 total)]",contiguous u16 values in plausible range
+0x02c4e,0x101d2c4e,0x02c50,2,unknown,low,00 50,no classifier heuristic matched
+0x02c50,0x101d2c50,0x02c76,38,u16_table,low,"[0, 51, 66, 78, 100, 135, 182, 240, ... (19 total)]",contiguous u16 values in plausible range
+0x02c76,0x101d2c76,0x02c78,2,unknown,low,00 50,no classifier heuristic matched
+0x02c78,0x101d2c78,0x02c9e,38,u16_table,low,"[0, 51, 74, 86, 111, 143, 186, 240, ... (19 total)]",contiguous u16 values in plausible range
+0x02c9e,0x101d2c9e,0x02ca0,2,unknown,low,00 30,no classifier heuristic matched
+0x02ca0,0x101d2ca0,0x02e0c,364,u16_table,low,"[0, 41, 70, 86, 111, 147, 197, 254, ... (182 total)]",contiguous u16 values in plausible range
+0x02e0c,0x101d2e0c,0x02e0e,2,unknown,low,00 80,no classifier heuristic matched
+0x02e0e,0x101d2e0e,0x03094,646,u16_table,low,"[0, 0, 400, 800, 1200, 1600, 2400, 3200, ... (323 total)]",contiguous u16 values in plausible range
+0x03094,0x101d3094,0x030ba,38,unknown,low,3d 2a 7b 54 00 80 00 00 3d 2a 7b 54 ...,no classifier heuristic matched
+0x030ba,0x101d30ba,0x0310c,82,u16_table,low,"[0, 524, 0, 524, 0, 524, 0, 524, ... (41 total)]",contiguous u16 values in plausible range
+0x0310c,0x101d310c,0x03112,6,unknown,low,b3 30 18 35 00 38,no classifier heuristic matched
+0x03112,0x101d3112,0x0311c,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x0311c,0x101d311c,0x03122,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x03122,0x101d3122,0x0312c,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x0312c,0x101d312c,0x03132,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x03132,0x101d3132,0x0313c,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x0313c,0x101d313c,0x03142,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x03142,0x101d3142,0x0314c,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x0314c,0x101d314c,0x03152,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x03152,0x101d3152,0x0315c,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x0315c,0x101d315c,0x03162,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x03162,0x101d3162,0x0316c,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x0316c,0x101d316c,0x03172,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x03172,0x101d3172,0x0317c,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x0317c,0x101d317c,0x03182,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x03182,0x101d3182,0x0318c,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x0318c,0x101d318c,0x03192,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x03192,0x101d3192,0x0319c,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x0319c,0x101d319c,0x031a2,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x031a2,0x101d31a2,0x031ac,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x031ac,0x101d31ac,0x031b2,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x031b2,0x101d31b2,0x031bc,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x031bc,0x101d31bc,0x031c2,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x031c2,0x101d31c2,0x03282,192,u16_table,low,"[4096, 4096, 4009, 3891, 2432, 345, 73, 0, ... (96 total)]",contiguous u16 values in plausible range
+0x03282,0x101d3282,0x03296,20,u16_axis,medium,"[0, 2048, 4096, 6144, 8192, 10240, 12288, 14336, ... (10 total)]","monotonic u16 axis, inc"
+0x03296,0x101d3296,0x032aa,20,reserved_zero,high,0x00 × 20,may be deprecated/disabled field cleared by Ford
+0x032aa,0x101d32aa,0x032d6,44,u16_table,low,"[655, 655, 655, 655, 655, 655, 655, 655, ... (22 total)]",contiguous u16 values in plausible range
+0x032d6,0x101d32d6,0x032d8,2,unknown,low,00 80,no classifier heuristic matched
+0x032d8,0x101d32d8,0x032dc,4,float_scalar,low,2.00781,standalone float32
+0x032dc,0x101d32dc,0x032f5,25,reserved_zero,high,0x00 × 25,may be deprecated/disabled field cleared by Ford
+0x032f5,0x101d32f5,0x032f8,3,unknown,low,40 00 40,no classifier heuristic matched
+0x032f8,0x101d32f8,0x03304,12,float_table,low,"[2.004, 2.004, 2.004]",contiguous plausible float32s
+0x03304,0x101d3304,0x03306,2,unknown,low,00 40,no classifier heuristic matched
+0x03306,0x101d3306,0x03344,62,u16_table,low,"[0, 48, 96, 144, 192, 288, 480, 640, ... (31 total)]",contiguous u16 values in plausible range
+0x03344,0x101d3344,0x03346,2,unknown,low,c0 2b,no classifier heuristic matched
+0x03346,0x101d3346,0x03364,30,u16_table,low,"[0, 40, 80, 120, 160, 240, 320, 400, ... (15 total)]",contiguous u16 values in plausible range
+0x03364,0x101d3364,0x03366,2,unknown,low,c0 2b,no classifier heuristic matched
+0x03366,0x101d3366,0x03384,30,u16_table,low,"[0, 40, 80, 120, 160, 240, 320, 400, ... (15 total)]",contiguous u16 values in plausible range
+0x03384,0x101d3384,0x03386,2,unknown,low,c0 2b,no classifier heuristic matched
+0x03386,0x101d3386,0x033a4,30,u16_table,low,"[0, 40, 80, 120, 160, 240, 320, 400, ... (15 total)]",contiguous u16 values in plausible range
+0x033a4,0x101d33a4,0x033a6,2,unknown,low,c0 2b,no classifier heuristic matched
+0x033a6,0x101d33a6,0x033c4,30,u16_table,low,"[0, 32, 64, 96, 128, 192, 256, 320, ... (15 total)]",contiguous u16 values in plausible range
+0x033c4,0x101d33c4,0x033c6,2,unknown,low,c0 2b,no classifier heuristic matched
+0x033c6,0x101d33c6,0x033e4,30,u16_table,low,"[0, 32, 64, 96, 128, 192, 256, 320, ... (15 total)]",contiguous u16 values in plausible range
+0x033e4,0x101d33e4,0x033e6,2,unknown,low,c0 2b,no classifier heuristic matched
+0x033e6,0x101d33e6,0x03404,30,u16_table,low,"[0, 16, 32, 48, 64, 96, 128, 160, ... (15 total)]",contiguous u16 values in plausible range
+0x03404,0x101d3404,0x03406,2,unknown,low,c0 2b,no classifier heuristic matched
+0x03406,0x101d3406,0x03426,32,u16_axis,medium,"[0, 16, 32, 48, 64, 96, 128, 160, ... (16 total)]","monotonic u16 axis, inc"
+0x03426,0x101d3426,0x03448,34,reserved_zero,high,0x00 × 34,may be deprecated/disabled field cleared by Ford
+0x03448,0x101d3448,0x034f0,168,u16_table,low,"[132, 264, 402, 472, 505, 509, 509, 509, ... (84 total)]",contiguous u16 values in plausible range
+0x034f0,0x101d34f0,0x034fc,12,u16_axis,medium,"[107, 105, 98, 73, 47, 31]","monotonic u16 axis, dec"
+0x034fc,0x101d34fc,0x034fd,1,unknown,low,0f,no classifier heuristic matched
+0x034fd,0x101d34fd,0x03508,11,reserved_zero,high,0x00 × 11,may be deprecated/disabled field cleared by Ford
+0x03508,0x101d3508,0x03512,10,u16_table,low,"[14, 25, 32, 40, 43]",contiguous u16 values in plausible range
+0x03512,0x101d3512,0x0351c,10,u16_axis,medium,"[44, 42, 33, 23, 14]","monotonic u16 axis, dec"
+0x0351c,0x101d351c,0x0351d,1,unknown,low,09,no classifier heuristic matched
+0x0351d,0x101d351d,0x03548,43,reserved_zero,high,0x00 × 43,may be deprecated/disabled field cleared by Ford
+0x03548,0x101d3548,0x0366a,290,u16_table,low,"[77, 230, 435, 717, 1024, 1126, 2560, 0, ... (145 total)]",contiguous u16 values in plausible range
+0x0366a,0x101d366a,0x036ae,68,unknown,low,00 32 00 50 00 00 00 1e 00 32 00 50 ...,no classifier heuristic matched
+0x036ae,0x101d36ae,0x03704,86,u16_table,low,"[256, 174, 128, 0, 256, 174, 128, 0, ... (43 total)]",contiguous u16 values in plausible range
+0x03704,0x101d3704,0x03708,4,unknown,low,00 28 00 32,no classifier heuristic matched
+0x03708,0x101d3708,0x03720,24,u16_axis,medium,"[0, 1280, 3840, 6400, 9600, 12800, 15360, 17920, ... (12 total)]","monotonic u16 axis, inc"
+0x03720,0x101d3720,0x0372c,12,float_axis,medium,"[0.8855, 0.99, 1]",monotonic inc
+0x0372c,0x101d372c,0x0387c,336,u16_table,low,"[2851, 2532, 2412, 2303, 2207, 2124, 2052, 1926, ... (168 total)]",contiguous u16 values in plausible range
+0x0387c,0x101d387c,0x0387e,2,unknown,low,00 40,no classifier heuristic matched
+0x0387e,0x101d387e,0x03896,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x03896,0x101d3896,0x03898,2,unknown,low,00 40,no classifier heuristic matched
+0x03898,0x101d3898,0x038b0,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x038b0,0x101d38b0,0x038b2,2,unknown,low,00 40,no classifier heuristic matched
+0x038b2,0x101d38b2,0x038ca,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x038ca,0x101d38ca,0x038cc,2,unknown,low,00 40,no classifier heuristic matched
+0x038cc,0x101d38cc,0x038e4,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x038e4,0x101d38e4,0x038e6,2,unknown,low,00 40,no classifier heuristic matched
+0x038e6,0x101d38e6,0x038fe,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x038fe,0x101d38fe,0x03900,2,unknown,low,00 40,no classifier heuristic matched
+0x03900,0x101d3900,0x03918,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x03918,0x101d3918,0x0391a,2,unknown,low,00 40,no classifier heuristic matched
+0x0391a,0x101d391a,0x03932,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x03932,0x101d3932,0x03934,2,unknown,low,00 40,no classifier heuristic matched
+0x03934,0x101d3934,0x0394c,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x0394c,0x101d394c,0x0394e,2,unknown,low,00 40,no classifier heuristic matched
+0x0394e,0x101d394e,0x03966,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x03966,0x101d3966,0x03968,2,unknown,low,00 40,no classifier heuristic matched
+0x03968,0x101d3968,0x03980,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x03980,0x101d3980,0x03982,2,unknown,low,00 40,no classifier heuristic matched
+0x03982,0x101d3982,0x0399a,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x0399a,0x101d399a,0x0399c,2,unknown,low,00 40,no classifier heuristic matched
+0x0399c,0x101d399c,0x03ba2,518,u16_table,low,"[0, 53, 86, 108, 130, 151, 173, 194, ... (259 total)]",contiguous u16 values in plausible range
+0x03ba2,0x101d3ba2,0x03ba4,2,unknown,low,00 50,no classifier heuristic matched
+0x03ba4,0x101d3ba4,0x03bca,38,u16_table,low,"[0, 51, 66, 78, 100, 135, 182, 240, ... (19 total)]",contiguous u16 values in plausible range
+0x03bca,0x101d3bca,0x03bcc,2,unknown,low,00 50,no classifier heuristic matched
+0x03bcc,0x101d3bcc,0x03bf2,38,u16_table,low,"[0, 51, 74, 86, 111, 143, 186, 240, ... (19 total)]",contiguous u16 values in plausible range
+0x03bf2,0x101d3bf2,0x03bf4,2,unknown,low,00 30,no classifier heuristic matched
+0x03bf4,0x101d3bf4,0x03d60,364,u16_table,low,"[0, 41, 70, 86, 111, 147, 197, 254, ... (182 total)]",contiguous u16 values in plausible range
+0x03d60,0x101d3d60,0x03d62,2,unknown,low,00 80,no classifier heuristic matched
+0x03d62,0x101d3d62,0x03fe8,646,u16_table,low,"[0, 0, 400, 800, 1200, 1600, 2400, 3200, ... (323 total)]",contiguous u16 values in plausible range
+0x03fe8,0x101d3fe8,0x0400e,38,unknown,low,3d 2a 7b 54 00 80 00 00 3d 2a 7b 54 ...,no classifier heuristic matched
+0x0400e,0x101d400e,0x04060,82,u16_table,low,"[0, 524, 0, 524, 0, 524, 0, 524, ... (41 total)]",contiguous u16 values in plausible range
+0x04060,0x101d4060,0x04066,6,unknown,low,b3 30 18 35 00 38,no classifier heuristic matched
+0x04066,0x101d4066,0x04070,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x04070,0x101d4070,0x04076,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x04076,0x101d4076,0x04080,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x04080,0x101d4080,0x04086,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x04086,0x101d4086,0x04090,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x04090,0x101d4090,0x04096,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x04096,0x101d4096,0x040a0,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x040a0,0x101d40a0,0x040a6,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x040a6,0x101d40a6,0x040b0,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x040b0,0x101d40b0,0x040b6,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x040b6,0x101d40b6,0x040c0,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x040c0,0x101d40c0,0x040c6,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x040c6,0x101d40c6,0x040d0,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x040d0,0x101d40d0,0x040d6,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x040d6,0x101d40d6,0x040e0,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x040e0,0x101d40e0,0x040e6,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x040e6,0x101d40e6,0x040f0,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x040f0,0x101d40f0,0x040f6,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x040f6,0x101d40f6,0x04100,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x04100,0x101d4100,0x04106,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x04106,0x101d4106,0x04110,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x04110,0x101d4110,0x04116,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x04116,0x101d4116,0x041d6,192,u16_table,low,"[4096, 4096, 4009, 3891, 2432, 345, 73, 0, ... (96 total)]",contiguous u16 values in plausible range
+0x041d6,0x101d41d6,0x041ea,20,u16_axis,medium,"[0, 2048, 4096, 6144, 8192, 10240, 12288, 14336, ... (10 total)]","monotonic u16 axis, inc"
+0x041ea,0x101d41ea,0x041fe,20,reserved_zero,high,0x00 × 20,may be deprecated/disabled field cleared by Ford
+0x041fe,0x101d41fe,0x0422a,44,u16_table,low,"[655, 655, 655, 655, 655, 655, 655, 655, ... (22 total)]",contiguous u16 values in plausible range
+0x0422a,0x101d422a,0x0422c,2,unknown,low,00 80,no classifier heuristic matched
+0x0422c,0x101d422c,0x04230,4,float_scalar,low,2.00781,standalone float32
+0x04230,0x101d4230,0x04249,25,reserved_zero,high,0x00 × 25,may be deprecated/disabled field cleared by Ford
+0x04249,0x101d4249,0x0424c,3,unknown,low,40 00 40,no classifier heuristic matched
+0x0424c,0x101d424c,0x04258,12,float_table,low,"[2.004, 2.004, 2.004]",contiguous plausible float32s
+0x04258,0x101d4258,0x0425a,2,unknown,low,00 40,no classifier heuristic matched
+0x0425a,0x101d425a,0x04298,62,u16_table,low,"[0, 48, 96, 144, 192, 288, 480, 640, ... (31 total)]",contiguous u16 values in plausible range
+0x04298,0x101d4298,0x0429a,2,unknown,low,c0 2b,no classifier heuristic matched
+0x0429a,0x101d429a,0x042b8,30,u16_table,low,"[0, 40, 80, 120, 160, 240, 320, 400, ... (15 total)]",contiguous u16 values in plausible range
+0x042b8,0x101d42b8,0x042ba,2,unknown,low,c0 2b,no classifier heuristic matched
+0x042ba,0x101d42ba,0x042d8,30,u16_table,low,"[0, 40, 80, 120, 160, 240, 320, 400, ... (15 total)]",contiguous u16 values in plausible range
+0x042d8,0x101d42d8,0x042da,2,unknown,low,c0 2b,no classifier heuristic matched
+0x042da,0x101d42da,0x042f8,30,u16_table,low,"[0, 40, 80, 120, 160, 240, 320, 400, ... (15 total)]",contiguous u16 values in plausible range
+0x042f8,0x101d42f8,0x042fa,2,unknown,low,c0 2b,no classifier heuristic matched
+0x042fa,0x101d42fa,0x04318,30,u16_table,low,"[0, 32, 64, 96, 128, 192, 256, 320, ... (15 total)]",contiguous u16 values in plausible range
+0x04318,0x101d4318,0x0431a,2,unknown,low,c0 2b,no classifier heuristic matched
+0x0431a,0x101d431a,0x04338,30,u16_table,low,"[0, 32, 64, 96, 128, 192, 256, 320, ... (15 total)]",contiguous u16 values in plausible range
+0x04338,0x101d4338,0x0433a,2,unknown,low,c0 2b,no classifier heuristic matched
+0x0433a,0x101d433a,0x04358,30,u16_table,low,"[0, 16, 32, 48, 64, 96, 128, 160, ... (15 total)]",contiguous u16 values in plausible range
+0x04358,0x101d4358,0x0435a,2,unknown,low,c0 2b,no classifier heuristic matched
+0x0435a,0x101d435a,0x0437a,32,u16_axis,medium,"[0, 16, 32, 48, 64, 96, 128, 160, ... (16 total)]","monotonic u16 axis, inc"
+0x0437a,0x101d437a,0x0439c,34,reserved_zero,high,0x00 × 34,may be deprecated/disabled field cleared by Ford
+0x0439c,0x101d439c,0x04444,168,u16_table,low,"[132, 264, 402, 472, 505, 509, 509, 509, ... (84 total)]",contiguous u16 values in plausible range
+0x04444,0x101d4444,0x04450,12,u16_axis,medium,"[107, 105, 98, 73, 47, 31]","monotonic u16 axis, dec"
+0x04450,0x101d4450,0x04451,1,unknown,low,0f,no classifier heuristic matched
+0x04451,0x101d4451,0x0445c,11,reserved_zero,high,0x00 × 11,may be deprecated/disabled field cleared by Ford
+0x0445c,0x101d445c,0x04466,10,u16_table,low,"[14, 25, 32, 40, 43]",contiguous u16 values in plausible range
+0x04466,0x101d4466,0x04470,10,u16_axis,medium,"[44, 42, 33, 23, 14]","monotonic u16 axis, dec"
+0x04470,0x101d4470,0x04471,1,unknown,low,09,no classifier heuristic matched
+0x04471,0x101d4471,0x0449c,43,reserved_zero,high,0x00 × 43,may be deprecated/disabled field cleared by Ford
+0x0449c,0x101d449c,0x045be,290,u16_table,low,"[77, 230, 435, 717, 1024, 1126, 2560, 0, ... (145 total)]",contiguous u16 values in plausible range
+0x045be,0x101d45be,0x04602,68,unknown,low,00 32 00 50 00 00 00 1e 00 32 00 50 ...,no classifier heuristic matched
+0x04602,0x101d4602,0x04658,86,u16_table,low,"[256, 174, 128, 0, 256, 174, 128, 0, ... (43 total)]",contiguous u16 values in plausible range
+0x04658,0x101d4658,0x0465c,4,unknown,low,00 28 00 32,no classifier heuristic matched
+0x0465c,0x101d465c,0x04674,24,u16_axis,medium,"[0, 1280, 3840, 6400, 9600, 12800, 15360, 17920, ... (12 total)]","monotonic u16 axis, inc"
+0x04674,0x101d4674,0x04680,12,float_axis,medium,"[0.8855, 0.99, 1]",monotonic inc
+0x04680,0x101d4680,0x047d0,336,u16_table,low,"[2851, 2532, 2412, 2303, 2207, 2124, 2052, 1926, ... (168 total)]",contiguous u16 values in plausible range
+0x047d0,0x101d47d0,0x047d2,2,unknown,low,00 40,no classifier heuristic matched
+0x047d2,0x101d47d2,0x047ea,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x047ea,0x101d47ea,0x047ec,2,unknown,low,00 40,no classifier heuristic matched
+0x047ec,0x101d47ec,0x04804,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x04804,0x101d4804,0x04806,2,unknown,low,00 40,no classifier heuristic matched
+0x04806,0x101d4806,0x0481e,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x0481e,0x101d481e,0x04820,2,unknown,low,00 40,no classifier heuristic matched
+0x04820,0x101d4820,0x04838,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x04838,0x101d4838,0x0483a,2,unknown,low,00 40,no classifier heuristic matched
+0x0483a,0x101d483a,0x04852,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x04852,0x101d4852,0x04854,2,unknown,low,00 40,no classifier heuristic matched
+0x04854,0x101d4854,0x0486c,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x0486c,0x101d486c,0x0486e,2,unknown,low,00 40,no classifier heuristic matched
+0x0486e,0x101d486e,0x04886,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x04886,0x101d4886,0x04888,2,unknown,low,00 40,no classifier heuristic matched
+0x04888,0x101d4888,0x048a0,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x048a0,0x101d48a0,0x048a2,2,unknown,low,00 40,no classifier heuristic matched
+0x048a2,0x101d48a2,0x048ba,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x048ba,0x101d48ba,0x048bc,2,unknown,low,00 40,no classifier heuristic matched
+0x048bc,0x101d48bc,0x048d4,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x048d4,0x101d48d4,0x048d6,2,unknown,low,00 40,no classifier heuristic matched
+0x048d6,0x101d48d6,0x048ee,24,u16_table,low,"[0, 922, 1331, 1741, 2150, 2560, 2970, 3789, ... (12 total)]",contiguous u16 values in plausible range
+0x048ee,0x101d48ee,0x048f0,2,unknown,low,00 40,no classifier heuristic matched
+0x048f0,0x101d48f0,0x04af6,518,u16_table,low,"[0, 53, 86, 108, 130, 151, 173, 194, ... (259 total)]",contiguous u16 values in plausible range
+0x04af6,0x101d4af6,0x04af8,2,unknown,low,00 50,no classifier heuristic matched
+0x04af8,0x101d4af8,0x04b1e,38,u16_table,low,"[0, 51, 66, 78, 100, 135, 182, 240, ... (19 total)]",contiguous u16 values in plausible range
+0x04b1e,0x101d4b1e,0x04b20,2,unknown,low,00 50,no classifier heuristic matched
+0x04b20,0x101d4b20,0x04b46,38,u16_table,low,"[0, 51, 74, 86, 111, 143, 186, 240, ... (19 total)]",contiguous u16 values in plausible range
+0x04b46,0x101d4b46,0x04b48,2,unknown,low,00 30,no classifier heuristic matched
+0x04b48,0x101d4b48,0x04cb4,364,u16_table,low,"[0, 41, 70, 86, 111, 147, 197, 254, ... (182 total)]",contiguous u16 values in plausible range
+0x04cb4,0x101d4cb4,0x04cb6,2,unknown,low,00 80,no classifier heuristic matched
+0x04cb6,0x101d4cb6,0x04f3c,646,u16_table,low,"[0, 0, 400, 800, 1200, 1600, 2400, 3200, ... (323 total)]",contiguous u16 values in plausible range
+0x04f3c,0x101d4f3c,0x04f62,38,unknown,low,3d 2a 7b 54 00 80 00 00 3d 2a 7b 54 ...,no classifier heuristic matched
+0x04f62,0x101d4f62,0x04fb4,82,u16_table,low,"[0, 524, 0, 524, 0, 524, 0, 524, ... (41 total)]",contiguous u16 values in plausible range
+0x04fb4,0x101d4fb4,0x04fba,6,unknown,low,b3 30 18 35 00 38,no classifier heuristic matched
+0x04fba,0x101d4fba,0x04fc4,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x04fc4,0x101d4fc4,0x04fca,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x04fca,0x101d4fca,0x04fd4,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x04fd4,0x101d4fd4,0x04fda,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x04fda,0x101d4fda,0x04fe4,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x04fe4,0x101d4fe4,0x04fea,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x04fea,0x101d4fea,0x04ff4,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x04ff4,0x101d4ff4,0x04ffa,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x04ffa,0x101d4ffa,0x05004,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x05004,0x101d5004,0x0500a,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x0500a,0x101d500a,0x05014,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x05014,0x101d5014,0x0501a,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x0501a,0x101d501a,0x05024,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x05024,0x101d5024,0x0502a,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x0502a,0x101d502a,0x05034,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x05034,0x101d5034,0x0503a,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x0503a,0x101d503a,0x05044,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x05044,0x101d5044,0x0504a,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x0504a,0x101d504a,0x05054,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x05054,0x101d5054,0x0505a,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x0505a,0x101d505a,0x05064,10,u16_table,low,"[0, 3072, 3725, 4220, 7424]",contiguous u16 values in plausible range
+0x05064,0x101d5064,0x0506a,6,unknown,low,52 2f 00 30 00 31,no classifier heuristic matched
+0x0506a,0x101d506a,0x0512a,192,u16_table,low,"[4096, 4096, 4009, 3891, 2432, 345, 73, 0, ... (96 total)]",contiguous u16 values in plausible range
+0x0512a,0x101d512a,0x0513e,20,u16_axis,medium,"[0, 2048, 4096, 6144, 8192, 10240, 12288, 14336, ... (10 total)]","monotonic u16 axis, inc"
+0x0513e,0x101d513e,0x05152,20,reserved_zero,high,0x00 × 20,may be deprecated/disabled field cleared by Ford
+0x05152,0x101d5152,0x0517e,44,u16_table,low,"[655, 655, 655, 655, 655, 655, 655, 655, ... (22 total)]",contiguous u16 values in plausible range
+0x0517e,0x101d517e,0x05180,2,unknown,low,00 80,no classifier heuristic matched
+0x05180,0x101d5180,0x05184,4,float_scalar,low,2.00781,standalone float32
+0x05184,0x101d5184,0x0519d,25,reserved_zero,high,0x00 × 25,may be deprecated/disabled field cleared by Ford
+0x0519d,0x101d519d,0x051a0,3,unknown,low,40 00 40,no classifier heuristic matched
+0x051a0,0x101d51a0,0x051ac,12,float_table,low,"[2.004, 2.004, 2.004]",contiguous plausible float32s
+0x051ac,0x101d51ac,0x051ae,2,unknown,low,00 40,no classifier heuristic matched
+0x051ae,0x101d51ae,0x051ec,62,u16_table,low,"[0, 48, 96, 144, 192, 288, 480, 640, ... (31 total)]",contiguous u16 values in plausible range
+0x051ec,0x101d51ec,0x051ee,2,unknown,low,c0 2b,no classifier heuristic matched
+0x051ee,0x101d51ee,0x0520c,30,u16_table,low,"[0, 40, 80, 120, 160, 240, 320, 400, ... (15 total)]",contiguous u16 values in plausible range
+0x0520c,0x101d520c,0x0520e,2,unknown,low,c0 2b,no classifier heuristic matched
+0x0520e,0x101d520e,0x0522c,30,u16_table,low,"[0, 40, 80, 120, 160, 240, 320, 400, ... (15 total)]",contiguous u16 values in plausible range
+0x0522c,0x101d522c,0x0522e,2,unknown,low,c0 2b,no classifier heuristic matched
+0x0522e,0x101d522e,0x0524c,30,u16_table,low,"[0, 40, 80, 120, 160, 240, 320, 400, ... (15 total)]",contiguous u16 values in plausible range
+0x0524c,0x101d524c,0x0524e,2,unknown,low,c0 2b,no classifier heuristic matched
+0x0524e,0x101d524e,0x0526c,30,u16_table,low,"[0, 32, 64, 96, 128, 192, 256, 320, ... (15 total)]",contiguous u16 values in plausible range
+0x0526c,0x101d526c,0x0526e,2,unknown,low,c0 2b,no classifier heuristic matched
+0x0526e,0x101d526e,0x0528c,30,u16_table,low,"[0, 32, 64, 96, 128, 192, 256, 320, ... (15 total)]",contiguous u16 values in plausible range
+0x0528c,0x101d528c,0x0528e,2,unknown,low,c0 2b,no classifier heuristic matched
+0x0528e,0x101d528e,0x052ac,30,u16_table,low,"[0, 16, 32, 48, 64, 96, 128, 160, ... (15 total)]",contiguous u16 values in plausible range
+0x052ac,0x101d52ac,0x052ae,2,unknown,low,c0 2b,no classifier heuristic matched
+0x052ae,0x101d52ae,0x052ce,32,u16_axis,medium,"[0, 16, 32, 48, 64, 96, 128, 160, ... (16 total)]","monotonic u16 axis, inc"
+0x052ce,0x101d52ce,0x052f0,34,reserved_zero,high,0x00 × 34,may be deprecated/disabled field cleared by Ford
+0x052f0,0x101d52f0,0x05398,168,u16_table,low,"[132, 264, 402, 472, 505, 509, 509, 509, ... (84 total)]",contiguous u16 values in plausible range
+0x05398,0x101d5398,0x053a4,12,u16_axis,medium,"[107, 105, 98, 73, 47, 31]","monotonic u16 axis, dec"
+0x053a4,0x101d53a4,0x053a5,1,unknown,low,0f,no classifier heuristic matched
+0x053a5,0x101d53a5,0x053b0,11,reserved_zero,high,0x00 × 11,may be deprecated/disabled field cleared by Ford
+0x053b0,0x101d53b0,0x053ba,10,u16_table,low,"[14, 25, 32, 40, 43]",contiguous u16 values in plausible range
+0x053ba,0x101d53ba,0x053c4,10,u16_axis,medium,"[44, 42, 33, 23, 14]","monotonic u16 axis, dec"
+0x053c4,0x101d53c4,0x053c5,1,unknown,low,09,no classifier heuristic matched
+0x053c5,0x101d53c5,0x053f0,43,reserved_zero,high,0x00 × 43,may be deprecated/disabled field cleared by Ford
+0x053f0,0x101d53f0,0x05512,290,u16_table,low,"[77, 230, 435, 717, 1024, 1126, 2560, 0, ... (145 total)]",contiguous u16 values in plausible range
+0x05512,0x101d5512,0x05556,68,unknown,low,00 32 00 50 00 00 00 1e 00 32 00 50 ...,no classifier heuristic matched
+0x05556,0x101d5556,0x055ac,86,u16_table,low,"[256, 174, 128, 0, 256, 174, 128, 0, ... (43 total)]",contiguous u16 values in plausible range
+0x055ac,0x101d55ac,0x055b0,4,unknown,low,00 28 00 32,no classifier heuristic matched
+0x055b0,0x101d55b0,0x055ba,10,u16_table,low,"[0, 1280, 3840, 6400, 9600]",contiguous u16 values in plausible range
+0x055ba,0x101d55ba,0x055bc,2,unknown,low,00 32,no classifier heuristic matched
+0x055bc,0x101d55bc,0x055c0,4,float_scalar,low,8207,standalone float32
+0x055c0,0x101d55c0,0x055c8,8,unknown,low,80 7b 00 7c 80 7c 00 7d,no classifier heuristic matched
+0x055c8,0x101d55c8,0x055d4,12,float_table,low,"[1, 1, 1]",contiguous plausible float32s
+0x055d4,0x101d55d4,0x055e6,18,u16_table,low,"[979, 979, 979, 979, 979, 979, 979, 979, ... (9 total)]",contiguous u16 values in plausible range
+0x055e6,0x101d55e6,0x055ee,8,reserved_zero,high,0x00 × 8,may be deprecated/disabled field cleared by Ford
+0x055ee,0x101d55ee,0x05600,18,u16_table,low,"[979, 979, 979, 979, 979, 979, 979, 979, ... (9 total)]",contiguous u16 values in plausible range
+0x05600,0x101d5600,0x05608,8,reserved_zero,high,0x00 × 8,may be deprecated/disabled field cleared by Ford
+0x05608,0x101d5608,0x0561a,18,u16_table,low,"[979, 979, 979, 979, 979, 979, 979, 979, ... (9 total)]",contiguous u16 values in plausible range
+0x0561a,0x101d561a,0x05622,8,reserved_zero,high,0x00 × 8,may be deprecated/disabled field cleared by Ford
+0x05622,0x101d5622,0x05634,18,u16_table,low,"[979, 979, 979, 979, 979, 979, 979, 979, ... (9 total)]",contiguous u16 values in plausible range
+0x05634,0x101d5634,0x0563c,8,reserved_zero,high,0x00 × 8,may be deprecated/disabled field cleared by Ford
+0x0563c,0x101d563c,0x0564e,18,u16_table,low,"[979, 979, 979, 979, 979, 979, 979, 979, ... (9 total)]",contiguous u16 values in plausible range
+0x0564e,0x101d564e,0x05656,8,reserved_zero,high,0x00 × 8,may be deprecated/disabled field cleared by Ford
+0x05656,0x101d5656,0x05668,18,u16_table,low,"[979, 979, 979, 979, 979, 979, 979, 979, ... (9 total)]",contiguous u16 values in plausible range
+0x05668,0x101d5668,0x05670,8,reserved_zero,high,0x00 × 8,may be deprecated/disabled field cleared by Ford
+0x05670,0x101d5670,0x05682,18,u16_table,low,"[979, 979, 979, 979, 979, 979, 979, 979, ... (9 total)]",contiguous u16 values in plausible range
+0x05682,0x101d5682,0x0568a,8,reserved_zero,high,0x00 × 8,may be deprecated/disabled field cleared by Ford
+0x0568a,0x101d568a,0x0569c,18,u16_table,low,"[979, 979, 979, 979, 979, 979, 979, 979, ... (9 total)]",contiguous u16 values in plausible range
+0x0569c,0x101d569c,0x056a4,8,reserved_zero,high,0x00 × 8,may be deprecated/disabled field cleared by Ford
+0x056a4,0x101d56a4,0x056b6,18,u16_table,low,"[979, 979, 979, 979, 979, 979, 979, 979, ... (9 total)]",contiguous u16 values in plausible range
+0x056b6,0x101d56b6,0x056be,8,reserved_zero,high,0x00 × 8,may be deprecated/disabled field cleared by Ford
+0x056be,0x101d56be,0x056d0,18,u16_table,low,"[979, 979, 979, 979, 979, 979, 979, 979, ... (9 total)]",contiguous u16 values in plausible range
+0x056d0,0x101d56d0,0x056d8,8,reserved_zero,high,0x00 × 8,may be deprecated/disabled field cleared by Ford
+0x056d8,0x101d56d8,0x056ea,18,u16_table,low,"[979, 979, 979, 979, 979, 979, 979, 979, ... (9 total)]",contiguous u16 values in plausible range
+0x056ea,0x101d56ea,0x056f2,8,reserved_zero,high,0x00 × 8,may be deprecated/disabled field cleared by Ford
+0x056f2,0x101d56f2,0x05704,18,u16_table,low,"[979, 979, 979, 979, 979, 979, 979, 979, ... (9 total)]",contiguous u16 values in plausible range
+0x05704,0x101d5704,0x0570f,11,reserved_zero,high,0x00 × 11,may be deprecated/disabled field cleared by Ford
+0x0570f,0x101d570f,0x05710,1,unknown,low,02,no classifier heuristic matched
+0x05710,0x101d5710,0x0571e,14,u16_table,low,"[1024, 1536, 2048, 2560, 3072, 4096, 8192]",contiguous u16 values in plausible range
+0x0571e,0x101d571e,0x05720,2,unknown,low,00 30,no classifier heuristic matched
+0x05720,0x101d5720,0x05724,4,float_scalar,low,0.125229,standalone float32
+0x05724,0x101d5724,0x05726,2,unknown,low,00 40,no classifier heuristic matched
+0x05726,0x101d5726,0x05738,18,u16_table,low,"[0, 512, 1024, 1536, 2048, 2560, 3072, 4096, ... (9 total)]",contiguous u16 values in plausible range
+0x05738,0x101d5738,0x0573c,4,float_scalar,low,0.00782394,standalone float32
+0x0573c,0x101d573c,0x05740,4,float_scalar,low,2.00378,standalone float32
+0x05740,0x101d5740,0x05752,18,u16_table,low,"[0, 512, 1024, 1536, 2048, 2560, 3072, 4096, ... (9 total)]",contiguous u16 values in plausible range
+0x05752,0x101d5752,0x05754,2,unknown,low,00 30,no classifier heuristic matched
+0x05754,0x101d5754,0x05758,4,float_scalar,low,0.125229,standalone float32
+0x05758,0x101d5758,0x0575a,2,unknown,low,00 40,no classifier heuristic matched
+0x0575a,0x101d575a,0x0576c,18,u16_table,low,"[0, 512, 1024, 1536, 2048, 2560, 3072, 4096, ... (9 total)]",contiguous u16 values in plausible range
+0x0576c,0x101d576c,0x05770,4,float_scalar,low,0.00782394,standalone float32
+0x05770,0x101d5770,0x05774,4,float_scalar,low,2.00378,standalone float32
+0x05774,0x101d5774,0x05786,18,u16_table,low,"[0, 512, 1024, 1536, 2048, 2560, 3072, 4096, ... (9 total)]",contiguous u16 values in plausible range
+0x05786,0x101d5786,0x05788,2,unknown,low,00 30,no classifier heuristic matched
+0x05788,0x101d5788,0x0578c,4,float_scalar,low,0.125229,standalone float32
+0x0578c,0x101d578c,0x0578e,2,unknown,low,00 40,no classifier heuristic matched
+0x0578e,0x101d578e,0x057a0,18,u16_table,low,"[0, 512, 1024, 1536, 2048, 2560, 3072, 4096, ... (9 total)]",contiguous u16 values in plausible range
+0x057a0,0x101d57a0,0x057a4,4,float_scalar,low,0.00782394,standalone float32
+0x057a4,0x101d57a4,0x057a8,4,float_scalar,low,2.00378,standalone float32
+0x057a8,0x101d57a8,0x057ba,18,u16_table,low,"[0, 512, 1024, 1536, 2048, 2560, 3072, 4096, ... (9 total)]",contiguous u16 values in plausible range
+0x057ba,0x101d57ba,0x057bc,2,unknown,low,00 30,no classifier heuristic matched
+0x057bc,0x101d57bc,0x057c0,4,float_scalar,low,0.125229,standalone float32
+0x057c0,0x101d57c0,0x057c2,2,unknown,low,00 40,no classifier heuristic matched
+0x057c2,0x101d57c2,0x057d4,18,u16_table,low,"[0, 512, 1024, 1536, 2048, 2560, 3072, 4096, ... (9 total)]",contiguous u16 values in plausible range
+0x057d4,0x101d57d4,0x057d8,4,float_scalar,low,0.00782394,standalone float32
+0x057d8,0x101d57d8,0x057dc,4,float_scalar,low,2.00378,standalone float32
+0x057dc,0x101d57dc,0x057ee,18,u16_table,low,"[0, 512, 1024, 1536, 2048, 2560, 3072, 4096, ... (9 total)]",contiguous u16 values in plausible range
+0x057ee,0x101d57ee,0x057f0,2,unknown,low,00 30,no classifier heuristic matched
+0x057f0,0x101d57f0,0x057f4,4,float_scalar,low,0.125229,standalone float32
+0x057f4,0x101d57f4,0x057f6,2,unknown,low,00 40,no classifier heuristic matched
+0x057f6,0x101d57f6,0x05808,18,u16_table,low,"[0, 512, 1024, 1536, 2048, 2560, 3072, 4096, ... (9 total)]",contiguous u16 values in plausible range
+0x05808,0x101d5808,0x0580c,4,float_scalar,low,0.00782394,standalone float32
+0x0580c,0x101d580c,0x05810,4,float_scalar,low,2.00378,standalone float32
+0x05810,0x101d5810,0x05822,18,u16_table,low,"[0, 512, 1024, 1536, 2048, 2560, 3072, 4096, ... (9 total)]",contiguous u16 values in plausible range
+0x05822,0x101d5822,0x05824,2,unknown,low,00 30,no classifier heuristic matched
+0x05824,0x101d5824,0x05828,4,float_scalar,low,0.125229,standalone float32
+0x05828,0x101d5828,0x0582a,2,unknown,low,00 40,no classifier heuristic matched
+0x0582a,0x101d582a,0x0583c,18,u16_table,low,"[0, 512, 1024, 1536, 2048, 2560, 3072, 4096, ... (9 total)]",contiguous u16 values in plausible range
+0x0583c,0x101d583c,0x05840,4,float_scalar,low,0.00782394,standalone float32
+0x05840,0x101d5840,0x05844,4,float_scalar,low,2.00378,standalone float32
+0x05844,0x101d5844,0x05a4a,518,u16_table,low,"[0, 191, 220, 248, 276, 304, 332, 360, ... (259 total)]",contiguous u16 values in plausible range
+0x05a4a,0x101d5a4a,0x05a4c,2,unknown,low,86 29,no classifier heuristic matched
+0x05a4c,0x101d5a4c,0x05a72,38,u16_table,low,"[0, 0, 47, 62, 78, 94, 111, 143, ... (19 total)]",contiguous u16 values in plausible range
+0x05a72,0x101d5a72,0x05a74,2,unknown,low,86 29,no classifier heuristic matched
+0x05a74,0x101d5a74,0x05a9a,38,u16_table,low,"[0, 0, 47, 62, 78, 94, 111, 143, ... (19 total)]",contiguous u16 values in plausible range
+0x05a9a,0x101d5a9a,0x05a9c,2,unknown,low,86 29,no classifier heuristic matched
+0x05a9c,0x101d5a9c,0x05ac2,38,u16_table,low,"[0, 0, 47, 62, 78, 94, 111, 143, ... (19 total)]",contiguous u16 values in plausible range
+0x05ac2,0x101d5ac2,0x05ac4,2,unknown,low,86 29,no classifier heuristic matched
+0x05ac4,0x101d5ac4,0x05aea,38,u16_table,low,"[0, 0, 47, 62, 78, 94, 111, 143, ... (19 total)]",contiguous u16 values in plausible range
+0x05aea,0x101d5aea,0x05aec,2,unknown,low,86 29,no classifier heuristic matched
+0x05aec,0x101d5aec,0x05b12,38,u16_table,low,"[0, 0, 47, 62, 78, 94, 111, 143, ... (19 total)]",contiguous u16 values in plausible range
+0x05b12,0x101d5b12,0x05b14,2,unknown,low,86 29,no classifier heuristic matched
+0x05b14,0x101d5b14,0x05b3a,38,u16_table,low,"[0, 0, 47, 62, 78, 94, 111, 143, ... (19 total)]",contiguous u16 values in plausible range
+0x05b3a,0x101d5b3a,0x05b3c,2,unknown,low,86 29,no classifier heuristic matched
+0x05b3c,0x101d5b3c,0x05b62,38,u16_table,low,"[0, 0, 47, 62, 78, 94, 111, 143, ... (19 total)]",contiguous u16 values in plausible range
+0x05b62,0x101d5b62,0x05b64,2,unknown,low,86 29,no classifier heuristic matched
+0x05b64,0x101d5b64,0x05b8a,38,u16_table,low,"[0, 0, 47, 62, 78, 94, 111, 143, ... (19 total)]",contiguous u16 values in plausible range
+0x05b8a,0x101d5b8a,0x05b8c,2,unknown,low,86 29,no classifier heuristic matched
+0x05b8c,0x101d5b8c,0x05bb2,38,u16_table,low,"[0, 0, 47, 62, 78, 94, 111, 143, ... (19 total)]",contiguous u16 values in plausible range
+0x05bb2,0x101d5bb2,0x05bb4,2,unknown,low,86 29,no classifier heuristic matched
+0x05bb4,0x101d5bb4,0x05bda,38,u16_table,low,"[0, 0, 47, 62, 78, 94, 111, 143, ... (19 total)]",contiguous u16 values in plausible range
+0x05bda,0x101d5bda,0x05bdc,2,unknown,low,86 29,no classifier heuristic matched
+0x05bdc,0x101d5bdc,0x05c02,38,u16_table,low,"[0, 0, 47, 62, 78, 94, 111, 143, ... (19 total)]",contiguous u16 values in plausible range
+0x05c02,0x101d5c02,0x05c0a,8,unknown,low,86 29 00 05 00 0a 00 80,no classifier heuristic matched
+0x05c0a,0x101d5c0a,0x05e90,646,u16_table,low,"[0, 0, 400, 800, 1200, 1600, 2400, 3200, ... (323 total)]",contiguous u16 values in plausible range
+0x05e90,0x101d5e90,0x05eb4,36,unknown,low,3d 2a 7b 54 00 80 00 00 3d 2a 7b 54 ...,no classifier heuristic matched
+0x05eb4,0x101d5eb4,0x05ee6,50,timer_cluster,medium,"[32768, 0, 524, 0, 524, 0, 524, 0, ... (25 total)]",12/25 look like timer sentinels
+0x05ee6,0x101d5ee6,0x05f00,26,reserved_zero,high,0x00 × 26,may be deprecated/disabled field cleared by Ford
+0x05f00,0x101d5f00,0x05f0c,12,u16_table,low,"[815, 1634, 2458, 4096, 5730, 8192]",contiguous u16 values in plausible range
+0x05f0c,0x101d5f0c,0x05f0e,2,unknown,low,00 a0,no classifier heuristic matched
+0x05f0e,0x101d5f0e,0x05f1c,14,u16_table,low,"[0, 815, 1634, 2458, 4096, 5730, 8192]",contiguous u16 values in plausible range
+0x05f1c,0x101d5f1c,0x05f1e,2,unknown,low,00 a0,no classifier heuristic matched
+0x05f1e,0x101d5f1e,0x05f2c,14,u16_table,low,"[0, 815, 1634, 2458, 4096, 5730, 8192]",contiguous u16 values in plausible range
+0x05f2c,0x101d5f2c,0x05f2e,2,unknown,low,00 a0,no classifier heuristic matched
+0x05f2e,0x101d5f2e,0x05f3c,14,u16_table,low,"[0, 815, 1634, 2458, 4096, 5730, 8192]",contiguous u16 values in plausible range
+0x05f3c,0x101d5f3c,0x05f3e,2,unknown,low,00 a0,no classifier heuristic matched
+0x05f3e,0x101d5f3e,0x05f4c,14,u16_table,low,"[0, 815, 1634, 2458, 4096, 5730, 8192]",contiguous u16 values in plausible range
+0x05f4c,0x101d5f4c,0x05f4e,2,unknown,low,00 a0,no classifier heuristic matched
+0x05f4e,0x101d5f4e,0x05f5c,14,u16_table,low,"[0, 815, 1634, 2458, 4096, 5730, 8192]",contiguous u16 values in plausible range
+0x05f5c,0x101d5f5c,0x05f5e,2,unknown,low,00 a0,no classifier heuristic matched
+0x05f5e,0x101d5f5e,0x05f6c,14,u16_table,low,"[0, 815, 1634, 2458, 4096, 5730, 8192]",contiguous u16 values in plausible range
+0x05f6c,0x101d5f6c,0x05f6e,2,unknown,low,00 a0,no classifier heuristic matched
+0x05f6e,0x101d5f6e,0x05f7c,14,u16_table,low,"[0, 815, 1634, 2458, 4096, 5730, 8192]",contiguous u16 values in plausible range
+0x05f7c,0x101d5f7c,0x05f7e,2,unknown,low,00 a0,no classifier heuristic matched
+0x05f7e,0x101d5f7e,0x05f8c,14,u16_table,low,"[0, 815, 1634, 2458, 4096, 5730, 8192]",contiguous u16 values in plausible range
+0x05f8c,0x101d5f8c,0x05f8e,2,unknown,low,00 a0,no classifier heuristic matched
+0x05f8e,0x101d5f8e,0x05f9c,14,u16_table,low,"[0, 815, 1634, 2458, 4096, 5730, 8192]",contiguous u16 values in plausible range
+0x05f9c,0x101d5f9c,0x05f9e,2,unknown,low,00 a0,no classifier heuristic matched
+0x05f9e,0x101d5f9e,0x05fac,14,u16_table,low,"[0, 815, 1634, 2458, 4096, 5730, 8192]",contiguous u16 values in plausible range
+0x05fac,0x101d5fac,0x05fae,2,unknown,low,00 a0,no classifier heuristic matched
+0x05fae,0x101d5fae,0x05fbe,16,u16_axis,medium,"[0, 815, 1634, 2458, 4096, 5730, 8192, 40960]","monotonic u16 axis, inc"
+0x05fbe,0x101d5fbe,0x06081,195,reserved_zero,high,0x00 × 195,may be deprecated/disabled field cleared by Ford
+0x06081,0x101d6081,0x06082,1,unknown,low,08,no classifier heuristic matched
+0x06082,0x101d6082,0x06092,16,u16_axis,medium,"[4096, 6144, 8192, 10240, 12288, 14336, 16384, 18432]","monotonic u16 axis, inc"
+0x06092,0x101d6092,0x060c0,46,reserved_zero,high,0x00 × 46,may be deprecated/disabled field cleared by Ford
+0x060c0,0x101d60c0,0x060d2,18,u16_table,low,"[3686, 3686, 3686, 3686, 3686, 3686, 3686, 3686, ... (9 total)]",contiguous u16 values in plausible range
+0x060d2,0x101d60d2,0x060d4,2,unknown,low,00 80,no classifier heuristic matched
+0x060d4,0x101d60d4,0x060dc,8,u16_axis,medium,"[32768, 9830, 6554, 3277]","monotonic u16 axis, dec"
+0x060dc,0x101d60dc,0x060f1,21,reserved_zero,high,0x00 × 21,may be deprecated/disabled field cleared by Ford
+0x060f1,0x101d60f1,0x060f4,3,unknown,low,40 00 40,no classifier heuristic matched
+0x060f4,0x101d60f4,0x06100,12,float_table,low,"[2.004, 2.004, 2.004]",contiguous plausible float32s
+0x06100,0x101d6100,0x06102,2,unknown,low,00 40,no classifier heuristic matched
+0x06102,0x101d6102,0x06236,308,u16_table,low,"[0, 102, 203, 312, 465, 619, 805, 997, ... (154 total)]",contiguous u16 values in plausible range
+0x06236,0x101d6236,0x06237,1,unknown,low,0a,no classifier heuristic matched
+0x06237,0x101d6237,0x06244,13,reserved_zero,high,0x00 × 13,may be deprecated/disabled field cleared by Ford
+0x06244,0x101d6244,0x06256,18,u16_table,low,"[16, 20, 20, 20, 20, 20, 20, 20, ... (9 total)]",contiguous u16 values in plausible range
+0x06256,0x101d6256,0x06257,1,unknown,low,0a,no classifier heuristic matched
+0x06257,0x101d6257,0x06264,13,reserved_zero,high,0x00 × 13,may be deprecated/disabled field cleared by Ford
+0x06264,0x101d6264,0x06276,18,u16_table,low,"[16, 20, 20, 20, 20, 20, 20, 20, ... (9 total)]",contiguous u16 values in plausible range
+0x06276,0x101d6276,0x06277,1,unknown,low,0a,no classifier heuristic matched
+0x06277,0x101d6277,0x06284,13,reserved_zero,high,0x00 × 13,may be deprecated/disabled field cleared by Ford
+0x06284,0x101d6284,0x06296,18,u16_table,low,"[16, 20, 20, 20, 20, 20, 20, 20, ... (9 total)]",contiguous u16 values in plausible range
+0x06296,0x101d6296,0x06297,1,unknown,low,0a,no classifier heuristic matched
+0x06297,0x101d6297,0x062a4,13,reserved_zero,high,0x00 × 13,may be deprecated/disabled field cleared by Ford
+0x062a4,0x101d62a4,0x062b6,18,u16_table,low,"[16, 20, 20, 20, 20, 20, 20, 20, ... (9 total)]",contiguous u16 values in plausible range
+0x062b6,0x101d62b6,0x062b7,1,unknown,low,0a,no classifier heuristic matched
+0x062b7,0x101d62b7,0x062c4,13,reserved_zero,high,0x00 × 13,may be deprecated/disabled field cleared by Ford
+0x062c4,0x101d62c4,0x062d6,18,u16_table,low,"[16, 20, 20, 20, 20, 20, 20, 20, ... (9 total)]",contiguous u16 values in plausible range
+0x062d6,0x101d62d6,0x062d7,1,unknown,low,0a,no classifier heuristic matched
+0x062d7,0x101d62d7,0x062e4,13,reserved_zero,high,0x00 × 13,may be deprecated/disabled field cleared by Ford
+0x062e4,0x101d62e4,0x062f6,18,u16_table,low,"[16, 20, 20, 20, 20, 20, 20, 20, ... (9 total)]",contiguous u16 values in plausible range
+0x062f6,0x101d62f6,0x062f7,1,unknown,low,0a,no classifier heuristic matched
+0x062f7,0x101d62f7,0x06304,13,reserved_zero,high,0x00 × 13,may be deprecated/disabled field cleared by Ford
+0x06304,0x101d6304,0x06316,18,u16_table,low,"[16, 20, 20, 20, 20, 20, 20, 20, ... (9 total)]",contiguous u16 values in plausible range
+0x06316,0x101d6316,0x06317,1,unknown,low,0a,no classifier heuristic matched
+0x06317,0x101d6317,0x06324,13,reserved_zero,high,0x00 × 13,may be deprecated/disabled field cleared by Ford
+0x06324,0x101d6324,0x06336,18,u16_table,low,"[16, 20, 20, 20, 20, 20, 20, 20, ... (9 total)]",contiguous u16 values in plausible range
+0x06336,0x101d6336,0x06337,1,unknown,low,0a,no classifier heuristic matched
+0x06337,0x101d6337,0x06344,13,reserved_zero,high,0x00 × 13,may be deprecated/disabled field cleared by Ford
+0x06344,0x101d6344,0x06466,290,u16_table,low,"[77, 230, 435, 717, 1024, 1126, 2560, 0, ... (145 total)]",contiguous u16 values in plausible range
+0x06466,0x101d6466,0x064aa,68,unknown,low,00 32 00 50 00 00 00 1e 00 32 00 50 ...,no classifier heuristic matched
+0x064aa,0x101d64aa,0x06502,88,u16_table,low,"[82, 56, 41, 0, 82, 56, 41, 0, ... (44 total)]",contiguous u16 values in plausible range
+0x06502,0x101d6502,0x06504,2,unknown,low,00 28,no classifier heuristic matched
+0x06504,0x101d6504,0x0650e,10,u16_table,low,"[0, 1280, 3840, 6400, 9600]",contiguous u16 values in plausible range
+0x0650e,0x101d650e,0x06510,2,unknown,low,00 32,no classifier heuristic matched
+0x06510,0x101d6510,0x06514,4,float_scalar,low,8207,standalone float32
+0x06514,0x101d6514,0x06522,14,unknown,low,00 50 00 5a 00 64 00 6e 00 00 20 00 ...,no classifier heuristic matched
+0x06522,0x101d6522,0x0652c,10,u16_table,low,"[256, 384, 3277, 3277, 2000]",contiguous u16 values in plausible range
+0x0652c,0x101d652c,0x0652e,2,unknown,low,cd fe,no classifier heuristic matched
+0x0652e,0x101d652e,0x06542,20,u16_table,low,"[307, 77, 102, 3277, 256, 384, 1280, 3200, ... (10 total)]",contiguous u16 values in plausible range
+0x06542,0x101d6542,0x06546,4,unknown,low,00 2d 00 32,no classifier heuristic matched
+0x06546,0x101d6546,0x06568,34,u16_table,low,"[109, 256, 1678, 419, 236, 315, 1000, 262, ... (17 total)]",contiguous u16 values in plausible range
+0x06568,0x101d6568,0x06572,10,unknown,low,00 28 00 e8 00 18 00 a0 00 60,no classifier heuristic matched
+0x06572,0x101d6572,0x0657a,8,u16_table,low,"[769, 371, 256, 0]",contiguous u16 values in plausible range
+0x0657a,0x101d657a,0x0657c,2,unknown,low,fe 42,no classifier heuristic matched
+0x0657c,0x101d657c,0x06582,6,packed_bytes,low,"[0x00, 0x00, 0x00, 0x04, 0x00, 0x00]","bytes <= 15, likely flags/enums/counts"
+0x06582,0x101d6582,0x06584,2,unknown,low,80 40,no classifier heuristic matched
+0x06584,0x101d6584,0x06588,4,float_scalar,low,12.7501,standalone float32
+0x06588,0x101d6588,0x06590,8,unknown,low,80 00 58 51 00 02 78 51,no classifier heuristic matched
+0x06590,0x101d6590,0x06594,4,float_scalar,low,127,standalone float32
+0x06594,0x101d6594,0x065a0,12,u16_table,low,"[512, 4096, 32, 16, 128, 64]",contiguous u16 values in plausible range
+0x065a0,0x101d65a0,0x065a2,2,unknown,low,00 30,no classifier heuristic matched
+0x065a2,0x101d65a2,0x065b4,18,u16_table,low,"[800, 3571, 256, 768, 771, 0, 2580, 5161, ... (9 total)]",contiguous u16 values in plausible range
+0x065b4,0x101d65b4,0x065b8,4,unknown,low,29 28 3d 32,no classifier heuristic matched
+0x065b8,0x101d65b8,0x065bc,4,float_scalar,low,14735.1,standalone float32
+0x065bc,0x101d65bc,0x065c8,12,unknown,low,7b 50 66 5a 7b 64 00 00 00 80 c3 a5,no classifier heuristic matched
+0x065c8,0x101d65c8,0x065cc,4,float_scalar,low,-0.0251144,standalone float32
+0x065cc,0x101d65cc,0x065d0,4,unknown,low,c3 a5 00 80,no classifier heuristic matched
+0x065d0,0x101d65d0,0x065d4,4,float_scalar,low,179.352,standalone float32
+0x065d4,0x101d65d4,0x065da,6,unknown,low,33 43 3d 5a 00 80,no classifier heuristic matched
+0x065da,0x101d65da,0x065e2,8,reserved_zero,high,0x00 × 8,may be deprecated/disabled field cleared by Ford
+0x065e2,0x101d65e2,0x065e4,2,unknown,low,01 01,no classifier heuristic matched
+0x065e4,0x101d65e4,0x065f3,15,reserved_zero,high,0x00 × 15,may be deprecated/disabled field cleared by Ford
+0x065f3,0x101d65f3,0x065f4,1,unknown,low,40,no classifier heuristic matched
+0x065f4,0x101d65f4,0x06618,36,float_table,low,"[3, 2, 3, 2, 3, 3, ... (9 total)]",contiguous plausible float32s
+0x06618,0x101d6618,0x06620,8,u16_table,low,"[771, 1284, 2567, 2827]",contiguous u16 values in plausible range
+0x06620,0x101d6620,0x06680,96,float_table,low,"[1, 0.01, 1, 0.01, 1, 0.01, ... (24 total)]",contiguous plausible float32s
+0x06680,0x101d6680,0x06682,2,unknown,low,cd cc,no classifier heuristic matched
+0x06682,0x101d6682,0x066a4,34,timer_cluster,medium,"[48844, 39322, 48793, 0, 17558, 0, 0, 52429, ... (17 total)]",8/17 look like timer sentinels
+0x066a4,0x101d66a4,0x066b8,20,reserved_zero,high,0x00 × 20,may be deprecated/disabled field cleared by Ford
+0x066b8,0x101d66b8,0x06764,172,float_table,low,"[1.35, 0.2, -10, 0.15, 1, 0.8, ... (43 total)]",contiguous plausible float32s
+0x06764,0x101d6764,0x06766,2,unknown,low,cd cc,no classifier heuristic matched
+0x06766,0x101d6766,0x06770,10,timer_cluster,medium,"[16204, 0, 16384, 0, 16672]",2/5 look like timer sentinels
+0x06770,0x101d6770,0x0677c,12,float_axis,medium,"[63, 2, 1]",monotonic dec
+0x0677c,0x101d677c,0x0678a,14,u16_table,low,"[256, 0, 0, 1024, 6144, 0, 7353]",contiguous u16 values in plausible range
+0x0678a,0x101d678a,0x067ac,34,unknown,low,19 bc cd 04 00 00 33 00 00 a0 00 fc ...,no classifier heuristic matched
+0x067ac,0x101d67ac,0x067b0,4,float_scalar,low,-54553.6,standalone float32
+0x067b0,0x101d67b0,0x067b6,6,unknown,low,55 c7 be ff be ff,no classifier heuristic matched
+0x067b6,0x101d67b6,0x067c4,14,u16_table,low,"[33, 257, 8192, 38, 2464, 255, 6694]",contiguous u16 values in plausible range
+0x067c4,0x101d67c4,0x067d4,16,unknown,low,c0 fd 40 00 01 06 f8 0d 00 80 c0 01 ...,no classifier heuristic matched
+0x067d4,0x101d67d4,0x067f4,32,reserved_zero,high,0x00 × 32,may be deprecated/disabled field cleared by Ford
+0x067f4,0x101d67f4,0x06810,28,float_table,low,"[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, ... (7 total)]",contiguous plausible float32s
+0x06810,0x101d6810,0x06812,2,unknown,low,cd cc,no classifier heuristic matched
+0x06812,0x101d6812,0x06834,34,timer_cluster,medium,"[15820, 0, 16256, 0, 16256, 0, 16256, 0, ... (17 total)]",8/17 look like timer sentinels
+0x06834,0x101d6834,0x06876,66,reserved_zero,high,0x00 × 66,may be deprecated/disabled field cleared by Ford
+0x06876,0x101d6876,0x06878,2,unknown,low,a0 c0,no classifier heuristic matched
+0x06878,0x101d6878,0x068f0,120,float_table,low,"[-5, -5, -5, -25, -30, -40, ... (30 total)]",contiguous plausible float32s
+0x068f0,0x101d68f0,0x068f2,2,unknown,low,8e e3,no classifier heuristic matched
+0x068f2,0x101d68f2,0x06904,18,timer_cluster,medium,"[17054, 0, 49696, 0, 49696, 0, 49696, 0, ... (9 total)]",4/9 look like timer sentinels
+0x06904,0x101d6904,0x0690e,10,reserved_zero,high,0x00 × 10,may be deprecated/disabled field cleared by Ford
+0x0690e,0x101d690e,0x06910,2,unknown,low,a0 40,no classifier heuristic matched
+0x06910,0x101d6910,0x0691c,12,float_table,low,"[5, 18.52, 24.07]",contiguous plausible float32s
+0x0691c,0x101d691c,0x0691e,2,unknown,low,7b 09,no classifier heuristic matched
+0x0691e,0x101d691e,0x06928,10,timer_cluster,medium,"[16877, 0, 16872, 0, 16256]",2/5 look like timer sentinels
+0x06928,0x101d6928,0x06934,12,float_axis,medium,"[1, 0.7, 0.3]",monotonic dec
+0x06934,0x101d6934,0x06946,18,reserved_zero,high,0x00 × 18,may be deprecated/disabled field cleared by Ford
+0x06946,0x101d6946,0x06964,30,timer_cluster,medium,"[16792, 0, 16792, 0, 16792, 0, 16792, 0, ... (15 total)]",7/15 look like timer sentinels
+0x06964,0x101d6964,0x0697c,24,unknown,low,00 f0 00 f0 00 f0 00 f0 00 f0 00 f0 ...,no classifier heuristic matched
+0x0697c,0x101d697c,0x0698c,16,u16_table,low,"[512, 512, 512, 1024, 1536, 1536, 1536, 1536]",contiguous u16 values in plausible range
+0x0698c,0x101d698c,0x06994,8,unknown,low,00 56 00 56 00 56 00 56,no classifier heuristic matched
+0x06994,0x101d6994,0x0699c,8,u16_table,low,"[8192, 7168, 7168, 7168]",contiguous u16 values in plausible range
+0x0699c,0x101d699c,0x069a0,4,float_scalar,low,1.91049e-06,standalone float32
+0x069a0,0x101d69a0,0x069a4,4,float_scalar,low,1.91049e-06,standalone float32
+0x069a4,0x101d69a4,0x069ac,8,u16_table,low,"[5632, 5632, 5632, 5632]",contiguous u16 values in plausible range
+0x069ac,0x101d69ac,0x069be,18,reserved_zero,high,0x00 × 18,may be deprecated/disabled field cleared by Ford
+0x069be,0x101d69be,0x069ce,16,u16_table,low,"[410, 410, 410, 614, 1024, 410, 410, 1311]",contiguous u16 values in plausible range
+0x069ce,0x101d69ce,0x069da,12,u16_axis,medium,"[1311, 1147, 983, 819, 590, 393]","monotonic u16 axis, dec"
+0x069da,0x101d69da,0x069db,1,unknown,low,e5,no classifier heuristic matched
+0x069db,0x101d69db,0x069ed,18,reserved_zero,high,0x00 × 18,may be deprecated/disabled field cleared by Ford
+0x069ed,0x101d69ed,0x06a0c,31,unknown,low,0f 00 0f 00 1e 00 1e 00 28 00 28 00 ...,no classifier heuristic matched
+0x06a0c,0x101d6a0c,0x06a1c,16,reserved_zero,high,0x00 × 16,may be deprecated/disabled field cleared by Ford
+0x06a1c,0x101d6a1c,0x06a2c,16,u16_table,low,"[246, 246, 410, 573, 573, 819, 819, 819]",contiguous u16 values in plausible range
+0x06a2c,0x101d6a2c,0x06a30,4,float_scalar,low,8.43469e+06,standalone float32
+0x06a30,0x101d6a30,0x06a3c,12,u16_table,low,"[9600, 7680, 6400, 3840, 2560, 2560]",contiguous u16 values in plausible range
+0x06a3c,0x101d6a3c,0x06a6c,48,unknown,low,00 80 00 80 00 80 00 80 00 78 9a 69 ...,no classifier heuristic matched
+0x06a6c,0x101d6a6c,0x06a70,4,float_scalar,low,397.722,standalone float32
+0x06a70,0x101d6a70,0x06a8c,28,float_axis,medium,"[397.7, 425.4, 723.1, 1719, 2689, 5821, ... (7 total)]",monotonic inc
+0x06a8c,0x101d6a8c,0x06ab6,42,reserved_zero,high,0x00 × 42,may be deprecated/disabled field cleared by Ford
+0x06ab6,0x101d6ab6,0x06ab8,2,unknown,low,20 41,no classifier heuristic matched
+0x06ab8,0x101d6ab8,0x06b2c,116,float_table,low,"[20, 30, 40, 50, 60, 70, ... (29 total)]",contiguous plausible float32s
+0x06b2c,0x101d6b2c,0x06b3c,16,float_axis,medium,"[0, 40, 120, 220]",monotonic inc
+0x06b3c,0x101d6b3c,0x06b54,24,unknown,low,00 60 00 60 00 60 00 60 00 60 00 60 ...,no classifier heuristic matched
+0x06b54,0x101d6b54,0x06b58,4,float_scalar,low,14740,standalone float32
+0x06b58,0x101d6b58,0x06b5a,2,unknown,low,00 40,no classifier heuristic matched
+0x06b5a,0x101d6b5a,0x06b62,8,u16_table,low,"[819, 0, 3840, 7680]",contiguous u16 values in plausible range
+0x06b62,0x101d6b62,0x06b6c,10,unknown,low,00 3c 00 64 00 82 00 a0 00 dc,no classifier heuristic matched
+0x06b6c,0x101d6b6c,0x06b74,8,u16_table,low,"[0, 13, 640, 3840]",contiguous u16 values in plausible range
+0x06b74,0x101d6b74,0x06bc8,84,unknown,low,00 32 00 00 b0 ff b0 ff b0 ff b0 ff ...,no classifier heuristic matched
+0x06bc8,0x101d6bc8,0x06bd6,14,u16_table,low,"[1, 0, 256, 16, 2, 2, 640]",contiguous u16 values in plausible range
+0x06bd6,0x101d6bd6,0x06be0,10,reserved_zero,high,0x00 × 10,may be deprecated/disabled field cleared by Ford
+0x06be0,0x101d6be0,0x06bea,10,unknown,low,29 a0 00 00 29 01 10 00 29 a0,no classifier heuristic matched
+0x06bea,0x101d6bea,0x06c00,22,u16_table,low,"[32, 1, 0, 1, 0, 1, 0, 1, ... (11 total)]",contiguous u16 values in plausible range
+0x06c00,0x101d6c00,0x06c1e,30,unknown,low,29 a0 00 00 29 a0 20 10 5e df 04 00 ...,no classifier heuristic matched
+0x06c1e,0x101d6c1e,0x06c28,10,u16_table,low,"[2, 12, 2, 12, 3]",contiguous u16 values in plausible range
+0x06c28,0x101d6c28,0x06c42,26,unknown,low,5e 59 05 00 0c 51 01 00 ff ff 00 00 ...,no classifier heuristic matched
+0x06c42,0x101d6c42,0x06c4c,10,u16_table,low,"[5041, 1280, 16, 60, 10]",contiguous u16 values in plausible range
+0x06c4c,0x101d6c4c,0x06c64,24,unknown,low,6d 77 cd cc e1 fa 66 a6 00 48 33 b3 ...,no classifier heuristic matched
+0x06c64,0x101d6c64,0x06c68,4,reserved_ff,high,0xFF × 4,padding/unused
+0x06c68,0x101d6c68,0x06c6c,4,unknown,low,00 a8 00 af,no classifier heuristic matched
+0x06c6c,0x101d6c6c,0x06c86,26,u16_table,low,"[6400, 2560, 100, 300, 4480, 4480, 4480, 3745, ... (13 total)]",contiguous u16 values in plausible range
+0x06c86,0x101d6c86,0x06c88,2,unknown,low,00 64,no classifier heuristic matched
+0x06c88,0x101d6c88,0x06c9a,18,u16_table,low,"[5248, 5248, 5248, 3197, 3121, 5376, 640, 620, ... (9 total)]",contiguous u16 values in plausible range
+0x06c9a,0x101d6c9a,0x06c9c,2,unknown,low,00 64,no classifier heuristic matched
+0x06c9c,0x101d6c9c,0x06cae,18,u16_table,low,"[5248, 5248, 5248, 3197, 3121, 5376, 640, 620, ... (9 total)]",contiguous u16 values in plausible range
+0x06cae,0x101d6cae,0x06cb4,6,unknown,low,00 64 37 00 32 00,no classifier heuristic matched
+0x06cb4,0x101d6cb4,0x06cb8,4,reserved_ff,high,0xFF × 4,padding/unused
+0x06cb8,0x101d6cb8,0x06cc0,8,unknown,low,cd 0c 66 54 00 05 00 32,no classifier heuristic matched
+0x06cc0,0x101d6cc0,0x06cca,10,u16_table,low,"[1792, 1280, 3277, 2560, 2560]",contiguous u16 values in plausible range
+0x06cca,0x101d6cca,0x06cd4,10,unknown,low,00 40 00 0a e0 ff 33 33 33 33,no classifier heuristic matched
+0x06cd4,0x101d6cd4,0x06cd8,4,float_scalar,low,2.00625,standalone float32
+0x06cd8,0x101d6cd8,0x06cdc,4,float_scalar,low,2.00156,standalone float32
+0x06cdc,0x101d6cdc,0x06cf2,22,unknown,low,9a 19 33 33 6a 2e 33 33 00 0a 00 00 ...,no classifier heuristic matched
+0x06cf2,0x101d6cf2,0x06d14,34,u16_table,low,"[16, 160, 48, 48, 16, 160, 48, 48, ... (17 total)]",contiguous u16 values in plausible range
+0x06d14,0x101d6d14,0x06d16,2,unknown,low,00 e4,no classifier heuristic matched
+0x06d16,0x101d6d16,0x06d26,16,u16_table,low,"[16, 160, 16, 160, 16, 160, 32, 128]",contiguous u16 values in plausible range
+0x06d26,0x101d6d26,0x06d28,2,unknown,low,00 70,no classifier heuristic matched
+0x06d28,0x101d6d28,0x06d3c,20,u16_table,low,"[16, 160, 80, 128, 16, 160, 48, 112, ... (10 total)]",contiguous u16 values in plausible range
+0x06d3c,0x101d6d3c,0x06d4a,14,unknown,low,66 54 00 00 00 80 00 80 f4 01 a4 d3 ...,no classifier heuristic matched
+0x06d4a,0x101d6d4a,0x06d4e,4,reserved_ff,high,0xFF × 4,padding/unused
+0x06d4e,0x101d6d4e,0x06d5f,17,reserved_zero,high,0x00 × 17,may be deprecated/disabled field cleared by Ford
+0x06d5f,0x101d6d5f,0x06d60,1,unknown,low,80,no classifier heuristic matched
+0x06d60,0x101d6d60,0x06d6a,10,reserved_zero,high,0x00 × 10,may be deprecated/disabled field cleared by Ford
+0x06d6a,0x101d6d6a,0x06d6b,1,unknown,low,5b,no classifier heuristic matched
+0x06d6b,0x101d6d6b,0x06d71,6,packed_bytes,low,"[0x0e, 0x00, 0x00, 0x00, 0x00, 0x00]","bytes <= 15, likely flags/enums/counts"
+0x06d71,0x101d6d71,0x06d78,7,unknown,low,fa 4e 92 39 94 17 a9,no classifier heuristic matched
+0x06d78,0x101d6d78,0x06d7c,4,float_scalar,low,514.5,standalone float32
+0x06d7c,0x101d6d7c,0x06d80,4,unknown,low,ae 07 33 33,no classifier heuristic matched
+0x06d80,0x101d6d80,0x06d8a,10,u16_table,low,"[33, 33, 33, 33, 1638]",contiguous u16 values in plausible range
+0x06d8a,0x101d6d8a,0x06d8c,2,unknown,low,00 44,no classifier heuristic matched
+0x06d8c,0x101d6d8c,0x06d94,8,u16_table,low,"[33, 33, 33, 33]",contiguous u16 values in plausible range
+0x06d94,0x101d6d94,0x06d98,4,unknown,low,33 f7 33 f7,no classifier heuristic matched
+0x06d98,0x101d6d98,0x06da0,8,timer_cluster,medium,"[0, 0, 3891, 3891]",2/4 look like timer sentinels
+0x06da0,0x101d6da0,0x06db0,16,unknown,low,48 f1 33 f7 66 f8 33 f5 8f 20 8f 20 ...,no classifier heuristic matched
+0x06db0,0x101d6db0,0x06dbe,14,u16_table,low,"[2171, 2048, 3891, 4096, 1408, 7680, 5000]",contiguous u16 values in plausible range
+0x06dbe,0x101d6dbe,0x06dc6,8,unknown,low,66 66 66 66 80 02 33 33,no classifier heuristic matched
+0x06dc6,0x101d6dc6,0x06dd0,10,u16_axis,medium,"[100, 500, 600, 800, 1000]","monotonic u16 axis, inc"
+0x06dd0,0x101d6dd0,0x06dd2,2,unknown,low,ff ff,no classifier heuristic matched
+0x06dd2,0x101d6dd2,0x06de0,14,u16_table,low,"[448, 320, 0, 640, 960, 6554, 461]",contiguous u16 values in plausible range
+0x06de0,0x101d6de0,0x06df0,16,unknown,low,00 80 00 64 b3 00 1f 05 1f 05 33 f3 ...,no classifier heuristic matched
+0x06df0,0x101d6df0,0x06df4,4,float_scalar,low,83.5068,standalone float32
+0x06df4,0x101d6df4,0x06e00,12,unknown,low,42 1d 33 a3 e1 22 9b 0c 00 64 00 80,no classifier heuristic matched
+0x06e00,0x101d6e00,0x06e26,38,u16_table,low,"[768, 13, 655, 384, 649, 960, 384, 13, ... (19 total)]",contiguous u16 values in plausible range
+0x06e26,0x101d6e26,0x06e3e,24,unknown,low,ff ff 6a 2e 00 0a ff ff 33 33 00 5a ...,no classifier heuristic matched
+0x06e3e,0x101d6e3e,0x06e4a,12,u16_table,low,"[3840, 400, 400, 64, 6400, 112]",contiguous u16 values in plausible range
+0x06e4a,0x101d6e4a,0x06e54,10,unknown,low,00 5f 9a 00 00 5a 00 a6 00 00,no classifier heuristic matched
+0x06e54,0x101d6e54,0x06e58,4,float_scalar,low,2.00002,standalone float32
+0x06e58,0x101d6e58,0x06e5c,4,float_scalar,low,2.00488,standalone float32
+0x06e5c,0x101d6e5c,0x06e63,7,packed_bytes,low,"[0x00, 0x01, 0x00, 0x0c, 0x08, 0x0c, 0x00]","bytes <= 15, likely flags/enums/counts"
+0x06e63,0x101d6e63,0x06e70,13,unknown,low,28 10 10 20 4d 20 4d 01 f8 20 20 00 ...,no classifier heuristic matched
+0x06e70,0x101d6e70,0x06e74,4,float_scalar,low,2.01563,standalone float32
+0x06e74,0x101d6e74,0x06e80,12,unknown,low,40 ff a0 10 00 32 ff 10 30 00 10 60,no classifier heuristic matched
+0x06e80,0x101d6e80,0x06e8a,10,u16_table,low,"[9472, 2080, 5120, 60, 269]",contiguous u16 values in plausible range
+0x06e8a,0x101d6e8a,0x06e8c,2,unknown,low,01 38,no classifier heuristic matched
+0x06e8c,0x101d6e8c,0x06e90,4,float_scalar,low,3.17693e-05,standalone float32
+0x06e90,0x101d6e90,0x06ec6,54,unknown,low,0c 64 04 50 70 00 00 01 00 00 64 78 ...,no classifier heuristic matched
+0x06ec6,0x101d6ec6,0x06ece,8,u16_table,low,"[2560, 8, 4870, 513]",contiguous u16 values in plausible range
+0x06ece,0x101d6ece,0x06ee6,24,unknown,low,20 a0 0c 1c 04 00 00 40 4c 58 60 60 ...,no classifier heuristic matched
+0x06ee6,0x101d6ee6,0x06ef2,12,u16_table,low,"[387, 0, 0, 4097, 1, 4152]",contiguous u16 values in plausible range
+0x06ef2,0x101d6ef2,0x06ef8,6,unknown,low,01 30 0c 08 05 30,no classifier heuristic matched
+0x06ef8,0x101d6ef8,0x06f0c,20,u16_table,low,"[4156, 2096, 4112, 8317, 260, 8204, 5, 792, ... (10 total)]",contiguous u16 values in plausible range
+0x06f0c,0x101d6f0c,0x06f10,4,float_scalar,low,12373.5,standalone float32
+0x06f10,0x101d6f10,0x06f14,4,unknown,low,00 20 00 00,no classifier heuristic matched
+0x06f14,0x101d6f14,0x06f18,4,float_scalar,low,3.56641,standalone float32
+0x06f18,0x101d6f18,0x06f1c,4,unknown,low,04 00 80 50,no classifier heuristic matched
+0x06f1c,0x101d6f1c,0x06f30,20,u16_table,low,"[8, 2049, 0, 0, 2048, 51, 257, 256, ... (10 total)]",contiguous u16 values in plausible range
+0x06f30,0x101d6f30,0x06f32,2,unknown,low,e0 fa,no classifier heuristic matched
+0x06f32,0x101d6f32,0x06f40,14,u16_table,low,"[1, 1, 1025, 4101, 258, 258, 256]",contiguous u16 values in plausible range
+0x06f40,0x101d6f40,0x06f50,16,unknown,low,01 9d 03 33 66 01 10 00 50 3a 36 f0 ...,no classifier heuristic matched
+0x06f50,0x101d6f50,0x06f5a,10,timer_cluster,medium,"[8193, 26, 20480, 0, 0]",2/5 look like timer sentinels
+0x06f5a,0x101d6f5a,0x06f5b,1,unknown,low,2d,no classifier heuristic matched
+0x06f5b,0x101d6f5b,0x06f64,9,reserved_zero,high,0x00 × 9,may be deprecated/disabled field cleared by Ford
+0x06f64,0x101d6f64,0x06f68,4,unknown,low,b4 a0 aa a4,no classifier heuristic matched
+0x06f68,0x101d6f68,0x06fa2,58,reserved_zero,high,0x00 × 58,may be deprecated/disabled field cleared by Ford
+0x06fa2,0x101d6fa2,0x06fa4,2,unknown,low,80 80,no classifier heuristic matched
+0x06fa4,0x101d6fa4,0x06fa8,4,float_scalar,low,2.25368,standalone float32
+0x06fa8,0x101d6fa8,0x06faa,2,unknown,low,40 40,no classifier heuristic matched
+0x06faa,0x101d6faa,0x06fb2,8,u16_table,low,"[2056, 1740, 258, 30]",contiguous u16 values in plausible range
+0x06fb2,0x101d6fb2,0x06fba,8,unknown,low,5a 63 00 58 1e 00 00 70,no classifier heuristic matched
+0x06fba,0x101d6fba,0x06fc4,10,u16_table,low,"[3074, 16, 8230, 8208, 5152]",contiguous u16 values in plausible range
+0x06fc4,0x101d6fc4,0x06fd4,16,unknown,low,24 96 18 ff 0c 0c 01 01 e6 9a 20 10 ...,no classifier heuristic matched
+0x06fd4,0x101d6fd4,0x06fd8,4,float_scalar,low,6.01953,standalone float32
+0x06fd8,0x101d6fd8,0x06fde,6,unknown,low,93 9a 73 73 01 6a,no classifier heuristic matched
+0x06fde,0x101d6fde,0x06fe8,10,u16_table,low,"[8224, 4256, 6248, 8210, 68]",contiguous u16 values in plausible range
+0x06fe8,0x101d6fe8,0x06fea,2,unknown,low,50 a0,no classifier heuristic matched
+0x06fea,0x101d6fea,0x06ff4,10,u16_table,low,"[8352, 812, 64, 4096, 0]",contiguous u16 values in plausible range
+0x06ff4,0x101d6ff4,0x06ffa,6,unknown,low,50 28 0c 1c 40 28,no classifier heuristic matched
+0x06ffa,0x101d6ffa,0x07002,8,u16_table,low,"[5152, 771, 40, 0]",contiguous u16 values in plausible range
+0x07002,0x101d7002,0x07004,2,unknown,low,08 28,no classifier heuristic matched
+0x07004,0x101d7004,0x07014,16,u16_table,low,"[5175, 30, 5120, 256, 128, 9728, 240, 6184]",contiguous u16 values in plausible range
+0x07014,0x101d7014,0x07018,4,float_scalar,low,2.25391,standalone float32
+0x07018,0x101d7018,0x0701a,2,unknown,low,30 60,no classifier heuristic matched
+0x0701a,0x101d701a,0x0702a,16,u16_table,low,"[0, 4112, 1056, 1536, 336, 1, 51, 768]",contiguous u16 values in plausible range
+0x0702a,0x101d702a,0x07034,10,unknown,low,02 40 04 04 01 2d 00 01 80 01,no classifier heuristic matched
+0x07034,0x101d7034,0x07038,4,float_scalar,low,6.02347,standalone float32
+0x07038,0x101d7038,0x0703c,4,unknown,low,40 40 40 01,no classifier heuristic matched
+0x0703c,0x101d703c,0x07040,4,float_scalar,low,7.84305,standalone float32
+0x07040,0x101d7040,0x07042,2,unknown,low,40 fa,no classifier heuristic matched
+0x07042,0x101d7042,0x07058,22,u16_table,low,"[250, 4118, 8256, 8256, 255, 20, 0, 256, ... (11 total)]",contiguous u16 values in plausible range
+0x07058,0x101d7058,0x0705e,6,unknown,low,04 66 00 33 20 a8,no classifier heuristic matched
+0x0705e,0x101d705e,0x07068,10,u16_table,low,"[29, 0, 3122, 272, 286]",contiguous u16 values in plausible range
+0x07068,0x101d7068,0x07080,24,unknown,low,01 fc 00 00 00 83 20 00 e1 fa 71 fd ...,no classifier heuristic matched
+0x07080,0x101d7080,0x0709a,26,u16_table,low,"[2048, 3072, 3072, 3072, 2048, 3072, 8192, 6144, ... (13 total)]",contiguous u16 values in plausible range
+0x0709a,0x101d709a,0x070cc,50,unknown,low,a8 64 40 1f 00 28 af 13 e1 fa 00 58 ...,no classifier heuristic matched
+0x070cc,0x101d70cc,0x070f6,42,timer_cluster,medium,"[0, 0, 2048, 0, 4096, 0, 6144, 0, ... (21 total)]",10/21 look like timer sentinels
+0x070f6,0x101d70f6,0x070fc,6,unknown,low,00 ec 7d 00 00 64,no classifier heuristic matched
+0x070fc,0x101d70fc,0x07103,7,packed_bytes,low,"[0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]","bytes <= 15, likely flags/enums/counts"
+0x07103,0x101d7103,0x0710f,12,unknown,low,50 00 a8 00 08 00 20 00 00 00 c0 12,no classifier heuristic matched
+0x0710f,0x101d710f,0x07115,6,packed_bytes,low,"[0x05, 0x00, 0x0a, 0x00, 0x0a, 0x00]","bytes <= 15, likely flags/enums/counts"
+0x07115,0x101d7115,0x07118,3,unknown,low,e2 80 63,no classifier heuristic matched
+0x07118,0x101d7118,0x07120,8,u16_table,low,"[5039, 3277, 416, 381]",contiguous u16 values in plausible range
+0x07120,0x101d7120,0x07123,3,unknown,low,01 32 32,no classifier heuristic matched
+0x07123,0x101d7123,0x07137,20,reserved_zero,high,0x00 × 20,may be deprecated/disabled field cleared by Ford
+0x07137,0x101d7137,0x07144,13,unknown,low,19 00 28 00 28 00 28 00 28 00 28 00 ...,no classifier heuristic matched
+0x07144,0x101d7144,0x07148,4,float_scalar,low,2.00002,standalone float32
+0x07148,0x101d7148,0x0715a,18,u16_table,low,"[1, 1, 5243, 5243, 5243, 66, 0, 512, ... (9 total)]",contiguous u16 values in plausible range
+0x0715a,0x101d715a,0x07162,8,unknown,low,00 8c 00 30 33 13 33 d3,no classifier heuristic matched
+0x07162,0x101d7162,0x0716e,12,u16_table,low,"[1280, 1280, 4096, 2867, 492, 1126]",contiguous u16 values in plausible range
+0x0716e,0x101d716e,0x07172,4,unknown,low,00 40 33 73,no classifier heuristic matched
+0x07172,0x101d7172,0x0717e,12,u16_table,low,"[8192, 5721, 2028, 400, 1200, 8192]",contiguous u16 values in plausible range
+0x0717e,0x101d717e,0x07182,4,unknown,low,00 40 00 40,no classifier heuristic matched
+0x07182,0x101d7182,0x0718c,10,u16_table,low,"[0, 1280, 0, 0, 102]",contiguous u16 values in plausible range
+0x0718c,0x101d718c,0x0718e,2,unknown,low,00 8c,no classifier heuristic matched
+0x0718e,0x101d718e,0x0719a,12,u16_table,low,"[0, 0, 328, 1638, 1679, 3072]",contiguous u16 values in plausible range
+0x0719a,0x101d719a,0x0719c,2,unknown,low,6f 32,no classifier heuristic matched
+0x0719c,0x101d719c,0x071a4,8,u16_table,low,"[9830, 8192, 768, 260]",contiguous u16 values in plausible range
+0x071a4,0x101d71a4,0x071a6,2,unknown,low,01 80,no classifier heuristic matched
+0x071a6,0x101d71a6,0x071b0,10,u16_table,low,"[128, 0, 2580, 5161, 7741]",contiguous u16 values in plausible range
+0x071b0,0x101d71b0,0x071b4,4,unknown,low,29 28 3d 32,no classifier heuristic matched
+0x071b4,0x101d71b4,0x071b8,4,float_scalar,low,14735.1,standalone float32
+0x071b8,0x101d71b8,0x071c4,12,unknown,low,7b 50 66 5a 7b 64 00 00 00 80 c3 a5,no classifier heuristic matched
+0x071c4,0x101d71c4,0x071c8,4,float_scalar,low,-0.0251144,standalone float32
+0x071c8,0x101d71c8,0x071cc,4,unknown,low,c3 a5 00 80,no classifier heuristic matched
+0x071cc,0x101d71cc,0x071d0,4,float_scalar,low,179.352,standalone float32
+0x071d0,0x101d71d0,0x071d6,6,unknown,low,33 43 3d 5a 00 80,no classifier heuristic matched
+0x071d6,0x101d71d6,0x071e4,14,u16_table,low,"[0, 655, 655, 655, 655, 655, 0]",contiguous u16 values in plausible range
+0x071e4,0x101d71e4,0x071ee,10,u16_axis,medium,"[0, 7680, 15360, 30720, 64000]","monotonic u16 axis, inc"
+0x071ee,0x101d71ee,0x071fd,15,reserved_zero,high,0x00 × 15,may be deprecated/disabled field cleared by Ford
+0x071fd,0x101d71fd,0x07210,19,unknown,low,46 00 6e 1a 00 00 dc 00 28 00 64 00 ...,no classifier heuristic matched
+0x07210,0x101d7210,0x07214,4,float_scalar,low,2.00586,standalone float32
+0x07214,0x101d7214,0x0727a,102,unknown,low,00 40 33 13 00 b4 00 00 00 b4 00 28 ...,no classifier heuristic matched
+0x0727a,0x101d727a,0x07282,8,u16_table,low,"[0, 5632, 5632, 8192]",contiguous u16 values in plausible range
+0x07282,0x101d7282,0x072a0,30,unknown,low,9a 39 00 8c 01 4d 66 58 58 58 00 28 ...,no classifier heuristic matched
+0x072a0,0x101d72a0,0x072a4,4,float_scalar,low,11787.5,standalone float32
+0x072a4,0x101d72a4,0x072a8,4,float_scalar,low,-0.274279,standalone float32
+0x072a8,0x101d72a8,0x072e4,60,unknown,low,00 0d 1a 26 33 43 56 66 76 90 00 00 ...,no classifier heuristic matched
+0x072e4,0x101d72e4,0x072e8,4,float_scalar,low,0.695879,standalone float32
+0x072e8,0x101d72e8,0x072f0,8,unknown,low,4c 5a 71 71 8d 8d 8d 8d,no classifier heuristic matched
+0x072f0,0x101d72f0,0x072f4,4,float_scalar,low,0.695879,standalone float32
+0x072f4,0x101d72f4,0x072fc,8,unknown,low,4c 5a 71 71 8d 8d 8d 8d,no classifier heuristic matched
+0x072fc,0x101d72fc,0x07300,4,float_scalar,low,0.695879,standalone float32
+0x07300,0x101d7300,0x07308,8,unknown,low,4c 5a 71 71 8d 8d 8d 8d,no classifier heuristic matched
+0x07308,0x101d7308,0x0730c,4,float_scalar,low,0.695879,standalone float32
+0x0730c,0x101d730c,0x07314,8,unknown,low,4c 5a 71 71 8d 8d 8d 8d,no classifier heuristic matched
+0x07314,0x101d7314,0x07318,4,float_scalar,low,0.695879,standalone float32
+0x07318,0x101d7318,0x07320,8,unknown,low,4c 5a 71 71 8d 8d 8d 8d,no classifier heuristic matched
+0x07320,0x101d7320,0x07324,4,float_scalar,low,0.695879,standalone float32
+0x07324,0x101d7324,0x0736c,72,unknown,low,4c 5a 71 71 8d 8d 8d 8d 00 00 00 20 ...,no classifier heuristic matched
+0x0736c,0x101d736c,0x07370,4,float_scalar,low,-2.01172,standalone float32
+0x07370,0x101d7370,0x0738c,28,unknown,low,00 a0 33 b3 00 80 00 80 00 80 00 80 ...,no classifier heuristic matched
+0x0738c,0x101d738c,0x07390,4,float_scalar,low,8192,standalone float32
+0x07390,0x101d7390,0x07394,4,unknown,low,00 6e 00 96,no classifier heuristic matched
+0x07394,0x101d7394,0x07398,4,float_scalar,low,5,standalone float32
+0x07398,0x101d7398,0x0739c,4,unknown,low,00 40 00 00,no classifier heuristic matched
+0x0739c,0x101d739c,0x073a0,4,float_scalar,low,8.39629e+06,standalone float32
+0x073a0,0x101d73a0,0x073ac,12,float_axis,medium,"[8.408e+06, 2.005, 2.004]",monotonic dec
+0x073ac,0x101d73ac,0x073ae,2,unknown,low,00 40,no classifier heuristic matched
+0x073ae,0x101d73ae,0x073b6,8,u16_table,low,"[6400, 6400, 6400, 6400]",contiguous u16 values in plausible range
+0x073b6,0x101d73b6,0x073b8,2,unknown,low,00 40,no classifier heuristic matched
+0x073b8,0x101d73b8,0x073c4,12,u16_table,low,"[1024, 6554, 4915, 8000, 1000, 0]",contiguous u16 values in plausible range
+0x073c4,0x101d73c4,0x073c8,4,float_scalar,low,38966.7,standalone float32
+0x073c8,0x101d73c8,0x073cc,4,unknown,low,00 a0 00 50,no classifier heuristic matched
+0x073cc,0x101d73cc,0x073d0,4,float_scalar,low,0.250984,standalone float32
+0x073d0,0x101d73d0,0x073e0,16,unknown,low,00 50 00 80 00 30 33 23 00 60 00 60 ...,no classifier heuristic matched
+0x073e0,0x101d73e0,0x073ea,10,u16_table,low,"[5280, 257, 1280, 1, 19]",contiguous u16 values in plausible range
+0x073ea,0x101d73ea,0x073ee,4,unknown,low,40 5a 5a 5a,no classifier heuristic matched
+0x073ee,0x101d73ee,0x073f8,10,u16_table,low,"[2576, 2570, 8256, 8224, 0]",contiguous u16 values in plausible range
+0x073f8,0x101d73f8,0x07400,8,unknown,low,00 a0 0e 8d 00 80 00 80,no classifier heuristic matched
+0x07400,0x101d7400,0x07404,4,float_scalar,low,-2.01172,standalone float32
+0x07404,0x101d7404,0x074a6,162,unknown,low,79 d9 00 00 1d 49 85 6b e7 7b 00 80 ...,no classifier heuristic matched
+0x074a6,0x101d74a6,0x074ae,8,u16_table,low,"[0, 512, 0, 512]",contiguous u16 values in plausible range
+0x074ae,0x101d74ae,0x074b2,4,unknown,low,08 40 00 10,no classifier heuristic matched
+0x074b2,0x101d74b2,0x074f8,70,timer_cluster,medium,"[32, 0, 1, 0, 258, 0, 17430, 0, ... (35 total)]",17/35 look like timer sentinels
+0x074f8,0x101d74f8,0x07502,10,reserved_zero,high,0x00 × 10,may be deprecated/disabled field cleared by Ford
+0x07502,0x101d7502,0x07504,2,unknown,low,fa 43,no classifier heuristic matched
+0x07504,0x101d7504,0x07624,288,float_table,low,"[1000, 1500, 2000, 4000, 6000, 8000, ... (72 total)]",contiguous plausible float32s
+0x07624,0x101d7624,0x07628,4,unknown,low,01 01 00 00,no classifier heuristic matched
+0x07628,0x101d7628,0x076ec,196,float_table,low,"[20, 20, 5, 0.5, 0, 30, ... (49 total)]",contiguous plausible float32s
+0x076ec,0x101d76ec,0x07700,20,float_axis,medium,"[0, 25, 50, 75, 100]",monotonic inc
+0x07700,0x101d7700,0x07708,8,u16_table,low,"[0, 256, 0, 256]",contiguous u16 values in plausible range
+0x07708,0x101d7708,0x07714,12,float_table,low,"[0.5, 2.58, 0.48]",contiguous plausible float32s
+0x07714,0x101d7714,0x0771c,8,u16_axis,medium,"[0, 16928, 20816, 61523]","monotonic u16 axis, inc"
+0x0771c,0x101d771c,0x07720,4,unknown,low,ff ff 00 00,no classifier heuristic matched
+0x07720,0x101d7720,0x07730,16,float_axis,medium,"[150, 110, 3.6, 0.7]",monotonic dec
+0x07730,0x101d7730,0x07736,6,packed_bytes,low,"[0x01, 0x00, 0x01, 0x00, 0x02, 0x00]","bytes <= 15, likely flags/enums/counts"
+0x07736,0x101d7736,0x0774c,22,timer_cluster,medium,"[0, 0, 16672, 0, 16672, 0, 16968, 13107, ... (11 total)]",5/11 look like timer sentinels
+0x0774c,0x101d774c,0x0775c,16,reserved_zero,high,0x00 × 16,may be deprecated/disabled field cleared by Ford
+0x0775c,0x101d775c,0x0777c,32,float_table,low,"[-0.0001413, 0.0265, 201.8, 0.0001413, -0.0265, -201.8, ... (8 total)]",contiguous plausible float32s
+0x0777c,0x101d777c,0x07782,6,unknown,low,67 8f cc ac 04 19,no classifier heuristic matched
+0x07782,0x101d7782,0x0778c,10,timer_cluster,medium,"[45871, 0, 0, 31110, 14403]",2/5 look like timer sentinels
+0x0778c,0x101d778c,0x07854,200,float_table,low,"[0.3377, -0.0002189, 1.076e-06, 0.01506, -1.525e-05, -0.06842, ... (50 total)]",contiguous plausible float32s
+0x07854,0x101d7854,0x0785c,8,reserved_zero,high,0x00 × 8,may be deprecated/disabled field cleared by Ford
+0x0785c,0x101d785c,0x07860,4,float_scalar,low,4.56902e-05,standalone float32
+0x07860,0x101d7860,0x07868,8,unknown,low,67 8f cc 2c 04 19 2f 33,no classifier heuristic matched
+0x07868,0x101d7868,0x07874,12,float_table,low,"[7.728e-05, 0.000124, 0.000124]",contiguous plausible float32s
+0x07874,0x101d7874,0x07878,4,unknown,low,6c 84 fb 33,no classifier heuristic matched
+0x07878,0x101d7878,0x07898,32,float_table,low,"[0.6623, 0.004184, 0.04672, 0.06182, 0.06182, 3.762e-05, ... (8 total)]",contiguous plausible float32s
+0x07898,0x101d7898,0x078a4,12,reserved_zero,high,0x00 × 12,may be deprecated/disabled field cleared by Ford
+0x078a4,0x101d78a4,0x078c8,36,float_table,low,"[-0.0001413, 0.0265, 201.8, 0.2, 0.2, 0, ... (9 total)]",contiguous plausible float32s
+0x078c8,0x101d78c8,0x078ca,2,unknown,low,33 33,no classifier heuristic matched
+0x078ca,0x101d78ca,0x07a0c,322,timer_cluster,medium,"[16179, 13107, 16179, 52429, 15820, 52429, 48588, 0, ... (161 total)]",80/161 look like timer sentinels
+0x07a0c,0x101d7a0c,0x07a24,24,float_axis,medium,"[0, 30, 31, 75, 76, 200]",monotonic inc
+0x07a24,0x101d7a24,0x07a28,4,unknown,low,10 27 88 13,no classifier heuristic matched
+0x07a28,0x101d7a28,0x07a4c,36,float_table,low,"[0.3491, 0.4, 0.1, 0.02, 0.8, 5, ... (9 total)]",contiguous plausible float32s
+0x07a4c,0x101d7a4c,0x07a4e,2,unknown,low,cd cc,no classifier heuristic matched
+0x07a4e,0x101d7a4e,0x07a64,22,timer_cluster,medium,"[48972, 0, 48896, 0, 16256, 0, 16256, 0, ... (11 total)]",5/11 look like timer sentinels
+0x07a64,0x101d7a64,0x07a6c,8,reserved_zero,high,0x00 × 8,may be deprecated/disabled field cleared by Ford
+0x07a6c,0x101d7a6c,0x07acc,96,float_table,low,"[0.018, 0.045, 0.09, 0.144, 0.198, 0.234, ... (24 total)]",contiguous plausible float32s
+0x07acc,0x101d7acc,0x07ad8,12,float_axis,medium,"[0.25, 1, 1.75]",monotonic inc
+0x07ad8,0x101d7ad8,0x07adc,4,unknown,low,00 01 50 7f,no classifier heuristic matched
+0x07adc,0x101d7adc,0x07af0,20,u16_table,low,"[10000, 10000, 1500, 300, 257, 3, 256, 257, ... (10 total)]",contiguous u16 values in plausible range
+0x07af0,0x101d7af0,0x07b5c,108,float_table,low,"[0.08727, 0.1745, 0.8, 1.5, 2, 1, ... (27 total)]",contiguous plausible float32s
+0x07b5c,0x101d7b5c,0x07b64,8,u16_axis,medium,"[47298, 16050, 200, 80]","monotonic u16 axis, dec"
+0x07b64,0x101d7b64,0x07b68,4,unknown,low,b0 ff 03 00,no classifier heuristic matched
+0x07b68,0x101d7b68,0x07bb0,72,float_table,low,"[0.05, 1, 0.75, 1.25, 0.5, 0.5, ... (18 total)]",contiguous plausible float32s
+0x07bb0,0x101d7bb0,0x07bbb,11,reserved_zero,high,0x00 × 11,may be deprecated/disabled field cleared by Ford
+0x07bbb,0x101d7bbb,0x07bbc,1,unknown,low,40,no classifier heuristic matched
+0x07bbc,0x101d7bbc,0x07bec,48,timer_cluster,medium,"[0, 16512, 0, 16576, 21845, 16517, 500, 3000, ... (24 total)]",12/24 look like timer sentinels
+0x07bec,0x101d7bec,0x07bf6,10,reserved_zero,high,0x00 × 10,may be deprecated/disabled field cleared by Ford
+0x07bf6,0x101d7bf6,0x07bf8,2,unknown,low,80 3f,no classifier heuristic matched
+0x07bf8,0x101d7bf8,0x07c2c,52,float_table,low,"[4, 0.1479, 0.064, 0.01067, 0.016, 0.08533, ... (13 total)]",contiguous plausible float32s
+0x07c2c,0x101d7c2c,0x07c2e,2,unknown,low,6f 12,no classifier heuristic matched
+0x07c2e,0x101d7c2e,0x07c38,10,timer_cluster,medium,"[15491, 4719, 15491, 0, 0]",2/5 look like timer sentinels
+0x07c38,0x101d7c38,0x07c44,12,float_axis,medium,"[1.1, 0.2, 0.04877]",monotonic dec
+0x07c44,0x101d7c44,0x07c74,48,timer_cluster,medium,"[267, 0, 0, 16192, 0, 16192, 0, 16192, ... (24 total)]",13/24 look like timer sentinels
+0x07c74,0x101d7c74,0x07c7c,8,reserved_zero,high,0x00 × 8,may be deprecated/disabled field cleared by Ford
+0x07c7c,0x101d7c7c,0x07c94,24,float_table,low,"[1.6, 1.6, 1.6, 0.8, 0.8, 1.6]",contiguous plausible float32s
+0x07c94,0x101d7c94,0x07c9c,8,reserved_zero,high,0x00 × 8,may be deprecated/disabled field cleared by Ford
+0x07c9c,0x101d7c9c,0x07cac,16,float_table,low,"[1.3, 1.3, 1.3, 1.2]",contiguous plausible float32s
+0x07cac,0x101d7cac,0x07cae,2,unknown,low,9a 99,no classifier heuristic matched
+0x07cae,0x101d7cae,0x07cf0,66,timer_cluster,medium,"[16281, 26214, 16294, 0, 0, 0, 16520, 0, ... (33 total)]",16/33 look like timer sentinels
+0x07cf0,0x101d7cf0,0x07cfa,10,reserved_zero,high,0x00 × 10,may be deprecated/disabled field cleared by Ford
+0x07cfa,0x101d7cfa,0x07cfc,2,unknown,low,0c 42,no classifier heuristic matched
+0x07cfc,0x101d7cfc,0x07da0,164,float_table,low,"[26, 19.7, 18.5, 17.4, 16.5, 15.7, ... (41 total)]",contiguous plausible float32s
+0x07da0,0x101d7da0,0x07da2,2,unknown,low,cd cc,no classifier heuristic matched
+0x07da2,0x101d7da2,0x07dac,10,timer_cluster,medium,"[16204, 0, 0, 43691, 16170]",2/5 look like timer sentinels
+0x07dac,0x101d7dac,0x07db8,12,float_table,low,"[0.9333, 0.8333, 0.8333]",contiguous plausible float32s
+0x07db8,0x101d7db8,0x07dc4,12,float_axis,medium,"[0.8333, 0.8, 0.4167]",monotonic dec
+0x07dc4,0x101d7dc4,0x07dcc,8,reserved_zero,high,0x00 × 8,may be deprecated/disabled field cleared by Ford
+0x07dcc,0x101d7dcc,0x07ddc,16,float_table,low,"[-1.4, -0.98, -0.665, -0.56]",contiguous plausible float32s
+0x07ddc,0x101d7ddc,0x07de8,12,float_axis,medium,"[-0.56, -0.525, -0.28]",monotonic inc
+0x07de8,0x101d7de8,0x07df0,8,reserved_zero,high,0x00 × 8,may be deprecated/disabled field cleared by Ford
+0x07df0,0x101d7df0,0x07e00,16,float_table,low,"[0.06, 0.06, 0.036, 0.036]",contiguous plausible float32s
+0x07e00,0x101d7e00,0x07e0c,12,float_axis,medium,"[0.036, 0.032, 0.018]",monotonic dec
+0x07e0c,0x101d7e0c,0x07e14,8,reserved_zero,high,0x00 × 8,may be deprecated/disabled field cleared by Ford
+0x07e14,0x101d7e14,0x07e30,28,float_table,low,"[-0.469, -0.469, -0.402, -0.335, -0.335, -0.335, ... (7 total)]",contiguous plausible float32s
+0x07e30,0x101d7e30,0x07e38,8,reserved_zero,high,0x00 × 8,may be deprecated/disabled field cleared by Ford
+0x07e38,0x101d7e38,0x07e64,44,float_table,low,"[-0.098, -0.098, -0.084, -0.07, -0.07, -0.07, ... (11 total)]",contiguous plausible float32s
+0x07e64,0x101d7e64,0x07e6c,8,u16_table,low,"[10000, 300, 1500, 0]",contiguous u16 values in plausible range
+0x07e6c,0x101d7e6c,0x07ecc,96,float_table,low,"[0.001842, 0.2943, 0.05194, 0.2618, 0.08505, 1, ... (24 total)]",contiguous plausible float32s
+0x07ecc,0x101d7ecc,0x07ed6,10,u16_table,low,"[500, 10, 200, 400, 0]",contiguous u16 values in plausible range
+0x07ed6,0x101d7ed6,0x07ed8,2,unknown,low,00 3f,no classifier heuristic matched
+0x07ed8,0x101d7ed8,0x07edc,4,float_scalar,low,5.12,standalone float32
+0x07edc,0x101d7edc,0x07ee0,4,unknown,low,28 00 b3 00,no classifier heuristic matched
+0x07ee0,0x101d7ee0,0x07ee4,4,float_scalar,low,2.00488,standalone float32
+0x07ee4,0x101d7ee4,0x07f1c,56,unknown,low,00 50 00 50 c5 00 00 28 00 08 00 30 ...,no classifier heuristic matched
+0x07f1c,0x101d7f1c,0x07f28,12,u16_table,low,"[0, 448, 1152, 1920, 3840, 6400]",contiguous u16 values in plausible range
+0x07f28,0x101d7f28,0x07f30,8,unknown,low,00 28 00 32 00 28 00 28,no classifier heuristic matched
+0x07f30,0x101d7f30,0x07f3c,12,u16_table,low,"[8192, 7168, 6144, 3072, 2048, 0]",contiguous u16 values in plausible range
+0x07f3c,0x101d7f3c,0x07f40,4,float_scalar,low,2.00391,standalone float32
+0x07f40,0x101d7f40,0x07f44,4,float_scalar,low,0.00782776,standalone float32
+0x07f44,0x101d7f44,0x07f48,4,unknown,low,00 3c 00 30,no classifier heuristic matched
+0x07f48,0x101d7f48,0x07f64,28,u16_table,low,"[6144, 0, 0, 15, 40, 70, 100, 150, ... (14 total)]",contiguous u16 values in plausible range
+0x07f64,0x101d7f64,0x07f6a,6,unknown,low,80 3e 00 18 cd cc,no classifier heuristic matched
+0x07f6a,0x101d7f6a,0x080a8,318,timer_cluster,medium,"[15820, 52429, 15820, 0, 0, 0, 17174, 0, ... (159 total)]",79/159 look like timer sentinels
+0x080a8,0x101d80a8,0x080c0,24,float_axis,medium,"[0, 10, 20, 30, 80, 150]",monotonic inc
+0x080c0,0x101d80c0,0x2fbe0,162592,reserved_zero,high,0x00 × 162592,may be deprecated/disabled field cleared by Ford
+0x2fbe0,0x101ffbe0,0x2fbe4,4,unknown,low,dc 68 c0 5c,no classifier heuristic matched
+0x2fbe4,0x101ffbe4,0x2fbf0,12,reserved_ff,high,0xFF × 12,padding/unused
+0x2fbf0,0x101ffbf0,0x2fbf8,8,unknown,low,88 6f 10 1f fc 00 00 00,no classifier heuristic matched
+0x2fbf8,0x101ffbf8,0x2fbfc,4,float_scalar,low,-0.000641525,standalone float32
+0x2fbfc,0x101ffbfc,0x2fc00,4,unknown,low,0f 39 2c 93,no classifier heuristic matched

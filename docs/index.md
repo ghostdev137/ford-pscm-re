@@ -22,7 +22,7 @@ Unlock driver-assist features Ford disables in firmware on the 2025 Transit — 
 | [APA high-speed / standstill](apa.html) | Built, not yet road-tested |
 | [LCA enable](lca.html) | Cal done, AS-built reverts — help wanted |
 | Ghidra decompiler (RH850 patch) | ✅ 42% → 90% clean on Transit firmware |
-| F-150 cal RE | ✅ All offsets confirmed, patched VBFs built — pending test-flash |
+| F-150 cal RE | ✅ 100% byte-classified, 15.7% live data, 7 per-feature deep-dives ([map](f150-cal-map.html)) |
 
 ## Learning path
 
@@ -42,7 +42,8 @@ See [Notes for openpilot](openpilot.html). TL;DR: flash [`LKA_FULL_AUTHORITY.VBF
 
 ## Reference
 
-- [Calibration map](calibration-map.html) — known cal fields and patch targets.
+- [Transit calibration map](calibration-map.html) — known cal fields and patch targets.
+- [F-150 calibration map](f150-cal-map.html) — full F-150 cal reference (195,584 B, 100% classified, 15.7% live data).
 - [VBF patches](vbf-patches.html) — what each patched VBF changes and why.
 - [CAN / UDS reference](can-ids.html) — message catalog and UDS commands.
 - [PSCM Architecture](architecture.html) — MCU, memory map, CAN dispatch.
