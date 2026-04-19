@@ -5,6 +5,10 @@
 **Cal data:** 195,584 bytes, flashes to `0x101D0000`
 **Endianness:** **little-endian** (u16 and float32) — different from Transit/Escape which are big-endian
 
+Quick entry point:
+
+- [cal_plain_language_map.md](/Users/rossfisher/ford-pscm-re/analysis/f150/cal_plain_language_map.md) — plain-language catalog of what each major cal block does in EPS terms
+
 ---
 
 ## ⚠️ F-150 VBF verification structure (updated)
@@ -342,7 +346,14 @@ Best current interpretation:
 - low-level threshold / gain-step schedules
 - possibly used as sibling threshold tables for related modes or trims
 
-These are still undocumented semantically, but they look too deliberate to ignore.
+Refinement from the latest Ghidra pass:
+
+- the same-offset `fef208xx` path is **not** a clean proof path for these tables
+- the live `fef208xx` page is an actively written runtime workspace, not a passive cal mirror
+- so the flash tables still look real, but they are probably copied or normalized into another
+  gp/context-backed record before use
+
+See [eps_envelope_threshold_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_envelope_threshold_trace.md).
 
 ---
 
@@ -394,7 +405,46 @@ Best current EPS read:
 - the adjacent `40/40/250/200/66/50/20/20/40/100/85` values are likely envelope caps, authority limits, or activation/deactivation bounds for sibling steering features
 - the small `0.004 / 0.3 / 0.05 / 1.0 / 1.0` values look like gains or hysteresis terms inside the same envelope record
 
-This block is still underdocumented function-by-function, but it is now documented as a coherent EPS feature-envelope neighborhood rather than isolated scalars.
+Refinement from the latest Ghidra pass:
+
+- direct same-offset mirror checks for `fef20100..fef2015c` produced **no direct readers**
+- the anchor fields `fef20114`, `fef20140`, `fef20144`, and `fef200c4` also have no direct
+  readers in the current analyzed image
+- so the block still looks like a real EPS feature-envelope neighborhood, but its access path is
+  likely indirect through gp/context-backed records rather than plain `fef201xx` globals
+
+See [eps_envelope_threshold_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_envelope_threshold_trace.md).
+
+---
+
+## Finding 11: Direct same-offset `fef2xxxx` mirrors are unreliable for the remaining open blocks
+
+The latest headless pass adds one important structural result:
+
+- `cal+0x0100..0x015C`
+- `cal+0x06BA`
+- `cal+0x080C..0x0878`
+
+do **not** currently resolve cleanly through a naive same-offset `fef20000 + cal_offset` model.
+
+Observed facts:
+
+- `fef20100..fef2015c`: no direct readers/writers found
+- `fef206ba`: no direct readers/writers found
+- the `fef208xx` page is heavily used, but as a mutable runtime state/control record rather than a
+  passive calibration mirror
+
+Best current EPS read:
+
+- these flash blocks are still probably real calibration
+- but they are most likely copied into other gp-backed or context-backed records before use
+- future proof work should target the initializer / context path, not more direct same-offset xref hunting
+
+See:
+
+- [eps_envelope_threshold_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_envelope_threshold_trace.md)
+- [eps_supervisor_ghidra_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_supervisor_ghidra_trace.md)
+- [eps_curve_family_ghidra_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_curve_family_ghidra_trace.md)
 
 ---
 

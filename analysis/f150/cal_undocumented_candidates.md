@@ -65,6 +65,8 @@ Why it looks real:
 Best current guess:
 
 - fixed-point breakpoint table or speed/angle/rate axis
+- direct same-offset `fef206ba` mirror checks produced no users, so it is probably not exposed as a
+  plain passive RAM mirror in the current strategy image
 
 ## 2. Small repeated u16 tables near 0x0800
 
@@ -96,6 +98,9 @@ Why they look real:
 Best current guess:
 
 - family of threshold or gain tables for related states/features
+- direct same-offset `fef208xx` xrefs are misleading here: the live `fef208xx` page is a mutable
+  runtime workspace, not a passive cal mirror
+- these flash tables likely feed another gp/context-backed record instead
 
 ## 3. Dense float neighborhood around `0x07D68..0x07E3F`
 
@@ -199,6 +204,8 @@ Why the rest matters:
 Best current guess:
 
 - engage/disengage/hysteresis/saturation block for LKA/LCA/APA family features
+- direct same-offset `fef201xx` mirror checks produced no users across the tested block, so the
+  access path is likely indirect through gp/context-backed records
 
 ## 5. Suspicious “timer-like” changed table from BDL vs EDL
 
@@ -221,7 +228,7 @@ Why it still matters:
 ## Recommended next trace order
 
 1. `0x07D68..0x07E3F` float block
-2. `0x0100..0x0160` dense engage-parameter block
-3. repeated breakpoint curves at `0x0DA8` / `0x1CFC` / `0x2C50` / `0x3BA4` / `0x4AF8`
-4. the `0x080C..0x0878` step-table family
+2. repeated breakpoint curves at `0x0DA8` / `0x1CFC` / `0x2C50` / `0x3BA4` / `0x4AF8`
+3. `0x0100..0x0160` dense engage-parameter block via gp/context records, not same-offset mirrors
+4. the `0x080C..0x0878` step-table family via gp/context records, not same-offset mirrors
 5. the changed `0x1402..0x1416` timer-like table

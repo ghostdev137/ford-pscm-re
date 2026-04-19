@@ -24,6 +24,10 @@ Entropy map shows:
 
 **Cal correct base: 0x101D0000** (confirmed via EDL VBF erase block declaration).
 
+Plain-language summary:
+
+- [cal_plain_language_map.md](/Users/rossfisher/ford-pscm-re/analysis/f150/cal_plain_language_map.md) — quick EPS-role map for the major timer, gate, torque, and authority families
+
 Note: ML34-14D004-EP.VBF loads to 0x101C0000 (different partition), NOT the calibration  
 addressed in task hypotheses. The correct cal is extracted as cal_bdl_raw.bin (195,584 bytes).
 
@@ -82,6 +86,37 @@ The live F-150 code path is more nuanced than a single naked `10000 ms` scalar. 
 - a separate packed debounce/persistence record for watchdog-style latch timing
 - a mixed float/int supervisor record that best matches the `0x07ADC` neighborhood
 - neighboring interpolation records that shape limiter, filter, and state-selection behavior
+
+## Mirror-model refinement for unresolved cal blocks
+
+The latest headless checks also tightened what **doesn't** work as a proof path.
+
+Direct same-offset mirror checks now show:
+
+- `fef20114`, `fef20140`, `fef20144`, `fef200c4`: no direct readers
+- the broader `fef20100..fef2015c` neighborhood: no direct readers/writers
+- `fef206ba`: no direct readers/writers
+
+The `fef208xx` page does have many references, but the follow-on decompiles show it is a **live
+runtime workspace**, not a passive same-offset calibration mirror:
+
+- `FUN_101a5c4a` uses `DAT_fef20809/0b/0c/28/29...` as supervisor state
+- `FUN_10180842` repacks `DAT_fef20800..0f` into another record
+- `FUN_1017fda6`, `FUN_10180044`, `FUN_10180ca8`, `FUN_10181270` update `fef2081c/1e/30/54/78...`
+  as mutable control variables
+
+So for the still-open flash families:
+
+- `cal+0x0100..0x015C`
+- `cal+0x06BA`
+- `cal+0x080C..0x0878`
+
+the likely access path is now:
+
+- copy into gp-backed records, or
+- normalize into a context structure whose low offsets overlap dynamic runtime state
+
+See [eps_envelope_threshold_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_envelope_threshold_trace.md).
 
 ## Code Path Confirmation
 
