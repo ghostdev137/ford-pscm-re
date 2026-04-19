@@ -1,6 +1,8 @@
 ---
 title: Calibration Map
 nav_order: 21
+parent: 2025 Transit
+grand_parent: Vehicles
 ---
 
 # PSCM Calibration Map — Transit 2025
@@ -147,7 +149,7 @@ Not every LKA authority knob lives in cal. The Transit-side angle scaler that co
 - Functional equivalent of the F-150's `movhi 0x4480` (float `1024.0`) at file offset `0x569d0`
 - Raising this multiplier is the path for expanding LKA angle beyond the `LaRefAng_No_Req` DBC ceiling (12-bit signed, 0.05 mrad/bit, ±5.86° wheel) — cal patches alone cannot move that ceiling.
 
-See [Transit torque arbitration map](transit-arbiter-map.html) for the full arbitration chain this multiplier feeds into.
+See [Transit torque arbitration map](arbitration-map.html) for the full arbitration chain this multiplier feeds into.
 
 ---
 

@@ -59,5 +59,5 @@ python tools/compare_fw.py \
 
 ## See also
 
-- [2025 Transit](transit-2025.html) — base for comparison.
+- [2025 Transit](../transit-2025/) — base for comparison.
 - [Per-file catalog](../per-file-catalog.html#2026-transit-firmwaretransit_2026)

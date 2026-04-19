@@ -1,6 +1,8 @@
 ---
 title: Transit LCA Hunt (0x3CC / 0x3D6)
 nav_order: 15
+parent: 2025 Transit
+grand_parent: Vehicles
 ---
 
 # Transit PSCM LCA Hunt — 0x3CC TX / 0x3D6 RX Gate

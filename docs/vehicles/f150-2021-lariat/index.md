@@ -2,6 +2,7 @@
 title: 2021 F-150 Lariat 502A BlueCruise
 parent: Vehicles
 nav_order: 6
+has_children: true
 ---
 
 # 2021 Ford F-150 Lariat 502A — BlueCruise
@@ -67,7 +68,7 @@ The current message split is also much tighter:
 - `0x3CC` = PSCM feedback / availability TX slot, packer still not fully isolated
 
 See:
-- [F-150 flash verdict](../analysis/f150/index.html)
+- [F-150 flash verdict](../../../analysis/f150/index.html)
 
 Deeper repo notes live under `analysis/f150/`, especially:
 - `verdict.md`
@@ -103,4 +104,4 @@ real-world flash / drive validation.
 
 - [2022 F-150](f150-2022.html) — older revisions of the same platform.
 - [Per-file catalog entry](../per-file-catalog.html#2021-f-150-lariat-502a--bluecruise-firmwaref150_2021_lariat_bluecruise)
-- [LKA on Transit](../lka.html) — for contrast on how Ford tunes LKA differently per vehicle.
+- [LKA on Transit](../transit-2025/lka.html) — for contrast on how Ford tunes LKA differently per vehicle.

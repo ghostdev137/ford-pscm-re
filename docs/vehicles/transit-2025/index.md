@@ -2,6 +2,7 @@
 title: 2025 Transit
 parent: Vehicles
 nav_order: 1
+has_children: true
 ---
 
 # 2025 Ford Transit — PSCM
@@ -71,7 +72,7 @@ From older to newer, as shipped by Ford:
 
 ## See also
 
-- [LKA patch details](../lka.html)
-- [LCA enable attempt](../lca.html)
-- [APA speed unlock](../apa.html)
+- [LKA patch details](lka.html)
+- [LCA enable attempt](lca.html)
+- [APA speed unlock](apa.html)
 - [Flashing guide](../flashing.html)

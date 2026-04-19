@@ -5,7 +5,7 @@ nav_order: 2
 
 # Getting Started
 
-A 10-minute read for people new to automotive firmware hacking. If you've reverse-engineered cars before, skip to [architecture](architecture.html) or [lka](lka.html).
+A 10-minute read for people new to automotive firmware hacking. If you've reverse-engineered cars before, skip to [architecture](architecture.html) or [lka](vehicles/transit-2025/lka.html).
 
 ## What is this project?
 
@@ -65,15 +65,15 @@ Read in this order:
 1. [Glossary](glossary.html) — vocabulary.
 2. [VBF explained](vbf-explained.html) — what a firmware file actually contains.
 3. [PSCM architecture](architecture.html) — how the module is laid out internally.
-4. [Calibration map](calibration-map.html) — where the magic numbers live.
-5. [LKA](lka.html) / [LCA](lca.html) / [APA](apa.html) — what we patched and why.
+4. [Calibration map](vehicles/transit-2025/calibration-map.html) — where the magic numbers live.
+5. [LKA](vehicles/transit-2025/lka.html) / [LCA](vehicles/transit-2025/lca.html) / [APA](vehicles/transit-2025/apa.html) — what we patched and why.
 
 ## If you want to contribute
 
 Read the above, then:
 - **Drive the patched firmware and report what happens.** This is the highest-value contribution.
-- **Help with LCA.** The AS-built revert mystery needs more eyes. See [lca](lca.html).
-- **Fill in the calibration map.** Most of the 65,520-byte cal is still undocumented. See [calibration-map](calibration-map.html).
+- **Help with LCA.** The AS-built revert mystery needs more eyes. See [lca](vehicles/transit-2025/lca.html).
+- **Fill in the calibration map.** Most of the 65,520-byte cal is still undocumented. See [calibration-map](vehicles/transit-2025/calibration-map.html).
 - **Help get the emulator working.** See [simulator notes](simulator.html).
 
 ## Safety / ethics / legal

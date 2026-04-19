@@ -18,11 +18,11 @@ Unlock driver-assist features Ford disables in firmware on the 2025 Transit — 
 
 | Item | Status |
 |---|---|
-| [LKA lockout removal + full authority](lka.html) | ✅ **Flashed, drive-confirmed** — torque median +184% |
-| [APA high-speed / standstill](apa.html) | Built, not yet road-tested |
-| [LCA enable](lca.html) | Cal done, AS-built reverts — help wanted |
+| [LKA lockout removal + full authority](vehicles/transit-2025/lka.html) | ✅ **Flashed, drive-confirmed** — torque median +184% |
+| [APA high-speed / standstill](vehicles/transit-2025/apa.html) | Built, not yet road-tested |
+| [LCA enable](vehicles/transit-2025/lca.html) | Cal done, AS-built reverts — help wanted |
 | Ghidra decompiler (RH850 patch) | ✅ 42% → 90% clean on Transit firmware |
-| F-150 cal RE | ✅ 100% byte-classified, 15.7% live data, 7 per-feature deep-dives ([map](f150-cal-map.html)) |
+| F-150 cal RE | ✅ 100% byte-classified, 15.7% live data, 7 per-feature deep-dives ([map](vehicles/f150-2021-lariat/cal-map.html)) |
 
 ## Learning path
 
@@ -33,7 +33,7 @@ If you're new, read in this order:
 3. **[VBF Files Explained](vbf-explained.html)** — what's actually inside a Ford firmware file.
 4. **[Per-File VBF Catalog](per-file-catalog.html)** — every file in the repo, what it is, where it flashes.
 5. **[PSCM Architecture](architecture.html)** — how the module is laid out internally.
-6. Pick a feature: **[LKA](lka.html)**, **[LCA](lca.html)**, or **[APA](apa.html)**.
+6. Pick a feature: **[LKA](vehicles/transit-2025/lka.html)**, **[LCA](vehicles/transit-2025/lca.html)**, or **[APA](vehicles/transit-2025/apa.html)**.
 7. **[Flashing Guide](flashing.html)** — when you're ready to write to the vehicle.
 
 ## For openpilot developers specifically
@@ -42,16 +42,16 @@ See [Notes for openpilot](openpilot.html). TL;DR: flash [`LKA_FULL_AUTHORITY.VBF
 
 ## Reference
 
-- [Transit calibration map](calibration-map.html) — known cal fields and patch targets.
-- [F-150 calibration map](f150-cal-map.html) — full F-150 cal reference (195,584 B, 100% classified, 15.7% live data).
+- [Transit calibration map](vehicles/transit-2025/calibration-map.html) — known cal fields and patch targets.
+- [F-150 calibration map](vehicles/f150-2021-lariat/cal-map.html) — full F-150 cal reference (195,584 B, 100% classified, 15.7% live data).
 - [VBF patches](vbf-patches.html) — what each patched VBF changes and why.
 - [CAN / UDS reference](can-ids.html) — message catalog and UDS commands.
 - [PSCM Architecture](architecture.html) — MCU, memory map, CAN dispatch.
 - [Decompiler setup](decompiler.html) — Ghidra + RH850 patch, scripts, AI pipeline.
 - [Simulator](simulator.html) — Athrill status and limitations.
 - [VBF format spec](vbf-format.html) — terse format reference.
-- [Transit torque arbitration map](transit-arbiter-map.html) — arbiter entry points, Q15 scaling, TAUB writes.
-- [Transit LCA hunt (0x3CC / 0x3D6)](transit-lca-hunt.html) — PDU-table gate blocking LCA.
+- [Transit torque arbitration map](vehicles/transit-2025/arbitration-map.html) — arbiter entry points, Q15 scaling, TAUB writes.
+- [Transit LCA hunt (0x3CC / 0x3D6)](vehicles/transit-2025/lca-hunt.html) — PDU-table gate blocking LCA.
 - [Vehicles](vehicles/) — per-vehicle PSCM docs.
 
 ## Repository layout

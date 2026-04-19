@@ -1,6 +1,8 @@
 ---
 title: LCA — Lane Centering
 nav_order: 11
+parent: 2025 Transit
+grand_parent: Vehicles
 ---
 
 # LCA / TJA (Lane Centering Assist, Traffic Jam Assist)
@@ -69,7 +71,7 @@ Relevant openpilot DBC tokens: `DesTorq`, `EPAS_INFO`, `Steering_Pinion_Data`.
 
 ## Firmware-side findings
 
-The [Transit LCA hunt](transit-lca-hunt.html) documents the PDU-table gate: CAN ID `0x3D6` is not registered in the PSCM's PDU dispatch table, so frames never reach the LCA code path even with cal and AS-built set correctly. Enabling the full LCA path requires injecting a descriptor at `0x1002b50` — a firmware-side change, not a cal patch.
+The [Transit LCA hunt](lca-hunt.html) documents the PDU-table gate: CAN ID `0x3D6` is not registered in the PSCM's PDU dispatch table, so frames never reach the LCA code path even with cal and AS-built set correctly. Enabling the full LCA path requires injecting a descriptor at `0x1002b50` — a firmware-side change, not a cal patch.
 
 ## Files
 

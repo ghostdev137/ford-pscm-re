@@ -66,7 +66,7 @@ Eleven contiguous regions totaling 4,460 bytes:
 
 On stock Transit cal these regions are `0xFF` fill. On Escape they're populated.
 
-Result: the Transit PSCM's 12 GP-relative references into LCA tables all resolve to real numbers. Cal-level gate is satisfied. But the flash still doesn't enable LCA (AS-built reverts) — see [lca](../lca.html).
+Result: the Transit PSCM's 12 GP-relative references into LCA tables all resolve to real numbers. Cal-level gate is satisfied. But the flash still doesn't enable LCA (AS-built reverts) — see [lca](transit-2025/lca.html).
 
 ## Open question
 
@@ -79,6 +79,6 @@ Untested. High-risk experiment.
 
 ## See also
 
-- [LCA enable attempt](../lca.html)
-- [2025 Transit](transit-2025.html)
+- [LCA enable attempt](transit-2025/lca.html)
+- [2025 Transit](../transit-2025/)
 - [2024 Escape](escape-2024.html) — newer Escape, unclear if still compatible

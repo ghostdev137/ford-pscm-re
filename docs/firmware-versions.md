@@ -16,7 +16,7 @@ Location: `firmware/Transit_2025/`
 | `KK21-14D003-AG.VBF` | Strategy | AG | Earliest revision in our set — code at `0x010E1000` intact |
 | `KK21-14D003-AH.VBF` | Strategy | AH | Minor diff from AG |
 | `KK21-14D003-AL.VBF` | Strategy | AL | Removed ~40 instructions at `0x010E1000` |
-| `KK21-14D003-AM.VBF` | Strategy | AM | Removed another ~40 instructions — not LCA handler (see [lca.html](lca.html)) |
+| `KK21-14D003-AM.VBF` | Strategy | AM | Removed another ~40 instructions — not LCA handler (see [lca.html](vehicles/transit-2025/lca.html)) |
 | `KK21-14D003-AM_LCA_ENABLED.VBF` | Strategy | AM | Our LCA experiment on the AM strategy |
 | `KK21-14D005-AB.vbf` | EPS core | AB | Low-level motor control |
 | `LK41-14D007-AD.VBF` | Cal | AD | Earlier cal revision |

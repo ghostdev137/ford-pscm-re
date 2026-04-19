@@ -1,6 +1,8 @@
 ---
 title: Transit Torque Arbitration Map
 nav_order: 14
+parent: 2025 Transit
+grand_parent: Vehicles
 ---
 
 # Transit PSCM Torque Arbitration Map
