@@ -1,0 +1,3377 @@
+// Copyright (c) 2015-2026 Vector 35 Inc
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to
+// deal in the Software without restriction, including without limitation the
+// rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+// sell copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+// IN THE SOFTWARE.
+
+#include "binaryninjaapi.h"
+#include "mediumlevelilinstruction.h"
+#include "highlevelilinstruction.h"
+#include <cstring>
+
+#include "ffi.h"
+
+using namespace BinaryNinja;
+using namespace std;
+
+
+uint64_t Variable::ToIdentifier() const
+{
+	return BNToVariableIdentifier(this);
+}
+
+
+Variable Variable::FromIdentifier(uint64_t id)
+{
+	return BNFromVariableIdentifier(id);
+}
+
+
+RegisterValue::RegisterValue() : state(UndeterminedValue), value(0), offset(0), size(0) {}
+
+
+bool RegisterValue::operator==(const RegisterValue& a) const
+{
+	switch (a.state)
+	{
+	case EntryValue:
+		return (state == EntryValue) && (a.value == value);
+
+	case ConstantValue:
+		return (state == ConstantValue) && (a.value == value);
+
+	case ConstantPointerValue:
+		return (state == ConstantPointerValue) && (a.value == value);
+
+	case ExternalPointerValue:
+		return (state == ExternalPointerValue) && (a.value == value) && (a.offset == offset);
+
+	case StackFrameOffset:
+		 return (state == StackFrameOffset) && (a.value == value);
+
+	case UndeterminedValue:
+		return state == UndeterminedValue;
+
+	case ReturnAddressValue:
+		return state == ReturnAddressValue;
+
+	case ImportedAddressValue:
+		return (state == ImportedAddressValue) && (a.value == value);
+
+	case ConstantDataZeroExtendValue:
+		return (state == ConstantDataZeroExtendValue) && (a.value == value) && (a.size == size);
+
+	case ConstantDataSignExtendValue:
+		return (state == ConstantDataSignExtendValue) && (a.value == value) && (a.size == size);
+
+	case ConstantDataAggregateValue:
+		return (state == ConstantDataAggregateValue) && (a.value == value) && (a.size == size);
+
+	default:
+		return false;
+	}
+}
+
+
+bool RegisterValue::operator!=(const RegisterValue& a) const
+{
+	return !((*this) == a);
+}
+
+
+bool RegisterValue::IsConstant() const
+{
+	return (state == ConstantValue) || (state == ConstantPointerValue);
+}
+
+
+bool RegisterValue::IsConstantData() const
+{
+	return ((state & ConstantDataValue) == ConstantDataValue);
+}
+
+
+BNRegisterValue RegisterValue::ToAPIObject()
+{
+	BNRegisterValue result;
+	result.state = state;
+	result.value = value;
+	result.offset = offset;
+	result.size = size;
+	return result;
+}
+
+
+ConstantData::ConstantData()
+{
+	state = UndeterminedValue;
+	value = 0;
+	size = 0;
+}
+
+ConstantData::ConstantData(BNRegisterValueType _state, uint64_t _value)
+{
+	state = _state;
+	value = _value;
+	size = 0;
+}
+
+
+ConstantData::ConstantData(BNRegisterValueType _state, uint64_t _value, size_t _size, Ref<Function> _func)
+{
+	state = _state;
+	value = _value;
+	size = _size;
+	func = _func;
+}
+
+
+pair<DataBuffer, BNBuiltinType> ConstantData::ToDataBuffer() const
+{
+	if (func)
+		return func->GetConstantData(state, value, size);
+
+	return make_pair(DataBuffer(), BuiltinNone);
+}
+
+
+RegisterValue ConstantData::ToRegisterValue() const
+{
+	RegisterValue result;
+	result.state = state;
+	result.value = value;
+	result.size = size;
+	return result;
+}
+
+
+Function::Function(BNFunction* func)
+{
+	m_object = func;
+	m_advancedAnalysisRequests = 0;
+}
+
+
+Function::~Function()
+{
+	if (m_advancedAnalysisRequests > 0)
+		BNReleaseAdvancedFunctionAnalysisDataMultiple(m_object, (size_t)m_advancedAnalysisRequests);
+}
+
+
+Ref<BinaryView> Function::GetView() const
+{
+	return new BinaryView(BNGetFunctionData(m_object));
+}
+
+
+Ref<Platform> Function::GetPlatform() const
+{
+	return new CorePlatform(BNGetFunctionPlatform(m_object));
+}
+
+
+Ref<Architecture> Function::GetArchitecture() const
+{
+	return new CoreArchitecture(BNGetFunctionArchitecture(m_object));
+}
+
+
+uint64_t Function::GetStart() const
+{
+	return BNGetFunctionStart(m_object);
+}
+
+
+Ref<Symbol> Function::GetSymbol() const
+{
+	return new Symbol(BNGetFunctionSymbol(m_object));
+}
+
+bool Function::IsExported() const
+{
+	Ref<Symbol> sym = GetSymbol();
+	if (!sym)
+		return false;
+
+	BNSymbolBinding binding = sym->GetBinding();
+	return (binding == BNSymbolBinding::GlobalBinding) || (binding == BNSymbolBinding::WeakBinding);
+}
+
+
+bool Function::WasAutomaticallyDiscovered() const
+{
+	return BNWasFunctionAutomaticallyDiscovered(m_object);
+}
+
+
+bool Function::HasUserAnnotations() const
+{
+	return BNFunctionHasUserAnnotations(m_object);
+}
+
+
+Confidence<bool> Function::CanReturn() const
+{
+	BNBoolWithConfidence bc = BNCanFunctionReturn(m_object);
+	return Confidence<bool>(bc.value, bc.confidence);
+}
+
+
+Confidence<bool> Function::IsPure() const
+{
+	BNBoolWithConfidence bc = BNIsFunctionPure(m_object);
+	return Confidence<bool>(bc.value, bc.confidence);
+}
+
+
+bool Function::HasExplicitlyDefinedType() const
+{
+	return BNFunctionHasExplicitlyDefinedType(m_object);
+}
+
+
+bool Function::NeedsUpdate() const
+{
+	return BNIsFunctionUpdateNeeded(m_object);
+}
+
+
+vector<Ref<BasicBlock>> Function::GetBasicBlocks() const
+{
+	size_t count;
+	BNBasicBlock** blocks = BNGetFunctionBasicBlockList(m_object, &count);
+
+	vector<Ref<BasicBlock>> result;
+	result.reserve(count);
+	for (size_t i = 0; i < count; i++)
+		result.push_back(new BasicBlock(BNNewBasicBlockReference(blocks[i])));
+
+	BNFreeBasicBlockList(blocks, count);
+	return result;
+}
+
+
+Ref<BasicBlock> Function::GetBasicBlockAtAddress(Architecture* arch, uint64_t addr) const
+{
+	BNBasicBlock* block = BNGetFunctionBasicBlockAtAddress(m_object, arch->GetObject(), addr);
+	if (!block)
+		return nullptr;
+	return new BasicBlock(block);
+}
+
+
+void Function::MarkRecentUse()
+{
+	BNMarkFunctionAsRecentlyUsed(m_object);
+}
+
+
+string Function::GetComment() const
+{
+	char* comment = BNGetFunctionComment(m_object);
+	string result = comment;
+	BNFreeString(comment);
+	return result;
+}
+
+
+string Function::GetCommentForAddress(uint64_t addr) const
+{
+	char* comment = BNGetCommentForAddress(m_object, addr);
+	string result = comment;
+	BNFreeString(comment);
+	return result;
+}
+
+
+vector<uint64_t> Function::GetCommentedAddresses() const
+{
+	size_t count;
+	uint64_t* addrs = BNGetCommentedAddresses(m_object, &count);
+	vector<uint64_t> result;
+	result.insert(result.end(), addrs, &addrs[count]);
+	BNFreeAddressList(addrs);
+	return result;
+}
+
+
+void Function::SetComment(const string& comment)
+{
+	BNSetFunctionComment(m_object, comment.c_str());
+}
+
+
+void Function::SetCommentForAddress(uint64_t addr, const string& comment)
+{
+	BNSetCommentForAddress(m_object, addr, comment.c_str());
+}
+
+
+vector<ReferenceSource> Function::GetCallSites() const
+{
+	size_t count;
+	BNReferenceSource* refs = BNGetFunctionCallSites(m_object, &count);
+
+	vector<ReferenceSource> result;
+	result.reserve(count);
+	for (size_t i = 0; i < count; i++)
+	{
+		ReferenceSource src;
+		src.func = new Function(BNNewFunctionReference(refs[i].func));
+		src.arch = new CoreArchitecture(refs[i].arch);
+		src.addr = refs[i].addr;
+		result.push_back(src);
+	}
+
+	BNFreeCodeReferences(refs, count);
+	return result;
+}
+
+
+void Function::AddUserCodeReference(Architecture* fromArch, uint64_t fromAddr, uint64_t toAddr)
+{
+	BNAddUserCodeReference(m_object, fromArch->GetObject(), fromAddr, toAddr);
+}
+
+
+void Function::RemoveUserCodeReference(Architecture* fromArch, uint64_t fromAddr, uint64_t toAddr)
+{
+	BNRemoveUserCodeReference(m_object, fromArch->GetObject(), fromAddr, toAddr);
+}
+
+
+void Function::AddUserTypeReference(Architecture* fromArch, uint64_t fromAddr, const QualifiedName& name)
+{
+	BNQualifiedName nameObj = name.GetAPIObject();
+	BNAddUserTypeReference(m_object, fromArch->GetObject(), fromAddr, &nameObj);
+	QualifiedName::FreeAPIObject(&nameObj);
+}
+
+
+void Function::RemoveUserTypeReference(Architecture* fromArch, uint64_t fromAddr, const QualifiedName& name)
+{
+	BNQualifiedName nameObj = name.GetAPIObject();
+	BNRemoveUserTypeReference(m_object, fromArch->GetObject(), fromAddr, &nameObj);
+	QualifiedName::FreeAPIObject(&nameObj);
+}
+
+
+void Function::AddUserTypeFieldReference(
+    Architecture* fromArch, uint64_t fromAddr, const QualifiedName& name, uint64_t offset, size_t size)
+{
+	BNQualifiedName nameObj = name.GetAPIObject();
+	BNAddUserTypeFieldReference(m_object, fromArch->GetObject(), fromAddr, &nameObj, offset, size);
+	QualifiedName::FreeAPIObject(&nameObj);
+}
+
+
+void Function::RemoveUserTypeFieldReference(
+    Architecture* fromArch, uint64_t fromAddr, const QualifiedName& name, uint64_t offset, size_t size)
+{
+	BNQualifiedName nameObj = name.GetAPIObject();
+	BNRemoveUserTypeFieldReference(m_object, fromArch->GetObject(), fromAddr, &nameObj, offset, size);
+	QualifiedName::FreeAPIObject(&nameObj);
+}
+
+
+Ref<LowLevelILFunction> Function::GetLowLevelIL() const
+{
+	BNLowLevelILFunction* function = BNGetFunctionLowLevelIL(m_object);
+	if (!function)
+		return nullptr;
+	return new LowLevelILFunction(function);
+}
+
+
+Ref<LowLevelILFunction> Function::GetLowLevelILIfAvailable() const
+{
+	BNLowLevelILFunction* function = BNGetFunctionLowLevelILIfAvailable(m_object);
+	if (!function)
+		return nullptr;
+	return new LowLevelILFunction(function);
+}
+
+
+RegisterValue RegisterValue::FromAPIObject(const BNRegisterValue& value)
+{
+	RegisterValue result;
+	result.state = value.state;
+	result.value = value.value;
+	result.offset = value.offset;
+	result.size = value.size;
+	return result;
+}
+
+
+pair<DataBuffer, BNBuiltinType> Function::GetConstantData(BNRegisterValueType state, uint64_t value, size_t size)
+{
+	BNBuiltinType builtin;
+	auto buffer = DataBuffer(BNGetConstantData(m_object, state, value, size, &builtin));
+	return make_pair(buffer, builtin);
+}
+
+
+RegisterValue Function::GetRegisterValueAtInstruction(Architecture* arch, uint64_t addr, uint32_t reg)
+{
+	BNRegisterValue value = BNGetRegisterValueAtInstruction(m_object, arch->GetObject(), addr, reg);
+	return RegisterValue::FromAPIObject(value);
+}
+
+
+RegisterValue Function::GetRegisterValueAfterInstruction(Architecture* arch, uint64_t addr, uint32_t reg)
+{
+	BNRegisterValue value = BNGetRegisterValueAfterInstruction(m_object, arch->GetObject(), addr, reg);
+	return RegisterValue::FromAPIObject(value);
+}
+
+
+RegisterValue Function::GetStackContentsAtInstruction(Architecture* arch, uint64_t addr, int64_t offset, size_t size)
+{
+	BNRegisterValue value = BNGetStackContentsAtInstruction(m_object, arch->GetObject(), addr, offset, size);
+	return RegisterValue::FromAPIObject(value);
+}
+
+
+RegisterValue Function::GetStackContentsAfterInstruction(Architecture* arch, uint64_t addr, int64_t offset, size_t size)
+{
+	BNRegisterValue value = BNGetStackContentsAfterInstruction(m_object, arch->GetObject(), addr, offset, size);
+	return RegisterValue::FromAPIObject(value);
+}
+
+
+RegisterValue Function::GetParameterValueAtInstruction(Architecture* arch, uint64_t addr, Type* functionType, size_t i)
+{
+	BNRegisterValue value = BNGetParameterValueAtInstruction(
+	    m_object, arch->GetObject(), addr, functionType ? functionType->GetObject() : nullptr, i);
+	return RegisterValue::FromAPIObject(value);
+}
+
+
+RegisterValue Function::GetParameterValueAtLowLevelILInstruction(size_t instr, Type* functionType, size_t i)
+{
+	BNRegisterValue value = BNGetParameterValueAtLowLevelILInstruction(
+	    m_object, instr, functionType ? functionType->GetObject() : nullptr, i);
+	return RegisterValue::FromAPIObject(value);
+}
+
+
+vector<uint32_t> Function::GetRegistersReadByInstruction(Architecture* arch, uint64_t addr)
+{
+	size_t count;
+	uint32_t* regs = BNGetRegistersReadByInstruction(m_object, arch->GetObject(), addr, &count);
+
+	vector<uint32_t> result;
+	result.insert(result.end(), regs, &regs[count]);
+
+	BNFreeRegisterList(regs);
+	return result;
+}
+
+
+vector<uint32_t> Function::GetRegistersWrittenByInstruction(Architecture* arch, uint64_t addr)
+{
+	size_t count;
+	uint32_t* regs = BNGetRegistersWrittenByInstruction(m_object, arch->GetObject(), addr, &count);
+
+	vector<uint32_t> result;
+	result.insert(result.end(), regs, &regs[count]);
+
+	BNFreeRegisterList(regs);
+	return result;
+}
+
+
+vector<StackVariableReference> Function::GetStackVariablesReferencedByInstruction(Architecture* arch, uint64_t addr)
+{
+	size_t count;
+	BNStackVariableReference* refs =
+	    BNGetStackVariablesReferencedByInstruction(m_object, arch->GetObject(), addr, &count);
+
+	vector<StackVariableReference> result;
+	result.reserve(count);
+	for (size_t i = 0; i < count; i++)
+	{
+		StackVariableReference ref;
+		ref.sourceOperand = refs[i].sourceOperand;
+		ref.type = Confidence<Ref<Type>>(
+		    refs[i].type ? new Type(BNNewTypeReference(refs[i].type)) : nullptr, refs[i].typeConfidence);
+		ref.name = refs[i].name;
+		ref.var = Variable::FromIdentifier(refs[i].varIdentifier);
+		ref.referencedOffset = refs[i].referencedOffset;
+		ref.size = refs[i].size;
+		result.push_back(ref);
+	}
+
+	BNFreeStackVariableReferenceList(refs, count);
+	return result;
+}
+
+
+vector<StackVariableReference> Function::GetStackVariablesReferencedByInstructionIfAvailable(
+	Architecture* arch, uint64_t addr)
+{
+	size_t count;
+	BNStackVariableReference* refs =
+		BNGetStackVariablesReferencedByInstructionIfAvailable(m_object, arch->GetObject(), addr, &count);
+
+	vector<StackVariableReference> result;
+	result.reserve(count);
+	for (size_t i = 0; i < count; i++)
+	{
+		StackVariableReference ref;
+		ref.sourceOperand = refs[i].sourceOperand;
+		ref.type = Confidence<Ref<Type>>(
+			refs[i].type ? new Type(BNNewTypeReference(refs[i].type)) : nullptr, refs[i].typeConfidence);
+		ref.name = refs[i].name;
+		ref.var = Variable::FromIdentifier(refs[i].varIdentifier);
+		ref.referencedOffset = refs[i].referencedOffset;
+		ref.size = refs[i].size;
+		result.push_back(ref);
+	}
+
+	BNFreeStackVariableReferenceList(refs, count);
+	return result;
+}
+
+
+vector<BNConstantReference> Function::GetConstantsReferencedByInstruction(Architecture* arch, uint64_t addr)
+{
+	size_t count;
+	BNConstantReference* refs = BNGetConstantsReferencedByInstruction(m_object, arch->GetObject(), addr, &count);
+
+	vector<BNConstantReference> result;
+	result.insert(result.end(), &refs[0], &refs[count]);
+
+	BNFreeConstantReferenceList(refs);
+	return result;
+}
+
+
+vector<BNConstantReference> Function::GetConstantsReferencedByInstructionIfAvailable(Architecture* arch, uint64_t addr)
+{
+	size_t count;
+	BNConstantReference* refs =
+		BNGetConstantsReferencedByInstructionIfAvailable(m_object, arch->GetObject(), addr, &count);
+
+	vector<BNConstantReference> result;
+	result.insert(result.end(), &refs[0], &refs[count]);
+
+	BNFreeConstantReferenceList(refs);
+	return result;
+}
+
+
+Ref<LowLevelILFunction> Function::GetLiftedIL() const
+{
+	BNLowLevelILFunction* function = BNGetFunctionLiftedIL(m_object);
+	if (!function)
+		return nullptr;
+	return new LowLevelILFunction(function);
+}
+
+
+Ref<LowLevelILFunction> Function::GetLiftedILIfAvailable() const
+{
+	BNLowLevelILFunction* function = BNGetFunctionLiftedILIfAvailable(m_object);
+	if (!function)
+		return nullptr;
+	return new LowLevelILFunction(function);
+}
+
+
+set<size_t> Function::GetLiftedILFlagUsesForDefinition(size_t i, uint32_t flag)
+{
+	size_t count;
+	size_t* instrs = BNGetLiftedILFlagUsesForDefinition(m_object, i, flag, &count);
+
+	set<size_t> result;
+	result.insert(&instrs[0], &instrs[count]);
+	BNFreeILInstructionList(instrs);
+	return result;
+}
+
+
+set<size_t> Function::GetLiftedILFlagDefinitionsForUse(size_t i, uint32_t flag)
+{
+	size_t count;
+	size_t* instrs = BNGetLiftedILFlagDefinitionsForUse(m_object, i, flag, &count);
+
+	set<size_t> result;
+	result.insert(&instrs[0], &instrs[count]);
+	BNFreeILInstructionList(instrs);
+	return result;
+}
+
+
+set<uint32_t> Function::GetFlagsReadByLiftedILInstruction(size_t i)
+{
+	size_t count;
+	uint32_t* flags = BNGetFlagsReadByLiftedILInstruction(m_object, i, &count);
+
+	set<uint32_t> result;
+	result.insert(&flags[0], &flags[count]);
+	BNFreeRegisterList(flags);
+	return result;
+}
+
+
+set<uint32_t> Function::GetFlagsWrittenByLiftedILInstruction(size_t i)
+{
+	size_t count;
+	uint32_t* flags = BNGetFlagsWrittenByLiftedILInstruction(m_object, i, &count);
+
+	set<uint32_t> result;
+	result.insert(&flags[0], &flags[count]);
+	BNFreeRegisterList(flags);
+	return result;
+}
+
+
+Ref<MediumLevelILFunction> Function::GetMediumLevelIL() const
+{
+	BNMediumLevelILFunction* function = BNGetFunctionMediumLevelIL(m_object);
+	if (!function)
+		return nullptr;
+	return new MediumLevelILFunction(function);
+}
+
+
+Ref<MediumLevelILFunction> Function::GetMappedMediumLevelIL() const
+{
+	BNMediumLevelILFunction* function = BNGetFunctionMappedMediumLevelIL(m_object);
+	if (!function)
+		return nullptr;
+	return new MediumLevelILFunction(function);
+}
+
+
+Ref<MediumLevelILFunction> Function::GetMediumLevelILIfAvailable() const
+{
+	BNMediumLevelILFunction* function = BNGetFunctionMediumLevelILIfAvailable(m_object);
+	if (!function)
+		return nullptr;
+	return new MediumLevelILFunction(function);
+}
+
+
+Ref<MediumLevelILFunction> Function::GetMappedMediumLevelILIfAvailable() const
+{
+	BNMediumLevelILFunction* function = BNGetFunctionMappedMediumLevelILIfAvailable(m_object);
+	if (!function)
+		return nullptr;
+	return new MediumLevelILFunction(function);
+}
+
+
+Ref<HighLevelILFunction> Function::GetHighLevelIL() const
+{
+	BNHighLevelILFunction* function = BNGetFunctionHighLevelIL(m_object);
+	if (!function)
+		return nullptr;
+	return new HighLevelILFunction(function);
+}
+
+
+Ref<HighLevelILFunction> Function::GetHighLevelILIfAvailable() const
+{
+	BNHighLevelILFunction* function = BNGetFunctionHighLevelILIfAvailable(m_object);
+	if (!function)
+		return nullptr;
+	return new HighLevelILFunction(function);
+}
+
+
+Ref<LanguageRepresentationFunction> Function::GetLanguageRepresentation(const string& language) const
+{
+	BNLanguageRepresentationFunction* function = BNGetFunctionLanguageRepresentation(m_object, language.c_str());
+	if (!function)
+		return nullptr;
+	return new CoreLanguageRepresentationFunction(function);
+}
+
+
+Ref<LanguageRepresentationFunction> Function::GetLanguageRepresentationIfAvailable(const string& language) const
+{
+	BNLanguageRepresentationFunction* function =
+		BNGetFunctionLanguageRepresentationIfAvailable(m_object, language.c_str());
+	if (!function)
+		return nullptr;
+	return new CoreLanguageRepresentationFunction(function);
+}
+
+
+Ref<Type> Function::GetType() const
+{
+	return new Type(BNGetFunctionType(m_object));
+}
+
+
+Confidence<Ref<Type>> Function::GetReturnType() const
+{
+	BNTypeWithConfidence tc = BNGetFunctionReturnType(m_object);
+	Ref<Type> type = tc.type ? new Type(tc.type) : nullptr;
+	return Confidence<Ref<Type>>(type, tc.confidence);
+}
+
+
+Confidence<vector<uint32_t>> Function::GetReturnRegisters() const
+{
+	BNRegisterSetWithConfidence regs = BNGetFunctionReturnRegisters(m_object);
+	vector<uint32_t> regList;
+	regList.reserve(regs.count);
+	for (size_t i = 0; i < regs.count; i++)
+		regList.push_back(regs.regs[i]);
+	Confidence<vector<uint32_t>> result(regList, regs.confidence);
+	BNFreeRegisterSet(&regs);
+	return result;
+}
+
+
+Confidence<Ref<CallingConvention>> Function::GetCallingConvention() const
+{
+	BNCallingConventionWithConfidence cc = BNGetFunctionCallingConvention(m_object);
+	Ref<CallingConvention> convention = cc.convention ? new CoreCallingConvention(cc.convention) : nullptr;
+	return Confidence<Ref<CallingConvention>>(convention, cc.confidence);
+}
+
+
+Confidence<vector<Variable>> Function::GetParameterVariables() const
+{
+	BNParameterVariablesWithConfidence vars = BNGetFunctionParameterVariables(m_object);
+	vector<Variable> varList;
+	varList.reserve(vars.count);
+	for (size_t i = 0; i < vars.count; i++)
+		varList.emplace_back(vars.vars[i].type, vars.vars[i].index, vars.vars[i].storage);
+	Confidence<vector<Variable>> result(varList, vars.confidence);
+	BNFreeParameterVariables(&vars);
+	return result;
+}
+
+
+Confidence<bool> Function::HasVariableArguments() const
+{
+	BNBoolWithConfidence bc = BNFunctionHasVariableArguments(m_object);
+	return Confidence<bool>(bc.value, bc.confidence);
+}
+
+
+Confidence<int64_t> Function::GetStackAdjustment() const
+{
+	BNOffsetWithConfidence oc = BNGetFunctionStackAdjustment(m_object);
+	return Confidence<int64_t>(oc.value, oc.confidence);
+}
+
+
+map<uint32_t, Confidence<int32_t>> Function::GetRegisterStackAdjustments() const
+{
+	size_t count;
+	BNRegisterStackAdjustment* regStackAdjust = BNGetFunctionRegisterStackAdjustments(m_object, &count);
+	map<uint32_t, Confidence<int32_t>> result;
+	for (size_t i = 0; i < count; i++)
+		result[regStackAdjust[i].regStack] =
+		    Confidence<int32_t>(regStackAdjust[i].adjustment, regStackAdjust[i].confidence);
+	BNFreeRegisterStackAdjustments(regStackAdjust);
+	return result;
+}
+
+
+Confidence<set<uint32_t>> Function::GetClobberedRegisters() const
+{
+	BNRegisterSetWithConfidence regs = BNGetFunctionClobberedRegisters(m_object);
+	set<uint32_t> regSet;
+	for (size_t i = 0; i < regs.count; i++)
+		regSet.insert(regs.regs[i]);
+	Confidence<set<uint32_t>> result(regSet, regs.confidence);
+	BNFreeRegisterSet(&regs);
+	return result;
+}
+
+
+void Function::SetAutoType(Type* type)
+{
+	BNSetFunctionAutoType(m_object, type->GetObject());
+}
+
+
+void Function::SetAutoReturnType(const Confidence<Ref<Type>>& type)
+{
+	BNTypeWithConfidence tc;
+	tc.type = type.GetValue() ? type->GetObject() : nullptr;
+	tc.confidence = type.GetConfidence();
+	BNSetAutoFunctionReturnType(m_object, &tc);
+}
+
+
+void Function::SetAutoReturnRegisters(const Confidence<std::vector<uint32_t>>& returnRegs)
+{
+	BNRegisterSetWithConfidence regs;
+	regs.regs = new uint32_t[returnRegs.GetValue().size()];
+	regs.count = returnRegs.GetValue().size();
+	for (size_t i = 0; i < regs.count; i++)
+		regs.regs[i] = returnRegs.GetValue()[i];
+	regs.confidence = returnRegs.GetConfidence();
+	BNSetAutoFunctionReturnRegisters(m_object, &regs);
+	delete[] regs.regs;
+}
+
+
+void Function::SetAutoCallingConvention(const Confidence<Ref<CallingConvention>>& convention)
+{
+	BNCallingConventionWithConfidence cc;
+	cc.convention = convention.GetValue() ? convention->GetObject() : nullptr;
+	cc.confidence = convention.GetConfidence();
+	BNSetAutoFunctionCallingConvention(m_object, &cc);
+}
+
+
+void Function::SetAutoParameterVariables(const Confidence<vector<Variable>>& vars)
+{
+	BNParameterVariablesWithConfidence varConf;
+	varConf.vars = new BNVariable[vars->size()];
+	varConf.count = vars->size();
+	size_t i = 0;
+	for (auto it = vars->begin(); it != vars->end(); ++it, ++i)
+	{
+		varConf.vars[i].type = it->type;
+		varConf.vars[i].index = it->index;
+		varConf.vars[i].storage = it->storage;
+	}
+	varConf.confidence = vars.GetConfidence();
+
+	BNSetAutoFunctionParameterVariables(m_object, &varConf);
+	delete[] varConf.vars;
+}
+
+
+void Function::SetAutoHasVariableArguments(const Confidence<bool>& varArgs)
+{
+	BNBoolWithConfidence bc;
+	bc.value = varArgs.GetValue();
+	bc.confidence = varArgs.GetConfidence();
+	BNSetAutoFunctionHasVariableArguments(m_object, &bc);
+}
+
+
+void Function::SetAutoCanReturn(const Confidence<bool>& returns)
+{
+	BNBoolWithConfidence bc;
+	bc.value = returns.GetValue();
+	bc.confidence = returns.GetConfidence();
+	BNSetAutoFunctionCanReturn(m_object, &bc);
+}
+
+
+void Function::SetAutoPure(const Confidence<bool>& pure)
+{
+	BNBoolWithConfidence bc;
+	bc.value = pure.GetValue();
+	bc.confidence = pure.GetConfidence();
+	BNSetAutoFunctionPure(m_object, &bc);
+}
+
+
+void Function::SetAutoStackAdjustment(const Confidence<int64_t>& stackAdjust)
+{
+	BNOffsetWithConfidence oc;
+	oc.value = stackAdjust.GetValue();
+	oc.confidence = stackAdjust.GetConfidence();
+	BNSetAutoFunctionStackAdjustment(m_object, &oc);
+}
+
+
+void Function::SetAutoRegisterStackAdjustments(const map<uint32_t, Confidence<int32_t>>& regStackAdjust)
+{
+	BNRegisterStackAdjustment* adjust = new BNRegisterStackAdjustment[regStackAdjust.size()];
+	size_t i = 0;
+	for (auto& j : regStackAdjust)
+	{
+		adjust[i].regStack = j.first;
+		adjust[i].adjustment = j.second.GetValue();
+		adjust[i].confidence = j.second.GetConfidence();
+		i++;
+	}
+	BNSetAutoFunctionRegisterStackAdjustments(m_object, adjust, regStackAdjust.size());
+	delete[] adjust;
+}
+
+
+void Function::SetAutoClobberedRegisters(const Confidence<std::set<uint32_t>>& clobbered)
+{
+	BNRegisterSetWithConfidence regs;
+	regs.regs = new uint32_t[clobbered->size()];
+	regs.count = clobbered->size();
+
+	size_t i = 0;
+	for (auto it = clobbered->begin(); it != clobbered->end(); ++it, ++i)
+		regs.regs[i] = *it;
+	regs.confidence = clobbered.GetConfidence();
+	BNSetAutoFunctionClobberedRegisters(m_object, &regs);
+	delete[] regs.regs;
+}
+
+
+void Function::SetUserType(Type* type)
+{
+	BNSetFunctionUserType(m_object, type->GetObject());
+}
+
+
+bool Function::HasUserType() const
+{
+	return BNFunctionHasUserType(m_object);
+}
+
+
+void Function::SetReturnType(const Confidence<Ref<Type>>& type)
+{
+	BNTypeWithConfidence tc;
+	tc.type = type.GetValue() ? type->GetObject() : nullptr;
+	tc.confidence = type.GetConfidence();
+	BNSetUserFunctionReturnType(m_object, &tc);
+}
+
+
+void Function::SetReturnRegisters(const Confidence<std::vector<uint32_t>>& returnRegs)
+{
+	BNRegisterSetWithConfidence regs;
+	regs.regs = new uint32_t[returnRegs.GetValue().size()];
+	regs.count = returnRegs.GetValue().size();
+	for (size_t i = 0; i < regs.count; i++)
+		regs.regs[i] = returnRegs.GetValue()[i];
+	regs.confidence = returnRegs.GetConfidence();
+	BNSetUserFunctionReturnRegisters(m_object, &regs);
+	delete[] regs.regs;
+}
+
+
+void Function::SetCallingConvention(const Confidence<Ref<CallingConvention>>& convention)
+{
+	BNCallingConventionWithConfidence cc;
+	cc.convention = convention.GetValue() ? convention->GetObject() : nullptr;
+	cc.confidence = convention.GetConfidence();
+	BNSetUserFunctionCallingConvention(m_object, &cc);
+}
+
+
+void Function::SetParameterVariables(const Confidence<vector<Variable>>& vars)
+{
+	BNParameterVariablesWithConfidence varConf;
+	varConf.vars = new BNVariable[vars->size()];
+	varConf.count = vars->size();
+	size_t i = 0;
+	for (auto it = vars->begin(); it != vars->end(); ++it, ++i)
+	{
+		varConf.vars[i].type = it->type;
+		varConf.vars[i].index = it->index;
+		varConf.vars[i].storage = it->storage;
+	}
+	varConf.confidence = vars.GetConfidence();
+
+	BNSetUserFunctionParameterVariables(m_object, &varConf);
+	delete[] varConf.vars;
+}
+
+
+void Function::SetHasVariableArguments(const Confidence<bool>& varArgs)
+{
+	BNBoolWithConfidence bc;
+	bc.value = varArgs.GetValue();
+	bc.confidence = varArgs.GetConfidence();
+	BNSetUserFunctionHasVariableArguments(m_object, &bc);
+}
+
+
+void Function::SetCanReturn(const Confidence<bool>& returns)
+{
+	BNBoolWithConfidence bc;
+	bc.value = returns.GetValue();
+	bc.confidence = returns.GetConfidence();
+	BNSetUserFunctionCanReturn(m_object, &bc);
+}
+
+
+void Function::SetPure(const Confidence<bool>& pure)
+{
+	BNBoolWithConfidence bc;
+	bc.value = pure.GetValue();
+	bc.confidence = pure.GetConfidence();
+	BNSetUserFunctionPure(m_object, &bc);
+}
+
+
+void Function::SetStackAdjustment(const Confidence<int64_t>& stackAdjust)
+{
+	BNOffsetWithConfidence oc;
+	oc.value = stackAdjust.GetValue();
+	oc.confidence = stackAdjust.GetConfidence();
+	BNSetUserFunctionStackAdjustment(m_object, &oc);
+}
+
+
+void Function::SetRegisterStackAdjustments(const map<uint32_t, Confidence<int32_t>>& regStackAdjust)
+{
+	BNRegisterStackAdjustment* adjust = new BNRegisterStackAdjustment[regStackAdjust.size()];
+	size_t i = 0;
+	for (auto& j : regStackAdjust)
+	{
+		adjust[i].regStack = j.first;
+		adjust[i].adjustment = j.second.GetValue();
+		adjust[i].confidence = j.second.GetConfidence();
+		i++;
+	}
+	BNSetUserFunctionRegisterStackAdjustments(m_object, adjust, regStackAdjust.size());
+	delete[] adjust;
+}
+
+
+void Function::SetClobberedRegisters(const Confidence<std::set<uint32_t>>& clobbered)
+{
+	BNRegisterSetWithConfidence regs;
+	regs.regs = new uint32_t[clobbered->size()];
+	regs.count = clobbered->size();
+	size_t i = 0;
+	for (auto it = clobbered->begin(); it != clobbered->end(); ++it, ++i)
+		regs.regs[i] = *it;
+	regs.confidence = clobbered.GetConfidence();
+	BNSetUserFunctionClobberedRegisters(m_object, &regs);
+	delete[] regs.regs;
+}
+
+
+void Function::ApplyImportedTypes(Symbol* sym, Ref<Type> type)
+{
+	BNApplyImportedTypes(m_object, sym->GetObject(), type ? type->GetObject() : nullptr);
+}
+
+
+void Function::ApplyAutoDiscoveredType(Type* type)
+{
+	BNApplyAutoDiscoveredFunctionType(m_object, type->GetObject());
+}
+
+
+Ref<FlowGraph> Function::CreateFunctionGraph(const FunctionViewType& type, DisassemblySettings* settings)
+{
+	BNFlowGraph* graph = BNCreateFunctionGraph(m_object, type.ToAPIObject(), settings ? settings->GetObject() : nullptr);
+	return new CoreFlowGraph(graph);
+}
+
+
+Ref<FlowGraph> Function::CreateFunctionGraphImmediate(const FunctionViewType& type, DisassemblySettings* settings)
+{
+	BNFlowGraph* graph = BNCreateImmediateFunctionGraph(m_object, type.ToAPIObject(), settings ? settings->GetObject() : nullptr);
+	return new CoreFlowGraph(graph);
+}
+
+
+map<int64_t, vector<VariableNameAndType>> Function::GetStackLayout()
+{
+	size_t count;
+	BNVariableNameAndType* vars = BNGetStackLayout(m_object, &count);
+
+	map<int64_t, vector<VariableNameAndType>> result;
+	for (size_t i = 0; i < count; i++)
+	{
+		VariableNameAndType var;
+		var.name = vars[i].name;
+		var.type = Confidence<Ref<Type>>(new Type(BNNewTypeReference(vars[i].type)), vars[i].typeConfidence);
+		var.var = vars[i].var;
+		var.autoDefined = vars[i].autoDefined;
+		result[vars[i].var.storage].push_back(var);
+	}
+
+	BNFreeVariableNameAndTypeList(vars, count);
+	return result;
+}
+
+
+void Function::CreateAutoStackVariable(int64_t offset, const Confidence<Ref<Type>>& type, const string& name)
+{
+	BNTypeWithConfidence tc;
+	tc.type = type->GetObject();
+	tc.confidence = type.GetConfidence();
+	BNCreateAutoStackVariable(m_object, offset, &tc, name.c_str());
+}
+
+
+void Function::CreateUserStackVariable(int64_t offset, const Confidence<Ref<Type>>& type, const string& name)
+{
+	BNTypeWithConfidence tc;
+	tc.type = type->GetObject();
+	tc.confidence = type.GetConfidence();
+	BNCreateUserStackVariable(m_object, offset, &tc, name.c_str());
+}
+
+
+void Function::DeleteAutoStackVariable(int64_t offset)
+{
+	BNDeleteAutoStackVariable(m_object, offset);
+}
+
+
+void Function::DeleteUserStackVariable(int64_t offset)
+{
+	BNDeleteUserStackVariable(m_object, offset);
+}
+
+
+bool Function::GetStackVariableAtFrameOffset(
+    Architecture* arch, uint64_t addr, int64_t offset, VariableNameAndType& result)
+{
+	BNVariableNameAndType var;
+	if (!BNGetStackVariableAtFrameOffset(m_object, arch->GetObject(), addr, offset, &var))
+		return false;
+
+	result.type = Confidence<Ref<Type>>(new Type(BNNewTypeReference(var.type)), var.typeConfidence);
+	result.name = var.name;
+	result.var = var.var;
+	result.autoDefined = var.autoDefined;
+
+	BNFreeVariableNameAndType(&var);
+	return true;
+}
+
+
+bool Function::GetStackVariableAtFrameOffsetAfterInstruction(
+    Architecture* arch, uint64_t addr, int64_t offset, VariableNameAndType& result)
+{
+	BNVariableNameAndType var;
+	if (!BNGetStackVariableAtFrameOffsetAfterInstruction(m_object, arch->GetObject(), addr, offset, &var))
+		return false;
+
+	result.type = Confidence<Ref<Type>>(new Type(BNNewTypeReference(var.type)), var.typeConfidence);
+	result.name = var.name;
+	result.var = var.var;
+	result.autoDefined = var.autoDefined;
+
+	BNFreeVariableNameAndType(&var);
+	return true;
+}
+
+
+map<Variable, VariableNameAndType> Function::GetVariables()
+{
+	size_t count;
+	BNVariableNameAndType* vars = BNGetFunctionVariables(m_object, &count);
+
+	map<Variable, VariableNameAndType> result;
+	for (size_t i = 0; i < count; ++i)
+	{
+		VariableNameAndType var;
+		var.name = vars[i].name;
+		var.type = Confidence<Ref<Type>>(new Type(BNNewTypeReference(vars[i].type)), vars[i].typeConfidence);
+		var.var = vars[i].var;
+		var.autoDefined = vars[i].autoDefined;
+		result[vars[i].var] = var;
+	}
+
+	BNFreeVariableNameAndTypeList(vars, count);
+	return result;
+}
+
+
+set<Variable> Function::GetMediumLevelILVariables()
+{
+	Ref<MediumLevelILFunction> mlil = this->GetMediumLevelIL();
+	if (!mlil)
+		return {};
+
+	size_t count;
+	BNVariable* vars = BNGetMediumLevelILVariables(mlil->GetObject(), &count);
+
+	set<Variable> result;
+	for (size_t i = 0; i < count; ++i)
+		result.emplace(vars[i]);
+
+	BNFreeVariableList(vars);
+	return result;
+}
+
+
+set<Variable> Function::GetMediumLevelILAliasedVariables()
+{
+	Ref<MediumLevelILFunction> mlil = this->GetMediumLevelIL();
+	if (!mlil)
+		return {};
+
+	size_t count;
+	BNVariable* vars = BNGetMediumLevelILAliasedVariables(mlil->GetObject(), &count);
+
+	set<Variable> result;
+	for (size_t i = 0; i < count; ++i)
+		result.emplace(vars[i]);
+
+	BNFreeVariableList(vars);
+	return result;
+}
+
+
+set<SSAVariable> Function::GetMediumLevelILSSAVariables()
+{
+	Ref<MediumLevelILFunction> mlil = this->GetMediumLevelIL();
+	if (!mlil)
+		return {};
+
+	size_t count;
+	BNVariable* vars = BNGetMediumLevelILVariables(mlil->GetObject(), &count);
+
+	set<SSAVariable> result;
+	for (size_t i = 0; i < count; ++i)
+	{
+		size_t versionCount;
+		size_t* versions = BNGetMediumLevelILVariableSSAVersions(mlil->GetObject(), &vars[i], &versionCount);
+		for (size_t j = 0; j < versionCount; ++j)
+			result.emplace(vars[i], versions[j]);
+		BNFreeILInstructionList(versions);
+	}
+
+	BNFreeVariableList(vars);
+	return result;
+}
+
+
+set<Variable> Function::GetHighLevelILVariables()
+{
+	Ref<HighLevelILFunction> hlil = this->GetHighLevelIL();
+	if (!hlil)
+		return {};
+
+	size_t count;
+	BNVariable* vars = BNGetHighLevelILVariables(hlil->GetObject(), &count);
+
+	set<Variable> result;
+	for (size_t i = 0; i < count; ++i)
+		result.emplace(vars[i]);
+
+	BNFreeVariableList(vars);
+	return result;
+}
+
+
+set<Variable> Function::GetHighLevelILAliasedVariables()
+{
+	Ref<HighLevelILFunction> hlil = this->GetHighLevelIL();
+	if (!hlil)
+		return {};
+
+	size_t count;
+	BNVariable* vars = BNGetHighLevelILAliasedVariables(hlil->GetObject(), &count);
+
+	set<Variable> result;
+	for (size_t i = 0; i < count; ++i)
+		result.emplace(vars[i]);
+
+	BNFreeVariableList(vars);
+	return result;
+}
+
+
+set<SSAVariable> Function::GetHighLevelILSSAVariables()
+{
+	Ref<HighLevelILFunction> hlil = this->GetHighLevelIL();
+	if (!hlil)
+		return {};
+
+	size_t count;
+	BNVariable* vars = BNGetHighLevelILVariables(hlil->GetObject(), &count);
+
+	set<SSAVariable> result;
+	for (size_t i = 0; i < count; ++i)
+	{
+		size_t versionCount;
+		size_t* versions = BNGetHighLevelILVariableSSAVersions(hlil->GetObject(), &vars[i], &versionCount);
+		for (size_t j = 0; j < versionCount; ++j)
+			result.emplace(vars[i], versions[j]);
+		BNFreeILInstructionList(versions);
+	}
+
+	BNFreeVariableList(vars);
+	return result;
+}
+
+
+set<Variable> Function::GetMediumLevelILVariablesIfAvailable()
+{
+	Ref<MediumLevelILFunction> mlil = this->GetMediumLevelILIfAvailable();
+	if (!mlil)
+		return {};
+
+	size_t count;
+	BNVariable* vars = BNGetMediumLevelILVariables(mlil->GetObject(), &count);
+
+	set<Variable> result;
+	for (size_t i = 0; i < count; ++i)
+		result.emplace(vars[i]);
+
+	BNFreeVariableList(vars);
+	return result;
+}
+
+
+set<Variable> Function::GetMediumLevelILAliasedVariablesIfAvailable()
+{
+	Ref<MediumLevelILFunction> mlil = this->GetMediumLevelILIfAvailable();
+	if (!mlil)
+		return {};
+
+	size_t count;
+	BNVariable* vars = BNGetMediumLevelILAliasedVariables(mlil->GetObject(), &count);
+
+	set<Variable> result;
+	for (size_t i = 0; i < count; ++i)
+		result.emplace(vars[i]);
+
+	BNFreeVariableList(vars);
+	return result;
+}
+
+
+set<SSAVariable> Function::GetMediumLevelILSSAVariablesIfAvailable()
+{
+	Ref<MediumLevelILFunction> mlil = this->GetMediumLevelILIfAvailable();
+	if (!mlil)
+		return {};
+
+	size_t count;
+	BNVariable* vars = BNGetMediumLevelILVariables(mlil->GetObject(), &count);
+
+	set<SSAVariable> result;
+	for (size_t i = 0; i < count; ++i)
+	{
+		size_t versionCount;
+		size_t* versions = BNGetMediumLevelILVariableSSAVersions(mlil->GetObject(), &vars[i], &versionCount);
+		for (size_t j = 0; j < versionCount; ++j)
+			result.emplace(vars[i], versions[j]);
+		BNFreeILInstructionList(versions);
+	}
+
+	BNFreeVariableList(vars);
+	return result;
+}
+
+
+set<Variable> Function::GetHighLevelILVariablesIfAvailable()
+{
+	Ref<HighLevelILFunction> hlil = this->GetHighLevelILIfAvailable();
+	if (!hlil)
+		return {};
+
+	size_t count;
+	BNVariable* vars = BNGetHighLevelILVariables(hlil->GetObject(), &count);
+
+	set<Variable> result;
+	for (size_t i = 0; i < count; ++i)
+		result.emplace(vars[i]);
+
+	BNFreeVariableList(vars);
+	return result;
+}
+
+
+set<Variable> Function::GetHighLevelILAliasedVariablesIfAvailable()
+{
+	Ref<HighLevelILFunction> hlil = this->GetHighLevelILIfAvailable();
+	if (!hlil)
+		return {};
+
+	size_t count;
+	BNVariable* vars = BNGetHighLevelILAliasedVariables(hlil->GetObject(), &count);
+
+	set<Variable> result;
+	for (size_t i = 0; i < count; ++i)
+		result.emplace(vars[i]);
+
+	BNFreeVariableList(vars);
+	return result;
+}
+
+
+set<SSAVariable> Function::GetHighLevelILSSAVariablesIfAvailable()
+{
+	Ref<HighLevelILFunction> hlil = this->GetHighLevelILIfAvailable();
+	if (!hlil)
+		return {};
+
+	size_t count;
+	BNVariable* vars = BNGetHighLevelILVariables(hlil->GetObject(), &count);
+
+	set<SSAVariable> result;
+	for (size_t i = 0; i < count; ++i)
+	{
+		size_t versionCount;
+		size_t* versions = BNGetHighLevelILVariableSSAVersions(hlil->GetObject(), &vars[i], &versionCount);
+		for (size_t j = 0; j < versionCount; ++j)
+			result.emplace(vars[i], versions[j]);
+		BNFreeILInstructionList(versions);
+	}
+
+	BNFreeVariableList(vars);
+	return result;
+}
+
+
+void Function::CreateAutoVariable(
+    const Variable& var, const Confidence<Ref<Type>>& type, const string& name, bool ignoreDisjointUses)
+{
+	BNTypeWithConfidence tc;
+	tc.type = type->GetObject();
+	tc.confidence = type.GetConfidence();
+	BNCreateAutoVariable(m_object, &var, &tc, name.c_str(), ignoreDisjointUses);
+}
+
+
+void Function::CreateUserVariable(
+    const Variable& var, const Confidence<Ref<Type>>& type, const string& name, bool ignoreDisjointUses)
+{
+	BNTypeWithConfidence tc;
+	tc.type = type->GetObject();
+	tc.confidence = type.GetConfidence();
+	BNCreateUserVariable(m_object, &var, &tc, name.c_str(), ignoreDisjointUses);
+}
+
+
+void Function::DeleteUserVariable(const Variable& var)
+{
+	BNDeleteUserVariable(m_object, &var);
+}
+
+
+bool Function::IsVariableUserDefinded(const Variable& var)
+{
+	return BNIsVariableUserDefined(m_object, &var);
+}
+
+
+Confidence<Ref<Type>> Function::GetVariableType(const Variable& var)
+{
+	BNTypeWithConfidence type = BNGetVariableType(m_object, &var);
+	if (!type.type)
+		return nullptr;
+	return Confidence<Ref<Type>>(new Type(type.type), type.confidence);
+}
+
+
+string Function::GetVariableName(const Variable& var)
+{
+	char* name = BNGetVariableName(m_object, &var);
+	string result = name;
+	BNFreeString(name);
+	return result;
+}
+
+
+string Function::GetVariableNameOrDefault(const Variable& var)
+{
+	char* name = BNGetVariableNameOrDefault(m_object, &var);
+	string result = name;
+	BNFreeString(name);
+	return result;
+}
+
+
+string Function::GetLastSeenVariableNameOrDefault(const Variable& var)
+{
+	char* name = BNGetLastSeenVariableNameOrDefault(m_object, &var);
+	string result = name;
+	BNFreeString(name);
+	return result;
+}
+
+
+void Function::SetAutoIndirectBranches(
+    Architecture* sourceArch, uint64_t source, const std::vector<ArchAndAddr>& branches)
+{
+	BNArchitectureAndAddress* branchList = new BNArchitectureAndAddress[branches.size()];
+	for (size_t i = 0; i < branches.size(); i++)
+	{
+		branchList[i].arch = branches[i].arch->GetObject();
+		branchList[i].address = branches[i].address;
+	}
+	BNSetAutoIndirectBranches(m_object, sourceArch->GetObject(), source, branchList, branches.size());
+	delete[] branchList;
+}
+
+
+void Function::SetUserIndirectBranches(
+    Architecture* sourceArch, uint64_t source, const std::vector<ArchAndAddr>& branches)
+{
+	BNArchitectureAndAddress* branchList = new BNArchitectureAndAddress[branches.size()];
+	for (size_t i = 0; i < branches.size(); i++)
+	{
+		branchList[i].arch = branches[i].arch->GetObject();
+		branchList[i].address = branches[i].address;
+	}
+	BNSetUserIndirectBranches(m_object, sourceArch->GetObject(), source, branchList, branches.size());
+	delete[] branchList;
+}
+
+
+void Function::SetGuidedSourceBlocks(const std::vector<ArchAndAddr>& addresses)
+{
+	BNArchitectureAndAddress* addressList = new BNArchitectureAndAddress[addresses.size()];
+	for (size_t i = 0; i < addresses.size(); i++)
+	{
+		addressList[i].arch = addresses[i].arch->GetObject();
+		addressList[i].address = addresses[i].address;
+	}
+	BNSetGuidedSourceBlocks(m_object, addressList, addresses.size());
+	delete[] addressList;
+}
+
+
+void Function::AddGuidedSourceBlocks(const std::vector<ArchAndAddr>& addresses)
+{
+	BNArchitectureAndAddress* addressList = new BNArchitectureAndAddress[addresses.size()];
+	for (size_t i = 0; i < addresses.size(); i++)
+	{
+		addressList[i].arch = addresses[i].arch->GetObject();
+		addressList[i].address = addresses[i].address;
+	}
+	BNAddGuidedSourceBlocks(m_object, addressList, addresses.size());
+	delete[] addressList;
+}
+
+
+void Function::RemoveGuidedSourceBlocks(const std::vector<ArchAndAddr>& addresses)
+{
+	BNArchitectureAndAddress* addressList = new BNArchitectureAndAddress[addresses.size()];
+	for (size_t i = 0; i < addresses.size(); i++)
+	{
+		addressList[i].arch = addresses[i].arch->GetObject();
+		addressList[i].address = addresses[i].address;
+	}
+	BNRemoveGuidedSourceBlocks(m_object, addressList, addresses.size());
+	delete[] addressList;
+}
+
+
+bool Function::IsGuidedSourceBlock(Architecture* arch, uint64_t addr) const
+{
+	return BNIsGuidedSourceBlock(m_object, arch->GetObject(), addr);
+}
+
+
+std::vector<ArchAndAddr> Function::GetGuidedSourceBlocks()
+{
+	size_t count;
+	BNArchitectureAndAddress* addresses = BNGetGuidedSourceBlocks(m_object, &count);
+
+	std::vector<ArchAndAddr> result;
+	result.reserve(count);
+	for (size_t i = 0; i < count; i++)
+	{
+		result.push_back({new CoreArchitecture(addresses[i].arch), addresses[i].address});
+	}
+
+	BNFreeArchitectureAndAddressList(addresses);
+	return result;
+}
+
+
+bool Function::HasGuidedSourceBlocks() const
+{
+	return BNHasGuidedSourceBlocks(m_object);
+}
+
+
+vector<IndirectBranchInfo> Function::GetIndirectBranches()
+{
+	size_t count;
+	BNIndirectBranchInfo* branches = BNGetIndirectBranches(m_object, &count);
+
+	vector<IndirectBranchInfo> result;
+	result.reserve(count);
+	for (size_t i = 0; i < count; i++)
+	{
+		IndirectBranchInfo b;
+		b.sourceArch = new CoreArchitecture(branches[i].sourceArch);
+		b.sourceAddr = branches[i].sourceAddr;
+		b.destArch = new CoreArchitecture(branches[i].destArch);
+		b.destAddr = branches[i].destAddr;
+		b.autoDefined = branches[i].autoDefined;
+		result.push_back(b);
+	}
+
+	BNFreeIndirectBranchList(branches);
+	return result;
+}
+
+
+vector<IndirectBranchInfo> Function::GetIndirectBranchesAt(Architecture* arch, uint64_t addr)
+{
+	size_t count;
+	BNIndirectBranchInfo* branches = BNGetIndirectBranchesAt(m_object, arch->GetObject(), addr, &count);
+
+	vector<IndirectBranchInfo> result;
+	result.reserve(count);
+	for (size_t i = 0; i < count; i++)
+	{
+		IndirectBranchInfo b;
+		b.sourceArch = new CoreArchitecture(branches[i].sourceArch);
+		b.sourceAddr = branches[i].sourceAddr;
+		b.destArch = new CoreArchitecture(branches[i].destArch);
+		b.destAddr = branches[i].destAddr;
+		b.autoDefined = branches[i].autoDefined;
+		result.push_back(b);
+	}
+
+	BNFreeIndirectBranchList(branches);
+	return result;
+}
+
+
+Ref<Function> Function::GetCalleeForAnalysis(Ref<Platform> platform, uint64_t addr, bool exact)
+{
+	BNFunction* func = BNGetCalleeForAnalysis(m_object, platform->GetObject(), addr, exact);
+	if (!func)
+		return nullptr;
+	return new Function(func);
+}
+
+
+set<ArchAndAddr> Function::GetUnresolvedIndirectBranches()
+{
+	size_t count;
+	BNArchitectureAndAddress* addresses = BNGetUnresolvedIndirectBranches(m_object, &count);
+	set<ArchAndAddr> result;
+	for (size_t i = 0; i < count; i++)
+		result.insert({new CoreArchitecture(addresses[i].arch), addresses[i].address});
+	BNFreeArchitectureAndAddressList(addresses);
+	return result;
+}
+
+
+bool Function::HasUnresolvedIndirectBranches()
+{
+	return BNHasUnresolvedIndirectBranches(m_object);
+}
+
+
+void Function::SetAutoCallTypeAdjustment(Architecture* arch, uint64_t addr, const Confidence<Ref<Type>>& adjust)
+{
+	BNTypeWithConfidence apiObject;
+	apiObject.type = adjust.GetValue() ? adjust->GetObject() : nullptr;
+	apiObject.confidence = adjust.GetConfidence();
+	BNSetAutoCallTypeAdjustment(m_object, arch->GetObject(), addr, adjust.GetValue() ? &apiObject : nullptr);
+}
+
+
+void Function::SetAutoCallStackAdjustment(Architecture* arch, uint64_t addr, const Confidence<int64_t>& adjust)
+{
+	BNSetAutoCallStackAdjustment(m_object, arch->GetObject(), addr, adjust.GetValue(), adjust.GetConfidence());
+}
+
+
+void Function::SetAutoCallRegisterStackAdjustment(
+    Architecture* arch, uint64_t addr, const map<uint32_t, Confidence<int32_t>>& adjust)
+{
+	BNRegisterStackAdjustment* values = new BNRegisterStackAdjustment[adjust.size()];
+	size_t i = 0;
+	for (auto& j : adjust)
+	{
+		values[i].regStack = j.first;
+		values[i].adjustment = j.second.GetValue();
+		values[i].confidence = j.second.GetConfidence();
+		i++;
+	}
+	BNSetAutoCallRegisterStackAdjustment(m_object, arch->GetObject(), addr, values, adjust.size());
+	delete[] values;
+}
+
+
+void Function::SetAutoCallRegisterStackAdjustment(
+    Architecture* arch, uint64_t addr, uint32_t regStack, const Confidence<int32_t>& adjust)
+{
+	BNSetAutoCallRegisterStackAdjustmentForRegisterStack(
+	    m_object, arch->GetObject(), addr, regStack, adjust.GetValue(), adjust.GetConfidence());
+}
+
+
+void Function::SetUserCallTypeAdjustment(Architecture* arch, uint64_t addr, const Confidence<Ref<Type>>& adjust)
+{
+	BNTypeWithConfidence apiObject;
+	apiObject.type = adjust.GetValue() ? adjust->GetObject() : nullptr;
+	apiObject.confidence = adjust.GetConfidence();
+	BNSetUserCallTypeAdjustment(m_object, arch->GetObject(), addr, adjust.GetValue() ? &apiObject : nullptr);
+}
+
+
+void Function::SetUserCallStackAdjustment(Architecture* arch, uint64_t addr, const Confidence<int64_t>& adjust)
+{
+	BNSetUserCallStackAdjustment(m_object, arch->GetObject(), addr, adjust.GetValue(), adjust.GetConfidence());
+}
+
+
+void Function::SetUserCallRegisterStackAdjustment(
+    Architecture* arch, uint64_t addr, const map<uint32_t, Confidence<int32_t>>& adjust)
+{
+	BNRegisterStackAdjustment* values = new BNRegisterStackAdjustment[adjust.size()];
+	size_t i = 0;
+	for (auto& j : adjust)
+	{
+		values[i].regStack = j.first;
+		values[i].adjustment = j.second.GetValue();
+		values[i].confidence = j.second.GetConfidence();
+		i++;
+	}
+	BNSetUserCallRegisterStackAdjustment(m_object, arch->GetObject(), addr, values, adjust.size());
+	delete[] values;
+}
+
+
+void Function::SetUserCallRegisterStackAdjustment(
+    Architecture* arch, uint64_t addr, uint32_t regStack, const Confidence<int32_t>& adjust)
+{
+	BNSetUserCallRegisterStackAdjustmentForRegisterStack(
+	    m_object, arch->GetObject(), addr, regStack, adjust.GetValue(), adjust.GetConfidence());
+}
+
+
+Confidence<Ref<Type>> Function::GetCallTypeAdjustment(Architecture* arch, uint64_t addr)
+{
+	BNTypeWithConfidence result = BNGetCallTypeAdjustment(m_object, arch->GetObject(), addr);
+	return Confidence<Ref<Type>>(result.type ? new Type(result.type) : nullptr, result.confidence);
+}
+
+
+Confidence<int64_t> Function::GetCallStackAdjustment(Architecture* arch, uint64_t addr)
+{
+	BNOffsetWithConfidence result = BNGetCallStackAdjustment(m_object, arch->GetObject(), addr);
+	return Confidence<int64_t>(result.value, result.confidence);
+}
+
+
+map<uint32_t, Confidence<int32_t>> Function::GetCallRegisterStackAdjustment(Architecture* arch, uint64_t addr)
+{
+	size_t count;
+	BNRegisterStackAdjustment* adjust = BNGetCallRegisterStackAdjustment(m_object, arch->GetObject(), addr, &count);
+
+	map<uint32_t, Confidence<int32_t>> result;
+	for (size_t i = 0; i < count; i++)
+		result[adjust[i].regStack] = Confidence<int32_t>(adjust[i].adjustment, adjust[i].confidence);
+	BNFreeRegisterStackAdjustments(adjust);
+	return result;
+}
+
+
+Confidence<int32_t> Function::GetCallRegisterStackAdjustment(Architecture* arch, uint64_t addr, uint32_t regStack)
+{
+	BNRegisterStackAdjustment result =
+	    BNGetCallRegisterStackAdjustmentForRegisterStack(m_object, arch->GetObject(), addr, regStack);
+	return Confidence<int32_t>(result.adjustment, result.confidence);
+}
+
+
+bool Function::IsCallInstruction(Architecture* arch, uint64_t addr)
+{
+	return BNIsCallInstruction(m_object, arch->GetObject(), addr);
+}
+
+
+vector<vector<InstructionTextToken>> Function::GetBlockAnnotations(Architecture* arch, uint64_t addr)
+{
+	size_t count;
+	BNInstructionTextLine* lines = BNGetFunctionBlockAnnotations(m_object, arch->GetObject(), addr, &count);
+
+	vector<vector<InstructionTextToken>> result;
+	result.reserve(count);
+	for (size_t i = 0; i < count; i++)
+		result.push_back(InstructionTextToken::ConvertInstructionTextTokenList(lines[i].tokens, lines[i].count));
+
+	BNFreeInstructionTextLines(lines, count);
+	return result;
+}
+
+
+BNIntegerDisplayType Function::GetIntegerConstantDisplayType(
+    Architecture* arch, uint64_t instrAddr, uint64_t value, size_t operand)
+{
+	return BNGetIntegerConstantDisplayType(m_object, arch->GetObject(), instrAddr, value, operand);
+}
+
+
+void Function::SetIntegerConstantDisplayType(
+    Architecture* arch, uint64_t instrAddr, uint64_t value, size_t operand, BNIntegerDisplayType type, Ref<Type> enumType)
+{
+	if (enumType)
+		BNSetIntegerConstantDisplayType(m_object, arch->GetObject(), instrAddr, value, operand, type, enumType->GetRegisteredName()->GetTypeId().c_str());
+	else
+		BNSetIntegerConstantDisplayType(m_object, arch->GetObject(), instrAddr, value, operand, type, nullptr);
+}
+
+
+Ref<Type> Function::GetIntegerConstantDisplayTypeEnumType(
+    Architecture* arch, uint64_t instrAddr, uint64_t value, size_t operand)
+{
+	char* apiType = BNGetIntegerConstantDisplayTypeEnumerationType(m_object, arch->GetObject(), instrAddr, value, operand);
+	std::string apiTypeStr = std::string(apiType);
+	if (apiType)
+		BNFreeString(apiType);
+	Ref<Type> type = GetView()->GetTypeById(apiTypeStr);
+	return type;
+}
+
+
+std::pair<BNIntegerDisplayType, Ref<Type>> Function::GetIntegerConstantDisplayTypeAndEnumType(Architecture* arch,
+	uint64_t instrAddr, uint64_t value, size_t operand)
+{
+	auto displayType = BNGetIntegerConstantDisplayType(m_object, arch->GetObject(), instrAddr, value, operand);
+	char* apiType = BNGetIntegerConstantDisplayTypeEnumerationType(m_object, arch->GetObject(), instrAddr, value, operand);
+	std::string apiTypeStr = std::string(apiType);
+	if (apiType)
+		BNFreeString(apiType);
+	Ref<Type> type = GetView()->GetTypeById(apiTypeStr);
+	return {displayType, type};
+}
+
+
+BNHighlightColor Function::GetInstructionHighlight(Architecture* arch, uint64_t addr)
+{
+	return BNGetInstructionHighlight(m_object, arch->GetObject(), addr);
+}
+
+
+void Function::SetAutoInstructionHighlight(Architecture* arch, uint64_t addr, BNHighlightColor color)
+{
+	BNSetAutoInstructionHighlight(m_object, arch->GetObject(), addr, color);
+}
+
+
+void Function::SetAutoInstructionHighlight(
+    Architecture* arch, uint64_t addr, BNHighlightStandardColor color, uint8_t alpha)
+{
+	BNHighlightColor hc;
+	hc.style = StandardHighlightColor;
+	hc.color = color;
+	hc.mixColor = NoHighlightColor;
+	hc.mix = 0;
+	hc.r = 0;
+	hc.g = 0;
+	hc.b = 0;
+	hc.alpha = alpha;
+	SetAutoInstructionHighlight(arch, addr, hc);
+}
+
+
+void Function::SetAutoInstructionHighlight(Architecture* arch, uint64_t addr, BNHighlightStandardColor color,
+    BNHighlightStandardColor mixColor, uint8_t mix, uint8_t alpha)
+{
+	BNHighlightColor hc;
+	hc.style = MixedHighlightColor;
+	hc.color = color;
+	hc.mixColor = mixColor;
+	hc.mix = mix;
+	hc.r = 0;
+	hc.g = 0;
+	hc.b = 0;
+	hc.alpha = alpha;
+	SetAutoInstructionHighlight(arch, addr, hc);
+}
+
+
+void Function::SetAutoInstructionHighlight(
+    Architecture* arch, uint64_t addr, uint8_t r, uint8_t g, uint8_t b, uint8_t alpha)
+{
+	BNHighlightColor hc;
+	hc.style = CustomHighlightColor;
+	hc.color = NoHighlightColor;
+	hc.mixColor = NoHighlightColor;
+	hc.mix = 0;
+	hc.r = r;
+	hc.g = g;
+	hc.b = b;
+	hc.alpha = alpha;
+	SetAutoInstructionHighlight(arch, addr, hc);
+}
+
+
+void Function::SetUserInstructionHighlight(Architecture* arch, uint64_t addr, BNHighlightColor color)
+{
+	BNSetUserInstructionHighlight(m_object, arch->GetObject(), addr, color);
+}
+
+
+void Function::SetUserInstructionHighlight(
+    Architecture* arch, uint64_t addr, BNHighlightStandardColor color, uint8_t alpha)
+{
+	BNHighlightColor hc;
+	hc.style = StandardHighlightColor;
+	hc.color = color;
+	hc.mixColor = NoHighlightColor;
+	hc.mix = 0;
+	hc.r = 0;
+	hc.g = 0;
+	hc.b = 0;
+	hc.alpha = alpha;
+	SetUserInstructionHighlight(arch, addr, hc);
+}
+
+
+void Function::SetUserInstructionHighlight(Architecture* arch, uint64_t addr, BNHighlightStandardColor color,
+    BNHighlightStandardColor mixColor, uint8_t mix, uint8_t alpha)
+{
+	BNHighlightColor hc;
+	hc.style = MixedHighlightColor;
+	hc.color = color;
+	hc.mixColor = mixColor;
+	hc.mix = mix;
+	hc.r = 0;
+	hc.g = 0;
+	hc.b = 0;
+	hc.alpha = alpha;
+	SetUserInstructionHighlight(arch, addr, hc);
+}
+
+
+void Function::SetUserInstructionHighlight(
+    Architecture* arch, uint64_t addr, uint8_t r, uint8_t g, uint8_t b, uint8_t alpha)
+{
+	BNHighlightColor hc;
+	hc.style = CustomHighlightColor;
+	hc.color = NoHighlightColor;
+	hc.mixColor = NoHighlightColor;
+	hc.mix = 0;
+	hc.r = r;
+	hc.g = g;
+	hc.b = b;
+	hc.alpha = alpha;
+	SetUserInstructionHighlight(arch, addr, hc);
+}
+
+
+std::vector<TagReference> Function::GetAllTagReferences()
+{
+	size_t count;
+	BNTagReference* refs = BNGetFunctionAllTagReferences(m_object, &count);
+	return TagReference::ConvertAndFreeTagReferenceList(refs, count);
+}
+
+
+std::vector<TagReference> Function::GetTagReferencesOfType(Ref<TagType> tagType)
+{
+	size_t count;
+	BNTagReference* refs = BNGetFunctionTagReferencesOfType(m_object, tagType->GetObject(), &count);
+	return TagReference::ConvertAndFreeTagReferenceList(refs, count);
+}
+
+
+std::vector<TagReference> Function::GetAddressTagReferences()
+{
+	size_t count;
+	BNTagReference* refs = BNGetAddressTagReferences(m_object, &count);
+	return TagReference::ConvertAndFreeTagReferenceList(refs, count);
+}
+
+
+std::vector<TagReference> Function::GetAutoAddressTagReferences()
+{
+	size_t count;
+	BNTagReference* refs = BNGetAutoAddressTagReferences(m_object, &count);
+	return TagReference::ConvertAndFreeTagReferenceList(refs, count);
+}
+
+
+std::vector<TagReference> Function::GetUserAddressTagReferences()
+{
+	size_t count;
+	BNTagReference* refs = BNGetUserAddressTagReferences(m_object, &count);
+	return TagReference::ConvertAndFreeTagReferenceList(refs, count);
+}
+
+
+std::vector<Ref<Tag>> Function::GetAddressTags(Architecture* arch, uint64_t addr)
+{
+	size_t count;
+	BNTag** tags = BNGetAddressTags(m_object, arch->GetObject(), addr, &count);
+	return Tag::ConvertAndFreeTagList(tags, count);
+}
+
+
+std::vector<Ref<Tag>> Function::GetAutoAddressTags(Architecture* arch, uint64_t addr)
+{
+	size_t count;
+	BNTag** tags = BNGetAutoAddressTags(m_object, arch->GetObject(), addr, &count);
+	return Tag::ConvertAndFreeTagList(tags, count);
+}
+
+
+std::vector<Ref<Tag>> Function::GetUserAddressTags(Architecture* arch, uint64_t addr)
+{
+	size_t count;
+	BNTag** tags = BNGetUserAddressTags(m_object, arch->GetObject(), addr, &count);
+	return Tag::ConvertAndFreeTagList(tags, count);
+}
+
+
+std::vector<Ref<Tag>> Function::GetAddressTagsOfType(Architecture* arch, uint64_t addr, Ref<TagType> tagType)
+{
+	size_t count;
+	BNTag** tags = BNGetAddressTagsOfType(m_object, arch->GetObject(), addr, tagType->GetObject(), &count);
+	return Tag::ConvertAndFreeTagList(tags, count);
+}
+
+
+std::vector<Ref<Tag>> Function::GetAutoAddressTagsOfType(Architecture* arch, uint64_t addr, Ref<TagType> tagType)
+{
+	size_t count;
+	BNTag** tags = BNGetAutoAddressTagsOfType(m_object, arch->GetObject(), addr, tagType->GetObject(), &count);
+	return Tag::ConvertAndFreeTagList(tags, count);
+}
+
+
+std::vector<Ref<Tag>> Function::GetUserAddressTagsOfType(Architecture* arch, uint64_t addr, Ref<TagType> tagType)
+{
+	size_t count;
+	BNTag** tags = BNGetUserAddressTagsOfType(m_object, arch->GetObject(), addr, tagType->GetObject(), &count);
+	return Tag::ConvertAndFreeTagList(tags, count);
+}
+
+
+std::vector<TagReference> Function::GetAddressTagsInRange(Architecture* arch, uint64_t start, uint64_t end)
+{
+	size_t count;
+	BNTagReference* refs = BNGetAddressTagsInRange(m_object, arch->GetObject(), start, end, &count);
+	return TagReference::ConvertAndFreeTagReferenceList(refs, count);
+}
+
+
+std::vector<TagReference> Function::GetAutoAddressTagsInRange(Architecture* arch, uint64_t start, uint64_t end)
+{
+	size_t count;
+	BNTagReference* refs = BNGetAutoAddressTagsInRange(m_object, arch->GetObject(), start, end, &count);
+	return TagReference::ConvertAndFreeTagReferenceList(refs, count);
+}
+
+
+std::vector<TagReference> Function::GetUserAddressTagsInRange(Architecture* arch, uint64_t start, uint64_t end)
+{
+	size_t count;
+	BNTagReference* refs = BNGetUserAddressTagsInRange(m_object, arch->GetObject(), start, end, &count);
+	return TagReference::ConvertAndFreeTagReferenceList(refs, count);
+}
+
+
+void Function::AddAutoAddressTag(Architecture* arch, uint64_t addr, Ref<Tag> tag)
+{
+	BNAddAutoAddressTag(m_object, arch->GetObject(), addr, tag->GetObject());
+}
+
+
+void Function::RemoveAutoAddressTag(Architecture* arch, uint64_t addr, Ref<Tag> tag)
+{
+	BNRemoveAutoAddressTag(m_object, arch->GetObject(), addr, tag->GetObject());
+}
+
+
+void Function::RemoveAutoAddressTagsOfType(Architecture* arch, uint64_t addr, Ref<TagType> tagType)
+{
+	BNRemoveAutoAddressTagsOfType(m_object, arch->GetObject(), addr, tagType->GetObject());
+}
+
+
+void Function::AddUserAddressTag(Architecture* arch, uint64_t addr, Ref<Tag> tag)
+{
+	BNAddUserAddressTag(m_object, arch->GetObject(), addr, tag->GetObject());
+}
+
+
+void Function::RemoveUserAddressTag(Architecture* arch, uint64_t addr, Ref<Tag> tag)
+{
+	BNRemoveUserAddressTag(m_object, arch->GetObject(), addr, tag->GetObject());
+}
+
+
+void Function::RemoveUserAddressTagsOfType(Architecture* arch, uint64_t addr, Ref<TagType> tagType)
+{
+	BNRemoveUserAddressTagsOfType(m_object, arch->GetObject(), addr, tagType->GetObject());
+}
+
+
+std::vector<TagReference> Function::GetFunctionTagReferences()
+{
+	size_t count;
+	BNTagReference* refs = BNGetFunctionTagReferences(m_object, &count);
+	return TagReference::ConvertAndFreeTagReferenceList(refs, count);
+}
+
+
+std::vector<TagReference> Function::GetAutoFunctionTagReferences()
+{
+	size_t count;
+	BNTagReference* refs = BNGetAutoFunctionTagReferences(m_object, &count);
+	return TagReference::ConvertAndFreeTagReferenceList(refs, count);
+}
+
+
+std::vector<TagReference> Function::GetUserFunctionTagReferences()
+{
+	size_t count;
+	BNTagReference* refs = BNGetUserFunctionTagReferences(m_object, &count);
+	return TagReference::ConvertAndFreeTagReferenceList(refs, count);
+}
+
+
+std::vector<Ref<Tag>> Function::GetFunctionTags()
+{
+	size_t count;
+	BNTag** tags = BNGetFunctionTags(m_object, &count);
+	return Tag::ConvertAndFreeTagList(tags, count);
+}
+
+
+std::vector<Ref<Tag>> Function::GetAutoFunctionTags()
+{
+	size_t count;
+	BNTag** tags = BNGetAutoFunctionTags(m_object, &count);
+	return Tag::ConvertAndFreeTagList(tags, count);
+}
+
+
+std::vector<Ref<Tag>> Function::GetUserFunctionTags()
+{
+	size_t count;
+	BNTag** tags = BNGetUserFunctionTags(m_object, &count);
+	return Tag::ConvertAndFreeTagList(tags, count);
+}
+
+
+std::vector<Ref<Tag>> Function::GetFunctionTagsOfType(Ref<TagType> tagType)
+{
+	size_t count;
+	BNTag** tags = BNGetFunctionTagsOfType(m_object, tagType->GetObject(), &count);
+	return Tag::ConvertAndFreeTagList(tags, count);
+}
+
+
+std::vector<Ref<Tag>> Function::GetAutoFunctionTagsOfType(Ref<TagType> tagType)
+{
+	size_t count;
+	BNTag** tags = BNGetAutoFunctionTagsOfType(m_object, tagType->GetObject(), &count);
+	return Tag::ConvertAndFreeTagList(tags, count);
+}
+
+
+std::vector<Ref<Tag>> Function::GetUserFunctionTagsOfType(Ref<TagType> tagType)
+{
+	size_t count;
+	BNTag** tags = BNGetUserFunctionTagsOfType(m_object, tagType->GetObject(), &count);
+	return Tag::ConvertAndFreeTagList(tags, count);
+}
+
+
+void Function::AddAutoFunctionTag(Ref<Tag> tag)
+{
+	BNAddAutoFunctionTag(m_object, tag->GetObject());
+}
+
+
+void Function::RemoveAutoFunctionTag(Ref<Tag> tag)
+{
+	BNRemoveAutoFunctionTag(m_object, tag->GetObject());
+}
+
+
+void Function::RemoveAutoFunctionTagsOfType(Ref<TagType> tagType)
+{
+	BNRemoveAutoFunctionTagsOfType(m_object, tagType->GetObject());
+}
+
+
+void Function::AddUserFunctionTag(Ref<Tag> tag)
+{
+	BNAddUserFunctionTag(m_object, tag->GetObject());
+}
+
+
+void Function::RemoveUserFunctionTag(Ref<Tag> tag)
+{
+	BNRemoveUserFunctionTag(m_object, tag->GetObject());
+}
+
+
+void Function::RemoveUserFunctionTagsOfType(Ref<TagType> tagType)
+{
+	BNRemoveUserFunctionTagsOfType(m_object, tagType->GetObject());
+}
+
+
+Ref<Tag> Function::CreateAutoAddressTag(
+    Architecture* arch, uint64_t addr, const std::string& tagTypeName, const std::string& data, bool unique)
+{
+	Ref<TagType> tagType = GetView()->GetTagTypeByName(tagTypeName);
+	if (!tagType)
+		return nullptr;
+
+	return CreateAutoAddressTag(arch, addr, tagType, data, unique);
+}
+
+
+Ref<Tag> Function::CreateAutoAddressTag(
+    Architecture* arch, uint64_t addr, Ref<TagType> tagType, const std::string& data, bool unique)
+{
+	if (unique)
+	{
+		auto tags = GetAddressTags(arch, addr);
+		for (const auto& tag : tags)
+		{
+			if (tag->GetType() == tagType && tag->GetData() == data)
+				return nullptr;
+		}
+	}
+
+	Ref<Tag> tag = new Tag(tagType, data);
+	GetView()->AddTag(tag);
+
+	AddAutoAddressTag(arch, addr, tag);
+	return tag;
+}
+
+
+Ref<Tag> Function::CreateUserAddressTag(
+    Architecture* arch, uint64_t addr, const std::string& tagTypeName, const std::string& data, bool unique)
+{
+	Ref<TagType> tagType = GetView()->GetTagTypeByName(tagTypeName);
+	if (!tagType)
+		return nullptr;
+
+	return CreateUserAddressTag(arch, addr, tagType, data, unique);
+}
+
+
+Ref<Tag> Function::CreateUserAddressTag(
+    Architecture* arch, uint64_t addr, Ref<TagType> tagType, const std::string& data, bool unique)
+{
+	if (unique)
+	{
+		auto tags = GetAddressTags(arch, addr);
+		for (const auto& tag : tags)
+		{
+			if (tag->GetType() == tagType && tag->GetData() == data)
+				return nullptr;
+		}
+	}
+	Ref<Tag> tag = new Tag(tagType, data);
+	GetView()->AddTag(tag);
+
+	AddUserAddressTag(arch, addr, tag);
+	return tag;
+}
+
+
+Ref<Tag> Function::CreateAutoFunctionTag(const std::string& tagTypeName, const std::string& data, bool unique)
+{
+	Ref<TagType> tagType = GetView()->GetTagTypeByName(tagTypeName);
+	if (!tagType)
+		return nullptr;
+
+	return CreateAutoFunctionTag(tagType, data, unique);
+}
+
+
+Ref<Tag> Function::CreateAutoFunctionTag(Ref<TagType> tagType, const std::string& data, bool unique)
+{
+	if (unique)
+	{
+		auto tags = GetFunctionTags();
+		for (const auto& tag : tags)
+		{
+			if (tag->GetType() == tagType && tag->GetData() == data)
+				return nullptr;
+		}
+	}
+
+	Ref<Tag> tag = new Tag(tagType, data);
+	GetView()->AddTag(tag);
+
+	AddAutoFunctionTag(tag);
+	return tag;
+}
+
+
+Ref<Tag> Function::CreateUserFunctionTag(const std::string& tagTypeName, const std::string& data, bool unique)
+{
+	Ref<TagType> tagType = GetView()->GetTagTypeByName(tagTypeName);
+	if (!tagType)
+		return nullptr;
+
+	return CreateUserFunctionTag(tagType, data, unique);
+}
+
+
+Ref<Tag> Function::CreateUserFunctionTag(Ref<TagType> tagType, const std::string& data, bool unique)
+{
+	if (unique)
+	{
+		auto tags = GetFunctionTags();
+		for (const auto& tag : tags)
+		{
+			if (tag->GetType() == tagType && tag->GetData() == data)
+				return nullptr;
+		}
+	}
+
+	Ref<Tag> tag = new Tag(tagType, data);
+	GetView()->AddTag(tag);
+
+	AddUserFunctionTag(tag);
+	return tag;
+}
+
+
+Confidence<RegisterValue> Function::GetGlobalPointerValue() const
+{
+	BNRegisterValueWithConfidence value = BNGetFunctionGlobalPointerValue(m_object);
+	return Confidence<RegisterValue>(RegisterValue::FromAPIObject(value.value), value.confidence);
+}
+
+
+bool Function::UsesIncomingGlobalPointer() const
+{
+	return BNFunctionUsesIncomingGlobalPointer(m_object);
+}
+
+
+Confidence<RegisterValue> Function::GetRegisterValueAtExit(uint32_t reg) const
+{
+	BNRegisterValueWithConfidence value = BNGetFunctionRegisterValueAtExit(m_object, reg);
+	return Confidence<RegisterValue>(RegisterValue::FromAPIObject(value.value), value.confidence);
+}
+
+
+void Function::Analyze()
+{
+	BNAnalyzeFunction(m_object);
+}
+
+
+void Function::Reanalyze(BNFunctionUpdateType type)
+{
+	BNReanalyzeFunction(m_object, type);
+}
+
+
+void Function::MarkUpdatesRequired(BNFunctionUpdateType type)
+{
+	BNMarkUpdatesRequired(m_object, type);
+}
+
+
+void Function::MarkCallerUpdatesRequired(BNFunctionUpdateType type)
+{
+	BNMarkCallerUpdatesRequired(m_object, type);
+}
+
+
+Ref<Workflow> Function::GetWorkflow()
+{
+	BNWorkflow* workflow = BNGetWorkflowForFunction(m_object);
+	if (!workflow)
+		return nullptr;
+	return new Workflow(workflow, this);
+}
+
+
+void Function::RequestAdvancedAnalysisData()
+{
+	BNRequestAdvancedFunctionAnalysisData(m_object);
+#ifdef WIN32
+	InterlockedIncrement((LONG*)&m_advancedAnalysisRequests);
+#else
+	__sync_fetch_and_add(&m_advancedAnalysisRequests, 1);
+#endif
+}
+
+
+void Function::ReleaseAdvancedAnalysisData()
+{
+	BNReleaseAdvancedFunctionAnalysisData(m_object);
+#ifdef WIN32
+	InterlockedDecrement((LONG*)&m_advancedAnalysisRequests);
+#else
+	__sync_fetch_and_add(&m_advancedAnalysisRequests, -1);
+#endif
+}
+
+
+map<string, double> Function::GetAnalysisPerformanceInfo()
+{
+	size_t count;
+	BNPerformanceInfo* info = BNGetFunctionAnalysisPerformanceInfo(m_object, &count);
+
+	map<string, double> result;
+	for (size_t i = 0; i < count; i++)
+		result[info[i].name] = info[i].seconds;
+	BNFreeAnalysisPerformanceInfo(info, count);
+	return result;
+}
+
+
+vector<DisassemblyTextLine> Function::GetTypeTokens(DisassemblySettings* settings)
+{
+	size_t count;
+	BNDisassemblyTextLine* lines =
+	    BNGetFunctionTypeTokens(m_object, settings ? settings->GetObject() : nullptr, &count);
+
+	vector<DisassemblyTextLine> result = ParseAPIObjectList<DisassemblyTextLine>(lines, count);
+	BNFreeDisassemblyTextLines(lines, count);
+	return result;
+}
+
+
+bool Function::IsFunctionTooLarge()
+{
+	return BNIsFunctionTooLarge(m_object);
+}
+
+
+bool Function::IsAnalysisSkipped()
+{
+	return BNIsFunctionAnalysisSkipped(m_object);
+}
+
+
+BNAnalysisSkipReason Function::GetAnalysisSkipReason()
+{
+	return BNGetAnalysisSkipReason(m_object);
+}
+
+
+BNFunctionAnalysisSkipOverride Function::GetAnalysisSkipOverride()
+{
+	return BNGetFunctionAnalysisSkipOverride(m_object);
+}
+
+
+void Function::SetAnalysisSkipOverride(BNFunctionAnalysisSkipOverride skip)
+{
+	BNSetFunctionAnalysisSkipOverride(m_object, skip);
+}
+
+
+Ref<FlowGraph> Function::GetUnresolvedStackAdjustmentGraph()
+{
+	BNFlowGraph* graph = BNGetUnresolvedStackAdjustmentGraph(m_object);
+	if (!graph)
+		return nullptr;
+	return new CoreFlowGraph(graph);
+}
+
+
+void Function::SetUserVariableValue(const Variable& var, const ArchAndAddr& defAddr, PossibleValueSet& value, bool after)
+{
+	auto defSite = BNArchitectureAndAddress();
+	defSite.arch = defAddr.arch->m_object;
+	defSite.address = defAddr.address;
+
+	auto var_data = BNVariable();
+	var_data.type = var.type;
+	var_data.index = var.index;
+	var_data.storage = var.storage;
+
+	auto valueObj = value.ToAPIObject();
+
+	BNSetUserVariableValue(m_object, &var_data, &defSite, after, &valueObj);
+
+	PossibleValueSet::FreeAPIObject(&valueObj);
+}
+
+
+void Function::ClearUserVariableValue(const Variable& var, const ArchAndAddr& defAddr, bool after)
+{
+	auto defSite = BNArchitectureAndAddress();
+	defSite.arch = defAddr.arch->m_object;
+	defSite.address = defAddr.address;
+
+	auto var_data = BNVariable();
+	var_data.type = var.type;
+	var_data.index = var.index;
+	var_data.storage = var.storage;
+
+	BNClearUserVariableValue(m_object, &var_data, &defSite, after);
+}
+
+
+map<Variable, map<pair<ArchAndAddr, bool>, PossibleValueSet>> Function::GetAllUserVariableValues()
+{
+	size_t count;
+	map<Variable, map<pair<ArchAndAddr, bool>, PossibleValueSet>> result;
+	BNUserVariableValue* var_values = BNGetAllUserVariableValues(m_object, &count);
+
+	for (size_t i = 0; i < count; i++)
+	{
+		Variable var(var_values[i].var);
+		Architecture* arch = new CoreArchitecture(var_values[i].defSite.arch);
+		uint64_t address = var_values[i].defSite.address;
+		ArchAndAddr defSite(arch, address);
+		PossibleValueSet value = PossibleValueSet::FromAPIObject(var_values[i].value);
+		result[var][{defSite, var_values[i].after}] = value;
+	}
+
+	BNFreeUserVariableValues(var_values);
+	return result;
+}
+
+
+void Function::ClearAllUserVariableValues()
+{
+	const map<Variable, map<pair<ArchAndAddr, bool>, PossibleValueSet>>& allValues = GetAllUserVariableValues();
+	for (auto& valuePair : allValues)
+	{
+		for (auto& valMap : valuePair.second)
+		{
+			ClearUserVariableValue(valuePair.first, valMap.first.first, valMap.first.second);
+		}
+	}
+}
+
+
+void Function::CreateForcedVariableVersion(const Variable& var, const ArchAndAddr& location)
+{
+	auto defSite = BNArchitectureAndAddress();
+	defSite.arch = location.arch->m_object;
+	defSite.address = location.address;
+
+	auto var_data = BNVariable();
+	var_data.type = var.type;
+	var_data.index = var.index;
+	var_data.storage = var.storage;
+
+	BNCreateForcedVariableVersion(m_object, &var_data, &defSite);
+}
+
+
+void Function::ClearForcedVariableVersion(const Variable& var, const ArchAndAddr& location)
+{
+	auto defSite = BNArchitectureAndAddress();
+	defSite.arch = location.arch->m_object;
+	defSite.address = location.address;
+
+	auto var_data = BNVariable();
+	var_data.type = var.type;
+	var_data.index = var.index;
+	var_data.storage = var.storage;
+
+	BNClearForcedVariableVersion(m_object, &var_data, &defSite);
+}
+
+
+void Function::SetFieldResolutionForVariableAt(const Variable& var, const ArchAndAddr& location, FieldResolutionInfo* info)
+{
+	auto defSite = BNArchitectureAndAddress();
+	defSite.arch = location.arch->m_object;
+	defSite.address = location.address;
+
+	auto var_data = BNVariable();
+	var_data.type = var.type;
+	var_data.index = var.index;
+	var_data.storage = var.storage;
+
+	BNSetFieldResolutionForVariableAt(m_object, &var_data, &defSite, info->m_object);
+}
+
+
+void Function::ClearFieldResolutionForVariableAt(const Variable& var, const ArchAndAddr& location)
+{
+	auto defSite = BNArchitectureAndAddress();
+	defSite.arch = location.arch->m_object;
+	defSite.address = location.address;
+
+	auto var_data = BNVariable();
+	var_data.type = var.type;
+	var_data.index = var.index;
+	var_data.storage = var.storage;
+
+	BNClearFieldResolutionForVariableAt(m_object, &var_data, &defSite);
+}
+
+
+Ref<FieldResolutionInfo> Function::GetFieldResolutionForVariableAt(const Variable& var, const ArchAndAddr& location)
+{
+	auto defSite = BNArchitectureAndAddress();
+	defSite.arch = location.arch->m_object;
+	defSite.address = location.address;
+
+	auto var_data = BNVariable();
+	var_data.type = var.type;
+	var_data.index = var.index;
+	var_data.storage = var.storage;
+
+	BNFieldResolutionInfo* result = BNGetFieldResolutionForVariableAt(m_object, &var_data, &defSite);
+	return result ? new FieldResolutionInfo(result) : nullptr;
+}
+
+
+std::map<Variable, std::map<ArchAndAddr, Ref<FieldResolutionInfo>>> Function::GetAllFieldResolutions()
+{
+	map<Variable, map<ArchAndAddr, Ref<FieldResolutionInfo>>> result;
+
+	size_t count;
+	BNVariableFieldResolutionInfo* info = BNGetAllVariableFieldResolutions(m_object, &count);
+
+	for (size_t i = 0; i < count; i++)
+	{
+		Variable var(info[i].var.type, info[i].var.index, info[i].var.storage);
+		ArchAndAddr location(new CoreArchitecture(info[i].location.arch), info[i].location.address);
+		Ref<FieldResolutionInfo> fieldInfo(new FieldResolutionInfo(BNNewFieldResolutionInfoReference(info[i].info)));
+
+		result[var][location] = fieldInfo;
+	}
+
+	BNFreeVariableFieldResolutions(info, count);
+	return result;
+}
+
+
+void Function::RequestDebugReport(const string& name)
+{
+	BNRequestFunctionDebugReport(m_object, name.c_str());
+}
+
+
+bool Function::CheckForDebugReport(const string& name)
+{
+	return BNFunctionCheckForDebugReport(m_object, name.c_str());
+}
+
+
+string Function::GetGotoLabelName(uint64_t labelId)
+{
+	char* name = BNGetGotoLabelName(m_object, labelId);
+	string result = name;
+	BNFreeString(name);
+	return result;
+}
+
+
+void Function::SetGotoLabelName(uint64_t labelId, const std::string& name)
+{
+	BNSetUserGotoLabelName(m_object, labelId, name.c_str());
+}
+
+
+BNDeadStoreElimination Function::GetVariableDeadStoreElimination(const Variable& var)
+{
+	BNVariable varData;
+	varData.type = var.type;
+	varData.index = var.index;
+	varData.storage = var.storage;
+	return BNGetFunctionVariableDeadStoreElimination(m_object, &varData);
+}
+
+
+void Function::SetVariableDeadStoreElimination(const Variable& var, BNDeadStoreElimination mode)
+{
+	BNVariable varData;
+	varData.type = var.type;
+	varData.index = var.index;
+	varData.storage = var.storage;
+	BNSetFunctionVariableDeadStoreElimination(m_object, &varData, mode);
+}
+
+
+BNExprFolding Function::GetExprFolding(uint64_t addr)
+{
+	return BNGetExprFolding(m_object, addr);
+}
+
+
+void Function::SetExprFolding(uint64_t addr, BNExprFolding mode)
+{
+	BNSetExprFolding(m_object, addr, mode);
+}
+
+
+bool Function::IsConditionInverted(uint64_t addr)
+{
+	return BNIsConditionInverted(m_object, addr);
+}
+
+
+void Function::SetConditionInverted(uint64_t addr, bool invert)
+{
+	BNSetConditionInverted(m_object, addr, invert);
+}
+
+
+BNEarlyReturn Function::GetEarlyReturn(uint64_t addr)
+{
+	return BNGetEarlyReturn(m_object, addr);
+}
+
+
+void Function::SetEarlyReturn(uint64_t addr, BNEarlyReturn mode)
+{
+	BNSetEarlyReturn(m_object, addr, mode);
+}
+
+
+BNSwitchRecovery Function::GetSwitchRecovery(uint64_t addr)
+{
+	return BNGetSwitchRecovery(m_object, addr);
+}
+
+
+void Function::SetSwitchRecovery(uint64_t addr, BNSwitchRecovery mode)
+{
+	BNSetSwitchRecovery(m_object, addr, mode);
+}
+
+
+std::map<Variable, std::set<Variable>> Function::GetMergedVariables()
+{
+	size_t count;
+	BNMergedVariable* mergedVars = BNGetMergedVariables(m_object, &count);
+
+	std::map<Variable, std::set<Variable>> result;
+	for (size_t i = 0; i < count; i++)
+	{
+		Variable target;
+		target.type = mergedVars[i].target.type;
+		target.index = mergedVars[i].target.index;
+		target.storage = mergedVars[i].target.storage;
+
+		set<Variable> sources;
+		for (size_t j = 0; j < mergedVars[i].sourceCount; j++)
+		{
+			Variable source;
+			source.type = mergedVars[i].sources[j].type;
+			source.index = mergedVars[i].sources[j].index;
+			source.storage = mergedVars[i].sources[j].storage;
+			sources.insert(source);
+		}
+
+		result[target] = sources;
+	}
+
+	BNFreeMergedVariableList(mergedVars, count);
+	return result;
+}
+
+
+void Function::MergeVariables(const Variable& target, const std::set<Variable>& sources)
+{
+	BNVariable targetData;
+	targetData.type = target.type;
+	targetData.index = target.index;
+	targetData.storage = target.storage;
+
+	BNVariable* sourceData = new BNVariable[sources.size()];
+	size_t i = 0;
+	for (auto& var : sources)
+	{
+		sourceData[i].type = var.type;
+		sourceData[i].index = var.index;
+		sourceData[i].storage = var.storage;
+		i++;
+	}
+
+	BNMergeVariables(m_object, &targetData, sourceData, sources.size());
+	delete[] sourceData;
+}
+
+
+void Function::UnmergeVariables(const Variable& target, const std::set<Variable>& sources)
+{
+	BNVariable targetData;
+	targetData.type = target.type;
+	targetData.index = target.index;
+	targetData.storage = target.storage;
+
+	BNVariable* sourceData = new BNVariable[sources.size()];
+	size_t i = 0;
+	for (auto& var : sources)
+	{
+		sourceData[i].type = var.type;
+		sourceData[i].index = var.index;
+		sourceData[i].storage = var.storage;
+		i++;
+	}
+
+	BNUnmergeVariables(m_object, &targetData, sourceData, sources.size());
+	delete[] sourceData;
+}
+
+
+std::set<Variable> Function::GetSplitVariables()
+{
+	size_t count = 0;
+	BNVariable* vars = BNGetSplitVariables(m_object, &count);
+
+	std::set<Variable> result;
+	for (size_t i = 0; i < count; i++)
+	{
+		Variable var;
+		var.type = vars[i].type;
+		var.index = vars[i].index;
+		var.storage = vars[i].storage;
+		result.insert(var);
+	}
+
+	BNFreeVariableList(vars);
+	return result;
+}
+
+
+void Function::SplitVariable(const Variable& var)
+{
+	BNSplitVariable(m_object, &var);
+}
+
+
+void Function::UnsplitVariable(const Variable& var)
+{
+	BNUnsplitVariable(m_object, &var);
+}
+
+
+vector<ILReferenceSource> Function::GetMediumLevelILVariableReferences(const Variable& var)
+{
+	size_t count;
+
+	BNVariable varData;
+	varData.type = var.type;
+	varData.index = var.index;
+	varData.storage = var.storage;
+
+	BNILReferenceSource* refs = BNGetMediumLevelILVariableReferences(m_object, &varData, &count);
+
+	vector<ILReferenceSource> result;
+	result.reserve(count);
+	for (size_t i = 0; i < count; i++)
+	{
+		ILReferenceSource src;
+		src.func = new Function(BNNewFunctionReference(refs[i].func));
+		src.arch = new CoreArchitecture(refs[i].arch);
+		src.addr = refs[i].addr;
+		src.type = refs[i].type;
+		src.exprId = refs[i].exprId;
+		result.push_back(src);
+	}
+
+	BNFreeILReferences(refs, count);
+	return result;
+}
+
+
+vector<VariableReferenceSource> Function::GetMediumLevelILVariableReferencesFrom(Architecture* arch, uint64_t addr)
+{
+	size_t count;
+	BNVariableReferenceSource* refs =
+	    BNGetMediumLevelILVariableReferencesFrom(m_object, arch->GetObject(), addr, &count);
+
+	vector<VariableReferenceSource> result;
+	result.reserve(count);
+	for (size_t i = 0; i < count; i++)
+	{
+		VariableReferenceSource src;
+		src.var.index = refs[i].var.index;
+		src.var.storage = refs[i].var.storage;
+		src.var.type = refs[i].var.type;
+
+		src.source.func = new Function(BNNewFunctionReference(refs[i].source.func));
+		src.source.arch = new CoreArchitecture(refs[i].source.arch);
+		src.source.addr = refs[i].source.addr;
+		src.source.type = refs[i].source.type;
+		src.source.exprId = refs[i].source.exprId;
+
+		result.push_back(src);
+	}
+
+	BNFreeVariableReferenceSourceList(refs, count);
+	return result;
+}
+
+
+vector<VariableReferenceSource> Function::GetMediumLevelILVariableReferencesInRange(
+    Architecture* arch, uint64_t addr, uint64_t len)
+{
+	size_t count;
+	BNVariableReferenceSource* refs =
+	    BNGetMediumLevelILVariableReferencesInRange(m_object, arch->GetObject(), addr, len, &count);
+
+	vector<VariableReferenceSource> result;
+	result.reserve(count);
+	for (size_t i = 0; i < count; i++)
+	{
+		VariableReferenceSource src;
+		src.var.index = refs[i].var.index;
+		src.var.storage = refs[i].var.storage;
+		src.var.type = refs[i].var.type;
+
+		src.source.func = new Function(BNNewFunctionReference(refs[i].source.func));
+		src.source.arch = new CoreArchitecture(refs[i].source.arch);
+		src.source.addr = refs[i].source.addr;
+		src.source.type = refs[i].source.type;
+		src.source.exprId = refs[i].source.exprId;
+
+		result.push_back(src);
+	}
+
+	BNFreeVariableReferenceSourceList(refs, count);
+	return result;
+}
+
+
+vector<ILReferenceSource> Function::GetHighLevelILVariableReferences(const Variable& var)
+{
+	size_t count;
+
+	BNVariable varData;
+	varData.type = var.type;
+	varData.index = var.index;
+	varData.storage = var.storage;
+
+	BNILReferenceSource* refs = BNGetHighLevelILVariableReferences(m_object, &varData, &count);
+
+	vector<ILReferenceSource> result;
+	result.reserve(count);
+	for (size_t i = 0; i < count; i++)
+	{
+		ILReferenceSource src;
+		src.func = new Function(BNNewFunctionReference(refs[i].func));
+		src.arch = new CoreArchitecture(refs[i].arch);
+		src.addr = refs[i].addr;
+		src.type = refs[i].type;
+		src.exprId = refs[i].exprId;
+		result.push_back(src);
+	}
+
+	BNFreeILReferences(refs, count);
+	return result;
+}
+
+
+vector<VariableReferenceSource> Function::GetHighLevelILVariableReferencesFrom(Architecture* arch, uint64_t addr)
+{
+	size_t count;
+	BNVariableReferenceSource* refs = BNGetHighLevelILVariableReferencesFrom(m_object, arch->GetObject(), addr, &count);
+
+	vector<VariableReferenceSource> result;
+	result.reserve(count);
+	for (size_t i = 0; i < count; i++)
+	{
+		VariableReferenceSource src;
+		src.var.index = refs[i].var.index;
+		src.var.storage = refs[i].var.storage;
+		src.var.type = refs[i].var.type;
+
+		src.source.func = new Function(BNNewFunctionReference(refs[i].source.func));
+		src.source.arch = new CoreArchitecture(refs[i].source.arch);
+		src.source.addr = refs[i].source.addr;
+		src.source.type = refs[i].source.type;
+		src.source.exprId = refs[i].source.exprId;
+
+		result.push_back(src);
+	}
+
+	BNFreeVariableReferenceSourceList(refs, count);
+	return result;
+}
+
+
+vector<VariableReferenceSource> Function::GetHighLevelILVariableReferencesInRange(
+    Architecture* arch, uint64_t addr, uint64_t len)
+{
+	size_t count;
+	BNVariableReferenceSource* refs =
+	    BNGetHighLevelILVariableReferencesInRange(m_object, arch->GetObject(), addr, len, &count);
+
+	vector<VariableReferenceSource> result;
+	result.reserve(count);
+	for (size_t i = 0; i < count; i++)
+	{
+		VariableReferenceSource src;
+		src.var.index = refs[i].var.index;
+		src.var.storage = refs[i].var.storage;
+		src.var.type = refs[i].var.type;
+
+		src.source.func = new Function(BNNewFunctionReference(refs[i].source.func));
+		src.source.arch = new CoreArchitecture(refs[i].source.arch);
+		src.source.addr = refs[i].source.addr;
+		src.source.type = refs[i].source.type;
+		src.source.exprId = refs[i].source.exprId;
+
+		result.push_back(src);
+	}
+
+	BNFreeVariableReferenceSourceList(refs, count);
+	return result;
+}
+
+
+vector<ILReferenceSource> Function::GetMediumLevelILVariableReferencesIfAvailable(const Variable& var)
+{
+	size_t count;
+
+	BNVariable varData;
+	varData.type = var.type;
+	varData.index = var.index;
+	varData.storage = var.storage;
+
+	BNILReferenceSource* refs = BNGetMediumLevelILVariableReferencesIfAvailable(m_object, &varData, &count);
+
+	vector<ILReferenceSource> result;
+	result.reserve(count);
+	for (size_t i = 0; i < count; i++)
+	{
+		ILReferenceSource src;
+		src.func = new Function(BNNewFunctionReference(refs[i].func));
+		src.arch = new CoreArchitecture(refs[i].arch);
+		src.addr = refs[i].addr;
+		src.type = refs[i].type;
+		src.exprId = refs[i].exprId;
+		result.push_back(src);
+	}
+
+	BNFreeILReferences(refs, count);
+	return result;
+}
+
+
+vector<VariableReferenceSource> Function::GetMediumLevelILVariableReferencesFromIfAvailable(
+    Architecture* arch, uint64_t addr)
+{
+	size_t count;
+	BNVariableReferenceSource* refs =
+	    BNGetMediumLevelILVariableReferencesFromIfAvailable(m_object, arch->GetObject(), addr, &count);
+
+	vector<VariableReferenceSource> result;
+	result.reserve(count);
+	for (size_t i = 0; i < count; i++)
+	{
+		VariableReferenceSource src;
+		src.var.index = refs[i].var.index;
+		src.var.storage = refs[i].var.storage;
+		src.var.type = refs[i].var.type;
+
+		src.source.func = new Function(BNNewFunctionReference(refs[i].source.func));
+		src.source.arch = new CoreArchitecture(refs[i].source.arch);
+		src.source.addr = refs[i].source.addr;
+		src.source.type = refs[i].source.type;
+		src.source.exprId = refs[i].source.exprId;
+
+		result.push_back(src);
+	}
+
+	BNFreeVariableReferenceSourceList(refs, count);
+	return result;
+}
+
+
+vector<VariableReferenceSource> Function::GetMediumLevelILVariableReferencesInRangeIfAvailable(
+    Architecture* arch, uint64_t addr, uint64_t len)
+{
+	size_t count;
+	BNVariableReferenceSource* refs =
+	    BNGetMediumLevelILVariableReferencesInRangeIfAvailable(m_object, arch->GetObject(), addr, len, &count);
+
+	vector<VariableReferenceSource> result;
+	result.reserve(count);
+	for (size_t i = 0; i < count; i++)
+	{
+		VariableReferenceSource src;
+		src.var.index = refs[i].var.index;
+		src.var.storage = refs[i].var.storage;
+		src.var.type = refs[i].var.type;
+
+		src.source.func = new Function(BNNewFunctionReference(refs[i].source.func));
+		src.source.arch = new CoreArchitecture(refs[i].source.arch);
+		src.source.addr = refs[i].source.addr;
+		src.source.type = refs[i].source.type;
+		src.source.exprId = refs[i].source.exprId;
+
+		result.push_back(src);
+	}
+
+	BNFreeVariableReferenceSourceList(refs, count);
+	return result;
+}
+
+
+vector<ILReferenceSource> Function::GetHighLevelILVariableReferencesIfAvailable(const Variable& var)
+{
+	size_t count;
+
+	BNVariable varData;
+	varData.type = var.type;
+	varData.index = var.index;
+	varData.storage = var.storage;
+
+	BNILReferenceSource* refs = BNGetHighLevelILVariableReferencesIfAvailable(m_object, &varData, &count);
+
+	vector<ILReferenceSource> result;
+	result.reserve(count);
+	for (size_t i = 0; i < count; i++)
+	{
+		ILReferenceSource src;
+		src.func = new Function(BNNewFunctionReference(refs[i].func));
+		src.arch = new CoreArchitecture(refs[i].arch);
+		src.addr = refs[i].addr;
+		src.type = refs[i].type;
+		src.exprId = refs[i].exprId;
+		result.push_back(src);
+	}
+
+	BNFreeILReferences(refs, count);
+	return result;
+}
+
+
+vector<VariableReferenceSource> Function::GetHighLevelILVariableReferencesFromIfAvailable(
+    Architecture* arch, uint64_t addr)
+{
+	size_t count;
+	BNVariableReferenceSource* refs =
+	    BNGetHighLevelILVariableReferencesFromIfAvailable(m_object, arch->GetObject(), addr, &count);
+
+	vector<VariableReferenceSource> result;
+	result.reserve(count);
+	for (size_t i = 0; i < count; i++)
+	{
+		VariableReferenceSource src;
+		src.var.index = refs[i].var.index;
+		src.var.storage = refs[i].var.storage;
+		src.var.type = refs[i].var.type;
+
+		src.source.func = new Function(BNNewFunctionReference(refs[i].source.func));
+		src.source.arch = new CoreArchitecture(refs[i].source.arch);
+		src.source.addr = refs[i].source.addr;
+		src.source.type = refs[i].source.type;
+		src.source.exprId = refs[i].source.exprId;
+
+		result.push_back(src);
+	}
+
+	BNFreeVariableReferenceSourceList(refs, count);
+	return result;
+}
+
+
+vector<VariableReferenceSource> Function::GetHighLevelILVariableReferencesInRangeIfAvailable(
+    Architecture* arch, uint64_t addr, uint64_t len)
+{
+	size_t count;
+	BNVariableReferenceSource* refs =
+	    BNGetHighLevelILVariableReferencesInRangeIfAvailable(m_object, arch->GetObject(), addr, len, &count);
+
+	vector<VariableReferenceSource> result;
+	result.reserve(count);
+	for (size_t i = 0; i < count; i++)
+	{
+		VariableReferenceSource src;
+		src.var.index = refs[i].var.index;
+		src.var.storage = refs[i].var.storage;
+		src.var.type = refs[i].var.type;
+
+		src.source.func = new Function(BNNewFunctionReference(refs[i].source.func));
+		src.source.arch = new CoreArchitecture(refs[i].source.arch);
+		src.source.addr = refs[i].source.addr;
+		src.source.type = refs[i].source.type;
+		src.source.exprId = refs[i].source.exprId;
+
+		result.push_back(src);
+	}
+
+	BNFreeVariableReferenceSourceList(refs, count);
+	return result;
+}
+
+
+uint64_t Function::GetHighestAddress()
+{
+	return BNGetFunctionHighestAddress(m_object);
+}
+
+
+uint64_t Function::GetLowestAddress()
+{
+	return BNGetFunctionLowestAddress(m_object);
+}
+
+
+std::vector<BNAddressRange> Function::GetAddressRanges()
+{
+	size_t count;
+	BNAddressRange* ranges = BNGetFunctionAddressRanges(m_object, &count);
+
+	std::vector<BNAddressRange> result;
+	copy(&ranges[0], &ranges[count], back_inserter(result));
+	BNFreeAddressRanges(ranges);
+	return result;
+}
+
+
+bool Function::GetInstructionContainingAddress(Architecture* arch, uint64_t addr, uint64_t* start)
+{
+	return BNGetInstructionContainingAddress(m_object, arch->GetObject(), addr, start);
+}
+
+
+Confidence<bool> Function::IsInlinedDuringAnalysis()
+{
+	BNBoolWithConfidence result = BNIsFunctionInlinedDuringAnalysis(m_object);
+	return Confidence<bool>(result.value, result.confidence);
+}
+
+
+Confidence<BNInlineDuringAnalysis> Function::GetInlinedDuringAnalysis()
+{
+	BNInlineDuringAnalysisWithConfidence value = BNGetFunctionInlinedDuringAnalysis(m_object);
+	return Confidence(value.value, value.confidence);
+}
+
+
+void Function::SetAutoInlinedDuringAnalysis(Confidence<BNInlineDuringAnalysis> inlined)
+{
+	BNInlineDuringAnalysisWithConfidence value;
+	value.value = inlined.GetValue();
+	value.confidence = inlined.GetConfidence();
+	BNSetAutoFunctionInlinedDuringAnalysis(m_object, value);
+}
+
+
+void Function::SetUserInlinedDuringAnalysis(Confidence<BNInlineDuringAnalysis> inlined)
+{
+	BNInlineDuringAnalysisWithConfidence value;
+	value.value = inlined.GetValue();
+	value.confidence = inlined.GetConfidence();
+	BNSetUserFunctionInlinedDuringAnalysis(m_object, value);
+}
+
+
+void Function::ToggleRegion(uint64_t hash)
+{
+	BNFunctionToggleRegion(m_object, hash);
+}
+
+
+void Function::CollapseRegion(uint64_t hash)
+{
+	BNFunctionCollapseRegion(m_object, hash);
+}
+
+
+void Function::ExpandRegion(uint64_t hash)
+{
+	BNFunctionExpandRegion(m_object, hash);
+}
+
+
+bool Function::IsCollapsed() const
+{
+	return IsRegionCollapsed(GetStart());
+}
+
+
+bool Function::IsInstructionCollapsed(const HighLevelILInstruction& instr, uint64_t designator) const
+{
+	return IsRegionCollapsed(instr.GetInstructionHash(designator));
+}
+
+
+bool Function::IsRegionCollapsed(uint64_t hash) const
+{
+	return BNFunctionIsRegionCollapsed(m_object, hash);
+}
+
+
+void Function::ExpandAll()
+{
+	BNFunctionExpandAll(m_object);
+}
+
+
+void Function::StoreMetadata(const std::string& key, Ref<Metadata> value, bool isAuto)
+{
+	if (!value)
+		return;
+	BNFunctionStoreMetadata(m_object, key.c_str(), value->GetObject(), isAuto);
+}
+
+
+Ref<Metadata> Function::QueryMetadata(const std::string& key)
+{
+	BNMetadata* value = BNFunctionQueryMetadata(m_object, key.c_str());
+	if (!value)
+		return nullptr;
+	return new Metadata(value);
+}
+
+
+Ref<Metadata> Function::GetMetadata()
+{
+	return new Metadata(BNFunctionGetMetadata(m_object));
+}
+
+
+Ref<Metadata> Function::GetAutoMetadata()
+{
+	return new Metadata(BNFunctionGetAutoMetadata(m_object));
+}
+
+
+void Function::RemoveMetadata(const std::string& key)
+{
+	BNFunctionRemoveMetadata(m_object, key.c_str());
+}
+
+
+AdvancedFunctionAnalysisDataRequestor::AdvancedFunctionAnalysisDataRequestor(Function* func) : m_func(func)
+{
+	if (m_func)
+		m_func->RequestAdvancedAnalysisData();
+}
+
+
+AdvancedFunctionAnalysisDataRequestor::AdvancedFunctionAnalysisDataRequestor(
+    const AdvancedFunctionAnalysisDataRequestor& req)
+{
+	m_func = req.m_func;
+	if (m_func)
+		m_func->RequestAdvancedAnalysisData();
+}
+
+
+AdvancedFunctionAnalysisDataRequestor::~AdvancedFunctionAnalysisDataRequestor()
+{
+	if (m_func)
+		m_func->ReleaseAdvancedAnalysisData();
+}
+
+
+AdvancedFunctionAnalysisDataRequestor& AdvancedFunctionAnalysisDataRequestor::operator=(
+    const AdvancedFunctionAnalysisDataRequestor& req)
+{
+	SetFunction(req.m_func);
+	return *this;
+}
+
+
+void AdvancedFunctionAnalysisDataRequestor::SetFunction(Function* func)
+{
+	if (m_func.GetPtr() == func)
+		return;
+
+	if (m_func)
+		m_func->ReleaseAdvancedAnalysisData();
+
+	m_func = func;
+
+	if (m_func)
+		m_func->RequestAdvancedAnalysisData();
+}

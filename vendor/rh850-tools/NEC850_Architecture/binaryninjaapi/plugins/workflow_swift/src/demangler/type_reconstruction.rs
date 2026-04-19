@@ -1,0 +1,204 @@
+use binaryninja::architecture::{Architecture, CoreArchitecture};
+use binaryninja::rc::Ref;
+use binaryninja::types::{NamedTypeReference, NamedTypeReferenceClass, QualifiedName, Type};
+use swift_demangler::{TypeKind, TypeRef};
+
+pub(crate) trait TypeRefExt {
+    fn to_bn_type(&self, arch: &CoreArchitecture) -> Option<Ref<Type>>;
+}
+
+impl TypeRefExt for TypeRef<'_> {
+    fn to_bn_type(&self, arch: &CoreArchitecture) -> Option<Ref<Type>> {
+        match self.kind() {
+            TypeKind::Named(named) => {
+                let name = named.name()?;
+                let module = named.module();
+
+                // __C is Swift's internal module for C/Objective-C imports; drop it.
+                let module = match module {
+                    Some("__C") => None,
+                    other => other,
+                };
+
+                // Map Swift standard library primitive types to BN primitives.
+                // Bound generic types (e.g., Optional<T>) are never primitives.
+                if module == Some("Swift") && !named.is_generic() {
+                    if let Some(ty) = swift_primitive(name, arch) {
+                        return Some(ty);
+                    }
+                }
+
+                let ntr = if named.is_generic() {
+                    // Include generic arguments in the type name.
+                    let args: Vec<String> =
+                        named.generic_args().iter().map(|a| a.display()).collect();
+                    let full_name = format!("{}<{}>", name, args.join(", "));
+                    make_named_type_ref(module, &full_name)
+                } else {
+                    make_named_type_ref(module, name)
+                };
+
+                // Class types (including ObjC classes) are reference types —
+                // always a pointer at the ABI level.
+                if named.is_class() {
+                    Some(Type::pointer(arch, &ntr))
+                } else {
+                    Some(ntr)
+                }
+            }
+
+            TypeKind::Function(func_type) => {
+                let params: Vec<_> = func_type
+                    .parameters()
+                    .iter()
+                    .filter_map(|p| {
+                        let ty = p.type_ref.to_bn_type(arch)?;
+                        let name = p.label.unwrap_or("").to_string();
+                        Some(binaryninja::types::FunctionParameter {
+                            ty: ty.into(),
+                            name,
+                            location: None,
+                        })
+                    })
+                    .collect();
+
+                let ret_type = func_type
+                    .return_type()
+                    .and_then(|rt| rt.to_bn_type(arch))
+                    .unwrap_or_else(Type::void);
+
+                Some(Type::function(&ret_type, params, false))
+            }
+
+            TypeKind::Tuple(elements) => {
+                if elements.is_empty() {
+                    // () is Swift.Void
+                    Some(Type::void())
+                } else {
+                    let display = self.display();
+                    Some(make_named_type_ref(Some("Swift"), &display))
+                }
+            }
+
+            TypeKind::Optional(inner) => {
+                let display = inner.display();
+                Some(make_named_type_ref(Some("Swift"), &display))
+            }
+
+            TypeKind::Array(inner) => {
+                let display = inner.display();
+                let label = format!("[{display}]");
+                Some(make_named_type_ref(Some("Swift"), &label))
+            }
+
+            TypeKind::Dictionary { key, value } => {
+                let key_display = key.display();
+                let value_display = value.display();
+                let label = format!("[{key_display} : {value_display}]");
+                Some(make_named_type_ref(Some("Swift"), &label))
+            }
+
+            TypeKind::InOut(inner) => {
+                let inner_ty = inner.to_bn_type(arch)?;
+                Some(Type::pointer(arch, &inner_ty))
+            }
+
+            TypeKind::Metatype(_) => {
+                // Metatype is an opaque pointer-sized value at runtime.
+                Some(Type::pointer_of_width(
+                    &Type::void(),
+                    arch.address_size(),
+                    false,
+                    false,
+                    None,
+                ))
+            }
+
+            TypeKind::GenericParam { .. } => {
+                // Generic parameters are opaque pointer-sized values at runtime.
+                Some(Type::pointer_of_width(
+                    &Type::int(1, false),
+                    arch.address_size(),
+                    false,
+                    false,
+                    None,
+                ))
+            }
+
+            // Ownership wrappers: unwrap and recurse.
+            TypeKind::Shared(inner)
+            | TypeKind::Owned(inner)
+            | TypeKind::Sending(inner)
+            | TypeKind::Isolated(inner)
+            | TypeKind::NoDerivative(inner) => inner.to_bn_type(arch),
+
+            TypeKind::Weak(inner) | TypeKind::Unowned(inner) => inner.to_bn_type(arch),
+
+            TypeKind::DynamicSelf(inner) => inner.to_bn_type(arch),
+
+            TypeKind::ConstrainedExistential(inner) => inner.to_bn_type(arch),
+
+            TypeKind::Any => {
+                // Swift.Any is an existential container (pointer-sized at the ABI level).
+                Some(make_named_type_ref(Some("Swift"), "Any"))
+            }
+
+            TypeKind::Existential(protocols) => {
+                if protocols.len() == 1 {
+                    protocols[0].to_bn_type(arch)
+                } else {
+                    None
+                }
+            }
+
+            TypeKind::Generic { inner, .. } => inner.to_bn_type(arch),
+
+            // Types we can't meaningfully represent.
+            TypeKind::Error
+            | TypeKind::Builtin(_)
+            | TypeKind::BuiltinFixedArray { .. }
+            | TypeKind::ImplFunction(_)
+            | TypeKind::Pack(_)
+            | TypeKind::ValueGeneric(_)
+            | TypeKind::CompileTimeLiteral(_)
+            | TypeKind::AssociatedType { .. }
+            | TypeKind::Opaque { .. }
+            | TypeKind::SILBox { .. }
+            | TypeKind::Other(_) => None,
+        }
+    }
+}
+
+/// Map a Swift standard library type name to a primitive type.
+fn swift_primitive(name: &str, arch: &CoreArchitecture) -> Option<Ref<Type>> {
+    match name {
+        "Int" => Some(Type::int(arch.address_size(), true)),
+        "UInt" => Some(Type::int(arch.address_size(), false)),
+        "Int8" => Some(Type::int(1, true)),
+        "Int16" => Some(Type::int(2, true)),
+        "Int32" => Some(Type::int(4, true)),
+        "Int64" => Some(Type::int(8, true)),
+        "UInt8" => Some(Type::int(1, false)),
+        "UInt16" => Some(Type::int(2, false)),
+        "UInt32" => Some(Type::int(4, false)),
+        "UInt64" => Some(Type::int(8, false)),
+        "Float" => Some(Type::float(4)),
+        "Double" => Some(Type::float(8)),
+        "Float80" => Some(Type::float(10)),
+        "Bool" => Some(Type::bool()),
+        _ => None,
+    }
+}
+
+/// Create a named type reference from an optional module and a type name.
+///
+/// `__C` (Swift's internal module for C/Objective-C imports) is dropped since
+/// it is not meaningful to users.
+pub(crate) fn make_named_type_ref(module: Option<&str>, name: &str) -> Ref<Type> {
+    let qname = match module {
+        Some("__C") | None => QualifiedName::from(name),
+        Some(module) => QualifiedName::from(format!("{module}.{name}")),
+    };
+    let ntr = NamedTypeReference::new(NamedTypeReferenceClass::UnknownNamedTypeClass, qname);
+    Type::named_type(&ntr)
+}

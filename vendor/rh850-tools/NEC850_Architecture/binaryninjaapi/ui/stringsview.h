@@ -1,0 +1,324 @@
+#pragma once
+
+#include <QtCore/QSettings>
+#include <QtWidgets/QTableView>
+#include <QtWidgets/QStyledItemDelegate>
+#include <QtWidgets/QAbstractScrollArea>
+#include <mutex>
+#include "viewframe.h"
+#include "render.h"
+#include "filter.h"
+#include "uicontext.h"
+
+#define STRINGS_LIST_UPDATE_INTERVAL 250
+
+/*!
+
+	\defgroup stringsview StringsView
+ 	\ingroup uiapi
+*/
+
+class StringsListItem
+{
+	std::variant<BNStringReference, BinaryNinja::DerivedString> m_contents;
+
+public:
+	StringsListItem(const BNStringReference& ref): m_contents(ref) {}
+	StringsListItem(const BinaryNinja::DerivedString& str): m_contents(str) {}
+
+	bool IsStringReference() const { return std::holds_alternative<BNStringReference>(m_contents); }
+	bool IsDerivedString() const { return std::holds_alternative<BinaryNinja::DerivedString>(m_contents); }
+	std::optional<BNStringReference> GetStringReference() const;
+	std::optional<BinaryNinja::DerivedString> GetDerivedString() const;
+
+	std::optional<uint64_t> GetStartAddress() const;
+	BNDerivedStringLocationType GetLocationType() const;
+	uint64_t GetDataLength() const;
+	size_t GetCharacterLength() const;
+	std::optional<BNStringType> GetStringType() const;
+	QString GetStringTypeName() const;
+	std::optional<BinaryNinja::StringRef> GetStringRef() const;
+
+	QString GetString(BinaryViewRef data, bool simplified) const;
+
+	std::optional<uint64_t> GetReferenceCount(const std::map<uint64_t, uint64_t>& refs,
+		const std::map<BinaryNinja::DerivedString, uint64_t>& derivedRefs) const;
+
+	bool operator==(const StringsListItem& other) const;
+	bool operator!=(const StringsListItem& other) const;
+};
+
+/*!
+
+    \ingroup stringsview
+*/
+class BINARYNINJAUIAPI StringsListModel : public QAbstractItemModel, public BinaryNinja::BinaryDataNotification
+{
+	Q_OBJECT
+
+	struct StringUpdateEvent
+	{
+		StringsListItem item;
+		bool added;
+	};
+
+	QWidget* m_stringsList;
+	BinaryViewRef m_data;
+	std::vector<StringsListItem> m_allStrings;
+	std::vector<StringsListItem> m_strings;
+	std::map<uint64_t, uint64_t> m_refCounts;
+	std::map<BinaryNinja::DerivedString, uint64_t> m_derivedRefCounts;
+
+	QString m_filter;
+	FilterOptions m_filterOptions;
+	QRegularExpression m_filterRegex; // This holds a compiled regex for m_filter
+
+	size_t m_filteredByOptions;
+
+	std::mutex m_updateMutex;
+	std::vector<StringUpdateEvent> m_updates;
+
+	bool m_includeStringsOverlappingCode;
+	bool m_includeOnlyReferenced;
+	bool m_includeOnlyFromCurrentFunction;
+
+	static bool stringComparison(const StringsListItem& a, const StringsListItem& b);
+	bool matchString(const StringsListItem& item);
+
+	std::vector<StringUpdateEvent> getQueuedStringUpdates();
+
+  public:
+	enum {
+		COL_ADDRESS = 0,
+		COL_TYPE,
+		COL_LENGTH,
+		COL_REFERENCES,
+		COL_VALUE,
+		COLUMN_COUNT,
+	};
+
+	StringsListModel(QWidget* parent, BinaryViewRef data);
+	virtual ~StringsListModel();
+
+	virtual QModelIndex index(int row, int col, const QModelIndex& parent) const override;
+	virtual QModelIndex parent(const QModelIndex& i) const override;
+	virtual bool hasChildren(const QModelIndex& parent) const override;
+	virtual int rowCount(const QModelIndex& parent) const override;
+	virtual int columnCount(const QModelIndex& parent) const override;
+	virtual QVariant data(const QModelIndex& i, int role) const override;
+	virtual QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
+
+	StringsListItem getStringAt(const QModelIndex& i);
+	QModelIndex findString(const StringsListItem& item);
+
+	virtual void OnStringFound(BinaryNinja::BinaryView* data, BNStringType type, uint64_t offset, size_t len) override;
+	virtual void OnStringRemoved(BinaryNinja::BinaryView* data, BNStringType type, uint64_t offset, size_t len) override;
+	virtual void OnDerivedStringFound(BinaryNinja::BinaryView* data, const BinaryNinja::DerivedString& str) override;
+	virtual void OnDerivedStringRemoved(BinaryNinja::BinaryView* data, const BinaryNinja::DerivedString& str) override;
+	void updateStrings();
+
+	virtual void sort(int col, Qt::SortOrder order) override;
+
+	void setFilter(const QString& filter, FilterOptions options);
+
+	void updateFilter() { setFilter(m_filter, m_filterOptions); };
+
+	size_t getFilteredStringCount() const { return m_filteredByOptions; }
+	size_t getStringCount() const { return m_strings.size(); }
+
+	void toggleIncludeStringsOverlappingCode() { m_includeStringsOverlappingCode = !m_includeStringsOverlappingCode; };
+	void toggleIncludeOnlyReferenced() { m_includeOnlyReferenced = !m_includeOnlyReferenced; };
+	void toggleIncludeOnlyFromCurrentFunction() { m_includeOnlyFromCurrentFunction = !m_includeOnlyFromCurrentFunction; };
+
+	void includeStringsOverlappingCode(bool exclude) { m_includeStringsOverlappingCode = exclude; };
+	void includeOnlyReferenced(bool exclude) { m_includeOnlyReferenced = exclude; };
+	void includeOnlyFromCurrentFunction(bool exclude) { m_includeOnlyFromCurrentFunction = exclude; };
+
+	bool getIncludeStringsOverlappingCode() const { return m_includeStringsOverlappingCode; };
+	bool getIncludeOnlyReferenced() const { return m_includeOnlyReferenced; };
+	bool getIncludeOnlyFromCurrentFunction() const { return m_includeOnlyFromCurrentFunction; };
+};
+
+/*!
+
+    \ingroup stringsview
+*/
+class BINARYNINJAUIAPI StringItemDelegate : public QStyledItemDelegate
+{
+	Q_OBJECT
+
+	QWidget* m_owner;
+	QFont m_font;
+	int m_baseline, m_charWidth, m_charHeight, m_charOffset;
+
+	void initFont();
+
+  public:
+	StringItemDelegate(QWidget* parent);
+
+	void updateFonts();
+
+	virtual QSize sizeHint(const QStyleOptionViewItem& option, const QModelIndex& idx) const override;
+	QFont getFont() const { return m_font; }
+};
+
+class StringsContainer;
+class StringsViewSidebarWidget;
+
+/*!
+
+    \ingroup stringsview
+*/
+class BINARYNINJAUIAPI StringsView : public QTableView, public View, public FilterTarget
+{
+	Q_OBJECT
+
+	BinaryViewRef m_data;
+	StringsContainer* m_container;
+
+	RenderContext m_render;
+	QSettings m_settings;
+	StringsListModel* m_list;
+	StringItemDelegate* m_itemDelegate;
+
+	bool m_selectionAddrValid = false;
+	uint64_t m_selectionBegin, m_selectionEnd;
+	uint64_t m_currentlySelectedDataAddress;
+	std::optional<BinaryNinja::DerivedString> m_derivedString;
+
+  public:
+	StringsView(BinaryViewRef data, StringsContainer* container);
+
+	virtual BinaryViewRef getData() override { return m_data; }
+	virtual uint64_t getCurrentOffset() override;
+	virtual BNAddressRange getSelectionOffsets() override;
+	virtual SelectionInfoForXref getSelectionForXref() override;
+	virtual void setSelectionOffsets(BNAddressRange range) override;
+	virtual bool navigate(uint64_t offset) override;
+
+	virtual void updateFonts() override;
+
+	virtual StatusBarWidget* getStatusBarWidget() override;
+
+	virtual void selectionChanged(const QItemSelection& selected, const QItemSelection& deselected) override;
+
+	virtual void setFilter(const std::string& filter, FilterOptions options) override;
+	virtual void scrollToFirstItem() override;
+	virtual void scrollToCurrentItem() override;
+	virtual void ensureSelection() override;
+	virtual void activateSelection() override;
+	virtual QFont getFont() override { return m_itemDelegate->getFont(); }
+
+	bool getIncludeStringsOverlappingCode() const { return m_list->getIncludeStringsOverlappingCode(); };
+	bool getIncludeOnlyReferenced() const { return m_list->getIncludeOnlyReferenced(); };
+	bool getIncludeOnlyFromCurrentFunction() const { return m_list->getIncludeOnlyFromCurrentFunction(); };
+
+	void toggleIncludeStringsOverlappingCode() const { m_list->toggleIncludeStringsOverlappingCode(); };
+	void toggleIncludeOnlyReferenced() const { m_list->toggleIncludeOnlyReferenced(); };
+	void toggleIncludeOnlyFromCurrentFunction() const { m_list->toggleIncludeOnlyFromCurrentFunction(); };
+
+	void resetFilterOptions();
+
+	void copyText();
+	virtual bool canCopy() override;
+	virtual void notifyRefresh() override;
+
+  protected:
+	virtual void keyPressEvent(QKeyEvent* event) override;
+	virtual void mouseMoveEvent(QMouseEvent* event) override;
+	virtual void mousePressEvent(QMouseEvent* event) override;
+	virtual void paintEvent(QPaintEvent* event) override;
+	virtual bool event(QEvent* event) override;
+
+  private Q_SLOTS:
+	void goToString(const QModelIndex& idx);
+};
+
+/*!
+
+    \ingroup stringsview
+*/
+class BINARYNINJAUIAPI StringsContainer : public QWidget, public ViewContainer
+{
+	Q_OBJECT
+
+	friend class StringsView;
+
+	StringsView* m_strings;
+	FilteredView* m_filteredView;
+	FilterEdit* m_separateEdit = nullptr;
+	StringsViewSidebarWidget* m_widget;
+	UIActionHandler m_actionHandler;
+
+  public:
+	StringsContainer(BinaryViewRef data, StringsViewSidebarWidget* parent, bool separateEdit = false);
+	virtual View* getView() override { return m_strings; }
+
+	StringsView* getStringsView() { return m_strings; }
+	FilteredView* getFilter() { return m_filteredView; }
+	FilterEdit* getSeparateFilterEdit() { return m_separateEdit; }
+
+  protected:
+	virtual void focusInEvent(QFocusEvent* event) override;
+
+  private:
+	void bindNavigationShortcuts();
+	void navigateBack();
+	void navigateForward();
+};
+
+/*!
+
+    \ingroup stringsview
+*/
+class StringsViewType : public ViewType
+{
+	static StringsViewType* m_instance;
+
+  public:
+	StringsViewType();
+	virtual int getPriority(BinaryViewRef data, const QString& filename);
+	virtual QWidget* create(BinaryViewRef data, ViewFrame* viewFrame);
+	static void init();
+};
+
+/*!
+
+    \ingroup stringsview
+*/
+class BINARYNINJAUIAPI StringsViewSidebarWidget : public SidebarWidget
+{
+	Q_OBJECT
+
+	friend class StringsView;
+
+	QWidget* m_header;
+	StringsContainer* m_container;
+
+  public:
+	StringsViewSidebarWidget(BinaryViewRef data);
+	virtual QWidget* headerWidget() override { return m_header; }
+	virtual void focus() override;
+	virtual void notifyRefresh() override;
+
+  protected:
+	virtual void contextMenuEvent(QContextMenuEvent* event) override;
+
+  private Q_SLOTS:
+	void showContextMenu();
+};
+
+/*!
+
+    \ingroup stringsview
+*/
+class BINARYNINJAUIAPI StringsViewSidebarWidgetType : public SidebarWidgetType
+{
+public:
+	StringsViewSidebarWidgetType();
+	SidebarWidgetLocation defaultLocation() const override { return SidebarWidgetLocation::RightBottom; }
+	SidebarContextSensitivity contextSensitivity() const override { return PerViewTypeSidebarContext; }
+	virtual SidebarWidget* createWidget(ViewFrame* frame, BinaryViewRef data) override;
+	virtual bool canUseAsPane(SplitPaneWidget*, BinaryViewRef) const override { return true; }
+	virtual Pane* createPane(SplitPaneWidget* panes, BinaryViewRef data) override;
+};

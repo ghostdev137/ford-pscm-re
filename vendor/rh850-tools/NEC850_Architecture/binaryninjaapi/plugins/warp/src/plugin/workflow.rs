@@ -1,0 +1,467 @@
+use crate::cache::container::{for_cached_containers, for_cached_containers_mut};
+use crate::cache::{
+    cached_function_guid, insert_cached_function_match, try_cached_function_guid,
+    try_cached_function_match,
+};
+use crate::container::{Container, SourceId};
+use crate::convert::{platform_to_target, to_bn_symbol_at_address, to_bn_type};
+use crate::matcher::{Matcher, MatcherSettings};
+use crate::plugin::settings::PluginSettings;
+use crate::{get_warp_ignore_tag_type, get_warp_tag_type, relocatable_regions, IGNORE_TAG_NAME};
+use binaryninja::architecture::RegisterId;
+use binaryninja::background_task::BackgroundTask;
+use binaryninja::binary_view::{BinaryView, BinaryViewExt};
+use binaryninja::command::Command;
+use binaryninja::function::Function as BNFunction;
+use binaryninja::rc::Ref as BNRef;
+use binaryninja::settings::{QueryOptions, Settings};
+use binaryninja::workflow::{activity, Activity, AnalysisContext, Workflow, WorkflowBuilder};
+use dashmap::DashSet;
+use itertools::Itertools;
+use rayon::iter::IntoParallelIterator;
+use rayon::iter::ParallelIterator;
+use std::cmp::Ordering;
+use std::collections::HashMap;
+use std::time::Instant;
+use warp::r#type::class::function::{Location, RegisterLocation, StackLocation};
+use warp::signature::constraint::ConstraintGUID;
+use warp::signature::function::{Function, FunctionGUID};
+use warp::target::Target;
+
+pub const GUID_ACTIVITY_NAME: &str = "analysis.warp.guid";
+
+pub struct RunMatcher;
+
+impl Command for RunMatcher {
+    fn action(&self, view: &BinaryView) {
+        let view = view.to_owned();
+        std::thread::spawn(move || {
+            // For embedded targets the user may not have set the sections up.
+            // Alert the user if we have no actual regions (+1 comes from the synthetic section).
+            let regions = relocatable_regions(&view);
+            if regions.len() <= 1 && view.memory_map().is_activated() {
+                tracing::warn!(
+                    "No relocatable regions found, for best results please define sections for the binary!"
+                );
+            }
+            for region in regions {
+                if region.start < 0x1000 {
+                    tracing::warn!(
+                        "Relocatable region has a low start-address ({:0x}), if possible, please rebase the binary to a higher address!",
+                        view.image_base()
+                    );
+                }
+            }
+
+            run_matcher(&view);
+        });
+    }
+
+    fn valid(&self, _view: &BinaryView) -> bool {
+        true
+    }
+}
+
+/// This is a helper struct that contains all the functions that match on a given target.
+///
+/// We build this when matching and fetching so that we can relate different functions to another.
+#[derive(Debug, Clone, PartialEq, Eq, Default)]
+struct FunctionSet {
+    functions_by_target_and_guid: HashMap<(FunctionGUID, Target), Vec<BNRef<BNFunction>>>,
+    guids_by_target: HashMap<Target, Vec<FunctionGUID>>,
+}
+
+impl FunctionSet {
+    fn from_view(view: &BinaryView) -> Option<Self> {
+        let mut set = FunctionSet::default();
+        let is_ignored_func =
+            |f: &BNFunction| !f.function_tags(None, Some(IGNORE_TAG_NAME)).is_empty();
+
+        // TODO: Par iter this? Using dashmap
+        set.functions_by_target_and_guid = view
+            .functions()
+            .iter()
+            // Skip functions that have the ignored tag! Otherwise, we will match on them.
+            .filter(|f| !is_ignored_func(f))
+            .filter_map(|f| {
+                let guid = try_cached_function_guid(&f)?;
+                let target = platform_to_target(&f.platform());
+                Some(((guid, target), f.to_owned()))
+            })
+            .into_group_map();
+
+        if set.functions_by_target_and_guid.is_empty() && !view.functions().is_empty() {
+            // The user is likely trying to run the matcher on a database before guids were automatically
+            // generated, we should alert them and ask if they would like to reanalyze.
+            // NOTE: We only alert if we actually have the GUID activity enabled.
+            if let Some(sample_function) = view.functions().iter().next() {
+                let function_workflow = sample_function
+                    .workflow()
+                    .expect("Function has no workflow");
+                if function_workflow.contains(GUID_ACTIVITY_NAME) {
+                    tracing::error!(
+                        "No function guids in database, please reanalyze the database."
+                    );
+                } else {
+                    tracing::error!(
+                        "Activity '{}' is not in workflow '{}', create function guids manually to run matcher...",
+                        GUID_ACTIVITY_NAME,
+                        function_workflow.name()
+                    )
+                }
+            }
+            return None;
+        }
+
+        // TODO: Par iter this? Using dashmap
+        set.guids_by_target = set
+            .functions_by_target_and_guid
+            .keys()
+            .map(|(guid, target)| (target.clone(), *guid))
+            .into_group_map();
+
+        Some(set)
+    }
+}
+
+pub fn run_matcher(view: &BinaryView) {
+    // TODO: Create the tag type so we dont have UB in the apply function workflow.
+    let undo_id = view.file().begin_undo_actions(false);
+    let _ = get_warp_tag_type(view);
+    let _ = get_warp_ignore_tag_type(view);
+    view.file().forget_undo_actions(&undo_id);
+
+    let filter_functions = |functions: &mut Vec<Function>| {
+        // We sort primarily by symbol, then by type, so we can deduplicate in-place.
+        functions.sort_unstable_by(|a, b| match a.symbol.cmp(&b.symbol) {
+            Ordering::Equal => match (&a.ty, &b.ty) {
+                (None, None) => Ordering::Equal,
+                (None, Some(_)) => Ordering::Less,
+                (Some(_), None) => Ordering::Greater,
+                // TODO: We still need to order the types, probably cant do this in place.
+                // TODO: Once Type can be ordered, we can remove this entire explicit match stmt.
+                (Some(_), Some(_)) => Ordering::Equal,
+            },
+            other => other,
+        });
+        // This removes consecutive duplicates efficiently
+        functions.dedup_by(|a, b| a.symbol == b.symbol && a.ty == b.ty);
+    };
+
+    // Then we want to actually find matching functions.
+    let background_task = BackgroundTask::new("Matching on WARP functions...", true);
+    let start = Instant::now();
+
+    // Build matcher
+    let view_settings = Settings::new();
+    let mut query_opts = QueryOptions::new_with_view(view);
+    let matcher_settings = MatcherSettings::from_settings(&view_settings, &mut query_opts);
+    let matcher = Matcher::new(matcher_settings);
+
+    let Some(function_set) = FunctionSet::from_view(view) else {
+        background_task.finish();
+        return;
+    };
+
+    let matcher_results: DashSet<u64> = DashSet::new();
+    let match_for_guid = |target, container: &dyn Container, sources: Vec<SourceId>, guid| {
+        let mut matched_functions: Vec<Function> = sources
+            .iter()
+            .flat_map(|source| {
+                container
+                    .functions_with_guid(target, source, &guid)
+                    .unwrap_or_default()
+            })
+            .collect();
+
+        // NOTE: See the comment in `match_function_from_constraints` about this fast fail.
+        if matcher
+            .settings
+            .maximum_possible_functions
+            .is_some_and(|max| max < matched_functions.len() as u64)
+        {
+            tracing::debug!(
+                "Skipping {}, too many possible functions: {}",
+                guid,
+                matched_functions.len()
+            );
+            return;
+        }
+
+        // Filter out duplicate functions for matching.
+        filter_functions(&mut matched_functions);
+
+        let functions = function_set
+            .functions_by_target_and_guid
+            .get(&(guid, target.clone()))
+            .expect("Function guid not found");
+
+        for function in functions {
+            // Match on all the possible functions
+            if let Some(matched_function) =
+                matcher.match_function_from_constraints(function, &matched_functions)
+            {
+                // Because we can do multiple rounds of matching at once, we only want to insert a function
+                // match if we have not already done so in a previous round.
+                // TODO: What if the new round changes the matched function metadata? Unlikely but possible.
+                if matcher_results.insert(function.start()) {
+                    // We were able to find a match, add it to the match cache and then mark the function
+                    // as requiring updates; this is so that we know about it in the applier activity.
+                    insert_cached_function_match(function, Some(matched_function));
+                }
+            }
+        }
+    };
+
+    // NOTE: Because matching can depend on other functions to have matched, we will run multiple
+    // rounds of matching until it stabilizes (e.g. no more newly matched functions), there are other
+    // ways to have the same behavior that may take less time, such as a work list, and pushing callers
+    // back into the work list on matches of a function, on top of that you could order the functions
+    // matched bottom up, with a reverse post order sort.
+
+    // TODO: Target gets cloned a lot.
+    // TODO: Containers might both match on the same function. What should we do?
+    let maximum_rounds = matcher.settings.maximum_matching_rounds.unwrap_or(100);
+    let mut final_matched_round = 1;
+    for matched_round in 1..=maximum_rounds {
+        let bg_task_text = format!("Matching on WARP functions... ({} rounds)", matched_round);
+        background_task.set_progress_text(&bg_task_text);
+        let matched_count_before = matcher_results.len();
+
+        for_cached_containers(|container| {
+            if background_task.is_cancelled() {
+                return;
+            }
+
+            for (target, guids) in &function_set.guids_by_target {
+                let function_guid_with_sources = container
+                    .sources_with_function_guids(target, guids)
+                    .unwrap_or_default();
+
+                function_guid_with_sources
+                    .into_par_iter()
+                    .for_each(|(guid, sources)| {
+                        match_for_guid(target, container, sources, guid);
+                    });
+            }
+        });
+
+        final_matched_round = matched_round;
+        // If the number of matches did not increase we can stop matching.
+        let matched_count_after = matcher_results.len();
+        if matched_count_after == 0 || matched_count_after == matched_count_before {
+            break;
+        }
+    }
+
+    if background_task.is_cancelled() {
+        tracing::info!("Matcher was cancelled by user, you may run it again by running the 'Run Matcher' command.");
+    }
+
+    tracing::info!(
+        "Function matching took {:.3} seconds and matched {} functions after {} rounds",
+        start.elapsed().as_secs_f64(),
+        matcher_results.len(),
+        final_matched_round
+    );
+    background_task.finish();
+
+    // Now we want to trigger re-analysis.
+    view.update_analysis();
+}
+
+pub fn run_fetcher(view: &BinaryView) {
+    let background_task = BackgroundTask::new("Fetching WARP functions...", true);
+    let start = Instant::now();
+
+    // Build matcher
+    let view_settings = Settings::new();
+    let mut query_opts = QueryOptions::new_with_view(view);
+    let plugin_settings = PluginSettings::from_settings(&view_settings, &mut query_opts);
+
+    let is_ignored_func = |f: &BNFunction| !f.function_tags(None, Some(IGNORE_TAG_NAME)).is_empty();
+
+    let constraints: Vec<ConstraintGUID> = view
+        .functions()
+        .iter()
+        // Skip functions that have the ignored tag! Otherwise, we will store their constraints.
+        .filter(|f| !is_ignored_func(f))
+        .filter_map(|f| {
+            let function = try_cached_function_match(&f)?;
+            Some(function.constraints.into_iter().map(|c| c.guid))
+        })
+        .flatten()
+        .collect();
+
+    let Some(function_set) = FunctionSet::from_view(view) else {
+        background_task.finish();
+        return;
+    };
+
+    for_cached_containers_mut(|container| {
+        if background_task.is_cancelled() {
+            return;
+        }
+
+        for (target, guids) in &function_set.guids_by_target {
+            for batch in guids.chunks(plugin_settings.fetch_batch_size) {
+                if background_task.is_cancelled() {
+                    break;
+                }
+                let _ = container.fetch_functions(
+                    target,
+                    &plugin_settings.allowed_source_tags,
+                    batch,
+                    &constraints,
+                );
+            }
+        }
+    });
+
+    if background_task.is_cancelled() {
+        tracing::info!(
+            "Fetcher was cancelled by user, you may run it again by running the 'Fetch' command."
+        );
+    }
+
+    tracing::info!("Fetching took {:?}", start.elapsed());
+    background_task.finish();
+}
+
+pub fn insert_workflow() -> Result<(), ()> {
+    // TODO: Note: because of symbol persistence function symbol is applied in `insert_cached_function_match`.
+    // TODO: Comments are also applied there, they are "user" like, persisted and make undo actions.
+    // "Hey look, it's a plier" ~ Josh 2025
+    let apply_activity = |ctx: &AnalysisContext| {
+        let view = ctx.view();
+        let function = ctx.function();
+        if let Some(matched_function) = try_cached_function_match(&function) {
+            // core.function.propagateAnalysis will assign user type info to auto, so we must not apply
+            // otherwise we will wipe over user type info.
+            if !function.has_user_type() {
+                if let Some(func_ty) = &matched_function.ty {
+                    function.set_auto_type(&to_bn_type(Some(function.arch()), func_ty));
+                } else if !function.has_explicitly_defined_type() {
+                    // Attempt to retrieve the type information from the named platform functions.
+                    // NOTE: We check `has_explicitly_defined_type` because after applying imported type
+                    // information, that flag will be set, allowing us to avoid applying it again.
+                    let bn_symbol =
+                        to_bn_symbol_at_address(&view, &matched_function.symbol, function.start());
+                    function.apply_imported_types(&bn_symbol, None);
+                }
+            }
+            if let Some(mlil) = ctx.mlil_function() {
+                for variable in matched_function.variables {
+                    let decl_addr = ((function.start() as i64) + variable.offset) as u64;
+                    if let Some(decl_instr) = mlil.instruction_at(decl_addr) {
+                        let decl_var = match variable.location {
+                            Location::Register(RegisterLocation { id, .. }) => {
+                                decl_instr.variable_for_register_after(RegisterId(id as u32))
+                            }
+                            Location::Stack(StackLocation { offset, .. }) => {
+                                decl_instr.variable_for_stack_location_after(offset)
+                            }
+                        };
+                        if function.is_var_user_defined(&decl_var) {
+                            // Internally, analysis will just assign user vars to auto vars and consult only that.
+                            // So we must skip if there is a user-defined var at the decl.
+                            continue;
+                        }
+                        let decl_ty = match variable.ty {
+                            Some(decl_ty) => to_bn_type(Some(function.arch()), &decl_ty),
+                            None => {
+                                let Some(existing_var) = function.variable_type(&decl_var) else {
+                                    continue;
+                                };
+                                existing_var.contents
+                            }
+                        };
+                        let decl_name = variable
+                            .name
+                            .unwrap_or_else(|| function.variable_name(&decl_var));
+                        function.create_auto_var(&decl_var, &decl_ty, &decl_name, false)
+                    }
+                }
+            }
+            function.add_tag(
+                &get_warp_tag_type(&view),
+                &matched_function.guid.to_string(),
+                None,
+                false,
+                None,
+            );
+        }
+    };
+
+    let matcher_activity = |ctx: &AnalysisContext| {
+        let view = ctx.view();
+        run_matcher(&view);
+    };
+
+    let fetcher_activity = |ctx: &AnalysisContext| {
+        let view = ctx.view();
+        run_fetcher(&view);
+    };
+
+    let guid_activity = |ctx: &AnalysisContext| {
+        let function = ctx.function();
+        cached_function_guid(&function, || unsafe { ctx.lifted_il_function() });
+    };
+
+    let guid_config = activity::Config::action(
+        GUID_ACTIVITY_NAME,
+        "WARP GUID Generator",
+        "This analysis step generates the GUID for all analyzed functions...",
+    )
+    .eligibility(activity::Eligibility::auto().run_once(false));
+    let guid_activity = Activity::new_with_action(&guid_config, guid_activity);
+
+    let apply_config = activity::Config::action(
+        "analysis.warp.apply",
+        "WARP Apply Matched",
+        "This analysis step applies WARP info to matched functions...",
+    )
+    .eligibility(activity::Eligibility::auto().run_once(false));
+    let apply_activity = Activity::new_with_action(&apply_config, apply_activity);
+
+    let add_function_activities = |workflow: Option<WorkflowBuilder>| -> Result<(), ()> {
+        let Some(workflow) = workflow else {
+            return Ok(());
+        };
+
+        workflow
+            .activity_after(&guid_activity, "core.function.runFunctionRecognizers")?
+            .activity_after(&apply_activity, "core.function.generateMediumLevelIL")?
+            .register()?;
+        Ok(())
+    };
+
+    add_function_activities(Workflow::cloned("core.function.metaAnalysis"))?;
+    // TODO: Remove this once the objectivec workflow is registered on the meta workflow.
+    add_function_activities(Workflow::cloned("core.function.objectiveC"))?;
+
+    let fetcher_config = activity::Config::action(
+        "analysis.warp.fetcher",
+        "WARP Fetcher",
+        "This analysis step attempts to fetch WARP functions from network containers after the initial analysis is complete...",
+    )
+        .eligibility(activity::Eligibility::auto_with_default(false).run_once(true));
+    let fetcher_activity = Activity::new_with_action(&fetcher_config, fetcher_activity);
+
+    let matcher_config = activity::Config::action(
+        "analysis.warp.matcher",
+        "WARP Matcher",
+        "This analysis step attempts to find matching WARP functions after the initial analysis is complete...",
+    )
+    .eligibility(activity::Eligibility::auto().run_once(true))
+    // Matcher activity must have core.module.update as subactivity otherwise analysis will sometimes never retrigger.
+    .downstream_dependencies(["core.module.update"]);
+    let matcher_activity = Activity::new_with_action(&matcher_config, matcher_activity);
+    Workflow::cloned("core.module.metaAnalysis")
+        .ok_or(())?
+        .activity_before(&matcher_activity, "core.module.finishUpdate")?
+        .activity_before(&fetcher_activity, "analysis.warp.matcher")?
+        .register()?;
+
+    Ok(())
+}

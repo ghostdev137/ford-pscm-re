@@ -1,0 +1,9 @@
+---
+source: plugins/warp/tests/determinism.rs
+expression: functions
+---
+{
+    180832: FunctionGUID {
+        guid: 222305cd-0d84-5eba-8a3e-2774c9c4a5dc,
+    },
+}

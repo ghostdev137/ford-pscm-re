@@ -1,0 +1,39 @@
+---
+source: plugins/warp/tests/determinism.rs
+expression: functions
+---
+{
+    178448: FunctionGUID {
+        guid: 9350843d-64a5-59a9-b39d-490b424fc116,
+    },
+    178768: FunctionGUID {
+        guid: 8a0c3535-d4db-5c0e-93ec-13830ae546d2,
+    },
+    179456: FunctionGUID {
+        guid: a8036a14-9afb-59fe-ba38-8102a56c0e0d,
+    },
+    179808: FunctionGUID {
+        guid: 119c08fa-5fb3-529e-9bc8-feb53495aeef,
+    },
+    180112: FunctionGUID {
+        guid: 730daa1c-47e1-5bf8-a17c-03151d3fa093,
+    },
+    180448: FunctionGUID {
+        guid: 8c577bd5-e2ca-56b9-84ad-78b372e8935d,
+    },
+    181632: FunctionGUID {
+        guid: 24bb0d12-ee2d-5f3b-b7d6-cee173baf054,
+    },
+    181968: FunctionGUID {
+        guid: 008d1415-997c-5830-ae2b-e07fabfe925c,
+    },
+    182352: FunctionGUID {
+        guid: cb96f41e-4e30-52fb-bed0-012e8e80aed2,
+    },
+    182688: FunctionGUID {
+        guid: 554f3571-fbe7-52e8-8b99-167bbb8a7891,
+    },
+    183024: FunctionGUID {
+        guid: 9211802c-48a9-5161-94b0-a81d364675ad,
+    },
+}

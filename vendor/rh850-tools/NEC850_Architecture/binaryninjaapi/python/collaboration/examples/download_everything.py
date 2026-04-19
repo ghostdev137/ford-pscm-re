@@ -1,0 +1,60 @@
+# coding=utf-8
+# Copyright (c) 2015-2026 Vector 35 Inc
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to
+# deal in the Software without restriction, including without limitation the
+# rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+# sell copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+# IN THE SOFTWARE.
+
+import sys
+
+import binaryninja
+import binaryninja.enterprise as enterprise
+import binaryninja.collaboration as collaboration
+
+
+def main():
+	with enterprise.LicenseCheckout():
+		# Connect to remote from Enterprise
+		remote = collaboration.enterprise_remote()
+		if not remote:
+			return
+		if not remote.is_connected:
+			# Will pull default credentials from Enterprise
+			remote.connect()
+
+		# Pull every file from every project
+		for project in remote.projects:
+			for file in project.files:
+				print(f"{project.name}/{file.name} BNDB at {file.default_path}")
+
+				try:
+					file.download()
+					with binaryninja.load(file.core_file) as bv:
+						# Show the entry point to demonstrate we have pulled the analyzed file
+						print(f"{project.name}/{file.name} {bv.view_type} Entrypoint @ 0x{bv.entry_point:08x}")
+				except InterruptedError as e:
+					# In case of ^C
+					raise e
+
+				except Exception as e:
+					# In case download or open fails
+					print(f"{project.name}/{file.name} Load failed: {e}", file=sys.stderr)
+
+
+if __name__ == '__main__':
+	main()
+

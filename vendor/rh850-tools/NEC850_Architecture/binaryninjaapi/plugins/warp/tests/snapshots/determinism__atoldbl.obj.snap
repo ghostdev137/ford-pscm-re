@@ -1,0 +1,192 @@
+---
+source: plugins/warp/tests/determinism.rs
+expression: functions
+---
+{
+    223424: FunctionGUID {
+        guid: 9350843d-64a5-59a9-b39d-490b424fc116,
+    },
+    223744: FunctionGUID {
+        guid: 1febb704-bccd-559c-a1d4-ab655277ece4,
+    },
+    224800: FunctionGUID {
+        guid: 1febb704-bccd-559c-a1d4-ab655277ece4,
+    },
+    225856: FunctionGUID {
+        guid: fb5e8536-7b76-5b0d-ae32-2d9ab4834804,
+    },
+    226240: FunctionGUID {
+        guid: fa0fb1f2-9585-5ae1-acd3-b803172a9aa7,
+    },
+    226720: FunctionGUID {
+        guid: 9350843d-64a5-59a9-b39d-490b424fc116,
+    },
+    227024: FunctionGUID {
+        guid: 87d56145-2c64-5972-9d88-79cefa7fa3e7,
+    },
+    228320: FunctionGUID {
+        guid: 09823fdc-48f1-5ee7-9ff3-5b4220393826,
+    },
+    232656: FunctionGUID {
+        guid: c2d971c9-f700-5eb2-b008-15d74359b838,
+    },
+    233840: FunctionGUID {
+        guid: 74399920-cb72-53e8-904e-102439f1b8b4,
+    },
+    235280: FunctionGUID {
+        guid: 233d5fa2-30d5-5514-8b62-2deec7469020,
+    },
+    235824: FunctionGUID {
+        guid: 01eb5477-09c0-5021-8ac7-9aa7b17d24bb,
+    },
+    236368: FunctionGUID {
+        guid: 8e309813-cb4b-5c0d-84b7-92fcb85c30c5,
+    },
+    237872: FunctionGUID {
+        guid: 31ce1f1c-0f6e-529a-ba5c-35d92b7481fd,
+    },
+    238512: FunctionGUID {
+        guid: a284c59e-99f1-545c-822f-c050730ae6d5,
+    },
+    239136: FunctionGUID {
+        guid: 41decd4d-2d10-588c-9747-ebaad1cc1939,
+    },
+    239760: FunctionGUID {
+        guid: 93d11f7e-1d5c-50a2-a8b7-22571f80d77c,
+    },
+    240384: FunctionGUID {
+        guid: 9f4b8ad8-7c73-5bbc-af0b-7ff426bd78a9,
+    },
+    240816: FunctionGUID {
+        guid: 9f4b8ad8-7c73-5bbc-af0b-7ff426bd78a9,
+    },
+    241248: FunctionGUID {
+        guid: 9f4b8ad8-7c73-5bbc-af0b-7ff426bd78a9,
+    },
+    241680: FunctionGUID {
+        guid: 25bc1f0b-4419-5e8b-9957-27a30009bcb1,
+    },
+    242112: FunctionGUID {
+        guid: 8a0c3535-d4db-5c0e-93ec-13830ae546d2,
+    },
+    242800: FunctionGUID {
+        guid: 3496f794-99ca-5c1a-b7b1-6adc6302b53c,
+    },
+    243184: FunctionGUID {
+        guid: a8036a14-9afb-59fe-ba38-8102a56c0e0d,
+    },
+    243536: FunctionGUID {
+        guid: 565e3051-d133-55c0-a313-405e9f224c47,
+    },
+    243952: FunctionGUID {
+        guid: 565e3051-d133-55c0-a313-405e9f224c47,
+    },
+    244368: FunctionGUID {
+        guid: 565e3051-d133-55c0-a313-405e9f224c47,
+    },
+    244784: FunctionGUID {
+        guid: 119c08fa-5fb3-529e-9bc8-feb53495aeef,
+    },
+    245088: FunctionGUID {
+        guid: 730daa1c-47e1-5bf8-a17c-03151d3fa093,
+    },
+    245424: FunctionGUID {
+        guid: 4cb7987b-d231-5cbd-9ba0-20a0b7a3685b,
+    },
+    245952: FunctionGUID {
+        guid: 54276496-1f84-5e54-a360-d096c4746b01,
+    },
+    246352: FunctionGUID {
+        guid: c4550d27-bdf1-5240-a4ca-416e540cdd12,
+    },
+    246768: FunctionGUID {
+        guid: 4990eb2e-a682-5e59-912d-e1f47923d8e2,
+    },
+    247248: FunctionGUID {
+        guid: f18f34db-fd0e-5724-9045-5b666d6ac370,
+    },
+    247728: FunctionGUID {
+        guid: e69cb7ba-4525-5171-9488-6f893c745f1b,
+    },
+    248208: FunctionGUID {
+        guid: 6521d75d-4c44-58b1-a90a-f801731f53a0,
+    },
+    248672: FunctionGUID {
+        guid: 2b6e53f2-436e-554e-8dce-31ea6c8d0b81,
+    },
+    249680: FunctionGUID {
+        guid: f3207fd3-2e0a-5118-9d3d-9f49a49ea49b,
+    },
+    250048: FunctionGUID {
+        guid: b8f16205-5fd8-507d-813d-2ccde2abe95e,
+    },
+    250416: FunctionGUID {
+        guid: 2bbe9ff3-62f5-5867-86d1-7937c7eaa02f,
+    },
+    251088: FunctionGUID {
+        guid: 3e626237-c5e2-5175-914a-2b042e18362d,
+    },
+    251440: FunctionGUID {
+        guid: 91f63ecf-8e72-5167-9aeb-7d38de2c016b,
+    },
+    252064: FunctionGUID {
+        guid: 2bfcb0a0-efe7-5d80-9580-5171bc1171f4,
+    },
+    252496: FunctionGUID {
+        guid: 463b6374-33ab-504b-8ca4-40d4707f17d9,
+    },
+    252864: FunctionGUID {
+        guid: 54830a15-222b-55b2-94ab-51d08956802e,
+    },
+    253424: FunctionGUID {
+        guid: 49224229-c611-5dd4-963b-00a7fd67afc7,
+    },
+    255936: FunctionGUID {
+        guid: 57e400df-3c8f-5493-9f77-b37a6f4ebd3b,
+    },
+    256768: FunctionGUID {
+        guid: 7288c18f-2bbd-590e-8662-84fcff0c2205,
+    },
+    257264: FunctionGUID {
+        guid: f61c75b2-0eb0-58a7-be62-1454cba9543a,
+    },
+    257696: FunctionGUID {
+        guid: 3d2850d0-1e93-5e13-bd3d-7b285e3ff02f,
+    },
+    258064: FunctionGUID {
+        guid: 1be25e5f-edcb-57b0-acda-7e38487d8797,
+    },
+    258864: FunctionGUID {
+        guid: 960dbad0-a840-5d82-8403-605ede249f7a,
+    },
+    259200: FunctionGUID {
+        guid: bcdac5a2-e345-500f-89e2-0f61aa50d880,
+    },
+    259648: FunctionGUID {
+        guid: fc597342-a71c-59db-bb20-92252e25a168,
+    },
+    260000: FunctionGUID {
+        guid: bbe5afb4-3123-5dd3-92f6-f2b70caada8a,
+    },
+    260656: FunctionGUID {
+        guid: 518aa60b-91dc-55c4-a873-36b3771eb187,
+    },
+    261280: FunctionGUID {
+        guid: f55996f1-dbb1-5cda-8eb1-5d39c23445be,
+    },
+    261648: FunctionGUID {
+        guid: 24bb0d12-ee2d-5f3b-b7d6-cee173baf054,
+    },
+    261984: FunctionGUID {
+        guid: 554f3571-fbe7-52e8-8b99-167bbb8a7891,
+    },
+    262304: FunctionGUID {
+        guid: 6c324168-1c3d-5d59-9684-12821fc321be,
+    },
+    262976: FunctionGUID {
+        guid: f567b9a0-834b-5823-9a8a-727eb715a8b1,
+    },
+    263328: FunctionGUID {
+        guid: 5bc83844-878e-59e1-8272-48daee1d19ff,
+    },
+}

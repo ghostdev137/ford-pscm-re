@@ -1,0 +1,19 @@
+[package]
+name = "workflow_swift"
+version = "0.1.0"
+edition = "2021"
+license = "BSD-3-Clause"
+publish = false
+
+[lib]
+crate-type = ["staticlib", "cdylib"]
+
+[features]
+demo = []
+
+[dependencies]
+binaryninja = { workspace = true }
+binaryninjacore-sys.workspace = true
+tracing = "0.1"
+thiserror = "2.0"
+swift-demangler = { git = "https://github.com/Vector35/swift-demangler.git" }

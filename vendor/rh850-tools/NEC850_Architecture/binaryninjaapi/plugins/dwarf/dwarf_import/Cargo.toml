@@ -1,0 +1,24 @@
+[package]
+name = "dwarf_import"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[features]
+demo = []
+
+[dependencies]
+dwarfreader = { path = "../shared/" }
+binaryninja.workspace = true
+binaryninjacore-sys.workspace = true
+gimli = "0.31"
+iset = "0.2.2"
+cpp_demangle = "0.4.3"
+regex = "1"
+indexmap = "2.5.0"
+object = "0.36"
+tracing = "0.1"

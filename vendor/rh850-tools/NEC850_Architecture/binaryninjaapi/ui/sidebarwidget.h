@@ -1,0 +1,305 @@
+#pragma once
+
+#include <QtWidgets/QWidget>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QStackedWidget>
+#include <QtWidgets/QVBoxLayout>
+#include <QtGui/QPicture>
+#include "theme.h"
+
+class ContextMenuManager;
+class SplitTabWidget;
+class SidebarWidgetType;
+class SidebarHeader;
+class DockableTabCollection;
+class Pane;
+class SplitPaneWidget;
+class DockableTabStyle;
+
+/*!
+	\defgroup sidebar Sidebar
+ 	\ingroup uiapi
+*/
+
+/*!
+	\ingroup sidebar
+*/
+struct BINARYNINJAUIAPI SidebarIcon
+{
+	QImage original;
+	QImage active;
+	QImage inactive;
+	QImage hover;
+	QImage focused;
+
+	const QImage& iconForState(bool isActive, bool isHovered, bool isFocused) const;
+
+	static SidebarIcon generate(const QImage& src);
+};
+
+/*!
+    \ingroup sidebar
+*/
+class BINARYNINJAUIAPI SidebarWidget : public QWidget
+{
+	Q_OBJECT
+
+protected:
+	QString m_title;
+	UIActionHandler m_actionHandler;
+	ContextMenuManager* m_contextMenuManager = nullptr;
+	Menu* m_menu = nullptr;
+
+	bool m_quiesceState = true;
+	QTimer* m_updateTimer = nullptr;
+
+public:
+	SidebarWidget(const QString& title);
+	~SidebarWidget();
+	const QString& title() const { return m_title; }
+	void setTitle(const QString& title) { m_title = title; }
+
+	void enableRefreshTimer(int interval);
+	void setRefreshQuiesce(bool enable);
+	bool isQuiesced() const { return m_quiesceState; }
+	virtual void notifyRefresh() {};
+	virtual void notifyQuiesce(bool /*quiesce*/) {};
+
+	virtual void notifyFontChanged() {}
+	virtual void notifyOffsetChanged(uint64_t /*offset*/) {}
+	virtual void notifyThemeChanged();
+	virtual void notifyViewChanged(ViewFrame* /*frame*/) {}
+	virtual void notifyViewLocationChanged(View* /*view*/, const ViewLocation& /*viewLocation*/) {}
+	virtual void focus();
+	virtual void closing() {}
+	virtual void setPrimaryOrientation(Qt::Orientation /*orientation*/) {}
+
+	virtual QWidget* headerWidget() { return nullptr; }
+};
+
+/*!
+    \ingroup sidebar
+*/
+class BINARYNINJAUIAPI SidebarWidgetAndHeader : public QWidget
+{
+	Q_OBJECT
+	bool m_tabsActive = false;
+	bool m_combinedTabsAndHeader = false;
+	bool m_alwaysShowTabs;
+	bool m_fixedHeaderWidget;
+	SidebarWidgetType* m_type;
+	SidebarWidget* m_widget = nullptr;
+	SidebarHeader* m_header = nullptr;
+
+	QVBoxLayout* m_layout;
+	SplitTabWidget* m_tabs = nullptr;
+	DockableTabCollection* m_tabCollection = nullptr;
+	QStackedWidget* m_headerStack;
+	std::map<QWidget*, SidebarHeader*> m_headerWidgets;
+	std::set<SidebarWidget*> m_activeWidgets;
+	QLabel* m_noWidgetLabel = nullptr;
+
+private Q_SLOTS:
+	void tabChanged(QWidget* widget);
+	void tabClosed(QWidget* widget);
+
+public:
+	SidebarWidgetAndHeader(SidebarWidgetType* type, SplitPaneWidget* panes, ViewFrame* frame, BinaryViewRef data);
+	~SidebarWidgetAndHeader() override;
+
+	SidebarWidget* widget() const { return m_widget; }
+	SidebarWidgetType* type() const { return m_type; }
+	QWidget* header() const;
+
+	void addWidget(SidebarWidget* widget, bool canClose = false);
+	void removeWidget(SidebarWidget* widget);
+	SidebarWidget* widgetWithTitle(const QString& title) const;
+	bool hasWidgetWithTitle(const QString& title) const;
+	bool activateWidgetWithTitle(const QString& title);
+	bool activateWidget(SidebarWidget* widget);
+	bool hasContent() const;
+
+	void updateTheme();
+	void updateFonts();
+	void closing();
+	void notifyViewChanged(ViewFrame* frame);
+	void notifyViewLocationChanged(View* view, const ViewLocation& viewLocation);
+	void notifyOffsetChanged(uint64_t offset);
+
+	void forAllWidgets(const std::function<void(SidebarWidget*)>& func) const;
+};
+
+/*!
+    \ingroup sidebar
+*/
+class BINARYNINJAUIAPI SidebarHeaderTitle : public QLabel
+{
+	Q_OBJECT
+
+public:
+	SidebarHeaderTitle(const QString& name);
+};
+
+/*!
+    \ingroup sidebar
+*/
+class BINARYNINJAUIAPI SidebarHeader : public QWidget
+{
+	Q_OBJECT
+	bool m_hasRightSide = false;
+
+public:
+	SidebarHeader(const QString& name, QWidget* rightSide = nullptr);
+	bool hasRightSide() const { return m_hasRightSide; }
+};
+
+/*!
+    \ingroup sidebar
+*/
+class BINARYNINJAUIAPI SidebarInvalidContextWidget : public SidebarWidget
+{
+	Q_OBJECT
+
+public:
+	SidebarInvalidContextWidget(const QString& title);
+
+private Q_SLOTS:
+	void openFile();
+};
+
+/*!
+    \ingroup sidebar
+*/
+enum SidebarWidgetLocation
+{
+	LeftContent,
+	LeftReference,
+	LeftBottom,
+	RightContent,
+	RightReference,
+	RightBottom
+};
+
+/*!
+    \ingroup sidebar
+*/
+enum SidebarContextSensitivity
+{
+	GlobalSidebarContext,
+	SelfManagedSidebarContext,
+	PerTabSidebarContext,
+	PerViewTypeSidebarContext,
+	PerPaneSidebarContext
+};
+
+/*!
+    \ingroup sidebar
+*/
+enum SidebarIconVisibility
+{
+	AlwaysShowSidebarIcon,
+	HideSidebarIconIfNoContent,
+	AlwaysHideSidebarIcon,
+	InvisibleIfNoContent
+};
+
+/*!
+    \ingroup sidebar
+*/
+enum SidebarContentClassification
+{
+	SidebarHasRelevantContent,
+	SidebarHasGeneralMessage,
+	SidebarHasNoContent,
+	SidebarIsWidgetContainer
+};
+
+class BINARYNINJAUIAPI SidebarContentClassifier : public QObject
+{
+	Q_OBJECT
+
+public:
+	virtual SidebarContentClassification contentClassification() = 0;
+	virtual void notifyViewChanged(ViewFrame*) {}
+
+Q_SIGNALS:
+	void contentClassificationChanged();
+};
+
+class BINARYNINJAUIAPI StaticSidebarContentClassifier : public SidebarContentClassifier
+{
+	Q_OBJECT
+
+	SidebarContentClassification m_classification;
+
+public:
+	StaticSidebarContentClassifier(SidebarContentClassification classification) : m_classification(classification) {}
+	SidebarContentClassification contentClassification() override { return m_classification; }
+};
+
+/*!
+    \ingroup sidebar
+*/
+class BINARYNINJAUIAPI SidebarWidgetType
+{
+	SidebarIcon m_icon;
+	QString m_name;
+
+public:
+	SidebarWidgetType(const QImage& icon, const QString& name);
+	virtual ~SidebarWidgetType() {}
+
+	const SidebarIcon& icon() const { return m_icon; }
+	const QString& name() const { return m_name; }
+
+	/*!
+	    \deprecated Use `defaultLocation()`
+	*/
+	virtual bool isInReferenceArea() const { return false; }
+
+	/*!
+	    \deprecated Use `contextSensitivity()`
+	*/
+	virtual bool viewSensitive() const { return true; }
+
+	virtual SidebarWidgetLocation defaultLocation() const;
+	virtual SidebarContextSensitivity contextSensitivity() const;
+	virtual bool alwaysShowTabs() const { return false; }
+
+	/*!
+	    \deprecated Use `defaultIconVisibility()`
+	*/
+	virtual bool hideIfNoContent() const { return false; }
+
+	virtual SidebarIconVisibility defaultIconVisibility() const;
+
+	virtual SidebarWidget* createWidget(ViewFrame* /*frame*/, BinaryViewRef /*data*/) { return nullptr; }
+	virtual SidebarWidget* createInvalidContextWidget();
+	virtual QWidget* headerWidget(SplitPaneWidget* /*panes*/, ViewFrame* /*frame*/, BinaryViewRef /*data*/)
+	{
+		return nullptr;
+	}
+	virtual bool focusHeaderWidget() const { return false; }
+	virtual QString noWidgetMessage() const { return "No content active"; }
+	virtual DockableTabStyle* tabStyle() const;
+
+	virtual bool canUseAsPane(SplitPaneWidget* /*panes*/, BinaryViewRef /*data*/) const { return false; }
+	virtual Pane* createPane(SplitPaneWidget* /*panes*/, BinaryViewRef /*data*/) { return nullptr; }
+
+	virtual SidebarContentClassifier* contentClassifier(ViewFrame* /*frame*/, BinaryViewRef /*data*/)
+	{
+		return nullptr;
+	}
+
+	virtual bool deactivateOnLastTabClose() const { return false; }
+
+	void updateTheme();
+};
+
+class BINARYNINJAUIAPI MoreSidebarWidgetType : public SidebarWidgetType
+{
+public:
+	MoreSidebarWidgetType();
+
+	static MoreSidebarWidgetType* instance();
+};

@@ -1,0 +1,100 @@
+# OS and build artifacts
+*.a
+*.dylib
+*.exp
+*.ilk
+*.o
+*.obj
+*.pdb
+*.pkl
+*.pyc
+*.so
+*.so.1
+*.so.1.0
+*.so.1.0.0
+.DS_Store
+.env
+Thumbs.db
+bin/
+binaryninjaapi.lib
+binaryninjacore.dll
+binaryninjacore.lib
+examples/triage/moc_predefs.h
+examples/triage/moc_predefs.h.cbt
+examples/triage/triage.dll
+examples/triage/triage.lib
+libbinaryninja*
+python/_binaryninjacore.py
+python/enums.py
+python/generator
+python/generator.*.log
+python/generator.exe
+python/generator.log
+python/generator.tlog
+.cache/
+target/
+view/sharedcache/api/python/_sharedcachecore.py
+view/kernelcache/api/python/_kernelcachecore.py
+plugins/warp/api/python/_warpcore.py
+
+# Unit Tests
+suite/unit.py
+.coverage
+
+# Editors
+.vs
+.vscode
+
+# Docs
+site/*
+api-docs/build
+api-docs/source/binaryninja.*
+api-docs/source/python.rst
+api-docs/source/index.rst
+api-docs/source/uiapi
+api-docs/cppdocs/api
+api-docs/cppdocs/xml
+api-docs/cppdocs/html
+api-docs/cppdocs/docset
+!api-docs/cppdocs/Makefile
+!api-docs/Makefile
+
+# CMake
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+cmake_install.cmake
+install_manifest.txt
+CTestTestfile.cmake
+Makefile
+
+# Make
+python/examples/binaryninja/
+python/plugins/
+python/types/
+suite/binaryninja/
+
+# Deprecated
+*.opt
+build
+generator
+types/
+!/docs/guide/types/
+
+# Rust
+rust/**/*.swp
+rust/**/*.rs.bk
+rust/target/
+rust/binaryninjacore-sys/target/
+rust/examples/*/target/
+rust/examples/dwarf/*/target/
+# Allow the test binaries
+!/rust/fixtures/bin/**
+!/rust/src/types
+
+# Debugger docs
+docs/img/debugger
+docs/guide/debugger
+
+# AI
+.claude
