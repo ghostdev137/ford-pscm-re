@@ -35,6 +35,18 @@ Torque-source note:
 - current evidence says those channels are **local PSCM signals**, not a private CAN feed into the lateral controllers
 - see [torque_sensor_source_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/torque_sensor_source_trace.md)
 
+For the full `LKA` command-path walkthrough from mailbox family through local controller and
+override logic, see
+[lka_path_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/lka_path_findings.md).
+
+For the full `LCA / BlueCruise` command-path walkthrough from mailbox family through local
+controller, shared sideband ingress, and calibration ownership, see
+[lca_path_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/lca_path_findings.md).
+
+For the full `APA` command-path walkthrough from mailbox family through local controller and speed
+gate ownership, see
+[apa_path_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/apa_path_findings.md).
+
 ## What is definitely shared across all steering modes
 
 ## 1. Shared steering-angle input scale path
@@ -170,6 +182,10 @@ Safe ownership:
 
 ## 6. LKA-local workspace and thresholds
 
+This section keeps the mode-ownership framing. The detailed end-to-end `LKA` path narrative now
+lives in
+[lka_path_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/lka_path_findings.md).
+
 The `LKA` chain is explicit:
 
 - `FUN_1017fbe0`
@@ -216,6 +232,10 @@ These should be treated as **LKA / LDW-specific envelope entries**, not shared w
 ## LCA / BlueCruise side
 
 ## 8. LCA / BlueCruise-local namespaces
+
+This section keeps the mode-ownership framing. The detailed end-to-end `LCA` path narrative now
+lives in
+[lca_path_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/lca_path_findings.md).
 
 The LCA / BlueCruise-side wrappers and control chain include:
 
@@ -268,6 +288,10 @@ So the safe wording is:
 ## APA side
 
 ## 10. APA-local namespaces
+
+This section keeps the mode-ownership framing. The detailed end-to-end `APA` path narrative now
+lives in
+[apa_path_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/apa_path_findings.md).
 
 The APA-side path is clearly separate from LKA and LCA:
 
@@ -343,3 +367,10 @@ If the question is "what will move multiple modes together?":
 - the shared lateral supervisor records probably will
 
 That is the right current separation model for this firmware.
+
+## Cross-links
+
+- [lka_path_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/lka_path_findings.md)
+- [lca_path_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/lca_path_findings.md)
+- [apa_path_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/apa_path_findings.md)
+- [eps_dbc_message_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_dbc_message_trace.md)

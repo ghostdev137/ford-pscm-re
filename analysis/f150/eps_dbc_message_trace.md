@@ -23,6 +23,18 @@ The current firmware ownership model stays consistent with
 - `APA` local workspace: `fef211**`, `fef212**`, `fef213**`
 - shared feedback / signal-ingest layer: `10096xxx` / `10097xxx`
 
+For the full end-to-end `LKA` walkthrough from mailbox family through local controller and
+override logic, see
+[lka_path_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/lka_path_findings.md).
+
+For the full end-to-end `LCA / BlueCruise` walkthrough from mailbox family through local
+controller, shared sideband ingress, and calibration ownership, see
+[lca_path_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/lca_path_findings.md).
+
+For the full end-to-end `APA` walkthrough from mailbox family through local controller and speed
+gate ownership, see
+[apa_path_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/apa_path_findings.md).
+
 ## Important platform note
 
 The Ford base PT DBC exposes **both**:
@@ -64,6 +76,9 @@ Exact `0x3D3` vs `0x3D6` mailbox ownership is still not fully proven at the disp
 | `0x3D8` | `IPMA_Data` | `IPMA_ADAS -> GWM` | lane-assist / hands-off / display-side status | used as camera/UI state in the broader Ford stack; not yet shown as a direct PSCM command path | secondary / UI |
 
 ## LKA message trace
+
+The full continuous `LKA` path narrative now lives in
+[lka_path_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/lka_path_findings.md).
 
 ## `0x3CA` — `Lane_Assist_Data1`
 
@@ -137,6 +152,10 @@ Confidence:
 - **Low** for the exact packer function in the F-150 strategy
 
 ## LCA / BlueCruise message trace
+
+This note remains the canonical message-ownership map. The full continuous `LCA` path narrative
+now lives in
+[lca_path_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/lca_path_findings.md).
 
 ## `0x3D3` — `LateralMotionControl`
 
@@ -273,6 +292,9 @@ Confidence:
 - **Medium / High** that this exact branch is `0x3D7 Steer_Assist_Data` rather than another sibling PSCM-facing sideband PDU, because part of its normalized output is now pinned into concrete `LCA / BlueCruise` getter shims
 
 ## APA message trace
+
+The full continuous `APA` path narrative now lives in
+[apa_path_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/apa_path_findings.md).
 
 ## `0x3A8` — `ParkAid_Data`
 
@@ -417,6 +439,9 @@ If the goal is to modify steering behavior at the PSCM:
 
 ## Cross-links
 
+- [lka_path_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/lka_path_findings.md)
+- [lca_path_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/lca_path_findings.md)
+- [apa_path_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/apa_path_findings.md)
 - [eps_mode_separation_ghidra_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_mode_separation_ghidra_trace.md)
 - [torque_sensor_source_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/torque_sensor_source_trace.md)
 - [angle_scale_patch.md](/Users/rossfisher/ford-pscm-re/analysis/f150/angle_scale_patch.md)

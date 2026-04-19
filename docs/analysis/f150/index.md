@@ -13,6 +13,9 @@ These pages are the GitHub Pages entrypoint for the deeper repo notes under `ana
 ## Start here
 
 - [Plain-language calibration map](cal-plain-language-map.html)
+- repository note: `analysis/f150/lka_path_findings.md` for the canonical `LKA` path walkthrough
+- repository note: `analysis/f150/lca_path_findings.md` for the canonical end-to-end `LCA / BlueCruise` path walkthrough
+- repository note: `analysis/f150/apa_path_findings.md` for the canonical `APA` path walkthrough
 
 ## What this section covers
 
@@ -30,6 +33,9 @@ The full proof notes still live in the repository under `analysis/f150/`, includ
 - `strategy_findings.md`
 - `driver_override_findings.md`
 - `eps_dbc_message_trace.md`
+- `lka_path_findings.md`
+- `lca_path_findings.md`
+- `apa_path_findings.md`
 - `lka_timer_ghidra_trace.md`
 - `eps_supervisor_ghidra_trace.md`
 - `eps_curve_family_ghidra_trace.md`

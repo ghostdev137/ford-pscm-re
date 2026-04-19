@@ -28,6 +28,9 @@ Plain-language summary:
 
 - [cal_plain_language_map.md](/Users/rossfisher/ford-pscm-re/analysis/f150/cal_plain_language_map.md) — quick EPS-role map for the major timer, gate, torque, and authority families
 - [eps_dbc_message_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_dbc_message_trace.md) — canonical message-level map for F-150 `LKA`, `LCA/BlueCruise`, `APA`, and shared PSCM feedback frames
+- [lka_path_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/lka_path_findings.md) — canonical end-to-end `LKA` path note for mailbox family, local controller state, and driver-override ownership
+- [lca_path_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/lca_path_findings.md) — canonical end-to-end `LCA / BlueCruise` path note for mailbox family, local controller state, shared sideband ingress, and calibration ownership
+- [apa_path_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/apa_path_findings.md) — canonical end-to-end `APA` path note for mailbox family, local controller state, speed gates, and workspace ownership
 
 Current DBC-to-firmware message split is strongest at:
 
@@ -36,6 +39,14 @@ Current DBC-to-firmware message split is strongest at:
 - `0x3D3` as the current best-fit primary `LCA / BlueCruise` command PDU in this exact `f150_pscm_full.elf` image, with `0x3D6` still present but much thinner in raw binary evidence
 - `0x3D7` now has a best-current periodic shared-supervisor consumer path `FUN_100586d0 -> FUN_1005ea9c -> FUN_1005e5fc`, which normalizes four object-like sideband channels into shared lateral state and writes three gp-backed halfword shims later reused by the `LCA / BlueCruise` locals (`FUN_10096f70/78/80`)
 - `0x3CC` now has a pinned low-flash TX descriptor slot in the same contiguous list as `0x082` and `0x417`, but its exact PSCM packer is still open
+
+The detailed controller-chain and calibration-level `LCA` narrative now lives in
+[lca_path_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/lca_path_findings.md).
+
+The matching `LKA` and `APA` controller-path narratives now live in
+[lka_path_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/lka_path_findings.md)
+and
+[apa_path_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/apa_path_findings.md).
 
 Note: ML34-14D004-EP.VBF loads to 0x101C0000 (different partition), NOT the calibration  
 addressed in task hypotheses. The correct cal is extracted as cal_bdl_raw.bin (195,584 bytes).
