@@ -13,6 +13,7 @@ For proof, field-level reasoning, and decompile context, follow the linked deep-
 Mode ownership cross-reference:
 
 - [eps_mode_separation_ghidra_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_mode_separation_ghidra_trace.md) — which blocks look `LKA`-specific, `LCA/BlueCruise`-specific, `APA`-specific, or shared
+- [eps_dbc_message_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_dbc_message_trace.md) — DBC-level message map for `LKA`, `LCA/BlueCruise`, `APA`, and shared PSCM feedback
 
 ## Confidence ladder
 
