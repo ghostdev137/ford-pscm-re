@@ -18,6 +18,7 @@ These pages are the GitHub Pages entrypoint for the deeper repo notes under `ana
 
 - lockout / re-arm timing behavior in the rack supervisor
 - feature gates like LKA/LCA/APA speed envelopes
+- DBC/message-level ownership for `LKA`, `LCA/BlueCruise`, `ESA`, `APA`, and shared PSCM feedback
 - steering authority / limiter curve families
 - driver-override threshold and hysteresis logic
 
@@ -28,6 +29,7 @@ The full proof notes still live in the repository under `analysis/f150/`, includ
 - `cal_findings.md`
 - `strategy_findings.md`
 - `driver_override_findings.md`
+- `eps_dbc_message_trace.md`
 - `lka_timer_ghidra_trace.md`
 - `eps_supervisor_ghidra_trace.md`
 - `eps_curve_family_ghidra_trace.md`

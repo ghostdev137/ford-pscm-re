@@ -3,7 +3,7 @@
 **Target:** `firmware/F150_2021_Lariat_BlueCruise/f150_pscm_full.elf`  
 **DBC source:** local OpenPilot/OpenDBC `opendbc/dbc/ford_lincoln_base_pt.dbc`  
 **Question:** which DBC messages belong to `LKA`, `LCA/BlueCruise`, and `APA`, and where do they land in the PSCM strategy?  
-**Status:** command-path ownership is now clear; some pack/unpack boundaries are still “best current fit” rather than fully proven mailbox-level handlers
+**Status:** this is now the canonical message-ownership note; command-path ownership is clear; `0x3D7` now has a best-current periodic shared-supervisor consumer path; `0x3CC` still lacks an exact packer despite stronger TX-descriptor-list proof
 
 ## Summary
 
@@ -54,10 +54,10 @@ Exact `0x3D3` vs `0x3D6` mailbox ownership is still not fully proven at the disp
 | CAN ID | DBC message | DBC direction vs PSCM | Plain-English role | Firmware landing zone | Ownership |
 |---|---|---|---|---|---|
 | `0x3CA` | `Lane_Assist_Data1` | `IPMA_ADAS -> PSCM` | direct LKA steering request | `FUN_10065b7c` best-fit unpack helper, then `FUN_101a4d56 -> FUN_101a3b84 -> FUN_101a4e4a` | `LKA` |
-| `0x3CC` | `Lane_Assist_Data3_FD1` | `PSCM -> IPMA_ADAS/GWM` | LKA / lateral availability and hands-off status | exact packer not yet pinned; semantically tied to PSCM availability / capability state | shared feedback |
+| `0x3CC` | `Lane_Assist_Data3_FD1` | `PSCM -> IPMA_ADAS/GWM` | LKA / lateral availability and hands-off status | low-flash TX descriptor slot at `0x100416ea` inside a contiguous `0x082 -> 0x3CC -> 0x417` list; exact packer still not isolated | shared feedback |
 | `0x3D3` | `LateralMotionControl` | DBC says `IPMA_ADAS -> GWM`; strategy use is lane-centering input | primary best-fit lateral path / curvature request in this image | shared LCA chain `FUN_101aa05e -> FUN_101ab934 -> FUN_101ad86c`; raw binary evidence strongly favors this PDU in `f150_pscm_full.elf` | `LCA / BlueCruise` |
 | `0x3D6` | `LateralMotionControl2` | `IPMA_ADAS -> PSCM` | newer CAN-FD replacement lateral path request | same shared LCA controller family; present in the DBC and image, but exact mailbox split still open and image evidence is much thinner than `0x3D3` | `LCA / BlueCruise` |
-| `0x3D7` | `Steer_Assist_Data` | `IPMA_ADAS -> PSCM` | ESA / object-aware steering-assist sideband input | not yet pinned to one local wrapper; best current fit is sibling input to the LCA supervisor | `LCA / ESA` |
+| `0x3D7` | `Steer_Assist_Data` | `IPMA_ADAS -> PSCM` | ESA / object-aware steering-assist sideband input | RX descriptor slot at `0x10041144`; best current downstream consumer is `FUN_100586d0 -> FUN_1005ea9c -> FUN_1005e5fc` into shared supervisor state | `LCA / ESA` |
 | `0x3A8` | `ParkAid_Data` | `IPMA_ADAS -> PSCM/GWM` in DBC | APA steering-angle request and APA state handshake | `FUN_10183a8a` best-known handler, then `FUN_10180044 -> FUN_1018466e -> FUN_101848ac` | `APA` |
 | `0x082` | `EPAS_INFO` | `PSCM -> IPMA_ADAS/GWM/ABS_ESC` | torque, failure, and APA handshake feedback | common getter layer reads this into local state used by `LKA`, `LCA`, and `APA` | shared feedback |
 | `0x07E` | `SteeringPinion_Data` | `PSCM -> many consumers` | pinion-angle / wheel-angle feedback | common getter layer and the shared angle path used by all steering modes | shared feedback |
@@ -121,6 +121,11 @@ Plain-English role:
 Current trace status:
 
 - the exact PSCM packer function is not pinned yet
+- headless Ghidra now proves that `0x3CC` occupies one concrete low-flash TX descriptor slot at `0x100416ea`
+  - bytes near `0x100416e8`: `82 00 01 00 01 03 08 00 00 00 cc 03 01 00 02 03 08 00 00 00 17 04 01 00`
+  - the neighboring TX IDs are `0x082` at `0x100416e0` and `0x417` at `0x100416f4`
+  - those addresses are spaced as one contiguous 10-byte TX descriptor list
+- that strengthens the “real PSCM feedback PDU” claim, but the imported ELF still does **not** produce direct code xrefs from those raw descriptor bytes to one pack function
 - but the semantic role is strong because:
   - OpenPilot reads `LaActAvail_D_Actl` from this message as PSCM LKA availability
   - the repo’s existing lockout / availability work is centered on these same capability semantics
@@ -128,7 +133,8 @@ Current trace status:
 Confidence:
 
 - **High** at the message-role level
-- **Low / Medium** for the exact packer function in the F-150 strategy
+- **High** for the concrete low-flash TX slot ownership
+- **Low** for the exact packer function in the F-150 strategy
 
 ## LCA / BlueCruise message trace
 
@@ -222,14 +228,34 @@ Plain-English role:
 
 Current trace:
 
-- this family is clearly `PSCM`-facing in the DBC
-- the exact local wrapper in the F-150 strategy is not yet pinned in the repo
-- best current fit is that it feeds the same broader lateral supervisor family as `LCA`, not the `LKA` or `APA` local namespace
+- headless Ghidra now proves a dedicated F-150 receive descriptor entry at `0x10041144`
+  - descriptor bytes: `d7 03 ff 47 1e 08 03 00`
+  - adjacent entries are `0x3D6` at `0x1004114c`, `0x3CA` at `0x10041154`, and `0x3A8` at `0x1004116c`
+- that places `0x3D7` inside the same 8-byte receive-descriptor run as the rack-facing lateral-command families
+- the strongest downstream consumer is now:
+  - periodic dispatcher `FUN_100586d0`
+  - `FUN_1005ea9c`
+  - which pulls four raw channels via `FUN_1005666e`, `FUN_10077308(0x6f)`, `FUN_10077308(0x70)`, and `FUN_10077308(0x79)`
+  - then calls `FUN_1005e5fc(local_3c, uStack_3a, uStack_36, uStack_38)`
+- `FUN_100586d0` also calls sibling supervisor branch `FUN_1005dbc8`, which reinforces that this is a periodic shared-supervisor consumer path rather than a mode-local mailbox wrapper
+- `FUN_1005e5fc` normalizes those four raw inputs into:
+  - `(raw * 0.035) - 17.9`
+  - `(raw * 0.035) - 17.9`
+  - `(raw * 0.03663) - 75.0`
+  - `raw * 0.01`
+- `FUN_1005ea9c` then clamps and stores the normalized outputs into shared supervisor globals:
+  - `gp-0xe1dc`, `gp-0xe1d8`, `gp-0xe1d0`, `gp-0xe1d4`
+  - mirrored live copies at `gp-0x154ec..gp-0x154e0`
+  - plus associated status bytes at `gp-0xc397`, `gp-0xc395`, `gp-0xc390`, `gp-0xc392`
+- those physical-value shapes are a strong match for the `0x3D7` object-sideband DBC family.
+  This last step is still an inference from the code-backed scales plus descriptor-list placement, not a mailbox-local proof from the receive dispatcher boundary.
+- importantly, this branch does **not** land in `fef21a**` (`LKA`) or `fef211**` (`APA`) local namespaces.
+  It behaves like shared lateral-supervisor / ESA state.
 
 Confidence:
 
-- **Medium** at subsystem role
-- **Low** for exact function-level ownership
+- **High** that the F-150 strategy has a dedicated periodic shared-supervisor consumer for an ESA / object-sideband message family
+- **Medium** that this exact branch is `0x3D7 Steer_Assist_Data` rather than another sibling PSCM-facing sideband PDU
 
 ## APA message trace
 
@@ -367,12 +393,12 @@ If the goal is to modify steering behavior at the PSCM:
    - the current F-150 strategy proof is stronger at the shared `LCA` controller chain than at the raw receive dispatcher
 
 2. Exact PSCM packer for `0x3CC Lane_Assist_Data3_FD1`
-   - semantic role is clear
+   - low-flash TX slot ownership is now clear
    - exact TX function is still not pinned
 
-3. Exact F-150 function owner for `0x3D7 Steer_Assist_Data`
-   - DBC role is clear
-   - strategy-local wrapper is not yet isolated in the current notes
+3. Exact mailbox-local wrapper for `0x3D7 Steer_Assist_Data`
+   - periodic shared-supervisor consumer path is now clear
+   - the receive-dispatch boundary is still not isolated in the current notes
 
 ## Cross-links
 

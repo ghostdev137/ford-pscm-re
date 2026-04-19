@@ -141,9 +141,34 @@ Evidence:
 So these should no longer be described as "the LKA timer block" in isolation.  
 They are better described as **shared lateral lockout / dwell / supervisor data with an LKA-proven slice**.
 
+## 5. Shared ESA / object-sideband branch
+
+The newest headless trace adds one more shared-lateral bucket that should not be collapsed into `LKA` or `APA`:
+
+- `FUN_1005ea9c`
+- its decode helper `FUN_1005e5fc`
+
+Why this matters:
+
+- `FUN_1005ea9c` is called from shared dispatcher `FUN_100586d0`, not from a mode-local `fef21a**`, `fef238**`, or `fef211**` wrapper
+- it pulls four raw channels through shared getters, normalizes them in `FUN_1005e5fc`, then stores the results into shared supervisor globals at `gp-0xe1dc..gp-0xe1d0` plus mirrored live copies at `gp-0x154ec..gp-0x154e0`
+- the message-level descriptor placement and exact scale factors are tracked centrally in [eps_dbc_message_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_dbc_message_trace.md)
+
+Plain-English role:
+
+- this is the rack’s **object / ESA sideband normalization branch**
+- it looks like the place where obstacle-relative quantities are turned into shared supervisor state for the on-road lateral stack
+
+Safe ownership:
+
+- shared by the **on-road lateral supervisor**
+- best current fit for `LCA / ESA / BlueCruise` sideband, with `0x3D7` as the current best mailbox fit
+- not proven `APA`
+- not an `LKA`-local namespace
+
 ## LKA-specific side
 
-## 5. LKA-local workspace and thresholds
+## 6. LKA-local workspace and thresholds
 
 The `LKA` chain is explicit:
 
@@ -179,7 +204,7 @@ This is the **LKA-local controller and override family**:
 - assist-state gating
 - final LKA output gain / clamp
 
-## 6. Likely LKA-specific cal blocks
+## 7. Likely LKA-specific cal blocks
 
 The strongest current LKA ownership is:
 
@@ -190,7 +215,7 @@ These should be treated as **LKA / LDW-specific envelope entries**, not shared w
 
 ## LCA / BlueCruise side
 
-## 7. LCA / BlueCruise-local namespaces
+## 8. LCA / BlueCruise-local namespaces
 
 The LCA / BlueCruise-side wrappers and control chain include:
 
@@ -221,7 +246,7 @@ This is the **LCA / BlueCruise local authority and state machine family**:
 - mode bytes
 - output-side shaping and internal state
 
-## 8. Likely LCA-specific calibration
+## 9. Likely LCA-specific calibration
 
 The strongest current LCA ownership is:
 
@@ -242,7 +267,7 @@ So the safe wording is:
 
 ## APA side
 
-## 9. APA-local namespaces
+## 10. APA-local namespaces
 
 The APA-side path is clearly separate from LKA and LCA:
 

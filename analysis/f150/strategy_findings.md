@@ -27,13 +27,15 @@ Entropy map shows:
 Plain-language summary:
 
 - [cal_plain_language_map.md](/Users/rossfisher/ford-pscm-re/analysis/f150/cal_plain_language_map.md) — quick EPS-role map for the major timer, gate, torque, and authority families
-- [eps_dbc_message_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_dbc_message_trace.md) — message-level map for F-150 `LKA`, `LCA/BlueCruise`, `APA`, and shared PSCM feedback frames
+- [eps_dbc_message_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_dbc_message_trace.md) — canonical message-level map for F-150 `LKA`, `LCA/BlueCruise`, `APA`, and shared PSCM feedback frames
 
 Current DBC-to-firmware message split is strongest at:
 
 - `0x3CA` for direct `LKA`
 - `0x3A8` for `APA`
 - `0x3D3` as the current best-fit primary `LCA / BlueCruise` command PDU in this exact `f150_pscm_full.elf` image, with `0x3D6` still present but much thinner in raw binary evidence
+- `0x3D7` now has a best-current periodic shared-supervisor consumer path `FUN_100586d0 -> FUN_1005ea9c -> FUN_1005e5fc`, which normalizes four object-like sideband channels into shared lateral state
+- `0x3CC` now has a pinned low-flash TX descriptor slot in the same contiguous list as `0x082` and `0x417`, but its exact PSCM packer is still open
 
 Note: ML34-14D004-EP.VBF loads to 0x101C0000 (different partition), NOT the calibration  
 addressed in task hypotheses. The correct cal is extracted as cal_bdl_raw.bin (195,584 bytes).

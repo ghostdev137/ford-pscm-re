@@ -93,6 +93,43 @@ The defaults are:
 
 That reinforces the interpretation that this record is a collection of **milliseconds-scale EPS dwell thresholds**, not breakpoint axes or gains.
 
+### `FUN_1005ea9c` refinement: shared ESA / object-sideband consumer
+
+`FUN_1005ea9c` is now worth calling out separately because it shows what one non-LKA use of the same `cfg6c` timing bundle looks like in live code.
+
+What the function does:
+
+- is called from shared dispatcher `FUN_100586d0`, alongside sibling supervisor branch `FUN_1005dbc8`
+- pulls one raw channel through `FUN_1005666e`
+- pulls three more through `FUN_10077308(0x6f)`, `FUN_10077308(0x70)`, and `FUN_10077308(0x79)`
+- runs the four raws through `FUN_1005e5fc`
+- then gates, retains, and mirrors the normalized outputs using the same `cfg6c`-backed clear / retain timers consumed by:
+  - `FUN_1005e778`
+  - `FUN_1005e884`
+  - `FUN_1005e91e`
+  - `FUN_1005e9b8`
+
+`FUN_1005ea9c` then clamps and stores them into shared globals:
+
+- `gp-0xe1dc`, `gp-0xe1d8`, `gp-0xe1d0`, `gp-0xe1d4`
+- mirrored copies at `gp-0x154ec..gp-0x154e0`
+- associated status bytes at `gp-0xc397`, `gp-0xc395`, `gp-0xc390`, `gp-0xc392`
+
+For the exact physical-value scales and the current mailbox-level best fit (`0x3D7`), see
+[eps_dbc_message_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_dbc_message_trace.md).
+
+Why that matters:
+
+- this is clearly **not** just another watchdog timeout path
+- it proves the same supervisor/timer family also owns a sideband physical-signal normalization branch
+- the surrounding dispatcher context keeps this in the shared supervisor layer rather than an `LKA`-local or `APA`-local wrapper
+
+Best current interpretation:
+
+- `cfg6c` is shared by both:
+  - watchdog / qualifier timing
+  - an ESA / object-sideband branch that feeds the shared lateral supervisor
+
 ## Proven `context + 0x68` behavior: mixed continuous-control block
 
 The `context + 0x68` pointer behaves very differently. It is used as a mixed float/int record in control-law setup and filter initialization:
@@ -202,5 +239,10 @@ The F-150 EPS supervisor data now separates cleanly into:
 3. **Curve/lookup record**
    - likely where authority/rate breakpoints live
    - consumed through interpolation rather than elapsed-time compares
+
+4. **ESA / object-sideband normalization branch**
+   - concretely visible in `FUN_1005ea9c -> FUN_1005e5fc`
+   - uses the same packed dwell record for retain / clear timing
+   - best current fit for `0x3D7`-style obstacle / ESA sideband state, not `LKA`-local or `APA`-local control
 
 That is the right mental model for the rack firmware: envelope and dwell logic are split across multiple config records, not one flat "LKA timer cluster".
