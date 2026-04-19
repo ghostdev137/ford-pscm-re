@@ -8,6 +8,7 @@
 Quick entry point:
 
 - [cal_plain_language_map.md](/Users/rossfisher/ford-pscm-re/analysis/f150/cal_plain_language_map.md) — plain-language catalog of what each major cal block does in EPS terms
+- [eps_mode_separation_ghidra_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_mode_separation_ghidra_trace.md) — which cal/workspace families belong to `LKA`, `LCA/BlueCruise`, `APA`, or shared EPS logic
 
 ---
 
@@ -242,6 +243,28 @@ New code-backed refinement from Ghidra:
 - `context + 0x68` is now proven to be a **mixed continuous-control block**
 - reads from `cfg68 + 0x34`, `+0x48`, `+0x4c`, and `+0x5c` are used as fallback gains/limits and filter constants
 - the best current fit is that this `0x07D68..0x07E3F` neighborhood, extending through the mixed record at `0x07ADC`, backs that pointer family
+
+Best-fit raw values from the `0x07ADC` neighborhood now tighten that interpretation:
+
+- `base + 0x14 = 0.08726646` (`5 deg` in radians)
+- `base + 0x18 = 0.17453292` (`10 deg` in radians)
+- `base + 0x34 = 0.7`
+- `base + 0x44 = 0.008`
+- `base + 0x48 = 36.1111`
+- `base + 0x4c = 5.5556`
+- `base + 0x54 = 90.0`
+- `base + 0x5c = 1.2`
+- `base + 0x60 = 5.0`
+
+That is strong enough to describe this family more plainly as:
+
+- a **continuous-control supervisor record**
+- with angle-like thresholds, fallback magnitudes, filter poles, and small numerical tuning coefficients
+
+Still unresolved:
+
+- the exact low end of the flash record, because `base + 0x10` is still `0x00010000` rather than a clean float
+- the larger byte-table portion of the same runtime record, which is consumed at offsets like `+0x3b7`, `+0x3f0`, `+0x40e`, `+0x822`, and `+0x852`
 
 This is still not fully pinned field-by-field, but it is no longer just a shape guess. See [eps_supervisor_ghidra_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_supervisor_ghidra_trace.md).
 

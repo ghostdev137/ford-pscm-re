@@ -104,13 +104,42 @@ The strongest code-backed fields are:
 
 | Offset | Proven behavior | Meaning in EPS terms |
 |---|---|---|
-| `+0x10` / `+0x14` | positive / negative gains applied to an internal delta `(iVar9+0x2e0) - (iVar9+0x2e4)` before comparison to a live signal | slope / gain pair for validating or bounding a dynamic estimate |
+| `+0x10` / `+0x14` | positive / negative bounds applied to an internal delta `(iVar9+0x2e0) - (iVar9+0x2e4)` before comparison to a live signal | slope / window pair for validating or bounding a dynamic estimate |
 | `+0x34` | copied into six globals whenever one validation chain fails | fallback limit / gain / default target for a six-channel block |
 | `+0x48` | copied into another six globals on invalidity | second fallback limit / gain / default target |
 | `+0x4c` | scaled by `1e-9` before storage | very small numerical tuning constant, likely for a continuous-time or rate-related calculation |
 | `+0x5c` | used in `exp(-2*pi*0.002*f)` | filter frequency or pole location for a low-pass / decay term |
 
 This is not a timer table. It is a **continuous-control / filter / fallback-parameter block**.
+
+### Best-fit raw values in the `0x07ADC` neighborhood
+
+Using `cal+0x07ADC` as the current best-fit base for `ctx + 0x68`, the mid-record values now line up as:
+
+| Best-fit offset | Raw value | Best current EPS meaning |
+|---|---|---|
+| `+0x14` | `0.08726646` | angle-like threshold, exactly `5 deg` in radians |
+| `+0x18` | `0.17453292` | second angle-like threshold, exactly `10 deg` in radians |
+| `+0x34` | `0.7` | fallback gain / limiter magnitude used when one validation chain fails |
+| `+0x44` | `0.008` | small continuous-control coefficient in the same supervisor record |
+| `+0x48` | `36.1111` | fallback magnitude copied into six globals on invalidity |
+| `+0x4c` | `5.5556` | tiny numerical term after `* 1e-9` scaling in live code |
+| `+0x54` | `90.0` | large bound / cap-like constant in the same mixed record |
+| `+0x5c` | `1.2` | low-pass / decay pole term used by `exp(-2*pi*0.002*f)` |
+| `+0x60` | `5.0` | neighboring scale / bound term in the same mixed record |
+
+This is still not final field proof. The low end of the record is clearly mixed, and `base + 0x10` is still `0x00010000` instead of a clean float. So the safe conclusion is:
+
+- the **mid-range** float fields around `+0x14..+0x60` fit `ctx + 0x68` well
+- the **exact start** of the backing flash record is still not fully pinned
+
+Additional `ctx + 0x68` consumers also read higher byte offsets such as:
+
+- `FUN_10059dcc`: `+0x40e`, `+0x852`
+- `FUN_1005a4d6`: `+0x3b7`, `+0x3f0`
+- `FUN_1005bd62`: `+0x822`
+
+That strengthens the view that `ctx + 0x68` is a larger mixed record or blob, not just the first short float run upstream of `0x07ADC`.
 
 ## Best current fit to the flash neighborhoods
 
@@ -123,14 +152,23 @@ Why `0x07ADC` is the best current fit for `context + 0x68`:
 
 - the neighborhood is clearly mixed int/float
 - relative float offsets line up plausibly with the proven `cfg68` reads:
+  - `base + 0x14 = 0.08726646` (`5 deg` in radians)
+  - `base + 0x18 = 0.17453292` (`10 deg` in radians)
   - `base + 0x34 = 0.7`
+  - `base + 0x44 = 0.008`
   - `base + 0x48 = 36.1111`
   - `base + 0x4c = 5.5556`
+  - `base + 0x54 = 90.0`
   - `base + 0x5c = 1.2`
+  - `base + 0x60 = 5.0`
 - those values are reasonable as fallback gains, limits, and filter constants in an EPS supervisor
 - `FUN_10055494` now proves that `ctx + 0x68` is a top-level initialized config record, which makes the mixed `0x07ADC` neighborhood fit better than before
 
-That is still a best-fit, not final proof, because the exact initializer for `context + 0x68` has not been isolated the same way the `0xa4` family was.
+That is still a best-fit, not final proof, because:
+
+- the exact initializer for `context + 0x68` has not been isolated the same way the `0xa4` family was
+- `base + 0x10` does not decode cleanly as a float
+- higher-offset byte-table consumers show that the runtime record likely extends well beyond the first visible float run
 
 ## Proven `context + 0x74` behavior: lookup-table / curve block
 

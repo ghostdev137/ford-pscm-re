@@ -104,6 +104,12 @@ Best current guess:
 
 ## 3. Dense float neighborhood around `0x07D68..0x07E3F`
 
+Status update:
+
+- this family is now **partially resolved**
+- the live `ctx + 0x68` consumer path proves this is not just an arbitrary float blob
+- the remaining uncertainty is the exact flash start of the backing record and the meaning of the larger byte-table portion at higher offsets
+
 Representative runs:
 
 ### Candidate C
@@ -167,6 +173,26 @@ Values:
 [-0.469, -0.469, -0.402, -0.335, -0.335, -0.335, -0.1675]
 [-0.098, -0.098, -0.084, -0.07, -0.07, -0.07, -0.035]
 ```
+
+Current best fit:
+
+- continuous-control supervisor record
+- angle-like thresholds, fallback magnitudes, filter poles, and small numerical coefficients
+- best-fit `0x07ADC`-relative values now include:
+  - `+0x14 = 0.08726646` (`5 deg`)
+  - `+0x18 = 0.17453292` (`10 deg`)
+  - `+0x34 = 0.7`
+  - `+0x44 = 0.008`
+  - `+0x48 = 36.1111`
+  - `+0x4c = 5.5556`
+  - `+0x54 = 90.0`
+  - `+0x5c = 1.2`
+  - `+0x60 = 5.0`
+
+What is still missing before this can leave the candidate list completely:
+
+- exact flash start for the low end of the record
+- safe flash mapping for the higher byte-table consumers at offsets like `+0x3b7`, `+0x3f0`, `+0x40e`, `+0x822`, and `+0x852`
 
 Why this whole area looks real:
 

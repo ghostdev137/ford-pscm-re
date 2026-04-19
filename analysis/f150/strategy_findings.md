@@ -78,6 +78,7 @@ See also:
 - [lka_timer_ghidra_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/lka_timer_ghidra_trace.md)
 - [eps_supervisor_ghidra_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_supervisor_ghidra_trace.md)
 - [eps_curve_family_ghidra_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_curve_family_ghidra_trace.md)
+- [eps_mode_separation_ghidra_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_mode_separation_ghidra_trace.md)
 
 The live F-150 code path is more nuanced than a single naked `10000 ms` scalar. Ghidra now proves:
 
@@ -86,6 +87,22 @@ The live F-150 code path is more nuanced than a single naked `10000 ms` scalar. 
 - a separate packed debounce/persistence record for watchdog-style latch timing
 - a mixed float/int supervisor record that best matches the `0x07ADC` neighborhood
 - neighboring interpolation records that shape limiter, filter, and state-selection behavior
+
+New `ctx + 0x68` refinement from the same supervisor family:
+
+- `FUN_100a92ba` uses mid-record fields as continuous-control terms rather than timers
+- the best-fit `0x07ADC`-relative values now line up with:
+  - `+0x14 = 0.08726646` (`5 deg`)
+  - `+0x18 = 0.17453292` (`10 deg`)
+  - `+0x34 = 0.7`
+  - `+0x44 = 0.008`
+  - `+0x48 = 36.1111`
+  - `+0x4c = 5.5556`
+  - `+0x54 = 90.0`
+  - `+0x5c = 1.2`
+  - `+0x60 = 5.0`
+
+That makes the `0x07D68..0x07E3F` neighborhood more defensible as a **continuous-control supervisor record** with angle-like thresholds, fallback magnitudes, and filter-shape terms, not just an unexplained float blob next to the timer words.
 
 ## Mirror-model refinement for unresolved cal blocks
 

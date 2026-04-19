@@ -20,6 +20,12 @@ That controller does **not** compare a raw wheel-torque float directly against o
 
 So the best current model is: **Ford classifies driver interaction upstream, then LKA uses that classified result to decide whether to keep or drop assist.**
 
+Transport note:
+
+- the controller reads these channels through tiny `gp`-relative getter shims
+- current evidence points to a **local PSCM sensor-conditioning path**, not a private CAN feed into the LKA controller
+- see [torque_sensor_source_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/torque_sensor_source_trace.md)
+
 ## Function chain
 
 The LKA execution chain remains:

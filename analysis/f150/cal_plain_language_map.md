@@ -10,6 +10,10 @@ Use this page first when the question is:
 
 For proof, field-level reasoning, and decompile context, follow the linked deep-dive notes.
 
+Mode ownership cross-reference:
+
+- [eps_mode_separation_ghidra_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_mode_separation_ghidra_trace.md) — which blocks look `LKA`-specific, `LCA/BlueCruise`-specific, `APA`-specific, or shared
+
 ## Confidence ladder
 
 - **High**: direct code path or consumer behavior is proven.
@@ -81,13 +85,13 @@ For proof, field-level reasoning, and decompile context, follow the linked deep-
 
 ### `cal+0x07D68..0x07E3F`
 
-- **Plain-language role:** supervisor gains / hysteresis / filter-shape block.
+- **Plain-language role:** continuous-control supervisor record with angle-like thresholds, fallback magnitudes, and filter-shape terms.
 - **EPS subsystem:** rack supervisor and continuous-control tuning.
-- **What the rack is deciding:** how strongly to weight, filter, decay, or saturate internal supervisory signals around lateral-assist state transitions.
-- **Likely unit/type:** short monotonic float runs, including signed values and small positive coefficients.
-- **Lower / higher / zero effect:** lowering the larger gains would generally soften the supervisor’s response; zeroing small coefficients may remove damping or hysteresis; signed terms likely influence direction-sensitive correction behavior.
+- **What the rack is deciding:** how tightly to validate internal supervisory estimates, what fallback magnitudes to apply when a validation chain fails, and how aggressively to filter or decay those signals around lateral-assist state transitions.
+- **Likely unit/type:** mixed float/int neighborhood with short monotonic float runs and nearby structured constants; best-fit values include `5 deg`, `10 deg`, `0.7`, `0.008`, `36.1111`, `5.5556`, `90.0`, `1.2`, and `5.0`.
+- **Lower / higher / zero effect:** lowering the angle-like thresholds or fallback magnitudes would make the supervisor switch to its fallback behavior sooner; lowering the filter term would speed up the response; zeroing the small coefficients risks removing damping or numerical conditioning.
 - **Confidence:** **Medium**.
-- **Notes:** this looks tied to the same supervisor family as the timer neighborhoods and the mixed `ctx + 0x68` record.
+- **Notes:** this is tied to the same supervisor family as the timer neighborhoods and the mixed `ctx + 0x68` record. The mid-range field mapping is now stronger than the low-end flash base proof, so treat the role as solid but the exact record start as still slightly unresolved.
 - **Proof links:** [cal_findings.md](/Users/rossfisher/ford-pscm-re/analysis/f150/cal_findings.md), [eps_supervisor_ghidra_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_supervisor_ghidra_trace.md)
 
 ### `cal+0x07ADC..0x07AE8`
