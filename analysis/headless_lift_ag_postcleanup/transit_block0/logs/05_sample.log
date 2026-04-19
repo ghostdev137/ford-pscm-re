@@ -1,0 +1,113 @@
+openjdk version "21.0.10" 2026-01-20
+OpenJDK Runtime Environment Homebrew (build 21.0.10)
+OpenJDK 64-Bit Server VM Homebrew (build 21.0.10, mixed mode)
+Module manifest file error on line 2 of file: /Users/rossfisher/Library/ghidra/ghidra_12.0.4_PUBLIC/Extensions/GhidraMCP/Module.manifest
+	-> Invalid line encountered: GHIDRA_MODULE_NAME=GhidraMCP
+Module manifest file error on line 3 of file: /Users/rossfisher/Library/ghidra/ghidra_12.0.4_PUBLIC/Extensions/GhidraMCP/Module.manifest
+	-> Invalid line encountered: GHIDRA_MODULE_DESC=An HTTP server plugin for Ghidra
+Module manifest file error on line 2 of file: /Users/rossfisher/Library/ghidra/ghidra_12.0.4_PUBLIC/Extensions/GhidraMCP/Module.manifest
+	-> Invalid line encountered: GHIDRA_MODULE_NAME=GhidraMCP
+Module manifest file error on line 3 of file: /Users/rossfisher/Library/ghidra/ghidra_12.0.4_PUBLIC/Extensions/GhidraMCP/Module.manifest
+	-> Invalid line encountered: GHIDRA_MODULE_DESC=An HTTP server plugin for Ghidra
+INFO  Using log config file: jar:file:/opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: /Users/rossfisher/Library/ghidra/ghidra_12.0.4_PUBLIC/application.log (LoggingInitialization)  
+INFO  Loading user preferences: /Users/rossfisher/Library/ghidra/ghidra_12.0.4_PUBLIC/preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (466 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: NativePRNGNonBlocking (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (874 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 58 extension points (18 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/Base/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/SystemEmulation/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/FileFormats/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/WildcardAssembler/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/BSim/ghidra_scripts
+    /Users/rossfisher/ford-pscm-re/tools/ghidra_v850_patched/seeds
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Processors/8051/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/BytePatterns/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Processors/Atmel/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    /Users/rossfisher/ford-pscm-re/tools/scripts/transit_cleanup
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/Jython/ghidra_scripts
+    /Users/rossfisher/ford-pscm-re/tools/scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Processors/DATA/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/FunctionID/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/PyGhidra/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/SwiftDemangler/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/PDB/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Processors/JVM/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/Decompiler/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/GnuDemangler/ghidra_scripts
+    /Users/rossfisher/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/VersionTracking/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Processors/PIC/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Debug/Debugger/ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Opening existing project: /Users/rossfisher/ford-pscm-re/analysis/headless_lift_ag_postcleanup/transit_block0/project/TransitBlock0Lift (HeadlessAnalyzer)  
+INFO  Opening project: /Users/rossfisher/ford-pscm-re/analysis/headless_lift_ag_postcleanup/transit_block0/project/TransitBlock0Lift (HeadlessProject)  
+INFO  REPORT: Processing read-only project file: /transit_pscm_KK21-3F964-AG_block0_strategy.bin (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: SampleProjectLift.java '0x01000000' '0x010FFFEF' '100' '40'  (HeadlessAnalyzer)  
+SeedFromJson.java:10: error: duplicate class: SeedFromJson
+public class SeedFromJson extends GhidraScript {
+       ^
+MeasureQuality.java:13: error: duplicate class: MeasureQuality
+public class MeasureQuality extends GhidraScript {
+       ^
+SetOptions.java:7: error: duplicate class: SetOptions
+public class SetOptions extends GhidraScript {
+       ^
+F150CalOffsetsMath.java:48: error: cannot find symbol
+        Memory mem = currentProgram.getMemory();
+        ^
+  symbol:   class Memory
+  location: class F150CalOffsetsMath
+F150CalOffsetsMath.java:70: error: cannot find symbol
+            } catch (MemoryAccessException e) {}
+                     ^
+  symbol:   class MemoryAccessException
+  location: class F150CalOffsetsMath
+RH850SwitchTableDetector.java:329: warning: [removal] PLATE_COMMENT in ghidra.program.model.listing.CodeUnit has been deprecated and marked for removal
+                cu.setComment(CodeUnit.PLATE_COMMENT, String.format(
+                                      ^
+RH850SwitchTableDetector.java:329: warning: [removal] setComment(int,java.lang.String) in ghidra.program.model.listing.CodeUnit has been deprecated and marked for removal
+                cu.setComment(CodeUnit.PLATE_COMMENT, String.format(
+                  ^
+skipping /Users/rossfisher/ford-pscm-re/tools/scripts/transit_cleanup/seed_audit/MeasureQuality.java
+skipping /Users/rossfisher/ford-pscm-re/tools/scripts/transit_cleanup/RH850SwitchTableDetector.java
+skipping /Users/rossfisher/ford-pscm-re/tools/scripts/F150CalOffsetsMath.java
+skipping /Users/rossfisher/ford-pscm-re/tools/scripts/transit_cleanup/seed_audit/SeedFromJson.java
+skipping /Users/rossfisher/ford-pscm-re/tools/scripts/transit_cleanup/seed_audit/SetOptions.java
+INFO  SCRIPT: /Users/rossfisher/ford-pscm-re/tools/scripts/SampleProjectLift.java (HeadlessAnalyzer)  
+WARN  Decompiling 01007692, pcode error at 01007a02: Unable to resolve constructor at 01007a02 (DecompileCallback)  
+WARN  Decompiling 0101782e, pcode error at 0100c356: Unable to resolve constructor at 0100c356 (DecompileCallback)  
+WARN  Decompiling 01073418, pcode error at 69e61e8e: Could not follow disassembly flow into non-existing memory at 69e61e8e (DecompileCallback)  
+WARN  Decompiling 010748e8, pcode error at 0178bfde: Could not follow disassembly flow into non-existing memory at 0178bfde (DecompileCallback)  
+WARN  Decompiling 01087744, pcode error at 005bbb62: Could not follow disassembly flow into non-existing memory at 005bbb62 (DecompileCallback)  
+WARN  Decompiling 010886a2, pcode error at 0d9192f8: Could not follow disassembly flow into non-existing memory at 0d9192f8 (DecompileCallback)  
+WARN  Decompiling 01088d8a, pcode error at 0d9199e0: Could not follow disassembly flow into non-existing memory at 0d9199e0 (DecompileCallback)  
+WARN  Decompiling 0108b384, pcode error at 00f0f3e4: Could not follow disassembly flow into non-existing memory at 00f0f3e4 (DecompileCallback)  
+WARN  Decompiling 0108e61a, pcode error at 00f10454: Could not follow disassembly flow into non-existing memory at 00f10454 (DecompileCallback)  
+WARN  Decompiling 0108e976, pcode error at 00f10566: Could not follow disassembly flow into non-existing memory at 00f10566 (DecompileCallback)  
+WARN  Decompiling 0108e976, pcode error at 00f10976: Could not follow disassembly flow into non-existing memory at 00f10976 (DecompileCallback)  
+WARN  Decompiling 0109625e, pcode error at 8a2172e4: Could not follow disassembly flow into non-existing memory at 8a2172e4 (DecompileCallback)  
+WARN  Decompiling 01096f40, pcode error at 350a72e4: Could not follow disassembly flow into non-existing memory at 350a72e4 (DecompileCallback)  
+WARN  Decompiling 01098656, pcode error at ced091ca: Could not follow disassembly flow into non-existing memory at ced091ca (DecompileCallback)  
+WARN  Decompiling 0109a06c, pcode error at e9c187d2: Could not follow disassembly flow into non-existing memory at e9c187d2 (DecompileCallback)  
+WARN  Decompiling 0109a6a6, pcode error at d727ab7e: Could not follow disassembly flow into non-existing memory at d727ab7e (DecompileCallback)  
+WARN  Decompiling 0109aa5c, pcode error at 2ffa387e: Could not follow disassembly flow into non-existing memory at 2ffa387e (DecompileCallback)  
+WARN  Decompiling 0109aa5c, pcode error at 03ea949e: Could not follow disassembly flow into non-existing memory at 03ea949e (DecompileCallback)  
+WARN  Decompiling 0109aa5c, pcode error at b1d172b2: Could not follow disassembly flow into non-existing memory at b1d172b2 (DecompileCallback)  
+WARN  Decompiling 0109aea2, pcode error at e1c1543a: Could not follow disassembly flow into non-existing memory at e1c1543a (DecompileCallback)  
+WARN  Decompiling 010a048a, pcode error at 88420352: Could not follow disassembly flow into non-existing memory at 88420352 (DecompileCallback)  
+WARN  Decompiling 010a0dfa, pcode error at 030abab2: Could not follow disassembly flow into non-existing memory at 030abab2 (DecompileCallback)  
+WARN  Decompiling 010a2490, pcode error at 9528c0ac: Could not follow disassembly flow into non-existing memory at 9528c0ac (DecompileCallback)  
+WARN  Decompiling 010a26da, pcode error at 00f22f12: Could not follow disassembly flow into non-existing memory at 00f22f12 (DecompileCallback)  
+WARN  Decompiling 010a26da, pcode error at 5142ec18: Could not follow disassembly flow into non-existing memory at 5142ec18 (DecompileCallback)  
+WARN  Decompiling 010a56dc, pcode error at a97d7704: Could not follow disassembly flow into non-existing memory at a97d7704 (DecompileCallback)  
+INFO  SampleProjectLift.java> RESULT total_fns=267 sampled=100 clean=14 warnings=65 baddata=21 failed=0 (GhidraScript)  

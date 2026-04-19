@@ -1,0 +1,189 @@
+openjdk version "21.0.10" 2026-01-20
+OpenJDK Runtime Environment Homebrew (build 21.0.10)
+OpenJDK 64-Bit Server VM Homebrew (build 21.0.10, mixed mode)
+Module manifest file error on line 2 of file: /Users/rossfisher/Library/ghidra/ghidra_12.0.4_PUBLIC/Extensions/GhidraMCP/Module.manifest
+	-> Invalid line encountered: GHIDRA_MODULE_NAME=GhidraMCP
+Module manifest file error on line 3 of file: /Users/rossfisher/Library/ghidra/ghidra_12.0.4_PUBLIC/Extensions/GhidraMCP/Module.manifest
+	-> Invalid line encountered: GHIDRA_MODULE_DESC=An HTTP server plugin for Ghidra
+Module manifest file error on line 2 of file: /Users/rossfisher/Library/ghidra/ghidra_12.0.4_PUBLIC/Extensions/GhidraMCP/Module.manifest
+	-> Invalid line encountered: GHIDRA_MODULE_NAME=GhidraMCP
+Module manifest file error on line 3 of file: /Users/rossfisher/Library/ghidra/ghidra_12.0.4_PUBLIC/Extensions/GhidraMCP/Module.manifest
+	-> Invalid line encountered: GHIDRA_MODULE_DESC=An HTTP server plugin for Ghidra
+INFO  Using log config file: jar:file:/opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: /Users/rossfisher/Library/ghidra/ghidra_12.0.4_PUBLIC/application.log (LoggingInitialization)  
+INFO  Loading user preferences: /Users/rossfisher/Library/ghidra/ghidra_12.0.4_PUBLIC/preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (509 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: NativePRNGNonBlocking (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (1183 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 58 extension points (18 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/Base/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/SystemEmulation/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/FileFormats/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/WildcardAssembler/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/BSim/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Processors/8051/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/BytePatterns/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Processors/Atmel/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/Jython/ghidra_scripts
+    /Users/rossfisher/ford-pscm-re/tools/scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Processors/DATA/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/FunctionID/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/PyGhidra/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/SwiftDemangler/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/PDB/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Processors/JVM/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/Decompiler/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/GnuDemangler/ghidra_scripts
+    /Users/rossfisher/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/VersionTracking/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Processors/PIC/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Debug/Debugger/ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Creating temporary project: /Users/rossfisher/ford-pscm-re/analysis/headless_lift_ag_elforacle/transit_block0/elf_seed_project/TransitElfSeedOracle (HeadlessAnalyzer)  
+INFO  Creating project: /Users/rossfisher/ford-pscm-re/analysis/headless_lift_ag_elforacle/transit_block0/elf_seed_project/TransitElfSeedOracle (DefaultProject)  
+INFO  REPORT: Processing input files:  (HeadlessAnalyzer)  
+INFO       project: /Users/rossfisher/ford-pscm-re/analysis/headless_lift_ag_elforacle/transit_block0/elf_seed_project/TransitElfSeedOracle (HeadlessAnalyzer)  
+INFO  IMPORTING: file:///Users/rossfisher/Desktop/Transit_2025_PSCM_dump/set_02_cal_AG_strategy_AG_cal_AD/decompressed/transit_pscm_KK21-3F964-AG_full.elf (HeadlessAnalyzer)  
+INFO  Using Loader: Executable and Linking Format (ELF) (ProgramLoader)  
+INFO  Using Language/Compiler: v850e3:LE:32:default:default (ProgramLoader)  
+INFO  Using Library Search Path: [., /System/Library/dyld/dyld_shared_cache_arm64e, /System/Library/dyld/dyld_shared_cache_x86_64, /System/Library/dyld/dyld_shared_cache_x86_64h, /System/Cryptexes/OS/System/Library/dyld/dyld_shared_cache_arm64e, /System/Cryptexes/OS/System/Library/dyld/dyld_shared_cache_x86_64, /System/Cryptexes/OS/System/Library/dyld/dyld_shared_cache_x86_64h, /Users/rossfisher/Library/Java/Extensions, /Library/Java/Extensions, /Network/Library/Java/Extensions, /System/Library/Java/Extensions, /usr/lib/java] (ProgramLoader)  
+INFO  Additional info:
+Loading file:///Users/rossfisher/Desktop/Transit_2025_PSCM_dump/set_02_cal_AG_strategy_AG_cal_AD/decompressed/transit_pscm_KK21-3F964-AG_full.elf?MD5=419e7f903e8d8eec6eff947c14df1deb...
+------------------------------------------------
+
+ (ProgramLoader)  
+INFO  IMPORTING: Loaded 0 additional files (HeadlessAnalyzer)  
+INFO  ANALYZING all memory and code: file:///Users/rossfisher/Desktop/Transit_2025_PSCM_dump/set_02_cal_AG_strategy_AG_cal_AD/decompressed/transit_pscm_KK21-3F964-AG_full.elf (HeadlessAnalyzer)  
+WARN  Decompiling 0109fa78, pcode error at 15e483d2: Could not follow disassembly flow into non-existing memory at 15e483d2 (DecompileCallback)  
+WARN  Decompiling 0109bb98, pcode error at 2bc0c3e4: Could not follow disassembly flow into non-existing memory at 2bc0c3e4 (DecompileCallback)  
+WARN  Decompiling 0109bb98, pcode error at e9e58610: Could not follow disassembly flow into non-existing memory at e9e58610 (DecompileCallback)  
+WARN  Decompiling 010c0f8c, pcode error at 85e9dd14: Could not follow disassembly flow into non-existing memory at 85e9dd14 (DecompileCallback)  
+WARN  Decompiling 010c0f8c, pcode error at 91e9dda6: Could not follow disassembly flow into non-existing memory at 91e9dda6 (DecompileCallback)  
+WARN  Decompiling 00fd23da, pcode error at 00fd28fe: Unable to resolve constructor at 00fd28fe (DecompileCallback)  
+WARN  Decompiling 010a0914, pcode error at 598bf19a: Could not follow disassembly flow into non-existing memory at 598bf19a (DecompileCallback)  
+WARN  Decompiling 01059978, pcode error at 3fe1a3a2: Could not follow disassembly flow into non-existing memory at 3fe1a3a2 (DecompileCallback)  
+WARN  Decompiling 010bc968, pcode error at 0eb8e98e: Could not follow disassembly flow into non-existing memory at 0eb8e98e (DecompileCallback)  
+WARN  Decompiling 010ad990, pcode error at 00f3e35e: Could not follow disassembly flow into non-existing memory at 00f3e35e (DecompileCallback)  
+WARN  Decompiling 010749be, pcode error at 4133f7fa: Could not follow disassembly flow into non-existing memory at 4133f7fa (DecompileCallback)  
+WARN  Decompiling 010ae81e, pcode error at cfb7e2fa: Could not follow disassembly flow into non-existing memory at cfb7e2fa (DecompileCallback)  
+WARN  Decompiling 010c5802, pcode error at 31b8c81e: Could not follow disassembly flow into non-existing memory at 31b8c81e (DecompileCallback)  
+WARN  Decompiling 010c5802, pcode error at e90fe6b4: Could not follow disassembly flow into non-existing memory at e90fe6b4 (DecompileCallback)  
+WARN  Decompiling 010ac8a0, pcode error at a1b5e846: Could not follow disassembly flow into non-existing memory at a1b5e846 (DecompileCallback)  
+WARN  Decompiling 010d78d8, pcode error at 91ae79fa: Could not follow disassembly flow into non-existing memory at 91ae79fa (DecompileCallback)  
+WARN  Decompiling 010d78d8, pcode error at a85dd03c: Could not follow disassembly flow into non-existing memory at a85dd03c (DecompileCallback)  
+WARN  Decompiling 0107c0d2, pcode error at 92e4a800: Could not follow disassembly flow into non-existing memory at 92e4a800 (DecompileCallback)  
+WARN  Decompiling 010778e8, pcode error at f623414c: Could not follow disassembly flow into non-existing memory at f623414c (DecompileCallback)  
+WARN  Decompiling 01071b0c, pcode error at 00ef1fc6: Could not follow disassembly flow into non-existing memory at 00ef1fc6 (DecompileCallback)  
+WARN  Decompiling 010b9352, pcode error at 41eca482: Could not follow disassembly flow into non-existing memory at 41eca482 (DecompileCallback)  
+WARN  Decompiling 010b9352, pcode error at d9e97f5c: Could not follow disassembly flow into non-existing memory at d9e97f5c (DecompileCallback)  
+WARN  Decompiling 010b9352, pcode error at c9e96118: Could not follow disassembly flow into non-existing memory at c9e96118 (DecompileCallback)  
+WARN  Decompiling 010e3b5a: Unable to read bytes at ram:0110298c (DecompileCallback)  
+WARN  Decompiling 0107b3c0, pcode error at 5de57334: Could not follow disassembly flow into non-existing memory at 5de57334 (DecompileCallback)  
+WARN  Decompiling 010953c6, pcode error at 04d1bc0a: Could not follow disassembly flow into non-existing memory at 04d1bc0a (DecompileCallback)  
+WARN  Decompiling 010bb288, pcode error at 0b5fc31a: Could not follow disassembly flow into non-existing memory at 0b5fc31a (DecompileCallback)  
+WARN  Decompiling 01086514, pcode error at da31cbfc: Could not follow disassembly flow into non-existing memory at da31cbfc (DecompileCallback)  
+WARN  Decompiling 01094d76, pcode error at c97c59ec: Could not follow disassembly flow into non-existing memory at c97c59ec (DecompileCallback)  
+WARN  Decompiling 01077d82, pcode error at 61e814e2: Could not follow disassembly flow into non-existing memory at 61e814e2 (DecompileCallback)  
+WARN  Decompiling 010c5c1e, pcode error at b1e4e682: Could not follow disassembly flow into non-existing memory at b1e4e682 (DecompileCallback)  
+WARN  Decompiling 0101f43e, pcode error at 91a39a6e: Could not follow disassembly flow into non-existing memory at 91a39a6e (DecompileCallback)  
+WARN  Decompiling 0106c456, pcode error at 0106c3a0: Unable to resolve constructor at 0106c3a0 (DecompileCallback)  
+WARN  Decompiling 0106c456, pcode error at 91a7cc3a: Could not follow disassembly flow into non-existing memory at 91a7cc3a (DecompileCallback)  
+WARN  Decompiling 010bcc86, pcode error at eb42d1bc: Could not follow disassembly flow into non-existing memory at eb42d1bc (DecompileCallback)  
+WARN  Decompiling 010904a2, pcode error at 53271514: Could not follow disassembly flow into non-existing memory at 53271514 (DecompileCallback)  
+WARN  Decompiling 010bcc86, pcode error at ef25515a: Could not follow disassembly flow into non-existing memory at ef25515a (DecompileCallback)  
+WARN  Decompiling 010934c8, pcode error at be283640: Could not follow disassembly flow into non-existing memory at be283640 (DecompileCallback)  
+WARN  Decompiling 01046cd2, pcode error at d4311be0: Could not follow disassembly flow into non-existing memory at d4311be0 (DecompileCallback)  
+WARN  Decompiling 010714f4, pcode error at 00e76d1c: Could not follow disassembly flow into non-existing memory at 00e76d1c (DecompileCallback)  
+WARN  Decompiling 010e44a2: Unable to read bytes at ram:00000801 (DecompileCallback)  
+WARN  Decompiling 010c0792, pcode error at a2243ef2: Could not follow disassembly flow into non-existing memory at a2243ef2 (DecompileCallback)  
+WARN  Decompiling 010c0792, pcode error at 00eeb0c6: Could not follow disassembly flow into non-existing memory at 00eeb0c6 (DecompileCallback)  
+WARN  Decompiling 0105d790, pcode error at c4c2d9a6: Could not follow disassembly flow into non-existing memory at c4c2d9a6 (DecompileCallback)  
+WARN  Decompiling 010957ac, pcode error at 59d05926: Could not follow disassembly flow into non-existing memory at 59d05926 (DecompileCallback)  
+WARN  Decompiling 010957ac, pcode error at 09265c1c: Could not follow disassembly flow into non-existing memory at 09265c1c (DecompileCallback)  
+WARN  Decompiling 01077fe2, pcode error at 0107809a: Unable to resolve constructor at 0107809a (DecompileCallback)  
+WARN  Decompiling 0102ee3a, pcode error at fee36f00: Could not follow disassembly flow into non-existing memory at fee36f00 (DecompileCallback)  
+WARN  Decompiling 0102ee3a, pcode error at fee36f42: Could not follow disassembly flow into non-existing memory at fee36f42 (DecompileCallback)  
+WARN  Decompiling 21008e5c, pcode error at 0574c5fa: Could not follow disassembly flow into non-existing memory at 0574c5fa (DecompileCallback)  
+WARN  Decompiling 010a66d0, pcode error at 23e54f58: Could not follow disassembly flow into non-existing memory at 23e54f58 (DecompileCallback)  
+WARN  Decompiling 010c0ea0, pcode error at 85e9dd14: Could not follow disassembly flow into non-existing memory at 85e9dd14 (DecompileCallback)  
+WARN  Decompiling 010c0ea0, pcode error at 91e9dda6: Could not follow disassembly flow into non-existing memory at 91e9dda6 (DecompileCallback)  
+WARN  Decompiling 010d78d8, pcode error at 91ae79fa: Could not follow disassembly flow into non-existing memory at 91ae79fa (DecompileCallback)  
+WARN  Decompiling 010d78d8, pcode error at a85dd03c: Could not follow disassembly flow into non-existing memory at a85dd03c (DecompileCallback)  
+INFO  Packed database cache: /var/tmp/rossfisher-ghidra/packed-db-cache (PackedDatabaseCache)  
+INFO  Applied data type archive: generic_clib (ApplyDataArchiveAnalyzer)  
+INFO  -----------------------------------------------------
+    ASCII Strings                              0.264 secs
+    Apply Data Archives                        0.331 secs
+    Basic Constant Reference Analyzer          0.999 secs
+    Call Convention ID                         0.003 secs
+    Call-Fixup Installer                       0.004 secs
+    Create Address Tables                      0.028 secs
+    Create Address Tables - One Time           0.084 secs
+    Create Function                            0.028 secs
+    Data Reference                             0.023 secs
+    Decompiler Switch Analysis                 8.540 secs
+    Demangler GNU                              0.012 secs
+    Disassemble                                0.680 secs
+    Disassemble Entry Points                   0.013 secs
+    Embedded Media                             0.018 secs
+    External Entry References                  0.000 secs
+    Function ID                                0.014 secs
+    Function Start Search                      0.112 secs
+    Function Start Search delayed - One Time   0.073 secs
+    Non-Returning Functions - Discovered       0.028 secs
+    Non-Returning Functions - Known            0.000 secs
+    Reference                                  0.041 secs
+    Shared Return Calls                        0.029 secs
+    Stack                                      0.475 secs
+    Subroutine References                      0.013 secs
+-----------------------------------------------------
+     Total Time   11 secs
+-----------------------------------------------------
+ (AutoAnalysisManager)  
+INFO  REPORT: Analysis succeeded for file: file:///Users/rossfisher/Desktop/Transit_2025_PSCM_dump/set_02_cal_AG_strategy_AG_cal_AD/decompressed/transit_pscm_KK21-3F964-AG_full.elf (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: ExportFunctionStarts.java '0x01000000' '0x010FFFEF'  (HeadlessAnalyzer)  
+SeedFromJson.java:10: error: duplicate class: SeedFromJson
+public class SeedFromJson extends GhidraScript {
+       ^
+MeasureQuality.java:13: error: duplicate class: MeasureQuality
+public class MeasureQuality extends GhidraScript {
+       ^
+SetOptions.java:7: error: duplicate class: SetOptions
+public class SetOptions extends GhidraScript {
+       ^
+F150CalOffsetsMath.java:48: error: cannot find symbol
+        Memory mem = currentProgram.getMemory();
+        ^
+  symbol:   class Memory
+  location: class F150CalOffsetsMath
+F150CalOffsetsMath.java:70: error: cannot find symbol
+            } catch (MemoryAccessException e) {}
+                     ^
+  symbol:   class MemoryAccessException
+  location: class F150CalOffsetsMath
+RH850SwitchTableDetector.java:329: warning: [removal] PLATE_COMMENT in ghidra.program.model.listing.CodeUnit has been deprecated and marked for removal
+                cu.setComment(CodeUnit.PLATE_COMMENT, String.format(
+                                      ^
+RH850SwitchTableDetector.java:329: warning: [removal] setComment(int,java.lang.String) in ghidra.program.model.listing.CodeUnit has been deprecated and marked for removal
+                cu.setComment(CodeUnit.PLATE_COMMENT, String.format(
+                  ^
+skipping /Users/rossfisher/ford-pscm-re/tools/scripts/transit_cleanup/seed_audit/SetOptions.java
+skipping /Users/rossfisher/ford-pscm-re/tools/scripts/transit_cleanup/RH850SwitchTableDetector.java
+skipping /Users/rossfisher/ford-pscm-re/tools/scripts/transit_cleanup/seed_audit/MeasureQuality.java
+skipping /Users/rossfisher/ford-pscm-re/tools/scripts/transit_cleanup/seed_audit/SeedFromJson.java
+skipping /Users/rossfisher/ford-pscm-re/tools/scripts/F150CalOffsetsMath.java
+INFO  SCRIPT: /Users/rossfisher/ford-pscm-re/tools/scripts/ExportFunctionStarts.java (HeadlessAnalyzer)  
+INFO  ExportFunctionStarts.java> EXPORTED function_starts=703 out=/Users/rossfisher/ford-pscm-re/analysis/headless_lift_ag_elforacle/transit_block0/elf_function_starts.txt (GhidraScript)  
+INFO  ANALYZING changes made by post scripts: file:///Users/rossfisher/Desktop/Transit_2025_PSCM_dump/set_02_cal_AG_strategy_AG_cal_AD/decompressed/transit_pscm_KK21-3F964-AG_full.elf (HeadlessAnalyzer)  
+INFO  REPORT: Post-analysis succeeded for file: file:///Users/rossfisher/Desktop/Transit_2025_PSCM_dump/set_02_cal_AG_strategy_AG_cal_AD/decompressed/transit_pscm_KK21-3F964-AG_full.elf (HeadlessAnalyzer)  
+INFO  /transit_pscm_KK21-3F964-AG_full.elf: file created (rossfisher) (LocalFileSystem)  
+INFO  REPORT: Save succeeded for: /transit_pscm_KK21-3F964-AG_full.elf (TransitElfSeedOracle:/transit_pscm_KK21-3F964-AG_full.elf) (HeadlessAnalyzer)  
+INFO  REPORT: Import succeeded (HeadlessAnalyzer)  

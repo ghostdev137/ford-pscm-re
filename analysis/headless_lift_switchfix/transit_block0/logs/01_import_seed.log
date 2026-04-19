@@ -1,0 +1,74 @@
+openjdk version "21.0.10" 2026-01-20
+OpenJDK Runtime Environment Homebrew (build 21.0.10)
+OpenJDK 64-Bit Server VM Homebrew (build 21.0.10, mixed mode)
+Module manifest file error on line 2 of file: /Users/rossfisher/Library/ghidra/ghidra_12.0.4_PUBLIC/Extensions/GhidraMCP/Module.manifest
+	-> Invalid line encountered: GHIDRA_MODULE_NAME=GhidraMCP
+Module manifest file error on line 3 of file: /Users/rossfisher/Library/ghidra/ghidra_12.0.4_PUBLIC/Extensions/GhidraMCP/Module.manifest
+	-> Invalid line encountered: GHIDRA_MODULE_DESC=An HTTP server plugin for Ghidra
+Module manifest file error on line 2 of file: /Users/rossfisher/Library/ghidra/ghidra_12.0.4_PUBLIC/Extensions/GhidraMCP/Module.manifest
+	-> Invalid line encountered: GHIDRA_MODULE_NAME=GhidraMCP
+Module manifest file error on line 3 of file: /Users/rossfisher/Library/ghidra/ghidra_12.0.4_PUBLIC/Extensions/GhidraMCP/Module.manifest
+	-> Invalid line encountered: GHIDRA_MODULE_DESC=An HTTP server plugin for Ghidra
+INFO  Using log config file: jar:file:/opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: /Users/rossfisher/Library/ghidra/ghidra_12.0.4_PUBLIC/application.log (LoggingInitialization)  
+INFO  Loading user preferences: /Users/rossfisher/Library/ghidra/ghidra_12.0.4_PUBLIC/preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (497 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: NativePRNGNonBlocking (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (1136 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 89 extension points (43 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/Base/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/SystemEmulation/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/FileFormats/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/WildcardAssembler/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/BSim/ghidra_scripts
+    /Users/rossfisher/ford-pscm-re/tools/ghidra_v850_patched/seeds
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Processors/8051/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/BytePatterns/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Processors/Atmel/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    /Users/rossfisher/ford-pscm-re/tools/scripts/transit_cleanup
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/Jython/ghidra_scripts
+    /Users/rossfisher/ford-pscm-re/tools/scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Processors/DATA/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/FunctionID/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/PyGhidra/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/SwiftDemangler/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/PDB/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Processors/JVM/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/Decompiler/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/GnuDemangler/ghidra_scripts
+    /Users/rossfisher/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/VersionTracking/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Processors/PIC/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Debug/Debugger/ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Creating project: /Users/rossfisher/ford-pscm-re/analysis/headless_lift_switchfix/transit_block0/project/TransitBlock0Lift (HeadlessAnalyzer)  
+INFO  Creating project: /Users/rossfisher/ford-pscm-re/analysis/headless_lift_switchfix/transit_block0/project/TransitBlock0Lift (DefaultProject)  
+INFO  REPORT: Processing input files:  (HeadlessAnalyzer)  
+INFO       project: /Users/rossfisher/ford-pscm-re/analysis/headless_lift_switchfix/transit_block0/project/TransitBlock0Lift (HeadlessAnalyzer)  
+INFO  IMPORTING: file:///Users/rossfisher/ford-pscm-re/firmware/Transit_2025/decompressed/AM/block0_strategy.bin (HeadlessAnalyzer)  
+INFO  Successfully applied "-loader-baseAddr" to "Base Address" (old: "null", new: "0x01000000") (ProgramLoader)  
+INFO  Using Loader: Raw Binary (ProgramLoader)  
+INFO  Using Language/Compiler: v850e3:LE:32:default:default (ProgramLoader)  
+INFO  Using Library Search Path: [., /System/Library/dyld/dyld_shared_cache_arm64e, /System/Library/dyld/dyld_shared_cache_x86_64, /System/Library/dyld/dyld_shared_cache_x86_64h, /System/Cryptexes/OS/System/Library/dyld/dyld_shared_cache_arm64e, /System/Cryptexes/OS/System/Library/dyld/dyld_shared_cache_x86_64, /System/Cryptexes/OS/System/Library/dyld/dyld_shared_cache_x86_64h, /Users/rossfisher/Library/Java/Extensions, /Library/Java/Extensions, /Network/Library/Java/Extensions, /System/Library/Java/Extensions, /usr/lib/java] (ProgramLoader)  
+INFO  IMPORTING: Loaded 0 additional files (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: SetOptions.java  (HeadlessAnalyzer)  
+INFO  SCRIPT: /Users/rossfisher/ford-pscm-re/tools/scripts/transit_cleanup/SetOptions.java (HeadlessAnalyzer)  
+INFO  SetOptions.java> disabled: Aggressive Instruction Finder (GhidraScript)  
+INFO  SetOptions.java> disabled: Aggressive Instruction Finder.Create Analysis Bookmarks (GhidraScript)  
+INFO  REPORT: Execute script: SeedFromJarls.java 'skip-switches'  (HeadlessAnalyzer)  
+INFO  SCRIPT: /Users/rossfisher/ford-pscm-re/tools/ghidra_v850_patched/seeds/SeedFromJarls.java (HeadlessAnalyzer)  
+INFO  SeedFromJarls.java> SeedFromJarls: loaded seeds from /tmp/transit_decode_stats/jarl_targets_valid.txt seeded=333 failed=93 (GhidraScript)  
+INFO  SeedFromJarls.java> SeedFromJarls: loaded seeds from /Users/rossfisher/ford-pscm-re/tools/ghidra_v850_patched/seeds/transit_AM_jarl_targets.txt seeded=331 failed=98 (GhidraScript)  
+INFO  SeedFromJarls.java> SeedFromJarls: switch seeding disabled (GhidraScript)  
+INFO  SeedFromJarls.java> SeedFromJarls: seeded=664 failed=191 switchTables=0 switchFunctions=0 forcedExact=18 (GhidraScript)  
+INFO  /block0_strategy.bin: file created (rossfisher) (LocalFileSystem)  
+INFO  REPORT: Save succeeded for: /block0_strategy.bin (TransitBlock0Lift:/block0_strategy.bin) (HeadlessAnalyzer)  
+INFO  REPORT: Import succeeded (HeadlessAnalyzer)  

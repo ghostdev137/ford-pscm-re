@@ -10,7 +10,7 @@ import ghidra.program.model.mem.Memory;
 import java.io.*;
 import java.util.*;
 
-public class MeasureQuality extends GhidraScript {
+public class SeedAuditMeasureQuality extends GhidraScript {
     @Override
     public void run() throws Exception {
         String outp = System.getenv().getOrDefault("MEASURE_OUT", "/tmp/transit_cleanup/measure.tsv");

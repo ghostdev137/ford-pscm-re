@@ -5,6 +5,8 @@ import ghidra.app.script.GhidraScript;
 import ghidra.app.decompiler.*;
 import ghidra.program.model.listing.*;
 import ghidra.program.model.address.*;
+import ghidra.program.model.mem.Memory;
+import ghidra.program.model.mem.MemoryAccessException;
 import java.io.*;
 import java.nio.file.*;
 

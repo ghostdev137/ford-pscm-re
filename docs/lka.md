@@ -31,9 +31,11 @@ All three live in the cal partition and are patchable without touching strategy 
 |---|---|---|---|
 | `+0x03C4..+0x03E3` | LKA torque curve (8 BE float32 Nm) | `[0, 0.2, 0.4, 0.7, 1.0, 1.5, 2.0, 7.0]` | `[0, 0.7, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5]` |
 | `+0x0690` | LKA min-speed (BE float32 m/s) | 10.0 m/s | 3.0 m/s |
-| `+0x06B0..+0x06C3` | Lockout timer table (u16 BE × 10 ms) | 1.0/2.0/5.0/10.0 s | all zero |
+| `+0x06B0..+0x06C2` | Lockout timer cluster (10 × u16 BE × 10 ms) | `[0, 100, 0, 1000, 2000, 1000, 500, 400, 5, 255]` | all zero |
 
 The torque curve at `+0x03C4` is confirmed as the active LKA authority lookup by cross-vehicle analysis: Transit `+0x03C4` = Escape `+0x06BC` byte-for-byte on stock firmware. No other Transit torque table matches any Escape table.
+
+The plain-language read of that cluster is: short qualify terms + main 10-second lockout at `+0x06B6` + re-arm / recovery / watchdog terms around it. Zeroing the whole cluster removes the full Transit lockout supervisor, not just the one 10-second entry.
 
 ## Verify the patch via UDS
 

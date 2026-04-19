@@ -152,6 +152,28 @@ public class RH850SwitchTableDetector extends GhidraScript {
         return m.equals("bh") || m.equals("bnh");
     }
 
+    Integer extractImmediate(Instruction insn) {
+        Integer best = null;
+        for (int op = 0; op < insn.getNumOperands(); op++) {
+            Scalar s = insn.getScalar(op);
+            if (s == null) {
+                continue;
+            }
+            long value = s.getSignedValue();
+            if (value < 0 && Math.abs(value) < MAX_TABLE_ENTRIES) {
+                value = Math.abs(value);
+            }
+            if (value < 0 || value >= MAX_TABLE_ENTRIES) {
+                continue;
+            }
+            int candidate = (int) value;
+            if (best == null || candidate < best.intValue()) {
+                best = candidate;
+            }
+        }
+        return best;
+    }
+
     Integer scanBackwardsForBoundsCheck(Instruction insn) {
         Instruction cur = insn;
         for (int i = 0; i < 8; i++) {
@@ -161,9 +183,10 @@ public class RH850SwitchTableDetector extends GhidraScript {
             if (m.equals("cmp")) {
                 Instruction after = listing.getInstructionAfter(cur.getAddress());
                 if (after != null && isBranchHigher(after)) {
-                    Scalar s = cur.getScalar(0);
-                    if (s != null) return (int) s.getValue();
-                    return null;
+                    Integer imm = extractImmediate(cur);
+                    if (imm != null) {
+                        return imm;
+                    }
                 }
             }
         }
@@ -175,36 +198,45 @@ public class RH850SwitchTableDetector extends GhidraScript {
         List<Address[]> entries;   // [entryAddr, target]
         int scale;
         int entrySize;
-        TableResult(List<Address[]> e, int s, int es) { entries = e; scale = s; entrySize = es; }
+        String mode;
+        TableResult(List<Address[]> e, int s, int es, String m) {
+            entries = e;
+            scale = s;
+            entrySize = es;
+            mode = m;
+        }
     }
 
     TableResult tryDetect16(Address tableStart, Address funcLow, Address funcHigh,
                              Address baseAddr, Integer maxCases) {
         TableResult best = null;
-        for (int scale : new int[]{2, 1}) {
-            List<Address[]> entries = new ArrayList<>();
-            for (int i = 0; i < MAX_TABLE_ENTRIES; i++) {
-                Address ea;
-                try { ea = tableStart.add(i * 2L); } catch (Exception e) { break; }
-                if (ea.compareTo(funcHigh) > 0) break;
-                Integer v = readU16(ea);
-                if (v == null) break;
-                long off = (long) v * scale;
-                if (off > MAX_BRANCH_OFFSET) break;
-                Address target;
-                try { target = baseAddr.add(off); } catch (Exception e) { break; }
-                if (!isExecutable(target)) break;
-                if (target.getOffset() % ALIGNMENT != 0) break;
-                if (target.compareTo(funcLow) < 0) break;
-                try {
-                    if (target.compareTo(funcHigh.add(0x1000)) > 0) break;
-                } catch (Exception e) { break; }
-                entries.add(new Address[]{ea, target});
-                if (maxCases != null && entries.size() >= maxCases + 1) break;
-            }
-            if (entries.size() >= MIN_TABLE_ENTRIES) {
-                if (best == null || entries.size() > best.entries.size()) {
-                    best = new TableResult(entries, scale, 2);
+        for (boolean signed : new boolean[]{true, false}) {
+            for (int scale : new int[]{2, 1}) {
+                List<Address[]> entries = new ArrayList<>();
+                for (int i = 0; i < MAX_TABLE_ENTRIES; i++) {
+                    Address ea;
+                    try { ea = tableStart.add(i * 2L); } catch (Exception e) { break; }
+                    if (ea.compareTo(funcHigh) > 0) break;
+                    Integer v = readU16(ea);
+                    if (v == null) break;
+                    long rel = signed ? (short) v.intValue() : v.longValue();
+                    long off = rel * scale;
+                    if (Math.abs(off) > MAX_BRANCH_OFFSET) break;
+                    Address target;
+                    try { target = baseAddr.add(off); } catch (Exception e) { break; }
+                    if (!isExecutable(target)) break;
+                    if (target.getOffset() % ALIGNMENT != 0) break;
+                    if (target.compareTo(funcLow) < 0) break;
+                    try {
+                        if (target.compareTo(funcHigh.add(0x1000)) > 0) break;
+                    } catch (Exception e) { break; }
+                    entries.add(new Address[]{ea, target});
+                    if (maxCases != null && entries.size() >= maxCases + 1) break;
+                }
+                if (entries.size() >= MIN_TABLE_ENTRIES) {
+                    if (best == null || entries.size() > best.entries.size()) {
+                        best = new TableResult(entries, scale, 2, signed ? "rel16s" : "rel16u");
+                    }
                 }
             }
         }
@@ -230,7 +262,7 @@ public class RH850SwitchTableDetector extends GhidraScript {
             entries.add(new Address[]{ea, target});
             if (maxCases != null && entries.size() >= maxCases + 1) break;
         }
-        if (entries.size() >= MIN_TABLE_ENTRIES) return new TableResult(entries, 1, 4);
+        if (entries.size() >= MIN_TABLE_ENTRIES) return new TableResult(entries, 1, 4, "abs32");
         return null;
     }
 
@@ -264,8 +296,8 @@ public class RH850SwitchTableDetector extends GhidraScript {
         Address tableEnd = tableStart.add((long) count * result.entrySize);
 
         if (DRY_RUN) {
-            println(String.format("[DRY RUN] Table at %s: %d entries (%d-bit, scale=%d)",
-                    tableStart, count, result.entrySize * 8, result.scale));
+            println(String.format("[DRY RUN] Table at %s: %d entries (%d-bit, scale=%d, mode=%s)",
+                    tableStart, count, result.entrySize * 8, result.scale, result.mode));
             return;
         }
 
@@ -295,9 +327,10 @@ public class RH850SwitchTableDetector extends GhidraScript {
             CodeUnit cu = listing.getCodeUnitAt(tableStart);
             if (cu != null) {
                 cu.setComment(CodeUnit.PLATE_COMMENT, String.format(
-                        "GHS switch table: %d entries, %d-bit %s (scale=%d)\nDetected by RH850SwitchTableDetector",
+                        "GHS switch table: %d entries, %d-bit %s (scale=%d, mode=%s)\nDetected by RH850SwitchTableDetector",
                         count, result.entrySize * 8,
-                        result.entrySize == 2 ? "relative" : "absolute", result.scale));
+                        result.entrySize == 2 ? "relative" : "absolute",
+                        result.scale, result.mode));
             }
         } catch (Exception e) {}
 
@@ -312,8 +345,8 @@ public class RH850SwitchTableDetector extends GhidraScript {
             }
         }
 
-        println(String.format("Table at %s: %d entries (%d-bit, scale=%d)",
-                tableStart, count, result.entrySize * 8, result.scale));
+        println(String.format("Table at %s: %d entries (%d-bit, scale=%d, mode=%s)",
+                tableStart, count, result.entrySize * 8, result.scale, result.mode));
         bytesCleared += cleared.getNumAddresses();
         tablesFound++;
         entriesTotal += count;

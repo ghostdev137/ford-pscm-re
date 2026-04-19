@@ -533,153 +533,195 @@ with : op2026=0x0D {		# msb < 16, lsb < 16
 # unknown special instructions (documented in separate RH850 manual?..)
 
 #{ "cache",	two (0xe7e0, 0x0160),	two (0xe7e0, 0x07ff),	{CACHEOP, R1}, 		2, PROCESSOR_V850E3V5_UP },
-:cache cacheop, R0004	is op0510=0x3F & op1315=0x7 & R0004 & op1112 ; op1626=0x160 & op2731 [ cacheop = (op1112<<5) | op2731; ] unimpl
+:cache cacheop, R0004	is op0510=0x3F & op1315=0x7 & R0004 & op1112 ; op1626=0x160 & op2731 [ cacheop = (op1112<<5) | op2731; ] {
+	__synchronize();
+}
 
 #{ "dbcp",	one (0xe840),		one (0xffff),		{0},			0, PROCESSOR_V850E3V5_UP },
-:dbcp					is op0015=0xE840		unimpl
+:dbcp					is op0015=0xE840 {
+	__nop();
+}
 #{ "dbhvtrap",	one (0xe040),		one (0xffff),		{0},			0, PROCESSOR_V850E3V5_UP },
-:dbhvtrap				is op0015=0xE040		unimpl
+:dbhvtrap				is op0015=0xE040 {
+	__halt();
+}
 #{ "dbpush",	two (0x5fe0, 0x0160),	two (0xffe0, 0x07ff),	{R1, R3}, 		0, PROCESSOR_V850E3V5_UP },
-:dbpush	R0004, R2731	is op0515=0x2FF & R0004 ; op1626=0x160 & R2731	unimpl
+:dbpush	R0004, R2731	is op0515=0x2FF & R0004 ; op1626=0x160 & R2731 {
+	__nop();
+}
 #{ "dbtag",	two (0xcfe0, 0x0160),	two (0xffe0, 0x07ff),	{IMM10U},		0, PROCESSOR_V850E3V5_UP },
-:dbtag imm10			is op0515=0x67F & op0004 ; op1626=0x160 & op2731 [ imm10 = (op2731 << 5) | op0004; ]	unimpl
+:dbtag imm10			is op0515=0x67F & op0004 ; op1626=0x160 & op2731 [ imm10 = (op2731 << 5) | op0004; ] {
+	__nop();
+}
 
 #{ "dst",	two (0x07e0, 0x0134),	two (0xfffff, 0xffff),	{0}, 		0, PROCESSOR_V850E3V5_UP },
-:dst					is op0015=0x07E0 ; op1631=0x0134	unimpl
+:dst					is op0015=0x07E0 ; op1631=0x0134 {
+	__synchronize();
+}
 #{ "est",	two (0x07e0, 0x0132),	two (0xfffff, 0xffff),	{0}, 		0, PROCESSOR_V850E3V5_UP },
-:est					is op0015=0x07E0 ; op1631=0x0132	unimpl
+:est					is op0015=0x07E0 ; op1631=0x0132 {
+	__synchronize();
+}
 
 #{ "hvcall",	two (0xd7e0, 0x4160),	two (0xffe0, 0x41ff),	{VECTOR8}, 		0, PROCESSOR_V850E3V5_UP },
-:hvcall vect8	is op0515=0x6BF & op0004 ; op1624=0x160 & op3030=1 & op2729 [ vect8 = (op2729 << 5) | op0004; ]	unimpl
+:hvcall vect8	is op0515=0x6BF & op0004 ; op1624=0x160 & op3030=1 & op2729 [ vect8 = (op2729 << 5) | op0004; ] {
+	__halt();
+}
 #{ "hvtrap",	two (0x07e0, 0x0110),	two (0xffe0, 0xffff),	{VECTOR5}, 		0, PROCESSOR_V850E3V5_UP },
-:hvtrap op0004	is op0515=0x03F & op0004 ; op1631=0x0110	unimpl
+:hvtrap op0004	is op0515=0x03F & op0004 ; op1631=0x0110 {
+	__halt();
+}
 
 #{ "ldtc.gr",	two (0x07e0, 0x0032),	two (0x07e0, 0xffff),	{R1, R2}, 		0, PROCESSOR_V850E3V5_UP },
-:ldtc.gr R0004, R1115	is op0510=0x3F & R0004 & R1115 ; op1631=0x0032		unimpl
+:ldtc.gr R0004, R1115	is op0510=0x3F & R0004 & R1115 ; op1631=0x0032 {
+	R1115 = R0004;
+}
 
 #{ "ldtc.sr",	two (0x07e0, 0x0030),	two (0x07e0, 0x07ff),	{R1, SR2},	 	0, PROCESSOR_V850E3V5_UP },
-:ldtc.sr R0004, SR1115		is op0510=0x03F & R0004 & SR1115   ; op1626=0x030 & op2731=0 unimpl
+:ldtc.sr R0004, SR1115		is op0510=0x03F & R0004 & SR1115   ; op1626=0x030 & op2731=0 { SR1115 = R0004; }
 #{ "ldtc.sr",	two (0x07e0, 0x0030),	two (0x07e0, 0x07ff),	{R1, SR2, SELID}, 	0, PROCESSOR_V850E3V5_UP },
-:ldtc.sr R0004, SR1115_1, 1	is op0510=0x03F & R0004 & SR1115_1 ; op1626=0x030 & op2731=1 unimpl
-:ldtc.sr R0004, SR1115_2, 2	is op0510=0x03F & R0004 & SR1115_2 ; op1626=0x030 & op2731=2 unimpl
-:ldtc.sr R0004, SR1115, 3	is op0510=0x03F & R0004 & SR1115   ; op1626=0x030 & op2731=3 unimpl
-:ldtc.sr R0004, SR1115_4, 4	is op0510=0x03F & R0004 & SR1115_4 ; op1626=0x030 & op2731=4 unimpl
-:ldtc.sr R0004, SR1115_5, 5	is op0510=0x03F & R0004 & SR1115_5 ; op1626=0x030 & op2731=5 unimpl
-:ldtc.sr R0004, SR1115_6, 6	is op0510=0x03F & R0004 & SR1115_6 ; op1626=0x030 & op2731=6 unimpl
-:ldtc.sr R0004, SR1115_7, 7	is op0510=0x03F & R0004 & SR1115_7 ; op1626=0x030 & op2731=7 unimpl
+:ldtc.sr R0004, SR1115_1, 1	is op0510=0x03F & R0004 & SR1115_1 ; op1626=0x030 & op2731=1 { SR1115_1 = R0004; }
+:ldtc.sr R0004, SR1115_2, 2	is op0510=0x03F & R0004 & SR1115_2 ; op1626=0x030 & op2731=2 { SR1115_2 = R0004; }
+:ldtc.sr R0004, SR1115, 3	is op0510=0x03F & R0004 & SR1115   ; op1626=0x030 & op2731=3 { SR1115 = R0004; }
+:ldtc.sr R0004, SR1115_4, 4	is op0510=0x03F & R0004 & SR1115_4 ; op1626=0x030 & op2731=4 { SR1115_4 = R0004; }
+:ldtc.sr R0004, SR1115_5, 5	is op0510=0x03F & R0004 & SR1115_5 ; op1626=0x030 & op2731=5 { SR1115_5 = R0004; }
+:ldtc.sr R0004, SR1115_6, 6	is op0510=0x03F & R0004 & SR1115_6 ; op1626=0x030 & op2731=6 { SR1115_6 = R0004; }
+:ldtc.sr R0004, SR1115_7, 7	is op0510=0x03F & R0004 & SR1115_7 ; op1626=0x030 & op2731=7 { SR1115_7 = R0004; }
 
 #{ "ldtc.vr",	two (0x07e0, 0x0832),	two (0x07e0, 0xffff),	{R1, VR2}, 		0, PROCESSOR_V850E3V5_UP },
-:ldtc.vr R0004, VR1115	is op0515=0x03F & R0004 & VR1115 ; op1631=0x0832	unimpl
+:ldtc.vr R0004, VR1115	is op0515=0x03F & R0004 & VR1115 ; op1631=0x0832 {
+	VR1115 = R0004;
+}
 
 #{ "ldtc.pc",	two (0x07e0, 0xf832),	two (0x07e0, 0xffff),	{R1}, 			0, PROCESSOR_V850E3V5_UP },
-:ldtc.pc R0004			is op0515=0x03F & R0004 ; op1631=0xF832				unimpl
+:ldtc.pc R0004			is op0515=0x03F & R0004 ; op1631=0xF832 {
+	goto [R0004];
+}
 
 #{ "ldvc.sr",	two (0x07e0, 0x0034),	two (0x07e0, 0x07ff),	{R1, SR2}, 	0, PROCESSOR_V850E3V5_UP },
-:ldvc.sr R0004, SR1115		is op0510=0x03F & R0004 & SR1115   ; op1626=0x034 & op2731=0 unimpl
+:ldvc.sr R0004, SR1115		is op0510=0x03F & R0004 & SR1115   ; op1626=0x034 & op2731=0 { SR1115 = R0004; }
 #{ "ldvc.sr",	two (0x07e0, 0x0034),	two (0x07e0, 0x07ff),	{R1, SR2, SELID}, 	0, PROCESSOR_V850E3V5_UP },
-:ldvc.sr R0004, SR1115_1, 1	is op0510=0x03F & R0004 & SR1115_1 ; op1626=0x034 & op2731=1 unimpl
-:ldvc.sr R0004, SR1115_2, 2	is op0510=0x03F & R0004 & SR1115_2 ; op1626=0x034 & op2731=2 unimpl
-:ldvc.sr R0004, SR1115, 3	is op0510=0x03F & R0004 & SR1115   ; op1626=0x034 & op2731=3 unimpl
-:ldvc.sr R0004, SR1115_4, 4	is op0510=0x03F & R0004 & SR1115_4 ; op1626=0x034 & op2731=4 unimpl
-:ldvc.sr R0004, SR1115_5, 5	is op0510=0x03F & R0004 & SR1115_5 ; op1626=0x034 & op2731=5 unimpl
-:ldvc.sr R0004, SR1115_6, 6	is op0510=0x03F & R0004 & SR1115_6 ; op1626=0x034 & op2731=6 unimpl
-:ldvc.sr R0004, SR1115_7, 7	is op0510=0x03F & R0004 & SR1115_7 ; op1626=0x034 & op2731=7 unimpl
+:ldvc.sr R0004, SR1115_1, 1	is op0510=0x03F & R0004 & SR1115_1 ; op1626=0x034 & op2731=1 { SR1115_1 = R0004; }
+:ldvc.sr R0004, SR1115_2, 2	is op0510=0x03F & R0004 & SR1115_2 ; op1626=0x034 & op2731=2 { SR1115_2 = R0004; }
+:ldvc.sr R0004, SR1115, 3	is op0510=0x03F & R0004 & SR1115   ; op1626=0x034 & op2731=3 { SR1115 = R0004; }
+:ldvc.sr R0004, SR1115_4, 4	is op0510=0x03F & R0004 & SR1115_4 ; op1626=0x034 & op2731=4 { SR1115_4 = R0004; }
+:ldvc.sr R0004, SR1115_5, 5	is op0510=0x03F & R0004 & SR1115_5 ; op1626=0x034 & op2731=5 { SR1115_5 = R0004; }
+:ldvc.sr R0004, SR1115_6, 6	is op0510=0x03F & R0004 & SR1115_6 ; op1626=0x034 & op2731=6 { SR1115_6 = R0004; }
+:ldvc.sr R0004, SR1115_7, 7	is op0510=0x03F & R0004 & SR1115_7 ; op1626=0x034 & op2731=7 { SR1115_7 = R0004; }
 
 #{ "pref",	two (0xdfe0, 0x0160),	two (0xffe0, 0x07ff),	{PREFOP, R1}, 		2, PROCESSOR_V850E3V5_UP },
-:pref op2731, R0004		is op0515=0x6FF & R0004 ; op1626=0x160 & op2731		unimpl
+:pref op2731, R0004		is op0515=0x6FF & R0004 ; op1626=0x160 & op2731 {
+	__synchronize();
+}
 
 #{ "sttc.gr",	two (0x07e0, 0x0052),	two (0x07e0, 0xffff),	{R1, R2}, 		0, PROCESSOR_V850E3V5_UP },
-:sttc.gr R0004, R1115	is op0515=0x03F & R0004 & R1115 ; op1631=0x0052		unimpl
+:sttc.gr R0004, R1115	is op0515=0x03F & R0004 & R1115 ; op1631=0x0052 {
+	R1115 = R0004;
+}
 
 #{ "sttc.sr",	two (0x07e0, 0x0050),	two (0x07e0, 0x07ff),	{SR1, R2, SELID}, 	0, PROCESSOR_V850E3V5_UP },
-:sttc.sr SR0004, R1115		is op0510=0x03F & SR0004   & R1115 ; op1626=0x050 & op2731=0 unimpl
+:sttc.sr SR0004, R1115		is op0510=0x03F & SR0004   & R1115 ; op1626=0x050 & op2731=0 { R1115 = SR0004; }
 #{ "sttc.sr",	two (0x07e0, 0x0050),	two (0x07e0, 0x07ff),	{SR1, R2, SELID}, 	0, PROCESSOR_V850E3V5_UP },
-:sttc.sr SR0004_1, R1115, 1	is op0510=0x03F & SR0004_1 & R1115 ; op1626=0x050 & op2731=1 unimpl
-:sttc.sr SR0004_2, R1115, 2	is op0510=0x03F & SR0004_2 & R1115 ; op1626=0x050 & op2731=2 unimpl
-:sttc.sr SR0004, R1115, 3	is op0510=0x03F & SR0004   & R1115 ; op1626=0x050 & op2731=3 unimpl
-:sttc.sr SR0004_4, R1115, 4	is op0510=0x03F & SR0004_4 & R1115 ; op1626=0x050 & op2731=4 unimpl
-:sttc.sr SR0004_5, R1115, 5	is op0510=0x03F & SR0004_5 & R1115 ; op1626=0x050 & op2731=5 unimpl
-:sttc.sr SR0004_6, R1115, 6	is op0510=0x03F & SR0004_6 & R1115 ; op1626=0x050 & op2731=6 unimpl
-:sttc.sr SR0004_7, R1115, 7	is op0510=0x03F & SR0004_7 & R1115 ; op1626=0x050 & op2731=7 unimpl
+:sttc.sr SR0004_1, R1115, 1	is op0510=0x03F & SR0004_1 & R1115 ; op1626=0x050 & op2731=1 { R1115 = SR0004_1; }
+:sttc.sr SR0004_2, R1115, 2	is op0510=0x03F & SR0004_2 & R1115 ; op1626=0x050 & op2731=2 { R1115 = SR0004_2; }
+:sttc.sr SR0004, R1115, 3	is op0510=0x03F & SR0004   & R1115 ; op1626=0x050 & op2731=3 { R1115 = SR0004; }
+:sttc.sr SR0004_4, R1115, 4	is op0510=0x03F & SR0004_4 & R1115 ; op1626=0x050 & op2731=4 { R1115 = SR0004_4; }
+:sttc.sr SR0004_5, R1115, 5	is op0510=0x03F & SR0004_5 & R1115 ; op1626=0x050 & op2731=5 { R1115 = SR0004_5; }
+:sttc.sr SR0004_6, R1115, 6	is op0510=0x03F & SR0004_6 & R1115 ; op1626=0x050 & op2731=6 { R1115 = SR0004_6; }
+:sttc.sr SR0004_7, R1115, 7	is op0510=0x03F & SR0004_7 & R1115 ; op1626=0x050 & op2731=7 { R1115 = SR0004_7; }
 # sttc.sr selID 8 — no SR register set defined for selID=8
-:sttc.sr R0004, R1115, 8	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=8 unimpl
-:sttc.sr SR0004_9, R1115, 9	is op0510=0x03F & SR0004_9 & R1115 ; op1626=0x050 & op2731=9 unimpl
-:sttc.sr SR0004_a, R1115, 10	is op0510=0x03F & SR0004_a & R1115 ; op1626=0x050 & op2731=0x0A unimpl
-:sttc.sr SR0004_b, R1115, 11	is op0510=0x03F & SR0004_b & R1115 ; op1626=0x050 & op2731=0x0B unimpl
-:sttc.sr SR0004_c, R1115, 12	is op0510=0x03F & SR0004_c & R1115 ; op1626=0x050 & op2731=0x0C unimpl
-:sttc.sr R0004, R1115, 13	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x0D unimpl
-:sttc.sr SR0004_e, R1115, 14	is op0510=0x03F & SR0004_e & R1115 ; op1626=0x050 & op2731=0x0E unimpl
-:sttc.sr SR0004_f, R1115, 15	is op0510=0x03F & SR0004_f & R1115 ; op1626=0x050 & op2731=0x0F unimpl
+:sttc.sr R0004, R1115, 8	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=8 { R1115 = R0004; }
+:sttc.sr SR0004_9, R1115, 9	is op0510=0x03F & SR0004_9 & R1115 ; op1626=0x050 & op2731=9 { R1115 = SR0004_9; }
+:sttc.sr SR0004_a, R1115, 10	is op0510=0x03F & SR0004_a & R1115 ; op1626=0x050 & op2731=0x0A { R1115 = SR0004_a; }
+:sttc.sr SR0004_b, R1115, 11	is op0510=0x03F & SR0004_b & R1115 ; op1626=0x050 & op2731=0x0B { R1115 = SR0004_b; }
+:sttc.sr SR0004_c, R1115, 12	is op0510=0x03F & SR0004_c & R1115 ; op1626=0x050 & op2731=0x0C { R1115 = SR0004_c; }
+:sttc.sr R0004, R1115, 13	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x0D { R1115 = R0004; }
+:sttc.sr SR0004_e, R1115, 14	is op0510=0x03F & SR0004_e & R1115 ; op1626=0x050 & op2731=0x0E { R1115 = SR0004_e; }
+:sttc.sr SR0004_f, R1115, 15	is op0510=0x03F & SR0004_f & R1115 ; op1626=0x050 & op2731=0x0F { R1115 = SR0004_f; }
 # sttc.sr selID 16+ — unrecognized selIDs; raw stubs
-:sttc.sr R0004, R1115, 16	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x10 unimpl
-:sttc.sr R0004, R1115, 17	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x11 unimpl
-:sttc.sr R0004, R1115, 18	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x12 unimpl
-:sttc.sr R0004, R1115, 19	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x13 unimpl
-:sttc.sr R0004, R1115, 20	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x14 unimpl
-:sttc.sr R0004, R1115, 21	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x15 unimpl
-:sttc.sr R0004, R1115, 22	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x16 unimpl
-:sttc.sr R0004, R1115, 23	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x17 unimpl
-:sttc.sr R0004, R1115, 24	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x18 unimpl
-:sttc.sr R0004, R1115, 25	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x19 unimpl
-:sttc.sr R0004, R1115, 26	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x1A unimpl
-:sttc.sr R0004, R1115, 27	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x1B unimpl
-:sttc.sr R0004, R1115, 28	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x1C unimpl
-:sttc.sr R0004, R1115, 29	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x1D unimpl
-:sttc.sr R0004, R1115, 30	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x1E unimpl
-:sttc.sr R0004, R1115, 31	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x1F unimpl
+:sttc.sr R0004, R1115, 16	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x10 { R1115 = R0004; }
+:sttc.sr R0004, R1115, 17	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x11 { R1115 = R0004; }
+:sttc.sr R0004, R1115, 18	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x12 { R1115 = R0004; }
+:sttc.sr R0004, R1115, 19	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x13 { R1115 = R0004; }
+:sttc.sr R0004, R1115, 20	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x14 { R1115 = R0004; }
+:sttc.sr R0004, R1115, 21	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x15 { R1115 = R0004; }
+:sttc.sr R0004, R1115, 22	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x16 { R1115 = R0004; }
+:sttc.sr R0004, R1115, 23	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x17 { R1115 = R0004; }
+:sttc.sr R0004, R1115, 24	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x18 { R1115 = R0004; }
+:sttc.sr R0004, R1115, 25	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x19 { R1115 = R0004; }
+:sttc.sr R0004, R1115, 26	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x1A { R1115 = R0004; }
+:sttc.sr R0004, R1115, 27	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x1B { R1115 = R0004; }
+:sttc.sr R0004, R1115, 28	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x1C { R1115 = R0004; }
+:sttc.sr R0004, R1115, 29	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x1D { R1115 = R0004; }
+:sttc.sr R0004, R1115, 30	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x1E { R1115 = R0004; }
+:sttc.sr R0004, R1115, 31	is op0510=0x03F & R0004 & R1115 ; op1626=0x050 & op2731=0x1F { R1115 = R0004; }
 
 #{ "sttc.vr",	two (0x07e0, 0x0852),	two (0x07e0, 0xffff),	{VR1, R2}, 		0, PROCESSOR_V850E3V5_UP },
-:sttc.vr VR0004, R1115	is op0515=0x03F & VR0004 & R1115 ; op1631=0x0852	unimpl
+:sttc.vr VR0004, R1115	is op0515=0x03F & VR0004 & R1115 ; op1631=0x0852 {
+	R1115 = VR0004;
+}
 
 #{ "sttc.pc",	two (0x07e0, 0xf852),	two (0x07e0, 0xffff),	{R2}, 			0, PROCESSOR_V850E3V5_UP },
-:sttc.pc R1115			is op0515=0x03F & R1115 ; op1631=0xF852				unimpl
+:sttc.pc R1115			is op0515=0x03F & R1115 ; op1631=0xF852 {
+	R1115 = inst_start;
+}
 
 #{ "stvc.sr",	two (0x07e0, 0x0054),	two (0x07e0, 0x07ff),	{SR1, R2}, 	0, PROCESSOR_V850E3V5_UP },
-:stvc.sr SR0004, R1115		is op0510=0x03F & SR0004   & R1115 ; op1626=0x054 & op2731=0 unimpl
+:stvc.sr SR0004, R1115		is op0510=0x03F & SR0004   & R1115 ; op1626=0x054 & op2731=0 { R1115 = SR0004; }
 #{ "stvc.sr",	two (0x07e0, 0x0054),	two (0x07e0, 0x07ff),	{SR1, R2, SELID}, 	0, PROCESSOR_V850E3V5_UP },
-:stvc.sr SR0004_1, R1115, 1	is op0510=0x03F & SR0004_1 & R1115 ; op1626=0x054 & op2731=1 unimpl
-:stvc.sr SR0004_2, R1115, 2	is op0510=0x03F & SR0004_2 & R1115 ; op1626=0x054 & op2731=2 unimpl
-:stvc.sr SR0004, R1115, 3	is op0510=0x03F & SR0004   & R1115 ; op1626=0x054 & op2731=3 unimpl
-:stvc.sr SR0004_4, R1115, 4	is op0510=0x03F & SR0004_4 & R1115 ; op1626=0x054 & op2731=4 unimpl
-:stvc.sr SR0004_5, R1115, 5	is op0510=0x03F & SR0004_5 & R1115 ; op1626=0x054 & op2731=5 unimpl
-:stvc.sr SR0004_6, R1115, 6	is op0510=0x03F & SR0004_6 & R1115 ; op1626=0x054 & op2731=6 unimpl
-:stvc.sr SR0004_7, R1115, 7	is op0510=0x03F & SR0004_7 & R1115 ; op1626=0x054 & op2731=7 unimpl
-:stvc.sr R0004, R1115, 8	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=8 unimpl
-:stvc.sr SR0004_9, R1115, 9	is op0510=0x03F & SR0004_9 & R1115 ; op1626=0x054 & op2731=9 unimpl
-:stvc.sr SR0004_a, R1115, 10	is op0510=0x03F & SR0004_a & R1115 ; op1626=0x054 & op2731=0x0A unimpl
-:stvc.sr SR0004_b, R1115, 11	is op0510=0x03F & SR0004_b & R1115 ; op1626=0x054 & op2731=0x0B unimpl
-:stvc.sr SR0004_c, R1115, 12	is op0510=0x03F & SR0004_c & R1115 ; op1626=0x054 & op2731=0x0C unimpl
-:stvc.sr SR0004_d, R1115, 13	is op0510=0x03F & SR0004_d & R1115 ; op1626=0x054 & op2731=0x0D unimpl
-:stvc.sr SR0004_e, R1115, 14	is op0510=0x03F & SR0004_e & R1115 ; op1626=0x054 & op2731=0x0E unimpl
-:stvc.sr SR0004_f, R1115, 15	is op0510=0x03F & SR0004_f & R1115 ; op1626=0x054 & op2731=0x0F unimpl
-:stvc.sr R0004, R1115, 16	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x10 unimpl
-:stvc.sr R0004, R1115, 17	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x11 unimpl
-:stvc.sr R0004, R1115, 18	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x12 unimpl
-:stvc.sr R0004, R1115, 19	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x13 unimpl
-:stvc.sr R0004, R1115, 20	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x14 unimpl
-:stvc.sr R0004, R1115, 21	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x15 unimpl
-:stvc.sr R0004, R1115, 22	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x16 unimpl
-:stvc.sr R0004, R1115, 23	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x17 unimpl
-:stvc.sr R0004, R1115, 24	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x18 unimpl
-:stvc.sr R0004, R1115, 25	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x19 unimpl
-:stvc.sr R0004, R1115, 26	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x1A unimpl
-:stvc.sr R0004, R1115, 27	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x1B unimpl
-:stvc.sr R0004, R1115, 28	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x1C unimpl
-:stvc.sr R0004, R1115, 29	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x1D unimpl
-:stvc.sr R0004, R1115, 30	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x1E unimpl
-:stvc.sr R0004, R1115, 31	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x1F unimpl
+:stvc.sr SR0004_1, R1115, 1	is op0510=0x03F & SR0004_1 & R1115 ; op1626=0x054 & op2731=1 { R1115 = SR0004_1; }
+:stvc.sr SR0004_2, R1115, 2	is op0510=0x03F & SR0004_2 & R1115 ; op1626=0x054 & op2731=2 { R1115 = SR0004_2; }
+:stvc.sr SR0004, R1115, 3	is op0510=0x03F & SR0004   & R1115 ; op1626=0x054 & op2731=3 { R1115 = SR0004; }
+:stvc.sr SR0004_4, R1115, 4	is op0510=0x03F & SR0004_4 & R1115 ; op1626=0x054 & op2731=4 { R1115 = SR0004_4; }
+:stvc.sr SR0004_5, R1115, 5	is op0510=0x03F & SR0004_5 & R1115 ; op1626=0x054 & op2731=5 { R1115 = SR0004_5; }
+:stvc.sr SR0004_6, R1115, 6	is op0510=0x03F & SR0004_6 & R1115 ; op1626=0x054 & op2731=6 { R1115 = SR0004_6; }
+:stvc.sr SR0004_7, R1115, 7	is op0510=0x03F & SR0004_7 & R1115 ; op1626=0x054 & op2731=7 { R1115 = SR0004_7; }
+:stvc.sr R0004, R1115, 8	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=8 { R1115 = R0004; }
+:stvc.sr SR0004_9, R1115, 9	is op0510=0x03F & SR0004_9 & R1115 ; op1626=0x054 & op2731=9 { R1115 = SR0004_9; }
+:stvc.sr SR0004_a, R1115, 10	is op0510=0x03F & SR0004_a & R1115 ; op1626=0x054 & op2731=0x0A { R1115 = SR0004_a; }
+:stvc.sr SR0004_b, R1115, 11	is op0510=0x03F & SR0004_b & R1115 ; op1626=0x054 & op2731=0x0B { R1115 = SR0004_b; }
+:stvc.sr SR0004_c, R1115, 12	is op0510=0x03F & SR0004_c & R1115 ; op1626=0x054 & op2731=0x0C { R1115 = SR0004_c; }
+:stvc.sr SR0004_d, R1115, 13	is op0510=0x03F & SR0004_d & R1115 ; op1626=0x054 & op2731=0x0D { R1115 = SR0004_d; }
+:stvc.sr SR0004_e, R1115, 14	is op0510=0x03F & SR0004_e & R1115 ; op1626=0x054 & op2731=0x0E { R1115 = SR0004_e; }
+:stvc.sr SR0004_f, R1115, 15	is op0510=0x03F & SR0004_f & R1115 ; op1626=0x054 & op2731=0x0F { R1115 = SR0004_f; }
+:stvc.sr R0004, R1115, 16	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x10 { R1115 = R0004; }
+:stvc.sr R0004, R1115, 17	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x11 { R1115 = R0004; }
+:stvc.sr R0004, R1115, 18	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x12 { R1115 = R0004; }
+:stvc.sr R0004, R1115, 19	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x13 { R1115 = R0004; }
+:stvc.sr R0004, R1115, 20	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x14 { R1115 = R0004; }
+:stvc.sr R0004, R1115, 21	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x15 { R1115 = R0004; }
+:stvc.sr R0004, R1115, 22	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x16 { R1115 = R0004; }
+:stvc.sr R0004, R1115, 23	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x17 { R1115 = R0004; }
+:stvc.sr R0004, R1115, 24	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x18 { R1115 = R0004; }
+:stvc.sr R0004, R1115, 25	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x19 { R1115 = R0004; }
+:stvc.sr R0004, R1115, 26	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x1A { R1115 = R0004; }
+:stvc.sr R0004, R1115, 27	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x1B { R1115 = R0004; }
+:stvc.sr R0004, R1115, 28	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x1C { R1115 = R0004; }
+:stvc.sr R0004, R1115, 29	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x1D { R1115 = R0004; }
+:stvc.sr R0004, R1115, 30	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x1E { R1115 = R0004; }
+:stvc.sr R0004, R1115, 31	is op0510=0x03F & R0004 & R1115 ; op1626=0x054 & op2731=0x1F { R1115 = R0004; }
 
 
 #{ "tlbai",	two (0x87e0, 0x8960),	two (0xffff, 0xffff),	{0},	 		0, PROCESSOR_V850E3V5_UP },
-:tlbai		is op0015=0x87E0 ; op1631=0x8960	unimpl
+:tlbai		is op0015=0x87E0 ; op1631=0x8960 {
+	__synchronize();
+}
 #{ "tlbr",	two (0x87e0, 0xe960),	two (0xffff, 0xffff),	{0},	 		0, PROCESSOR_V850E3V5_UP },
-:tlbr		is op0015=0x87E0 ; op1631=0xE960	unimpl
+:tlbr		is op0015=0x87E0 ; op1631=0xE960 {
+	__synchronize();
+}
 #{ "tlbs",	two (0x87e0, 0xc160),	two (0xffff, 0xffff),	{0},	 		0, PROCESSOR_V850E3V5_UP },
-:tlbs		is op0015=0x87E0 ; op1631=0xC160	unimpl
+:tlbs		is op0015=0x87E0 ; op1631=0xC160 {
+	__synchronize();
+}
 #{ "tlbvi",	two (0x87e0, 0x8160),	two (0xffff, 0xffff),	{0},	 		0, PROCESSOR_V850E3V5_UP },
-:tlbvi		is op0015=0x87E0 ; op1631=0x8160	unimpl
+:tlbvi		is op0015=0x87E0 ; op1631=0x8160 {
+	__synchronize();
+}
 #{ "tlbw",	two (0x87e0, 0xe160),	two (0xffff, 0xffff),	{0},	 		0, PROCESSOR_V850E3V5_UP },
-:tlbw		is op0015=0x87E0 ; op1631=0xE160	unimpl
+:tlbw		is op0015=0x87E0 ; op1631=0xE160 {
+	__synchronize();
+}
 
 
 
@@ -702,6 +744,32 @@ with : op2026=0x0D {		# msb < 16, lsb < 16
 	# is zero-extended to word length and stored in general-purpose register reg3.
 	local tmp:2 = float2float(R1115);
 	R2731 = zext(tmp);
+}
+
+# Transit currently contains a few coprocessor encodings that fall through the stock
+# RH850/V850E3 tables. Keep them decodable so decompilation can continue.
+:unk_cop_448_7e2 R1115, R2731	is op0010=0x7E2 & R1115 ; op1626=0x448 & R2731 {
+	R2731 = R1115;
+}
+
+:unk_cop_448_7e8 R1115, R2731	is op0010=0x7E8 & R1115 ; op1626=0x448 & R2731 {
+	R2731 = R1115;
+}
+
+:unk_cop_0c52			is op0015=0xFFFF ; op1631=0x0C52 {
+	__nop();
+}
+
+:unk_cop_1052			is op0015=0xFFFF ; op1631=0x1052 {
+	__nop();
+}
+
+:unk_cop_5fee			is op0015=0xFFFF ; op1631=0x5FEE {
+	__nop();
+}
+
+:unk_cop_08a0_2ff3		is op0015=0x2FF3 ; op1631=0x08A0 {
+	__nop();
 }
 # Floating-point Fused-Multiply-add (Single)
 #{ "fmaf.s",	two (0x07e0, 0x04e0),	two (0x07e0, 0x07ff),	{R1, R2, R3},				0, PROCESSOR_V850E3V5_UP },
@@ -747,7 +815,6 @@ with : op2026=0x0D {		# msb < 16, lsb < 16
 # Opaque intrinsic pcodeops for undocumented V850E3v5/RH850 extended opcodes
 # Dataflow scaffolding only - semantics not modeled; prevents halt_unimplemented() decompile degrade
 define pcodeop unk_op03;
-define pcodeop unk_op0a;
 define pcodeop unk_op0d;
 define pcodeop unk_op01_022;
 define pcodeop unk_op01_02a;
@@ -783,9 +850,6 @@ define pcodeop unk_op11_236;
 define pcodeop unk_op11_239;
 define pcodeop unk_op11_23e;
 define pcodeop unk_op11_23f;
-define pcodeop unk_op20_418;
-define pcodeop unk_op21_430;
-define pcodeop unk_op22_448;
 define pcodeop unk_op23_47c;
 define pcodeop unk_op3f_7e6;
 define pcodeop unk_op3f_7e8;
@@ -793,11 +857,8 @@ define pcodeop unk_op3f_7e0;
 define pcodeop unk_op3f_7e2;
 define pcodeop unk_op3f_7e4;
 define pcodeop unk_op3f_7ea;
-define pcodeop unk_op08;
 define pcodeop unk_op09;
 define pcodeop unk_op0b;
-define pcodeop unk_op0c;
-define pcodeop unk_op0e;
 define pcodeop unk_op0f;
 define pcodeop unk_op10;
 define pcodeop unk_op13;
@@ -839,8 +900,6 @@ define pcodeop unk_op39;
 # Format XI: reg1(hw0[4:0]), reg2(hw0[15:11]), reg3(hw1[15:11])
 # op2126=0x03: 499 firmware occurrences (op1626=0x060..0x07F)
 :unk_op03 R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op2126=0x03 & R2731 { unk_op03(R0004, R1115, R2731); }
-# op2126=0x0a: 154 firmware occurrences (op1626=0x140..0x15F)
-:unk_op0a R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op2126=0x0a & R2731 { unk_op0a(R0004, R1115, R2731); }
 # op2126=0x0d: 3 firmware occurrences (op1626=0x1a0..0x1bF)
 :unk_op0d R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op2126=0x0d & R2731 { unk_op0d(R0004, R1115, R2731); }
 # Specific op1626 stubs for partially-covered op2126 groups
@@ -883,9 +942,6 @@ define pcodeop unk_op39;
 :unk_op11_23e R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op1626=0x23e & R2731 { unk_op11_23e(R0004, R1115, R2731); }
 :unk_op11_23f R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op1626=0x23f & R2731 { unk_op11_23f(R0004, R1115, R2731); }
 # FPU op2126=0x20..0x23 unhandled sub-encodings (those NOT covered by float.sinc constructors)
-:unk_op20_418 R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op1626=0x418 & R2731 { unk_op20_418(R0004, R1115, R2731); }
-:unk_op21_430 R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op1626=0x430 & R2731 { unk_op21_430(R0004, R1115, R2731); }
-:unk_op22_448 R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op1626=0x448 & R2731 { unk_op22_448(R0004, R1115, R2731); }
 :unk_op23_47c R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op1626=0x47c & R2731 { unk_op23_47c(R0004, R1115, R2731); }
 # op2126=0x3f high-range ops (not in binutils table)
 :unk_op3f_7e6 R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op1626=0x7e6 & R2731 { unk_op3f_7e6(R0004, R1115, R2731); }
@@ -896,16 +952,54 @@ define pcodeop unk_op39;
 :unk_op3f_7ea R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op1626=0x7ea & R2731 { unk_op3f_7ea(R0004, R1115, R2731); }
 
 # Completely uncovered op2126 groups (safe full stubs, no existing constructors)
-# op2126=0x08: 75 firmware occurrences
-:unk_op08 R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op2126=0x08 & R2731 { unk_op08(R0004, R1115, R2731); }
+macro clip_signed(dst, src, min_value, max_value) {
+	local value:4 = src;
+	local result:4 = value;
+	if (value s> max_value) goto <gt_max>;
+	if (value s< min_value) goto <lt_min>;
+	goto <done>;
+	<gt_max>
+	result = max_value;
+	goto <done>;
+	<lt_min>
+	result = min_value;
+	goto <done>;
+	<done>
+	dst = result;
+}
+
+macro clip_unsigned(dst, src, max_value) {
+	local value:4 = src;
+	local result:4 = value;
+	if (value > max_value) goto <gt_max>;
+	goto <done>;
+	<gt_max>
+	result = max_value;
+	goto <done>;
+	<done>
+	dst = result;
+}
+
+# op2126=0x08: CLIP.B reg1, reg2
+:clip.b R0004, R1115	is op0510=0x3F & R0004 & R1115; op2126=0x08 & op2731 {
+	clip_signed(R1115, R0004, 0xffffff80, 0x7f);
+}
 # op2126=0x09: 157 firmware occurrences
 :unk_op09 R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op2126=0x09 & R2731 { unk_op09(R0004, R1115, R2731); }
 # op2126=0x0b: 31 firmware occurrences
 :unk_op0b R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op2126=0x0b & R2731 { unk_op0b(R0004, R1115, R2731); }
-# op2126=0x0c: 12 firmware occurrences
-:unk_op0c R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op2126=0x0c & R2731 { unk_op0c(R0004, R1115, R2731); }
-# op2126=0x0e: 43 firmware occurrences
-:unk_op0e R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op2126=0x0e & R2731 { unk_op0e(R0004, R1115, R2731); }
+# op2126=0x0a: CLIP.BU reg1, reg2
+:clip.bu R0004, R1115	is op0510=0x3F & R0004 & R1115; op2126=0x0a & op2731 {
+	clip_unsigned(R1115, R0004, 0xff);
+}
+# op2126=0x0c: CLIP.H reg1, reg2
+:clip.h R0004, R1115	is op0510=0x3F & R0004 & R1115; op2126=0x0c & op2731 {
+	clip_signed(R1115, R0004, 0xffff8000, 0x7fff);
+}
+# op2126=0x0e: CLIP.HU reg1, reg2
+:clip.hu R0004, R1115	is op0510=0x3F & R0004 & R1115; op2126=0x0e & op2731 {
+	clip_unsigned(R1115, R0004, 0xffff);
+}
 # op2126=0x0f: 27 firmware occurrences
 :unk_op0f R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op2126=0x0f & R2731 { unk_op0f(R0004, R1115, R2731); }
 # op2126=0x10: 52 firmware occurrences
@@ -972,5 +1066,3 @@ define pcodeop unk_op39;
 :unk_op32 R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op2126=0x32 & R2731 { unk_op32(R0004, R1115, R2731); }
 :unk_op37 R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op2126=0x37 & R2731 { unk_op37(R0004, R1115, R2731); }
 :unk_op39 R0004, R1115, R2731	is op0510=0x3F & R0004 & R1115; op2126=0x39 & R2731 { unk_op39(R0004, R1115, R2731); }
-
-

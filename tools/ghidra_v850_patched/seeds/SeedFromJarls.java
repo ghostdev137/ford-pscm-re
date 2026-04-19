@@ -13,6 +13,8 @@ import ghidra.program.model.lang.OperandType;
 import ghidra.program.model.mem.MemoryBlock;
 import ghidra.program.model.pcode.JumpTable;
 import ghidra.program.model.scalar.Scalar;
+import ghidra.program.model.symbol.Reference;
+import ghidra.program.model.symbol.ReferenceIterator;
 import ghidra.program.model.symbol.RefType;
 import ghidra.program.model.symbol.SourceType;
 import java.io.BufferedReader;
@@ -35,9 +37,18 @@ public class SeedFromJarls extends GhidraScript {
     private static final int MAX_SWITCH_LOOKBACK = 8;
     private static final long DEFAULT_TARGET_WINDOW = 0x10000;
     private static final long MAX_RELATIVE_OFFSET = 0x20000;
+    // Transit block0 contains large non-code windows in the header, string/config
+    // area, and descriptor tables. Seeding them as functions pollutes the call
+    // graph and decompiler with obvious data-as-code.
+    private static final long[][] KNOWN_DATA_RANGES = {
+        { 0x01000000L, 0x010053FFL },
+        { 0x01008400L, 0x010093FFL },
+        { 0x0100BB20L, 0x0100D21FL }
+    };
 
     @Override
     public void run() throws Exception {
+        boolean skipSwitchSeeding = shouldSkipSwitchSeeding();
         Set<Long> forcedStarts = loadAddressSet(getSeedPaths());
         int seeded = 0;
         int failed = 0;
@@ -56,14 +67,19 @@ public class SeedFromJarls extends GhidraScript {
         Set<Long> processedSwitches = new LinkedHashSet<>();
         int switchFunctions = 0;
         int switchTables = 0;
-        for (int round = 1; round <= 8; round++) {
-            int[] counts = seedSwitchTargets(processedSwitches, forcedStarts);
-            switchTables += counts[0];
-            switchFunctions += counts[1];
-            println("SeedFromJarls: switch round=" + round +
-                " tables=" + counts[0] + " newFunctions=" + counts[1]);
-            if (counts[1] == 0) {
-                break;
+        if (skipSwitchSeeding) {
+            println("SeedFromJarls: switch seeding disabled");
+        }
+        else {
+            for (int round = 1; round <= 8; round++) {
+                int[] counts = seedSwitchTargets(processedSwitches, forcedStarts);
+                switchTables += counts[0];
+                switchFunctions += counts[1];
+                println("SeedFromJarls: switch round=" + round +
+                    " tables=" + counts[0] + " newFunctions=" + counts[1]);
+                if (counts[1] == 0) {
+                    break;
+                }
             }
         }
 
@@ -79,10 +95,29 @@ public class SeedFromJarls extends GhidraScript {
             " forcedExact=" + forcedFixed);
     }
 
+    private boolean shouldSkipSwitchSeeding() {
+        for (String arg : getScriptArgs()) {
+            if ("skip-switches".equalsIgnoreCase(arg) || "--skip-switches".equalsIgnoreCase(arg)) {
+                return true;
+            }
+        }
+        String env = System.getenv("SEED_FROM_JARLS_SKIP_SWITCHES");
+        return env != null && !env.isEmpty() && !"0".equals(env);
+    }
+
     private List<String> getSeedPaths() {
         List<String> paths = new ArrayList<>();
         paths.add("/tmp/transit_decode_stats/jarl_targets_valid.txt");
         paths.add("/Users/rossfisher/ford-pscm-re/tools/ghidra_v850_patched/seeds/transit_AM_jarl_targets.txt");
+        String extra = System.getenv("TRANSIT_EXTRA_SEED_PATHS");
+        if (extra != null && !extra.trim().isEmpty()) {
+            for (String part : extra.split(File.pathSeparator)) {
+                String p = part.trim();
+                if (!p.isEmpty()) {
+                    paths.add(p);
+                }
+            }
+        }
         return paths;
     }
 
@@ -146,7 +181,13 @@ public class SeedFromJarls extends GhidraScript {
     }
 
     private boolean seedFunctionAt(Address addr) {
-        if (!isExecutable(addr)) {
+        if (!isExecutable(addr) || isKnownDataSeedRegion(addr)) {
+            return false;
+        }
+
+        Listing listing = currentProgram.getListing();
+        CodeUnit containing = listing.getCodeUnitContaining(addr);
+        if (containing != null && !containing.getMinAddress().equals(addr)) {
             return false;
         }
 
@@ -154,6 +195,14 @@ public class SeedFromJarls extends GhidraScript {
             new DisassembleCommand(addr, null, true).applyTo(currentProgram, monitor);
         }
         catch (Exception e) {
+            return false;
+        }
+
+        Instruction start = listing.getInstructionAt(addr);
+        if (start == null) {
+            return false;
+        }
+        if (hasLinearFallthroughInto(addr) && !hasInboundCallReference(addr)) {
             return false;
         }
 
@@ -170,19 +219,16 @@ public class SeedFromJarls extends GhidraScript {
     }
 
     private boolean ensureExactFunctionAt(Address addr) {
-        if (!isExecutable(addr)) {
+        if (!isExecutable(addr) || isKnownDataSeedRegion(addr)) {
+            return false;
+        }
+        if (!hasInboundCallReference(addr) || hasLinearFallthroughInto(addr)) {
             return false;
         }
 
         CodeUnit containing = currentProgram.getListing().getCodeUnitContaining(addr);
         if (containing != null && !containing.getMinAddress().equals(addr)) {
-            try {
-                currentProgram.getListing().clearCodeUnits(
-                    containing.getMinAddress(), containing.getMaxAddress(), false);
-            }
-            catch (Exception e) {
-                return false;
-            }
+            return false;
         }
 
         try {
@@ -259,62 +305,14 @@ public class SeedFromJarls extends GhidraScript {
         }
 
         int created = 0;
-        Map<Long, Set<Long>> splitTargets = new LinkedHashMap<>();
         for (long targetOffset : targets) {
             Address target = toAddr(targetOffset);
             Function owner = getFunctionContaining(target);
-            if (owner != null && owner.getEntryPoint().getOffset() != targetOffset) {
-                long ownerOffset = owner.getEntryPoint().getOffset();
-                Set<Long> ownedTargets = splitTargets.get(ownerOffset);
-                if (ownedTargets == null) {
-                    ownedTargets = new LinkedHashSet<>();
-                    splitTargets.put(ownerOffset, ownedTargets);
-                }
-                ownedTargets.add(targetOffset);
-            }
-        }
-
-        for (long forcedOffset : forcedStarts) {
-            Address target = toAddr(forcedOffset);
-            Function owner = getFunctionContaining(target);
-            if (owner == null || owner.getEntryPoint().getOffset() == forcedOffset) {
+            if (owner != null) {
                 continue;
             }
-
-            long ownerOffset = owner.getEntryPoint().getOffset();
-            Set<Long> ownedTargets = splitTargets.get(ownerOffset);
-            if (ownedTargets == null) {
-                ownedTargets = new LinkedHashSet<>();
-                splitTargets.put(ownerOffset, ownedTargets);
-            }
-            ownedTargets.add(forcedOffset);
-        }
-
-        for (long ownerOffset : splitTargets.keySet()) {
-            Function owner = getFunctionAt(toAddr(ownerOffset));
-            if (owner == null) {
-                continue;
-            }
-            try {
-                removeFunction(owner);
-            }
-            catch (Exception e) {
-                // If the original function can't be removed, keep the old body.
-            }
-        }
-
-        for (Map.Entry<Long, Set<Long>> entry : splitTargets.entrySet()) {
-            for (long splitTarget : entry.getValue()) {
-                if (seedFunctionAt(toAddr(splitTarget))) {
-                    created++;
-                }
-            }
-            seedFunctionAt(toAddr(entry.getKey()));
-        }
-
-        for (long targetOffset : targets) {
-            Address target = toAddr(targetOffset);
-            if (getFunctionContaining(target) != null) {
+            CodeUnit containing = listing.getCodeUnitContaining(target);
+            if (containing != null && !containing.getMinAddress().equals(target)) {
                 continue;
             }
             if (seedFunctionAt(target)) {
@@ -323,6 +321,30 @@ public class SeedFromJarls extends GhidraScript {
         }
 
         return new int[] { tables, created };
+    }
+
+    private boolean hasLinearFallthroughInto(Address addr) {
+        Instruction prev = currentProgram.getListing().getInstructionBefore(addr);
+        if (prev == null) {
+            return false;
+        }
+        Address fallThrough = prev.getFallThrough();
+        return fallThrough != null && fallThrough.equals(addr);
+    }
+
+    private boolean hasInboundCallReference(Address addr) {
+        for (Reference ref : getReferencesTo(addr)) {
+            if (ref == null || ref.getReferenceType() == null) {
+                continue;
+            }
+            if (!ref.getReferenceType().isCall()) {
+                continue;
+            }
+            if (isExecutable(ref.getFromAddress())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private Instruction ensureIndirectJumpAt(Address addr) {
@@ -571,7 +593,7 @@ public class SeedFromJarls extends GhidraScript {
     }
 
     private boolean isValidJumpTarget(Address target, Address[] bounds) {
-        if (!isExecutable(target)) {
+        if (!isExecutable(target) || isKnownDataSeedRegion(target)) {
             return false;
         }
         if ((target.getOffset() & 1) != 0) {
@@ -593,6 +615,16 @@ public class SeedFromJarls extends GhidraScript {
             }
         }
         return true;
+    }
+
+    private boolean isKnownDataSeedRegion(Address addr) {
+        long off = addr.getOffset();
+        for (long[] range : KNOWN_DATA_RANGES) {
+            if (off >= range[0] && off <= range[1]) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void materializeJumpTable(Instruction branchInsn, Listing listing, TableResult result) {

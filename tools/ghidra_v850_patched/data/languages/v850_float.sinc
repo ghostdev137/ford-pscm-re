@@ -251,6 +251,50 @@ macro compare_float(fcond, reg2, reg1, result) {
   R2731 = trunc(floor(R1115));
 }
 
+# ROUNDF.DL reg2, reg3
+:roundf.dl R1115pair, R2731pair is R1115pair & op0510=0x3F & op0004=0b00000; R2731pair & op2126=0b100010 & op1620=0b10100 {
+  local tmp:8 = round(float2float(R1115pair));
+  R2731pair = trunc(tmp);
+}
+
+# ROUNDF.DUL reg2, reg3
+:roundf.dul R1115pair, R2731pair is R1115pair & op0510=0x3F & op0004=0b10000; R2731pair & op2126=0b100010 & op1620=0b10100 {
+  local tmp:8 = round(float2float(R1115pair));
+  R2731pair = trunc(tmp);
+}
+
+# ROUNDF.DUW reg2, reg3
+:roundf.duw R1115pair, R2731 is R1115pair & op0510=0x3F & op0004=0b10000; R2731 & op2126=0b100010 & op1620=0b10000 {
+  R2731 = trunc(round(R1115pair));
+}
+
+# ROUNDF.DW reg2, reg3
+:roundf.dw R1115pair, R2731 is R1115pair & op0510=0x3F & op0004=0b00000; R2731 & op2126=0b100010 & op1620=0b10000 {
+  R2731 = trunc(round(R1115pair));
+}
+
+# ROUNDF.SL reg2, reg3
+:roundf.sl R1115, R2731pair is R1115 & op0510=0x3F & op0004=0b00000; R2731pair & op2126=0b100010 & op1620=0b00100 {
+  local tmp:8 = round(float2float(R1115));
+  R2731pair = trunc(tmp);
+}
+
+# ROUNDF.SUL reg2, reg3
+:roundf.sul R1115, R2731pair is R1115 & op0510=0x3F & op0004=0b10000; R2731pair & op2126=0b100010 & op1620=0b00100 {
+  local tmp:8 = round(float2float(R1115));
+  R2731pair = trunc(tmp);
+}
+
+# ROUNDF.SUW reg2, reg3
+:roundf.suw R1115, R2731 is R1115 & op0510=0x3F & op0004=0b10000; R2731 & op2126=0b100010 & op1620=0b00000 {
+  R2731 = trunc(round(R1115));
+}
+
+# ROUNDF.SW reg2, reg3
+:roundf.sw R1115, R2731 is R1115 & op0510=0x3F & op0004=0b00000; R2731 & op2126=0b100010 & op1620=0b00000 {
+  R2731 = trunc(round(R1115));
+}
+
 # MADDF.S reg1, reg2, reg3, reg4
 :maddf.s R0004, R1115, R2731, reg4 is R0004 & op0510=0x3F & R1115; R2731 & op2426=0b101 & op2122=0b00 & op1616=0 & reg4 {
   reg4 = (R1115 f* R0004) f+ R2731;
@@ -406,4 +450,3 @@ macro compare_float(fcond, reg2, reg1, result) {
 :trncf.sw R1115, R2731 is R1115 & op0510=0x3F & op0004=0b00001; R2731 & op2126=0b100010 & op1620=0b00000 {
   R2731 = trunc(R1115);
 }
-

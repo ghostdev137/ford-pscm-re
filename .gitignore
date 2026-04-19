@@ -1,4 +1,8 @@
 __pycache__/
 *.pyc
+.DS_Store
+.venv/
+docs/_site/
 simulator/athrill/log.txt
 analysis/transit_disasm/
+analysis/headless_lift/

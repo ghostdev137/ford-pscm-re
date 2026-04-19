@@ -1,0 +1,33 @@
+{
+  "analyze_headless": "/opt/homebrew/Cellar/ghidra/12.0.4/libexec/support/analyzeHeadless",
+  "repo_root": "/Users/rossfisher/ford-pscm-re",
+  "runs": {
+    "transit_block0": {
+      "baddata": 8,
+      "clean": 11,
+      "clean_pct": 11.0,
+      "failed": 1,
+      "input": "/Users/rossfisher/ford-pscm-re/firmware/Transit_2025/decompressed/AM/block0_strategy.bin",
+      "logs_dir": "/Users/rossfisher/ford-pscm-re/analysis/headless_lift_switchfix/transit_block0/logs",
+      "measure": {
+        "bad_bm": 135,
+        "halt_baddata": 87,
+        "median_size": 52,
+        "total": 279
+      },
+      "passes_thresholds": false,
+      "processor": "v850e3:LE:32:default",
+      "project_dir": "/Users/rossfisher/ford-pscm-re/analysis/headless_lift_switchfix/transit_block0/project",
+      "sampled": 100,
+      "state_trace_enabled": false,
+      "switch_seeding_enabled": false,
+      "thresholds": {
+        "max_baddata": 10,
+        "max_failed": 10,
+        "min_clean": 90
+      },
+      "total": 1008,
+      "warnings": 80
+    }
+  }
+}

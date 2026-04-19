@@ -34,6 +34,7 @@ MAX_TABLE_ENTRIES   = 512     # Sanity cap — no switch has 512 cases
 MAX_BRANCH_OFFSET   = 0x10000 # 64 KiB — max reasonable relative offset
 ALIGNMENT           = 2       # RH850 minimum instruction alignment (halfword)
 DRY_RUN             = False   # Set True to preview without modifying the program
+MAX_SWITCH_LOOKBACK = 8
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -126,7 +127,33 @@ def is_branch_higher(insn):
     mnemonic = insn.getMnemonicString().lower()
     return mnemonic in ("bh", "bnh")
 
-def scan_backwards_for_bounds_check(insn, max_lookback=8):
+def extract_switch_case_limit(insn):
+    """
+    Pull the smallest plausible immediate from a cmp instruction.
+    If the cmp is register-to-register, return None and let the caller keep
+    scanning for another bounds check instead of aborting immediately.
+    """
+    best = None
+    for op in range(insn.getNumOperands()):
+        try:
+            scalar = insn.getScalar(op)
+        except:
+            scalar = None
+        if scalar is None:
+            continue
+
+        value = scalar.getSignedValue()
+        if value < 0 and abs(value) < MAX_TABLE_ENTRIES:
+            value = abs(value)
+        if value < 0 or value >= MAX_TABLE_ENTRIES:
+            continue
+
+        candidate = int(value)
+        if best is None or candidate < best:
+            best = candidate
+    return best
+
+def scan_backwards_for_bounds_check(insn, max_lookback=MAX_SWITCH_LOOKBACK):
     """
     Walk backwards from the indirect jump looking for the cmp+bh pattern
     that indicates a switch bounds check. Returns the max case value if found.
@@ -140,13 +167,9 @@ def scan_backwards_for_bounds_check(insn, max_lookback=8):
         if mnemonic == "cmp":
             check = listing.getInstructionAfter(current.getAddress())
             if check is not None and is_branch_higher(check):
-                try:
-                    scalar = current.getScalar(0)
-                    if scalar is not None:
-                        return int(scalar.getValue())
-                except:
-                    pass
-                return None
+                limit = extract_switch_case_limit(current)
+                if limit is not None:
+                    return limit
     return None
 
 # ---------------------------------------------------------------------------
@@ -160,36 +183,39 @@ def try_detect_table_16bit(table_start, func_low, func_high, base_addr, max_case
     """
     results = []
 
-    for scale in (2, 1):
-        entries = []
-        for i in range(MAX_TABLE_ENTRIES):
-            entry_addr = table_start.add(i * 2)
-            if entry_addr.compareTo(func_high) > 0:
-                break
-            val = read_u16(entry_addr)
-            if val is None:
-                break
-            target_offset = val * scale
-            if target_offset > MAX_BRANCH_OFFSET:
-                break
-            try:
-                target = base_addr.add(target_offset)
-            except:
-                break
-            if not is_executable(target):
-                break
-            if target.getOffset() % ALIGNMENT != 0:
-                break
-            if target.compareTo(func_low) < 0:
-                break
-            if target.compareTo(func_high.add(0x1000)) > 0:
-                break
-            entries.append((entry_addr, target))
-            if max_cases is not None and len(entries) >= max_cases + 1:
-                break
+    for signed in (True, False):
+        for scale in (2, 1):
+            entries = []
+            for i in range(MAX_TABLE_ENTRIES):
+                entry_addr = table_start.add(i * 2)
+                if entry_addr.compareTo(func_high) > 0:
+                    break
+                val = read_u16(entry_addr)
+                if val is None:
+                    break
+                rel = val if not signed else struct.unpack("<h", struct.pack("<H", val))[0]
+                target_offset = rel * scale
+                if abs(target_offset) > MAX_BRANCH_OFFSET:
+                    break
+                try:
+                    target = base_addr.add(target_offset)
+                except:
+                    break
+                if not is_executable(target):
+                    break
+                if target.getOffset() % ALIGNMENT != 0:
+                    break
+                if target.compareTo(func_low) < 0:
+                    break
+                if target.compareTo(func_high.add(0x1000)) > 0:
+                    break
+                entries.append((entry_addr, target))
+                if max_cases is not None and len(entries) >= max_cases + 1:
+                    break
 
-        if len(entries) >= MIN_TABLE_ENTRIES:
-            results.append((entries, scale, 2))
+            if len(entries) >= MIN_TABLE_ENTRIES:
+                mode = "rel16s" if signed else "rel16u"
+                results.append((entries, scale, 2, mode))
 
     if results:
         results.sort(key=lambda x: len(x[0]), reverse=True)
@@ -225,7 +251,7 @@ def try_detect_table_32bit(table_start, func_low, func_high, max_cases=None):
             break
 
     if len(entries) >= MIN_TABLE_ENTRIES:
-        return (entries, 1, 4)
+        return (entries, 1, 4, "abs32")
     return None
 
 # ---------------------------------------------------------------------------
@@ -267,7 +293,7 @@ def run():
                     table_start = aligned_start
 
             if result is not None:
-                entries, scale, entry_size = result
+                entries, scale, entry_size, mode = result
                 count = len(entries)
                 table_end = table_start.add(count * entry_size)
 
@@ -307,10 +333,10 @@ def run():
                         cu = listing.getCodeUnitAt(table_start)
                         if cu is not None:
                             cu.setComment(CodeUnit.PLATE_COMMENT,
-                                "GHS switch table: %d entries, %d-bit %s (scale=%d)\nDetected by rh850_switch_table_detector.py" % (
+                                "GHS switch table: %d entries, %d-bit %s (scale=%d, mode=%s)\nDetected by rh850_switch_table_detector.py" % (
                                     count, entry_size * 8,
                                     "relative" if entry_size == 2 else "absolute",
-                                    scale))
+                                    scale, mode))
                     except:
                         pass
 
@@ -323,8 +349,8 @@ def run():
                             except:
                                 pass
 
-                    print("Table at %s: %d entries (%d-bit, scale=%d)" % (
-                        table_start, count, entry_size * 8, scale))
+                    print("Table at %s: %d entries (%d-bit, scale=%d, mode=%s)" % (
+                        table_start, count, entry_size * 8, scale, mode))
                     bytes_cleared += cleared.getNumAddresses()
 
                 tables_found += 1

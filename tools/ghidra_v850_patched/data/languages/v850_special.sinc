@@ -25,7 +25,9 @@
 }
 
 # RIE
-:rie is op0015=0x0040 unimpl # reserved instruction for future expansion
+:rie is op0015=0x0040 {
+	__halt();
+}
 
 # SWITCH reg1
 :switch R0004 is op0515=0x002 & R0004 {
@@ -60,7 +62,9 @@
 }
 
 # RIE
-:rie is op0410=0x7F; op2126=0x00 unimpl # reserved instruction for future expansion
+:rie is op0410=0x7F; op2126=0x00 {
+	__halt();
+}
 
 # LDSR reg2, regID
 :ldsr R0004, SR1115 is op0510=0x3F & SR1115 & R0004; op1631=0x20 {

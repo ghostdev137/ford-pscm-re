@@ -7,7 +7,7 @@ import ghidra.program.model.listing.*;
 import java.io.*;
 import java.util.*;
 
-public class SeedFromJson extends GhidraScript {
+public class SeedAuditSeedFromJson extends GhidraScript {
     @Override
     public void run() throws Exception {
         String path = System.getenv().getOrDefault("SEED_JSON", "/tmp/pscm/entries.json");

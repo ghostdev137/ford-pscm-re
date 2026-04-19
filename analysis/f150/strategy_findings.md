@@ -46,27 +46,42 @@ All values confirmed from cal_bdl_raw.bin:
 
 | Cal Offset | Abs Address | Bytes | Decoded Value | Hypothesis | Status |
 |---|---|---|---|---|---|
-| +0x07ADC | 0x101D7ADC | 10 27 | u16_LE = 10000 | LKA arm timer (10s @ 1ms tick) | CONFIRMED |
-| +0x07ADE | 0x101D7ADE | 10 27 | u16_LE = 10000 | LKA re-arm timer | CONFIRMED |
+| +0x07ADC | 0x101D7ADC | 10 27 | u16_LE = 10000 | Mixed EPS supervisor record; `10000` word is part of the LKA-adjacent timing neighborhood | REFINED |
+| +0x07ADE | 0x101D7ADE | 10 27 | u16_LE = 10000 | Sibling `10000` word in the same mixed supervisor record | REFINED |
 | +0x00114 | 0x101D0114 | 00 00 20 41 | float32 = 10.0 | LKA min speed (10.0 m/s) | CONFIRMED |
 | +0x00120 | 0x101D0120 | 00 00 20 41 | float32 = 10.0 | LCA min speed (10.0 m/s) | CONFIRMED |
 | +0x00144 | 0x101D0144 | 00 00 00 41 | float32 = 8.0 | APA max speed (8.0 kph) | CONFIRMED |
 | +0x00140 | 0x101D0140 | 00 00 00 3F | float32 = 0.5 | APA min speed (0.5 kph) | CONFIRMED |
-| +0x07E64 | 0x101D7E64 | 10 27 | u16_LE = 10000 | ESA/TJA timer | CONFIRMED |
+| +0x07E64 | 0x101D7E64 | 10 27 | u16_LE = 10000 | Sibling supervisor timer neighborhood, likely ESA/TJA-side | REFINED |
 | +0x000C4 | 0x101D00C4 | 00 00 20 41 | float32 = 10.0 | LDW gate | CONFIRMED |
 
-### Timer Context (0x7ADC / 0x7ADE)
+### Timer / supervisor context (0x7ADC / 0x7ADE)
 
 Bytes at cal+0x07ADC: `10 27 10 27 DC 05 2C 01 01 01 03 00`
-- +0x07ADC = 10000 (arm timer)
-- +0x07ADE = 10000 (re-arm timer)  
-- +0x07AE0 = 1500 (related param, probably arm hysteresis?)
+- +0x07ADC = 10000 (still part of the proven LKA-adjacent timing neighborhood)
+- +0x07ADE = 10000 (same mixed record)
+- +0x07AE0 = 1500 (related param)
 - +0x07AE2 = 300 (related param)
+- +0x07AE4/+0x07AE5 = `0x01/0x01` (now the best current fit for the directly proven byte-scaled `*10000 ms` substate timers)
 
 ESA/TJA context at 0x7E64: `10 27 2C 01 DC 05 00 00`
 - +0x07E64 = 10000 (timer)
 - +0x07E66 = 300
 - +0x07E68 = 1500
+
+See also:
+
+- [lka_timer_ghidra_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/lka_timer_ghidra_trace.md)
+- [eps_supervisor_ghidra_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_supervisor_ghidra_trace.md)
+- [eps_curve_family_ghidra_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_curve_family_ghidra_trace.md)
+
+The live F-150 code path is more nuanced than a single naked `10000 ms` scalar. Ghidra now proves:
+
+- a smaller 4-state helper with one fixed 10-second window
+- two byte-scaled `*10000 ms` per-substate timers
+- a separate packed debounce/persistence record for watchdog-style latch timing
+- a mixed float/int supervisor record that best matches the `0x07ADC` neighborhood
+- neighboring interpolation records that shape limiter, filter, and state-selection behavior
 
 ## Code Path Confirmation
 

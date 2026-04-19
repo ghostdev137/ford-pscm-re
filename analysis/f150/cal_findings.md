@@ -93,9 +93,15 @@ cal+0x0120: 00 00 20 41  →  00 00 00 3F
 
 ---
 
-## Finding 1b: LKA 10-sec lockout timer pair at `cal+0x07ADC`/`0x07ADE` (HIGH confidence)
+## Finding 1b: mixed EPS supervisor record at `cal+0x07ADC` (HIGH confidence for neighborhood, medium for exact field roles)
 
-**Correction to earlier interpretation:** LKA has a lockout on every Ford — F-150 included. Looking for the classic `10000 × 1ms = 10 s` signature uncovered:
+**Correction to the old shorthand:** this is not just "two naked LKA timer words." Ghidra now shows that the F-150 lateral/EPS supervisor uses multiple config records:
+
+- a mixed float/int record that best fits this `0x07ADC` neighborhood
+- a separate packed debounce/persistence record
+- a curve/lookup record
+
+What remains true is that `cal+0x07ADC` contains a very important timer/supervisor neighborhood:
 
 ```
 cal+0x07ADC:  10 27   (u16 LE = 10000)   arm timer
@@ -103,9 +109,22 @@ cal+0x07ADE:  10 27   (u16 LE = 10000)   re-arm timer
 cal+0x07AE0:  1500, 300, 257, 3, 256, 257, 0, 1   (related debounce/state params)
 ```
 
-Two adjacent u16 = 10000 in a mixed float/int struct region. This pair is **identical between BDL and EDL** — Ford never relaxes the LKA lockout. Patching both to `00 00` should remove the 10-s gap after each LKA intervention.
+Two adjacent u16 = 10000 in a mixed float/int struct region. This pair is **identical between BDL and EDL**.
 
-A third `10000` at `cal+0x07E64` has neighbors `300, 1500` — probably a related subsystem timer (ESA / TJA / confirmation).
+What Ghidra adds:
+
+- the live 4-state helper described in [lka_timer_ghidra_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/lka_timer_ghidra_trace.md) uses:
+  - one fixed `10001 ms` window
+  - two byte-scaled `*10000 ms` timers
+- the broader EPS supervisor split is documented in [eps_supervisor_ghidra_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_supervisor_ghidra_trace.md)
+
+Best current read:
+
+- `0x07ADC/0x07ADE` still belong to the same lateral/EPS supervisor neighborhood
+- the adjacent `0x01/0x01` byte pair at `0x07AE4/0x07AE5` is now a better match for the directly proven per-substate `*10000 ms` timer fields
+- the `10000/10000` pair may be a higher-level arm/re-arm pair in the same record rather than the only live timing fields
+
+A third `10000` at `cal+0x07E64` has neighbors `300, 1500` and still looks like a sibling subsystem supervisor timer (ESA / TJA / confirmation style behavior), not a duplicate of the same helper.
 
 ### Revised LKA-unlock patch
 ```
@@ -186,6 +205,196 @@ cal+0x7934: [500.0, 1000.0, 3000.0, 20.0, 40.0, 40.0, 10.0]
 cal+0x79C8: [..., 20.0, 30.0, 80.0, 10.0, 150.0, 20.0, 30.0, 80.0]
 ```
 These look like APA / LKA / LCA lookup-table breakpoints where speed in m/s (or kph) is the X-axis. 10.0 as the first entry means "table starts at 10 m/s" — which is consistent with "gate at 10 m/s."
+
+---
+
+## Finding 6: Timer-adjacent float supervisor block at `cal+0x7D68..0x7E3F`
+
+Immediately upstream of the known F-150 timer neighborhoods (`0x07ADC` and `0x07E64`) is a dense set of short float tables:
+
+```text
+cal+0x07D68: [1.0, 1.0, 0.7, 0.6, 0.5, 0.4, 0.2]
+cal+0x07D88: [3.0, 1.5789, 1.2857, 1.1114, 1.0227, 0.8871, 0.8]
+cal+0x07DAC: [0.6667, 0.9333, 0.8333, 0.8333, 0.8333, 0.8, 0.4167]
+cal+0x07DCC: [-1.4, -0.98, -0.665, -0.56, -0.56, -0.525, -0.28]
+cal+0x07DF0: [0.06, 0.06, 0.036, 0.036, 0.036, 0.032, 0.018]
+cal+0x07E14: [-0.469, -0.469, -0.402, -0.335, -0.335, -0.335, -0.1675]
+cal+0x07E38: [-0.098, -0.098, -0.084, -0.07, -0.07, -0.07, -0.035]
+```
+
+Observed facts:
+
+- the whole block is **unchanged** between `BDL` and `EDL`
+- it sits directly beside the known LKA/ESA timer cluster
+- the values are highly structured and monotonic, not random packed scalars
+
+Best current interpretation:
+
+- a **supervisor/gain/hysteresis block** for the same feature family as the timer region
+- likely helper slopes, weights, decay constants, or signed correction factors rather than user-visible gates
+
+New code-backed refinement from Ghidra:
+
+- `context + 0x68` is now proven to be a **mixed continuous-control block**
+- reads from `cfg68 + 0x34`, `+0x48`, `+0x4c`, and `+0x5c` are used as fallback gains/limits and filter constants
+- the best current fit is that this `0x07D68..0x07E3F` neighborhood, extending through the mixed record at `0x07ADC`, backs that pointer family
+
+This is still not fully pinned field-by-field, but it is no longer just a shape guess. See [eps_supervisor_ghidra_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_supervisor_ghidra_trace.md).
+
+---
+
+## Finding 7: Repeated 4x u16 breakpoint-curve family was retuned in EDL
+
+The monotonic u16 curve family appears in multiple variant copies:
+
+```text
+BDL:
+0x0DA8, 0x2C50, 0x3BA4, 0x4AF8
+[0, 51, 66, 78, 100, 135, 182, 240, 307, 387, 479, 582, 735, 897, 1067, 1245, 1434, 1628, 1831]
+
+BDL outlier copy:
+0x1CFC
+[0, 53, 61, 72, 92, 121, 162, 215, 276, 348, 430, 524, 666, 817, 975, 1145, 1321, 1507, 1704]
+
+EDL:
+all copies normalized to
+[0, 23, 37, 66, 111, 170, 244, 332, 436, 553, 686, 850, 1026, 1219, 1423, 1645, ...]
+```
+
+Observed facts:
+
+- the table is present in **four or five variant copies**
+- `EDL` retuned it substantially rather than leaving it alone
+- the curve shape is clearly deliberate and non-linear
+
+Best current interpretation:
+
+- this is a **real breakpoint axis** used by active steering logic
+- likely tied to authority/rate/assist scheduling rather than a simple on/off threshold
+
+New code-backed refinement:
+
+- `FUN_10055494` is now the concrete context initializer for the surrounding interpolation records
+- `FUN_100b8078`, `FUN_100b7918`, `FUN_100b7e96`, and `FUN_100b87ae` prove that neighboring runtime records are used as interpolation-backed limiter, filter, and state-selection schedules
+
+So this family is now stronger than “some monotonic axis”:
+
+- it belongs to the **authority / limiter / filter scheduling side** of the rack, not the feature-arm timer side
+- it is exactly the kind of data Ford would retune to soften steering behavior between `BDL` and `EDL`
+
+See [eps_curve_family_ghidra_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_curve_family_ghidra_trace.md).
+
+## Finding 8: separate packed debounce/persistence record feeds the watchdog state machines
+
+Ghidra now proves that a different config pointer, `context + 0x6c`, is consumed as a packed `u16 * 10 ms` timer bundle by:
+
+- `FUN_1005dbc8`
+- `FUN_1005ea9c`
+
+That record is **not** the same thing as the mixed `0x07ADC` float/int neighborhood.
+
+Proven behavior:
+
+- low offsets are repeatedly multiplied by `10` and compared against elapsed milliseconds
+- the consumers are latch/set/clear state machines, not curve interpolation or continuous control
+- the fields control assertion delays, hold windows, retain-last-value windows, and clear timers for multiple supervisor outputs
+
+The most solid per-offset roles are:
+
+- `+0x3a`, `+0x4a`: assert delays for two supervisor event paths
+- `+0x3c`: preserve-old-state window after reset
+- `+0x46`: delay before another event path is reported
+- `+0x4c`: top-level qualify dwell before downstream booleans are allowed to go active
+- `+0x50`, `+0x56`, `+0x5c` and two nearby opaque halfword reads: clear/retain timers for four output latches
+- `+0x52`, `+0x58` and a sibling opaque halfword read: keep-last-state windows after supervisor reset
+
+This is the clearest proof so far that the rack firmware separates:
+
+1. float/gain/filter supervision
+2. debounce/persistence timing
+3. lookup-curve scheduling
+
+See [eps_supervisor_ghidra_trace.md](/Users/rossfisher/ford-pscm-re/analysis/f150/eps_supervisor_ghidra_trace.md) for the code path and function list.
+
+---
+
+## Finding 9: Stable step-threshold family at `cal+0x080C..0x0878`
+
+There is a compact family of small u16 tables:
+
+```text
+0x080C: [10, 20, 30, 80, 100, 100, 100, 100]
+0x081E: [10, 20, 30, 80, 100, 100, 100, 100]
+0x0830: [10, 20, 30, 80, 100, 100, 100, 100]
+0x0854: [5, 10, 15, 60, 80, 80, 80, 80]
+0x0866: [0, 5, 10, 30, 40, 40, 40, 40]
+0x0878: [0, 5, 10, 20, 30, 30, 30, 30]
+```
+
+Observed facts:
+
+- tightly grouped
+- clearly table-shaped
+- **unchanged** between `BDL` and `EDL`
+
+Best current interpretation:
+
+- low-level threshold / gain-step schedules
+- possibly used as sibling threshold tables for related modes or trims
+
+These are still undocumented semantically, but they look too deliberate to ignore.
+
+---
+
+## Finding 10: Dense feature-envelope block at `cal+0x0100..0x015C`
+
+This dense float block remains one of the highest-value non-curve cal neighborhoods:
+
+```text
+0x0100: 40.0
+0x0104: 40.0
+0x0108: 250.0
+0x010C: 40.0
+0x0110: 40.0
+0x0114: 10.0
+0x0118: 1.0
+0x011C: 200.0
+0x0120: 10.0
+0x0124: 1.0
+0x0128: 66.0
+0x012C: 50.0
+0x0130: 0.004
+0x0134: 1.0
+0x0138: 1.0
+0x013C: 0.3
+0x0140: 0.5
+0x0144: 8.0
+0x0148: 0.05
+0x014C: 20.0
+0x0150: 20.0
+0x0154: 40.0
+0x0158: 100.0
+0x015C: 85.0
+```
+
+Observed facts:
+
+- unchanged between `BDL` and `EDL`
+- contains the already-proven engage-speed anchors:
+  - `0x0114 = 10.0`
+  - `0x0120 = 10.0`
+  - `0x0140 = 0.5`
+  - `0x0144 = 8.0`
+- shaped like a **feature-envelope record**, not a curve family
+
+Best current EPS read:
+
+- `0x0114/0x0120` are still the strongest LKA/LCA minimum-speed gates
+- `0x0140/0x0144` still look like APA min/max speed gates
+- the adjacent `40/40/250/200/66/50/20/20/40/100/85` values are likely envelope caps, authority limits, or activation/deactivation bounds for sibling steering features
+- the small `0.004 / 0.3 / 0.05 / 1.0 / 1.0` values look like gains or hysteresis terms inside the same envelope record
+
+This block is still underdocumented function-by-function, but it is now documented as a coherent EPS feature-envelope neighborhood rather than isolated scalars.
 
 ---
 

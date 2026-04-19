@@ -87,6 +87,44 @@ $BASE /tmp/proj HuntRun \
   -postScript HuntLKA2.java -deleteProject
 ```
 
+## Canonical Lift Check
+
+The repo now has one checked-in entrypoint for repeatable headless checks:
+
+```bash
+make lift-check
+```
+
+That runs:
+
+- Transit block0 seeded lift check using:
+  `SetOptions.java -> SeedFromJarls.java -> RH850SwitchTableDetector.java -> CleanupBoundaries.java -> MeasureQuality.java -> SampleProjectLift.java`
+- F-150 full-ELF regression check using `F150LiftReport.java`
+
+Artifacts go to `analysis/headless_lift/summary.json` plus per-run log folders.
+Transit thresholds default to `clean >= 90`, `baddata <= 10`, `failed <= 10`
+on the 100-function post-cleanup sample. F-150 defaults to `clean >= 3200`,
+`baddata <= 80`, `failed <= 20`.
+The Transit regression project import is intentionally run with `-noanalysis`
+so it measures the explicit seeded workflow rather than waiting on Ghidra's
+full auto-analysis queue.
+
+The default regression path skips the expensive switch-target expansion inside
+`SeedFromJarls.java` so the check stays fast and repeatable. Re-enable it only
+when you are actively working on Transit switch recovery:
+
+```bash
+python tools/ghidra_lift_regression.py --with-switch-seeding --skip-f150
+```
+
+You can also run the wrapper directly:
+
+```bash
+python tools/ghidra_lift_regression.py \
+  --transit-block0 firmware/Transit_2025/decompressed/AM/block0_strategy.bin \
+  --f150-elf firmware/F150_2021_Lariat_BlueCruise/f150_pscm_full.elf
+```
+
 ### Script inventory
 
 | Script | Purpose |

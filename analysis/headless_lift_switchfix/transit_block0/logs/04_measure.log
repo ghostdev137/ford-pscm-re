@@ -1,0 +1,164 @@
+openjdk version "21.0.10" 2026-01-20
+OpenJDK Runtime Environment Homebrew (build 21.0.10)
+OpenJDK 64-Bit Server VM Homebrew (build 21.0.10, mixed mode)
+Module manifest file error on line 2 of file: /Users/rossfisher/Library/ghidra/ghidra_12.0.4_PUBLIC/Extensions/GhidraMCP/Module.manifest
+	-> Invalid line encountered: GHIDRA_MODULE_NAME=GhidraMCP
+Module manifest file error on line 3 of file: /Users/rossfisher/Library/ghidra/ghidra_12.0.4_PUBLIC/Extensions/GhidraMCP/Module.manifest
+	-> Invalid line encountered: GHIDRA_MODULE_DESC=An HTTP server plugin for Ghidra
+Module manifest file error on line 2 of file: /Users/rossfisher/Library/ghidra/ghidra_12.0.4_PUBLIC/Extensions/GhidraMCP/Module.manifest
+	-> Invalid line encountered: GHIDRA_MODULE_NAME=GhidraMCP
+Module manifest file error on line 3 of file: /Users/rossfisher/Library/ghidra/ghidra_12.0.4_PUBLIC/Extensions/GhidraMCP/Module.manifest
+	-> Invalid line encountered: GHIDRA_MODULE_DESC=An HTTP server plugin for Ghidra
+INFO  Using log config file: jar:file:/opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: /Users/rossfisher/Library/ghidra/ghidra_12.0.4_PUBLIC/application.log (LoggingInitialization)  
+INFO  Loading user preferences: /Users/rossfisher/Library/ghidra/ghidra_12.0.4_PUBLIC/preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (500 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: NativePRNGNonBlocking (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (926 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 58 extension points (18 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/Base/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/SystemEmulation/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/FileFormats/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/WildcardAssembler/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/BSim/ghidra_scripts
+    /Users/rossfisher/ford-pscm-re/tools/ghidra_v850_patched/seeds
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Processors/8051/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/BytePatterns/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Processors/Atmel/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    /Users/rossfisher/ford-pscm-re/tools/scripts/transit_cleanup
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/Jython/ghidra_scripts
+    /Users/rossfisher/ford-pscm-re/tools/scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Processors/DATA/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/FunctionID/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/PyGhidra/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/SwiftDemangler/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/PDB/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Processors/JVM/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/Decompiler/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/GnuDemangler/ghidra_scripts
+    /Users/rossfisher/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/VersionTracking/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Processors/PIC/ghidra_scripts
+    /opt/homebrew/Cellar/ghidra/12.0.4/libexec/Ghidra/Debug/Debugger/ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Opening existing project: /Users/rossfisher/ford-pscm-re/analysis/headless_lift_switchfix/transit_block0/project/TransitBlock0Lift (HeadlessAnalyzer)  
+INFO  Opening project: /Users/rossfisher/ford-pscm-re/analysis/headless_lift_switchfix/transit_block0/project/TransitBlock0Lift (HeadlessProject)  
+INFO  REPORT: Processing read-only project file: /block0_strategy.bin (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: MeasureQuality.java  (HeadlessAnalyzer)  
+INFO  SCRIPT: /Users/rossfisher/ford-pscm-re/tools/scripts/transit_cleanup/MeasureQuality.java (HeadlessAnalyzer)  
+WARN  Decompiling 01002b82, pcode error at 00ff3712: Could not follow disassembly flow into non-existing memory at 00ff3712 (DecompileCallback)  
+WARN  Decompiling 01002b82, pcode error at 00ff3780: Could not follow disassembly flow into non-existing memory at 00ff3780 (DecompileCallback)  
+WARN  Decompiling 01007692, pcode error at 010079f6: Unable to resolve constructor at 010079f6 (DecompileCallback)  
+WARN  Decompiling 0102718a, pcode error at 9d29d4ae: Could not follow disassembly flow into non-existing memory at 9d29d4ae (DecompileCallback)  
+WARN  Decompiling 010279de, pcode error at 290fdd36: Could not follow disassembly flow into non-existing memory at 290fdd36 (DecompileCallback)  
+WARN  Decompiling 01027b7e, pcode error at d13ade9c: Could not follow disassembly flow into non-existing memory at d13ade9c (DecompileCallback)  
+WARN  Decompiling 0102e4e4, pcode error at 91a3ec5e: Could not follow disassembly flow into non-existing memory at 91a3ec5e (DecompileCallback)  
+WARN  Decompiling 01042a84, pcode error at c9470ddc: Could not follow disassembly flow into non-existing memory at c9470ddc (DecompileCallback)  
+WARN  Decompiling 01055d62, pcode error at 01316abe: Could not follow disassembly flow into non-existing memory at 01316abe (DecompileCallback)  
+WARN  Decompiling 0105e6ee, pcode error at 50c5eace: Could not follow disassembly flow into non-existing memory at 50c5eace (DecompileCallback)  
+WARN  Decompiling 0106da4a, pcode error at cc340816: Could not follow disassembly flow into non-existing memory at cc340816 (DecompileCallback)  
+WARN  Decompiling 0107425a, pcode error at 6d32efc2: Could not follow disassembly flow into non-existing memory at 6d32efc2 (DecompileCallback)  
+WARN  Decompiling 01074282, pcode error at d1e80dec: Could not follow disassembly flow into non-existing memory at d1e80dec (DecompileCallback)  
+WARN  Decompiling 010748e8, pcode error at 9d33165a: Could not follow disassembly flow into non-existing memory at 9d33165a (DecompileCallback)  
+WARN  Decompiling 0107572a, pcode error at a4e3615c: Could not follow disassembly flow into non-existing memory at a4e3615c (DecompileCallback)  
+WARN  Decompiling 01077a5a, pcode error at cd19de06: Could not follow disassembly flow into non-existing memory at cd19de06 (DecompileCallback)  
+WARN  Decompiling 0108501c, pcode error at ee386348: Could not follow disassembly flow into non-existing memory at ee386348 (DecompileCallback)  
+WARN  Decompiling 010869da, pcode error at e9c0513a: Could not follow disassembly flow into non-existing memory at e9c0513a (DecompileCallback)  
+WARN  Decompiling 01088d8a, pcode error at 00f0ab2a: Could not follow disassembly flow into non-existing memory at 00f0ab2a (DecompileCallback)  
+WARN  Decompiling 01089d70, pcode error at 0d91a9b0: Could not follow disassembly flow into non-existing memory at 0d91a9b0 (DecompileCallback)  
+WARN  Decompiling 0108ae74, pcode error at 57e2b6a4: Could not follow disassembly flow into non-existing memory at 57e2b6a4 (DecompileCallback)  
+WARN  Decompiling 0108b384, pcode error at 0979b7c2: Could not follow disassembly flow into non-existing memory at 0979b7c2 (DecompileCallback)  
+WARN  Decompiling 0108e61a, pcode error at fdb5ec70: Could not follow disassembly flow into non-existing memory at fdb5ec70 (DecompileCallback)  
+WARN  Decompiling 0108e976, pcode error at feb5efe4: Could not follow disassembly flow into non-existing memory at feb5efe4 (DecompileCallback)  
+WARN  Decompiling 01090568, pcode error at 0309e600: Could not follow disassembly flow into non-existing memory at 0309e600 (DecompileCallback)  
+WARN  Decompiling 0109625e, pcode error at 5dd1498a: Could not follow disassembly flow into non-existing memory at 5dd1498a (DecompileCallback)  
+WARN  Decompiling 0109a300, pcode error at d0b5ad3e: Could not follow disassembly flow into non-existing memory at d0b5ad3e (DecompileCallback)  
+WARN  Decompiling 0109a354, pcode error at cb3dba80: Could not follow disassembly flow into non-existing memory at cb3dba80 (DecompileCallback)  
+WARN  Decompiling 0109a6a6, pcode error at 029aae46: Could not follow disassembly flow into non-existing memory at 029aae46 (DecompileCallback)  
+WARN  Decompiling 0109aba2, pcode error at 71120c70: Could not follow disassembly flow into non-existing memory at 71120c70 (DecompileCallback)  
+WARN  Decompiling 0109d108, pcode error at 51e2f97a: Could not follow disassembly flow into non-existing memory at 51e2f97a (DecompileCallback)  
+WARN  Decompiling 0109d108, pcode error at 2fc0d954: Could not follow disassembly flow into non-existing memory at 2fc0d954 (DecompileCallback)  
+WARN  Decompiling 0109d108, pcode error at 51e69b80: Could not follow disassembly flow into non-existing memory at 51e69b80 (DecompileCallback)  
+WARN  Decompiling 010a048a, pcode error at a97d8c74: Could not follow disassembly flow into non-existing memory at a97d8c74 (DecompileCallback)  
+WARN  Decompiling 010a0fe8, pcode error at 7de49942: Could not follow disassembly flow into non-existing memory at 7de49942 (DecompileCallback)  
+WARN  Decompiling 010a2490, pcode error at 288785ee: Could not follow disassembly flow into non-existing memory at 288785ee (DecompileCallback)  
+WARN  Decompiling 010a2490, pcode error at 350b0bfe: Could not follow disassembly flow into non-existing memory at 350b0bfe (DecompileCallback)  
+WARN  Decompiling 010a33ae, pcode error at 0991da90: Could not follow disassembly flow into non-existing memory at 0991da90 (DecompileCallback)  
+WARN  Decompiling 010a3aa2, pcode error at 0a864020: Could not follow disassembly flow into non-existing memory at 0a864020 (DecompileCallback)  
+WARN  Decompiling 010a846c, pcode error at 6be490c2: Could not follow disassembly flow into non-existing memory at 6be490c2 (DecompileCallback)  
+WARN  Decompiling 010af9d0, pcode error at df2a3106: Could not follow disassembly flow into non-existing memory at df2a3106 (DecompileCallback)  
+WARN  Decompiling 010afcd8, pcode error at cfb7f86a: Could not follow disassembly flow into non-existing memory at cfb7f86a (DecompileCallback)  
+WARN  Decompiling 010b97b2, pcode error at 0d3fb7fe: Could not follow disassembly flow into non-existing memory at 0d3fb7fe (DecompileCallback)  
+WARN  Decompiling 010ba92a, pcode error at a9ecb9f2: Could not follow disassembly flow into non-existing memory at a9ecb9f2 (DecompileCallback)  
+WARN  Decompiling 010ba92a, pcode error at 41ea94cc: Could not follow disassembly flow into non-existing memory at 41ea94cc (DecompileCallback)  
+WARN  Decompiling 010ba92a, pcode error at 31ea7688: Could not follow disassembly flow into non-existing memory at 31ea7688 (DecompileCallback)  
+WARN  Decompiling 010baa90, pcode error at a9ecb9f2: Could not follow disassembly flow into non-existing memory at a9ecb9f2 (DecompileCallback)  
+WARN  Decompiling 010baa90, pcode error at 41ea94cc: Could not follow disassembly flow into non-existing memory at 41ea94cc (DecompileCallback)  
+WARN  Decompiling 010baa90, pcode error at 31ea7688: Could not follow disassembly flow into non-existing memory at 31ea7688 (DecompileCallback)  
+WARN  Decompiling 010bb0f2, pcode error at 03ec9962: Could not follow disassembly flow into non-existing memory at 03ec9962 (DecompileCallback)  
+WARN  Decompiling 010bb166, pcode error at 49eb770e: Could not follow disassembly flow into non-existing memory at 49eb770e (DecompileCallback)  
+WARN  Decompiling 010bb260, pcode error at 71edaeb6: Could not follow disassembly flow into non-existing memory at 71edaeb6 (DecompileCallback)  
+WARN  Decompiling 010bba42, pcode error at 03ec82bc: Could not follow disassembly flow into non-existing memory at 03ec82bc (DecompileCallback)  
+WARN  Decompiling 010bdfa0, pcode error at 0eb8fefe: Could not follow disassembly flow into non-existing memory at 0eb8fefe (DecompileCallback)  
+WARN  Decompiling 010beac8, pcode error at ccb80602: Could not follow disassembly flow into non-existing memory at ccb80602 (DecompileCallback)  
+WARN  Decompiling 010bfac0, pcode error at 33c3df32: Could not follow disassembly flow into non-existing memory at 33c3df32 (DecompileCallback)  
+WARN  Decompiling 010bfc42, pcode error at 01289fec: Could not follow disassembly flow into non-existing memory at 01289fec (DecompileCallback)  
+WARN  Decompiling 010c24fc, pcode error at ede9f2a6: Could not follow disassembly flow into non-existing memory at ede9f2a6 (DecompileCallback)  
+WARN  Decompiling 010c24fc, pcode error at f9e9f338: Could not follow disassembly flow into non-existing memory at f9e9f338 (DecompileCallback)  
+WARN  Decompiling 010c24fc, pcode error at 05eaf3ca: Could not follow disassembly flow into non-existing memory at 05eaf3ca (DecompileCallback)  
+WARN  Decompiling 010c3fce, pcode error at 09294254: Could not follow disassembly flow into non-existing memory at 09294254 (DecompileCallback)  
+WARN  Decompiling 010c42ca, pcode error at 5de64968: Could not follow disassembly flow into non-existing memory at 5de64968 (DecompileCallback)  
+WARN  Decompiling 010c4e02, pcode error at 00f49c58: Could not follow disassembly flow into non-existing memory at 00f49c58 (DecompileCallback)  
+WARN  Decompiling 010c4e02, pcode error at 00f46140: Could not follow disassembly flow into non-existing memory at 00f46140 (DecompileCallback)  
+WARN  Decompiling 010c79e0, pcode error at 31b8ddb2: Could not follow disassembly flow into non-existing memory at 31b8ddb2 (DecompileCallback)  
+WARN  Decompiling 010c79e0, pcode error at e90ffc48: Could not follow disassembly flow into non-existing memory at e90ffc48 (DecompileCallback)  
+WARN  Decompiling 010c7a7a, pcode error at 31b8e032: Could not follow disassembly flow into non-existing memory at 31b8e032 (DecompileCallback)  
+WARN  Decompiling 010c7a7a, pcode error at e90ffc48: Could not follow disassembly flow into non-existing memory at e90ffc48 (DecompileCallback)  
+WARN  Decompiling 010c7bde, pcode error at 41b8df42: Could not follow disassembly flow into non-existing memory at 41b8df42 (DecompileCallback)  
+WARN  Decompiling 010c7bde, pcode error at 3db8df60: Could not follow disassembly flow into non-existing memory at 3db8df60 (DecompileCallback)  
+WARN  Decompiling 010c8230, pcode error at ed43b5ac: Could not follow disassembly flow into non-existing memory at ed43b5ac (DecompileCallback)  
+WARN  Decompiling 010c82f0, pcode error at ea43b640: Could not follow disassembly flow into non-existing memory at ea43b640 (DecompileCallback)  
+WARN  Decompiling 010cb3c2, pcode error at d5e51724: Could not follow disassembly flow into non-existing memory at d5e51724 (DecompileCallback)  
+WARN  Decompiling 010cc630, pcode error at 40135ad4: Could not follow disassembly flow into non-existing memory at 40135ad4 (DecompileCallback)  
+WARN  Decompiling 010cc630, pcode error at ac615b20: Could not follow disassembly flow into non-existing memory at ac615b20 (DecompileCallback)  
+WARN  Decompiling 010cc77c, pcode error at 69e43570: Could not follow disassembly flow into non-existing memory at 69e43570 (DecompileCallback)  
+WARN  Decompiling 010cd328, pcode error at 91add42c: Could not follow disassembly flow into non-existing memory at 91add42c (DecompileCallback)  
+WARN  Decompiling 010cd328, pcode error at 4806df02: Could not follow disassembly flow into non-existing memory at 4806df02 (DecompileCallback)  
+WARN  Decompiling 010cd328, pcode error at a85d2a6e: Could not follow disassembly flow into non-existing memory at a85d2a6e (DecompileCallback)  
+WARN  Decompiling 010cd328, pcode error at 6d40d5e4: Could not follow disassembly flow into non-existing memory at 6d40d5e4 (DecompileCallback)  
+WARN  Decompiling 010ce8da, pcode error at 81b8880e: Could not follow disassembly flow into non-existing memory at 81b8880e (DecompileCallback)  
+WARN  Decompiling 010cf36c, pcode error at c95898cc: Could not follow disassembly flow into non-existing memory at c95898cc (DecompileCallback)  
+WARN  Decompiling 010cf43c, pcode error at 03ed9cb4: Could not follow disassembly flow into non-existing memory at 03ed9cb4 (DecompileCallback)  
+WARN  Decompiling 010cf62a, pcode error at b5e0fba0: Could not follow disassembly flow into non-existing memory at b5e0fba0 (DecompileCallback)  
+WARN  Decompiling 010d0ab4, pcode error at 01e21362: Could not follow disassembly flow into non-existing memory at 01e21362 (DecompileCallback)  
+WARN  Decompiling 010d2220, pcode error at 7b5cc778: Could not follow disassembly flow into non-existing memory at 7b5cc778 (DecompileCallback)  
+WARN  Decompiling 010d2cde, pcode error at 51dfd770: Could not follow disassembly flow into non-existing memory at 51dfd770 (DecompileCallback)  
+WARN  Decompiling 010d3560, pcode error at 4d3e49be: Could not follow disassembly flow into non-existing memory at 4d3e49be (DecompileCallback)  
+WARN  Decompiling 010d372e, pcode error at 5f5e1e74: Could not follow disassembly flow into non-existing memory at 5f5e1e74 (DecompileCallback)  
+WARN  Decompiling 010d477a, pcode error at f3de0cc0: Could not follow disassembly flow into non-existing memory at f3de0cc0 (DecompileCallback)  
+WARN  Decompiling 010d51c8, pcode error at b5df5b4e: Could not follow disassembly flow into non-existing memory at b5df5b4e (DecompileCallback)  
+WARN  Decompiling 010d55a0, pcode error at 09696616: Could not follow disassembly flow into non-existing memory at 09696616 (DecompileCallback)  
+WARN  Decompiling 010d5770, pcode error at e8e2feaa: Could not follow disassembly flow into non-existing memory at e8e2feaa (DecompileCallback)  
+WARN  Decompiling 010d699c, pcode error at 515e3018: Could not follow disassembly flow into non-existing memory at 515e3018 (DecompileCallback)  
+WARN  Decompiling 010d7282, pcode error at 13577ac8: Could not follow disassembly flow into non-existing memory at 13577ac8 (DecompileCallback)  
+WARN  Decompiling 010d7ad6, pcode error at 414d815c: Could not follow disassembly flow into non-existing memory at 414d815c (DecompileCallback)  
+WARN  Decompiling 010d7dc0, pcode error at 0c37dc30: Could not follow disassembly flow into non-existing memory at 0c37dc30 (DecompileCallback)  
+WARN  Decompiling 010d8192, pcode error at 17e3ed02: Could not follow disassembly flow into non-existing memory at 17e3ed02 (DecompileCallback)  
+WARN  Decompiling 010d8b7e, pcode error at c94853ca: Could not follow disassembly flow into non-existing memory at c94853ca (DecompileCallback)  
+WARN  Decompiling 010da010, pcode error at 91aea0ce: Could not follow disassembly flow into non-existing memory at 91aea0ce (DecompileCallback)  
+WARN  Decompiling 010dabae, pcode error at cde0cb38: Could not follow disassembly flow into non-existing memory at cde0cb38 (DecompileCallback)  
+WARN  Decompiling 010db65c, pcode error at 010dccc6: Unable to resolve constructor at 010dccc6 (DecompileCallback)  
+WARN  Decompiling 010dc23a, pcode error at 010dccc6: Unable to resolve constructor at 010dccc6 (DecompileCallback)  
+WARN  Decompiling 010dc798, pcode error at 010dccc6: Unable to resolve constructor at 010dccc6 (DecompileCallback)  
+WARN  Decompiling 010dc7f4, pcode error at 010dccc6: Unable to resolve constructor at 010dccc6 (DecompileCallback)  
+WARN  Decompiling 010dcb04, pcode error at 010dccc6: Unable to resolve constructor at 010dccc6 (DecompileCallback)  
+WARN  Decompiling 010ef0d6, pcode error at 010ffff2: Could not follow disassembly flow into non-existing memory at 010ffff2 (DecompileCallback)  
+INFO  MeasureQuality.java> MEASURE total=279 halt_baddata=87 bad_bm=135 median_size=52 (GhidraScript)  

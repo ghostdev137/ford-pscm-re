@@ -1,0 +1,81 @@
+// Find stores into the context struct fields used by the F-150 PSCM analysis.
+// This complements F150FindContextUsers.java by locating `sst.w off[ep],...`
+// style initializers so the flash-backed config-pointer setup can be traced.
+// @category Pipeline
+// @runtime Java
+import ghidra.app.script.GhidraScript;
+import ghidra.program.model.listing.*;
+import ghidra.program.model.address.*;
+import java.nio.file.*;
+import java.util.*;
+
+public class F150FindContextStores extends GhidraScript {
+    private static final String[] TARGETS = new String[] {
+        "sst.w 0x68[ep]",
+        "sst.w 0x6c[ep]",
+        "sst.w 0x70[ep]",
+        "sst.w 0x74[ep]",
+        "sst.w 0x78[ep]",
+        "sst.w 0x7c[ep]",
+        "sst.w 0xa0[ep]",
+        "sst.w 0xa4[ep]",
+        "sst.w 0xa8[ep]"
+    };
+
+    @Override
+    public void run() throws Exception {
+        Listing listing = currentProgram.getListing();
+        FunctionManager fm = currentProgram.getFunctionManager();
+        Path out = Paths.get("/tmp/pscm/f150_lka/_context_stores.txt");
+        Files.createDirectories(out.getParent());
+
+        Map<Function, List<String>> hits = new LinkedHashMap<>();
+        InstructionIterator it = listing.getInstructions(true);
+        while (it.hasNext() && !monitor.isCancelled()) {
+            Instruction ins = it.next();
+            String text = ins.toString();
+            boolean matched = false;
+            for (String needle : TARGETS) {
+                if (text.contains(needle)) {
+                    matched = true;
+                    break;
+                }
+            }
+            if (!matched) {
+                continue;
+            }
+
+            Function f = fm.getFunctionContaining(ins.getAddress());
+            if (f == null) {
+                continue;
+            }
+
+            List<String> lines = hits.computeIfAbsent(f, k -> new ArrayList<>());
+            lines.add(String.format("hit @ %s: %s", ins.getAddress(), text));
+
+            Instruction cur = ins;
+            for (int i = 0; i < 8 && cur != null; i++) {
+                cur = cur.getPrevious();
+            }
+            for (int i = 0; i < 18 && cur != null; i++) {
+                lines.add(String.format("  %s: %s", cur.getAddress(), cur));
+                cur = cur.getNext();
+            }
+            lines.add("");
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry<Function, List<String>> e : hits.entrySet()) {
+            Function f = e.getKey();
+            sb.append(String.format("=== %s @ 0x%x size=%d ===\n",
+                f.getName(), f.getEntryPoint().getOffset(), f.getBody().getNumAddresses()));
+            for (String line : e.getValue()) {
+                sb.append(line).append('\n');
+            }
+            sb.append('\n');
+        }
+
+        Files.writeString(out, sb.toString());
+        println("wrote " + out + " (" + hits.size() + " functions)");
+    }
+}

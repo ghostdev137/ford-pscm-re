@@ -94,5 +94,6 @@ The 256-byte high-entropy region at start of the cal trailer is an RSA-2048 sign
 - `analysis/f150/strategy_raw.bin` — extracted strategy code
 - `analysis/f150/strategy_findings.md` — full strategy RE writeup
 - `analysis/f150/strategy_cal_reads.md` — per-offset cal-read trace
+- `analysis/f150/driver_override_findings.md` — LKA driver-override / yield state-machine trace
 - `analysis/f150/cal_edl_raw.bin`, `cal_bdl_raw.bin` — extracted cal data
 - `analysis/f150/cal_findings.md` — cal map + patch targets

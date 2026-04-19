@@ -43,17 +43,35 @@ Stock: LKA refuses to actuate below ~10 m/s regardless of command. Separate from
 
 ---
 
-## LKA lockout timer table — `+0x06B0..+0x06C2` (13 bytes of u16 BE, × 10 ms)
+## LKA lockout timer table — `+0x06B0..+0x06C2` (10 × u16 BE, × 10 ms)
 
 | Offset | Stock (BE) | Decoded | Patched (LKA_NO_LOCKOUT) |
 |---|---|---|---|
-| `+0x06B0` | `00 64` | 1.0 s | `00 00` |
-| `+0x06B2` | `00 C8` | 2.0 s | `00 00` |
-| `+0x06B4` | `01 F4` | 5.0 s | `00 00` |
-| **`+0x06B6`** | **`03 E8`** | **10.0 s (main lockout)** | **`00 00`** |
-| `+0x06B8..0x06C2` | various | — | all zero |
+| `+0x06B0` | `00 00` | `0` | `00 00` |
+| `+0x06B2` | `00 64` | `1.0 s` | `00 00` |
+| `+0x06B4` | `00 00` | `0` | `00 00` |
+| **`+0x06B6`** | **`03 E8`** | **`10.0 s (main lockout)`** | **`00 00`** |
+| `+0x06B8` | `07 D0` | `20.0 s` | `00 00` |
+| `+0x06BA` | `03 E8` | `10.0 s` | `00 00` |
+| `+0x06BC` | `01 F4` | `5.0 s` | `00 00` |
+| `+0x06BE` | `01 90` | `4.0 s` | `00 00` |
+| `+0x06C0` | `00 05` | `5` | `00 00` |
+| `+0x06C2` | `00 FF` | `255` | `00 00` |
 
-**Flashed and confirmed.** Zeroing this table removes the 10-second steering lockout after each LKA intervention.
+Exact stock series: `[0, 100, 0, 1000, 2000, 1000, 500, 400, 5, 255]`
+
+Best current interpretation: this is an older packed LKA lockout supervisor. `+0x06B6` is the only entry firmly closed as the main 10-second lockout. The surrounding values are best understood as the short qualify, extended watchdog, re-arm, recovery, and small state-count pieces of that same state machine. This matches the newer F-150 cal structurally, where Ford exposes separate `arm timer`, `re-arm timer`, and adjacent debounce-style constants instead of one packed Transit-style cluster.
+
+Immediately before that cluster, Transit has a mixed-type preamble:
+
+- `+0x06A0 = 6.0f`
+- `+0x06A4 = 200000`
+- `+0x06A8 = 300000`
+- `+0x06AE = 1500`
+
+Best current read of `+0x06AE`: related hysteresis / settle constant for the same supervisor, not another hidden member of the `10 ms` timer table. If it used the same `10 ms` scale as `+0x06B6`, it would imply `15.0 s`, which does not fit observed Transit behavior. It also mirrors the newer F-150 LKA timer neighborhood, where a `1500` value sits right beside the named `arm` / `re-arm` timers as a likely debounce-style parameter.
+
+**Flashed and confirmed.** Zeroing the whole cluster removes the 10-second steering lockout after each LKA intervention and also removes the surrounding qualify / recovery / watchdog terms.
 
 ---
 
