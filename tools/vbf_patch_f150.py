@@ -67,12 +67,14 @@ def parse_header_checksum(data: bytes) -> tuple[int, int, int]:
     return int(val_str, 16), start, start + len(val_str)
 
 
-def apply_patches(data: bytearray, patches: list[tuple[int, bytes]]) -> None:
-    """Apply (cal_offset, bytes) patches in-place, using the VBF's data_start."""
-    data_start = find_data_start(bytes(data))
+def apply_patches(data, patches, data_start=None):
+    """Apply (cal_offset, bytes) patches in-place, using the VBF's data_start.
+    If data_start is None, auto-detect via name-tag heuristic (F-150 style)."""
+    if data_start is None:
+        data_start = find_data_start(bytes(data))
     if data_start is None:
         raise ValueError(
-            "this VBF lacks an embedded name tag — patch with --abs-offset instead"
+            "this VBF lacks an embedded name tag — pass --data-start explicitly"
         )
     for cal_off, new_bytes in patches:
         abs_off = data_start + cal_off
@@ -104,6 +106,11 @@ def main():
     ap.add_argument('output')
     ap.add_argument('--patch', action='append', default=[],
                     help='cal_offset:hex (e.g. 0x07ADC:0000). Repeatable.')
+    ap.add_argument('--data-start', type=lambda s: int(s, 0),
+                    help='Override auto-detection of the cal data_start. '
+                         'Transit VBFs embed the part-number string inside cal data '
+                         'at cal offset 0x18, which fools the name-tag heuristic — '
+                         'pass --data-start 0x571 for AH-revision Transit cals.')
     args = ap.parse_args()
 
     raw = open(args.input, 'rb').read()
@@ -121,7 +128,9 @@ def main():
         print(f'  cal+0x{off:05X}: {b.hex()}')
 
     data = bytearray(raw)
-    apply_patches(data, patches)
+    apply_patches(data, patches, data_start=args.data_start)
+    if args.data_start is not None:
+        print(f'using explicit data_start = 0x{args.data_start:x}')
     # Recompute CRC32 over patched region
     new_crc = binascii.crc32(bytes(data[crc_start:])) & 0xFFFFFFFF
     # Rewrite file_checksum in header
