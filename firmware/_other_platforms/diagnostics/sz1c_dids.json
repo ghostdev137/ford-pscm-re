@@ -1,0 +1,2368 @@
+[
+  {
+    "num": "0x0202",
+    "name": "Number of Trouble Codes Set due to Diagnostic Test",
+    "size": "1",
+    "desc": null,
+    "units": "Undefined / Not Used",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0x205A",
+    "name": "Torque Steer Compensation Activation Counter",
+    "size": "2",
+    "desc": null,
+    "units": "Count",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2 security_level_3"
+  },
+  {
+    "num": "0x205B",
+    "name": "Brake Pull Reduction Activation Counter",
+    "size": "2",
+    "desc": null,
+    "units": "Count",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2 security_level_3"
+  },
+  {
+    "num": "0x3003",
+    "name": "Gear Hardware Part Number",
+    "size": "24",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0x301A",
+    "name": "Pull Drift Compensation Value",
+    "size": "2",
+    "desc": null,
+    "units": "Nm",
+    "res": "1/128",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0x301F",
+    "name": "Steering Pinion Rotation Speed",
+    "size": "1",
+    "desc": null,
+    "units": "Deg/s",
+    "res": "4/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0x3020",
+    "name": "Steering Pinion Angle",
+    "size": "2",
+    "desc": null,
+    "units": "Deg",
+    "res": "1/10",
+    "offset": "-780",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0x330C",
+    "name": "Steering Shaft Torque Sensor #2",
+    "size": "1",
+    "desc": null,
+    "units": "Nm",
+    "res": "1/10",
+    "offset": "-12.7",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0x3B4B",
+    "name": "Steering wheel angle alignment offset",
+    "size": "2",
+    "desc": null,
+    "units": "Deg",
+    "res": "1/10",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0x409F",
+    "name": "Unlock Request",
+    "size": "1",
+    "desc": "Not Buffered",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "Not Buffered"
+      ],
+      [
+        "0x01",
+        "Buffered"
+      ]
+    ],
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2 security_level_3"
+  },
+  {
+    "num": "0x630F",
+    "name": "Multiple VIN Storage-Original VIN",
+    "size": "24",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xD028",
+    "name": "Application Signature Validation Status",
+    "size": "1",
+    "desc": "Validation Structure Verification Passed",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "Validation Structure Verification Passed"
+      ],
+      [
+        "0x01",
+        "Validation Structure Not Authentic"
+      ],
+      [
+        "0x02",
+        "Validation Structure Invalid Format"
+      ],
+      [
+        "0x03",
+        "Validation Structure Block Number Mismatch"
+      ],
+      [
+        "0x04",
+        "Validation Structure Hash Value Mismatch"
+      ],
+      [
+        "0x05",
+        "Validation Structure Memory Read Error"
+      ],
+      [
+        "0x06",
+        "Validation Structure Block Mismatch"
+      ],
+      [
+        "0xFF",
+        "Validation Application Routine Not Executed This Session"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xD03F",
+    "name": "In-Use Application Signing Public Key Hash",
+    "size": "32",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xD04F",
+    "name": "OTA ProgrammingSession Entry and A/B Swap Precondition Status",
+    "size": "4",
+    "desc": "True",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "True"
+      ],
+      [
+        "0x01",
+        "False"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xD100",
+    "name": "Active Diagnostic Session",
+    "size": "1",
+    "desc": "Default Session",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x01",
+        "Default Session"
+      ],
+      [
+        "0x02",
+        "Programming Session"
+      ],
+      [
+        "0x03",
+        "Extended Diagnostic Session"
+      ],
+      [
+        "0x60",
+        "TKP Session"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xD111",
+    "name": "ECU Power Supply Voltage",
+    "size": "1",
+    "desc": null,
+    "units": "V",
+    "res": "1/10",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xD117",
+    "name": "ECU Internal Temperature",
+    "size": "1",
+    "desc": null,
+    "units": "Deg C",
+    "res": "1/1",
+    "offset": "-40",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xD118",
+    "name": "Motor Current",
+    "size": "2",
+    "desc": null,
+    "units": "Amp",
+    "res": "1/10",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xDD00",
+    "name": "Global Real Time",
+    "size": "4",
+    "desc": null,
+    "units": "min",
+    "res": "1/600",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xDD01",
+    "name": "Total Distance",
+    "size": "3",
+    "desc": null,
+    "units": "km",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xDD05",
+    "name": "Outside temperature",
+    "size": "1",
+    "desc": null,
+    "units": "Deg C",
+    "res": "1/1",
+    "offset": "-40",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xDD09",
+    "name": "Vehicle Speed",
+    "size": "1",
+    "desc": null,
+    "units": "Kph",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE01",
+    "name": "XCP Enable",
+    "size": "1",
+    "desc": "Disabled",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "Disabled"
+      ],
+      [
+        "0xFF",
+        "Enabled"
+      ]
+    ],
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2 security_level_3"
+  },
+  {
+    "num": "0xEE02",
+    "name": "Assist On/Off",
+    "size": "1",
+    "desc": "Assist_Off",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "Assist_Off"
+      ],
+      [
+        "0xFF",
+        "Assist_On"
+      ]
+    ],
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2 security_level_3"
+  },
+  {
+    "num": "0xEE03",
+    "name": "Ignition Cycle Counter",
+    "size": "2",
+    "desc": null,
+    "units": "Count",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE04",
+    "name": "Ignition On Time",
+    "size": "4",
+    "desc": null,
+    "units": "ms",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE05",
+    "name": "Final Motor Torque",
+    "size": "2",
+    "desc": null,
+    "units": "Nm",
+    "res": "1/256",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE06",
+    "name": "VIN Changed",
+    "size": "1",
+    "desc": "VIN_Unchanged",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "VIN_Unchanged"
+      ],
+      [
+        "0xFF",
+        "Last_VIN_Changed"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE07",
+    "name": "EPS System State",
+    "size": "1",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE08",
+    "name": "Compensated SPA Quality Factor",
+    "size": "1",
+    "desc": "Faulty",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "Faulty"
+      ],
+      [
+        "0x01",
+        "No_Data_Exists"
+      ],
+      [
+        "0x02",
+        "Degraded"
+      ],
+      [
+        "0x03",
+        "OK"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE09",
+    "name": "Total EPS Operation Time",
+    "size": "4",
+    "desc": null,
+    "units": "sec",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE1F",
+    "name": "CPU idle time",
+    "size": "8",
+    "desc": null,
+    "units": "%",
+    "res": "1/42949000",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE20",
+    "name": "Connected Vehicle: Faults",
+    "size": "176",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE21",
+    "name": "Connected Vehicle: Current",
+    "size": "32",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE22",
+    "name": "Connected Vehicle: Voltage",
+    "size": "116",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE23",
+    "name": "Connected Vehicle: Temperature",
+    "size": "68",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE24",
+    "name": "Connected Vehicle: Steering Turn Counters",
+    "size": "64",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE25",
+    "name": "Connected Vehicle: Lock End and High Input Torque Counters",
+    "size": "32",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE26",
+    "name": "Connected Vehicle: Max Pinion Speed",
+    "size": "99",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE27",
+    "name": "Connected Vehicle: Power Level Counters",
+    "size": "124",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE42",
+    "name": "Active Features",
+    "size": "2",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE43",
+    "name": "SDM Steering Mode",
+    "size": "1",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE80",
+    "name": "Ford In House Software Version",
+    "size": "40",
+    "desc": "ANC_SW_Version",
+    "units": "sw version",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE90",
+    "name": "Ford in House ANC/LDW Diagnostic Status",
+    "size": "1",
+    "desc": "No Fault - Use Bitwise Addition for Byte",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "No Fault - Use Bitwise Addition for Byte"
+      ],
+      [
+        "0x01",
+        "Not Used"
+      ],
+      [
+        "0x02",
+        "ANC_Diagnostic_Status is \"Exceeds Max Torque\""
+      ],
+      [
+        "0x04",
+        "ANC_Diagnostic_Status is \"Low Frequency Content\""
+      ],
+      [
+        "0x08",
+        "ANC_Diagnostic_Status is \"DC Trend\""
+      ],
+      [
+        "0x10",
+        "Not Used"
+      ],
+      [
+        "0x20",
+        "LDW_Diagnostic_Status is \"Exceeds Max Torque\""
+      ],
+      [
+        "0x40",
+        "LDW_Diagnostic_Status is \"Low Frequency Content\""
+      ],
+      [
+        "0x80",
+        "LDW_Diagnostic_Status is \"DC Trend\""
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEED1",
+    "name": "Supplier Internal Fault Code",
+    "size": "2",
+    "desc": "AMCU_ERL_ERROR",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x2710",
+        "AMCU_ERL_ERROR"
+      ],
+      [
+        "0x2715",
+        "AMCU_ERM_D9932_MESSAGE_ERROR"
+      ],
+      [
+        "0x2716",
+        "AMCU_ERM_D9931_SDC_INPUT_BUFFER_OVERFLOW"
+      ],
+      [
+        "0x2724",
+        "AMCU_ADC_D2003_CALIBRATION_OR_INIT_FAILURE"
+      ],
+      [
+        "0x2727",
+        "AMCU_ADC_D2004_UNEXPECTED_NUM_OF_DATA"
+      ],
+      [
+        "0x2728",
+        "AMCU_ADC_D2004_UNEXPECTED_DATA"
+      ],
+      [
+        "0x2729",
+        "AMCU_ADC_D2020_MUX_ERROR"
+      ],
+      [
+        "0x272D",
+        "AMCU_SCN_ZC_EOL_INVALID_DATA"
+      ],
+      [
+        "0x272E",
+        "AMCU_SCN_RO_EOL_INVALID_DATA"
+      ],
+      [
+        "0x2731",
+        "AMCU_RPP_EOL_INVALID_DATA"
+      ],
+      [
+        "0x2734",
+        "AMCU_EAP_EOL_INVALID_DATA"
+      ],
+      [
+        "0x2735",
+        "AMCU_PSP_INVALID_PARAMSET"
+      ],
+      [
+        "0x2736",
+        "AMCU_TSC2_EOL_INVALID_DATA"
+      ],
+      [
+        "0x2737",
+        "AMCU_TSC1_EOL_INVALID_DATA"
+      ],
+      [
+        "0x2738",
+        "AMCU_PSP_CALIBRATION_LAYOUT_HASH"
+      ],
+      [
+        "0x2739",
+        "AMCU_PSP_MISSING_SECURITYKEYS"
+      ],
+      [
+        "0x273A",
+        "AMCU_PSP_PARAM_EXTRA"
+      ],
+      [
+        "0x273F",
+        "AMCU_PCMH_CH1_EOL_INVALID"
+      ],
+      [
+        "0x2740",
+        "AMCU_PCMH_CH2_EOL_INVALID"
+      ],
+      [
+        "0x274C",
+        "AMCU_MOC_D2008_DCVOLTAGE_AGE"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEED2",
+    "name": "Supplier Internal Error Memory",
+    "size": "800",
+    "desc": "AMCU_ERL_ERROR",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x2710",
+        "AMCU_ERL_ERROR"
+      ],
+      [
+        "0x2715",
+        "AMCU_ERM_D9932_MESSAGE_ERROR"
+      ],
+      [
+        "0x2716",
+        "AMCU_ERM_D9931_SDC_INPUT_BUFFER_OVERFLOW"
+      ],
+      [
+        "0x2724",
+        "AMCU_ADC_D2003_CALIBRATION_OR_INIT_FAILURE"
+      ],
+      [
+        "0x2727",
+        "AMCU_ADC_D2004_UNEXPECTED_NUM_OF_DATA"
+      ],
+      [
+        "0x2728",
+        "AMCU_ADC_D2004_UNEXPECTED_DATA"
+      ],
+      [
+        "0x2729",
+        "AMCU_ADC_D2020_MUX_ERROR"
+      ],
+      [
+        "0x272D",
+        "AMCU_SCN_ZC_EOL_INVALID_DATA"
+      ],
+      [
+        "0x272E",
+        "AMCU_SCN_RO_EOL_INVALID_DATA"
+      ],
+      [
+        "0x2731",
+        "AMCU_RPP_EOL_INVALID_DATA"
+      ],
+      [
+        "0x2734",
+        "AMCU_EAP_EOL_INVALID_DATA"
+      ],
+      [
+        "0x2735",
+        "AMCU_PSP_INVALID_PARAMSET"
+      ],
+      [
+        "0x2736",
+        "AMCU_TSC2_EOL_INVALID_DATA"
+      ],
+      [
+        "0x2737",
+        "AMCU_TSC1_EOL_INVALID_DATA"
+      ],
+      [
+        "0x2738",
+        "AMCU_PSP_CALIBRATION_LAYOUT_HASH"
+      ],
+      [
+        "0x2739",
+        "AMCU_PSP_MISSING_SECURITYKEYS"
+      ],
+      [
+        "0x273A",
+        "AMCU_PSP_PARAM_EXTRA"
+      ],
+      [
+        "0x273F",
+        "AMCU_PCMH_CH1_EOL_INVALID"
+      ],
+      [
+        "0x2740",
+        "AMCU_PCMH_CH2_EOL_INVALID"
+      ],
+      [
+        "0x274C",
+        "AMCU_MOC_D2008_DCVOLTAGE_AGE"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF10A",
+    "name": "ECU Cal-Config Part Number",
+    "size": "24",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF110",
+    "name": "Subsystem Specific Diagnostic Specification Part Number",
+    "size": "24",
+    "desc": "This DID is used to report the ECU's Part 2 Spec WERS Part Number (e.g., DS-1234-ABCD-AA).",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF111",
+    "name": "ECU Core Assembly Number",
+    "size": "24",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF113",
+    "name": "ECU Delivery Assembly Number",
+    "size": "24",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF124",
+    "name": "ECU Calibration Data #1 Number",
+    "size": "24",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF15F",
+    "name": "NOS Generation Tool Version Number",
+    "size": "10",
+    "desc": "Vector",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x08",
+        "Vector"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF162",
+    "name": "Software Download Specification Version",
+    "size": "1",
+    "desc": "SWDL 00.06.15.002-006",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x06",
+        "SWDL 00.06.15.002-006"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF163",
+    "name": "Diagnostic Specification Version",
+    "size": "1",
+    "desc": "GGDS 00.06.15.001-004",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x04",
+        "GGDS 00.06.15.001-004"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF166",
+    "name": "NOS Message Database #1 Version Number",
+    "size": "4",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF17C",
+    "name": "NOS Bootloader Generation Tool Version Number",
+    "size": "11",
+    "desc": "Vector",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x08",
+        "Vector"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF180",
+    "name": "Boot Software Identification",
+    "size": "25",
+    "desc": null,
+    "units": "Count",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF188",
+    "name": "Vehicle Manufacturer ECU Software Number",
+    "size": "24",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF18A",
+    "name": "System Supplier Identifier",
+    "size": "24",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF18C",
+    "name": "ECU Serial Number",
+    "size": "16",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF190",
+    "name": "Vehicle Identification Number",
+    "size": "24",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFD00",
+    "name": "Supplier Debug Info",
+    "size": "6",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFD11",
+    "name": "ASW Production Mode Switch",
+    "size": "4",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": true,
+    "wsec": "security_level_3"
+  },
+  {
+    "num": "0xFDA0",
+    "name": "SelfSide Bootloader Version",
+    "size": "40",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFDA1",
+    "name": "SelfSide SW Version",
+    "size": "40",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFDA2",
+    "name": "SelfSide TBL Version",
+    "size": "40",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFDA3",
+    "name": "RemoteSide Bootloader Version",
+    "size": "40",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFDA4",
+    "name": "RemoteSide SW Version",
+    "size": "40",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFDA5",
+    "name": "RemoteSide TBL Version",
+    "size": "40",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFDAB",
+    "name": "SelfSide Boot Manager Version",
+    "size": "40",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFDAC",
+    "name": "RemoteSide Boot Manager Version",
+    "size": "40",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFDB0",
+    "name": "ECU test Number",
+    "size": "1",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFDB1",
+    "name": "PWP ID",
+    "size": "2",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFDB2",
+    "name": "SYS ID",
+    "size": "2",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFDB3",
+    "name": "ECU ID",
+    "size": "2",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFDB4",
+    "name": "Motor ID",
+    "size": "2",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFDB5",
+    "name": "TSU torque",
+    "size": "4",
+    "desc": null,
+    "units": "Nm",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFDB6",
+    "name": "EOL SYS layout version",
+    "size": "2",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFDB7",
+    "name": "EOL PWP layout version",
+    "size": "2",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFDB8",
+    "name": "EOL ECU layout version",
+    "size": "2",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFDD0",
+    "name": "SelfSide MCU ID",
+    "size": "16",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFDD1",
+    "name": "RemoteSide MCU ID",
+    "size": "16",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFE10",
+    "name": "Secondary Elapsed Time Since Reset",
+    "size": "4",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFE11",
+    "name": "Secondary Battery Voltage",
+    "size": "1",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFEAA",
+    "name": "Fisrt 5 Lifetime DTC",
+    "size": "400",
+    "desc": "AMCU_ERL_ERROR",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x2710",
+        "AMCU_ERL_ERROR"
+      ],
+      [
+        "0x2715",
+        "AMCU_ERM_D9932_MESSAGE_ERROR"
+      ],
+      [
+        "0x2716",
+        "AMCU_ERM_D9931_SDC_INPUT_BUFFER_OVERFLOW"
+      ],
+      [
+        "0x2724",
+        "AMCU_ADC_D2003_CALIBRATION_OR_INIT_FAILURE"
+      ],
+      [
+        "0x2727",
+        "AMCU_ADC_D2004_UNEXPECTED_NUM_OF_DATA"
+      ],
+      [
+        "0x2728",
+        "AMCU_ADC_D2004_UNEXPECTED_DATA"
+      ],
+      [
+        "0x2729",
+        "AMCU_ADC_D2020_MUX_ERROR"
+      ],
+      [
+        "0x272D",
+        "AMCU_SCN_ZC_EOL_INVALID_DATA"
+      ],
+      [
+        "0x272E",
+        "AMCU_SCN_RO_EOL_INVALID_DATA"
+      ],
+      [
+        "0x2731",
+        "AMCU_RPP_EOL_INVALID_DATA"
+      ],
+      [
+        "0x2734",
+        "AMCU_EAP_EOL_INVALID_DATA"
+      ],
+      [
+        "0x2735",
+        "AMCU_PSP_INVALID_PARAMSET"
+      ],
+      [
+        "0x2736",
+        "AMCU_TSC2_EOL_INVALID_DATA"
+      ],
+      [
+        "0x2737",
+        "AMCU_TSC1_EOL_INVALID_DATA"
+      ],
+      [
+        "0x2738",
+        "AMCU_PSP_CALIBRATION_LAYOUT_HASH"
+      ],
+      [
+        "0x2739",
+        "AMCU_PSP_MISSING_SECURITYKEYS"
+      ],
+      [
+        "0x273A",
+        "AMCU_PSP_PARAM_EXTRA"
+      ],
+      [
+        "0x273F",
+        "AMCU_PCMH_CH1_EOL_INVALID"
+      ],
+      [
+        "0x2740",
+        "AMCU_PCMH_CH2_EOL_INVALID"
+      ],
+      [
+        "0x274C",
+        "AMCU_MOC_D2008_DCVOLTAGE_AGE"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xC027",
+    "name": "Server Key Injection Status Table",
+    "size": "1",
+    "desc": "Control Module Has Factory Default Message Authentication Key Configuration",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "Control Module Has Factory Default Message Authentication Key Configuration"
+      ],
+      [
+        "0x01",
+        "Control Module Does Not Have Factory Default Message Authentication Key Configuration"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xC025",
+    "name": "Trusted Realtime Operational Network(TRON) Group Key Slot Counter",
+    "size": "148",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xC028",
+    "name": "Control Module Message Authentication Failure Threshold",
+    "size": "4",
+    "desc": "Control Module Message Authentication Failure Threshold",
+    "units": "Count",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2 security_level_3"
+  },
+  {
+    "num": "0xC01C",
+    "name": "Freshness Value Message Authentication Failure Threshold",
+    "size": "4",
+    "desc": "Freshness Value Message Authentication Failure Threshold",
+    "units": "Count",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2 security_level_3"
+  },
+  {
+    "num": "0xC023",
+    "name": "Control Module Message Authentication Failure Monitor Time Window",
+    "size": "4",
+    "desc": "Control Module Message Authentication Failure Monitor Time Window",
+    "units": "s",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2 security_level_3"
+  },
+  {
+    "num": "0xC021",
+    "name": "Freshness Value Manager Authentication Monitor Time Window",
+    "size": "2",
+    "desc": "Freshness Value Manager Authentication Monitor Time Window",
+    "units": "s",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2 security_level_3"
+  },
+  {
+    "num": "0xC024",
+    "name": "On Vehicle Telematics Protocol Key Management Function Identifier",
+    "size": "1",
+    "desc": "readUIDonSHE",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x10",
+        "readUIDonSHE"
+      ],
+      [
+        "0x11",
+        "readGroupKeySlotCounters"
+      ],
+      [
+        "0x12",
+        "keyUpdate"
+      ],
+      [
+        "0x13",
+        "initiateKeyAgreementTest"
+      ],
+      [
+        "0x14",
+        "readDynamicGroup KeyStatus"
+      ],
+      [
+        "0x15",
+        "backupEncryptedGroupKeyTable"
+      ],
+      [
+        "0x16",
+        "retrieveEncryptedGroupKeyTable"
+      ],
+      [
+        "0x17",
+        "initiateDynamicKeyGroup"
+      ],
+      [
+        "0x18",
+        "voidDynamicKeyGroup"
+      ],
+      [
+        "0x19",
+        "notifyDynamicGroupKeysAllSet"
+      ],
+      [
+        "0x1A",
+        "initiateDynamicKeyAgreementTest"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xC020",
+    "name": "On Vehicle Telematics Protocol(OVTP) Key Management Negative Response Codes",
+    "size": "1",
+    "desc": "generalReject",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x10",
+        "generalReject"
+      ],
+      [
+        "0x13",
+        "incorrectMessageLengthOrInvalidFormat"
+      ],
+      [
+        "0x17",
+        "invalidCounter"
+      ],
+      [
+        "0x21",
+        "busyRepeatRequest"
+      ],
+      [
+        "0x24",
+        "requestSequenceFailure"
+      ],
+      [
+        "0x50",
+        "HardwareFailureDetected"
+      ],
+      [
+        "0x51",
+        "KeyUpdateFailed"
+      ],
+      [
+        "0x52",
+        "GroupMembershipMismatch"
+      ],
+      [
+        "0x57",
+        "internalMestadataMismatch"
+      ],
+      [
+        "0x58",
+        "invalidSoftwareVersion"
+      ],
+      [
+        "0x5A",
+        "groupInformationOverflow"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xC01D",
+    "name": "Secure Message Payload",
+    "size": "180",
+    "desc": "Secure Message Payload",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xC01E",
+    "name": "Freshness Value Manager TripResetSync Message Payload",
+    "size": "140",
+    "desc": "Freshness Value Manager TripResetSync Message Payload",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xC026",
+    "name": "Message Authentication Self Test Challenge",
+    "size": "4",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xC022",
+    "name": "Control Module Message Authentication Self Test Response",
+    "size": "148",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xC01F",
+    "name": "TRIP Counter Value",
+    "size": "3",
+    "desc": "TRIP Counter Value",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFEB0",
+    "name": "SHE UID",
+    "size": "15",
+    "desc": "SHE UID",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xD03D",
+    "name": "Security Package ID",
+    "size": "40",
+    "desc": "Security Package ID",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF17F",
+    "name": "Ford Electronic Serial Number",
+    "size": "8",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xDE00",
+    "name": "Vehicle Data",
+    "size": "24",
+    "desc": "Write preconditions:\n\n- ECU must be in Extended Diagnostic Session.\n\n- Security Level 3 is required.",
+    "units": "mm",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": [
+      [
+        "0x00",
+        "Not Configured (Default)"
+      ],
+      [
+        "0xFF",
+        "Configured"
+      ],
+      [
+        "0x00",
+        "reserved"
+      ],
+      [
+        "0x00",
+        "CAN DBC1"
+      ],
+      [
+        "0x01",
+        "CAN DBC2"
+      ],
+      [
+        "0x02",
+        "CAN DBC3"
+      ],
+      [
+        "0xFF",
+        "CAN DBC4"
+      ],
+      [
+        "0x00",
+        "Vehicle without ABS (Default)"
+      ],
+      [
+        "0x01",
+        "Vehicle with ABS only"
+      ],
+      [
+        "0x02",
+        "Vehicle with ESC (and ABS)"
+      ],
+      [
+        "0x00",
+        "Vehicle without AWD (default)"
+      ],
+      [
+        "0x01",
+        "Vehicle with mAWD (primary front axle)"
+      ],
+      [
+        "0x02",
+        "Vehicle with eAWD (primary front axle)"
+      ],
+      [
+        "0x03",
+        "Vehicle with mAWD (primary rear axle)"
+      ],
+      [
+        "0x04",
+        "Vehicle with eAWD (primary rear axle)"
+      ],
+      [
+        "0x00",
+        "reserved"
+      ],
+      [
+        "0x00",
+        "Lowest"
+      ],
+      [
+        "0x01",
+        "Low"
+      ],
+      [
+        "0x02",
+        "Medium (Default)"
+      ],
+      [
+        "0x03",
+        "High"
+      ]
+    ],
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2 security_level_3"
+  },
+  {
+    "num": "0xDE01",
+    "name": "Ford In House Software Feature Configuration",
+    "size": "24",
+    "desc": "Write preconditions:\n\n- ECU must be in Extended Diagnostic Session.\n\n- Security Level 3 is required.",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "Not Configured(Default)"
+      ],
+      [
+        "0xFF",
+        "Configured"
+      ],
+      [
+        "0x00",
+        "ANC Disabled (Default)"
+      ],
+      [
+        "0xFF",
+        "ANC Enabled"
+      ],
+      [
+        "0x00",
+        "PDC Disabled (Default)"
+      ],
+      [
+        "0xFF",
+        "PDC Enabled"
+      ],
+      [
+        "0x00",
+        "TSC Disabled (Default)"
+      ],
+      [
+        "0xFF",
+        "TSC Enabled"
+      ],
+      [
+        "0x00",
+        "BPR Disabled (Default)"
+      ],
+      [
+        "0xFF",
+        "BPR Enabled"
+      ],
+      [
+        "0x00",
+        "LDW Disabled (Default)"
+      ],
+      [
+        "0xFF",
+        "LDW Enabled"
+      ],
+      [
+        "0x00",
+        "LKA Disabled (Default)"
+      ],
+      [
+        "0xFF",
+        "LKA Enabled"
+      ],
+      [
+        "0x00",
+        "TJA Disabled (Default)"
+      ],
+      [
+        "0xFF",
+        "TJA Enabled"
+      ],
+      [
+        "0x00",
+        "LCA Disabled (Default)"
+      ],
+      [
+        "0xFF",
+        "LCA Enabled"
+      ],
+      [
+        "0x00",
+        "TBA Disabled (Default)"
+      ],
+      [
+        "0x01",
+        "TBA Standard Enabled"
+      ]
+    ],
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2 security_level_3"
+  },
+  {
+    "num": "0xDE02",
+    "name": "Feature Configuration",
+    "size": "24",
+    "desc": "Write preconditions:\n\n- ECU must be in Extended Diagnostic Session.\n\n- Security Level 3 is required.",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "Not configured (Default)"
+      ],
+      [
+        "0xFF",
+        "Configured"
+      ],
+      [
+        "0x00",
+        "SAPP/APA Disabled (Default)"
+      ],
+      [
+        "0xFF",
+        "SAPP/APA Enabled"
+      ],
+      [
+        "0x00",
+        "Active Return Disabled (Default)"
+      ],
+      [
+        "0xFF",
+        "Active Return Enabled"
+      ],
+      [
+        "0x00",
+        "Software End Stops Disabled (Default)"
+      ],
+      [
+        "0xFF",
+        "Software End Stops Enabled"
+      ],
+      [
+        "0x00",
+        "Start/Stop Disabled (Default)"
+      ],
+      [
+        "0x01",
+        "Start/Stop Enabled, Angle Inhibit Enabled"
+      ],
+      [
+        "0x02",
+        "Start/Stop Enabled, Angle Inhibit Disabled"
+      ],
+      [
+        "0x00",
+        "DSR Disabled (Default)"
+      ],
+      [
+        "0xFF",
+        "DSR Enabled"
+      ],
+      [
+        "0x00",
+        "SDM Disabled (Default)"
+      ],
+      [
+        "0xFF",
+        "SDM Enabled"
+      ],
+      [
+        "0x00",
+        "Stationary Steering Column Disabled (Default)"
+      ],
+      [
+        "0x01",
+        "Stationary Steering Column Enabled"
+      ],
+      [
+        "0x00",
+        "unused"
+      ],
+      [
+        "0x00",
+        "unused"
+      ],
+      [
+        "0x00",
+        "unused"
+      ]
+    ],
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2 security_level_3"
+  },
+  {
+    "num": "0xDE03",
+    "name": "Enable/Disable DTCs",
+    "size": "67",
+    "desc": "Write preconditions:\n\n- ECU must be in Extended Diagnostic Session.\n\n- Security Level 3 is required.",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "DTC Disabled"
+      ],
+      [
+        "0xFF",
+        "DTC Enabled (Default)"
+      ],
+      [
+        "0x00",
+        "DTC Disabled"
+      ],
+      [
+        "0xFF",
+        "DTC Enabled (Default)"
+      ],
+      [
+        "0x00",
+        "DTC Disabled"
+      ],
+      [
+        "0xFF",
+        "DTC Enabled (Default)"
+      ],
+      [
+        "0x00",
+        "DTC Disabled"
+      ],
+      [
+        "0xFF",
+        "DTC Enabled (Default)"
+      ],
+      [
+        "0x00",
+        "DTC Disabled"
+      ],
+      [
+        "0xFF",
+        "DTC Enabled (Default)"
+      ],
+      [
+        "0x00",
+        "DTC Disabled"
+      ],
+      [
+        "0xFF",
+        "DTC Enabled (Default)"
+      ],
+      [
+        "0x00",
+        "DTC Disabled"
+      ],
+      [
+        "0xFF",
+        "DTC Enabled (Default)"
+      ],
+      [
+        "0x00",
+        "DTC Disabled"
+      ],
+      [
+        "0xFF",
+        "DTC Enabled (Default)"
+      ],
+      [
+        "0x00",
+        "DTC Disabled"
+      ],
+      [
+        "0xFF",
+        "DTC Enabled (Default)"
+      ],
+      [
+        "0x00",
+        "DTC Disabled"
+      ],
+      [
+        "0xFF",
+        "DTC Enabled (Default)"
+      ]
+    ],
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2 security_level_3"
+  },
+  {
+    "num": "0xDE04",
+    "name": "Pull Drift Compensation Reset Value ",
+    "size": "2",
+    "desc": "DID DE04 is for setting the value ServicePDCResetValue",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "Not Configured (Default)"
+      ],
+      [
+        "0x01",
+        "PDC Reset Value (Positive)"
+      ],
+      [
+        "0x02",
+        "PDC Reset Value (Positive)"
+      ],
+      [
+        "0x03",
+        "PDC Reset Value (Positive)"
+      ],
+      [
+        "0x04",
+        "PDC Reset Value (Positive)"
+      ],
+      [
+        "0x05",
+        "PDC Reset Value (Positive)"
+      ],
+      [
+        "0x06",
+        "PDC Reset Value (Positive)"
+      ],
+      [
+        "0x07",
+        "PDC Reset Value (Positive)"
+      ],
+      [
+        "0x08",
+        "PDC Reset Value (Positive)"
+      ],
+      [
+        "0x09",
+        "PDC Reset Value (Positive)"
+      ],
+      [
+        "0x0A",
+        "PDC Reset Value (Positive)"
+      ],
+      [
+        "0x0B",
+        "PDC Reset Value (Positive)"
+      ],
+      [
+        "0x0C",
+        "PDC Reset Value (Positive)"
+      ],
+      [
+        "0x0D",
+        "PDC Reset Value (Positive)"
+      ],
+      [
+        "0x0E",
+        "PDC Reset Value (Positive)"
+      ],
+      [
+        "0x0F",
+        "PDC Reset Value (Positive)"
+      ],
+      [
+        "0x10",
+        "PDC Reset Value (Positive)"
+      ],
+      [
+        "0x11",
+        "PDC Reset Value (Positive)"
+      ],
+      [
+        "0x12",
+        "PDC Reset Value (Positive)"
+      ],
+      [
+        "0x13",
+        "PDC Reset Value (Positive)"
+      ]
+    ],
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2 security_level_3"
+  }
+]

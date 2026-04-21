@@ -1,0 +1,2483 @@
+[
+  {
+    "num": "0x205A",
+    "name": "Torque Steer Compensation Activation Counter",
+    "size": "2",
+    "desc": "Torque Steer Compensation Activation Counter",
+    "units": "Count",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2"
+  },
+  {
+    "num": "0x205B",
+    "name": "Brake Pull Reduction Activation Counter",
+    "size": "2",
+    "desc": "Brake Pull Reduction Activation Counter",
+    "units": "Count",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2"
+  },
+  {
+    "num": "0x3003",
+    "name": "Gear Hardware Part Number",
+    "size": "24",
+    "desc": "Gear Hardware Part Number",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0x301A",
+    "name": "Pull Drift Compensation Value",
+    "size": "2",
+    "desc": null,
+    "units": "Nm",
+    "res": "1/128",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0x301F",
+    "name": "Steering Pinion Rotation Speed",
+    "size": "1",
+    "desc": null,
+    "units": "Deg/s",
+    "res": "4/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0x3020",
+    "name": "Steering Pinion Angle",
+    "size": "2",
+    "desc": null,
+    "units": "Deg",
+    "res": "1/10",
+    "offset": "-780",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0x330C",
+    "name": "Steering Shaft Torque Sensor #2",
+    "size": "1",
+    "desc": null,
+    "units": "Nm",
+    "res": "1/10",
+    "offset": "-12.7",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0x3B4B",
+    "name": "Steering Wheel Angle Alignment Offset",
+    "size": "2",
+    "desc": null,
+    "units": "Deg",
+    "res": "1/10",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0x630F",
+    "name": "Multiple VIN Storage-Original VIN",
+    "size": "24",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xD100",
+    "name": "Active Diagnostic Session",
+    "size": "1",
+    "desc": "Default Session",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x01",
+        "Default Session"
+      ],
+      [
+        "0x02",
+        "Programming Session"
+      ],
+      [
+        "0x03",
+        "Extended Diagnostic Session"
+      ],
+      [
+        "0x7E",
+        "Nexteer Session"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xD111",
+    "name": "ECU Power Supply Voltage",
+    "size": "1",
+    "desc": null,
+    "units": "V",
+    "res": "1/10",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xD03F",
+    "name": "In-Use Application Signing Public Key Hash",
+    "size": "32",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xD117",
+    "name": "ECU Internal Temperature",
+    "size": "1",
+    "desc": null,
+    "units": "Deg C",
+    "res": "1/1",
+    "offset": "-40",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xD118",
+    "name": "Motor Current",
+    "size": "2",
+    "desc": null,
+    "units": "Amp",
+    "res": "1/10",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xDD00",
+    "name": "Global Real Time",
+    "size": "4",
+    "desc": "Time",
+    "units": "min",
+    "res": "1/600",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xDD01",
+    "name": "Total Distance",
+    "size": "3",
+    "desc": null,
+    "units": "km",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xD028",
+    "name": "Application Signature Validation Status",
+    "size": "1",
+    "desc": "Validation Structure Verification Passed",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "Validation Structure Verification Passed"
+      ],
+      [
+        "0x01",
+        "Validation Structure Not Authentic"
+      ],
+      [
+        "0x02",
+        "Validation Structure Invalid Format"
+      ],
+      [
+        "0x03",
+        "Validation Structure Block Number Mismatch"
+      ],
+      [
+        "0x04",
+        "Validation Structure Hash Value Mismatch"
+      ],
+      [
+        "0x05",
+        "Validation Structure Memory Read Error"
+      ],
+      [
+        "0x06",
+        "Validation Structure Block Mismatch"
+      ],
+      [
+        "0xFF",
+        "Validation Application Routine Not Executed This Session"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xD04F",
+    "name": "OTA ProgrammingSession Entry And A/B Swap Precondition Status",
+    "size": "4",
+    "desc": "True",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "True"
+      ],
+      [
+        "0x01",
+        "False"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xDD05",
+    "name": "Outside Temperature",
+    "size": "1",
+    "desc": "Celsius Only",
+    "units": "Deg C",
+    "res": "1/1",
+    "offset": "-40",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xDD09",
+    "name": "Vehicle Speed",
+    "size": "1",
+    "desc": null,
+    "units": "Kph",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE00",
+    "name": "DID EE00 Dev Msg Config",
+    "size": "6",
+    "desc": "EPS Data Pages Disabled",
+    "units": "Ms",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": [
+      [
+        "0x00",
+        "EPS Data Pages Disabled"
+      ],
+      [
+        "0x01",
+        "EPS Data Page 1 in msg. 0x61C Enabled"
+      ],
+      [
+        "0x02",
+        "EPS Data Page 2 in msg. 0x61C Enabled"
+      ],
+      [
+        "0x03",
+        "EPS Data Page 3 in msg. 0x61C Enabled"
+      ],
+      [
+        "0x04",
+        "EPS Data Page 4 in msg. 0x61C Enabled"
+      ],
+      [
+        "0x05",
+        "EPS Data Page 5 in msg. 0x61C Enabled (Base EPS)"
+      ],
+      [
+        "0x06",
+        "EPS Data Page 6 in msg. 0x61C Enabled (Base EPS)"
+      ],
+      [
+        "0x07",
+        "EPS Data Page 7 in msg. 0x61C Enabled (ANC)"
+      ],
+      [
+        "0x08",
+        "EPS Data Page 8 in msg. 0x61C Enabled (PDC)"
+      ],
+      [
+        "0x09",
+        "EPS Data Page 9 in msg. 0x61C Enabled (STDR)"
+      ],
+      [
+        "0x0A",
+        "EPS Data Page 10 in msg. 0x61C Enabled (LKS)"
+      ],
+      [
+        "0x0B",
+        "EPS Data Page 11 in msg. 0x61C Enabled (TBA)"
+      ],
+      [
+        "0x0C",
+        "EPS Data Page 12 in msg. 0x61C Enabled (ESA)"
+      ],
+      [
+        "0x0D",
+        "EPS Data Page 13 in msg. 0x61C Enabled (Free)"
+      ],
+      [
+        "0x0E",
+        "EPS Data Page 14 in msg. 0x61C Enabled (Free)"
+      ],
+      [
+        "0x0F",
+        "EPS Data Page 15 in msg. 0x61C Enabled (Free)"
+      ],
+      [
+        "0x00",
+        "EPS Data Pages Disabled"
+      ],
+      [
+        "0x01",
+        "EPS Data Page 1 in msg. 0x61D Enabled"
+      ],
+      [
+        "0x02",
+        "EPS Data Page 2 in msg. 0x61D Enabled"
+      ],
+      [
+        "0x03",
+        "EPS Data Page 3 in msg. 0x61D Enabled"
+      ]
+    ],
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2"
+  },
+  {
+    "num": "0xEE01",
+    "name": "DID EE01 XCP Enable/Disable",
+    "size": "1",
+    "desc": "Defaults to 0x00 Off",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "XCP Disabled"
+      ],
+      [
+        "0x01",
+        "XCP Enabled"
+      ],
+      [
+        "0x02",
+        "XCP Enabled"
+      ],
+      [
+        "0x03",
+        "XCP Enabled"
+      ],
+      [
+        "0x04",
+        "XCP Enabled"
+      ],
+      [
+        "0x05",
+        "XCP Enabled"
+      ],
+      [
+        "0x06",
+        "XCP Enabled"
+      ],
+      [
+        "0x07",
+        "XCP Enabled"
+      ],
+      [
+        "0x08",
+        "XCP Enabled"
+      ],
+      [
+        "0x09",
+        "XCP Enabled"
+      ],
+      [
+        "0x0A",
+        "XCP Enabled"
+      ],
+      [
+        "0x0B",
+        "XCP Enabled"
+      ],
+      [
+        "0x0C",
+        "XCP Enabled"
+      ],
+      [
+        "0x0D",
+        "XCP Enabled"
+      ],
+      [
+        "0x0E",
+        "XCP Enabled"
+      ],
+      [
+        "0x0F",
+        "XCP Enabled"
+      ],
+      [
+        "0x10",
+        "XCP Enabled"
+      ],
+      [
+        "0x11",
+        "XCP Enabled"
+      ],
+      [
+        "0x12",
+        "XCP Enabled"
+      ],
+      [
+        "0x13",
+        "XCP Enabled"
+      ]
+    ],
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2"
+  },
+  {
+    "num": "0xEE02",
+    "name": "DID EE02 Assist On/Off",
+    "size": "1",
+    "desc": "Defaults to 0xFF On",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "Assist OFF - InputTorquRaw = 0"
+      ],
+      [
+        "0x01",
+        "Assist OFF - FilteredBCAssistTorque = 0"
+      ],
+      [
+        "0x02",
+        "Assist OFF - RequestedFinalMotorTorque = 0"
+      ],
+      [
+        "0xFF",
+        "Assist ON"
+      ]
+    ],
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2"
+  },
+  {
+    "num": "0xEE03",
+    "name": "DID EE03 Ignition Cycle Counter",
+    "size": "2",
+    "desc": null,
+    "units": "Cycles",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE04",
+    "name": "DID EE04 Ignition On Time",
+    "size": "2",
+    "desc": null,
+    "units": "Sec",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE05",
+    "name": "DID EE05 Final Motor Torque",
+    "size": "2",
+    "desc": null,
+    "units": "Nm",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE06",
+    "name": "DID EE06 VIN Changed",
+    "size": "1",
+    "desc": "VIN unchanged",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "VIN unchanged"
+      ],
+      [
+        "0xFF",
+        "Last VIN changed"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE07",
+    "name": "DID EE07 EPS System State",
+    "size": "1",
+    "desc": "EPS Initialization",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "EPS Initialization"
+      ],
+      [
+        "0x01",
+        "EPS Normal Operation - Limited Assist"
+      ],
+      [
+        "0x02",
+        "EPS Normal Operation - Full Assist"
+      ],
+      [
+        "0x03",
+        "EPS System Failure - Limp Home"
+      ],
+      [
+        "0x04",
+        "EPS System Failure - Limp Aside"
+      ],
+      [
+        "0x05",
+        "EPS System Failure - Ramp Out"
+      ],
+      [
+        "0x06",
+        "EPS System Failure - Assist Off"
+      ],
+      [
+        "0x07",
+        "EPS Shutdown"
+      ],
+      [
+        "0x08",
+        "EPS Power Down"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE20",
+    "name": "DID EE20 LoA Fault Reporting",
+    "size": "24",
+    "desc": "Name",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE21",
+    "name": "DID EE21 Current Lvl Counters",
+    "size": "20",
+    "desc": "(2A - 20A]",
+    "units": "UN",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE22",
+    "name": "DID EE22 Voltage Lvl Counters",
+    "size": "40",
+    "desc": null,
+    "units": "UN",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE23",
+    "name": "DID EE23 Temperature Lvl Counters",
+    "size": "40",
+    "desc": "Start of S1",
+    "units": "UN",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE40",
+    "name": "DID EE40 Research Msg Config",
+    "size": "3",
+    "desc": "Pass Thru Signals Disabled",
+    "units": "Ms",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": [
+      [
+        "0x00",
+        "Pass Thru Signals Disabled"
+      ],
+      [
+        "0x01",
+        "Enable HSCAN_In_1_Low &amp; HSCAN_In_1_High\n\nsignals"
+      ],
+      [
+        "0x02",
+        "Enable HSCAN_In_2_Low &amp; HSCAN_In_2_High\n\nsignals"
+      ],
+      [
+        "0x04",
+        "Enable HSCAN_In_3_Low &amp; HSCAN_In_3_High\n\nsignals"
+      ],
+      [
+        "0x08",
+        "Enable HSCAN_In_4_Low &amp; HSCAN_In_4_High\n\nsignals"
+      ],
+      [
+        "0x10",
+        "Enable HSCAN_Out_1_Low &amp; HSCAN_Out_1_High\n\nsignals"
+      ],
+      [
+        "0x20",
+        "Enable HSCAN_Out_2_Low &amp; HSCAN_Out_2_High\n\nsignals"
+      ],
+      [
+        "0x40",
+        "Enable HSCAN_Out_3_Low &amp; HSCAN_Out_3_High\n\nsignals"
+      ],
+      [
+        "0x80",
+        "Enable HSCAN_Out_4_Low &amp; HSCAN_Out_4_High\n\nsignals"
+      ],
+      [
+        "0xFF",
+        "All signals are Enabled"
+      ]
+    ],
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2"
+  },
+  {
+    "num": "0xEE41",
+    "name": "DID EE41 Research Feature Switch",
+    "size": "1",
+    "desc": "Defaults to 0x00 Off",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "Disabled (Default)"
+      ],
+      [
+        "0xFF",
+        "Enabled"
+      ]
+    ],
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2"
+  },
+  {
+    "num": "0xEE42",
+    "name": "DID EE42 Active Features",
+    "size": "10",
+    "desc": "PASSIVE",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "PASSIVE"
+      ],
+      [
+        "0x03",
+        "ACTIVE"
+      ],
+      [
+        "0x05",
+        "LOCKED"
+      ],
+      [
+        "0x99",
+        "DONT CARE"
+      ],
+      [
+        "0x00",
+        "PASSIVE"
+      ],
+      [
+        "0x03",
+        "ACTIVE"
+      ],
+      [
+        "0x05",
+        "LOCKED"
+      ],
+      [
+        "0x99",
+        "DONT CARE"
+      ],
+      [
+        "0x00",
+        "PASSIVE"
+      ],
+      [
+        "0x03",
+        "ACTIVE"
+      ],
+      [
+        "0x05",
+        "LOCKED"
+      ],
+      [
+        "0x99",
+        "DONT CARE"
+      ],
+      [
+        "0x00",
+        "PASSIVE"
+      ],
+      [
+        "0x03",
+        "ACTIVE"
+      ],
+      [
+        "0x05",
+        "LOCKED"
+      ],
+      [
+        "0x99",
+        "DONT CARE"
+      ],
+      [
+        "0x00",
+        "PASSIVE"
+      ],
+      [
+        "0x03",
+        "ACTIVE"
+      ],
+      [
+        "0x05",
+        "LOCKED"
+      ],
+      [
+        "0x99",
+        "DONT CARE"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE43",
+    "name": "DID EE43 SDM Steering Mode",
+    "size": "1",
+    "desc": "(0x00)  Normal Mode",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "(0x00)  Normal Mode"
+      ],
+      [
+        "0x01",
+        "(0x01)  Normal Adaptive Mode"
+      ],
+      [
+        "0x02",
+        "(0x02)  Economy Mode"
+      ],
+      [
+        "0x03",
+        "(0x03)  Sport Mode"
+      ],
+      [
+        "0x04",
+        "(0x04)  Sport Adaptive Mode"
+      ],
+      [
+        "0x05",
+        "(0x05)  Comfort Mode"
+      ],
+      [
+        "0x06",
+        "(0x06)  Comfort Adaptive Mode"
+      ],
+      [
+        "0x07",
+        "(0x07)  Low Mu Mode"
+      ],
+      [
+        "0x08",
+        "(0x08)  Mud &amp; Ruts Mode"
+      ],
+      [
+        "0x09",
+        "(0x09)  Sand Mode"
+      ],
+      [
+        "0x0A",
+        "(0x0A)  Rock Crawl Mode"
+      ],
+      [
+        "0x0B",
+        "(0x0B)  Tow/Haul Mode"
+      ],
+      [
+        "0x0C",
+        "(0x0C)  High Speed Desert Mode (Baja)"
+      ],
+      [
+        "0x0D",
+        "(0x0D)  Track Mode"
+      ],
+      [
+        "0x0E",
+        "(0x0E)  Rough Road Mode"
+      ],
+      [
+        "0x0F",
+        "(0x0F)  Drag Mode"
+      ],
+      [
+        "0x10",
+        "(0x10)  One Pedal Drive"
+      ],
+      [
+        "0x11",
+        "(0x11)  NOT USED"
+      ],
+      [
+        "0x12",
+        "(0x12)  NOT USED"
+      ],
+      [
+        "0x13",
+        "(0x13)  NOT USED"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE80",
+    "name": "DID EE80 FIH SW Version",
+    "size": "40",
+    "desc": "(New Line)",
+    "units": "Ver",
+    "res": "1/10000",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEED1",
+    "name": "DID EED1 Supplier Internal Fault Code",
+    "size": "7",
+    "desc": "(0x0)_NO_NTC_PRESENT_",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "(0x0)_NO_NTC_PRESENT_"
+      ],
+      [
+        "0x01",
+        "(0x001) Flash Logic Startup Test Fault"
+      ],
+      [
+        "0x02",
+        "(0x002) Code Flash Single Bit ECC"
+      ],
+      [
+        "0x03",
+        "(0x003) Code Flash Double Bit ECC"
+      ],
+      [
+        "0x04",
+        "(0x004) Code Flash CRC Memory Faults"
+      ],
+      [
+        "0x05",
+        "(0x005) Data Flash ECC Memory Faults"
+      ],
+      [
+        "0x06",
+        "(0x006) NvM Block Default Action A"
+      ],
+      [
+        "0x07",
+        "(0x007) NvM Block Default Action B"
+      ],
+      [
+        "0x08",
+        "(0x008) NvM Block Default Action C"
+      ],
+      [
+        "0x09",
+        "(0x009) Current Measurement Calibration Out of Range"
+      ],
+      [
+        "0x0A",
+        "(0x00A) EEPROM Diagnostics"
+      ],
+      [
+        "0x0B",
+        "(0x00B) EEPROM Diagnostics (Motor Calibration Storage Faults)"
+      ],
+      [
+        "0x0C",
+        "(0x00C) EEPROM Diagnostics (Torque Sensor Storage Faults)"
+      ],
+      [
+        "0x0D",
+        "(0x00D) EEPROM Diagnostics (HW Position Trim Storage)"
+      ],
+      [
+        "0x0E",
+        "(0x00E) EEPROM Diagnostics (Secondary Sensor)"
+      ],
+      [
+        "0x0F",
+        "(0x00F) EEPROM Diagnostics (Polarity)"
+      ],
+      [
+        "0x10",
+        "(0x010) Memory BIST Start Up Fault"
+      ],
+      [
+        "0x11",
+        "(0x011) Data RAM Startup Test Fault"
+      ],
+      [
+        "0x12",
+        "(0x012) RAM ECC Correction Indication"
+      ],
+      [
+        "0x13",
+        "(0x013) Local RAM Double Bit ECC Memory Faults"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEED0",
+    "name": "DID EED0 Supplier Factory Mode",
+    "size": "1",
+    "desc": "Defaults to 0x00 Off",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "Disabled (Default)"
+      ],
+      [
+        "0xFF",
+        "Enabled"
+      ]
+    ],
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2"
+  },
+  {
+    "num": "0xF10A",
+    "name": "ECU Cal-Config Part Number",
+    "size": "24",
+    "desc": "14D007 Calibration Part Number",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF110",
+    "name": "Subsystem Specific Diagnostic Specification Part Number",
+    "size": "24",
+    "desc": "This DID is used to report the ECU's Part 2 Spec WERS Part Number (e.g., DS-1234-ABCD-AA).",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF111",
+    "name": "ECU Core Assembly Number",
+    "size": "24",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF113",
+    "name": "ECU Delivery Assembly Number",
+    "size": "24",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF124",
+    "name": "ECU Calibration Data #1 Number",
+    "size": "24",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF15F",
+    "name": "NOS Generation Tool Version Number",
+    "size": "10",
+    "desc": "Vector",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x08",
+        "Vector"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF162",
+    "name": "Software Download Specification Version",
+    "size": "1",
+    "desc": "SWDL 00.06.15.002-006",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x06",
+        "SWDL 00.06.15.002-006"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF163",
+    "name": "Diagnostic Specification Version",
+    "size": "1",
+    "desc": "GGDS 00.06.15.001-004",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x04",
+        "GGDS 00.06.15.001-004"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF166",
+    "name": "NOS Message Database #1 Version Number",
+    "size": "4",
+    "desc": "NOS Message Database #1 Version Number",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF17C",
+    "name": "NOS Bootloader Generation Tool Version Number",
+    "size": "11",
+    "desc": "Vector",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x08",
+        "Vector"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF180",
+    "name": "Boot Software Identification",
+    "size": "25",
+    "desc": "Boot Software Identification",
+    "units": "Count",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF188",
+    "name": "Vehicle Manufacturer ECU Software Number",
+    "size": "24",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF18A",
+    "name": "System Supplier Identifier",
+    "size": "24",
+    "desc": "System Supplier Identifier",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF18C",
+    "name": "ECU Serial Number",
+    "size": "16",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF190",
+    "name": "Vehicle Identification Number",
+    "size": "24",
+    "desc": "Vehicle Identification Number",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xD026",
+    "name": "OTA Activation Preconditions",
+    "size": "2",
+    "desc": "All Preconditions Met",
+    "units": "min",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": [
+      [
+        "0x00",
+        "All Preconditions Met"
+      ],
+      [
+        "0x01",
+        "One or More OTA Preconditions Not Met"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xD03E",
+    "name": "In-Use OTA Command Signing Public Key Hash",
+    "size": "32",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xD039",
+    "name": "OTA Partition Status",
+    "size": "3",
+    "desc": "False",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xD03B",
+    "name": "OTA Debug Information",
+    "size": "24",
+    "desc": "positiveResponse",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "positiveResponse"
+      ],
+      [
+        "0x10",
+        "generalReject"
+      ],
+      [
+        "0x11",
+        "functionNotSupported"
+      ],
+      [
+        "0x13",
+        "incorrectMessageLengthOrInvalidFormat"
+      ],
+      [
+        "0x14",
+        "responseTooLong"
+      ],
+      [
+        "0x15",
+        "endToEndSignatureInvalid"
+      ],
+      [
+        "0x16",
+        "ESNInvalid"
+      ],
+      [
+        "0x17",
+        "softwareUpdateCounterInvalid"
+      ],
+      [
+        "0x21",
+        "busyRepeatRequest"
+      ],
+      [
+        "0x22",
+        "conditionsNotCorrect"
+      ],
+      [
+        "0x24",
+        "requestSequenceError"
+      ],
+      [
+        "0x31",
+        "requestOutOfRange"
+      ],
+      [
+        "0x33",
+        "securityRequired"
+      ],
+      [
+        "0x70",
+        "downloadNotAccepted"
+      ],
+      [
+        "0x71",
+        "transferDataSuspended"
+      ],
+      [
+        "0x72",
+        "generalProgrammingFailure"
+      ],
+      [
+        "0x73",
+        "wrongSequenceCounter"
+      ],
+      [
+        "0x78",
+        "requestCorrectlyReceived-ResponsePending"
+      ],
+      [
+        "0x79",
+        "validationFailed"
+      ],
+      [
+        "0x7D",
+        "sessionMismatch"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xD02B",
+    "name": "OTA Software Update Counter",
+    "size": "4",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xD700",
+    "name": "Critical Software Parameter Monitoring #1",
+    "size": "4",
+    "desc": null,
+    "units": "Undefined / Not Used",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xD701",
+    "name": "Critical Software Parameter Monitoring #2",
+    "size": "4",
+    "desc": null,
+    "units": "Undefined / Not Used",
+    "res": "1/1",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xFD01",
+    "name": " Ford System State Fault Counter",
+    "size": "4",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEE90",
+    "name": "Ford In House Failure Reason",
+    "size": "1",
+    "desc": "False",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ],
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xD029",
+    "name": "OTA Over OVTP Support Level",
+    "size": "2",
+    "desc": "OVTP OTA Function Definition Version 4",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x04",
+        "OVTP OTA Function Definition Version 4"
+      ],
+      [
+        "0x05",
+        "OVTP OTA Function Definition Version 5"
+      ],
+      [
+        "0x06",
+        "OVTP OTA Function Definition Version 6"
+      ],
+      [
+        "0x07",
+        "OVTP OTA Function Definition Version 7"
+      ],
+      [
+        "0x08",
+        "OVTP OTA Function Definition Version 8"
+      ],
+      [
+        "0x00",
+        "Full OTA Over OVTP"
+      ],
+      [
+        "0x01",
+        "OTA Over OVTP For Identification Only"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xD022",
+    "name": "In Progress OTA Download Address",
+    "size": "5",
+    "desc": "False",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "False"
+      ],
+      [
+        "0x01",
+        "True"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xF17F",
+    "name": "Ford Electronic Serial Number",
+    "size": "8",
+    "desc": null,
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": null,
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEED2",
+    "name": "SupplierInternalErrorMemory",
+    "size": "270",
+    "desc": "NTC Disc (Start of Bytes)",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "(0x0)_NO_NTC_PRESENT_"
+      ],
+      [
+        "0x01",
+        "(0x001) Flash Logic Startup Test Fault"
+      ],
+      [
+        "0x02",
+        "(0x002) Code Flash Single Bit ECC"
+      ],
+      [
+        "0x03",
+        "(0x003) Code Flash Double Bit ECC"
+      ],
+      [
+        "0x04",
+        "(0x004) Code Flash CRC Memory Faults"
+      ],
+      [
+        "0x05",
+        "(0x005) Data Flash ECC Memory Faults"
+      ],
+      [
+        "0x06",
+        "(0x006) NvM Block Default Action A"
+      ],
+      [
+        "0x07",
+        "(0x007) NvM Block Default Action B"
+      ],
+      [
+        "0x08",
+        "(0x008) NvM Block Default Action C"
+      ],
+      [
+        "0x09",
+        "(0x009) Current Measurement Calibration Out of Range"
+      ],
+      [
+        "0x0A",
+        "(0x00A) EEPROM Diagnostics"
+      ],
+      [
+        "0x0B",
+        "(0x00B) EEPROM Diagnostics (Motor Calibration Storage Faults)"
+      ],
+      [
+        "0x0C",
+        "(0x00C) EEPROM Diagnostics (Torque Sensor Storage Faults)"
+      ],
+      [
+        "0x0D",
+        "(0x00D) EEPROM Diagnostics (HW Position Trim Storage)"
+      ],
+      [
+        "0x0E",
+        "(0x00E) EEPROM Diagnostics (Secondary Sensor)"
+      ],
+      [
+        "0x0F",
+        "(0x00F) EEPROM Diagnostics (Polarity)"
+      ],
+      [
+        "0x10",
+        "(0x010) Memory BIST Start Up Fault"
+      ],
+      [
+        "0x11",
+        "(0x011) Data RAM Startup Test Fault"
+      ],
+      [
+        "0x12",
+        "(0x012) RAM ECC Correction Indication"
+      ],
+      [
+        "0x13",
+        "(0x013) Local RAM Double Bit ECC Memory Faults"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xEED3",
+    "name": "SupplierInternalErrorMemory ECU2",
+    "size": "270",
+    "desc": "NTC Disc (Start of Bytes)",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "(0x0)_NO_NTC_PRESENT_"
+      ],
+      [
+        "0x01",
+        "(0x001) Flash Logic Startup Test Fault"
+      ],
+      [
+        "0x02",
+        "(0x002) Code Flash Single Bit ECC"
+      ],
+      [
+        "0x03",
+        "(0x003) Code Flash Double Bit ECC"
+      ],
+      [
+        "0x04",
+        "(0x004) Code Flash CRC Memory Faults"
+      ],
+      [
+        "0x05",
+        "(0x005) Data Flash ECC Memory Faults"
+      ],
+      [
+        "0x06",
+        "(0x006) NvM Block Default Action A"
+      ],
+      [
+        "0x07",
+        "(0x007) NvM Block Default Action B"
+      ],
+      [
+        "0x08",
+        "(0x008) NvM Block Default Action C"
+      ],
+      [
+        "0x09",
+        "(0x009) Current Measurement Calibration Out of Range"
+      ],
+      [
+        "0x0A",
+        "(0x00A) EEPROM Diagnostics"
+      ],
+      [
+        "0x0B",
+        "(0x00B) EEPROM Diagnostics (Motor Calibration Storage Faults)"
+      ],
+      [
+        "0x0C",
+        "(0x00C) EEPROM Diagnostics (Torque Sensor Storage Faults)"
+      ],
+      [
+        "0x0D",
+        "(0x00D) EEPROM Diagnostics (HW Position Trim Storage)"
+      ],
+      [
+        "0x0E",
+        "(0x00E) EEPROM Diagnostics (Secondary Sensor)"
+      ],
+      [
+        "0x0F",
+        "(0x00F) EEPROM Diagnostics (Polarity)"
+      ],
+      [
+        "0x10",
+        "(0x010) Memory BIST Start Up Fault"
+      ],
+      [
+        "0x11",
+        "(0x011) Data RAM Startup Test Fault"
+      ],
+      [
+        "0x12",
+        "(0x012) RAM ECC Correction Indication"
+      ],
+      [
+        "0x13",
+        "(0x013) Local RAM Double Bit ECC Memory Faults"
+      ]
+    ],
+    "R": true,
+    "W": false,
+    "wsec": ""
+  },
+  {
+    "num": "0xDE00",
+    "name": "DID DE00 Vehicle Data",
+    "size": "24",
+    "desc": "Not Configured",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "Not Configured"
+      ],
+      [
+        "0xFF",
+        "Configured"
+      ],
+      [
+        "0x00",
+        "No Variant Selected "
+      ],
+      [
+        "0x01",
+        "Variant 1"
+      ],
+      [
+        "0x02",
+        "Variant 2"
+      ],
+      [
+        "0x01",
+        "DAT 2.0"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Vehicle without ABS"
+      ],
+      [
+        "0x01",
+        "Vehicle with ABS only"
+      ],
+      [
+        "0x02",
+        "Vehicle with ESC (and ABS)"
+      ],
+      [
+        "0x00",
+        "No AFS Module Present"
+      ],
+      [
+        "0xFF",
+        "AFS Module Present"
+      ],
+      [
+        "0x00",
+        "Lowest"
+      ],
+      [
+        "0x01",
+        "Low"
+      ],
+      [
+        "0x02",
+        "Medium"
+      ],
+      [
+        "0x03",
+        "High"
+      ],
+      [
+        "0x04",
+        "Highest"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ]
+    ],
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2"
+  },
+  {
+    "num": "0xDE01",
+    "name": "DID DE01 FIH SW Feature Config",
+    "size": "24",
+    "desc": "Not Configured",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "Not Configured"
+      ],
+      [
+        "0xFF",
+        "Configured"
+      ],
+      [
+        "0x00",
+        "ANC Disabled"
+      ],
+      [
+        "0xFF",
+        "ANC Enabled"
+      ],
+      [
+        "0x00",
+        "PDC Disabled"
+      ],
+      [
+        "0xFF",
+        "PDC Enabled"
+      ],
+      [
+        "0x00",
+        "TSC Disabled"
+      ],
+      [
+        "0xFF",
+        "TSC Enabled"
+      ],
+      [
+        "0x00",
+        "BPR Disabled"
+      ],
+      [
+        "0xFF",
+        "BPR Enabled"
+      ],
+      [
+        "0x00",
+        "LDW Disabled"
+      ],
+      [
+        "0xFF",
+        "LDW Enabled"
+      ],
+      [
+        "0x00",
+        "LKA Disabled"
+      ],
+      [
+        "0xFF",
+        "LKA Enabled"
+      ],
+      [
+        "0x00",
+        "TJA Disabled"
+      ],
+      [
+        "0xFF",
+        "TJA Enabled"
+      ],
+      [
+        "0x00",
+        "LCA Disabled"
+      ],
+      [
+        "0xFF",
+        "LCA Enabled"
+      ],
+      [
+        "0x00",
+        "TBA Disabled"
+      ],
+      [
+        "0x01",
+        "TBA Standard Enabled"
+      ]
+    ],
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2"
+  },
+  {
+    "num": "0xDE02",
+    "name": "DID DE02 Feature Config",
+    "size": "24",
+    "desc": "Not Configured",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "Not Configured"
+      ],
+      [
+        "0xFF",
+        "Configured"
+      ],
+      [
+        "0x00",
+        "SAPP/APA Disabled"
+      ],
+      [
+        "0xFF",
+        "SAPP/APA Enabled"
+      ],
+      [
+        "0x00",
+        "Active Return Disabled"
+      ],
+      [
+        "0xFF",
+        "Active Return Enabled"
+      ],
+      [
+        "0x00",
+        "Software End Stops Disabled"
+      ],
+      [
+        "0xFF",
+        "Software End Stops Enabled"
+      ],
+      [
+        "0x00",
+        "Start/Stop Disabled"
+      ],
+      [
+        "0x01",
+        "Start/Stop Enabled, Angle Inhibit Enabled"
+      ],
+      [
+        "0x02",
+        "Start/Stop Enabled, Angle Inhibit Disabled"
+      ],
+      [
+        "0x00",
+        "DSR Disabled"
+      ],
+      [
+        "0xFF",
+        "DSR Enabled"
+      ],
+      [
+        "0x00",
+        "SDM Disabled"
+      ],
+      [
+        "0xFF",
+        "SDM Enabled"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ]
+    ],
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2"
+  },
+  {
+    "num": "0xDE03",
+    "name": "DID DE03 Enable/Disable DTCs",
+    "size": "64",
+    "desc": "Not Configured",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "Not Configured"
+      ],
+      [
+        "0xFF",
+        "Configured"
+      ],
+      [
+        "0x00",
+        "DTC Disabled"
+      ],
+      [
+        "0xFF",
+        "DTC Enabled"
+      ],
+      [
+        "0x00",
+        "DTC Disabled"
+      ],
+      [
+        "0xFF",
+        "DTC Enabled"
+      ],
+      [
+        "0x00",
+        "DTC Disabled"
+      ],
+      [
+        "0xFF",
+        "DTC Enabled"
+      ],
+      [
+        "0x00",
+        "DTC Disabled"
+      ],
+      [
+        "0xFF",
+        "DTC Enabled"
+      ],
+      [
+        "0x00",
+        "DTC Disabled"
+      ],
+      [
+        "0xFF",
+        "DTC Enabled"
+      ],
+      [
+        "0x00",
+        "DTC Disabled"
+      ],
+      [
+        "0xFF",
+        "DTC Enabled"
+      ],
+      [
+        "0x00",
+        "DTC Disabled"
+      ],
+      [
+        "0xFF",
+        "DTC Enabled"
+      ],
+      [
+        "0x00",
+        "DTC Disabled"
+      ],
+      [
+        "0xFF",
+        "DTC Enabled"
+      ],
+      [
+        "0x00",
+        "DTC Disabled"
+      ],
+      [
+        "0xFF",
+        "DTC Enabled"
+      ]
+    ],
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2"
+  },
+  {
+    "num": "0xDE04",
+    "name": "DID DE04 PDC Reset Value",
+    "size": "2",
+    "desc": null,
+    "units": "HwNm",
+    "res": "1/128",
+    "offset": "0",
+    "enum_values": null,
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2"
+  },
+  {
+    "num": "0xDE05",
+    "name": "DID DE05 Unused",
+    "size": "24",
+    "desc": "Unused",
+    "units": null,
+    "res": null,
+    "offset": null,
+    "enum_values": [
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ],
+      [
+        "0x00",
+        "Unused"
+      ]
+    ],
+    "R": true,
+    "W": true,
+    "wsec": "security_level_2"
+  }
+]
