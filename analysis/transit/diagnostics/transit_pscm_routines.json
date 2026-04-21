@@ -1,0 +1,62 @@
+[
+  {
+    "id": "routine_020A",
+    "hex": "0x020A",
+    "name": "Report All Inhale/Exhale ECU Configuration DIDs",
+    "desc": null
+  },
+  {
+    "id": "routine_020B",
+    "hex": "0x020B",
+    "name": "Restore Initial ECU Configuration to Not Complete State",
+    "desc": null
+  },
+  {
+    "id": "routine_0301",
+    "hex": "0x0301",
+    "name": "Activate Secondary Boot-loader",
+    "desc": null
+  },
+  {
+    "id": "routine_0304",
+    "hex": "0x0304",
+    "name": "Check Valid Application",
+    "desc": null
+  },
+  {
+    "id": "routine_200F",
+    "hex": "0x200F",
+    "name": "Clear Steering Angle Centre Position Calibration",
+    "desc": null
+  },
+  {
+    "id": "routine_3054",
+    "hex": "0x3054",
+    "name": "Clear Power Steering Lockout Counter",
+    "desc": null
+  },
+  {
+    "id": "routine_DC01",
+    "hex": "0xDC01",
+    "name": "Clear Mechanical End Stop Positions",
+    "desc": null
+  },
+  {
+    "id": "routine_FEB0",
+    "hex": "0xFEB0",
+    "name": "SHE Key Update",
+    "desc": null
+  },
+  {
+    "id": "routine_FF00",
+    "hex": "0xFF00",
+    "name": "Flash Erase",
+    "desc": null
+  },
+  {
+    "id": "routine_FF01",
+    "hex": "0xFF01",
+    "name": "Check Programming Dependencies",
+    "desc": null
+  }
+]

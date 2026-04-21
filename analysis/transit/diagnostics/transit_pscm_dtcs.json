@@ -1,0 +1,302 @@
+[
+  {
+    "id": "dtc_502D",
+    "hex": "0x502D",
+    "number": 20525,
+    "desc": "High Friction Inside Power Steering"
+  },
+  {
+    "id": "dtc_5110",
+    "hex": "0x5110",
+    "number": 20752,
+    "desc": "Power steering Calibration Data"
+  },
+  {
+    "id": "dtc_5B00",
+    "hex": "0x5B00",
+    "number": 23296,
+    "desc": "Steering Angle Sensor"
+  },
+  {
+    "id": "dtc_600B",
+    "hex": "0x600B",
+    "number": 24587,
+    "desc": "Steering Shaft Torque Sensor 1"
+  },
+  {
+    "id": "dtc_600C",
+    "hex": "0x600C",
+    "number": 24588,
+    "desc": "Steering Shaft Torque Sensor 2"
+  },
+  {
+    "id": "dtc_600D",
+    "hex": "0x600D",
+    "number": 24589,
+    "desc": "Motor Rotation Angle Sensor"
+  },
+  {
+    "id": "dtc_9D23",
+    "hex": "0x9D23",
+    "number": 40227,
+    "desc": "Overheat Sensor"
+  },
+  {
+    "id": "dtc_C100",
+    "hex": "0xC100",
+    "number": 49408,
+    "desc": "Lost Communication With ECM/PCM \"A\""
+  },
+  {
+    "id": "dtc_C102",
+    "hex": "0xC102",
+    "number": 49410,
+    "desc": "Lost Communication with Transfer Case Control Module"
+  },
+  {
+    "id": "dtc_C11D",
+    "hex": "0xC11D",
+    "number": 49437,
+    "desc": "Lost Communication with All Wheel Drive Control Module"
+  },
+  {
+    "id": "dtc_C121",
+    "hex": "0xC121",
+    "number": 49441,
+    "desc": "Lost Communication With Anti-Lock Brake System (ABS) Control Module \"A\""
+  },
+  {
+    "id": "dtc_C122",
+    "hex": "0xC122",
+    "number": 49442,
+    "desc": "Lost Communication with Vehicle Dynamics Control Module"
+  },
+  {
+    "id": "dtc_C126",
+    "hex": "0xC126",
+    "number": 49446,
+    "desc": "Lost Communication with Steering Angle Sensor Module"
+  },
+  {
+    "id": "dtc_C140",
+    "hex": "0xC140",
+    "number": 49472,
+    "desc": "Lost Communication With Body Control Module"
+  },
+  {
+    "id": "dtc_C146",
+    "hex": "0xC146",
+    "number": 49478,
+    "desc": "Lost Communication With Serial Data Gateway \"A\""
+  },
+  {
+    "id": "dtc_C151",
+    "hex": "0xC151",
+    "number": 49489,
+    "desc": "Lost Communication With Restraints Control Module"
+  },
+  {
+    "id": "dtc_C155",
+    "hex": "0xC155",
+    "number": 49493,
+    "desc": "Lost Communication With Instrument Panel Cluster (IPC) Control Module"
+  },
+  {
+    "id": "dtc_C159",
+    "hex": "0xC159",
+    "number": 49497,
+    "desc": "Lost Communication With Parking Assist Control Module \"A\""
+  },
+  {
+    "id": "dtc_C212",
+    "hex": "0xC212",
+    "number": 49682,
+    "desc": "Lost Communication With Steering Column Control Module"
+  },
+  {
+    "id": "dtc_C23A",
+    "hex": "0xC23A",
+    "number": 49722,
+    "desc": "Lost Communication With Image Processing Module A"
+  },
+  {
+    "id": "dtc_C23B",
+    "hex": "0xC23B",
+    "number": 49723,
+    "desc": "Lost Communication With Image Processing Module B"
+  },
+  {
+    "id": "dtc_C252",
+    "hex": "0xC252",
+    "number": 49746,
+    "desc": "Lost Communication with Lighting Control Module- Rear \"B\""
+  },
+  {
+    "id": "dtc_C253",
+    "hex": "0xC253",
+    "number": 49747,
+    "desc": "Lost Communication with Accessory Protocol Interface Module"
+  },
+  {
+    "id": "dtc_C256",
+    "hex": "0xC256",
+    "number": 49750,
+    "desc": "Lost Communication With Front Controls Interface Module \"A\""
+  },
+  {
+    "id": "dtc_C401",
+    "hex": "0xC401",
+    "number": 50177,
+    "desc": "Invalid Data Received from ECM/PCM A"
+  },
+  {
+    "id": "dtc_C403",
+    "hex": "0xC403",
+    "number": 50179,
+    "desc": "Invalid Data Received From Transfer Case Control Module"
+  },
+  {
+    "id": "dtc_C415",
+    "hex": "0xC415",
+    "number": 50197,
+    "desc": "Invalid Data Received from Anti-Lock Brake System (ABS) Control Module \"A\""
+  },
+  {
+    "id": "dtc_C416",
+    "hex": "0xC416",
+    "number": 50198,
+    "desc": "Invalid Data Received From Vehicle Dynamics Control Module"
+  },
+  {
+    "id": "dtc_C41E",
+    "hex": "0xC41E",
+    "number": 50206,
+    "desc": "Invalid Data Received from All Wheel Drive Control Module"
+  },
+  {
+    "id": "dtc_C422",
+    "hex": "0xC422",
+    "number": 50210,
+    "desc": "Invalid Data Received From Body Control Module"
+  },
+  {
+    "id": "dtc_C423",
+    "hex": "0xC423",
+    "number": 50211,
+    "desc": "Invalid Data Received from Instrument Panel Cluster Control Module"
+  },
+  {
+    "id": "dtc_C428",
+    "hex": "0xC428",
+    "number": 50216,
+    "desc": "Invalid Data Received from Steering Angle Sensor Module"
+  },
+  {
+    "id": "dtc_C429",
+    "hex": "0xC429",
+    "number": 50217,
+    "desc": "Invalid Data Received From Steering Column Control Module"
+  },
+  {
+    "id": "dtc_C447",
+    "hex": "0xC447",
+    "number": 50247,
+    "desc": "Invalid Data Received From Serial Data Gateway \"A\""
+  },
+  {
+    "id": "dtc_C452",
+    "hex": "0xC452",
+    "number": 50258,
+    "desc": "Invalid Data Received from Restraints Control Module"
+  },
+  {
+    "id": "dtc_C45A",
+    "hex": "0xC45A",
+    "number": 50266,
+    "desc": "Invalid Data Received From Parking Assist Control Module \"A\""
+  },
+  {
+    "id": "dtc_C53B",
+    "hex": "0xC53B",
+    "number": 50491,
+    "desc": "Invalid Data Received From Image Processing Module A"
+  },
+  {
+    "id": "dtc_C53C",
+    "hex": "0xC53C",
+    "number": 50492,
+    "desc": "Invalid Data Received From Image Processing Module B"
+  },
+  {
+    "id": "dtc_C553",
+    "hex": "0xC553",
+    "number": 50515,
+    "desc": "Invalid Data Received from Lighting Control Module-Rear \"B\""
+  },
+  {
+    "id": "dtc_C554",
+    "hex": "0xC554",
+    "number": 50516,
+    "desc": "Invalid Data Received from Accessory Protocol Interface Module"
+  },
+  {
+    "id": "dtc_C557",
+    "hex": "0xC557",
+    "number": 50519,
+    "desc": "Invalid Data Received From Front Controls Interface Module \"A\""
+  },
+  {
+    "id": "dtc_E014",
+    "hex": "0xE014",
+    "number": 57364,
+    "desc": "Control Module Hardware"
+  },
+  {
+    "id": "dtc_E016",
+    "hex": "0xE016",
+    "number": 57366,
+    "desc": "Control Module Main Software"
+  },
+  {
+    "id": "dtc_E100",
+    "hex": "0xE100",
+    "number": 57600,
+    "desc": "Initial Configuration Not Complete"
+  },
+  {
+    "id": "dtc_E11B",
+    "hex": "0xE11B",
+    "number": 57627,
+    "desc": "Control Module Message Authentication"
+  },
+  {
+    "id": "dtc_E200",
+    "hex": "0xE200",
+    "number": 57856,
+    "desc": "Control Module Configuration Memory Corrupt"
+  },
+  {
+    "id": "dtc_E300",
+    "hex": "0xE300",
+    "number": 58112,
+    "desc": "Central Configuration"
+  },
+  {
+    "id": "dtc_F000",
+    "hex": "0xF000",
+    "number": 61440,
+    "desc": "Control Module"
+  },
+  {
+    "id": "dtc_F001",
+    "hex": "0xF001",
+    "number": 61441,
+    "desc": "Control Module Improper Shutdown Performance"
+  },
+  {
+    "id": "dtc_F003",
+    "hex": "0xF003",
+    "number": 61443,
+    "desc": "Battery Voltage"
+  }
+]
