@@ -1,0 +1,27 @@
+{
+  "artifacts": {
+    "f150_pscm_ML34-14D007-BDL_block0_strategy.bin": {
+      "sha256": "40692db98c5c72e3207a51dd28c0ca5ef284417c72ea60f3fff855e91c653f88",
+      "size": 1571840
+    },
+    "f150_pscm_ML34-14D007-BDL_block1_strategy_tail.bin": {
+      "sha256": "0b5d198beef3ac0369f38c3218ef57bf73e5fbba38f060dfa2832dba49c0cfea",
+      "size": 300
+    },
+    "f150_pscm_ML34-14D007-BDL_cal_block0.bin": {
+      "sha256": "3cc28ac2cc31f34d559846b9996e6aa0fc33beba4e779ef4667f0f7ad76fe1c5",
+      "size": 195584
+    },
+    "f150_pscm_ML34-14D007-BDL_cal_block1_tail.bin": {
+      "sha256": "364da6c6dd380973bbfa65ff01a23006bb87bb72b6652fab4f7c5cdb8c02c6c9",
+      "size": 300
+    },
+    "f150_pscm_ML34-14D007-BDL_full.elf": {
+      "sha256": "dae8b2ce2c8130ed5a9704929b27aa14af38b28257e7ec3a6060ae8b3e291442",
+      "size": 1768216
+    }
+  },
+  "calibration_identity": "ML34-14D007-BDL",
+  "set_name": "set_01_cal_ML34-14D007-BDL_strategy_ML3V-14D003-BD",
+  "strategy_identity": "ML3V-14D003-BD"
+}
