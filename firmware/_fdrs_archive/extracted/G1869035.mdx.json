@@ -1,0 +1,23 @@
+{
+  "file": "G1869035.mdx",
+  "size": 15454,
+  "records": 224,
+  "ecu_name": null,
+  "did_count": 11,
+  "dids": {
+    "0010": "Pressure and Vacuum Transducer",
+    "0001": "Red Probe",
+    "0002": "Blue Probe",
+    "0003": "Yellow Probe",
+    "0004": "Green Probe",
+    "0005": "Red Tick Probe",
+    "0006": "50 Amp Current Probe",
+    "0007": "500 Amp Current Probe",
+    "0008": "Temperature Probe",
+    "0012": "BNC Connector",
+    "0013": "Diagnostic Link Connector Pins"
+  },
+  "routine_count": 0,
+  "routines": {},
+  "part_numbers": []
+}

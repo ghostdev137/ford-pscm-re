@@ -1,0 +1,3784 @@
+# G1906542.mdx  size=266,075 B  records=3778
+0x0000089b	routine_routine_0301_start_req_1_subfield_1_bit_0_req_data_def
+0x000008e8	routine_routine_0301_start_req_1_subfield_1
+0x00000915	Memory Address
+0x0000092e	Request Additional Data
+0x00000983	Type 1
+0x0000098b	routine_0301_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x000009dc	routine_0301_param_1_start_resp_1_routinetype_resp_data_def
+0x00000a26	routine_0301_param_1_start_resp_1_subfield_1
+0x00000a54	RoutineType
+0x00000a86	completed
+0x00000a91	routine_0301_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x00000ae4	routine_0301_param_1_start_resp_1_routinestatus_resp_data_def
+0x00000b30	routine_0301_param_1_start_resp_1_subfield_2
+0x00000b5e	RoutineStatus
+0x00000b76	RoutineInfo
+0x00000b9e	routine_0301
+0x00000bac	Activate Secondary Boot-loader
+0x00000c8f	Type 1
+0x00000c97	routine_0304_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x00000ce8	routine_0304_param_1_start_resp_1_routinetype_resp_data_def
+0x00000d32	routine_0304_param_1_start_resp_1_subfield_1
+0x00000d60	RoutineType
+0x00000d92	completed
+0x00000d9d	routine_0304_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x00000df0	routine_0304_param_1_start_resp_1_routinestatus_resp_data_def
+0x00000e3c	routine_0304_param_1_start_resp_1_subfield_2
+0x00000e6a	RoutineStatus
+0x00000e82	RoutineInfo
+0x00000ebd	Valid Application Software is NOT Present
+0x00000ee8	routine_0304_param_2_start_resp_1_application_status_resp_data_def_enum_1
+0x00000f3d	Valid Application Software is Present
+0x00000f64	routine_0304_param_2_start_resp_1_application_status_resp_data_def_enum_2
+0x00000fbc	routine_0304_param_2_start_resp_1_application_status_resp_data_def
+0x0000100d	routine_0304_param_2_start_resp_1_subfield_1
+0x0000103b	Application Status
+0x00001058	Response Additional Data
+0x0000108d	routine_0304
+0x0000109b	Check Valid Application
+0x000011bc	routine_routine_201b_start_req_1_subfield_1_bit_0_req_data_def
+0x00001209	routine_routine_201B_start_req_1_subfield_1
+0x00001236	Solid State Driver Index
+0x00001259	Request Additional Data
+0x000012ae	Type 1
+0x000012b6	routine_201b_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x00001307	routine_201b_param_1_start_resp_1_routinetype_resp_data_def
+0x00001351	routine_201B_param_1_start_resp_1_subfield_1
+0x0000137f	RoutineType
+0x000013b1	completed
+0x000013bc	routine_201b_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x0000140f	routine_201b_param_1_start_resp_1_routinestatus_resp_data_def
+0x0000145b	routine_201B_param_1_start_resp_1_subfield_2
+0x00001489	RoutineStatus
+0x000014a1	RoutineInfo
+0x0000150b	routine_201b_param_2_start_resp_1_solid_state_driver_short_circuit_counts_resp_data_def
+0x00001571	routine_201B_param_2_start_resp_1_subfield_1
+0x0000159f	Solid State Driver Short Circuit Counts
+0x000015d1	Response Additional Data
+0x00001606	routine_201B
+0x00001614	Obtain Solid State Driver Life Counter
+0x00001701	routine_routine_ff00_start_req_1_subfield_1_bit_0_req_data_def
+0x0000174e	routine_routine_FF00_start_req_1_subfield_1
+0x0000177b	Memory Address
+0x000017a9	routine_routine_ff00_start_req_1_subfield_2_bit_1_req_data_def
+0x000017f6	routine_routine_FF00_start_req_1_subfield_2
+0x00001823	Memory Size
+0x00001839	Request Additional Data
+0x0000188e	Type 1
+0x00001896	routine_ff00_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x000018e7	routine_ff00_param_1_start_resp_1_routinetype_resp_data_def
+0x00001931	routine_FF00_param_1_start_resp_1_subfield_1
+0x0000195f	RoutineType
+0x00001991	completed
+0x0000199c	routine_ff00_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x000019ef	routine_ff00_param_1_start_resp_1_routinestatus_resp_data_def
+0x00001a3b	routine_FF00_param_1_start_resp_1_subfield_2
+0x00001a69	RoutineStatus
+0x00001a81	RoutineInfo
+0x00001aa9	routine_FF00
+0x00001ab7	Flash Erase
+0x00001b6e	routine_routine_ff01_start_req_1_subfield_1_bit_0_req_data_def
+0x00001bbb	routine_routine_FF01_start_req_1_subfield_1
+0x00001be8	Memory Address
+0x00001c16	routine_routine_ff01_start_req_1_subfield_2_bit_1_req_data_def
+0x00001c63	routine_routine_FF01_start_req_1_subfield_2
+0x00001c90	Memory Size
+0x00001ca6	Request Additional Data
+0x00001cfb	Type 1
+0x00001d03	routine_ff01_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x00001d54	routine_ff01_param_1_start_resp_1_routinetype_resp_data_def
+0x00001d9e	routine_FF01_param_1_start_resp_1_subfield_1
+0x00001dcc	RoutineType
+0x00001dfe	completed
+0x00001e09	routine_ff01_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x00001e5c	routine_ff01_param_1_start_resp_1_routinestatus_resp_data_def
+0x00001ea8	routine_FF01_param_1_start_resp_1_subfield_2
+0x00001ed6	RoutineStatus
+0x00001eee	RoutineInfo
+0x00001f22	routine_ff01_param_2_start_resp_1_checksum_resp_data_def
+0x00001f69	routine_FF01_param_2_start_resp_1_subfield_1
+0x00001f97	Checksum
+0x00001faa	Response Additional Data
+0x00001fdf	routine_FF01
+0x00001fed	Check Programming Dependencies
+0x00002244	session_01
+0x00002250	defaultSession
+0x0000235b	session_03
+0x00002367	extendedDiagnosticSession
+0x00002387	service_23_p4_max_00
+0x000023fd	nrc_13
+0x00002405	incorrectMessageLengthOrInvalidFormat
+0x00002443	nrc_31
+0x0000244b	requestOutOfRange
+0x00002477	service_23
+0x00002483	ReadMemoryByAddress
+0x000024af	mem_00
+0x000024b7	Application ROM 01
+0x00002706	session_01
+0x00002712	defaultSession
+0x0000281d	session_03
+0x00002829	extendedDiagnosticSession
+0x00002849	service_23_p4_max_00
+0x000028bf	nrc_13
+0x000028c7	incorrectMessageLengthOrInvalidFormat
+0x00002905	nrc_31
+0x0000290d	requestOutOfRange
+0x00002939	service_23
+0x00002945	ReadMemoryByAddress
+0x00002971	mem_01
+0x00002979	Flash Memory
+0x00002bb2	session_01
+0x00002bbe	defaultSession
+0x00002cc9	session_03
+0x00002cd5	extendedDiagnosticSession
+0x00002cf5	service_23_p4_max_00
+0x00002d6b	nrc_13
+0x00002d73	incorrectMessageLengthOrInvalidFormat
+0x00002db1	nrc_31
+0x00002db9	requestOutOfRange
+0x00002de5	service_23
+0x00002df1	ReadMemoryByAddress
+0x00002e1d	mem_02
+0x00002e25	Data Flash Memory (EEEPROM)
+0x0000307c	session_01
+0x00003088	defaultSession
+0x00003193	session_03
+0x0000319f	extendedDiagnosticSession
+0x000031bf	service_23_p4_max_00
+0x00003235	nrc_13
+0x0000323d	incorrectMessageLengthOrInvalidFormat
+0x0000327b	nrc_31
+0x00003283	requestOutOfRange
+0x000032af	service_23
+0x000032bb	ReadMemoryByAddress
+0x000032e7	mem_03
+0x000032ef	Application RAM 01
+0x0000353e	session_01
+0x0000354a	defaultSession
+0x00003655	session_03
+0x00003661	extendedDiagnosticSession
+0x00003681	service_23_p4_max_00
+0x000036f7	nrc_13
+0x000036ff	incorrectMessageLengthOrInvalidFormat
+0x0000373d	nrc_31
+0x00003745	requestOutOfRange
+0x00003771	service_23
+0x0000377d	ReadMemoryByAddress
+0x000037a9	mem_04
+0x000037b1	Application RAM 02
+0x000039f6	session_01
+0x00003a02	defaultSession
+0x00003b0d	session_03
+0x00003b19	extendedDiagnosticSession
+0x00003b39	service_23_p4_max_00
+0x00003baf	nrc_13
+0x00003bb7	incorrectMessageLengthOrInvalidFormat
+0x00003bf5	nrc_31
+0x00003bfd	requestOutOfRange
+0x00003c29	service_23
+0x00003c35	ReadMemoryByAddress
+0x00003c61	mem_05
+0x00003c69	Application RAM 03
+0x00003eac	session_01
+0x00003eb8	defaultSession
+0x00003fc3	session_03
+0x00003fcf	extendedDiagnosticSession
+0x00003fef	service_23_p4_max_00
+0x00004065	nrc_13
+0x0000406d	incorrectMessageLengthOrInvalidFormat
+0x000040ab	nrc_31
+0x000040b3	requestOutOfRange
+0x000040df	service_23
+0x000040eb	ReadMemoryByAddress
+0x00004117	mem_06
+0x0000411f	Secondary Bootloader
+0x00004365	session_01
+0x00004371	defaultSession
+0x0000447c	session_03
+0x00004488	extendedDiagnosticSession
+0x000044a8	service_22_p4_max_00
+0x0000461b	session_02
+0x00004627	programmingSession
+0x00004640	service_22_p4_max_01
+0x000046a3	nrc_13
+0x000046ab	incorrectMessageLengthOrInvalidFormat
+0x000046e9	nrc_22
+0x000046f1	conditionsNotCorrect
+0x0000471e	nrc_31
+0x00004726	requestOutOfRange
+0x00004750	nrc_33
+0x00004758	securityAccessDenied
+0x00004787	service_22
+0x00004793	ReadDataByIdentifier
+0x00004877	did_0202_subfield_1_data_def
+0x000048a2	did_0202_subfield_1
+0x000048b7	Number of Trouble Codes Set due to Diagnostic Test
+0x000048f2	Config Requirements = n/a Dataflow = Supplier defined
+0x00004929	did_0202
+0x00004933	Number of Trouble Codes Set due to Diagnostic Test
+0x00004bcf	session_01
+0x00004bdb	defaultSession
+0x00004ce6	session_03
+0x00004cf2	extendedDiagnosticSession
+0x00004d12	service_22_p4_max_00
+0x00004e85	session_02
+0x00004e91	programmingSession
+0x00004eaa	service_22_p4_max_01
+0x00004f0d	nrc_13
+0x00004f15	incorrectMessageLengthOrInvalidFormat
+0x00004f53	nrc_22
+0x00004f5b	conditionsNotCorrect
+0x00004f88	nrc_31
+0x00004f90	requestOutOfRange
+0x00004fba	nrc_33
+0x00004fc2	securityAccessDenied
+0x00004ff1	service_22
+0x00004ffd	ReadDataByIdentifier
+0x000050e1	did_402a_subfield_1_data_def
+0x0000510c	did_402A_subfield_1
+0x00005121	Vehicle Battery Voltage
+0x00005141	PAAT Status Config Requirements = Dataflow = PAAT_Ckt A/D Circuit: PAAT_Ckt
+0x0000518e	did_402A
+0x00005198	Vehicle Battery Voltage
+0x000053fe	session_01
+0x0000540a	defaultSession
+0x00005515	session_03
+0x00005521	extendedDiagnosticSession
+0x00005541	service_22_p4_max_00
+0x000056b4	session_02
+0x000056c0	programmingSession
+0x000056d9	service_22_p4_max_01
+0x0000573c	nrc_13
+0x00005744	incorrectMessageLengthOrInvalidFormat
+0x00005782	nrc_22
+0x0000578a	conditionsNotCorrect
+0x000057b7	nrc_31
+0x000057bf	requestOutOfRange
+0x000057e9	nrc_33
+0x000057f1	securityAccessDenied
+0x00005820	service_22
+0x0000582c	ReadDataByIdentifier
+0x000058c3	Inactive
+0x000058cd	did_40a8_subfield_1_data_def_enum_1
+0x000058fc	Active
+0x00005904	did_40a8_subfield_1_data_def_enum_2
+0x00005936	did_40a8_subfield_1_data_def
+0x00005961	did_40A8_subfield_1
+0x00005976	Run Start Circuit
+0x00005a2a	did_40A8
+0x00005a34	Ignition Switch/Start Button Combined Switch Status
+0x00005af6	iocp0
+0x00005afd	returnControlToECU
+0x00005b1b	iocp3
+0x00005b22	shortTermAdjustment
+0x00005c54	session_03
+0x00005c60	extendedDiagnosticSession
+0x00005c80	service_2F_p4_max_00
+0x00005cb2	service_2F_params_1
+0x00005cea	nrc_13
+0x00005cf2	incorrectMessageLengthOrInvalidFormat
+0x00005d30	nrc_22
+0x00005d38	conditionsNotCorrect
+0x00005d65	nrc_31
+0x00005d6d	requestOutOfRange
+0x00005d97	nrc_7F
+0x00005d9f	serviceNotSupportedInActiveSession
+0x00005ddc	service_2F
+0x00005de8	InputOutputControlByIdentifier
+0x00006006	session_01
+0x00006012	defaultSession
+0x0000602b	service_22_p4_max_00
+0x0000619e	session_02
+0x000061aa	programmingSession
+0x000061c3	service_22_p4_max_01
+0x00006254	nrc_33
+0x0000625c	securityAccessDenied
+0x0000628b	service_22
+0x00006297	ReadDataByIdentifier
+0x00006330	Null - No Control Active
+0x0000634a	did_429d_subfield_1_data_def_enum_1
+0x00006379	Active
+0x00006381	did_429d_subfield_1_data_def_enum_2
+0x000063b0	Inactive
+0x000063ba	did_429d_subfield_1_data_def_enum_3
+0x000063ec	did_429d_subfield_1_data_def
+0x00006417	did_429D_subfield_1
+0x0000642c	Power Supply "A" Status
+0x0000655f	did_429D
+0x00006569	Power Supply "A" Status
+0x000065f3	iocp0
+0x000065fa	returnControlToECU
+0x00006618	iocp3
+0x0000661f	shortTermAdjustment
+0x00006751	session_03
+0x0000675d	extendedDiagnosticSession
+0x0000677d	service_2F_p4_max_00
+0x000067af	service_2F_params_1
+0x000067e7	nrc_13
+0x000067ef	incorrectMessageLengthOrInvalidFormat
+0x0000682d	nrc_22
+0x00006835	conditionsNotCorrect
+0x00006862	nrc_31
+0x0000686a	requestOutOfRange
+0x00006894	nrc_7F
+0x0000689c	serviceNotSupportedInActiveSession
+0x000068d9	service_2F
+0x000068e5	InputOutputControlByIdentifier
+0x00006b03	session_01
+0x00006b0f	defaultSession
+0x00006b28	service_22_p4_max_00
+0x00006c9b	session_02
+0x00006ca7	programmingSession
+0x00006cc0	service_22_p4_max_01
+0x00006d51	nrc_33
+0x00006d59	securityAccessDenied
+0x00006d88	service_22
+0x00006d94	ReadDataByIdentifier
+0x00006e2d	Null - No Control Active
+0x00006e47	did_429e_subfield_1_data_def_enum_1
+0x00006e76	Active
+0x00006e7e	did_429e_subfield_1_data_def_enum_2
+0x00006ead	Inactive
+0x00006eb7	did_429e_subfield_1_data_def_enum_3
+0x00006ee9	did_429e_subfield_1_data_def
+0x00006f14	did_429E_subfield_1
+0x00006f29	Power Supply "B" Status
+0x00007060	did_429E
+0x0000706a	Power Supply "B" Status
+0x000072d2	session_01
+0x000072de	defaultSession
+0x000073e9	session_03
+0x000073f5	extendedDiagnosticSession
+0x00007415	service_22_p4_max_00
+0x00007588	session_02
+0x00007594	programmingSession
+0x000075ad	service_22_p4_max_01
+0x00007610	nrc_13
+0x00007618	incorrectMessageLengthOrInvalidFormat
+0x00007656	nrc_22
+0x0000765e	conditionsNotCorrect
+0x0000768b	nrc_31
+0x00007693	requestOutOfRange
+0x000076bd	nrc_33
+0x000076c5	securityAccessDenied
+0x000076f4	service_22
+0x00007700	ReadDataByIdentifier
+0x0000779b	Default Session
+0x000077ac	did_d100_subfield_1_data_def_enum_1
+0x000077db	Programming Session
+0x000077f0	did_d100_subfield_1_data_def_enum_2
+0x0000781f	Extended Diagnostic Session
+0x0000783c	did_d100_subfield_1_data_def_enum_3
+0x0000786b	Safety System Diagnostic Session
+0x0000788d	did_d100_subfield_1_data_def_enum_4
+0x000078bc	EOL Extended Diagnostic Session
+0x000078dd	did_d100_subfield_1_data_def_enum_5
+0x0000790d	did_d100_subfield_1_data_def_enum_6
+0x0000793d	did_d100_subfield_1_data_def_enum_7
+0x0000796d	did_d100_subfield_1_data_def_enum_8
+0x0000799d	did_d100_subfield_1_data_def_enum_9
+0x000079cd	did_d100_subfield_1_data_def_enum_10
+0x000079fe	did_d100_subfield_1_data_def_enum_11
+0x00007a2f	did_d100_subfield_1_data_def_enum_12
+0x00007a60	did_d100_subfield_1_data_def_enum_13
+0x00007a91	did_d100_subfield_1_data_def_enum_14
+0x00007ac2	did_d100_subfield_1_data_def_enum_15
+0x00007af3	did_d100_subfield_1_data_def_enum_16
+0x00007b24	did_d100_subfield_1_data_def_enum_17
+0x00007b55	did_d100_subfield_1_data_def_enum_18
+0x00007b86	did_d100_subfield_1_data_def_enum_19
+0x00007bb7	did_d100_subfield_1_data_def_enum_20
+0x00007be8	did_d100_subfield_1_data_def_enum_21
+0x00007c19	did_d100_subfield_1_data_def_enum_22
+0x00007c4a	did_d100_subfield_1_data_def_enum_23
+0x00007c7b	did_d100_subfield_1_data_def_enum_24
+0x00007cac	did_d100_subfield_1_data_def_enum_25
+0x00007cdd	did_d100_subfield_1_data_def_enum_26
+0x00007d0e	did_d100_subfield_1_data_def_enum_27
+0x00007d3f	did_d100_subfield_1_data_def_enum_28
+0x00007d70	did_d100_subfield_1_data_def_enum_29
+0x00007da1	did_d100_subfield_1_data_def_enum_30
+0x00007dd2	did_d100_subfield_1_data_def_enum_31
+0x00007e03	did_d100_subfield_1_data_def_enum_32
+0x00007e34	did_d100_subfield_1_data_def_enum_33
+0x00007e65	did_d100_subfield_1_data_def_enum_34
+0x00007e96	did_d100_subfield_1_data_def_enum_35
+0x00007ec7	did_d100_subfield_1_data_def_enum_36
+0x00007efa	did_d100_subfield_1_data_def
+0x00007f25	did_D100_subfield_1
+0x00007f3a	Active Diagnostic Session
+0x00007f5c	Config Requirements = n/a Dataflow = DiagSession (also in Bootloader)
+0x00007fa3	did_D100
+0x00007fad	Active Diagnostic Session
+0x00008219	session_01
+0x00008225	defaultSession
+0x00008330	session_03
+0x0000833c	extendedDiagnosticSession
+0x0000835c	service_22_p4_max_00
+0x000084cf	session_02
+0x000084db	programmingSession
+0x000084f4	service_22_p4_max_01
+0x00008557	nrc_13
+0x0000855f	incorrectMessageLengthOrInvalidFormat
+0x0000859d	nrc_22
+0x000085a5	conditionsNotCorrect
+0x000085d2	nrc_31
+0x000085da	requestOutOfRange
+0x00008604	nrc_33
+0x0000860c	securityAccessDenied
+0x0000863b	service_22
+0x00008647	ReadDataByIdentifier
+0x0000872b	did_d137_subfield_1_data_def
+0x00008756	did_D137_subfield_1
+0x0000876b	Number of Continuous DTCs with Pending or Confirmed Status
+0x000087ae	Config Requirements = n/a Dataflow = Supplier defined Parameter 0 is always reported
+0x00008804	did_D137
+0x0000880e	Number of Continuous DTCs with Pending or Confirmed Status
+0x00008abc	session_01
+0x00008ac8	defaultSession
+0x00008bd3	session_03
+0x00008bdf	extendedDiagnosticSession
+0x00008bff	service_22_p4_max_00
+0x00008d72	session_02
+0x00008d7e	programmingSession
+0x00008d97	service_22_p4_max_01
+0x00008dfa	nrc_13
+0x00008e02	incorrectMessageLengthOrInvalidFormat
+0x00008e40	nrc_22
+0x00008e48	conditionsNotCorrect
+0x00008e75	nrc_31
+0x00008e7d	requestOutOfRange
+0x00008ea7	nrc_33
+0x00008eaf	securityAccessDenied
+0x00008ede	service_22
+0x00008eea	ReadDataByIdentifier
+0x00008fda	did_d700_subfield_1_data_def
+0x00009005	did_D700_subfield_1
+0x0000901a	Power ON reset counter
+0x00009086	did_d700_subfield_2_data_def
+0x000090b1	did_D700_subfield_2
+0x000090c6	Illegal op code counter
+0x00009133	did_d700_subfield_3_data_def
+0x0000915e	did_D700_subfield_3
+0x00009173	Watchdog timer reset counter
+0x000091e5	did_d700_subfield_4_data_def
+0x00009210	did_D700_subfield_4
+0x00009225	Data Range Failure counter
+0x00009248	Config Requirements = n/a Dataflow = Supplier defined For service $2E the only possible writting value is zeros
+0x000092b9	did_D700
+0x000092c3	Critical Software Parameter Monitoring #1
+0x0000954f	session_01
+0x0000955b	defaultSession
+0x00009666	session_03
+0x00009672	extendedDiagnosticSession
+0x00009692	service_22_p4_max_00
+0x00009805	session_02
+0x00009811	programmingSession
+0x0000982a	service_22_p4_max_01
+0x0000988d	nrc_13
+0x00009895	incorrectMessageLengthOrInvalidFormat
+0x000098d3	nrc_22
+0x000098db	conditionsNotCorrect
+0x00009908	nrc_31
+0x00009910	requestOutOfRange
+0x0000993a	nrc_33
+0x00009942	securityAccessDenied
+0x00009971	service_22
+0x0000997d	ReadDataByIdentifier
+0x00009a6d	did_d701_subfield_1_data_def
+0x00009a98	did_D701_subfield_1
+0x00009aad	Stack Overflow Counter
+0x00009b19	did_d701_subfield_2_data_def
+0x00009b44	did_D701_subfield_2
+0x00009b59	Loop-Time overflow or scheduler idle time overflow Counter
+0x00009be9	did_d701_subfield_3_data_def
+0x00009c14	did_D701_subfield_3
+0x00009c29	Minimum Idle-Time
+0x00009c90	did_d701_subfield_4_data_def
+0x00009cbb	did_D701_subfield_4
+0x00009cd0	Reserved
+0x00009ce1	Config Requirements = n/a Dataflow = Supplier defined For service $2E the only possible writting value is zeros
+0x00009d52	did_D701
+0x00009d5c	Critical Software Parameter Monitoring #2
+0x00009fe8	session_01
+0x00009ff4	defaultSession
+0x0000a0ff	session_03
+0x0000a10b	extendedDiagnosticSession
+0x0000a12b	service_22_p4_max_00
+0x0000a29e	session_02
+0x0000a2aa	programmingSession
+0x0000a2c3	service_22_p4_max_01
+0x0000a326	nrc_13
+0x0000a32e	incorrectMessageLengthOrInvalidFormat
+0x0000a36c	nrc_22
+0x0000a374	conditionsNotCorrect
+0x0000a3a1	nrc_31
+0x0000a3a9	requestOutOfRange
+0x0000a3d3	nrc_33
+0x0000a3db	securityAccessDenied
+0x0000a40a	service_22
+0x0000a416	ReadDataByIdentifier
+0x0000a506	did_de00_subfield_1_data_def
+0x0000a568	did_DE00_subfield_1
+0x0000a57d	HiOvrTime_Cfg [Shutdown]
+0x0000a5eb	did_de00_subfield_2_data_def
+0x0000a64d	did_DE00_subfield_2
+0x0000a662	HiOvrTime_Cfg [100_155_B]
+0x0000a6d1	did_de00_subfield_3_data_def
+0x0000a733	did_DE00_subfield_3
+0x0000a748	HiRecovTime_Cfg [Shutdown]
+0x0000a7b8	did_de00_subfield_4_data_def
+0x0000a81a	did_DE00_subfield_4
+0x0000a82f	HiRecovTime_Cfg [100_155_B]
+0x0000a853	HiOvrTime_Cfg [Shutdown] HiOvrTime_Cfg [100_155_B] HiRecovTime_Cfg [Shutdown] HiRecovTime_Cfg [100_155_B] (reserved) (reserved)
+0x0000a8d4	did_DE00
+0x0000a8de	Body Features 01
+0x0000ab38	session_01
+0x0000ab44	defaultSession
+0x0000ac4f	session_03
+0x0000ac5b	extendedDiagnosticSession
+0x0000ac7b	service_22_p4_max_00
+0x0000adee	session_02
+0x0000adfa	programmingSession
+0x0000ae13	service_22_p4_max_01
+0x0000ae76	nrc_13
+0x0000ae7e	incorrectMessageLengthOrInvalidFormat
+0x0000aebc	nrc_22
+0x0000aec4	conditionsNotCorrect
+0x0000aef1	nrc_31
+0x0000aef9	requestOutOfRange
+0x0000af23	nrc_33
+0x0000af2b	securityAccessDenied
+0x0000af5a	service_22
+0x0000af66	ReadDataByIdentifier
+0x0000b056	did_de01_subfield_1_data_def
+0x0000b0b8	did_DE01_subfield_1
+0x0000b0cd	HiTime_Cfg [Shutdown]
+0x0000b138	did_de01_subfield_2_data_def
+0x0000b19a	did_DE01_subfield_2
+0x0000b1af	HiTime_Cfg [100_155_B]
+0x0000b21b	did_de01_subfield_3_data_def
+0x0000b27d	did_DE01_subfield_3
+0x0000b292	LoOvrTime_Cfg [Shutdown]
+0x0000b300	did_de01_subfield_4_data_def
+0x0000b362	did_DE01_subfield_4
+0x0000b377	LoOvrTime_Cfg [100_155_B]
+0x0000b399	HiTime_Cfg [Shutdown] HiTime_Cfg [100_155_B] LoOvrTime_Cfg [Shutdown] LoOvrTime_Cfg [100_155_B] (reserved) (reserved)
+0x0000b410	did_DE01
+0x0000b41a	Body Features 02
+0x0000b674	session_01
+0x0000b680	defaultSession
+0x0000b78b	session_03
+0x0000b797	extendedDiagnosticSession
+0x0000b7b7	service_22_p4_max_00
+0x0000b92a	session_02
+0x0000b936	programmingSession
+0x0000b94f	service_22_p4_max_01
+0x0000b9b2	nrc_13
+0x0000b9ba	incorrectMessageLengthOrInvalidFormat
+0x0000b9f8	nrc_22
+0x0000ba00	conditionsNotCorrect
+0x0000ba2d	nrc_31
+0x0000ba35	requestOutOfRange
+0x0000ba5f	nrc_33
+0x0000ba67	securityAccessDenied
+0x0000ba96	service_22
+0x0000baa2	ReadDataByIdentifier
+0x0000bb92	did_de02_subfield_1_data_def
+0x0000bbf4	did_DE02_subfield_1
+0x0000bc09	LoRecovTime_Cfg [Shutdown]
+0x0000bc79	did_de02_subfield_2_data_def
+0x0000bcdb	did_DE02_subfield_2
+0x0000bcf0	LoRecovTime_Cfg [100_155_B]
+0x0000bd61	did_de02_subfield_3_data_def
+0x0000bdc3	did_DE02_subfield_3
+0x0000bdd8	LoTime_Cfg [Shutdown]
+0x0000be43	did_de02_subfield_4_data_def
+0x0000bea5	did_DE02_subfield_4
+0x0000beba	LoTime_Cfg [100_155_B]
+0x0000bed9	LoRecovTime_Cfg [Shutdown] LoRecovTime_Cfg [100_155_B] LoTime_Cfg [Shutdown] LoTime_Cfg [100_155_B] (reserved) (reserved)
+0x0000bf54	did_DE02
+0x0000bf5e	Body Features 03
+0x0000c1b8	session_01
+0x0000c1c4	defaultSession
+0x0000c2cf	session_03
+0x0000c2db	extendedDiagnosticSession
+0x0000c2fb	service_22_p4_max_00
+0x0000c46e	session_02
+0x0000c47a	programmingSession
+0x0000c493	service_22_p4_max_01
+0x0000c4f6	nrc_13
+0x0000c4fe	incorrectMessageLengthOrInvalidFormat
+0x0000c53c	nrc_22
+0x0000c544	conditionsNotCorrect
+0x0000c571	nrc_31
+0x0000c579	requestOutOfRange
+0x0000c5a3	nrc_33
+0x0000c5ab	securityAccessDenied
+0x0000c5da	service_22
+0x0000c5e6	ReadDataByIdentifier
+0x0000c6d6	did_de03_subfield_1_data_def
+0x0000c738	did_DE03_subfield_1
+0x0000c74d	VMax_Cfg [Shutdown]
+0x0000c7b6	did_de03_subfield_2_data_def
+0x0000c818	did_DE03_subfield_2
+0x0000c82d	VMax_Cfg [100_155_B]
+0x0000c897	did_de03_subfield_3_data_def
+0x0000c8f9	did_DE03_subfield_3
+0x0000c90e	VMaxRcv_Cfg [Shutdown]
+0x0000c97a	did_de03_subfield_4_data_def
+0x0000c9dc	did_DE03_subfield_4
+0x0000c9f1	VMaxRcv_Cfg [100_155_B]
+0x0000caf1	did_DE03
+0x0000cafb	Body Features 04
+0x0000cd55	session_01
+0x0000cd61	defaultSession
+0x0000ce6c	session_03
+0x0000ce78	extendedDiagnosticSession
+0x0000ce98	service_22_p4_max_00
+0x0000d00b	session_02
+0x0000d017	programmingSession
+0x0000d030	service_22_p4_max_01
+0x0000d093	nrc_13
+0x0000d09b	incorrectMessageLengthOrInvalidFormat
+0x0000d0d9	nrc_22
+0x0000d0e1	conditionsNotCorrect
+0x0000d10e	nrc_31
+0x0000d116	requestOutOfRange
+0x0000d140	nrc_33
+0x0000d148	securityAccessDenied
+0x0000d177	service_22
+0x0000d183	ReadDataByIdentifier
+0x0000d273	did_de04_subfield_1_data_def
+0x0000d2d5	did_DE04_subfield_1
+0x0000d2ea	VMin_Cfg [Shutdown]
+0x0000d353	did_de04_subfield_2_data_def
+0x0000d3b5	did_DE04_subfield_2
+0x0000d3ca	VMin_Cfg [100_155_B]
+0x0000d434	did_de04_subfield_3_data_def
+0x0000d496	did_DE04_subfield_3
+0x0000d4ab	VMinRcv_Cfg [Shutdown]
+0x0000d517	did_de04_subfield_4_data_def
+0x0000d579	did_DE04_subfield_4
+0x0000d58e	VMinRcv_Cfg [100_155_B]
+0x0000d6c7	did_DE04
+0x0000d6d1	Body Features 05
+0x0000d92b	session_01
+0x0000d937	defaultSession
+0x0000da42	session_03
+0x0000da4e	extendedDiagnosticSession
+0x0000da6e	service_22_p4_max_00
+0x0000dbe1	session_02
+0x0000dbed	programmingSession
+0x0000dc06	service_22_p4_max_01
+0x0000dc69	nrc_13
+0x0000dc71	incorrectMessageLengthOrInvalidFormat
+0x0000dcaf	nrc_22
+0x0000dcb7	conditionsNotCorrect
+0x0000dce4	nrc_31
+0x0000dcec	requestOutOfRange
+0x0000dd16	nrc_33
+0x0000dd1e	securityAccessDenied
+0x0000dd4d	service_22
+0x0000dd59	ReadDataByIdentifier
+0x0000de49	did_de05_subfield_1_data_def
+0x0000deab	did_DE05_subfield_1
+0x0000dec0	MovingThresholdEng_Cfg
+0x0000df2c	did_de05_subfield_2_data_def
+0x0000df8e	did_DE05_subfield_2
+0x0000dfa3	Moving_Duration_Cfg
+0x0000e00c	did_de05_subfield_3_data_def
+0x0000e06e	did_DE05_subfield_3
+0x0000e083	VSpd_Timeout_Cfg
+0x0000e0e9	did_de05_subfield_4_data_def
+0x0000e14b	did_DE05_subfield_4
+0x0000e160	PassThruDetectDelay_Cfg
+0x0000e180	MovingThresholdEng_Cfg Moving_Duration_Cfg VSpd_Timeout_Cfg PassThruDetectDelay_Cfg (reserved) (reserved)
+0x0000e1eb	did_DE05
+0x0000e1f5	Body Features 06
+0x0000e44f	session_01
+0x0000e45b	defaultSession
+0x0000e566	session_03
+0x0000e572	extendedDiagnosticSession
+0x0000e592	service_22_p4_max_00
+0x0000e705	session_02
+0x0000e711	programmingSession
+0x0000e72a	service_22_p4_max_01
+0x0000e78d	nrc_13
+0x0000e795	incorrectMessageLengthOrInvalidFormat
+0x0000e7d3	nrc_22
+0x0000e7db	conditionsNotCorrect
+0x0000e808	nrc_31
+0x0000e810	requestOutOfRange
+0x0000e83a	nrc_33
+0x0000e842	securityAccessDenied
+0x0000e871	service_22
+0x0000e87d	ReadDataByIdentifier
+0x0000e96d	did_de06_subfield_1_data_def
+0x0000e9cf	did_DE06_subfield_1
+0x0000e9e4	IgnStatAgreeFilterDuration_Cfg
+0x0000ea58	did_de06_subfield_2_data_def
+0x0000eaba	did_DE06_subfield_2
+0x0000eacf	IgnStat_Timeout_Cfg
+0x0000eb38	did_de06_subfield_3_data_def
+0x0000eb9a	did_DE06_subfield_3
+0x0000ebaf	RStart_Timeout_Cfg
+0x0000ebca	IgnStatAgreeFilterDuration_Cfg IgnStat_Timeout_Cfg RStart_Timeout_Cfg (reserved) (reserved)
+0x0000ec27	did_DE06
+0x0000ec31	Vehicle Starting Control 01
+0x0000eea1	session_01
+0x0000eead	defaultSession
+0x0000efb8	session_03
+0x0000efc4	extendedDiagnosticSession
+0x0000efe4	service_22_p4_max_00
+0x0000f157	session_02
+0x0000f163	programmingSession
+0x0000f17c	service_22_p4_max_01
+0x0000f1df	nrc_13
+0x0000f1e7	incorrectMessageLengthOrInvalidFormat
+0x0000f225	nrc_22
+0x0000f22d	conditionsNotCorrect
+0x0000f25a	nrc_31
+0x0000f262	requestOutOfRange
+0x0000f28c	nrc_33
+0x0000f294	securityAccessDenied
+0x0000f2c3	service_22
+0x0000f2cf	ReadDataByIdentifier
+0x0000f372	CGEA13
+0x0000f37a	did_de07_subfield_1_data_def_enum_1
+0x0000f3a9	CGEA12
+0x0000f3b1	did_de07_subfield_1_data_def_enum_2
+0x0000f3e1	0x00
+0x0000f3e8	did_de07_subfield_1_data_def
+0x0000f413	did_DE07_subfield_1
+0x0000f428	MsgListSrc_Cfg
+0x0000f4aa	did_de07_subfield_2_data_def
+0x0000f50c	did_DE07_subfield_2
+0x0000f521	NetworkSleepDelay_Cfg
+0x0000f55d	NORMAL
+0x0000f565	did_de07_subfield_3_data_def_enum_1
+0x0000f594	FACTORY
+0x0000f59d	did_de07_subfield_3_data_def_enum_2
+0x0000f5cf	did_de07_subfield_3_data_def
+0x0000f5fa	did_DE07_subfield_3
+0x0000f60f	FactoryMode_Cfg
+0x0000f674	did_de07_subfield_4_data_def
+0x0000f6d6	did_DE07_subfield_4
+0x0000f6eb	BootDebounceDelay_Cfg
+0x0000f709	MsgListSrc_Cfg NetworkSleepDelay_Cfg FactoryMode_Cfg BootDebounceDelay_Cfg (reserved) (reserved)
+0x0000f76b	did_DE07
+0x0000f775	Common Input Processes 01
+0x0000f9e1	session_01
+0x0000f9ed	defaultSession
+0x0000faf8	session_03
+0x0000fb04	extendedDiagnosticSession
+0x0000fb24	service_22_p4_max_00
+0x0000fc97	session_02
+0x0000fca3	programmingSession
+0x0000fcbc	service_22_p4_max_01
+0x0000fd1f	nrc_13
+0x0000fd27	incorrectMessageLengthOrInvalidFormat
+0x0000fd65	nrc_22
+0x0000fd6d	conditionsNotCorrect
+0x0000fd9a	nrc_31
+0x0000fda2	requestOutOfRange
+0x0000fdcc	nrc_33
+0x0000fdd4	securityAccessDenied
+0x0000fe03	service_22
+0x0000fe0f	ReadDataByIdentifier
+0x0000feff	did_de08_subfield_1_data_def
+0x0000ff61	did_DE08_subfield_1
+0x0000ff76	FETIncrVal_Cfg [RCM_OUT]
+0x0000ffe4	did_de08_subfield_2_data_def
+0x00010046	did_DE08_subfield_2
+0x0001005b	FETIncrVal_Cfg [OCS_OUT]
+0x000100c9	did_de08_subfield_3_data_def
+0x0001012b	did_DE08_subfield_3
+0x00010140	FETDecrVal_Cfg [RCM_OUT]
+0x000101ae	did_de08_subfield_4_data_def
+0x00010210	did_DE08_subfield_4
+0x00010225	FETDecrVal_Cfg [OCS_OUT]
+0x00010293	did_de08_subfield_5_data_def
+0x000102f5	did_DE08_subfield_5
+0x0001030a	FETLife_Cfg [RCM_OUT]
+0x00010375	did_de08_subfield_6_data_def
+0x000103d7	did_DE08_subfield_6
+0x000103ec	FETLife_Cfg [OCS_OUT]
+0x000104b3	did_DE08
+0x000104bd	Body Features 07
+0x00010717	session_01
+0x00010723	defaultSession
+0x0001082e	session_03
+0x0001083a	extendedDiagnosticSession
+0x0001085a	service_22_p4_max_00
+0x000109cd	session_02
+0x000109d9	programmingSession
+0x000109f2	service_22_p4_max_01
+0x00010a55	nrc_13
+0x00010a5d	incorrectMessageLengthOrInvalidFormat
+0x00010a9b	nrc_22
+0x00010aa3	conditionsNotCorrect
+0x00010ad0	nrc_31
+0x00010ad8	requestOutOfRange
+0x00010b02	nrc_33
+0x00010b0a	securityAccessDenied
+0x00010b39	service_22
+0x00010b45	ReadDataByIdentifier
+0x00010c35	did_de09_subfield_1_data_def
+0x00010c97	did_DE09_subfield_1
+0x00010cac	FETShortThreshold_Cfg [RCM_OUT]
+0x00010d21	did_de09_subfield_2_data_def
+0x00010d83	did_DE09_subfield_2
+0x00010d98	FETShortThreshold_Cfg [OCS_OUT]
+0x00010f48	did_DE09
+0x00010f52	Body Features 08
+0x000111ac	session_01
+0x000111b8	defaultSession
+0x000112c3	session_03
+0x000112cf	extendedDiagnosticSession
+0x000112ef	service_22_p4_max_00
+0x00011462	session_02
+0x0001146e	programmingSession
+0x00011487	service_22_p4_max_01
+0x000114ea	nrc_13
+0x000114f2	incorrectMessageLengthOrInvalidFormat
+0x00011530	nrc_22
+0x00011538	conditionsNotCorrect
+0x00011565	nrc_31
+0x0001156d	requestOutOfRange
+0x00011597	nrc_33
+0x0001159f	securityAccessDenied
+0x000115ce	service_22
+0x000115da	ReadDataByIdentifier
+0x000116ca	did_de0a_subfield_1_data_def
+0x0001172c	did_DE0A_subfield_1
+0x00011741	RunAvg_BufferSize_Cfg
+0x000117ac	did_de0a_subfield_2_data_def
+0x0001180e	did_DE0A_subfield_2
+0x00011823	RunAvg_BitShift_Cfg
+0x0001188c	did_de0a_subfield_3_data_def
+0x000118ee	did_DE0A_subfield_3
+0x00011903	ShortVBattFaultThresh_RCM_Cfg
+0x00011976	did_de0a_subfield_4_data_def
+0x000119d8	did_DE0A_subfield_4
+0x000119ed	ShortVBattFaultThresh_OCS_Cfg
+0x00011a60	did_de0a_subfield_5_data_def
+0x00011ac2	did_DE0A_subfield_5
+0x00011ad7	ShortVBattFaultDelay_Cfg
+0x00011b45	did_de0a_subfield_6_data_def
+0x00011ba7	did_DE0A_subfield_6
+0x00011bbc	ShortVBattConfirmOnDelay_Cfg
+0x00011c80	did_DE0A
+0x00011c8a	Output Processes 01
+0x00011eea	session_01
+0x00011ef6	defaultSession
+0x00012001	session_03
+0x0001200d	extendedDiagnosticSession
+0x0001202d	service_22_p4_max_00
+0x000121a0	session_02
+0x000121ac	programmingSession
+0x000121c5	service_22_p4_max_01
+0x00012228	nrc_13
+0x00012230	incorrectMessageLengthOrInvalidFormat
+0x0001226e	nrc_22
+0x00012276	conditionsNotCorrect
+0x000122a3	nrc_31
+0x000122ab	requestOutOfRange
+0x000122d5	nrc_33
+0x000122dd	securityAccessDenied
+0x0001230c	service_22
+0x00012318	ReadDataByIdentifier
+0x00012408	did_de0b_subfield_1_data_def
+0x0001246a	did_DE0B_subfield_1
+0x0001247f	PAAT_Ckt_Fault_Cfg
+0x000124e7	did_de0b_subfield_2_data_def
+0x00012549	did_DE0B_subfield_2
+0x0001255e	RCM_Out_DbncCnt_Cfg
+0x000125c7	did_de0b_subfield_3_data_def
+0x00012629	did_DE0B_subfield_3
+0x0001263e	OCS_Out_DbncCnt_Cfg
+0x0001265a	PAAT_Ckt_Fault_Cfg RCM_Out_DbncCnt_Cfg OCS_Out_DbncCnt_Cfg (reserved) (reserved) (reserved) (reserved) (reserved) (reserved)
+0x000126d8	did_DE0B
+0x000126e2	Common Input Processes 02
+0x0001294e	session_01
+0x0001295a	defaultSession
+0x00012a65	session_03
+0x00012a71	extendedDiagnosticSession
+0x00012a91	service_22_p4_max_00
+0x00012c04	session_02
+0x00012c10	programmingSession
+0x00012c29	service_22_p4_max_01
+0x00012c8c	nrc_13
+0x00012c94	incorrectMessageLengthOrInvalidFormat
+0x00012cd2	nrc_22
+0x00012cda	conditionsNotCorrect
+0x00012d07	nrc_31
+0x00012d0f	requestOutOfRange
+0x00012d39	nrc_33
+0x00012d41	securityAccessDenied
+0x00012d70	service_22
+0x00012d7c	ReadDataByIdentifier
+0x00012e3d	did_f109_subfield_1_data_def
+0x00012e68	did_F109_subfield_1
+0x00012e7d	Boot Software Version Number- Main Version
+0x00012ed4	did_f109_subfield_2_data_def
+0x00012eff	did_F109_subfield_2
+0x00012f14	Boot Software Version Number- Sub Version
+0x00012f6a	did_f109_subfield_3_data_def
+0x00012f95	did_F109_subfield_3
+0x00012faa	Boot Software Version Number- Release Version
+0x00012fe1	did_F109
+0x00012feb	Boot Software Version Number
+0x0001325d	session_01
+0x00013269	defaultSession
+0x00013374	session_03
+0x00013380	extendedDiagnosticSession
+0x000133a0	service_22_p4_max_00
+0x00013513	session_02
+0x0001351f	programmingSession
+0x00013538	service_22_p4_max_01
+0x0001359b	nrc_13
+0x000135a3	incorrectMessageLengthOrInvalidFormat
+0x000135e1	nrc_22
+0x000135e9	conditionsNotCorrect
+0x00013616	nrc_31
+0x0001361e	requestOutOfRange
+0x00013648	nrc_33
+0x00013650	securityAccessDenied
+0x0001367f	service_22
+0x0001368b	ReadDataByIdentifier
+0x00013750	did_f110_subfield_1_data_def
+0x0001377b	did_F110_subfield_1
+0x00013790	Subsystem Specific Diagnostic Specification Part Number
+0x00013864	did_F110
+0x0001386e	Subsystem Specific Diagnostic Specification Part Number
+0x00013b16	session_01
+0x00013b22	defaultSession
+0x00013c2d	session_03
+0x00013c39	extendedDiagnosticSession
+0x00013c59	service_22_p4_max_00
+0x00013dcc	session_02
+0x00013dd8	programmingSession
+0x00013df1	service_22_p4_max_01
+0x00013e54	nrc_13
+0x00013e5c	incorrectMessageLengthOrInvalidFormat
+0x00013e9a	nrc_22
+0x00013ea2	conditionsNotCorrect
+0x00013ecf	nrc_31
+0x00013ed7	requestOutOfRange
+0x00013f01	nrc_33
+0x00013f09	securityAccessDenied
+0x00013f38	service_22
+0x00013f44	ReadDataByIdentifier
+0x0001400d	did_f111_subfield_1_data_def
+0x00014038	did_F111_subfield_1
+0x0001404d	ECU Core Assembly Number
+0x0001406e	Config Requirements = n/a Dataflow = Supplier defined (also in Bootloader)
+0x000140ba	did_F111
+0x000140c4	ECU Core Assembly Number
+0x0001432e	session_01
+0x0001433a	defaultSession
+0x00014445	session_03
+0x00014451	extendedDiagnosticSession
+0x00014471	service_22_p4_max_00
+0x000145e4	session_02
+0x000145f0	programmingSession
+0x00014609	service_22_p4_max_01
+0x0001466c	nrc_13
+0x00014674	incorrectMessageLengthOrInvalidFormat
+0x000146b2	nrc_22
+0x000146ba	conditionsNotCorrect
+0x000146e7	nrc_31
+0x000146ef	requestOutOfRange
+0x00014719	nrc_33
+0x00014721	securityAccessDenied
+0x00014750	service_22
+0x0001475c	ReadDataByIdentifier
+0x00014825	did_f113_subfield_1_data_def
+0x00014850	did_F113_subfield_1
+0x00014865	ECU Delivery Assembly Number
+0x0001488a	Config Requirements = n/a Dataflow = Supplier defined (also in Bootloader)
+0x000148d6	did_F113
+0x000148e0	ECU Delivery Assembly Number
+0x00014b52	session_01
+0x00014b5e	defaultSession
+0x00014c69	session_03
+0x00014c75	extendedDiagnosticSession
+0x00014c95	service_22_p4_max_00
+0x00014e08	session_02
+0x00014e14	programmingSession
+0x00014e2d	service_22_p4_max_01
+0x00014e90	nrc_13
+0x00014e98	incorrectMessageLengthOrInvalidFormat
+0x00014ed6	nrc_22
+0x00014ede	conditionsNotCorrect
+0x00014f0b	nrc_31
+0x00014f13	requestOutOfRange
+0x00014f3d	nrc_33
+0x00014f45	securityAccessDenied
+0x00014f74	service_22
+0x00014f80	ReadDataByIdentifier
+0x00015017	Vector
+0x0001501f	did_f15f_subfield_1_data_def_enum_1
+0x00015051	did_f15f_subfield_1_data_def
+0x0001507c	did_F15F_subfield_1
+0x00015091	NOS Generation Tool Supplier
+0x000150cd	did_f15f_subfield_2_data_def
+0x000150f8	did_F15F_subfield_2
+0x0001510d	NOS Generation Tool Version Number
+0x00015138	Config Requirements = n/a Dataflow = Supplier defined
+0x0001516f	did_F15F
+0x00015179	NOS Generation Tool Version Number
+0x000153f7	session_01
+0x00015403	defaultSession
+0x0001550e	session_03
+0x0001551a	extendedDiagnosticSession
+0x0001553a	service_22_p4_max_00
+0x000156ad	session_02
+0x000156b9	programmingSession
+0x000156d2	service_22_p4_max_01
+0x00015735	nrc_13
+0x0001573d	incorrectMessageLengthOrInvalidFormat
+0x0001577b	nrc_22
+0x00015783	conditionsNotCorrect
+0x000157b0	nrc_31
+0x000157b8	requestOutOfRange
+0x000157e2	nrc_33
+0x000157ea	securityAccessDenied
+0x00015819	service_22
+0x00015825	ReadDataByIdentifier
+0x000158ba	SWDL 31808456 Issue P01
+0x000158d3	did_f162_subfield_1_data_def_enum_1
+0x00015902	SWDL 31808456 Issue 001
+0x0001591b	did_f162_subfield_1_data_def_enum_2
+0x0001594a	SWDL 31808456 Issue 002
+0x00015963	did_f162_subfield_1_data_def_enum_3
+0x00015992	SWDL 31808456 Issue 003
+0x000159ab	did_f162_subfield_1_data_def_enum_4
+0x000159da	SWDL 31808456 Issue 004
+0x000159f3	did_f162_subfield_1_data_def_enum_5
+0x00015a22	SWDL 31808456 Issue 005
+0x00015a3b	did_f162_subfield_1_data_def_enum_6
+0x00015a6a	SWDL 00.06.15.002-006
+0x00015a81	did_f162_subfield_1_data_def_enum_7
+0x00015ab3	did_f162_subfield_1_data_def
+0x00015ade	did_F162_subfield_1
+0x00015af3	Software Download Specification Version
+0x00015b24	did_F162
+0x00015b2e	Software Download Specification Version
+0x00015db6	session_01
+0x00015dc2	defaultSession
+0x00015ecd	session_03
+0x00015ed9	extendedDiagnosticSession
+0x00015ef9	service_22_p4_max_00
+0x0001606c	session_02
+0x00016078	programmingSession
+0x00016091	service_22_p4_max_01
+0x000160f4	nrc_13
+0x000160fc	incorrectMessageLengthOrInvalidFormat
+0x0001613a	nrc_22
+0x00016142	conditionsNotCorrect
+0x0001616f	nrc_31
+0x00016177	requestOutOfRange
+0x000161a1	nrc_33
+0x000161a9	securityAccessDenied
+0x000161d8	service_22
+0x000161e4	ReadDataByIdentifier
+0x0001627b	GGDS 31810161 Issue 001
+0x00016294	did_f163_subfield_1_data_def_enum_1
+0x000162c3	GGDS 31810161 Issue 002
+0x000162dc	did_f163_subfield_1_data_def_enum_2
+0x0001630b	GGDS 31810161 Issue 003
+0x00016324	did_f163_subfield_1_data_def_enum_3
+0x00016353	GGDS 00.06.15.001-004
+0x0001636a	did_f163_subfield_1_data_def_enum_4
+0x0001639c	did_f163_subfield_1_data_def
+0x000163c7	did_F163_subfield_1
+0x000163dc	Diagnostic Specification Version
+0x00016405	Config Requirements = n/a Dataflow = Supplier defined
+0x0001643c	did_F163
+0x00016446	Diagnostic Specification Version
+0x000166c0	session_01
+0x000166cc	defaultSession
+0x000167d7	session_03
+0x000167e3	extendedDiagnosticSession
+0x00016803	service_22_p4_max_00
+0x00016976	session_02
+0x00016982	programmingSession
+0x0001699b	service_22_p4_max_01
+0x000169fe	nrc_13
+0x00016a06	incorrectMessageLengthOrInvalidFormat
+0x00016a44	nrc_22
+0x00016a4c	conditionsNotCorrect
+0x00016a79	nrc_31
+0x00016a81	requestOutOfRange
+0x00016aab	nrc_33
+0x00016ab3	securityAccessDenied
+0x00016ae2	service_22
+0x00016aee	ReadDataByIdentifier
+0x00016bb1	did_f166_subfield_1_data_def
+0x00016bdc	did_F166_subfield_1
+0x00016bf1	Year
+0x00016c22	did_f166_subfield_2_data_def
+0x00016c4d	did_F166_subfield_2
+0x00016c62	Month
+0x00016c94	did_f166_subfield_3_data_def
+0x00016cbf	did_F166_subfield_3
+0x00016cd4	Day
+0x00016d04	did_f166_subfield_4_data_def
+0x00016d2f	did_F166_subfield_4
+0x00016d44	Release Version
+0x00016d5c	Config Requirements = n/a Dataflow = Supplier defined
+0x00016d93	did_F166
+0x00016d9d	NOS Message Database #1 Version Number
+0x00017023	session_01
+0x0001702f	defaultSession
+0x0001713a	session_03
+0x00017146	extendedDiagnosticSession
+0x00017166	service_22_p4_max_00
+0x000172d9	session_02
+0x000172e5	programmingSession
+0x000172fe	service_22_p4_max_01
+0x00017361	nrc_13
+0x00017369	incorrectMessageLengthOrInvalidFormat
+0x000173a7	nrc_22
+0x000173af	conditionsNotCorrect
+0x000173dc	nrc_31
+0x000173e4	requestOutOfRange
+0x0001740e	nrc_33
+0x00017416	securityAccessDenied
+0x00017445	service_22
+0x00017451	ReadDataByIdentifier
+0x000174ec	Vector
+0x000174f4	did_f17c_subfield_1_data_def_enum_1
+0x00017526	did_f17c_subfield_1_data_def
+0x00017551	did_F17C_subfield_1
+0x00017566	NOS Bootloader Generation Tool Supplier
+0x000175ad	did_f17c_subfield_2_data_def
+0x000175d8	did_F17C_subfield_2
+0x000175ed	NOS Bootloader Generation Tool Version Number
+0x00017624	did_F17C
+0x0001762e	NOS Bootloader Generation Tool Version Number
+0x000178c2	session_01
+0x000178ce	defaultSession
+0x000179d9	session_03
+0x000179e5	extendedDiagnosticSession
+0x00017a05	service_22_p4_max_00
+0x00017b78	session_02
+0x00017b84	programmingSession
+0x00017b9d	service_22_p4_max_01
+0x00017c00	nrc_13
+0x00017c08	incorrectMessageLengthOrInvalidFormat
+0x00017c46	nrc_22
+0x00017c4e	conditionsNotCorrect
+0x00017c7b	nrc_31
+0x00017c83	requestOutOfRange
+0x00017cad	nrc_33
+0x00017cb5	securityAccessDenied
+0x00017ce4	service_22
+0x00017cf0	ReadDataByIdentifier
+0x00017ddc	did_f180_subfield_1_data_def
+0x00017e07	did_F180_subfield_1
+0x00017e1c	Number Of Modules (ISO14229 compatibility - always set to 01h)
+0x00017eaf	did_f180_subfield_2_data_def
+0x00017eda	did_F180_subfield_2
+0x00017eef	Boot Software Identifcation Data (Part no. of the bootloader)
+0x00017f36	did_F180
+0x00017f40	Boot Software Identification
+0x000181b2	session_01
+0x000181be	defaultSession
+0x000182c9	session_03
+0x000182d5	extendedDiagnosticSession
+0x000182f5	service_22_p4_max_00
+0x00018468	session_02
+0x00018474	programmingSession
+0x0001848d	service_22_p4_max_01
+0x000184f0	nrc_13
+0x000184f8	incorrectMessageLengthOrInvalidFormat
+0x00018536	nrc_22
+0x0001853e	conditionsNotCorrect
+0x0001856b	nrc_31
+0x00018573	requestOutOfRange
+0x0001859d	nrc_33
+0x000185a5	securityAccessDenied
+0x000185d4	service_22
+0x000185e0	ReadDataByIdentifier
+0x000186a5	did_f188_subfield_1_data_def
+0x000186d0	did_F188_subfield_1
+0x000186e5	Vehicle Manufacturer ECU Software Number
+0x00018716	Config Requirements = n/a Dataflow = Supplier defined
+0x0001874d	did_F188
+0x00018757	Vehicle Manufacturer ECU Software Number
+0x000189e1	session_01
+0x000189ed	defaultSession
+0x00018af8	session_03
+0x00018b04	extendedDiagnosticSession
+0x00018b24	service_22_p4_max_00
+0x00018c97	session_02
+0x00018ca3	programmingSession
+0x00018cbc	service_22_p4_max_01
+0x00018d1f	nrc_13
+0x00018d27	incorrectMessageLengthOrInvalidFormat
+0x00018d65	nrc_22
+0x00018d6d	conditionsNotCorrect
+0x00018d9a	nrc_31
+0x00018da2	requestOutOfRange
+0x00018dcc	nrc_33
+0x00018dd4	securityAccessDenied
+0x00018e03	service_22
+0x00018e0f	ReadDataByIdentifier
+0x00018ed6	did_f18c_subfield_1_data_def
+0x00018f01	did_F18C_subfield_1
+0x00018f16	ECU Serial Number
+0x00018f30	Config Requirements = n/a
+0x00018f4b	did_F18C
+0x00018f55	ECU Serial Number
+0x000191b1	session_01
+0x000191bd	defaultSession
+0x000192c8	session_03
+0x000192d4	extendedDiagnosticSession
+0x000192f4	service_22_p4_max_00
+0x00019467	session_02
+0x00019473	programmingSession
+0x0001948c	service_22_p4_max_01
+0x000194ef	nrc_13
+0x000194f7	incorrectMessageLengthOrInvalidFormat
+0x00019535	nrc_22
+0x0001953d	conditionsNotCorrect
+0x0001956a	nrc_31
+0x00019572	requestOutOfRange
+0x0001959c	nrc_33
+0x000195a4	securityAccessDenied
+0x000195d3	service_22
+0x000195df	ReadDataByIdentifier
+0x000196c3	did_fd01_subfield_1_data_def
+0x000196ee	did_FD01_subfield_1
+0x00019703	RCM Status Feedback
+0x0001976c	did_fd01_subfield_2_data_def
+0x00019797	did_FD01_subfield_2
+0x000197ac	OCS Status Feedback
+0x00019a1f	did_FD01
+0x00019a29	RCM-OCS Status Feedback
+0x00019c91	session_01
+0x00019c9d	defaultSession
+0x00019da8	session_03
+0x00019db4	extendedDiagnosticSession
+0x00019dd4	service_22_p4_max_00
+0x00019f47	session_02
+0x00019f53	programmingSession
+0x00019f6c	service_22_p4_max_01
+0x00019fcf	nrc_13
+0x00019fd7	incorrectMessageLengthOrInvalidFormat
+0x0001a015	nrc_22
+0x0001a01d	conditionsNotCorrect
+0x0001a04a	nrc_31
+0x0001a052	requestOutOfRange
+0x0001a07c	nrc_33
+0x0001a084	securityAccessDenied
+0x0001a0b3	service_22
+0x0001a0bf	ReadDataByIdentifier
+0x0001a156	DISABLE
+0x0001a15f	did_fd03_subfield_1_data_def_enum_1
+0x0001a18e	ENABLE
+0x0001a196	did_fd03_subfield_1_data_def_enum_2
+0x0001a1c8	did_fd03_subfield_1_data_def
+0x0001a1f3	did_FD03_subfield_1
+0x0001a208	Enable RCM-OCS Output
+0x0001a248	did_fd03_subfield_2_data_def_enum_1
+0x0001a27b	did_fd03_subfield_2_data_def_enum_2
+0x0001a2ad	did_fd03_subfield_2_data_def
+0x0001a2d8	did_FD03_subfield_2
+0x0001a2ed	Enable Battery Output
+0x0001a32d	did_fd03_subfield_3_data_def_enum_1
+0x0001a360	did_fd03_subfield_3_data_def_enum_2
+0x0001a392	did_fd03_subfield_3_data_def
+0x0001a3bd	did_FD03_subfield_3
+0x0001a3d2	Selector Output
+0x0001a3ea	This is a Supplier use DID only. Config Requirements = n/a Dataflow: Supplier defined Circuit:
+0x0001a44a	did_FD03
+0x0001a454	Output Control
+0x0001a471	did_FD03   
+   �Output Control�did_FD03
+   �  �did_FD06 � ��   � ����� �     �\ " �@����� �  � 2  �` ������This diagnostic session enables the default diagnostic session in the server(s) and does not support any diagnostic application timeout handling provisions (e.g., TesterPresent service is not necessary to keep the session active). A server shall always start the default diagnostic session when powered up. If no other diagnostic session is started, then the default diagnostic session shall be running as long as the server is powered.�
+session_01�defaultSession�  �` ������ This diagnosticSession is used to enable timed diagnostic service functionality (e.g., I/O control). The diagnostic functionality in this session shall also include all supported diagnostic functionality supported in the defaultSession.�
+session_03�extendedDiagnosticSession� ����service_22_p4_
+0x0001a960	session_02
+0x0001a96c	programmingSession
+0x0001a985	service_22_p4_max_01
+0x0001a9e8	nrc_13
+0x0001a9f0	incorrectMessageLengthOrInvalidFormat
+0x0001aa2e	nrc_22
+0x0001aa36	conditionsNotCorrect
+0x0001aa63	nrc_31
+0x0001aa6b	requestOutOfRange
+0x0001aa95	nrc_33
+0x0001aa9d	securityAccessDenied
+0x0001aacc	service_22
+0x0001aad8	ReadDataByIdentifier
+0x0001abbc	did_fd06_subfield_1_data_def
+0x0001abe7	did_FD06_subfield_1
+0x0001abfc	Vehicle Speed
+0x0001ac12	This is a Supplier use DID only. Config Requirements = n/a Dataflow: Veh_V_ActlEng Circuit:
+0x0001ac6f	did_FD06
+0x0001ac79	Vehicle Speed
+0x0001aecd	session_01
+0x0001aed9	defaultSession
+0x0001afe4	session_03
+0x0001aff0	extendedDiagnosticSession
+0x0001b010	service_22_p4_max_00
+0x0001b183	session_02
+0x0001b18f	programmingSession
+0x0001b1a8	service_22_p4_max_01
+0x0001b20b	nrc_13
+0x0001b213	incorrectMessageLengthOrInvalidFormat
+0x0001b251	nrc_22
+0x0001b259	conditionsNotCorrect
+0x0001b286	nrc_31
+0x0001b28e	requestOutOfRange
+0x0001b2b8	nrc_33
+0x0001b2c0	securityAccessDenied
+0x0001b2ef	service_22
+0x0001b2fb	ReadDataByIdentifier
+0x0001b38b	did_fd08_subfield_1_data_def
+0x0001b3b6	did_FD08_subfield_1
+0x0001b3cb	Software_version_1
+0x0001b3fd	did_fd08_subfield_2_data_def
+0x0001b428	did_FD08_subfield_2
+0x0001b43d	Software_version_2
+0x0001b46f	did_fd08_subfield_3_data_def
+0x0001b49a	did_FD08_subfield_3
+0x0001b4af	Software_version_3
+0x0001b4ca	This is a Supplier use DID only. Config Requirements = n/a Dataflow: TBD Circuit:
+0x0001b51d	did_FD08
+0x0001b527	Software internal Version
+0x0001b793	session_01
+0x0001b79f	defaultSession
+0x0001b8aa	session_03
+0x0001b8b6	extendedDiagnosticSession
+0x0001b8d6	service_22_p4_max_00
+0x0001ba49	session_02
+0x0001ba55	programmingSession
+0x0001ba6e	service_22_p4_max_01
+0x0001bad1	nrc_13
+0x0001bad9	incorrectMessageLengthOrInvalidFormat
+0x0001bb17	nrc_22
+0x0001bb1f	conditionsNotCorrect
+0x0001bb4c	nrc_31
+0x0001bb54	requestOutOfRange
+0x0001bb7e	nrc_33
+0x0001bb86	securityAccessDenied
+0x0001bbb5	service_22
+0x0001bbc1	ReadDataByIdentifier
+0x0001bc4f	did_fd09_subfield_1_data_def
+0x0001bc7a	did_FD09_subfield_1
+0x0001bc8f	Bootloader_Software_version_1
+0x0001bccc	did_fd09_subfield_2_data_def
+0x0001bcf7	did_FD09_subfield_2
+0x0001bd0c	Bootloader_Software_version_2
+0x0001bd49	did_fd09_subfield_3_data_def
+0x0001bd74	did_FD09_subfield_3
+0x0001bd89	Bootloader_Software_version_3
+0x0001bdaf	This is a Supplier use DID only. Config Requirements = n/a Dataflow: TBD Circuit:
+0x0001be02	did_FD09
+0x0001be0c	Bootloader software Version
+0x0001c07c	session_01
+0x0001c088	defaultSession
+0x0001c193	session_03
+0x0001c19f	extendedDiagnosticSession
+0x0001c1bf	service_22_p4_max_00
+0x0001c332	session_02
+0x0001c33e	programmingSession
+0x0001c357	service_22_p4_max_01
+0x0001c3ba	nrc_13
+0x0001c3c2	incorrectMessageLengthOrInvalidFormat
+0x0001c400	nrc_22
+0x0001c408	conditionsNotCorrect
+0x0001c435	nrc_31
+0x0001c43d	requestOutOfRange
+0x0001c467	nrc_33
+0x0001c46f	securityAccessDenied
+0x0001c49e	service_22
+0x0001c4aa	ReadDataByIdentifier
+0x0001c541	NO_FAULT
+0x0001c54b	did_fd11_subfield_1_data_def_enum_1
+0x0001c57a	FAULT
+0x0001c581	did_fd11_subfield_1_data_def_enum_2
+0x0001c5b0	UNKNOWN
+0x0001c5b9	did_fd11_subfield_1_data_def_enum_3
+0x0001c5eb	did_fd11_subfield_1_data_def
+0x0001c616	did_FD11_subfield_1
+0x0001c62b	PassThru
+0x0001c65e	did_fd11_subfield_2_data_def_enum_1
+0x0001c691	did_fd11_subfield_2_data_def_enum_2
+0x0001c6c3	did_fd11_subfield_2_data_def
+0x0001c6ee	did_FD11_subfield_2
+0x0001c703	PAAT
+0x0001c732	did_fd11_subfield_3_data_def_enum_1
+0x0001c765	did_fd11_subfield_3_data_def_enum_2
+0x0001c797	did_fd11_subfield_3_data_def
+0x0001c7c2	did_FD11_subfield_3
+0x0001c7d7	ShorttoVBatt
+0x0001c80e	did_fd11_subfield_4_data_def_enum_1
+0x0001c841	did_fd11_subfield_4_data_def_enum_2
+0x0001c873	did_fd11_subfield_4_data_def
+0x0001c89e	did_FD11_subfield_4
+0x0001c8b3	ShorttoGnd
+0x0001c8e8	did_fd11_subfield_5_data_def_enum_1
+0x0001c91b	did_fd11_subfield_5_data_def_enum_2
+0x0001c94d	did_fd11_subfield_5_data_def
+0x0001c978	did_FD11_subfield_5
+0x0001c98d	IgnStatAgree
+0x0001c9c4	did_fd11_subfield_6_data_def_enum_1
+0x0001c9f7	did_fd11_subfield_6_data_def_enum_2
+0x0001ca26	NULL
+0x0001ca2c	did_fd11_subfield_6_data_def_enum_3
+0x0001ca5e	did_fd11_subfield_6_data_def
+0x0001ca89	did_FD11_subfield_6
+0x0001ca9e	Missing Message
+0x0001cad8	did_fd11_subfield_7_data_def_enum_1
+0x0001cb0b	did_fd11_subfield_7_data_def_enum_2
+0x0001cb3d	did_fd11_subfield_7_data_def
+0x0001cb68	did_FD11_subfield_7
+0x0001cb7d	DTC F00049
+0x0001cb90	This is a Supplier use DID only. Config Requirements = see table 2.3-16 for details Dataflow: EPM_Fault_Status Circuit:n/a
+0x0001cc0c	did_FD11
+0x0001cc16	Fault Status report
+0x0001ce76	session_01
+0x0001ce82	defaultSession
+0x0001cf8d	session_03
+0x0001cf99	extendedDiagnosticSession
+0x0001cfb9	service_22_p4_max_00
+0x0001d12c	session_02
+0x0001d138	programmingSession
+0x0001d151	service_22_p4_max_01
+0x0001d1b4	nrc_13
+0x0001d1bc	incorrectMessageLengthOrInvalidFormat
+0x0001d1fa	nrc_22
+0x0001d202	conditionsNotCorrect
+0x0001d22f	nrc_31
+0x0001d237	requestOutOfRange
+0x0001d261	nrc_33
+0x0001d269	securityAccessDenied
+0x0001d298	service_22
+0x0001d2a4	ReadDataByIdentifier
+0x0001d340	did_fd12_subfield_1_data_def
+0x0001d36b	did_FD12_subfield_1
+0x0001d380	FETTestDuration_Cfg
+0x0001d3b3	did_fd12_subfield_2_data_def
+0x0001d3de	did_FD12_subfield_2
+0x0001d3f3	FETMiscThreshold_Cfg
+0x0001d427	did_fd12_subfield_3_data_def
+0x0001d452	did_FD12_subfield_3
+0x0001d467	FETOpenThreshold_Cfg
+0x0001d49b	did_fd12_subfield_4_data_def
+0x0001d4c6	did_FD12_subfield_4
+0x0001d4db	FETShort_Cnt
+0x0001d507	did_fd12_subfield_5_data_def
+0x0001d532	did_FD12_subfield_5
+0x0001d547	FETProtCtrl_Cfg
+0x0001d576	did_fd12_subfield_6_data_def
+0x0001d5a1	did_FD12_subfield_6
+0x0001d5b6	FETReset
+0x0001d5de	did_fd12_subfield_7_data_def
+0x0001d609	did_FD12_subfield_7
+0x0001d61e	FETGood
+0x0001d7bd	did_FD12
+0x0001d7c7	RCM FET Configurations
+0x0001da2d	session_01
+0x0001da39	defaultSession
+0x0001db44	session_03
+0x0001db50	extendedDiagnosticSession
+0x0001db70	service_22_p4_max_00
+0x0001dce3	session_02
+0x0001dcef	programmingSession
+0x0001dd08	service_22_p4_max_01
+0x0001dd6b	nrc_13
+0x0001dd73	incorrectMessageLengthOrInvalidFormat
+0x0001ddb1	nrc_22
+0x0001ddb9	conditionsNotCorrect
+0x0001dde6	nrc_31
+0x0001ddee	requestOutOfRange
+0x0001de18	nrc_33
+0x0001de20	securityAccessDenied
+0x0001de4f	service_22
+0x0001de5b	ReadDataByIdentifier
+0x0001def7	did_fd13_subfield_1_data_def
+0x0001df22	did_FD13_subfield_1
+0x0001df37	FETTestDuration_Cfg
+0x0001df6a	did_fd13_subfield_2_data_def
+0x0001df95	did_FD13_subfield_2
+0x0001dfaa	FETMiscThreshold_Cfg
+0x0001dfde	did_fd13_subfield_3_data_def
+0x0001e009	did_FD13_subfield_3
+0x0001e01e	FETOpenThreshold_Cfg
+0x0001e052	did_fd13_subfield_4_data_def
+0x0001e07d	did_FD13_subfield_4
+0x0001e092	FETShort_Cnt
+0x0001e0be	did_fd13_subfield_5_data_def
+0x0001e0e9	did_FD13_subfield_5
+0x0001e0fe	FETProtCtrl_Cfg
+0x0001e12d	did_fd13_subfield_6_data_def
+0x0001e158	did_FD13_subfield_6
+0x0001e16d	FETReset
+0x0001e195	did_fd13_subfield_7_data_def
+0x0001e1c0	did_FD13_subfield_7
+0x0001e1d5	FETGood
+0x0001e374	did_FD13
+0x0001e37e	OCS FET Configurations
+0x0001e472	did_fd14_subfield_1_data_def
+0x0001e49d	did_FD14_subfield_1
+0x0001e4b2	Module Reset to New
+0x0001e669	did_FD14
+0x0001e673	Module Reset to New
+0x0001e8d3	session_01
+0x0001e8df	defaultSession
+0x0001e9ea	session_03
+0x0001e9f6	extendedDiagnosticSession
+0x0001ea16	service_22_p4_max_00
+0x0001eb89	session_02
+0x0001eb95	programmingSession
+0x0001ebae	service_22_p4_max_01
+0x0001ec11	nrc_13
+0x0001ec19	incorrectMessageLengthOrInvalidFormat
+0x0001ec57	nrc_22
+0x0001ec5f	conditionsNotCorrect
+0x0001ec8c	nrc_31
+0x0001ec94	requestOutOfRange
+0x0001ecbe	nrc_33
+0x0001ecc6	securityAccessDenied
+0x0001ecf5	service_22
+0x0001ed01	ReadDataByIdentifier
+0x0001edf1	did_fd15_subfield_1_data_def
+0x0001ee57	did_FD15_subfield_1
+0x0001ee6c	Timer Deep Sleep Timeout
+0x0001ef6c	did_FD15
+0x0001ef76	Timer Deep Sleep Timeout
+0x0001f1e0	session_01
+0x0001f1ec	defaultSession
+0x0001f2f7	session_03
+0x0001f303	extendedDiagnosticSession
+0x0001f323	service_22_p4_max_00
+0x0001f496	session_02
+0x0001f4a2	programmingSession
+0x0001f4bb	service_22_p4_max_01
+0x0001f51e	nrc_13
+0x0001f526	incorrectMessageLengthOrInvalidFormat
+0x0001f564	nrc_22
+0x0001f56c	conditionsNotCorrect
+0x0001f599	nrc_31
+0x0001f5a1	requestOutOfRange
+0x0001f5cb	nrc_33
+0x0001f5d3	securityAccessDenied
+0x0001f602	service_22
+0x0001f60e	ReadDataByIdentifier
+0x0001f6aa	did_fd16_subfield_1_data_def
+0x0001f6d5	did_FD16_subfield_1
+0x0001f6ea	ECU Fault
+0x0001f713	did_fd16_subfield_2_data_def
+0x0001f73e	did_FD16_subfield_2
+0x0001f753	Initial Configuration Not Complete
+0x0001f795	did_fd16_subfield_3_data_def
+0x0001f7c0	did_FD16_subfield_3
+0x0001f7d5	Solid State Driver Protection
+0x0001f812	did_fd16_subfield_4_data_def
+0x0001f83d	did_FD16_subfield_4
+0x0001f852	Ignition Status
+0x0001f881	did_fd16_subfield_5_data_def
+0x0001f8ac	did_FD16_subfield_5
+0x0001f8c1	Lost Comm with BCM
+0x0001f8f3	did_fd16_subfield_6_data_def
+0x0001f91e	did_FD16_subfield_6
+0x0001f933	Lost Comm With ECM
+0x0001f965	did_fd16_subfield_7_data_def
+0x0001f990	did_FD16_subfield_7
+0x0001f9a5	RS_RCM_Ckt Open/Short2Gnd
+0x0001f9de	did_fd16_subfield_8_data_def
+0x0001fa09	did_FD16_subfield_8
+0x0001fa1e	RCM_Out_Ckt Short-to-Gnd
+0x0001fa56	did_fd16_subfield_9_data_def
+0x0001fa81	did_FD16_subfield_9
+0x0001fa96	OCS_Out_Ckt Short-to-Gnd
+0x0001face	did_fd16_subfield_10_data_def
+0x0001fafa	did_FD16_subfield_10
+0x0001fb10	RCM_Out_Ckt Short-to-VBatt
+0x0001fb4a	did_fd16_subfield_11_data_def
+0x0001fb76	did_FD16_subfield_11
+0x0001fb8c	OCS_Out_Ckt Short-to-VBatt
+0x0001fbaf	This is a Supplier use DID only. Config Requirements = Dataflow: Circuit:n/a
+0x0001fbfd	did_FD16
+0x0001fc07	DTC Suppression Config
+0x0001fe6d	session_01
+0x0001fe79	defaultSession
+0x0001ff84	session_03
+0x0001ff90	extendedDiagnosticSession
+0x0001ffb0	service_22_p4_max_00
+0x00020123	session_02
+0x0002012f	programmingSession
+0x00020148	service_22_p4_max_01
+0x000201ab	nrc_13
+0x000201b3	incorrectMessageLengthOrInvalidFormat
+0x000201f1	nrc_22
+0x000201f9	conditionsNotCorrect
+0x00020226	nrc_31
+0x0002022e	requestOutOfRange
+0x00020258	nrc_33
+0x00020260	securityAccessDenied
+0x0002028f	service_22
+0x0002029b	ReadDataByIdentifier
+0x00020332	INACTIVE
+0x0002033c	did_fd17_subfield_1_data_def_enum_1
+0x0002036b	ACTIVE
+0x00020373	did_fd17_subfield_1_data_def_enum_2
+0x000203a5	did_fd17_subfield_1_data_def
+0x000203d0	did_FD17_subfield_1
+0x000203e5	Output Processes 01 (DE0A)
+0x0002042a	did_fd17_subfield_2_data_def_enum_1
+0x0002045d	did_fd17_subfield_2_data_def_enum_2
+0x0002048f	did_fd17_subfield_2_data_def
+0x000204ba	did_FD17_subfield_2
+0x000204cf	Body Features 08 (DE09)
+0x00020511	did_fd17_subfield_3_data_def_enum_1
+0x00020544	did_fd17_subfield_3_data_def_enum_2
+0x00020576	did_fd17_subfield_3_data_def
+0x000205a1	did_FD17_subfield_3
+0x000205b6	Body Features 07 (DE08)
+0x000205f8	did_fd17_subfield_4_data_def_enum_1
+0x0002062b	did_fd17_subfield_4_data_def_enum_2
+0x0002065d	did_fd17_subfield_4_data_def
+0x00020688	did_FD17_subfield_4
+0x0002069d	Common Input Processes 01 (DE07)
+0x000206e8	did_fd17_subfield_5_data_def_enum_1
+0x0002071b	did_fd17_subfield_5_data_def_enum_2
+0x0002074d	did_fd17_subfield_5_data_def
+0x00020778	did_FD17_subfield_5
+0x0002078d	Vehicle Starting Control 01 (DE06)
+0x000207da	did_fd17_subfield_6_data_def_enum_1
+0x0002080d	did_fd17_subfield_6_data_def_enum_2
+0x0002083f	did_fd17_subfield_6_data_def
+0x0002086a	did_FD17_subfield_6
+0x0002087f	Body Features 06 (DE05)
+0x000208c1	did_fd17_subfield_7_data_def_enum_1
+0x000208f4	did_fd17_subfield_7_data_def_enum_2
+0x00020926	did_fd17_subfield_7_data_def
+0x00020951	did_FD17_subfield_7
+0x00020966	Body Features 05 (DE04)
+0x000209a8	did_fd17_subfield_8_data_def_enum_1
+0x000209db	did_fd17_subfield_8_data_def_enum_2
+0x00020a0d	did_fd17_subfield_8_data_def
+0x00020a38	did_FD17_subfield_8
+0x00020a4d	Body Features 04 (DE03)
+0x00020a8f	did_fd17_subfield_9_data_def_enum_1
+0x00020ac2	did_fd17_subfield_9_data_def_enum_2
+0x00020af4	did_fd17_subfield_9_data_def
+0x00020b1f	did_FD17_subfield_9
+0x00020b34	Body Features 03 (DE02)
+0x00020b76	did_fd17_subfield_10_data_def_enum_1
+0x00020baa	did_fd17_subfield_10_data_def_enum_2
+0x00020bdd	did_fd17_subfield_10_data_def
+0x00020c09	did_FD17_subfield_10
+0x00020c1f	Body Features 02 (DE01)
+0x00020c61	did_fd17_subfield_11_data_def_enum_1
+0x00020c95	did_fd17_subfield_11_data_def_enum_2
+0x00020cc8	did_fd17_subfield_11_data_def
+0x00020cf4	did_FD17_subfield_11
+0x00020d0a	Body Features 01 (DE00)
+0x00020d2a	This is a Supplier use DID only. Config Requirements = Dataflow: Circuit:n/a
+0x00020d78	did_FD17
+0x00020d82	Written Flag Config
+0x00020e70	did_fd18_subfield_1_data_def
+0x00020e9b	did_FD18_subfield_1
+0x00020eb0	EOL Open Gate Request
+0x00020ece	This is a Supplier use DID only. Reserved for Supplier MFG
+0x00020f0a	did_FD18
+0x00020f14	EOL Open Gate Request
+0x00021178	session_01
+0x00021184	defaultSession
+0x0002128f	session_03
+0x0002129b	extendedDiagnosticSession
+0x000212bb	service_22_p4_max_00
+0x0002142e	session_02
+0x0002143a	programmingSession
+0x00021453	service_22_p4_max_01
+0x000214b6	nrc_13
+0x000214be	incorrectMessageLengthOrInvalidFormat
+0x000214fc	nrc_22
+0x00021504	conditionsNotCorrect
+0x00021531	nrc_31
+0x00021539	requestOutOfRange
+0x00021563	nrc_33
+0x0002156b	securityAccessDenied
+0x0002159a	service_22
+0x000215a6	ReadDataByIdentifier
+0x0002163d	NO FAILURES
+0x0002164a	did_fd20_subfield_1_data_def_enum_1
+0x00021679	INTERNAL PAAT CKT FAILURE
+0x00021694	did_fd20_subfield_1_data_def_enum_2
+0x000216c5	ROM FAILURES
+0x000216d3	did_fd20_subfield_1_data_def_enum_3
+0x00021704	RAM FAILURES
+0x00021712	did_fd20_subfield_1_data_def_enum_4
+0x00021743	CLOCK FAILURES
+0x00021753	did_fd20_subfield_1_data_def_enum_5
+0x00021784	PULLUP FAILURE
+0x00021794	did_fd20_subfield_1_data_def_enum_6
+0x000217c5	UNRECOVERABLE NVM FAULT
+0x000217de	did_fd20_subfield_1_data_def_enum_7
+0x0002180f	FET SHORT FAILURE
+0x00021822	did_fd20_subfield_1_data_def_enum_8
+0x00021853	PLL FAILURE
+0x00021860	did_fd20_subfield_1_data_def_enum_9
+0x00021893	FNOS HW LOOP FAILURE
+0x000218a9	did_fd20_subfield_1_data_def_enum_10
+0x000218dc	did_fd20_subfield_1_data_def
+0x00021907	did_FD20_subfield_1
+0x0002191c	Fault that Caused F00049
+0x0002193d	This is a Supplier use DID only. Config Requirements = Dataflow: FAULT_THAT_CAUSED_F00049 Circuit:n/a
+0x000219a4	did_FD20
+0x000219ae	Fault that Caused F00049
+0x00021c18	session_01
+0x00021c24	defaultSession
+0x00021d2f	session_03
+0x00021d3b	extendedDiagnosticSession
+0x00021d5b	service_22_p4_max_00
+0x00021ece	session_02
+0x00021eda	programmingSession
+0x00021ef3	service_22_p4_max_01
+0x00021f56	nrc_13
+0x00021f5e	incorrectMessageLengthOrInvalidFormat
+0x00021f9c	nrc_22
+0x00021fa4	conditionsNotCorrect
+0x00021fd1	nrc_31
+0x00021fd9	requestOutOfRange
+0x00022003	nrc_33
+0x0002200b	securityAccessDenied
+0x0002203a	service_22
+0x00022046	ReadDataByIdentifier
+0x000220d6	did_fd21_subfield_1_data_def
+0x00022101	did_FD21_subfield_1
+0x00022116	SBC RS Wake up Diagnostics
+0x00022150	did_fd21_subfield_2_data_def
+0x0002217b	did_FD21_subfield_2
+0x00022190	SBC CAN Wake up Diagnostics
+0x000221d2	INACTIVE
+0x000221dc	did_fd21_subfield_3_data_def_enum_1
+0x0002220b	ACTIVE
+0x00022213	did_fd21_subfield_3_data_def_enum_2
+0x00022245	did_fd21_subfield_3_data_def
+0x00022270	did_FD21_subfield_3
+0x00022285	flagTO_TxDC
+0x000222bb	did_fd21_subfield_4_data_def_enum_1
+0x000222ee	did_fd21_subfield_4_data_def_enum_2
+0x00022320	did_fd21_subfield_4_data_def
+0x0002234b	did_FD21_subfield_4
+0x00022360	flagTO_TxDL1
+0x00022397	did_fd21_subfield_5_data_def_enum_1
+0x000223ca	did_fd21_subfield_5_data_def_enum_2
+0x000223fc	did_fd21_subfield_5_data_def
+0x00022427	did_FD21_subfield_5
+0x0002243c	flagTO_TxDL2
+0x00022473	did_fd21_subfield_6_data_def_enum_1
+0x000224a6	did_fd21_subfield_6_data_def_enum_2
+0x000224d8	did_fd21_subfield_6_data_def
+0x00022503	did_FD21_subfield_6
+0x00022518	flagBUCK_NOREG
+0x00022551	did_fd21_subfield_7_data_def_enum_1
+0x00022584	did_fd21_subfield_7_data_def_enum_2
+0x000225b6	did_fd21_subfield_7_data_def
+0x000225e1	did_FD21_subfield_7
+0x000225f6	flagBUCK_OL
+0x0002262c	did_fd21_subfield_8_data_def_enum_1
+0x0002265f	did_fd21_subfield_8_data_def_enum_2
+0x00022691	did_fd21_subfield_8_data_def
+0x000226bc	did_FD21_subfield_8
+0x000226d1	flagBOOST_RUN
+0x00022709	did_fd21_subfield_9_data_def_enum_1
+0x0002273c	did_fd21_subfield_9_data_def_enum_2
+0x0002276e	did_fd21_subfield_9_data_def
+0x00022799	did_FD21_subfield_9
+0x000227ae	flagBOOST_OL
+0x000227e5	did_fd21_subfield_10_data_def_enum_1
+0x00022819	did_fd21_subfield_10_data_def_enum_2
+0x0002284c	did_fd21_subfield_10_data_def
+0x00022878	did_FD21_subfield_10
+0x0002288e	flagTWAR
+0x000228bd	INACTiVE
+0x000228c7	did_fd21_subfield_11_data_def_enum_1
+0x000228fb	did_fd21_subfield_11_data_def_enum_2
+0x0002292e	did_fd21_subfield_11_data_def
+0x0002295a	did_FD21_subfield_11
+0x00022970	flagRES_SWD
+0x000229a6	did_fd21_subfield_12_data_def_enum_1
+0x000229da	did_fd21_subfield_12_data_def_enum_2
+0x00022a0d	did_fd21_subfield_12_data_def
+0x00022a39	did_FD21_subfield_12
+0x00022a4f	flagVOUT2_UV
+0x00022a86	did_fd21_subfield_13_data_def_enum_1
+0x00022aba	did_fd21_subfield_13_data_def_enum_2
+0x00022aed	did_fd21_subfield_13_data_def
+0x00022b19	did_FD21_subfield_13
+0x00022b2f	flagVOUT2_OV
+0x00022b66	did_fd21_subfield_14_data_def_enum_1
+0x00022b9a	did_fd21_subfield_14_data_def_enum_2
+0x00022bcd	did_fd21_subfield_14_data_def
+0x00022bf9	did_FD21_subfield_14
+0x00022c0f	flagSPIFail
+0x00022c3a	did_fd21_subfield_15_data_def
+0x00022c66	did_FD21_subfield_15
+0x00022c7c	SBC Failure Counter flagTO_TxDC
+0x00022cbb	did_fd21_subfield_16_data_def
+0x00022ce7	did_FD21_subfield_16
+0x00022cfd	SBC Failure Counter flagTO_TxDL1
+0x00022d3d	did_fd21_subfield_17_data_def
+0x00022d69	did_FD21_subfield_17
+0x00022d7f	SBC Failure Counter flagTO_TxDL2
+0x00022dbf	did_fd21_subfield_18_data_def
+0x00022deb	did_FD21_subfield_18
+0x00022e01	SBC Failure Counter flagBUCK_NOREG
+0x00022e43	did_fd21_subfield_19_data_def
+0x00022e6f	did_FD21_subfield_19
+0x00022e85	SBC Failure Counter flagBUCK_OL
+0x00022ec4	did_fd21_subfield_20_data_def
+0x00022ef0	did_FD21_subfield_20
+0x00022f06	SBC Failure Counter flagBOOST_RUN
+0x00022f47	did_fd21_subfield_21_data_def
+0x00022f73	did_FD21_subfield_21
+0x00022f89	SBC Failure Counter flagBOOST_OL
+0x00022fc9	did_fd21_subfield_22_data_def
+0x00022ff5	did_FD21_subfield_22
+0x0002300b	SBC Failure Counter flagTWAR
+0x00023047	did_fd21_subfield_23_data_def
+0x00023073	did_FD21_subfield_23
+0x00023089	SBC Failure Counter flagRES_SWD
+0x000230c8	did_fd21_subfield_24_data_def
+0x000230f4	did_FD21_subfield_24
+0x0002310a	SBC Failure Counter flagVOUT2_UV
+0x0002314a	did_fd21_subfield_25_data_def
+0x00023176	did_FD21_subfield_25
+0x0002318c	SBC Failure Counter flagVOUT2_OV
+0x000231cc	did_fd21_subfield_26_data_def
+0x000231f8	did_FD21_subfield_26
+0x0002320e	SBC Failure Counter flagSPIFail
+0x00023357	did_FD21
+0x00023361	SBC Diagnostics
+0x000235b9	session_01
+0x000235c5	defaultSession
+0x000236d0	session_03
+0x000236dc	extendedDiagnosticSession
+0x000236fc	service_22_p4_max_00
+0x0002386f	session_02
+0x0002387b	programmingSession
+0x00023894	service_22_p4_max_01
+0x000238f7	nrc_13
+0x000238ff	incorrectMessageLengthOrInvalidFormat
+0x0002393d	nrc_22
+0x00023945	conditionsNotCorrect
+0x00023972	nrc_31
+0x0002397a	requestOutOfRange
+0x000239a4	nrc_33
+0x000239ac	securityAccessDenied
+0x000239db	service_22
+0x000239e7	ReadDataByIdentifier
+0x00023a77	did_fd22_subfield_1_data_def
+0x00023aa2	did_FD22_subfield_1
+0x00023ab7	ECC Failure Counter
+0x00023aea	did_fd22_subfield_2_data_def
+0x00023b15	did_FD22_subfield_2
+0x00023b2a	Clock Monitor Error Log Counter
+0x00023b69	did_fd22_subfield_3_data_def
+0x00023b94	did_FD22_subfield_3
+0x00023ba9	Register Monitor Error Log Counter
+0x00023beb	did_fd22_subfield_4_data_def
+0x00023c16	did_FD22_subfield_4
+0x00023c2b	Address of Last Corrupted Register
+0x00023c6d	did_fd22_subfield_5_data_def
+0x00023c98	did_FD22_subfield_5
+0x00023cad	Illegal Memory Access Counter
+0x00023cea	did_fd22_subfield_6_data_def
+0x00023d15	did_FD22_subfield_6
+0x00023d2a	Unused Interrupt Counter
+0x00023edd	did_FD22
+0x00023ee7	MCU Internal Diagnostics
+0x00024151	session_01
+0x0002415d	defaultSession
+0x00024268	session_03
+0x00024274	extendedDiagnosticSession
+0x00024294	service_22_p4_max_00
+0x00024407	session_02
+0x00024413	programmingSession
+0x0002442c	service_22_p4_max_01
+0x0002448f	nrc_13
+0x00024497	incorrectMessageLengthOrInvalidFormat
+0x000244d5	nrc_22
+0x000244dd	conditionsNotCorrect
+0x0002450a	nrc_31
+0x00024512	requestOutOfRange
+0x0002453c	nrc_33
+0x00024544	securityAccessDenied
+0x00024573	service_22
+0x0002457f	ReadDataByIdentifier
+0x0002460f	did_fd23_subfield_1_data_def
+0x0002463a	did_FD23_subfield_1
+0x0002464f	EEPROM Failure Counter
+0x00024685	did_fd23_subfield_2_data_def
+0x000246b0	did_FD23_subfield_2
+0x000246c5	z001 Voltage Block Fail Retry Counter
+0x0002470a	did_fd23_subfield_3_data_def
+0x00024735	did_FD23_subfield_3
+0x0002474a	z002 NVM Block Fail Retry Counter
+0x0002478b	did_fd23_subfield_4_data_def
+0x000247b6	did_FD23_subfield_4
+0x000247cb	z003 NVM Block Fail Retry Counter
+0x0002480c	did_fd23_subfield_5_data_def
+0x00024837	did_FD23_subfield_5
+0x0002484c	z004 NVM Block Fail Retry Counter
+0x0002488d	did_fd23_subfield_6_data_def
+0x000248b8	did_FD23_subfield_6
+0x000248cd	z005 NVM Block Fail Retry Counter
+0x0002490e	did_fd23_subfield_7_data_def
+0x00024939	did_FD23_subfield_7
+0x0002494e	EEPBLK Suppression Config Failure Retry
+0x00024995	did_fd23_subfield_8_data_def
+0x000249c0	did_FD23_subfield_8
+0x000249d5	z006 NVM Block Fail Retry Counter
+0x00024bdb	did_FD23
+0x00024be5	EEPROM Block Retry
+0x00024cd1	did_fd24_subfield_1_data_def
+0x00024cfc	did_FD24_subfield_1
+0x00024d11	Module Reset to New Confirmation
+0x00025033	did_FD24
+0x0002503d	Module Reset to New Confirmation
+0x00025145	did_fd25_subfield_1_data_def
+0x00025170	did_FD25_subfield_1
+0x00025185	EOL Open Gate Confirmation
+0x000251a8	This is a Supplier use DID only. Reserved for Supplier MFG
+0x000251e4	did_FD25
+0x000251ee	EOL Open Gate Confirmation
+0x0002545c	session_01
+0x00025468	defaultSession
+0x00025573	session_03
+0x0002557f	extendedDiagnosticSession
+0x0002559f	service_22_p4_max_00
+0x00025712	session_02
+0x0002571e	programmingSession
+0x00025737	service_22_p4_max_01
+0x0002579a	nrc_13
+0x000257a2	incorrectMessageLengthOrInvalidFormat
+0x000257e0	nrc_22
+0x000257e8	conditionsNotCorrect
+0x00025815	nrc_31
+0x0002581d	requestOutOfRange
+0x00025847	nrc_33
+0x0002584f	securityAccessDenied
+0x0002587e	service_22
+0x0002588a	ReadDataByIdentifier
+0x00025921	NO_RETRY
+0x0002592b	did_fd26_subfield_1_data_def_enum_1
+0x0002595a	RETRY
+0x00025961	did_fd26_subfield_1_data_def_enum_2
+0x00025993	did_fd26_subfield_1_data_def
+0x000259be	did_FD26_subfield_1
+0x000259d3	FETMode[RCM_OUT]
+0x00025a0e	did_fd26_subfield_2_data_def_enum_1
+0x00025a41	did_fd26_subfield_2_data_def_enum_2
+0x00025a73	did_fd26_subfield_2_data_def
+0x00025a9e	did_FD26_subfield_2
+0x00025ab3	FETMode[OCS_OUT]
+0x00025aea	NULL
+0x00025af0	did_fd26_subfield_3_data_def_enum_1
+0x00025b1f	SET_ON
+0x00025b27	did_fd26_subfield_3_data_def_enum_2
+0x00025b56	SET_OFF
+0x00025b5f	did_fd26_subfield_3_data_def_enum_3
+0x00025b91	did_fd26_subfield_3_data_def
+0x00025bbc	did_FD26_subfield_3
+0x00025bd1	PIDCtrl_RCM_Out
+0x00025c0b	did_fd26_subfield_4_data_def_enum_1
+0x00025c3e	did_fd26_subfield_4_data_def_enum_2
+0x00025c71	did_fd26_subfield_4_data_def_enum_3
+0x00025ca3	did_fd26_subfield_4_data_def
+0x00025cce	did_FD26_subfield_4
+0x00025ce3	PIDCtrl_OCS_Out
+0x00025d19	INACTIVE
+0x00025d23	did_fd26_subfield_5_data_def_enum_1
+0x00025d52	ACTIVE
+0x00025d5a	did_fd26_subfield_5_data_def_enum_2
+0x00025d8c	did_fd26_subfield_5_data_def
+0x00025db7	did_FD26_subfield_5
+0x00025dcc	Pwr_Rqst
+0x00025dff	did_fd26_subfield_6_data_def_enum_1
+0x00025e32	did_fd26_subfield_6_data_def_enum_2
+0x00025e64	did_fd26_subfield_6_data_def
+0x00025e8f	did_FD26_subfield_6
+0x00025ea4	PAAT_Status
+0x00025f88	did_FD26
+0x00025f92	Input/Output and FETMode Monitoring
+0x00026212	session_01
+0x0002621e	defaultSession
+0x00026329	session_03
+0x00026335	extendedDiagnosticSession
+0x00026355	service_22_p4_max_00
+0x000264c8	session_02
+0x000264d4	programmingSession
+0x000264ed	service_22_p4_max_01
+0x00026550	nrc_13
+0x00026558	incorrectMessageLengthOrInvalidFormat
+0x00026596	nrc_22
+0x0002659e	conditionsNotCorrect
+0x000265cb	nrc_31
+0x000265d3	requestOutOfRange
+0x000265fd	nrc_33
+0x00026605	securityAccessDenied
+0x00026634	service_22
+0x00026640	ReadDataByIdentifier
+0x00026724	did_fd27_subfield_1_data_def
+0x0002674f	did_FD27_subfield_1
+0x00026764	RCM_OutFdbk_Ckt
+0x000267c9	did_fd27_subfield_2_data_def
+0x000267f4	did_FD27_subfield_2
+0x00026809	OCS_OutFdbk_Ckt
+0x0002686e	did_fd27_subfield_3_data_def
+0x00026899	did_FD27_subfield_3
+0x000268ae	PAAT_Ckt
+0x0002690c	did_fd27_subfield_4_data_def
+0x00026937	did_FD27_subfield_4
+0x0002694c	RS_RCM_Ckt
+0x000269ac	did_fd27_subfield_5_data_def
+0x000269d7	did_FD27_subfield_5
+0x000269ec	VBattRaw
+0x000269fd	This is a Supplier use DID only. DID used for debugging purposes.
+0x00026a40	did_FD27
+0x00026a4a	Input/Output Feedback Monitoring
+0x00026cc5	session_01
+0x00026cd1	defaultSession
+0x00026ddc	session_03
+0x00026de8	extendedDiagnosticSession
+0x00026e08	service_22_p4_max_00
+0x00026f7b	session_02
+0x00026f87	programmingSession
+0x00026fa0	service_22_p4_max_01
+0x00027003	nrc_13
+0x0002700b	incorrectMessageLengthOrInvalidFormat
+0x00027049	nrc_22
+0x00027051	conditionsNotCorrect
+0x0002707e	nrc_31
+0x00027086	requestOutOfRange
+0x000270b0	nrc_33
+0x000270b8	securityAccessDenied
+0x000270e7	service_22
+0x000270f3	ReadDataByIdentifier
+0x000271d7	did_0202_subfield_1_data_def
+0x00027202	did_0202_subfield_1
+0x00027217	Number of Trouble Codes Set due to Diagnostic Test
+0x00027252	Config Requirements = n/a Dataflow = Supplier defined
+0x00027289	did_0202
+0x00027293	Number of Trouble Codes Set due to Diagnostic Test
+0x00027352	did_402a_subfield_1_data_def
+0x0002737d	did_402A_subfield_1
+0x00027392	Vehicle Battery Voltage
+0x000273b2	PAAT Status Config Requirements = Dataflow = PAAT_Ckt A/D Circuit: PAAT_Ckt
+0x000273ff	did_402A
+0x00027409	Vehicle Battery Voltage
+0x0002747e	Inactive
+0x00027488	did_40a8_subfield_1_data_def_enum_1
+0x000274b7	Active
+0x000274bf	did_40a8_subfield_1_data_def_enum_2
+0x000274f1	did_40a8_subfield_1_data_def
+0x0002751c	did_40A8_subfield_1
+0x00027531	Run Start Circuit
+0x000275e5	did_40A8
+0x000275ef	Ignition Switch/Start Button Combined Switch Status
+0x00027642	iocp0
+0x00027649	returnControlToECU
+0x00027667	iocp3
+0x0002766e	shortTermAdjustment
+0x000276ae	service_2F_p4_max_00
+0x000276e4	service_2F_params_1
+0x00027748	nrc_7F
+0x00027750	serviceNotSupportedInActiveSession
+0x0002778d	service_2F
+0x00027799	InputOutputControlByIdentifier
+0x00027819	Null - No Control Active
+0x00027833	did_429d_subfield_1_data_def_enum_1
+0x00027866	did_429d_subfield_1_data_def_enum_2
+0x00027899	did_429d_subfield_1_data_def_enum_3
+0x000278cb	did_429d_subfield_1_data_def
+0x000278f6	did_429D_subfield_1
+0x0002790b	Power Supply "A" Status
+0x00027a3e	did_429D
+0x00027a48	Power Supply "A" Status
+0x00027aea	did_429e_subfield_1_data_def_enum_1
+0x00027b1d	did_429e_subfield_1_data_def_enum_2
+0x00027b50	did_429e_subfield_1_data_def_enum_3
+0x00027b82	did_429e_subfield_1_data_def
+0x00027bad	did_429E_subfield_1
+0x00027bc2	Power Supply "B" Status
+0x00027cf9	did_429E
+0x00027d03	Power Supply "B" Status
+0x00027d7e	Default Session
+0x00027d8f	did_d100_subfield_1_data_def_enum_1
+0x00027dbe	Programming Session
+0x00027dd3	did_d100_subfield_1_data_def_enum_2
+0x00027e02	Extended Diagnostic Session
+0x00027e1f	did_d100_subfield_1_data_def_enum_3
+0x00027e4e	Safety System Diagnostic Session
+0x00027e70	did_d100_subfield_1_data_def_enum_4
+0x00027e9f	EOL Extended Diagnostic Session
+0x00027ec0	did_d100_subfield_1_data_def_enum_5
+0x00027ef0	did_d100_subfield_1_data_def_enum_6
+0x00027f20	did_d100_subfield_1_data_def_enum_7
+0x00027f50	did_d100_subfield_1_data_def_enum_8
+0x00027f80	did_d100_subfield_1_data_def_enum_9
+0x00027fb0	did_d100_subfield_1_data_def_enum_10
+0x00027fe1	did_d100_subfield_1_data_def_enum_11
+0x00028012	did_d100_subfield_1_data_def_enum_12
+0x00028043	did_d100_subfield_1_data_def_enum_13
+0x00028074	did_d100_subfield_1_data_def_enum_14
+0x000280a5	did_d100_subfield_1_data_def_enum_15
+0x000280d6	did_d100_subfield_1_data_def_enum_16
+0x00028107	did_d100_subfield_1_data_def_enum_17
+0x00028138	did_d100_subfield_1_data_def_enum_18
+0x00028169	did_d100_subfield_1_data_def_enum_19
+0x0002819a	did_d100_subfield_1_data_def_enum_20
+0x000281cb	did_d100_subfield_1_data_def_enum_21
+0x000281fc	did_d100_subfield_1_data_def_enum_22
+0x0002822d	did_d100_subfield_1_data_def_enum_23
+0x0002825e	did_d100_subfield_1_data_def_enum_24
+0x0002828f	did_d100_subfield_1_data_def_enum_25
+0x000282c0	did_d100_subfield_1_data_def_enum_26
+0x000282f1	did_d100_subfield_1_data_def_enum_27
+0x00028322	did_d100_subfield_1_data_def_enum_28
+0x00028353	did_d100_subfield_1_data_def_enum_29
+0x00028384	did_d100_subfield_1_data_def_enum_30
+0x000283b5	did_d100_subfield_1_data_def_enum_31
+0x000283e6	did_d100_subfield_1_data_def_enum_32
+0x00028417	did_d100_subfield_1_data_def_enum_33
+0x00028448	did_d100_subfield_1_data_def_enum_34
+0x00028479	did_d100_subfield_1_data_def_enum_35
+0x000284aa	did_d100_subfield_1_data_def_enum_36
+0x000284dd	did_d100_subfield_1_data_def
+0x00028508	did_D100_subfield_1
+0x0002851d	Active Diagnostic Session
+0x0002853f	Config Requirements = n/a Dataflow = DiagSession (also in Bootloader)
+0x00028586	did_D100
+0x00028590	Active Diagnostic Session
+0x00028638	did_d137_subfield_1_data_def
+0x00028663	did_D137_subfield_1
+0x00028678	Number of Continuous DTCs with Pending or Confirmed Status
+0x000286bb	Config Requirements = n/a Dataflow = Supplier defined Parameter 0 is always reported
+0x00028711	did_D137
+0x0002871b	Number of Continuous DTCs with Pending or Confirmed Status
+0x000287f0	did_d700_subfield_1_data_def
+0x0002881b	did_D700_subfield_1
+0x00028830	Power ON reset counter
+0x0002889c	did_d700_subfield_2_data_def
+0x000288c7	did_D700_subfield_2
+0x000288dc	Illegal op code counter
+0x00028949	did_d700_subfield_3_data_def
+0x00028974	did_D700_subfield_3
+0x00028989	Watchdog timer reset counter
+0x000289fb	did_d700_subfield_4_data_def
+0x00028a26	did_D700_subfield_4
+0x00028a3b	Data Range Failure counter
+0x00028a5e	Config Requirements = n/a Dataflow = Supplier defined For service $2E the only possible writting value is zeros
+0x00028acf	did_D700
+0x00028ad9	Critical Software Parameter Monitoring #1
+0x00028b9d	did_d701_subfield_1_data_def
+0x00028bc8	did_D701_subfield_1
+0x00028bdd	Stack Overflow Counter
+0x00028c49	did_d701_subfield_2_data_def
+0x00028c74	did_D701_subfield_2
+0x00028c89	Loop-Time overflow or scheduler idle time overflow Counter
+0x00028d19	did_d701_subfield_3_data_def
+0x00028d44	did_D701_subfield_3
+0x00028d59	Minimum Idle-Time
+0x00028dc0	did_d701_subfield_4_data_def
+0x00028deb	did_D701_subfield_4
+0x00028e00	Reserved
+0x00028e11	Config Requirements = n/a Dataflow = Supplier defined For service $2E the only possible writting value is zeros
+0x00028e82	did_D701
+0x00028e8c	Critical Software Parameter Monitoring #2
+0x00028f50	did_de00_subfield_1_data_def
+0x00028fb2	did_DE00_subfield_1
+0x00028fc7	HiOvrTime_Cfg [Shutdown]
+0x00029035	did_de00_subfield_2_data_def
+0x00029097	did_DE00_subfield_2
+0x000290ac	HiOvrTime_Cfg [100_155_B]
+0x0002911b	did_de00_subfield_3_data_def
+0x0002917d	did_DE00_subfield_3
+0x00029192	HiRecovTime_Cfg [Shutdown]
+0x00029202	did_de00_subfield_4_data_def
+0x00029264	did_DE00_subfield_4
+0x00029279	HiRecovTime_Cfg [100_155_B]
+0x0002929d	HiOvrTime_Cfg [Shutdown] HiOvrTime_Cfg [100_155_B] HiRecovTime_Cfg [Shutdown] HiRecovTime_Cfg [100_155_B] (reserved) (reserved)
+0x0002931e	did_DE00
+0x00029328	Body Features 01
+0x000293d3	did_de01_subfield_1_data_def
+0x00029435	did_DE01_subfield_1
+0x0002944a	HiTime_Cfg [Shutdown]
+0x000294b5	did_de01_subfield_2_data_def
+0x00029517	did_DE01_subfield_2
+0x0002952c	HiTime_Cfg [100_155_B]
+0x00029598	did_de01_subfield_3_data_def
+0x000295fa	did_DE01_subfield_3
+0x0002960f	LoOvrTime_Cfg [Shutdown]
+0x0002967d	did_de01_subfield_4_data_def
+0x000296df	did_DE01_subfield_4
+0x000296f4	LoOvrTime_Cfg [100_155_B]
+0x00029716	HiTime_Cfg [Shutdown] HiTime_Cfg [100_155_B] LoOvrTime_Cfg [Shutdown] LoOvrTime_Cfg [100_155_B] (reserved) (reserved)
+0x0002978d	did_DE01
+0x00029797	Body Features 02
+0x00029842	did_de02_subfield_1_data_def
+0x000298a4	did_DE02_subfield_1
+0x000298b9	LoRecovTime_Cfg [Shutdown]
+0x00029929	did_de02_subfield_2_data_def
+0x0002998b	did_DE02_subfield_2
+0x000299a0	LoRecovTime_Cfg [100_155_B]
+0x00029a11	did_de02_subfield_3_data_def
+0x00029a73	did_DE02_subfield_3
+0x00029a88	LoTime_Cfg [Shutdown]
+0x00029af3	did_de02_subfield_4_data_def
+0x00029b55	did_DE02_subfield_4
+0x00029b6a	LoTime_Cfg [100_155_B]
+0x00029b89	LoRecovTime_Cfg [Shutdown] LoRecovTime_Cfg [100_155_B] LoTime_Cfg [Shutdown] LoTime_Cfg [100_155_B] (reserved) (reserved)
+0x00029c04	did_DE02
+0x00029c0e	Body Features 03
+0x00029cb9	did_de03_subfield_1_data_def
+0x00029d1b	did_DE03_subfield_1
+0x00029d30	VMax_Cfg [Shutdown]
+0x00029d99	did_de03_subfield_2_data_def
+0x00029dfb	did_DE03_subfield_2
+0x00029e10	VMax_Cfg [100_155_B]
+0x00029e7a	did_de03_subfield_3_data_def
+0x00029edc	did_DE03_subfield_3
+0x00029ef1	VMaxRcv_Cfg [Shutdown]
+0x00029f5d	did_de03_subfield_4_data_def
+0x00029fbf	did_DE03_subfield_4
+0x00029fd4	VMaxRcv_Cfg [100_155_B]
+0x0002a0d4	did_DE03
+0x0002a0de	Body Features 04
+0x0002a189	did_de04_subfield_1_data_def
+0x0002a1eb	did_DE04_subfield_1
+0x0002a200	VMin_Cfg [Shutdown]
+0x0002a269	did_de04_subfield_2_data_def
+0x0002a2cb	did_DE04_subfield_2
+0x0002a2e0	VMin_Cfg [100_155_B]
+0x0002a34a	did_de04_subfield_3_data_def
+0x0002a3ac	did_DE04_subfield_3
+0x0002a3c1	VMinRcv_Cfg [Shutdown]
+0x0002a42d	did_de04_subfield_4_data_def
+0x0002a48f	did_DE04_subfield_4
+0x0002a4a4	VMinRcv_Cfg [100_155_B]
+0x0002a5dd	did_DE04
+0x0002a5e7	Body Features 05
+0x0002a692	did_de05_subfield_1_data_def
+0x0002a6f4	did_DE05_subfield_1
+0x0002a709	MovingThresholdEng_Cfg
+0x0002a775	did_de05_subfield_2_data_def
+0x0002a7d7	did_DE05_subfield_2
+0x0002a7ec	Moving_Duration_Cfg
+0x0002a855	did_de05_subfield_3_data_def
+0x0002a8b7	did_DE05_subfield_3
+0x0002a8cc	VSpd_Timeout_Cfg
+0x0002a932	did_de05_subfield_4_data_def
+0x0002a994	did_DE05_subfield_4
+0x0002a9a9	PassThruDetectDelay_Cfg
+0x0002a9c9	MovingThresholdEng_Cfg Moving_Duration_Cfg VSpd_Timeout_Cfg PassThruDetectDelay_Cfg (reserved) (reserved)
+0x0002aa34	did_DE05
+0x0002aa3e	Body Features 06
+0x0002aae9	did_de06_subfield_1_data_def
+0x0002ab4b	did_DE06_subfield_1
+0x0002ab60	IgnStatAgreeFilterDuration_Cfg
+0x0002abd4	did_de06_subfield_2_data_def
+0x0002ac36	did_DE06_subfield_2
+0x0002ac4b	IgnStat_Timeout_Cfg
+0x0002acb4	did_de06_subfield_3_data_def
+0x0002ad16	did_DE06_subfield_3
+0x0002ad2b	RStart_Timeout_Cfg
+0x0002ad46	IgnStatAgreeFilterDuration_Cfg IgnStat_Timeout_Cfg RStart_Timeout_Cfg (reserved) (reserved)
+0x0002ada3	did_DE06
+0x0002adad	Vehicle Starting Control 01
+0x0002ae34	CGEA13
+0x0002ae3c	did_de07_subfield_1_data_def_enum_1
+0x0002ae6b	CGEA12
+0x0002ae73	did_de07_subfield_1_data_def_enum_2
+0x0002aea3	0x00
+0x0002aeaa	did_de07_subfield_1_data_def
+0x0002aed5	did_DE07_subfield_1
+0x0002aeea	MsgListSrc_Cfg
+0x0002af4e	did_de07_subfield_2_data_def
+0x0002afb0	did_DE07_subfield_2
+0x0002afc5	NetworkSleepDelay_Cfg
+0x0002b001	NORMAL
+0x0002b009	did_de07_subfield_3_data_def_enum_1
+0x0002b038	FACTORY
+0x0002b041	did_de07_subfield_3_data_def_enum_2
+0x0002b073	did_de07_subfield_3_data_def
+0x0002b09e	did_DE07_subfield_3
+0x0002b0b3	FactoryMode_Cfg
+0x0002b118	did_de07_subfield_4_data_def
+0x0002b17a	did_DE07_subfield_4
+0x0002b18f	BootDebounceDelay_Cfg
+0x0002b1ad	MsgListSrc_Cfg NetworkSleepDelay_Cfg FactoryMode_Cfg BootDebounceDelay_Cfg (reserved) (reserved)
+0x0002b20f	did_DE07
+0x0002b219	Common Input Processes 01
+0x0002b2cd	did_de08_subfield_1_data_def
+0x0002b32f	did_DE08_subfield_1
+0x0002b344	FETIncrVal_Cfg [RCM_OUT]
+0x0002b3b2	did_de08_subfield_2_data_def
+0x0002b414	did_DE08_subfield_2
+0x0002b429	FETIncrVal_Cfg [OCS_OUT]
+0x0002b497	did_de08_subfield_3_data_def
+0x0002b4f9	did_DE08_subfield_3
+0x0002b50e	FETDecrVal_Cfg [RCM_OUT]
+0x0002b57c	did_de08_subfield_4_data_def
+0x0002b5de	did_DE08_subfield_4
+0x0002b5f3	FETDecrVal_Cfg [OCS_OUT]
+0x0002b661	did_de08_subfield_5_data_def
+0x0002b6c3	did_DE08_subfield_5
+0x0002b6d8	FETLife_Cfg [RCM_OUT]
+0x0002b743	did_de08_subfield_6_data_def
+0x0002b7a5	did_DE08_subfield_6
+0x0002b7ba	FETLife_Cfg [OCS_OUT]
+0x0002b881	did_DE08
+0x0002b88b	Body Features 07
+0x0002b936	did_de09_subfield_1_data_def
+0x0002b998	did_DE09_subfield_1
+0x0002b9ad	FETShortThreshold_Cfg [RCM_OUT]
+0x0002ba22	did_de09_subfield_2_data_def
+0x0002ba84	did_DE09_subfield_2
+0x0002ba99	FETShortThreshold_Cfg [OCS_OUT]
+0x0002bc49	did_DE09
+0x0002bc53	Body Features 08
+0x0002bcfe	did_de0a_subfield_1_data_def
+0x0002bd60	did_DE0A_subfield_1
+0x0002bd75	RunAvg_BufferSize_Cfg
+0x0002bde0	did_de0a_subfield_2_data_def
+0x0002be42	did_DE0A_subfield_2
+0x0002be57	RunAvg_BitShift_Cfg
+0x0002bec0	did_de0a_subfield_3_data_def
+0x0002bf22	did_DE0A_subfield_3
+0x0002bf37	ShortVBattFaultThresh_RCM_Cfg
+0x0002bfaa	did_de0a_subfield_4_data_def
+0x0002c00c	did_DE0A_subfield_4
+0x0002c021	ShortVBattFaultThresh_OCS_Cfg
+0x0002c094	did_de0a_subfield_5_data_def
+0x0002c0f6	did_DE0A_subfield_5
+0x0002c10b	ShortVBattFaultDelay_Cfg
+0x0002c179	did_de0a_subfield_6_data_def
+0x0002c1db	did_DE0A_subfield_6
+0x0002c1f0	ShortVBattConfirmOnDelay_Cfg
+0x0002c2b4	did_DE0A
+0x0002c2be	Output Processes 01
+0x0002c36c	did_de0b_subfield_1_data_def
+0x0002c3ce	did_DE0B_subfield_1
+0x0002c3e3	PAAT_Ckt_Fault_Cfg
+0x0002c44b	did_de0b_subfield_2_data_def
+0x0002c4ad	did_DE0B_subfield_2
+0x0002c4c2	RCM_Out_DbncCnt_Cfg
+0x0002c52b	did_de0b_subfield_3_data_def
+0x0002c58d	did_DE0B_subfield_3
+0x0002c5a2	OCS_Out_DbncCnt_Cfg
+0x0002c5be	PAAT_Ckt_Fault_Cfg RCM_Out_DbncCnt_Cfg OCS_Out_DbncCnt_Cfg (reserved) (reserved) (reserved) (reserved) (reserved) (reserved)
+0x0002c63c	did_DE0B
+0x0002c646	Common Input Processes 02
+0x0002c6e9	did_f109_subfield_1_data_def
+0x0002c714	did_F109_subfield_1
+0x0002c729	Boot Software Version Number- Main Version
+0x0002c780	did_f109_subfield_2_data_def
+0x0002c7ab	did_F109_subfield_2
+0x0002c7c0	Boot Software Version Number- Sub Version
+0x0002c816	did_f109_subfield_3_data_def
+0x0002c841	did_F109_subfield_3
+0x0002c856	Boot Software Version Number- Release Version
+0x0002c88d	did_F109
+0x0002c897	Boot Software Version Number
+0x0002c91b	did_f110_subfield_1_data_def
+0x0002c946	did_F110_subfield_1
+0x0002c95b	Subsystem Specific Diagnostic Specification Part Number
+0x0002ca2f	did_F110
+0x0002ca39	Subsystem Specific Diagnostic Specification Part Number
+0x0002cadc	did_f111_subfield_1_data_def
+0x0002cb07	did_F111_subfield_1
+0x0002cb1c	ECU Core Assembly Number
+0x0002cb3d	Config Requirements = n/a Dataflow = Supplier defined (also in Bootloader)
+0x0002cb89	did_F111
+0x0002cb93	ECU Core Assembly Number
+0x0002cc17	did_f113_subfield_1_data_def
+0x0002cc42	did_F113_subfield_1
+0x0002cc57	ECU Delivery Assembly Number
+0x0002cc7c	Config Requirements = n/a Dataflow = Supplier defined (also in Bootloader)
+0x0002ccc8	did_F113
+0x0002ccd2	ECU Delivery Assembly Number
+0x0002cd4e	Vector
+0x0002cd56	did_f15f_subfield_1_data_def_enum_1
+0x0002cd88	did_f15f_subfield_1_data_def
+0x0002cdb3	did_F15F_subfield_1
+0x0002cdc8	NOS Generation Tool Supplier
+0x0002ce04	did_f15f_subfield_2_data_def
+0x0002ce2f	did_F15F_subfield_2
+0x0002ce44	NOS Generation Tool Version Number
+0x0002ce6f	Config Requirements = n/a Dataflow = Supplier defined
+0x0002cea6	did_F15F
+0x0002ceb0	NOS Generation Tool Version Number
+0x0002cf30	SWDL 31808456 Issue P01
+0x0002cf49	did_f162_subfield_1_data_def_enum_1
+0x0002cf78	SWDL 31808456 Issue 001
+0x0002cf91	did_f162_subfield_1_data_def_enum_2
+0x0002cfc0	SWDL 31808456 Issue 002
+0x0002cfd9	did_f162_subfield_1_data_def_enum_3
+0x0002d008	SWDL 31808456 Issue 003
+0x0002d021	did_f162_subfield_1_data_def_enum_4
+0x0002d050	SWDL 31808456 Issue 004
+0x0002d069	did_f162_subfield_1_data_def_enum_5
+0x0002d098	SWDL 31808456 Issue 005
+0x0002d0b1	did_f162_subfield_1_data_def_enum_6
+0x0002d0e0	SWDL 00.06.15.002-006
+0x0002d0f7	did_f162_subfield_1_data_def_enum_7
+0x0002d129	did_f162_subfield_1_data_def
+0x0002d154	did_F162_subfield_1
+0x0002d169	Software Download Specification Version
+0x0002d19a	did_F162
+0x0002d1a4	Software Download Specification Version
+0x0002d22b	GGDS 31810161 Issue 001
+0x0002d244	did_f163_subfield_1_data_def_enum_1
+0x0002d273	GGDS 31810161 Issue 002
+0x0002d28c	did_f163_subfield_1_data_def_enum_2
+0x0002d2bb	GGDS 31810161 Issue 003
+0x0002d2d4	did_f163_subfield_1_data_def_enum_3
+0x0002d303	GGDS 00.06.15.001-004
+0x0002d31a	did_f163_subfield_1_data_def_enum_4
+0x0002d34c	did_f163_subfield_1_data_def
+0x0002d377	did_F163_subfield_1
+0x0002d38c	Diagnostic Specification Version
+0x0002d3b5	Config Requirements = n/a Dataflow = Supplier defined
+0x0002d3ec	did_F163
+0x0002d3f6	Diagnostic Specification Version
+0x0002d47c	did_f166_subfield_1_data_def
+0x0002d4a7	did_F166_subfield_1
+0x0002d4bc	Year
+0x0002d4ed	did_f166_subfield_2_data_def
+0x0002d518	did_F166_subfield_2
+0x0002d52d	Month
+0x0002d55f	did_f166_subfield_3_data_def
+0x0002d58a	did_F166_subfield_3
+0x0002d59f	Day
+0x0002d5cf	did_f166_subfield_4_data_def
+0x0002d5fa	did_F166_subfield_4
+0x0002d60f	Release Version
+0x0002d627	Config Requirements = n/a Dataflow = Supplier defined
+0x0002d65e	did_F166
+0x0002d668	NOS Message Database #1 Version Number
+0x0002d6f6	did_f17c_subfield_1_data_def_enum_1
+0x0002d728	did_f17c_subfield_1_data_def
+0x0002d753	did_F17C_subfield_1
+0x0002d768	NOS Bootloader Generation Tool Supplier
+0x0002d7af	did_f17c_subfield_2_data_def
+0x0002d7da	did_F17C_subfield_2
+0x0002d7ef	NOS Bootloader Generation Tool Version Number
+0x0002d826	did_F17C
+0x0002d830	NOS Bootloader Generation Tool Version Number
+0x0002d8f4	did_f180_subfield_1_data_def
+0x0002d91f	did_F180_subfield_1
+0x0002d934	Number Of Modules (ISO14229 compatibility - always set to 01h)
+0x0002d9a1	did_f180_subfield_2_data_def
+0x0002d9cc	did_F180_subfield_2
+0x0002d9e1	Boot Software Identifcation Data (Part no. of the bootloader)
+0x0002da28	did_F180
+0x0002da32	Boot Software Identification
+0x0002dab6	did_f188_subfield_1_data_def
+0x0002dae1	did_F188_subfield_1
+0x0002daf6	Vehicle Manufacturer ECU Software Number
+0x0002db27	Config Requirements = n/a Dataflow = Supplier defined
+0x0002db5e	did_F188
+0x0002db68	Vehicle Manufacturer ECU Software Number
+0x0002dbfa	did_f18c_subfield_1_data_def
+0x0002dc25	did_F18C_subfield_1
+0x0002dc3a	ECU Serial Number
+0x0002dc54	Config Requirements = n/a
+0x0002dc6f	did_F18C
+0x0002dc79	ECU Serial Number
+0x0002dd19	did_fd01_subfield_1_data_def
+0x0002dd44	did_FD01_subfield_1
+0x0002dd59	RCM Status Feedback
+0x0002ddc2	did_fd01_subfield_2_data_def
+0x0002dded	did_FD01_subfield_2
+0x0002de02	OCS Status Feedback
+0x0002e075	did_FD01
+0x0002e07f	RCM-OCS Status Feedback
+0x0002e0f6	DISABLE
+0x0002e0ff	did_fd03_subfield_1_data_def_enum_1
+0x0002e12e	ENABLE
+0x0002e136	did_fd03_subfield_1_data_def_enum_2
+0x0002e168	did_fd03_subfield_1_data_def
+0x0002e193	did_FD03_subfield_1
+0x0002e1a8	Enable RCM-OCS Output
+0x0002e1e8	did_fd03_subfield_2_data_def_enum_1
+0x0002e21b	did_fd03_subfield_2_data_def_enum_2
+0x0002e24d	did_fd03_subfield_2_data_def
+0x0002e278	did_FD03_subfield_2
+0x0002e28d	Enable Battery Output
+0x0002e2cd	did_fd03_subfield_3_data_def_enum_1
+0x0002e300	did_fd03_subfield_3_data_def_enum_2
+0x0002e332	did_fd03_subfield_3_data_def
+0x0002e35d	did_FD03_subfield_3
+0x0002e372	Selector Output
+0x0002e38a	This is a Supplier use DID only. Config Requirements = n/a Dataflow: Supplier defined Circuit:
+0x0002e3ea	did_FD03
+0x0002e3f4	Output Control
+0x0002e491	did_fd06_subfield_1_data_def
+0x0002e4bc	did_FD06_subfield_1
+0x0002e4d1	Vehicle Speed
+0x0002e4e7	This is a Supplier use DID only. Config Requirements = n/a Dataflow: Veh_V_ActlEng Circuit:
+0x0002e544	did_FD06
+0x0002e54e	Vehicle Speed
+0x0002e5b4	did_fd08_subfield_1_data_def
+0x0002e5df	did_FD08_subfield_1
+0x0002e5f4	Software_version_1
+0x0002e626	did_fd08_subfield_2_data_def
+0x0002e651	did_FD08_subfield_2
+0x0002e666	Software_version_2
+0x0002e698	did_fd08_subfield_3_data_def
+0x0002e6c3	did_FD08_subfield_3
+0x0002e6d8	Software_version_3
+0x0002e6f3	This is a Supplier use DID only. Config Requirements = n/a Dataflow: TBD Circuit:
+0x0002e746	did_FD08
+0x0002e750	Software internal Version
+0x0002e7c0	did_fd09_subfield_1_data_def
+0x0002e7eb	did_FD09_subfield_1
+0x0002e800	Bootloader_Software_version_1
+0x0002e83d	did_fd09_subfield_2_data_def
+0x0002e868	did_FD09_subfield_2
+0x0002e87d	Bootloader_Software_version_2
+0x0002e8ba	did_fd09_subfield_3_data_def
+0x0002e8e5	did_FD09_subfield_3
+0x0002e8fa	Bootloader_Software_version_3
+0x0002e920	This is a Supplier use DID only. Config Requirements = n/a Dataflow: TBD Circuit:
+0x0002e973	did_FD09
+0x0002e97d	Bootloader software Version
+0x0002e9f8	NO_FAULT
+0x0002ea02	did_fd11_subfield_1_data_def_enum_1
+0x0002ea31	FAULT
+0x0002ea38	did_fd11_subfield_1_data_def_enum_2
+0x0002ea67	UNKNOWN
+0x0002ea70	did_fd11_subfield_1_data_def_enum_3
+0x0002eaa2	did_fd11_subfield_1_data_def
+0x0002eacd	did_FD11_subfield_1
+0x0002eae2	PassThru
+0x0002eb15	did_fd11_subfield_2_data_def_enum_1
+0x0002eb48	did_fd11_subfield_2_data_def_enum_2
+0x0002eb7a	did_fd11_subfield_2_data_def
+0x0002eba5	did_FD11_subfield_2
+0x0002ebba	PAAT
+0x0002ebe9	did_fd11_subfield_3_data_def_enum_1
+0x0002ec1c	did_fd11_subfield_3_data_def_enum_2
+0x0002ec4e	did_fd11_subfield_3_data_def
+0x0002ec79	did_FD11_subfield_3
+0x0002ec8e	ShorttoVBatt
+0x0002ecc5	did_fd11_subfield_4_data_def_enum_1
+0x0002ecf8	did_fd11_subfield_4_data_def_enum_2
+0x0002ed2a	did_fd11_subfield_4_data_def
+0x0002ed55	did_FD11_subfield_4
+0x0002ed6a	ShorttoGnd
+0x0002ed9f	did_fd11_subfield_5_data_def_enum_1
+0x0002edd2	did_fd11_subfield_5_data_def_enum_2
+0x0002ee04	did_fd11_subfield_5_data_def
+0x0002ee2f	did_FD11_subfield_5
+0x0002ee44	IgnStatAgree
+0x0002ee7b	did_fd11_subfield_6_data_def_enum_1
+0x0002eeae	did_fd11_subfield_6_data_def_enum_2
+0x0002eedd	NULL
+0x0002eee3	did_fd11_subfield_6_data_def_enum_3
+0x0002ef15	did_fd11_subfield_6_data_def
+0x0002ef40	did_FD11_subfield_6
+0x0002ef55	Missing Message
+0x0002ef8f	did_fd11_subfield_7_data_def_enum_1
+0x0002efc2	did_fd11_subfield_7_data_def_enum_2
+0x0002eff4	did_fd11_subfield_7_data_def
+0x0002f01f	did_FD11_subfield_7
+0x0002f034	DTC F00049
+0x0002f047	This is a Supplier use DID only. Config Requirements = see table 2.3-16 for details Dataflow: EPM_Fault_Status Circuit:n/a
+0x0002f0c3	did_FD11
+0x0002f0cd	Fault Status report
+0x0002f145	did_fd12_subfield_1_data_def
+0x0002f170	did_FD12_subfield_1
+0x0002f185	FETTestDuration_Cfg
+0x0002f1b8	did_fd12_subfield_2_data_def
+0x0002f1e3	did_FD12_subfield_2
+0x0002f1f8	FETMiscThreshold_Cfg
+0x0002f22c	did_fd12_subfield_3_data_def
+0x0002f257	did_FD12_subfield_3
+0x0002f26c	FETOpenThreshold_Cfg
+0x0002f2a0	did_fd12_subfield_4_data_def
+0x0002f2cb	did_FD12_subfield_4
+0x0002f2e0	FETShort_Cnt
+0x0002f30c	did_fd12_subfield_5_data_def
+0x0002f337	did_FD12_subfield_5
+0x0002f34c	FETProtCtrl_Cfg
+0x0002f37b	did_fd12_subfield_6_data_def
+0x0002f3a6	did_FD12_subfield_6
+0x0002f3bb	FETReset
+0x0002f3e3	did_fd12_subfield_7_data_def
+0x0002f40e	did_FD12_subfield_7
+0x0002f423	FETGood
+0x0002f5c2	did_FD12
+0x0002f5cc	RCM FET Configurations
+0x0002f647	did_fd13_subfield_1_data_def
+0x0002f672	did_FD13_subfield_1
+0x0002f687	FETTestDuration_Cfg
+0x0002f6ba	did_fd13_subfield_2_data_def
+0x0002f6e5	did_FD13_subfield_2
+0x0002f6fa	FETMiscThreshold_Cfg
+0x0002f72e	did_fd13_subfield_3_data_def
+0x0002f759	did_FD13_subfield_3
+0x0002f76e	FETOpenThreshold_Cfg
+0x0002f7a2	did_fd13_subfield_4_data_def
+0x0002f7cd	did_FD13_subfield_4
+0x0002f7e2	FETShort_Cnt
+0x0002f80e	did_fd13_subfield_5_data_def
+0x0002f839	did_FD13_subfield_5
+0x0002f84e	FETProtCtrl_Cfg
+0x0002f87d	did_fd13_subfield_6_data_def
+0x0002f8a8	did_FD13_subfield_6
+0x0002f8bd	FETReset
+0x0002f8e5	did_fd13_subfield_7_data_def
+0x0002f910	did_FD13_subfield_7
+0x0002f925	FETGood
+0x0002fac4	did_FD13
+0x0002face	OCS FET Configurations
+0x0002fb2f	did_fd14_subfield_1_data_def
+0x0002fb5a	did_FD14_subfield_1
+0x0002fb6f	Module Reset to New
+0x0002fd26	did_FD14
+0x0002fd30	Module Reset to New
+0x0002fdde	did_fd15_subfield_1_data_def
+0x0002fe44	did_FD15_subfield_1
+0x0002fe59	Timer Deep Sleep Timeout
+0x0002ff59	did_FD15
+0x0002ff63	Timer Deep Sleep Timeout
+0x0002ffe0	did_fd16_subfield_1_data_def
+0x0003000b	did_FD16_subfield_1
+0x00030020	ECU Fault
+0x00030049	did_fd16_subfield_2_data_def
+0x00030074	did_FD16_subfield_2
+0x00030089	Initial Configuration Not Complete
+0x000300cb	did_fd16_subfield_3_data_def
+0x000300f6	did_FD16_subfield_3
+0x0003010b	Solid State Driver Protection
+0x00030148	did_fd16_subfield_4_data_def
+0x00030173	did_FD16_subfield_4
+0x00030188	Ignition Status
+0x000301b7	did_fd16_subfield_5_data_def
+0x000301e2	did_FD16_subfield_5
+0x000301f7	Lost Comm with BCM
+0x00030229	did_fd16_subfield_6_data_def
+0x00030254	did_FD16_subfield_6
+0x00030269	Lost Comm With ECM
+0x0003029b	did_fd16_subfield_7_data_def
+0x000302c6	did_FD16_subfield_7
+0x000302db	RS_RCM_Ckt Open/Short2Gnd
+0x00030314	did_fd16_subfield_8_data_def
+0x0003033f	did_FD16_subfield_8
+0x00030354	RCM_Out_Ckt Short-to-Gnd
+0x0003038c	did_fd16_subfield_9_data_def
+0x000303b7	did_FD16_subfield_9
+0x000303cc	OCS_Out_Ckt Short-to-Gnd
+0x00030404	did_fd16_subfield_10_data_def
+0x00030430	did_FD16_subfield_10
+0x00030446	RCM_Out_Ckt Short-to-VBatt
+0x00030480	did_fd16_subfield_11_data_def
+0x000304ac	did_FD16_subfield_11
+0x000304c2	OCS_Out_Ckt Short-to-VBatt
+0x000304e5	This is a Supplier use DID only. Config Requirements = Dataflow: Circuit:n/a
+0x00030533	did_FD16
+0x0003053d	DTC Suppression Config
+0x000305b3	INACTIVE
+0x000305bd	did_fd17_subfield_1_data_def_enum_1
+0x000305ec	ACTIVE
+0x000305f4	did_fd17_subfield_1_data_def_enum_2
+0x00030626	did_fd17_subfield_1_data_def
+0x00030651	did_FD17_subfield_1
+0x00030666	Output Processes 01 (DE0A)
+0x000306ad	did_fd17_subfield_2_data_def_enum_1
+0x000306e2	did_fd17_subfield_2_data_def_enum_2
+0x00030714	did_fd17_subfield_2_data_def
+0x0003073f	did_FD17_subfield_2
+0x00030754	Body Features 08 (DE09)
+0x00030798	did_fd17_subfield_3_data_def_enum_1
+0x000307cd	did_fd17_subfield_3_data_def_enum_2
+0x000307ff	did_fd17_subfield_3_data_def
+0x0003082a	did_FD17_subfield_3
+0x0003083f	Body Features 07 (DE08)
+0x00030883	did_fd17_subfield_4_data_def_enum_1
+0x000308b8	did_fd17_subfield_4_data_def_enum_2
+0x000308ea	did_fd17_subfield_4_data_def
+0x00030915	did_FD17_subfield_4
+0x0003092a	Common Input Processes 01 (DE07)
+0x00030977	did_fd17_subfield_5_data_def_enum_1
+0x000309ac	did_fd17_subfield_5_data_def_enum_2
+0x000309de	did_fd17_subfield_5_data_def
+0x00030a09	did_FD17_subfield_5
+0x00030a1e	Vehicle Starting Control 01 (DE06)
+0x00030a6d	did_fd17_subfield_6_data_def_enum_1
+0x00030aa2	did_fd17_subfield_6_data_def_enum_2
+0x00030ad4	did_fd17_subfield_6_data_def
+0x00030aff	did_FD17_subfield_6
+0x00030b14	Body Features 06 (DE05)
+0x00030b58	did_fd17_subfield_7_data_def_enum_1
+0x00030b8d	did_fd17_subfield_7_data_def_enum_2
+0x00030bbf	did_fd17_subfield_7_data_def
+0x00030bea	did_FD17_subfield_7
+0x00030bff	Body Features 05 (DE04)
+0x00030c43	did_fd17_subfield_8_data_def_enum_1
+0x00030c78	did_fd17_subfield_8_data_def_enum_2
+0x00030caa	did_fd17_subfield_8_data_def
+0x00030cd5	did_FD17_subfield_8
+0x00030cea	Body Features 04 (DE03)
+0x00030d2e	did_fd17_subfield_9_data_def_enum_1
+0x00030d63	did_fd17_subfield_9_data_def_enum_2
+0x00030d95	did_fd17_subfield_9_data_def
+0x00030dc0	did_FD17_subfield_9
+0x00030dd5	Body Features 03 (DE02)
+0x00030e19	did_fd17_subfield_10_data_def_enum_1
+0x00030e4f	did_fd17_subfield_10_data_def_enum_2
+0x00030e82	did_fd17_subfield_10_data_def
+0x00030eae	did_FD17_subfield_10
+0x00030ec4	Body Features 02 (DE01)
+0x00030f08	did_fd17_subfield_11_data_def_enum_1
+0x00030f3e	did_fd17_subfield_11_data_def_enum_2
+0x00030f71	did_fd17_subfield_11_data_def
+0x00030f9d	did_FD17_subfield_11
+0x00030fb3	Body Features 01 (DE00)
+0x00030fd3	This is a Supplier use DID only. Config Requirements = Dataflow: Circuit:n/a
+0x00031021	did_FD17
+0x0003102b	Written Flag Config
+0x00031089	did_fd18_subfield_1_data_def
+0x000310b4	did_FD18_subfield_1
+0x000310c9	EOL Open Gate Request
+0x000310e7	This is a Supplier use DID only. Reserved for Supplier MFG
+0x00031123	did_FD18
+0x0003112d	EOL Open Gate Request
+0x000311a2	NO FAILURES
+0x000311af	did_fd20_subfield_1_data_def_enum_1
+0x000311de	INTERNAL PAAT CKT FAILURE
+0x000311f9	did_fd20_subfield_1_data_def_enum_2
+0x0003122a	ROM FAILURES
+0x00031238	did_fd20_subfield_1_data_def_enum_3
+0x00031269	RAM FAILURES
+0x00031277	did_fd20_subfield_1_data_def_enum_4
+0x000312a8	CLOCK FAILURES
+0x000312b8	did_fd20_subfield_1_data_def_enum_5
+0x000312e9	PULLUP FAILURE
+0x000312f9	did_fd20_subfield_1_data_def_enum_6
+0x0003132a	UNRECOVERABLE NVM FAULT
+0x00031343	did_fd20_subfield_1_data_def_enum_7
+0x00031374	FET SHORT FAILURE
+0x00031387	did_fd20_subfield_1_data_def_enum_8
+0x000313b8	PLL FAILURE
+0x000313c5	did_fd20_subfield_1_data_def_enum_9
+0x000313f8	FNOS HW LOOP FAILURE
+0x0003140e	did_fd20_subfield_1_data_def_enum_10
+0x00031441	did_fd20_subfield_1_data_def
+0x0003146c	did_FD20_subfield_1
+0x00031481	Fault that Caused F00049
+0x000314a2	This is a Supplier use DID only. Config Requirements = Dataflow: FAULT_THAT_CAUSED_F00049 Circuit:n/a
+0x00031509	did_FD20
+0x00031513	Fault that Caused F00049
+0x00031584	did_fd21_subfield_1_data_def
+0x000315af	did_FD21_subfield_1
+0x000315c4	SBC RS Wake up Diagnostics
+0x000315fe	did_fd21_subfield_2_data_def
+0x00031629	did_FD21_subfield_2
+0x0003163e	SBC CAN Wake up Diagnostics
+0x00031686	did_fd21_subfield_3_data_def_enum_1
+0x000316bb	did_fd21_subfield_3_data_def_enum_2
+0x000316ed	did_fd21_subfield_3_data_def
+0x00031718	did_FD21_subfield_3
+0x0003172d	flagTO_TxDC
+0x00031765	did_fd21_subfield_4_data_def_enum_1
+0x0003179a	did_fd21_subfield_4_data_def_enum_2
+0x000317cc	did_fd21_subfield_4_data_def
+0x000317f7	did_FD21_subfield_4
+0x0003180c	flagTO_TxDL1
+0x00031845	did_fd21_subfield_5_data_def_enum_1
+0x0003187a	did_fd21_subfield_5_data_def_enum_2
+0x000318ac	did_fd21_subfield_5_data_def
+0x000318d7	did_FD21_subfield_5
+0x000318ec	flagTO_TxDL2
+0x00031925	did_fd21_subfield_6_data_def_enum_1
+0x0003195a	did_fd21_subfield_6_data_def_enum_2
+0x0003198c	did_fd21_subfield_6_data_def
+0x000319b7	did_FD21_subfield_6
+0x000319cc	flagBUCK_NOREG
+0x00031a07	did_fd21_subfield_7_data_def_enum_1
+0x00031a3c	did_fd21_subfield_7_data_def_enum_2
+0x00031a6e	did_fd21_subfield_7_data_def
+0x00031a99	did_FD21_subfield_7
+0x00031aae	flagBUCK_OL
+0x00031ae6	did_fd21_subfield_8_data_def_enum_1
+0x00031b1b	did_fd21_subfield_8_data_def_enum_2
+0x00031b4d	did_fd21_subfield_8_data_def
+0x00031b78	did_FD21_subfield_8
+0x00031b8d	flagBOOST_RUN
+0x00031bc7	did_fd21_subfield_9_data_def_enum_1
+0x00031bfc	did_fd21_subfield_9_data_def_enum_2
+0x00031c2e	did_fd21_subfield_9_data_def
+0x00031c59	did_FD21_subfield_9
+0x00031c6e	flagBOOST_OL
+0x00031ca7	did_fd21_subfield_10_data_def_enum_1
+0x00031cdd	did_fd21_subfield_10_data_def_enum_2
+0x00031d10	did_fd21_subfield_10_data_def
+0x00031d3c	did_FD21_subfield_10
+0x00031d52	flagTWAR
+0x00031d81	INACTiVE
+0x00031d8b	did_fd21_subfield_11_data_def_enum_1
+0x00031dc1	did_fd21_subfield_11_data_def_enum_2
+0x00031df4	did_fd21_subfield_11_data_def
+0x00031e20	did_FD21_subfield_11
+0x00031e36	flagRES_SWD
+0x00031e6e	did_fd21_subfield_12_data_def_enum_1
+0x00031ea4	did_fd21_subfield_12_data_def_enum_2
+0x00031ed7	did_fd21_subfield_12_data_def
+0x00031f03	did_FD21_subfield_12
+0x00031f19	flagVOUT2_UV
+0x00031f52	did_fd21_subfield_13_data_def_enum_1
+0x00031f88	did_fd21_subfield_13_data_def_enum_2
+0x00031fbb	did_fd21_subfield_13_data_def
+0x00031fe7	did_FD21_subfield_13
+0x00031ffd	flagVOUT2_OV
+0x00032036	did_fd21_subfield_14_data_def_enum_1
+0x0003206c	did_fd21_subfield_14_data_def_enum_2
+0x0003209f	did_fd21_subfield_14_data_def
+0x000320cb	did_FD21_subfield_14
+0x000320e1	flagSPIFail
+0x0003210c	did_fd21_subfield_15_data_def
+0x00032138	did_FD21_subfield_15
+0x0003214e	SBC Failure Counter flagTO_TxDC
+0x0003218d	did_fd21_subfield_16_data_def
+0x000321b9	did_FD21_subfield_16
+0x000321cf	SBC Failure Counter flagTO_TxDL1
+0x0003220f	did_fd21_subfield_17_data_def
+0x0003223b	did_FD21_subfield_17
+0x00032251	SBC Failure Counter flagTO_TxDL2
+0x00032291	did_fd21_subfield_18_data_def
+0x000322bd	did_FD21_subfield_18
+0x000322d3	SBC Failure Counter flagBUCK_NOREG
+0x00032315	did_fd21_subfield_19_data_def
+0x00032341	did_FD21_subfield_19
+0x00032357	SBC Failure Counter flagBUCK_OL
+0x00032396	did_fd21_subfield_20_data_def
+0x000323c2	did_FD21_subfield_20
+0x000323d8	SBC Failure Counter flagBOOST_RUN
+0x00032419	did_fd21_subfield_21_data_def
+0x00032445	did_FD21_subfield_21
+0x0003245b	SBC Failure Counter flagBOOST_OL
+0x0003249b	did_fd21_subfield_22_data_def
+0x000324c7	did_FD21_subfield_22
+0x000324dd	SBC Failure Counter flagTWAR
+0x00032519	did_fd21_subfield_23_data_def
+0x00032545	did_FD21_subfield_23
+0x0003255b	SBC Failure Counter flagRES_SWD
+0x0003259a	did_fd21_subfield_24_data_def
+0x000325c6	did_FD21_subfield_24
+0x000325dc	SBC Failure Counter flagVOUT2_UV
+0x0003261c	did_fd21_subfield_25_data_def
+0x00032648	did_FD21_subfield_25
+0x0003265e	SBC Failure Counter flagVOUT2_OV
+0x0003269e	did_fd21_subfield_26_data_def
+0x000326ca	did_FD21_subfield_26
+0x000326e0	SBC Failure Counter flagSPIFail
+0x00032829	did_FD21
+0x00032833	SBC Diagnostics
+0x0003289b	did_fd22_subfield_1_data_def
+0x000328c6	did_FD22_subfield_1
+0x000328db	ECC Failure Counter
+0x0003290e	did_fd22_subfield_2_data_def
+0x00032939	did_FD22_subfield_2
+0x0003294e	Clock Monitor Error Log Counter
+0x0003298d	did_fd22_subfield_3_data_def
+0x000329b8	did_FD22_subfield_3
+0x000329cd	Register Monitor Error Log Counter
+0x00032a0f	did_fd22_subfield_4_data_def
+0x00032a3a	did_FD22_subfield_4
+0x00032a4f	Address of Last Corrupted Register
+0x00032a91	did_fd22_subfield_5_data_def
+0x00032abc	did_FD22_subfield_5
+0x00032ad1	Illegal Memory Access Counter
+0x00032b0e	did_fd22_subfield_6_data_def
+0x00032b39	did_FD22_subfield_6
+0x00032b4e	Unused Interrupt Counter
+0x00032d01	did_FD22
+0x00032d0b	MCU Internal Diagnostics
+0x00032d7c	did_fd23_subfield_1_data_def
+0x00032da7	did_FD23_subfield_1
+0x00032dbc	EEPROM Failure Counter
+0x00032df2	did_fd23_subfield_2_data_def
+0x00032e1d	did_FD23_subfield_2
+0x00032e32	z001 Voltage Block Fail Retry Counter
+0x00032e77	did_fd23_subfield_3_data_def
+0x00032ea2	did_FD23_subfield_3
+0x00032eb7	z002 NVM Block Fail Retry Counter
+0x00032ef8	did_fd23_subfield_4_data_def
+0x00032f23	did_FD23_subfield_4
+0x00032f38	z003 NVM Block Fail Retry Counter
+0x00032f79	did_fd23_subfield_5_data_def
+0x00032fa4	did_FD23_subfield_5
+0x00032fb9	z004 NVM Block Fail Retry Counter
+0x00032ffa	did_fd23_subfield_6_data_def
+0x00033025	did_FD23_subfield_6
+0x0003303a	z005 NVM Block Fail Retry Counter
+0x0003307b	did_fd23_subfield_7_data_def
+0x000330a6	did_FD23_subfield_7
+0x000330bb	EEPBLK Suppression Config Failure Retry
+0x00033102	did_fd23_subfield_8_data_def
+0x0003312d	did_FD23_subfield_8
+0x00033142	z006 NVM Block Fail Retry Counter
+0x00033348	did_FD23
+0x00033352	EEPROM Block Retry
+0x000333af	did_fd24_subfield_1_data_def
+0x000333da	did_FD24_subfield_1
+0x000333ef	Module Reset to New Confirmation
+0x00033711	did_FD24
+0x0003371b	Module Reset to New Confirmation
+0x00033786	did_fd25_subfield_1_data_def
+0x000337b1	did_FD25_subfield_1
+0x000337c6	EOL Open Gate Confirmation
+0x000337e9	This is a Supplier use DID only. Reserved for Supplier MFG
+0x00033825	did_FD25
+0x0003382f	EOL Open Gate Confirmation
+0x000338a9	NO_RETRY
+0x000338b3	did_fd26_subfield_1_data_def_enum_1
+0x000338e2	RETRY
+0x000338e9	did_fd26_subfield_1_data_def_enum_2
+0x0003391b	did_fd26_subfield_1_data_def
+0x00033946	did_FD26_subfield_1
+0x0003395b	FETMode[RCM_OUT]
+0x00033998	did_fd26_subfield_2_data_def_enum_1
+0x000339cd	did_fd26_subfield_2_data_def_enum_2
+0x000339ff	did_fd26_subfield_2_data_def
+0x00033a2a	did_FD26_subfield_2
+0x00033a3f	FETMode[OCS_OUT]
+0x00033a7c	did_fd26_subfield_3_data_def_enum_1
+0x00033aab	SET_ON
+0x00033ab3	did_fd26_subfield_3_data_def_enum_2
+0x00033ae2	SET_OFF
+0x00033aeb	did_fd26_subfield_3_data_def_enum_3
+0x00033b1d	did_fd26_subfield_3_data_def
+0x00033b48	did_FD26_subfield_3
+0x00033b5d	PIDCtrl_RCM_Out
+0x00033b99	did_fd26_subfield_4_data_def_enum_1
+0x00033bce	did_fd26_subfield_4_data_def_enum_2
+0x00033c03	did_fd26_subfield_4_data_def_enum_3
+0x00033c35	did_fd26_subfield_4_data_def
+0x00033c60	did_FD26_subfield_4
+0x00033c75	PIDCtrl_OCS_Out
+0x00033cb1	did_fd26_subfield_5_data_def_enum_1
+0x00033ce6	did_fd26_subfield_5_data_def_enum_2
+0x00033d18	did_fd26_subfield_5_data_def
+0x00033d43	did_FD26_subfield_5
+0x00033d58	Pwr_Rqst
+0x00033d8d	did_fd26_subfield_6_data_def_enum_1
+0x00033dc2	did_fd26_subfield_6_data_def_enum_2
+0x00033df4	did_fd26_subfield_6_data_def
+0x00033e1f	did_FD26_subfield_6
+0x00033e34	PAAT_Status
+0x00033f18	did_FD26
+0x00033f22	Input/Output and FETMode Monitoring
+0x00033fd4	did_fd27_subfield_1_data_def
+0x00033fff	did_FD27_subfield_1
+0x00034014	RCM_OutFdbk_Ckt
+0x00034079	did_fd27_subfield_2_data_def
+0x000340a4	did_FD27_subfield_2
+0x000340b9	OCS_OutFdbk_Ckt
+0x0003411e	did_fd27_subfield_3_data_def
+0x00034149	did_FD27_subfield_3
+0x0003415e	PAAT_Ckt
+0x000341bc	did_fd27_subfield_4_data_def
+0x000341e7	did_FD27_subfield_4
+0x000341fc	RS_RCM_Ckt
+0x0003425c	did_fd27_subfield_5_data_def
+0x00034287	did_FD27_subfield_5
+0x0003429c	VBattRaw
+0x000342ad	This is a Supplier use DID only. DID used for debugging purposes.
+0x000342f0	did_FD27
+0x000342fa	Input/Output Feedback Monitoring
+0x00034387	edr_02_record_0_subfield_0_data_def
+0x000343b9	edr_02_record_0_subfield_0
+0x000344c0	edr_02
+0x000344c8	Operation cycle counter #2
+0x00034540	edr_10_record_1_subfield_0_data_def
+0x00034572	edr_10_record_1_subfield_0
+0x00034669	edr_10
+0x00034671	DTC Fault Detection Counter
+0x000346a3	Circuit Short To Ground
+0x000346bc	ftb_11
+0x000346cd	Circuit Short To Battery
+0x000346e7	ftb_12
+0x000346f8	Signal Compare Failure
+0x00034710	ftb_62
+0x00034721	Circuit Open
+0x0003472f	ftb_13
+0x00034740	Circuit Short To Ground or Open
+0x00034761	ftb_14
+0x00034772	Missing Message
+0x00034783	ftb_87
+0x00034794	No Sub Type Information
+0x000347ad	ftb_00
+0x000347be	Internal Electronic Failure
+0x000347db	ftb_49
+0x000347f6	op_cycle_1
+0x0003480b	op_cycle_2
+0x000348ed	Set DTC
+0x000348f6	OCS can't be controlled
+0x000349a3	1000
+0x000349d8	P84
+0x000349dd	dtc_80A0_fi_0
+0x00034a45	Inc. Criteria: ShortVBatt_OCS = FAULT Dec. Criteria: ShortVBatt_OCS = NO_FAULT
+0x00034ad1	dtc_80A0_fi_1
+0x00034ae5	Occupant Classification System
+0x00034b05	dtc_80A0
+0x00034b6d	RCM can't be controlled
+0x00034c69	P83
+0x00034c6e	dtc_9123_fi_0
+0x00034cd6	Inc. Criteria: ShortVBatt_RCM = FAULT Dec. Criteria: ShortVBatt_RCM = NO_FAULT
+0x00034d62	dtc_9123_fi_1
+0x00034d76	Restraints Ignition relay
+0x00034d91	dtc_9123
+0x00034df9	Ignition in unexpected state
+0x00034e17	Inc. Criteria: IgnitionStatAgree = MISMATCH Dec. Criteria: IgnitionStatAgree <> MISMATCH
+0x00034ea7	N.A.
+0x00034ead	dtc_9142_fi_0
+0x00034ec1	Ignition Status 1
+0x00034ed4	dtc_9142
+0x00034f3c	EPM will not be energized and will not respond
+0x00035080	P81
+0x00035085	dtc_91D9_fi_0
+0x00035099	Vehicle Battery
+0x000350aa	dtc_91D9
+0x00035112	Ignition status will not be detected or available
+0x00035145	Inc. Criteria: EPMPwrState = ON & RS_RCM_Status <> ACTIVE Dec. Criteria: EPMPwrState = ON & RS_RCM_Status = ACTIVE
+0x000351ef	P80
+0x000351f4	dtc_93BF_fi_0
+0x00035208	Run/Start Input
+0x00035219	dtc_93BF
+0x0003527b	ECU keep trying to communicate with the ECM
+0x000352a8	Possible malfunction of the module that lost communication
+0x000352e4	Inc. Criteria: Moving_Status_ComStat = MISSING Dec. Criteria: Moving_Status_ComStat <> MISSING
+0x00035380	dtc_C100_fi_0
+0x00035394	Lost Communication With ECM/PCM "A"
+0x000353b9	dtc_C100
+0x0003541b	ECU keep trying to communicate with the BCM
+0x00035448	Possible malfunction of the module that lost communication
+0x0003557d	dtc_C140_fi_0
+0x00035591	Lost Communication With Body Control Module
+0x000355be	dtc_C140
+0x00035620	Set DTC. Free DTC aging NVM
+0x0003563d	Solid state driver protection malfunction - Outputs will not be protected RCM and/or OCS could not be controlled
+0x0003578e	dtc_D000_fi_0
+0x000357a2	Solid State Driver Protection Active -Driver Disabled
+0x000357d9	dtc_D000
+0x0003583b	ECU uses the default value for testing mode. Free DTC aging NVM
+0x0003587c	None
+0x00035882	Inc. Criteria: FactoryMode_Cfg = FACTORY Dec. Criteria: FactoryMode_Cfg <> FACTORY
+0x00035912	dtc_E100_fi_0
+0x00035926	Initial Configuration Not Complete
+0x0003594a	dtc_E100
+0x000359b2	ECU will not be activated
+0x000359cd	Inc. Criteria: DTC_F00049 = SET_DTC Refer to Table 8.5-8 DTC $F00049 (ECU Fault) Requirements Dec. Criteria: n/a
+0x00035a7b	dtc_F000_fi_0
+0x00035a8f	Control Module
+0x00035a9f	dtc_F000
+0x00035afa	service_23_p4_max_00
+0x00035b90	service_23
+0x00035b9c	ReadMemoryByAddress
+0x00035bc8	mem_00
+0x00035bd0	Application ROM 01
+0x00035c2c	mem_01
+0x00035c34	Flash Memory
+0x00035c80	mem_02
+0x00035c88	Data Flash Memory (EEEPROM)
+0x00035ce3	mem_03
+0x00035ceb	Application RAM 01
+0x00035d47	mem_04
+0x00035d4f	Application RAM 02
+0x00035da1	mem_05
+0x00035da9	Application RAM 03
+0x00035df9	mem_06
+0x00035e01	Secondary Bootloader
+0x00035e88	routine_routine_0301_start_req_1_subfield_1_bit_0_req_data_def
+0x00035ed5	routine_routine_0301_start_req_1_subfield_1
+0x00035f02	Memory Address
+0x00035f1b	Request Additional Data
+0x00035f70	Type 1
+0x00035f78	routine_0301_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x00035fc9	routine_0301_param_1_start_resp_1_routinetype_resp_data_def
+0x00036013	routine_0301_param_1_start_resp_1_subfield_1
+0x00036041	RoutineType
+0x00036073	completed
+0x0003607e	routine_0301_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x000360d1	routine_0301_param_1_start_resp_1_routinestatus_resp_data_def
+0x0003611d	routine_0301_param_1_start_resp_1_subfield_2
+0x0003614b	RoutineStatus
+0x00036163	RoutineInfo
+0x0003618b	routine_0301
+0x00036199	Activate Secondary Boot-loader
+0x00036229	routine_0304_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x0003627a	routine_0304_param_1_start_resp_1_routinetype_resp_data_def
+0x000362c4	routine_0304_param_1_start_resp_1_subfield_1
+0x000362f2	RoutineType
+0x0003632a	routine_0304_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x0003637d	routine_0304_param_1_start_resp_1_routinestatus_resp_data_def
+0x000363c9	routine_0304_param_1_start_resp_1_subfield_2
+0x000363f7	RoutineStatus
+0x00036443	Valid Application Software is NOT Present
+0x0003646e	routine_0304_param_2_start_resp_1_application_status_resp_data_def_enum_1
+0x000364c3	Valid Application Software is Present
+0x000364ea	routine_0304_param_2_start_resp_1_application_status_resp_data_def_enum_2
+0x00036542	routine_0304_param_2_start_resp_1_application_status_resp_data_def
+0x00036593	routine_0304_param_2_start_resp_1_subfield_1
+0x000365c1	Application Status
+0x000365de	Response Additional Data
+0x00036613	routine_0304
+0x00036621	Check Valid Application
+0x000366d2	routine_routine_201b_start_req_1_subfield_1_bit_0_req_data_def
+0x0003671f	routine_routine_201B_start_req_1_subfield_1
+0x0003674c	Solid State Driver Index
+0x000367b7	routine_201b_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x00036808	routine_201b_param_1_start_resp_1_routinetype_resp_data_def
+0x00036852	routine_201B_param_1_start_resp_1_subfield_1
+0x00036880	RoutineType
+0x000368b8	routine_201b_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x0003690b	routine_201b_param_1_start_resp_1_routinestatus_resp_data_def
+0x00036957	routine_201B_param_1_start_resp_1_subfield_2
+0x00036985	RoutineStatus
+0x00036a00	routine_201b_param_2_start_resp_1_solid_state_driver_short_circuit_counts_resp_data_def
+0x00036a66	routine_201B_param_2_start_resp_1_subfield_1
+0x00036a94	Solid State Driver Short Circuit Counts
+0x00036ae7	routine_201B
+0x00036af5	Obtain Solid State Driver Life Counter
+0x00036b81	routine_routine_ff00_start_req_1_subfield_1_bit_0_req_data_def
+0x00036bce	routine_routine_FF00_start_req_1_subfield_1
+0x00036bfb	Memory Address
+0x00036c29	routine_routine_ff00_start_req_1_subfield_2_bit_1_req_data_def
+0x00036c76	routine_routine_FF00_start_req_1_subfield_2
+0x00036ca3	Memory Size
+0x00036d01	routine_ff00_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x00036d52	routine_ff00_param_1_start_resp_1_routinetype_resp_data_def
+0x00036d9c	routine_FF00_param_1_start_resp_1_subfield_1
+0x00036dca	RoutineType
+0x00036e02	routine_ff00_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x00036e55	routine_ff00_param_1_start_resp_1_routinestatus_resp_data_def
+0x00036ea1	routine_FF00_param_1_start_resp_1_subfield_2
+0x00036ecf	RoutineStatus
+0x00036f08	routine_FF00
+0x00036f16	Flash Erase
+0x00036f87	routine_routine_ff01_start_req_1_subfield_1_bit_0_req_data_def
+0x00036fd4	routine_routine_FF01_start_req_1_subfield_1
+0x00037001	Memory Address
+0x0003702f	routine_routine_ff01_start_req_1_subfield_2_bit_1_req_data_def
+0x0003707c	routine_routine_FF01_start_req_1_subfield_2
+0x000370a9	Memory Size
+0x00037107	routine_ff01_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x00037158	routine_ff01_param_1_start_resp_1_routinetype_resp_data_def
+0x000371a2	routine_FF01_param_1_start_resp_1_subfield_1
+0x000371d0	RoutineType
+0x00037208	routine_ff01_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x0003725b	routine_ff01_param_1_start_resp_1_routinestatus_resp_data_def
+0x000372a7	routine_FF01_param_1_start_resp_1_subfield_2
+0x000372d5	RoutineStatus
+0x0003731a	routine_ff01_param_2_start_resp_1_checksum_resp_data_def
+0x00037361	routine_FF01_param_2_start_resp_1_subfield_1
+0x0003738f	Checksum
+0x000373c3	routine_FF01
+0x000373d1	Check Programming Dependencies
+0x0003743e	service_27_sf_01
+0x00037450	requestSeed
+0x0003747c	service_27_sf_02
+0x0003748e	sendKey
+0x0003749c	security_01
+0x000374a9	Send Key (Security Level 0x01)
+0x000374cc	Ford_Production_Encryption_Prg_2012
+0x000374f1	fb_01
+0x0003755a	op_cycle_1
+0x0003756a	Set DTC
+0x00037573	OCS can't be controlled
+0x00037620	1000
+0x00037640	Circuit Short To Ground
+0x00037659	ftb_11
+0x00037679	P84
+0x0003767e	dtc_80A0_fi_0
+0x000376da	Inc. Criteria: ShortVBatt_OCS = FAULT Dec. Criteria: ShortVBatt_OCS = NO_FAULT
+0x00037749	Circuit Short To Battery
+0x00037763	ftb_12
+0x00037787	dtc_80A0_fi_1
+0x0003779b	Occupant Classification System
+0x000377bb	dtc_80A0
+0x0003781f	op_cycle_2
+0x0003782f	Set DTC
+0x00037838	RCM can't be controlled
+0x000378ff	1000
+0x0003791f	Circuit Short To Ground
+0x00037938	ftb_11
+0x00037958	P83
+0x0003795d	dtc_9123_fi_0
+0x000379b9	Inc. Criteria: ShortVBatt_RCM = FAULT Dec. Criteria: ShortVBatt_RCM = NO_FAULT
+0x00037a28	Circuit Short To Battery
+0x00037a42	ftb_12
+0x00037a66	dtc_9123_fi_1
+0x00037a7a	Restraints Ignition relay
+0x00037a95	dtc_9123
+0x00037af9	op_cycle_2
+0x00037b09	Set DTC
+0x00037b12	Ignition in unexpected state
+0x00037b30	Inc. Criteria: IgnitionStatAgree = MISMATCH Dec. Criteria: IgnitionStatAgree <> MISMATCH
+0x00037b8b	1000
+0x00037bab	Signal Compare Failure
+0x00037bc3	ftb_62
+0x00037be3	N.A.
+0x00037be9	dtc_9142_fi_0
+0x00037bfd	Ignition Status 1
+0x00037c10	dtc_9142
+0x00037c74	op_cycle_1
+0x00037c84	Set DTC
+0x00037c8d	EPM will not be energized and will not respond
+0x00037d9c	1000
+0x00037dbc	Circuit Open
+0x00037dca	ftb_13
+0x00037dea	P81
+0x00037def	dtc_91D9_fi_0
+0x00037e03	Vehicle Battery
+0x00037e14	dtc_91D9
+0x00037e78	op_cycle_2
+0x00037e88	Set DTC
+0x00037e91	Ignition status will not be detected or available
+0x00037ec4	Inc. Criteria: EPMPwrState = ON & RS_RCM_Status <> ACTIVE Dec. Criteria: EPMPwrState = ON & RS_RCM_Status = ACTIVE
+0x00037f39	1000
+0x00037f59	Circuit Short To Ground or Open
+0x00037f7a	ftb_14
+0x00037f9a	P80
+0x00037f9f	dtc_93BF_fi_0
+0x00037fb3	Run/Start Input
+0x00037fc4	dtc_93BF
+0x00038028	op_cycle_1
+0x00038038	ECU keep trying to communicate with the ECM
+0x00038065	Possible malfunction of the module that lost communication
+0x000380a1	Inc. Criteria: Moving_Status_ComStat = MISSING Dec. Criteria: Moving_Status_ComStat <> MISSING
+0x00038102	1000
+0x00038122	Missing Message
+0x00038133	ftb_87
+0x00038153	N.A.
+0x00038159	dtc_C100_fi_0
+0x0003816d	Lost Communication With ECM/PCM "A"
+0x00038192	dtc_C100
+0x000381f6	op_cycle_2
+0x00038206	ECU keep trying to communicate with the BCM
+0x00038233	Possible malfunction of the module that lost communication
+0x0003832d	1000
+0x0003834d	Missing Message
+0x0003835e	ftb_87
+0x0003837e	N.A.
+0x00038384	dtc_C140_fi_0
+0x00038398	Lost Communication With Body Control Module
+0x000383c5	dtc_C140
+0x00038429	op_cycle_1
+0x00038439	Set DTC. Free DTC aging NVM
+0x00038456	Solid state driver protection malfunction - Outputs will not be protected RCM and/or OCS could not be controlled
+0x0003856c	1000
+0x0003858c	No Sub Type Information
+0x000385a5	ftb_00
+0x000385c5	N.A.
+0x000385cb	dtc_D000_fi_0
+0x000385df	Solid State Driver Protection Active -Driver Disabled
+0x00038616	dtc_D000
+0x0003867a	op_cycle_1
+0x0003868a	ECU uses the default value for testing mode. Free DTC aging NVM
+0x000386cb	None
+0x000386d1	Inc. Criteria: FactoryMode_Cfg = FACTORY Dec. Criteria: FactoryMode_Cfg <> FACTORY
+0x00038726	1000
+0x00038746	No Sub Type Information
+0x0003875f	ftb_00
+0x0003877f	N.A.
+0x00038785	dtc_E100_fi_0
+0x00038799	Initial Configuration Not Complete
+0x000387bd	dtc_E100
+0x00038821	op_cycle_1
+0x00038831	Set DTC
+0x0003883a	ECU will not be activated
+0x00038855	Inc. Criteria: DTC_F00049 = SET_DTC Refer to Table 8.5-8 DTC $F00049 (ECU Fault) Requirements Dec. Criteria: n/a
+0x000388c8	1000
+0x000388e8	Internal Electronic Failure
+0x00038905	ftb_49
+0x00038925	N.A.
+0x0003892b	dtc_F000_fi_0
+0x0003893f	Control Module
+0x0003894f	dtc_F000
+0x00038add	session_02
+0x00038ae9	programmingSession
+0x00038b04	service_27_sf_01
+0x00038b16	requestSeed
+0x00038b40	service_27_sf_02
+0x00038b52	sendKey
+0x00038b60	security_01
+0x00038b6d	Send Key (Security Level 0x01)
+0x00038d9a	session_01
+0x00038da6	defaultSession
+0x00038eb1	session_03
+0x00038ebd	extendedDiagnosticSession
+0x0003903c	session_02
+0x00039048	programmingSession
+0x000390a7	nrc_10
+0x000390af	generalReject
+0x000390cb	nrc_11
+0x000390d3	serviceNotSupported
+0x000390f5	nrc_12
+0x000390fd	subFunctionNotSupported
+0x00039123	nrc_13
+0x0003912b	incorrectMessageLengthOrInvalidFormat
+0x0003915f	nrc_14
+0x00039167	responseTooLong
+0x00039185	nrc_21
+0x0003918d	busyRepeatRequest
+0x000391ad	nrc_22
+0x000391b5	conditionsNotCorrect
+0x000391d8	nrc_24
+0x000391e0	requestSequenceError
+0x00039203	nrc_25
+0x0003920b	noResponseFromSubnetComponent
+0x00039237	nrc_26
+0x0003923f	failurePreventsExecutionOfRequestedAction
+0x00039277	nrc_31
+0x0003927f	requestOutOfRange
+0x0003929f	nrc_33
+0x000392a7	securityAccessDenied
+0x000392ca	nrc_35
+0x000392d2	invalidKey
+0x000392eb	nrc_36
+0x000392f3	exceedNumberOfAttempts
+0x00039318	nrc_37
+0x00039320	requiredTimeDelayNotExpired
+0x0003934a	nrc_70
+0x00039352	uploadDownloadNotAccepted
+0x0003937a	nrc_71
+0x00039382	transferDataSuspended
+0x000393a6	nrc_72
+0x000393ae	generalProgrammingFailure
+0x000393d6	nrc_73
+0x000393de	wrongBlockSequenceCounter
+0x00039406	nrc_78
+0x0003940e	requestCorrectlyReceived-ResponsePending
+0x00039445	nrc_7E
+0x0003944d	subFunctionNotSupportedInActiveSession
+0x00039482	nrc_7F
+0x0003948a	serviceNotSupportedInActiveSession
+0x000394bb	nrc_81
+0x000394c3	rpmTooHigh
+0x000394dc	nrc_82
+0x000394e4	rpmTooLow
+0x000394fc	nrc_83
+0x00039504	engineIsRunning
+0x00039522	nrc_84
+0x0003952a	engineIsNotRunning
+0x0003954b	nrc_85
+0x00039553	engineRunTimeTooLow
+0x00039575	nrc_86
+0x0003957d	temperatureTooHigh
+0x0003959e	nrc_87
+0x000395a6	temperatureTooLow
+0x000395c6	nrc_88
+0x000395ce	vehicleSpeedTooHigh
+0x000395f0	nrc_89
+0x000395f8	vehicleSpeedTooLow
+0x00039619	nrc_8A
+0x00039621	throttle/PedalTooHigh
+0x00039645	nrc_8B
+0x0003964d	throttle/PedalTooLow
+0x00039670	nrc_8C
+0x00039678	transmissionRangeNotInNeutral
+0x000396a4	nrc_8D
+0x000396ac	transmissionRangeNotInGear
+0x000396d5	nrc_8F
+0x000396dd	brakeSwitch(es)NotClosed
+0x00039704	nrc_90
+0x0003970c	shifterLeverNotInPark
+0x00039730	nrc_91
+0x00039738	torqueConverterClutchLocked
+0x00039762	nrc_92
+0x0003976a	voltageTooHigh
+0x00039787	nrc_93
+0x0003978f	voltageTooLow
+0x000397d2	service_27_sf_01
+0x000397e4	requestSeed
+0x00039810	service_27_sf_02
+0x00039822	sendKey
+0x00039830	security_01
+0x0003983d	Send Key (Security Level 0x01)
+0x00039891	service_10_p4_max_00
+0x000398b9	service_10_p4_max_01
+0x0003993c	service_10
+0x00039948	DiagnosticSessionControl
+0x00039984	service_10_sf_01
+0x000399b5	service_10_sf_02
+0x000399e6	service_10_sf_03
+0x00039a32	service_11_p4_max_00
+0x00039a5a	service_11_p4_max_01
+0x00039acf	service_11
+0x00039adb	ECUReset
+0x00039b06	service_11_sf_01
+0x00039b18	hardReset
+0x00039b5e	service_14_p4_max_00
+0x00039c02	service_14
+0x00039c0e	ClearDiagnosticInformation
+0x00039c52	service_19_p4_max_00
+0x00039cd1	service_19
+0x00039cdd	ReadDTCInformation
+0x00039d0e	service_19_sf_01
+0x00039d20	reportNumberOfDTCByStatusMask
+0x00039d56	service_19_sf_02
+0x00039d68	reportDTCByStatusMask
+0x00039d96	service_19_sf_06
+0x00039da8	reportDTCExtDataRecordByDTCNumber
+0x00039de2	service_19_sf_0a
+0x00039df4	reportSupportedDTC
+0x00039e41	service_22_p4_max_00
+0x00039e69	service_22_p4_max_01
+0x00039f08	service_22
+0x00039f14	ReadDataByIdentifier
+0x00039f52	service_23_p4_max_00
+0x00039fe8	service_23
+0x00039ff4	ReadMemoryByAddress
+0x0003a02b	service_27_p4_max_00
+0x0003a053	service_27_p4_max_01
+0x0003a0ec	service_27
+0x0003a0f8	SecurityAccess
+0x0003a14f	service_2E_p4_max_00
+0x0003a1da	service_2E
+0x0003a1e6	WriteDataByIdentifier
+0x0003a223	service_2F_p4_max_00
+0x0003a255	iocp0
+0x0003a25c	returnControlToECU
+0x0003a27a	iocp3
+0x0003a281	shortTermAdjustment
+0x0003a29c	service_2F_params_1
+0x0003a310	service_2F
+0x0003a31c	InputOutputControlByIdentifier
+0x0003a366	service_31_p4_max_00
+0x0003a392	service_31_p4_max_01
+0x0003a469	service_31
+0x0003a475	RoutineControl
+0x0003a4a6	service_31_sf_01
+0x0003a4b8	startRoutine
+0x0003a4ff	service_34_p4_max_00
+0x0003a53c	No Compression Method and NO Encryption Method
+0x0003a5f3	service_34
+0x0003a5ff	RequestDownload
+0x0003a638	service_36_p4_max_00
+0x0003a6c3	service_36
+0x0003a6cf	TransferData
+0x0003a705	service_37_p4_max_00
+0x0003a782	service_37
+0x0003a78e	RequestTransferExit
+0x0003a7cb	service_3E_p4_max_00
+0x0003a7f3	service_3E_p4_max_01
+0x0003a85a	service_3E
+0x0003a866	TesterPresent
+0x0003a896	service_3E_sf_00
+0x0003a8a8	zeroSubFunction
+0x0003a8f2	service_85_p4_max_00
+0x0003a97d	service_85
+0x0003a989	ControlDTCSetting
+0x0003a9b7	service_85_sf_01
+0x0003a9c9	on
+0x0003a9e2	service_85_sf_02
+0x0003a9f4	off
+0x0003ab5e	pll_1
+0x0003ad05	pll_1
+0x0003af1a	session_01
+0x0003af26	defaultSession
+0x0003b0b0	session_02
+0x0003b0bc	programmingSession
+0x0003b1f5	session_03
+0x0003b201	extendedDiagnosticSession
+0x0003b40b	session_02
+0x0003b417	programmingSession
+0x0003b432	service_27_sf_01
+0x0003b444	requestSeed
+0x0003b46e	service_27_sf_02
+0x0003b480	sendKey
+0x0003b48e	security_01
+0x0003b49b	Send Key (Security Level 0x01)
+0x0003b4be	Ford_Production_Encryption_Prg_2012
+0x0003b4e3	fb_01
+0x0003b6d5	session_01
+0x0003b6e1	defaultSession
+0x0003b7ec	session_03
+0x0003b7f8	extendedDiagnosticSession
+0x0003b818	service_10_p4_max_00
+0x0003b98b	session_02
+0x0003b997	programmingSession
+0x0003b9b0	service_10_p4_max_01
+0x0003b9f7	nrc_12
+0x0003b9ff	subFunctionNotSupported
+0x0003ba2f	nrc_13
+0x0003ba37	incorrectMessageLengthOrInvalidFormat
+0x0003ba75	nrc_22
+0x0003ba7d	conditionsNotCorrect
+0x0003baaa	nrc_7E
+0x0003bab2	subFunctionNotSupportedInActiveSession
+0x0003baf3	service_10
+0x0003baff	DiagnosticSessionControl
+0x0003bb3b	service_10_sf_01
+0x0003bb6c	service_10_sf_02
+0x0003bb9d	service_10_sf_03
+0x0003bde8	session_01
+0x0003bdf4	defaultSession
+0x0003beff	session_03
+0x0003bf0b	extendedDiagnosticSession
+0x0003bf2b	service_11_p4_max_00
+0x0003c09e	session_02
+0x0003c0aa	programmingSession
+0x0003c0c3	service_11_p4_max_01
+0x0003c10a	nrc_12
+0x0003c112	subFunctionNotSupported
+0x0003c142	nrc_13
+0x0003c14a	incorrectMessageLengthOrInvalidFormat
+0x0003c188	nrc_22
+0x0003c190	conditionsNotCorrect
+0x0003c1bf	service_11
+0x0003c1cb	ECUReset
+0x0003c1f6	service_11_sf_01
+0x0003c208	hardReset
+0x0003c43d	session_01
+0x0003c449	defaultSession
+0x0003c554	session_03
+0x0003c560	extendedDiagnosticSession
+0x0003c580	service_14_p4_max_00
+0x0003c5da	nrc_11
+0x0003c5e2	serviceNotSupported
+0x0003c60e	nrc_13
+0x0003c616	incorrectMessageLengthOrInvalidFormat
+0x0003c654	nrc_22
+0x0003c65c	conditionsNotCorrect
+0x0003c689	nrc_31
+0x0003c691	requestOutOfRange
+0x0003c6bb	nrc_78
+0x0003c6c3	requestCorrectlyReceived-ResponsePending
+0x0003c706	service_14
+0x0003c712	ClearDiagnosticInformation
+0x0003c957	session_01
+0x0003c963	defaultSession
+0x0003ca6e	session_03
+0x0003ca7a	extendedDiagnosticSession
+0x0003ca9a	service_19_p4_max_00
+0x0003cadd	nrc_11
+0x0003cae5	serviceNotSupported
+0x0003cb11	nrc_12
+0x0003cb19	subFunctionNotSupported
+0x0003cb49	nrc_13
+0x0003cb51	incorrectMessageLengthOrInvalidFormat
+0x0003cb8f	nrc_31
+0x0003cb97	requestOutOfRange
+0x0003cbc3	service_19
+0x0003cbcf	ReadDTCInformation
+0x0003cc00	service_19_sf_01
+0x0003cc12	reportNumberOfDTCByStatusMask
+0x0003cc48	service_19_sf_02
+0x0003cc5a	reportDTCByStatusMask
+0x0003cc88	service_19_sf_06
+0x0003cc9a	reportDTCExtDataRecordByDTCNumber
+0x0003ccd4	service_19_sf_0a
+0x0003cce6	reportSupportedDTC
+0x0003cf2c	session_01
+0x0003cf38	defaultSession
+0x0003d043	session_03
+0x0003d04f	extendedDiagnosticSession
+0x0003d06f	service_22_p4_max_00
+0x0003d1e2	session_02
+0x0003d1ee	programmingSession
+0x0003d207	service_22_p4_max_01
+0x0003d26a	nrc_13
+0x0003d272	incorrectMessageLengthOrInvalidFormat
+0x0003d2b0	nrc_22
+0x0003d2b8	conditionsNotCorrect
+0x0003d2e5	nrc_31
+0x0003d2ed	requestOutOfRange
+0x0003d317	nrc_33
+0x0003d31f	securityAccessDenied
+0x0003d34e	service_22
+0x0003d35a	ReadDataByIdentifier
+0x0003d593	session_01
+0x0003d59f	defaultSession
+0x0003d6aa	session_03
+0x0003d6b6	extendedDiagnosticSession
+0x0003d6d6	service_23_p4_max_00
+0x0003d74c	nrc_13
+0x0003d754	incorrectMessageLengthOrInvalidFormat
+0x0003d792	nrc_31
+0x0003d79a	requestOutOfRange
+0x0003d7c6	service_23
+0x0003d7d2	ReadMemoryByAddress
+0x0003d84b	service_27_p4_max_00
+0x0003d9be	session_02
+0x0003d9ca	programmingSession
+0x0003d9e3	service_27_p4_max_01
+0x0003da22	nrc_12
+0x0003da2a	subFunctionNotSupported
+0x0003da5a	nrc_13
+0x0003da62	incorrectMessageLengthOrInvalidFormat
+0x0003daa0	nrc_24
+0x0003daa8	requestSequenceError
+0x0003dad5	nrc_35
+0x0003dadd	invalidKey
+0x0003db00	nrc_7E
+0x0003db08	subFunctionNotSupportedInActiveSession
+0x0003db47	nrc_7F
+0x0003db4f	serviceNotSupportedInActiveSession
+0x0003db8c	service_27
+0x0003db98	SecurityAccess
+0x0003dbc1	service_27_sf_01
+0x0003dbd3	requestSeed
+0x0003dbf3	service_27_sf_02
+0x0003dc05	sendKey
+0x0003dd76	session_03
+0x0003dd82	extendedDiagnosticSession
+0x0003dda2	service_2E_p4_max_00
+0x0003dde1	nrc_13
+0x0003dde9	incorrectMessageLengthOrInvalidFormat
+0x0003de27	nrc_22
+0x0003de2f	conditionsNotCorrect
+0x0003de5c	nrc_31
+0x0003de64	requestOutOfRange
+0x0003de8e	nrc_72
+0x0003de96	generalProgrammingFailure
+0x0003dec8	nrc_78
+0x0003ded0	requestCorrectlyReceived-ResponsePending
+0x0003df13	service_2E
+0x0003df1f	WriteDataByIdentifier
+0x0003e092	session_03
+0x0003e09e	extendedDiagnosticSession
+0x0003e0be	service_2F_p4_max_00
+0x0003e0f0	iocp0
+0x0003e0f7	returnControlToECU
+0x0003e115	iocp3
+0x0003e11c	shortTermAdjustment
+0x0003e137	service_2F_params_1
+0x0003e16d	nrc_13
+0x0003e175	incorrectMessageLengthOrInvalidFormat
+0x0003e1b3	nrc_22
+0x0003e1bb	conditionsNotCorrect
+0x0003e1e8	nrc_31
+0x0003e1f0	requestOutOfRange
+0x0003e21a	nrc_7F
+0x0003e222	serviceNotSupportedInActiveSession
+0x0003e25f	service_2F
+0x0003e26b	InputOutputControlByIdentifier
+0x0003e4ba	session_01
+0x0003e4c6	defaultSession
+0x0003e5d1	session_03
+0x0003e5dd	extendedDiagnosticSession
+0x0003e5fd	service_31_p4_max_00
+0x0003e774	session_02
+0x0003e780	programmingSession
+0x0003e799	service_31_p4_max_01
+0x0003e7e0	nrc_12
+0x0003e7e8	subFunctionNotSupported
+0x0003e818	nrc_13
+0x0003e820	incorrectMessageLengthOrInvalidFormat
+0x0003e85e	nrc_21
+0x0003e866	busyRepeatRequest
+0x0003e890	nrc_22
+0x0003e898	conditionsNotCorrect
+0x0003e8c5	nrc_24
+0x0003e8cd	requestSequenceError
+0x0003e8fa	nrc_31
+0x0003e902	requestOutOfRange
+0x0003e92c	nrc_33
+0x0003e934	securityAccessDenied
+0x0003e961	nrc_72
+0x0003e969	generalProgrammingFailure
+0x0003e99b	nrc_78
+0x0003e9a3	requestCorrectlyReceived-ResponsePending
+0x0003e9e4	nrc_7E
+0x0003e9ec	subFunctionNotSupportedInActiveSession
+0x0003ea2d	service_31
+0x0003ea39	RoutineControl
+0x0003ea63	�����service_31_sf_01�startRoutine� ��� �h@����� � �       �TRoutineControl�P1      �Rservice_31�P1   �  �P4 �\ 4 �@����� �  � ��  �` �����EThis diagnosticSession enables all diagnostic services required to support the memory programming of a server. Regardless of whether the programmingSession runs in boot software or not, the ECU shall automatically suspend logging of DTCs and suspend transmission of non-diagnostic frames when entering the programmingSession.�
+session_02�programmingS
+0x0003ec70	service_34_p4_max_00
+0x0003ecad	No Compression Method and NO Encryption Method
+0x0003ed0a	nrc_13
+0x0003ed12	incorrectMessageLengthOrInvalidFormat
+0x0003ed50	nrc_22
+0x0003ed58	conditionsNotCorrect
+0x0003ed85	nrc_31
+0x0003ed8d	requestOutOfRange
+0x0003edb7	nrc_33
+0x0003edbf	securityAccessDenied
+0x0003edec	nrc_78
+0x0003edf4	requestCorrectlyReceived-ResponsePending
+0x0003ee35	nrc_7F
+0x0003ee3d	serviceNotSupportedInActiveSession
+0x0003ee7a	service_34
+0x0003ee86	RequestDownload
+0x0003f048	session_02
+0x0003f054	programmingSession
+0x0003f06d	service_36_p4_max_00
+0x0003f0ac	nrc_13
+0x0003f0b4	incorrectMessageLengthOrInvalidFormat
+0x0003f0f2	nrc_24
+0x0003f0fa	requestSequenceError
+0x0003f127	nrc_73
+0x0003f12f	wrongBlockSequenceCounter
+0x0003f161	nrc_78
+0x0003f169	requestCorrectlyReceived-ResponsePending
+0x0003f1aa	nrc_7F
+0x0003f1b2	serviceNotSupportedInActiveSession
+0x0003f1ef	service_36
+0x0003f1fb	TransferData
+0x0003f3b7	session_02
+0x0003f3c3	programmingSession
+0x0003f3dc	service_37_p4_max_00
+0x0003f41b	nrc_13
+0x0003f423	incorrectMessageLengthOrInvalidFormat
+0x0003f461	nrc_24
+0x0003f469	requestSequenceError
+0x0003f496	nrc_78
+0x0003f49e	requestCorrectlyReceived-ResponsePending
+0x0003f4df	nrc_7F
+0x0003f4e7	serviceNotSupportedInActiveSession
+0x0003f524	service_37
+0x0003f530	RequestTransferExit
+0x0003f767	session_01
+0x0003f773	defaultSession
+0x0003f87e	session_03
+0x0003f88a	extendedDiagnosticSession
+0x0003f8aa	service_3E_p4_max_00
+0x0003fa1d	session_02
+0x0003fa29	programmingSession
+0x0003fa42	service_3E_p4_max_01
+0x0003fa89	nrc_12
+0x0003fa91	subFunctionNotSupported
+0x0003fac1	nrc_13
+0x0003fac9	incorrectMessageLengthOrInvalidFormat
+0x0003fb09	service_3E
+0x0003fb15	TesterPresent
+0x0003fb45	service_3E_sf_00
+0x0003fb57	zeroSubFunction
+0x0003fccf	session_03
+0x0003fcdb	extendedDiagnosticSession
+0x0003fcfb	service_85_p4_max_00
+0x0003fd3a	nrc_11
+0x0003fd42	serviceNotSupported
+0x0003fd6e	nrc_12
+0x0003fd76	subFunctionNotSupported
+0x0003fda6	nrc_13
+0x0003fdae	incorrectMessageLengthOrInvalidFormat
+0x0003fdec	nrc_78
+0x0003fdf4	requestCorrectlyReceived-ResponsePending
+0x0003fe35	nrc_7F
+0x0003fe3d	serviceNotSupportedInActiveSession
+0x0003fe7a	service_85
+0x0003fe86	ControlDTCSetting
+0x0003feb2	service_85_sf_01
+0x0003fec4	on
+0x0003fedb	service_85_sf_02
+0x0003feed	off

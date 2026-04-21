@@ -1,0 +1,2615 @@
+{
+  "6F0": {
+    "ecu": "Body Control Module \"C\"",
+    "short": "BCMC",
+    "phys_addr": "0x6F0",
+    "resp_addr": "0x6F8",
+    "dids": 98,
+    "routines": [
+      [
+        "0x0202",
+        "On-Demand Self-Test"
+      ],
+      [
+        "0x0301",
+        "Activate Secondary Boot-loader"
+      ],
+      [
+        "0x0304",
+        "Check Valid Application"
+      ],
+      [
+        "0x201B",
+        "Obtain Solid State Driver Life Counter"
+      ],
+      [
+        "0xF000",
+        "Stop WatchDog Refresh"
+      ],
+      [
+        "0xF001",
+        "Read ADC Value"
+      ],
+      [
+        "0xF002",
+        "Enter Sleep"
+      ],
+      [
+        "0xF003",
+        "Restore Defaults"
+      ],
+      [
+        "0xF004",
+        "Calibrate ADC"
+      ],
+      [
+        "0xF005",
+        "Write ECU Serial Number"
+      ],
+      [
+        "0xF006",
+        "Write ECU Delivery Assembly Number"
+      ],
+      [
+        "0xF007",
+        "Unlock JTAG"
+      ],
+      [
+        "0xF100",
+        "Ctrl DevelopmentPublickey Usage"
+      ],
+      [
+        "0xFF00",
+        "Flash Erase"
+      ],
+      [
+        "0xFF01",
+        "Check Programming Dependencies"
+      ]
+    ],
+    "dtcs": 29,
+    "sessions": [
+      "session_01",
+      "session_02",
+      "session_03"
+    ],
+    "security_levels": [
+      "security_01",
+      "security_03",
+      "security_05"
+    ],
+    "memory_areas": [
+      [
+        "Strategy",
+        "0x03CA0000"
+      ],
+      [
+        "Secondary Bootloader",
+        "0x1FFF0000"
+      ]
+    ],
+    "size": 379032,
+    "file": "6F0_BCMC.xml",
+    "can_id": "6F0"
+  },
+  "706": {
+    "ecu": "Image Processing Module \"A\"",
+    "short": "IPMA",
+    "phys_addr": "0x706",
+    "resp_addr": "0x70E",
+    "dids": 322,
+    "routines": [
+      [
+        "0x0202",
+        "On-Demand Self-Test"
+      ],
+      [
+        "0x0210",
+        "Use Inactive Memory Partition"
+      ],
+      [
+        "0x0213",
+        "Activate Inactive Memory Partition"
+      ],
+      [
+        "0x0301",
+        "Activate Secondary Boot-loader"
+      ],
+      [
+        "0x0304",
+        "Check Valid Application"
+      ],
+      [
+        "0x203A",
+        "Configure Private Sub Nodes And Collect Private Sub Node Part Numbers"
+      ],
+      [
+        "0x204F",
+        "Camera Alignment Without Wheel House Height Inputs"
+      ],
+      [
+        "0x205D",
+        "Camera Calibration"
+      ],
+      [
+        "0x2062",
+        "Camera Alignment (With Optional Height Calculation)"
+      ],
+      [
+        "0x2073",
+        "Obtain Solid State Driver Life Counter"
+      ],
+      [
+        "0x3045",
+        "Camera Alignment"
+      ],
+      [
+        "0x304A",
+        "Single Camera Trailer Angle Detection Calibration"
+      ],
+      [
+        "0xDC01",
+        "Auto High Beam Test"
+      ],
+      [
+        "0xF000",
+        "Reset Temperature Histogram"
+      ],
+      [
+        "0xFD37",
+        "SFA Activate Routine"
+      ],
+      [
+        "0xFD38",
+        "SFA Deactivate Routine"
+      ],
+      [
+        "0xFD39",
+        "Override_SAFETY_CORRUPTED_ECU_force_powerOn"
+      ],
+      [
+        "0xFD40",
+        "Burn Fuses"
+      ],
+      [
+        "0xFD44",
+        "TDA2 Bootloader Port Unlocking"
+      ],
+      [
+        "0xFD45",
+        "Burn CMA Fuse"
+      ],
+      [
+        "0xFD46",
+        "CMA Dev Mode Password"
+      ],
+      [
+        "0xFD47",
+        "Aurix XCP Password and Enable"
+      ],
+      [
+        "0xFD48",
+        "Treerunner XCP Password and Enable"
+      ],
+      [
+        "0xFD49",
+        "HSM Control"
+      ],
+      [
+        "0xFD54",
+        "Calculate CMAC"
+      ],
+      [
+        "0xFDF1",
+        "Erase Data Flash"
+      ],
+      [
+        "0xFEF2",
+        "TDA2 Software CRC"
+      ],
+      [
+        "0xFEF3",
+        "Restore Initial ECU Configuration"
+      ],
+      [
+        "0xFEF4",
+        "IPMB DV Control (Start/Stop)"
+      ],
+      [
+        "0xFEF5",
+        "BISTEN Testing Status"
+      ],
+      [
+        "0xFEF6",
+        "Current State of SoC ISP"
+      ],
+      [
+        "0xFEF7",
+        "Transmission of Debug Data"
+      ],
+      [
+        "0xFEF8",
+        "HIL Playback Mode"
+      ],
+      [
+        "0xFEF9",
+        "Camera Learn"
+      ],
+      [
+        "0xFEFA",
+        "Reset/Clear SVC or Service Calibration Data"
+      ],
+      [
+        "0xFEFB",
+        "SoC Algorithm Configuration"
+      ],
+      [
+        "0xFEFC",
+        "VVS Read Back Channel Command"
+      ],
+      [
+        "0xFEFD",
+        "VVS Write Back Channel Command"
+      ],
+      [
+        "0xFEFE",
+        "Reset/Clear MTC or Online Calibration Data"
+      ],
+      [
+        "0xFEFF",
+        "Reset/Clear FLMC or EOL Calibration Data"
+      ],
+      [
+        "0xFF00",
+        "Flash Erase"
+      ],
+      [
+        "0xFF01",
+        "Check Programming Dependencies"
+      ]
+    ],
+    "dtcs": 123,
+    "sessions": [
+      "session_01",
+      "session_02",
+      "session_03"
+    ],
+    "security_levels": [
+      "security_01",
+      "security_03"
+    ],
+    "memory_areas": [
+      [
+        "AURIX Leaf Certificate",
+        "0x00000000"
+      ],
+      [
+        "DMU",
+        "0x00000000"
+      ],
+      [
+        "UCB",
+        "0x00000000"
+      ],
+      [
+        "TDA2P_Calibration",
+        "0x12000000"
+      ],
+      [
+        "TDA2P_Application_Memory",
+        "0x10000000"
+      ],
+      [
+        "TR_EFS2_NVM_Data",
+        "0xD32C0000"
+      ],
+      [
+        "TR_Calibration_SWP7",
+        "0xD3280000"
+      ],
+      [
+        "TR_Application_IFS_EFS1",
+        "0xD0080000"
+      ],
+      [
+        "TR_Application_M4_IPL",
+        "0xD0000000"
+      ],
+      [
+        "EyeQ_EDR",
+        "0xC3E00000"
+      ],
+      [
+        "EyeQ_Application_Memory",
+        "0xC0000000"
+      ],
+      [
+        "Valeo_Host_Calibration_SWP5",
+        "0xA02FC000"
+      ],
+      [
+        "Vehicle_Specific_Calibration_SWP4",
+        "0xA032C000"
+      ],
+      [
+        "Ford_Calibration_SWP2",
+        "0xA0300000"
+      ],
+      [
+        "Host_Calibration_SWP1",
+        "0xA0328000"
+      ],
+      [
+        "Host Application Memory_3",
+        "0xA0C00000"
+      ],
+      [
+        "Host Application Memory_2",
+        "0xA0340000"
+      ],
+      [
+        "Host Application Memory_1",
+        "0xA00C0000"
+      ],
+      [
+        "Aurix Primary Cert Store revision",
+        "0x00000000"
+      ],
+      [
+        "Data Flash_0",
+        "0x00000000"
+      ],
+      [
+        "Default_2",
+        "0xB9319001"
+      ],
+      [
+        "VALEO",
+        "0xB9300000"
+      ],
+      [
+        "SBL",
+        "0x70100000"
+      ]
+    ],
+    "size": 2044442,
+    "file": "706_IPMA.xml",
+    "can_id": "706"
+  },
+  "716": {
+    "ecu": "Gateway Module A",
+    "short": "GWM",
+    "phys_addr": "0x716",
+    "resp_addr": "0x71E",
+    "dids": 209,
+    "routines": [
+      [
+        "0x0202",
+        "On-Demand Self-Test"
+      ],
+      [
+        "0x0218",
+        "Cancel OTA Update"
+      ],
+      [
+        "0x0304",
+        "Check Valid Application"
+      ],
+      [
+        "0x7012",
+        "Unlock/Lock Gateway Network Protection (GNP)"
+      ],
+      [
+        "0x7014",
+        "CAN Message Authentication Key Management Operation"
+      ],
+      [
+        "0x7015",
+        "Initiate Trusted Realtime Operational Network Key Update"
+      ],
+      [
+        "0x7016",
+        "Request CAN Message Authentication Configurations"
+      ],
+      [
+        "0x7017",
+        "Request CAN Message Authentication Key Injection Status"
+      ],
+      [
+        "0x800B",
+        "Data File Retrieval"
+      ],
+      [
+        "0x800C",
+        "Vehicle Function Limiter Deinhibit"
+      ],
+      [
+        "0x800D",
+        "Service Mode"
+      ],
+      [
+        "0xDC00",
+        "Erase All Debug Tokens"
+      ],
+      [
+        "0xFF00",
+        "Flash Erase"
+      ]
+    ],
+    "dtcs": 32,
+    "sessions": [
+      "session_01",
+      "session_02",
+      "session_03",
+      "session_61"
+    ],
+    "security_levels": [
+      "security_01",
+      "security_03"
+    ],
+    "memory_areas": [
+      [
+        "Calibration",
+        "0x00008000"
+      ],
+      [
+        "Strategy",
+        "0x00040000"
+      ],
+      [
+        "Secondary Bootloader",
+        "0x00018000"
+      ],
+      [
+        "AP Code 1",
+        "0x00200000"
+      ]
+    ],
+    "size": 2946010,
+    "file": "716_GWM.xml",
+    "can_id": "716"
+  },
+  "720": {
+    "ecu": "Instrument Panel Cluster (IPC) Control Module",
+    "short": "IPC",
+    "phys_addr": "0x720",
+    "resp_addr": "0x728",
+    "dids": 181,
+    "routines": [
+      [
+        "0x0202",
+        "On-Demand Self-Test"
+      ],
+      [
+        "0x0210",
+        "Use Inactive Memory Partition"
+      ],
+      [
+        "0x0213",
+        "Activate Inactive Memory Partition"
+      ],
+      [
+        "0x0301",
+        "Activate Secondary Boot-loader"
+      ],
+      [
+        "0x0304",
+        "Check Valid Application"
+      ],
+      [
+        "0x2047",
+        "Brand DNA Chime Tuning"
+      ],
+      [
+        "0xFD84",
+        "HM information reset/status"
+      ],
+      [
+        "0xFD85",
+        "Health Extraction Routine"
+      ],
+      [
+        "0xFD86",
+        "SUPPPLIER USE CyberSecurity - Security Package"
+      ],
+      [
+        "0xFD87",
+        "SUPPPLIER USE CyberSecurity - Ports and Secure Boot"
+      ],
+      [
+        "0xFD89",
+        "External Speaker Open Circuit"
+      ],
+      [
+        "0xFE22",
+        "SUPPLIER USE Program NVM from ROM"
+      ],
+      [
+        "0xFE41",
+        "SUPPLIER USE Perform Host Micro Checksum"
+      ],
+      [
+        "0xFE68",
+        "SUPPLIER USE Dataflash NVM access by blockID"
+      ],
+      [
+        "0xFF00",
+        "Flash Erase"
+      ],
+      [
+        "0xFF01",
+        "Check Programming Dependencies"
+      ]
+    ],
+    "dtcs": 58,
+    "sessions": [
+      "session_01",
+      "session_02",
+      "session_03",
+      "session_60"
+    ],
+    "security_levels": [
+      "security_01",
+      "security_03",
+      "security_61",
+      "security_level_2",
+      "security_level_3"
+    ],
+    "memory_areas": [
+      [
+        "VIP Strategy",
+        "0x01A40000"
+      ],
+      [
+        "Peripheral section 1",
+        "?"
+      ],
+      [
+        "TCRAM",
+        "0x00000000"
+      ],
+      [
+        "SRAM",
+        "0x00000000"
+      ],
+      [
+        "Hyperflash",
+        "0x44000000"
+      ],
+      [
+        "GIP",
+        "0x50000000"
+      ]
+    ],
+    "size": 967830,
+    "file": "720_IPC.xml",
+    "can_id": "720"
+  },
+  "724": {
+    "ecu": "Steering Column Control Module",
+    "short": "SCCM",
+    "phys_addr": "0x724",
+    "resp_addr": "0x72C",
+    "dids": 82,
+    "routines": [
+      [
+        "0x0202",
+        "On-Demand Self-Test"
+      ],
+      [
+        "0x020B",
+        "Restore Initial ECU Configuration To Not Complete State"
+      ],
+      [
+        "0x0301",
+        "Activate Secondary Boot-loader"
+      ],
+      [
+        "0x0304",
+        "Check Valid Application"
+      ],
+      [
+        "0x203A",
+        "Configure Private Sub Nodes And Collect Private Sub Node Part Numbers"
+      ],
+      [
+        "0x2064",
+        "Heated Steering Wheel Test Mode"
+      ],
+      [
+        "0x304C",
+        "Request Sensor Calibration"
+      ],
+      [
+        "0xFD45",
+        "Two Keys Storage Configuration"
+      ],
+      [
+        "0xFF00",
+        "Flash Erase"
+      ],
+      [
+        "0xFF01",
+        "Check Programming Dependencies"
+      ]
+    ],
+    "dtcs": 43,
+    "sessions": [
+      "session_01",
+      "session_02",
+      "session_03"
+    ],
+    "security_levels": [
+      "security_01",
+      "security_03"
+    ],
+    "memory_areas": [
+      [
+        "Strategy",
+        "0x00002000"
+      ]
+    ],
+    "size": 470264,
+    "file": "724_SCCM.xml",
+    "can_id": "724"
+  },
+  "725": {
+    "ecu": "Wireless Accessory Charging Module",
+    "short": "WACM",
+    "phys_addr": "0x725",
+    "resp_addr": "0x72D",
+    "dids": 84,
+    "routines": [
+      [
+        "0x0202",
+        "On-Demand Self-Test"
+      ],
+      [
+        "0x020B",
+        "Restore Initial ECU Configuration To Not Complete State"
+      ],
+      [
+        "0x0210",
+        "Use Inactive Memory Partition"
+      ],
+      [
+        "0x0213",
+        "Activate Inactive Memory Partition"
+      ],
+      [
+        "0x0301",
+        "Activate Secondary Boot-loader"
+      ],
+      [
+        "0x0304",
+        "Check Valid Application"
+      ],
+      [
+        "0xFF00",
+        "Flash Erase"
+      ],
+      [
+        "0xFF01",
+        "Check Programming Dependencies"
+      ]
+    ],
+    "dtcs": 7,
+    "sessions": [
+      "session_01",
+      "session_02",
+      "session_03"
+    ],
+    "security_levels": [
+      "security_01",
+      "security_03"
+    ],
+    "memory_areas": [
+      [
+        "Calibration",
+        "0xA0038000"
+      ],
+      [
+        "Strategy",
+        "0xA0040000"
+      ],
+      [
+        "Secondary Bootloader",
+        "0x70100000"
+      ]
+    ],
+    "size": 346784,
+    "file": "725_WACM.xml",
+    "can_id": "725"
+  },
+  "726": {
+    "ecu": "Body Control Module",
+    "short": "BCM",
+    "phys_addr": "0x726",
+    "resp_addr": "0x72E",
+    "dids": 682,
+    "routines": [
+      [
+        "0x0202",
+        "On-Demand Self-Test"
+      ],
+      [
+        "0x0214",
+        "Disable Permanent Vehicle Inhibit"
+      ],
+      [
+        "0x0301",
+        "Activate Secondary Boot-loader"
+      ],
+      [
+        "0x0304",
+        "Check Valid Application"
+      ],
+      [
+        "0x201A",
+        "Reset Battery Monitor System"
+      ],
+      [
+        "0x201B",
+        "Obtain Solid State Driver Life Counter"
+      ],
+      [
+        "0x2035",
+        "Reset Steering Column Lock Secret Key"
+      ],
+      [
+        "0x203A",
+        "Configure Private Sub Nodes And Collect Private Sub Node Part Numbers"
+      ],
+      [
+        "0x2053",
+        "Enter TPMS Sensor Training Mode"
+      ],
+      [
+        "0x205B",
+        "Synchronize Transmitter"
+      ],
+      [
+        "0x205E",
+        "TracKey Programming"
+      ],
+      [
+        "0x2060",
+        "Enhanced Exterior Lighting Slave Learn"
+      ],
+      [
+        "0x2061",
+        "Exterior Lighting System Load Test"
+      ],
+      [
+        "0x206A",
+        "Private Sub Node Count Check"
+      ],
+      [
+        "0x2075",
+        "Clear all MyKey Status"
+      ],
+      [
+        "0x2078",
+        "Reset Battery Monitor System"
+      ],
+      [
+        "0x7002",
+        "Configurable Engine Immobolizer (CEI) Set Mode"
+      ],
+      [
+        "0x7004",
+        "Configurable Engine Immobolizer (CEI) Lock Configuration"
+      ],
+      [
+        "0x7018",
+        "Point to Point Authentication Key Erase Routine"
+      ],
+      [
+        "0x7019",
+        "Point to Point Authentication Key Agreement Routine"
+      ],
+      [
+        "0x716B",
+        "Program PATS Key"
+      ],
+      [
+        "0x716C",
+        "Erase All PATS Keys"
+      ],
+      [
+        "0x716F",
+        "Store Steering Control Lock Secret Key"
+      ],
+      [
+        "0x8006",
+        "Check all antennas"
+      ],
+      [
+        "0xDC00",
+        "Power Dropout Histogram Routine"
+      ],
+      [
+        "0xDC01",
+        "Key Info Routine"
+      ],
+      [
+        "0xDD51",
+        "StartSearch"
+      ],
+      [
+        "0xDD80",
+        "KLine Buffer purge routine"
+      ],
+      [
+        "0xDEAD",
+        "In-Plant Flash Mode Ignition Override"
+      ],
+      [
+        "0xF003",
+        "Command Module to Sleep"
+      ],
+      [
+        "0xF011",
+        "Get Rolling Code"
+      ],
+      [
+        "0xF01B",
+        "Write Solid State Driver Life Counter"
+      ],
+      [
+        "0xF026",
+        "CAP sensor"
+      ],
+      [
+        "0xF027",
+        "Trigger Immobilizer"
+      ],
+      [
+        "0xF028",
+        "Antenna Control"
+      ],
+      [
+        "0xFD4F",
+        "SearchResult"
+      ],
+      [
+        "0xFD51",
+        "Read Key RSSI"
+      ],
+      [
+        "0xFD52",
+        "KeyPositionsAtomic"
+      ],
+      [
+        "0xFD53",
+        "LastKeyFound"
+      ],
+      [
+        "0xFD54",
+        "AllKeysFound"
+      ],
+      [
+        "0xFD55",
+        "KeyBatLevel"
+      ],
+      [
+        "0xFD5A",
+        "UseCase"
+      ],
+      [
+        "0xFD60",
+        "AntennaArea"
+      ],
+      [
+        "0xFD70",
+        "AtomicZone"
+      ],
+      [
+        "0xFD71",
+        "AntennaDiagCFG"
+      ],
+      [
+        "0xFD73",
+        "LogicZone"
+      ],
+      [
+        "0xFD74",
+        "RAD detection status"
+      ],
+      [
+        "0xFD75",
+        "Key Positions Logic"
+      ],
+      [
+        "0xFD76",
+        "Key Motion Status"
+      ],
+      [
+        "0xFE61",
+        "Read Key Payload"
+      ],
+      [
+        "0xFE68",
+        "Doors Status"
+      ],
+      [
+        "0xFE69",
+        "Enable/Disable Development Key"
+      ],
+      [
+        "0xFE71",
+        "EOL Secure Access - Seed Generation"
+      ],
+      [
+        "0xFE72",
+        "EOL Secure Access - Key Validation"
+      ],
+      [
+        "0xFE80",
+        "Cybersecurity AUTO Key generation"
+      ],
+      [
+        "0xFE81",
+        "Cybersecurity Key provisioning"
+      ],
+      [
+        "0xFF00",
+        "Flash Erase"
+      ],
+      [
+        "0xFF01",
+        "Check Programming Dependencies"
+      ]
+    ],
+    "dtcs": 272,
+    "sessions": [
+      "session_01",
+      "session_02",
+      "session_03"
+    ],
+    "security_levels": [
+      "security_01",
+      "security_03",
+      "security_3b"
+    ],
+    "memory_areas": [
+      [
+        "Configuration File #1 - Body",
+        "0x00010000"
+      ],
+      [
+        "Configuration File #2 - Personalization",
+        "0x00006000"
+      ],
+      [
+        "Configuration File #3 - BMS Battery",
+        "0x00002000"
+      ],
+      [
+        "Configuration File #4 - LIN Schedule",
+        "0x00008000"
+      ],
+      [
+        "Configuration File #5 - Hardware Thresholds",
+        "0x0000A000"
+      ],
+      [
+        "Configuration File #6 - BMS Engine",
+        "0x0000C000"
+      ],
+      [
+        "Configuration File #7 - PEPS LF",
+        "0x00018000"
+      ],
+      [
+        "Application ROM 1",
+        "0x00020000"
+      ],
+      [
+        "Application RAM",
+        "0x00000000"
+      ],
+      [
+        "Unique MFG PN (FESN)",
+        "0x009E8000"
+      ],
+      [
+        "Common MFG PN",
+        "0x009F0000"
+      ],
+      [
+        "Application ROM 2",
+        "0x00800000"
+      ]
+    ],
+    "size": 4360200,
+    "file": "726_BCM.xml",
+    "can_id": "726"
+  },
+  "727": {
+    "ecu": "Audio Front Control Module",
+    "short": "ACM",
+    "phys_addr": "0x727",
+    "resp_addr": "0x72F",
+    "dids": 228,
+    "routines": [
+      [
+        "0x0202",
+        "On-Demand Self-Test"
+      ],
+      [
+        "0x0301",
+        "Activate Secondary Boot-loader"
+      ],
+      [
+        "0x0304",
+        "Check Valid Application"
+      ],
+      [
+        "0x3008",
+        "Trigger process to select calibration"
+      ],
+      [
+        "0x6006",
+        "Test Antenna Connection"
+      ],
+      [
+        "0x6007",
+        "Test Subwoofer Connection"
+      ],
+      [
+        "0x601B",
+        "Rear Tones Test"
+      ],
+      [
+        "0x601C",
+        "Tones Test"
+      ],
+      [
+        "0x6035",
+        "Active Noise Cancellation (ANC) Active Diagnostic Test"
+      ],
+      [
+        "0x6038",
+        "Clear Automobile Audio Bus (A2B) Error Network Counters"
+      ],
+      [
+        "0xFD7D",
+        "Visteon_Proprietary_Routine_FD7D"
+      ],
+      [
+        "0xFEDF",
+        "DAB Supplier Routine"
+      ],
+      [
+        "0xFEEF",
+        "DDL Supplier Routine_FEEF"
+      ],
+      [
+        "0xFEFD",
+        "MBBM -Update Routing and Gain Information"
+      ],
+      [
+        "0xFEFE",
+        "MBBM - Trigger Start of EOL Test"
+      ],
+      [
+        "0xFEFF",
+        "TPEG Supplier Routine_FEFF"
+      ],
+      [
+        "0xFF00",
+        "Flash Erase"
+      ],
+      [
+        "0xFF01",
+        "Check Programming Dependencies"
+      ]
+    ],
+    "dtcs": 38,
+    "sessions": [
+      "session_01",
+      "session_02",
+      "session_03"
+    ],
+    "security_levels": [
+      "security_01",
+      "security_03"
+    ],
+    "memory_areas": [
+      [
+        "EQ",
+        "0x00008000"
+      ],
+      [
+        "ANC/ESE Profiles Index",
+        "0x0000A000"
+      ],
+      [
+        "Saturn DAB",
+        "0x40000000"
+      ],
+      [
+        "Dirana RAM",
+        "0x60000000"
+      ],
+      [
+        "WAV Chimes",
+        "0x80000000"
+      ],
+      [
+        "Test Chimes",
+        "0x80F00000"
+      ],
+      [
+        "DSP_ADDR_TRANS",
+        "0x00030000"
+      ],
+      [
+        "DSP_ADDR_DS_ASD",
+        "0x00000000"
+      ],
+      [
+        "DSP_ADDR_DS_ANC",
+        "0x00000000"
+      ],
+      [
+        "DSP_ADDR_TUNING_IF",
+        "0x00000000"
+      ],
+      [
+        "Dirana Firmware",
+        "0x60400000"
+      ],
+      [
+        "ANC/ESE Profiles",
+        "0x60200000"
+      ],
+      [
+        "Dirana Flash",
+        "0x60100000"
+      ],
+      [
+        "Primary Bootloader",
+        "0xA0000000"
+      ],
+      [
+        "Application",
+        "0x0000C000"
+      ],
+      [
+        "Calibration",
+        "0x01000000"
+      ],
+      [
+        "Saturn HD",
+        "0x70000000"
+      ],
+      [
+        "Secondary Boot Loader",
+        "0xFEDF8000"
+      ]
+    ],
+    "size": 1082040,
+    "file": "727_ACM.xml",
+    "can_id": "727"
+  },
+  "730": {
+    "ecu": "Power Steering Control Module",
+    "short": "PSCM",
+    "phys_addr": "0x730",
+    "resp_addr": "0x738",
+    "dids": 106,
+    "routines": [
+      [
+        "0x020A",
+        "Report All Inhale / Exhale ECU Configuration DIDs"
+      ],
+      [
+        "0x020B",
+        "Restore Initial ECU Configuration to Not Complete State"
+      ],
+      [
+        "0x0301",
+        "Activate Secondary Boot-loader"
+      ],
+      [
+        "0x0304",
+        "Check Valid Application"
+      ],
+      [
+        "0x200F",
+        "Clear Steering Angle Centre Position Calibration"
+      ],
+      [
+        "0x3054",
+        "Clear Power Steering Lockout Counter"
+      ],
+      [
+        "0xDC01",
+        "Clear Mechanical End Stop Positions"
+      ],
+      [
+        "0xFEB0",
+        "SHE Key Update"
+      ],
+      [
+        "0xFF00",
+        "Flash Erase"
+      ],
+      [
+        "0xFF01",
+        "Check Programming Dependencies"
+      ]
+    ],
+    "dtcs": 50,
+    "sessions": [
+      "session_01",
+      "session_02",
+      "session_03",
+      "session_60",
+      "session_70"
+    ],
+    "security_levels": [
+      "security_01",
+      "security_03",
+      "security_61",
+      "security_71"
+    ],
+    "memory_areas": [
+      [
+        "Calibration",
+        "0x00FD0000"
+      ],
+      [
+        "Strategy",
+        "0x01000000"
+      ],
+      [
+        "Bootloader",
+        "0x00F9C000"
+      ]
+    ],
+    "size": 526928,
+    "file": "730_PSCM.xml",
+    "can_id": "730"
+  },
+  "733": {
+    "ecu": "HVAC Control Module",
+    "short": "HVAC",
+    "phys_addr": "0x733",
+    "resp_addr": "0x73B",
+    "dids": 127,
+    "routines": [
+      [
+        "0x0202",
+        "On-Demand Self-Test"
+      ],
+      [
+        "0x0210",
+        "Use Inactive Memory Partition"
+      ],
+      [
+        "0x0211",
+        "Assembly Test"
+      ],
+      [
+        "0x0213",
+        "Activate Inactive Memory Partition"
+      ],
+      [
+        "0x0301",
+        "Activate Secondary Boot-loader"
+      ],
+      [
+        "0x0304",
+        "Check Valid Application"
+      ],
+      [
+        "0x201B",
+        "Obtain Solid State Driver Life Counter"
+      ],
+      [
+        "0x9014",
+        "Prepare for A/C Evaluation"
+      ],
+      [
+        "0x9015",
+        "Outside Temperature Sensor Reset"
+      ],
+      [
+        "0x9016",
+        "Actuator Calibration"
+      ],
+      [
+        "0xF000",
+        "JTAG Unlock"
+      ],
+      [
+        "0xF001",
+        "JTAG Lock"
+      ],
+      [
+        "0xF004",
+        "Trigger PARSED Messages"
+      ],
+      [
+        "0xFF00",
+        "Flash Erase"
+      ],
+      [
+        "0xFF01",
+        "Check Programming Dependencies"
+      ]
+    ],
+    "dtcs": 53,
+    "sessions": [
+      "session_01",
+      "session_02",
+      "session_03"
+    ],
+    "security_levels": [
+      "security_01",
+      "security_03"
+    ],
+    "memory_areas": [
+      [
+        "Bootloader CM0",
+        "0x10000000"
+      ],
+      [
+        "Bootloader CM4",
+        "0x10000400"
+      ],
+      [
+        "Application CM4",
+        "0x10030000"
+      ],
+      [
+        "Application CM0",
+        "0x101F0000"
+      ],
+      [
+        "Configuration CM4",
+        "0x10208000"
+      ]
+    ],
+    "size": 779645,
+    "file": "733_HVAC.xml",
+    "can_id": "733"
+  },
+  "737": {
+    "ecu": "Restraints Control Module",
+    "short": "RCM",
+    "phys_addr": "0x737",
+    "resp_addr": "0x73F",
+    "dids": 186,
+    "routines": [
+      [
+        "0x0202",
+        "On-Demand Self-Test"
+      ],
+      [
+        "0x0301",
+        "Activate Secondary Boot-loader"
+      ],
+      [
+        "0x0304",
+        "Check Valid Application"
+      ],
+      [
+        "0x0E00",
+        "Retrieve Central Configuration Data Parameter (CDP) - Current Data"
+      ],
+      [
+        "0x0E01",
+        "Retrieve Central Configuration Data Parameter (CDP) Status"
+      ],
+      [
+        "0x0E06",
+        "Allow Central Configuration Data Parameter (CDP) Learning"
+      ],
+      [
+        "0x0E08",
+        "Reset ECU Central Configuration State/Data To Not Configured"
+      ],
+      [
+        "0xFF00",
+        "Flash Erase"
+      ],
+      [
+        "0xFF01",
+        "Check Programming Dependencies"
+      ]
+    ],
+    "dtcs": 150,
+    "sessions": [
+      "session_01",
+      "session_02",
+      "session_03"
+    ],
+    "security_levels": [
+      "security_01",
+      "security_03"
+    ],
+    "memory_areas": [
+      [
+        "Calibration",
+        "0xA0028000"
+      ],
+      [
+        "Strategy",
+        "0xA0030000"
+      ],
+      [
+        "Secondary Bootloader",
+        "0x70100000"
+      ]
+    ],
+    "size": 1678407,
+    "file": "737_RCM.xml",
+    "can_id": "737"
+  },
+  "751": {
+    "ecu": "Radio Transceiver Module",
+    "short": "RTM",
+    "phys_addr": "0x751",
+    "resp_addr": "0x759",
+    "dids": 101,
+    "routines": [
+      [
+        "0x0202",
+        "On-Demand Self-Test"
+      ],
+      [
+        "0x020B",
+        "Restore Initial ECU Configuration To Not Complete State"
+      ],
+      [
+        "0x0301",
+        "Activate Secondary Boot-loader"
+      ],
+      [
+        "0x0304",
+        "Check Valid Application"
+      ],
+      [
+        "0xFD2B",
+        "Clear RKE TIC - TPM ID Data"
+      ],
+      [
+        "0xFD3E",
+        "KLine Buffer Purge"
+      ],
+      [
+        "0xFD42",
+        "Clear all error history data"
+      ],
+      [
+        "0xFD49",
+        "Manufacturing calculation of Software Strategy Checksum"
+      ],
+      [
+        "0xFD4C",
+        "Clear TPM Frame Counters"
+      ],
+      [
+        "0xFD54",
+        "MFG I/O - Sleep IOD Check"
+      ],
+      [
+        "0xFD55",
+        "MFG I/O: UHF IC programming Status"
+      ],
+      [
+        "0xFD56",
+        "MFG I/O: UHF Tx Test"
+      ],
+      [
+        "0xFD57",
+        "MFG I/O: UHF Rx Test"
+      ],
+      [
+        "0xFD58",
+        "UHF IC Internal TIC Check"
+      ],
+      [
+        "0xFD5A",
+        "RFDrv Statistic Counters Clear"
+      ],
+      [
+        "0xFD5B",
+        "MCU Op Status - Interrupt Run Time measurement."
+      ],
+      [
+        "0xFD5C",
+        "MCU Op Status - Task Runtime Measurement"
+      ],
+      [
+        "0xFF00",
+        "Flash Erase"
+      ],
+      [
+        "0xFF01",
+        "Check Programming Dependencies"
+      ]
+    ],
+    "dtcs": 6,
+    "sessions": [
+      "session_01",
+      "session_02",
+      "session_03"
+    ],
+    "security_levels": [
+      "security_01",
+      "security_03"
+    ],
+    "memory_areas": [
+      [
+        "Strategy",
+        "0x00008800"
+      ],
+      [
+        "Primary Bootloader",
+        "0x00000000"
+      ]
+    ],
+    "size": 375877,
+    "file": "751_RTM.xml",
+    "can_id": "751"
+  },
+  "754": {
+    "ecu": "Telematic Control Unit Module",
+    "short": "TCU",
+    "phys_addr": "0x754",
+    "resp_addr": "0x75C",
+    "dids": 113,
+    "routines": [
+      [
+        "0x0202",
+        "On-Demand Self-Test"
+      ],
+      [
+        "0x021F",
+        "Log Collection"
+      ],
+      [
+        "0x0304",
+        "Check Valid Application"
+      ],
+      [
+        "0x0410",
+        "Initialize Specified Function/Feature"
+      ],
+      [
+        "0x201A",
+        "Reset Battery Monitor System"
+      ],
+      [
+        "0x600B",
+        "Speaker Self-test"
+      ],
+      [
+        "0xDC00",
+        "Erase All Debug Tokens"
+      ],
+      [
+        "0xFF00",
+        "Flash Erase"
+      ]
+    ],
+    "dtcs": 43,
+    "sessions": [
+      "session_01",
+      "session_02",
+      "session_03",
+      "session_61"
+    ],
+    "security_levels": [
+      "security_01",
+      "security_03"
+    ],
+    "memory_areas": [
+      [
+        "Strategy",
+        "0x00040000"
+      ],
+      [
+        "Secondary Bootloader",
+        "0x00018000"
+      ],
+      [
+        "Strategy Expansion",
+        "0x000A0000"
+      ]
+    ],
+    "size": 1463058,
+    "file": "754_TCU.xml",
+    "can_id": "754"
+  },
+  "760": {
+    "ecu": "Secondary OBD Control Module \"C\"",
+    "short": "SOBDMC",
+    "phys_addr": "0x7E6",
+    "resp_addr": "0x7EE",
+    "dids": 310,
+    "routines": [
+      [
+        "0x0202",
+        "On-Demand Self-Test"
+      ],
+      [
+        "0x020A",
+        "Report All Inhale / Exhale ECU Configuration DIDs"
+      ],
+      [
+        "0x020B",
+        "Restore Initial ECU Configuration To Not Complete State"
+      ],
+      [
+        "0x020E",
+        "DID Last Write Request Status"
+      ],
+      [
+        "0x0301",
+        "Activate Secondary Boot-loader"
+      ],
+      [
+        "0x0304",
+        "Check Valid Application"
+      ],
+      [
+        "0x0402",
+        "Clear Self-learning Data"
+      ],
+      [
+        "0x040E",
+        "Reset/ Clear Specified Function"
+      ],
+      [
+        "0x3033",
+        "Regen Braking Dyno Mode"
+      ],
+      [
+        "0x4013",
+        "Reset Adaption Values"
+      ],
+      [
+        "0x402B",
+        "Engine Compression Test"
+      ],
+      [
+        "0x407B",
+        "System Preparation for ECU Reset or Programming Session Entry"
+      ],
+      [
+        "0x408F",
+        "Coolant Evacuate And Fill"
+      ],
+      [
+        "0x4091",
+        "Reset High Voltage Disabled Fault"
+      ],
+      [
+        "0x5003",
+        "Reset Energy Shutdown Event"
+      ],
+      [
+        "0xFF00",
+        "Flash Erase"
+      ],
+      [
+        "0xFF01",
+        "Check Programming Dependencies"
+      ]
+    ],
+    "dtcs": 396,
+    "sessions": [
+      "session_01",
+      "session_02",
+      "session_03"
+    ],
+    "security_levels": [
+      "security_01",
+      "security_03",
+      "security_39",
+      "security_3b"
+    ],
+    "memory_areas": [
+      [
+        "Strategy",
+        "0x00000000"
+      ],
+      [
+        "Secondary Bootloader",
+        "0x70100000"
+      ],
+      [
+        "RAM_0",
+        "0x00000000"
+      ],
+      [
+        "RAM_1",
+        "0x00000000"
+      ],
+      [
+        "RAM_3",
+        "0x00000000"
+      ]
+    ],
+    "size": 2360529,
+    "file": "760_ABS.xml",
+    "can_id": "760"
+  },
+  "764": {
+    "ecu": "Cruise Control Module",
+    "short": "CCM",
+    "phys_addr": "0x764",
+    "resp_addr": "0x76C",
+    "dids": 57,
+    "routines": [
+      [
+        "0x0202",
+        "On-Demand Self-Test"
+      ],
+      [
+        "0x0301",
+        "Activate Secondary Boot-loader"
+      ],
+      [
+        "0x0304",
+        "Check Valid Application"
+      ],
+      [
+        "0x202F",
+        "Radar Sensor Alignment"
+      ],
+      [
+        "0xFD0D",
+        "SFA Activate Routine"
+      ],
+      [
+        "0xFF00",
+        "Flash Erase"
+      ],
+      [
+        "0xFF01",
+        "Check Programming Dependencies"
+      ]
+    ],
+    "dtcs": 10,
+    "sessions": [
+      "session_01",
+      "session_02",
+      "session_03"
+    ],
+    "security_levels": [
+      "security_01",
+      "security_03"
+    ],
+    "memory_areas": [
+      [
+        "Calibrations",
+        "0x00FE0000"
+      ],
+      [
+        "Core2_int_sram",
+        "0x0014D000"
+      ],
+      [
+        "Core1_int_sram",
+        "0x0017F800"
+      ],
+      [
+        "Core0_int_sram",
+        "0x00000200"
+      ],
+      [
+        "Core0_noint_sram",
+        "0x00000000"
+      ],
+      [
+        "Application Memory",
+        "0x01000000"
+      ]
+    ],
+    "size": 275009,
+    "file": "764_CCM.xml",
+    "can_id": "764"
+  },
+  "7C4": {
+    "ecu": "Side Obstacle Detection Control Module - Left",
+    "short": "SODL",
+    "phys_addr": "0x7C4",
+    "resp_addr": "0x7CC",
+    "dids": 54,
+    "routines": [
+      [
+        "0x0202",
+        "On-Demand Self-Test"
+      ],
+      [
+        "0x0210",
+        "Use Inactive Memory Partition"
+      ],
+      [
+        "0x0301",
+        "Activate Secondary Boot-loader"
+      ],
+      [
+        "0x0304",
+        "Check Valid Application"
+      ],
+      [
+        "0x202F",
+        "Radar Sensor Alignment"
+      ],
+      [
+        "0xFD0D",
+        "SFA Activate Routine"
+      ],
+      [
+        "0xFF00",
+        "Flash Erase"
+      ],
+      [
+        "0xFF01",
+        "Check Programming Dependencies"
+      ]
+    ],
+    "dtcs": 18,
+    "sessions": [
+      "session_01",
+      "session_02",
+      "session_03"
+    ],
+    "security_levels": [
+      "security_01",
+      "security_03"
+    ],
+    "memory_areas": [
+      [
+        "Application Memory",
+        "0x200D0000"
+      ],
+      [
+        "Core0_noint_sram",
+        "0x00000000"
+      ],
+      [
+        "Core0_int_sram",
+        "0x00000200"
+      ],
+      [
+        "Core1_int_sram",
+        "0x0002E9C0"
+      ],
+      [
+        "Core2_int_sram",
+        "0x00120000"
+      ],
+      [
+        "Calibrations",
+        "0x00070000"
+      ],
+      [
+        "Common_SRAM",
+        "0x00100000"
+      ]
+    ],
+    "size": 222633,
+    "file": "7C4_SODL.xml",
+    "can_id": "7C4"
+  },
+  "7C6": {
+    "ecu": "Side Obstacle Detection Control Module - Right",
+    "short": "SODR",
+    "phys_addr": "0x7C6",
+    "resp_addr": "0x7CE",
+    "dids": 54,
+    "routines": [
+      [
+        "0x0202",
+        "On-Demand Self-Test"
+      ],
+      [
+        "0x0210",
+        "Use Inactive Memory Partition"
+      ],
+      [
+        "0x0301",
+        "Activate Secondary Boot-loader"
+      ],
+      [
+        "0x0304",
+        "Check Valid Application"
+      ],
+      [
+        "0x202F",
+        "Radar Sensor Alignment"
+      ],
+      [
+        "0xFD0D",
+        "SFA Activate Routine"
+      ],
+      [
+        "0xFF00",
+        "Flash Erase"
+      ],
+      [
+        "0xFF01",
+        "Check Programming Dependencies"
+      ]
+    ],
+    "dtcs": 18,
+    "sessions": [
+      "session_01",
+      "session_02",
+      "session_03"
+    ],
+    "security_levels": [
+      "security_01",
+      "security_03"
+    ],
+    "memory_areas": [
+      [
+        "Application Memory",
+        "0x200D0000"
+      ],
+      [
+        "Core0_noint_sram",
+        "0x00000000"
+      ],
+      [
+        "Core0_int_sram",
+        "0x00000200"
+      ],
+      [
+        "Core1_int_sram",
+        "0x0002E9C0"
+      ],
+      [
+        "Core2_int_sram",
+        "0x00120000"
+      ],
+      [
+        "Calibrations",
+        "0x00070000"
+      ],
+      [
+        "Common_SRAM",
+        "0x00100000"
+      ]
+    ],
+    "size": 222634,
+    "file": "7C6_SODR.xml",
+    "can_id": "7C6"
+  },
+  "7C7": {
+    "ecu": "Air Conditioning Control Module",
+    "short": "ACCM",
+    "phys_addr": "0x7C7",
+    "resp_addr": "0x7CF",
+    "dids": 40,
+    "routines": [
+      [
+        "0x0210",
+        "Use Inactive Memory Partition"
+      ],
+      [
+        "0x0213",
+        "Activate Inactive Memory Partition"
+      ],
+      [
+        "0x0301",
+        "Activate Secondary Boot-loader"
+      ],
+      [
+        "0x0304",
+        "Check Valid Application"
+      ],
+      [
+        "0xFD03",
+        "ACCM Inspection"
+      ],
+      [
+        "0xFF00",
+        "Flash Erase"
+      ],
+      [
+        "0xFF01",
+        "Check Programming Dependencies"
+      ]
+    ],
+    "dtcs": 10,
+    "sessions": [
+      "session_01",
+      "session_02",
+      "session_03",
+      "session_40"
+    ],
+    "security_levels": [
+      "security_01"
+    ],
+    "memory_areas": [
+      [
+        "Strategy Signature",
+        "0x000F0000"
+      ],
+      [
+        "Strategy",
+        "0x00020000"
+      ],
+      [
+        "Secondary Bootloader",
+        "0xFEBE0000"
+      ],
+      [
+        "Secondary Bootloader Signature",
+        "0xFEBE2E00"
+      ]
+    ],
+    "size": 166162,
+    "file": "7C7_ACCM.xml",
+    "can_id": "7C7"
+  },
+  "7D0": {
+    "ecu": "Accessory Protocol Interface Module",
+    "short": "APIM",
+    "phys_addr": "0x7D0",
+    "resp_addr": "0x7D8",
+    "dids": 206,
+    "routines": [
+      [
+        "0x0202",
+        "On-Demand Self-Test"
+      ],
+      [
+        "0x0304",
+        "Check Valid Application"
+      ],
+      [
+        "0x203A",
+        "Configure Private Sub Nodes And Collect Private Sub Node Part Numbers"
+      ],
+      [
+        "0x6009",
+        "Speaker Walkaround Test"
+      ],
+      [
+        "0x600A",
+        "Display Self Test"
+      ],
+      [
+        "0x601C",
+        "Tones Test"
+      ],
+      [
+        "0xDC00",
+        "Tokenmgr Debug Token Removal Routine"
+      ],
+      [
+        "0xFA04",
+        "Audio Out"
+      ],
+      [
+        "0xFA56",
+        "Query USB"
+      ],
+      [
+        "0xFA57",
+        "USB Pen Drive"
+      ],
+      [
+        "0xFA58",
+        "USB Transceiver Reset"
+      ],
+      [
+        "0xFA5D",
+        "iPod Read Data"
+      ],
+      [
+        "0xFA61",
+        "Touch Panel Calibration"
+      ],
+      [
+        "0xFA72",
+        "Read Wilink Software Version"
+      ],
+      [
+        "0xFA7A",
+        "Calculate CCPU Flash Partition Checksum"
+      ],
+      [
+        "0xFB00",
+        "Clear All User Data"
+      ],
+      [
+        "0xFB01",
+        "Enter EOL Mode"
+      ],
+      [
+        "0xFB02",
+        "Exit EOL Mode"
+      ],
+      [
+        "0xFB04",
+        "Cold Reboot CCPU"
+      ],
+      [
+        "0xFB08",
+        "VMCU Self-Test"
+      ]
+    ],
+    "dtcs": 46,
+    "sessions": [
+      "session_01",
+      "session_02",
+      "session_03",
+      "session_60"
+    ],
+    "security_levels": [
+      "security_01",
+      "security_03"
+    ],
+    "memory_areas": [
+      [
+        "ECU Calibration Data #1",
+        "0x0000C000"
+      ],
+      [
+        "Illumination Calibration",
+        "0x00010000"
+      ],
+      [
+        "Bluetooth Audio Profile",
+        "0x00018000"
+      ],
+      [
+        "Strategy Area A",
+        "0x00020000"
+      ]
+    ],
+    "size": 2914092,
+    "file": "7D0_APIM.xml",
+    "can_id": "7D0"
+  },
+  "7E0": {
+    "ecu": "Secondary OBD Control Module \"C\"",
+    "short": "SOBDMC",
+    "phys_addr": "0x7E6",
+    "resp_addr": "0x7EE",
+    "dids": 310,
+    "routines": [
+      [
+        "0x0202",
+        "On-Demand Self-Test"
+      ],
+      [
+        "0x020A",
+        "Report All Inhale / Exhale ECU Configuration DIDs"
+      ],
+      [
+        "0x020B",
+        "Restore Initial ECU Configuration To Not Complete State"
+      ],
+      [
+        "0x020E",
+        "DID Last Write Request Status"
+      ],
+      [
+        "0x0301",
+        "Activate Secondary Boot-loader"
+      ],
+      [
+        "0x0304",
+        "Check Valid Application"
+      ],
+      [
+        "0x0402",
+        "Clear Self-learning Data"
+      ],
+      [
+        "0x040E",
+        "Reset/ Clear Specified Function"
+      ],
+      [
+        "0x3033",
+        "Regen Braking Dyno Mode"
+      ],
+      [
+        "0x4013",
+        "Reset Adaption Values"
+      ],
+      [
+        "0x402B",
+        "Engine Compression Test"
+      ],
+      [
+        "0x407B",
+        "System Preparation for ECU Reset or Programming Session Entry"
+      ],
+      [
+        "0x408F",
+        "Coolant Evacuate And Fill"
+      ],
+      [
+        "0x4091",
+        "Reset High Voltage Disabled Fault"
+      ],
+      [
+        "0x5003",
+        "Reset Energy Shutdown Event"
+      ],
+      [
+        "0xFF00",
+        "Flash Erase"
+      ],
+      [
+        "0xFF01",
+        "Check Programming Dependencies"
+      ]
+    ],
+    "dtcs": 396,
+    "sessions": [
+      "session_01",
+      "session_02",
+      "session_03"
+    ],
+    "security_levels": [
+      "security_01",
+      "security_03",
+      "security_39",
+      "security_3b"
+    ],
+    "memory_areas": [
+      [
+        "Strategy",
+        "0x00000000"
+      ],
+      [
+        "Secondary Bootloader",
+        "0x70100000"
+      ],
+      [
+        "RAM_0",
+        "0x00000000"
+      ],
+      [
+        "RAM_1",
+        "0x00000000"
+      ],
+      [
+        "RAM_3",
+        "0x00000000"
+      ]
+    ],
+    "size": 2360529,
+    "file": "7E0_PCM.xml",
+    "can_id": "7E0"
+  },
+  "7E2": {
+    "ecu": "Secondary OBD Control Module \"C\"",
+    "short": "SOBDMC",
+    "phys_addr": "0x7E6",
+    "resp_addr": "0x7EE",
+    "dids": 310,
+    "routines": [
+      [
+        "0x0202",
+        "On-Demand Self-Test"
+      ],
+      [
+        "0x020A",
+        "Report All Inhale / Exhale ECU Configuration DIDs"
+      ],
+      [
+        "0x020B",
+        "Restore Initial ECU Configuration To Not Complete State"
+      ],
+      [
+        "0x020E",
+        "DID Last Write Request Status"
+      ],
+      [
+        "0x0301",
+        "Activate Secondary Boot-loader"
+      ],
+      [
+        "0x0304",
+        "Check Valid Application"
+      ],
+      [
+        "0x0402",
+        "Clear Self-learning Data"
+      ],
+      [
+        "0x040E",
+        "Reset/ Clear Specified Function"
+      ],
+      [
+        "0x3033",
+        "Regen Braking Dyno Mode"
+      ],
+      [
+        "0x4013",
+        "Reset Adaption Values"
+      ],
+      [
+        "0x402B",
+        "Engine Compression Test"
+      ],
+      [
+        "0x407B",
+        "System Preparation for ECU Reset or Programming Session Entry"
+      ],
+      [
+        "0x408F",
+        "Coolant Evacuate And Fill"
+      ],
+      [
+        "0x4091",
+        "Reset High Voltage Disabled Fault"
+      ],
+      [
+        "0x5003",
+        "Reset Energy Shutdown Event"
+      ],
+      [
+        "0xFF00",
+        "Flash Erase"
+      ],
+      [
+        "0xFF01",
+        "Check Programming Dependencies"
+      ]
+    ],
+    "dtcs": 396,
+    "sessions": [
+      "session_01",
+      "session_02",
+      "session_03"
+    ],
+    "security_levels": [
+      "security_01",
+      "security_03",
+      "security_39",
+      "security_3b"
+    ],
+    "memory_areas": [
+      [
+        "Strategy",
+        "0x00000000"
+      ],
+      [
+        "Secondary Bootloader",
+        "0x70100000"
+      ],
+      [
+        "RAM_0",
+        "0x00000000"
+      ],
+      [
+        "RAM_1",
+        "0x00000000"
+      ],
+      [
+        "RAM_3",
+        "0x00000000"
+      ]
+    ],
+    "size": 2360529,
+    "file": "7E2_SOBDM.xml",
+    "can_id": "7E2"
+  },
+  "7E4": {
+    "ecu": "Battery Energy Control Module",
+    "short": "BECM",
+    "phys_addr": "0x7E4",
+    "resp_addr": "0x7EC",
+    "dids": 296,
+    "routines": [
+      [
+        "0x0202",
+        "On-Demand Self-Test"
+      ],
+      [
+        "0x0301",
+        "Activate Secondary Boot-loader"
+      ],
+      [
+        "0x0304",
+        "Check Valid Application"
+      ],
+      [
+        "0x4038",
+        "Read Specified Hybrid Battery Module Voltage"
+      ],
+      [
+        "0x403A",
+        "Read Specified Hybrid Battery Temperature Sensors"
+      ],
+      [
+        "0x403B",
+        "Read Specified Hybrid Battery Module Temperature"
+      ],
+      [
+        "0x403C",
+        "Read Specified Hybrid Battery Module State of Charge"
+      ],
+      [
+        "0x405A",
+        "Read Specified Hybrid/EV Battery Module Capacity"
+      ],
+      [
+        "0x4086",
+        "Hybrid Battery Contactor Control Enable Override"
+      ],
+      [
+        "0x4092",
+        "Read Specified Hybrid/EV Battery Array Recommended Cell Voltage Charging Target for Array Replacement"
+      ],
+      [
+        "0x4093",
+        "Read Specified Hybrid/EV Battery Array Capacity"
+      ],
+      [
+        "0x4095",
+        "Battery Energy Control Module Estimate Capacity"
+      ],
+      [
+        "0xFF00",
+        "Flash Erase"
+      ],
+      [
+        "0xFF01",
+        "Check Programming Dependencies"
+      ]
+    ],
+    "dtcs": 173,
+    "sessions": [
+      "session_01",
+      "session_02",
+      "session_03"
+    ],
+    "security_levels": [
+      "security_01",
+      "security_03"
+    ],
+    "memory_areas": [
+      [
+        "SRAM",
+        "0x00000000"
+      ],
+      [
+        "Large flash memory",
+        "0x00000000"
+      ],
+      [
+        "Small and medium flash memory",
+        "0x00F98000"
+      ],
+      [
+        "Data flash memory",
+        "0x00800000"
+      ]
+    ],
+    "size": 3386280,
+    "file": "7E4_BECM.xml",
+    "can_id": "7E4"
+  },
+  "7E6": {
+    "ecu": "Secondary OBD Control Module \"C\"",
+    "short": "SOBDMC",
+    "phys_addr": "0x7E6",
+    "resp_addr": "0x7EE",
+    "dids": 310,
+    "routines": [
+      [
+        "0x0202",
+        "On-Demand Self-Test"
+      ],
+      [
+        "0x020A",
+        "Report All Inhale / Exhale ECU Configuration DIDs"
+      ],
+      [
+        "0x020B",
+        "Restore Initial ECU Configuration To Not Complete State"
+      ],
+      [
+        "0x020E",
+        "DID Last Write Request Status"
+      ],
+      [
+        "0x0301",
+        "Activate Secondary Boot-loader"
+      ],
+      [
+        "0x0304",
+        "Check Valid Application"
+      ],
+      [
+        "0x0402",
+        "Clear Self-learning Data"
+      ],
+      [
+        "0x040E",
+        "Reset/ Clear Specified Function"
+      ],
+      [
+        "0x3033",
+        "Regen Braking Dyno Mode"
+      ],
+      [
+        "0x4013",
+        "Reset Adaption Values"
+      ],
+      [
+        "0x402B",
+        "Engine Compression Test"
+      ],
+      [
+        "0x407B",
+        "System Preparation for ECU Reset or Programming Session Entry"
+      ],
+      [
+        "0x408F",
+        "Coolant Evacuate And Fill"
+      ],
+      [
+        "0x4091",
+        "Reset High Voltage Disabled Fault"
+      ],
+      [
+        "0x5003",
+        "Reset Energy Shutdown Event"
+      ],
+      [
+        "0xFF00",
+        "Flash Erase"
+      ],
+      [
+        "0xFF01",
+        "Check Programming Dependencies"
+      ]
+    ],
+    "dtcs": 396,
+    "sessions": [
+      "session_01",
+      "session_02",
+      "session_03"
+    ],
+    "security_levels": [
+      "security_01",
+      "security_03",
+      "security_39",
+      "security_3b"
+    ],
+    "memory_areas": [
+      [
+        "Strategy",
+        "0x00000000"
+      ],
+      [
+        "Secondary Bootloader",
+        "0x70100000"
+      ],
+      [
+        "RAM_0",
+        "0x00000000"
+      ],
+      [
+        "RAM_1",
+        "0x00000000"
+      ],
+      [
+        "RAM_3",
+        "0x00000000"
+      ]
+    ],
+    "size": 2360529,
+    "file": "7E6_SOBDMC.xml",
+    "can_id": "7E6"
+  }
+}

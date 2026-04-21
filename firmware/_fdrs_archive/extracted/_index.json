@@ -1,0 +1,772 @@
+[
+  {
+    "file": "G1591250.mdx",
+    "size": 3589507,
+    "ecu_name": "Telematics SIM-Card ICC Number",
+    "did_count": 460,
+    "routine_count": 0
+  },
+  {
+    "file": "G1845983.mdx",
+    "size": 1586581,
+    "ecu_name": "Vision System Camera",
+    "did_count": 141,
+    "routine_count": 27
+  },
+  {
+    "file": "G1869035.mdx",
+    "size": 15454,
+    "ecu_name": null,
+    "did_count": 11,
+    "routine_count": 0
+  },
+  {
+    "file": "G1873791.mdx",
+    "size": 1305312,
+    "ecu_name": "Fuel Tank Isolation Valve Stuck Open",
+    "did_count": 221,
+    "routine_count": 3
+  },
+  {
+    "file": "G1906542.mdx",
+    "size": 266075,
+    "ecu_name": "Occupant Classification System",
+    "did_count": 54,
+    "routine_count": 5
+  },
+  {
+    "file": "G1922401.mdx",
+    "size": 278113,
+    "ecu_name": "Rear Seat Controls",
+    "did_count": 47,
+    "routine_count": 5
+  },
+  {
+    "file": "G1950939.mdx",
+    "size": 578735,
+    "ecu_name": "Lost Communication with Body Control Module",
+    "did_count": 142,
+    "routine_count": 8
+  },
+  {
+    "file": "G1957833.mdx",
+    "size": 1352471,
+    "ecu_name": "Rear Seat Controls",
+    "did_count": 212,
+    "routine_count": 18
+  },
+  {
+    "file": "G1963352.mdx",
+    "size": 830573,
+    "ecu_name": "Driver Front Door Module",
+    "did_count": 93,
+    "routine_count": 12
+  },
+  {
+    "file": "G1963828.mdx",
+    "size": 819245,
+    "ecu_name": "TrailerTowFold_Cfg",
+    "did_count": 87,
+    "routine_count": 11
+  },
+  {
+    "file": "G2031289.mdx",
+    "size": 322903,
+    "ecu_name": "Steering Angle Sensor dropps functionality.",
+    "did_count": 43,
+    "routine_count": 7
+  },
+  {
+    "file": "G2043631.mdx",
+    "size": 369503,
+    "ecu_name": "Cruise Switch Null State -Cruise Control Multi-Function Input A",
+    "did_count": 52,
+    "routine_count": 9
+  },
+  {
+    "file": "G2043785.mdx",
+    "size": 1403088,
+    "ecu_name": "Lost Communication With Body Control Module",
+    "did_count": 119,
+    "routine_count": 9
+  },
+  {
+    "file": "G2043822.mdx",
+    "size": 368668,
+    "ecu_name": "Vision System Camera",
+    "did_count": 44,
+    "routine_count": 6
+  },
+  {
+    "file": "G2043845.mdx",
+    "size": 430905,
+    "ecu_name": "BlockageWiperDelay",
+    "did_count": 74,
+    "routine_count": 5
+  },
+  {
+    "file": "G2043847.mdx",
+    "size": 430905,
+    "ecu_name": "BlockageWiperDelay",
+    "did_count": 74,
+    "routine_count": 5
+  },
+  {
+    "file": "G2043856.mdx",
+    "size": 649190,
+    "ecu_name": "Cluster message \"Front Camera Service Required\"",
+    "did_count": 61,
+    "routine_count": 9
+  },
+  {
+    "file": "G2044009.mdx",
+    "size": 661238,
+    "ecu_name": "57_DTC_C16487_LostCommnHVAC",
+    "did_count": 82,
+    "routine_count": 5
+  },
+  {
+    "file": "G2044494.mdx",
+    "size": 541616,
+    "ecu_name": "Active Park Assist Sensors Range",
+    "did_count": 79,
+    "routine_count": 7
+  },
+  {
+    "file": "G2044495.mdx",
+    "size": 658003,
+    "ecu_name": "Park Assist Switch",
+    "did_count": 93,
+    "routine_count": 7
+  },
+  {
+    "file": "G2048788.mdx",
+    "size": 473962,
+    "ecu_name": "FPWM_D8029_TIMER_SYNC_CHECK",
+    "did_count": 82,
+    "routine_count": 12
+  },
+  {
+    "file": "G2048956.mdx",
+    "size": 394774,
+    "ecu_name": null,
+    "did_count": 147,
+    "routine_count": 5
+  },
+  {
+    "file": "G2048986.mdx",
+    "size": 360979,
+    "ecu_name": "Navigation",
+    "did_count": 55,
+    "routine_count": 42
+  },
+  {
+    "file": "G2049040.mdx",
+    "size": 4939733,
+    "ecu_name": "Left Rear Door Handle Antenna",
+    "did_count": 623,
+    "routine_count": 35
+  },
+  {
+    "file": "G2049081.mdx",
+    "size": 769855,
+    "ecu_name": "IPC - Power Liftgate (POT)/Power Sliding Door Chime",
+    "did_count": 99,
+    "routine_count": 13
+  },
+  {
+    "file": "G2049144.mdx",
+    "size": 161469,
+    "ecu_name": "Occupant Classification Sensor Status",
+    "did_count": 29,
+    "routine_count": 6
+  },
+  {
+    "file": "G2049803.mdx",
+    "size": 626756,
+    "ecu_name": "Instrument Cluster Text Warning",
+    "did_count": 68,
+    "routine_count": 15
+  },
+  {
+    "file": "G2053750.mdx",
+    "size": 304531,
+    "ecu_name": "Steering Angle Sensor",
+    "did_count": 75,
+    "routine_count": 6
+  },
+  {
+    "file": "G2056519.mdx",
+    "size": 1365146,
+    "ecu_name": "Lost Communication With Anti-Lock Brake System (ABS) Control Module \"A\"",
+    "did_count": 221,
+    "routine_count": 18
+  },
+  {
+    "file": "G2056551.mdx",
+    "size": 2310890,
+    "ecu_name": "Trailer Stability Control",
+    "did_count": 81,
+    "routine_count": 28
+  },
+  {
+    "file": "G2056589.mdx",
+    "size": 1186334,
+    "ecu_name": "Occupant Classification Sensor Status",
+    "did_count": 145,
+    "routine_count": 9
+  },
+  {
+    "file": "G2059192.mdx",
+    "size": 460107,
+    "ecu_name": "Trailer Connected",
+    "did_count": 104,
+    "routine_count": 11
+  },
+  {
+    "file": "G2059415.mdx",
+    "size": 2579808,
+    "ecu_name": "Powertrain Control Module",
+    "did_count": 407,
+    "routine_count": 14
+  },
+  {
+    "file": "G2060240.mdx",
+    "size": 269513,
+    "ecu_name": "Rear Seat Controls",
+    "did_count": 47,
+    "routine_count": 5
+  },
+  {
+    "file": "G2093399.mdx",
+    "size": 179318,
+    "ecu_name": "Trailer Brake Controller Gain Setting",
+    "did_count": 25,
+    "routine_count": 5
+  },
+  {
+    "file": "G2093443.mdx",
+    "size": 840016,
+    "ecu_name": "4WD/AWD Transfer Case Motor Position - Corrected",
+    "did_count": 85,
+    "routine_count": 17
+  },
+  {
+    "file": "G2093915.mdx",
+    "size": 1361894,
+    "ecu_name": "Lost Communication With Anti-Lock Brake System (ABS) Control Module \"A\"",
+    "did_count": 226,
+    "routine_count": 18
+  },
+  {
+    "file": "G2093920.mdx",
+    "size": 371370,
+    "ecu_name": "Trailer Connected",
+    "did_count": 87,
+    "routine_count": 11
+  },
+  {
+    "file": "G2100812.mdx",
+    "size": 186757,
+    "ecu_name": "Lost Communication With Body Control Module",
+    "did_count": 36,
+    "routine_count": 6
+  },
+  {
+    "file": "G2132570.mdx",
+    "size": 1899552,
+    "ecu_name": "Image Processing Module \"A\"",
+    "did_count": 265,
+    "routine_count": 34
+  },
+  {
+    "file": "G2158838.mdx",
+    "size": 7867249,
+    "ecu_name": "Door Ajar",
+    "did_count": 74,
+    "routine_count": 7
+  },
+  {
+    "file": "G2158903.mdx",
+    "size": 1040113,
+    "ecu_name": "Lost Communication with Transfer Case Control Module",
+    "did_count": 152,
+    "routine_count": 16
+  },
+  {
+    "file": "G2158919.mdx",
+    "size": 2248550,
+    "ecu_name": "Vision System Camera",
+    "did_count": 191,
+    "routine_count": 21
+  },
+  {
+    "file": "G2158929.mdx",
+    "size": 445089,
+    "ecu_name": "Headlamp Adjustment",
+    "did_count": 70,
+    "routine_count": 11
+  },
+  {
+    "file": "G2158961.mdx",
+    "size": 531229,
+    "ecu_name": "Door Ajar",
+    "did_count": 101,
+    "routine_count": 19
+  },
+  {
+    "file": "G2158968.mdx",
+    "size": 1045946,
+    "ecu_name": "Driver Door Key Cylinder Switch",
+    "did_count": 130,
+    "routine_count": 11
+  },
+  {
+    "file": "G2158977.mdx",
+    "size": 1037541,
+    "ecu_name": "Passenger Front Door Module",
+    "did_count": 125,
+    "routine_count": 10
+  },
+  {
+    "file": "G2158995.mdx",
+    "size": 1214144,
+    "ecu_name": "Passenger Climate Controled Seat System State",
+    "did_count": 163,
+    "routine_count": 7
+  },
+  {
+    "file": "G2159010.mdx",
+    "size": 163376,
+    "ecu_name": "Occupant Classification System",
+    "did_count": 28,
+    "routine_count": 6
+  },
+  {
+    "file": "G2159042.mdx",
+    "size": 116768,
+    "ecu_name": "Lost Communication with Transfer Case Control Module",
+    "did_count": 18,
+    "routine_count": 7
+  },
+  {
+    "file": "G2159063.mdx",
+    "size": 209663,
+    "ecu_name": "Drivers Door Status Correlation",
+    "did_count": 25,
+    "routine_count": 5
+  },
+  {
+    "file": "G2162800.mdx",
+    "size": 985208,
+    "ecu_name": "Lost Communication With Body Control Module",
+    "did_count": 91,
+    "routine_count": 9
+  },
+  {
+    "file": "G2164482.mdx",
+    "size": 341219,
+    "ecu_name": "Factory Target Range Radar To Mirror",
+    "did_count": 56,
+    "routine_count": 7
+  },
+  {
+    "file": "G2164496.mdx",
+    "size": 240477,
+    "ecu_name": "Radar Sensor Alignment",
+    "did_count": 47,
+    "routine_count": 6
+  },
+  {
+    "file": "G2164498.mdx",
+    "size": 280943,
+    "ecu_name": "Radar Sensor Alignment",
+    "did_count": 53,
+    "routine_count": 7
+  },
+  {
+    "file": "G2164691.mdx",
+    "size": 4189032,
+    "ecu_name": "Reset EEPROM In Front Door Module",
+    "did_count": 667,
+    "routine_count": 25
+  },
+  {
+    "file": "G2168297.mdx",
+    "size": 301180,
+    "ecu_name": "Factory Target Range Radar To Mirror",
+    "did_count": 50,
+    "routine_count": 6
+  },
+  {
+    "file": "G2170335.mdx",
+    "size": 280943,
+    "ecu_name": "Radar Sensor Alignment",
+    "did_count": 53,
+    "routine_count": 7
+  },
+  {
+    "file": "G2170342.mdx",
+    "size": 280943,
+    "ecu_name": "Radar Sensor Alignment",
+    "did_count": 53,
+    "routine_count": 7
+  },
+  {
+    "file": "G2177135.mdx",
+    "size": 454053,
+    "ecu_name": "Trailer Perimeter Alarm will not function.",
+    "did_count": 51,
+    "routine_count": 5
+  },
+  {
+    "file": "G2195693.mdx",
+    "size": 1323834,
+    "ecu_name": "Occupant Classification Sensor Status",
+    "did_count": 134,
+    "routine_count": 11
+  },
+  {
+    "file": "G2201450.mdx",
+    "size": 5409214,
+    "ecu_name": "Body Control Module",
+    "did_count": 774,
+    "routine_count": 45
+  },
+  {
+    "file": "G2234302.mdx",
+    "size": 449718,
+    "ecu_name": "Lost Communication With Anti-Lock Brake System (ABS) Control Module \"A\"",
+    "did_count": 80,
+    "routine_count": 5
+  },
+  {
+    "file": "G2234307.mdx",
+    "size": 449718,
+    "ecu_name": "Lost Communication With Anti-Lock Brake System (ABS) Control Module \"A\"",
+    "did_count": 80,
+    "routine_count": 5
+  },
+  {
+    "file": "G2257634.mdx",
+    "size": 746158,
+    "ecu_name": "Left HVAC Damper Position Sensor",
+    "did_count": 87,
+    "routine_count": 14
+  },
+  {
+    "file": "G2257655.mdx",
+    "size": 1236172,
+    "ecu_name": "Second Fuel Pump Fault or Ground Fault",
+    "did_count": 174,
+    "routine_count": 11
+  },
+  {
+    "file": "G2257702.mdx",
+    "size": 660828,
+    "ecu_name": "Camera Alignment Without Wheel House Height Inputs",
+    "did_count": 63,
+    "routine_count": 9
+  },
+  {
+    "file": "G2257706.mdx",
+    "size": 7692832,
+    "ecu_name": "TPMS BP Compensated Tire Pressure When Last TPMS Reset - Left Front",
+    "did_count": 821,
+    "routine_count": 46
+  },
+  {
+    "file": "G2265407.mdx",
+    "size": 6415054,
+    "ecu_name": "TPMS BP Compensated Tire Pressure When Last TPMS Reset - Left Front",
+    "did_count": 681,
+    "routine_count": 38
+  },
+  {
+    "file": "G2267745.mdx",
+    "size": 328568,
+    "ecu_name": "1-Speed Transfer Case Type",
+    "did_count": 46,
+    "routine_count": 22
+  },
+  {
+    "file": "G2268606.mdx",
+    "size": 699849,
+    "ecu_name": "Door Ajar",
+    "did_count": 87,
+    "routine_count": 6
+  },
+  {
+    "file": "G2269576.mdx",
+    "size": 197946,
+    "ecu_name": "Door Ajar Hardwired Input Indicates That A Door Is Ajar",
+    "did_count": 25,
+    "routine_count": 5
+  },
+  {
+    "file": "G2273154.mdx",
+    "size": 166724,
+    "ecu_name": "Occupant Classification Sensor Status",
+    "did_count": 29,
+    "routine_count": 6
+  },
+  {
+    "file": "G2273197.mdx",
+    "size": 439825,
+    "ecu_name": "Electronic Control Module Cooling Fan Performance Degraded",
+    "did_count": 84,
+    "routine_count": 8
+  },
+  {
+    "file": "G2286977.mdx",
+    "size": 551537,
+    "ecu_name": "Heated Wiper Park Output",
+    "did_count": 79,
+    "routine_count": 9
+  },
+  {
+    "file": "G2289559.mdx",
+    "size": 1119479,
+    "ecu_name": "Park Assist",
+    "did_count": 139,
+    "routine_count": 15
+  },
+  {
+    "file": "G2309012.mdx",
+    "size": 876935,
+    "ecu_name": "Park Assist",
+    "did_count": 126,
+    "routine_count": 10
+  },
+  {
+    "file": "G2320956.mdx",
+    "size": 2661520,
+    "ecu_name": "Fuel Pump Primary Circuit",
+    "did_count": 429,
+    "routine_count": 15
+  },
+  {
+    "file": "G2322604.mdx",
+    "size": 1717419,
+    "ecu_name": "ABS Control Module System Voltage Low",
+    "did_count": 168,
+    "routine_count": 26
+  },
+  {
+    "file": "G2323216.mdx",
+    "size": 1144159,
+    "ecu_name": "Brake System Fill Not Complete",
+    "did_count": 98,
+    "routine_count": 18
+  },
+  {
+    "file": "G2333706.mdx",
+    "size": 807131,
+    "ecu_name": "Transfer Case Fluid Temperature - Raw",
+    "did_count": 111,
+    "routine_count": 15
+  },
+  {
+    "file": "G2336049.mdx",
+    "size": 2412658,
+    "ecu_name": "ABS Antilock Brake System",
+    "did_count": 119,
+    "routine_count": 30
+  },
+  {
+    "file": "G2336059.mdx",
+    "size": 2067311,
+    "ecu_name": "Image Processing Module \"A\"",
+    "did_count": 297,
+    "routine_count": 38
+  },
+  {
+    "file": "G2337443.mdx",
+    "size": 3985252,
+    "ecu_name": "Hybrid Powertrain Control Module Fault 1",
+    "did_count": 663,
+    "routine_count": 25
+  },
+  {
+    "file": "G2343595.mdx",
+    "size": 364173,
+    "ecu_name": "Drivers Door Status Correlation",
+    "did_count": 51,
+    "routine_count": 5
+  },
+  {
+    "file": "G2346125.mdx",
+    "size": 1131208,
+    "ecu_name": "Occupant Classification System",
+    "did_count": 146,
+    "routine_count": 9
+  },
+  {
+    "file": "G2346972.mdx",
+    "size": 778544,
+    "ecu_name": "Park Assist",
+    "did_count": 94,
+    "routine_count": 14
+  },
+  {
+    "file": "G2349172.mdx",
+    "size": 366431,
+    "ecu_name": "Radar Sensor Alignment",
+    "did_count": 44,
+    "routine_count": 6
+  },
+  {
+    "file": "G2354010.mdx",
+    "size": 261366,
+    "ecu_name": "Rear Seat Controls",
+    "did_count": 39,
+    "routine_count": 5
+  },
+  {
+    "file": "G2354864.mdx",
+    "size": 2584236,
+    "ecu_name": "Power Steering Control Module",
+    "did_count": 106,
+    "routine_count": 12
+  },
+  {
+    "file": "G2390453.mdx",
+    "size": 2989203,
+    "ecu_name": "Invalid Data Received From Image Processing Module A",
+    "did_count": 196,
+    "routine_count": 12
+  },
+  {
+    "file": "G2400186.mdx",
+    "size": 2716274,
+    "ecu_name": "Invalid Data Received From Image Processing Module A",
+    "did_count": 170,
+    "routine_count": 8
+  },
+  {
+    "file": "G2400597.mdx",
+    "size": 454733,
+    "ecu_name": "Trailer Brake Controller Gain Setting",
+    "did_count": 51,
+    "routine_count": 5
+  },
+  {
+    "file": "G2408439.mdx",
+    "size": 5044384,
+    "ecu_name": "TPMS BP Compensated Tire Pressure When Last TPMS Reset - Left Front",
+    "did_count": 682,
+    "routine_count": 58
+  },
+  {
+    "file": "G2411112.mdx",
+    "size": 308606,
+    "ecu_name": "Cruise Switch Null State -Cruise Control Multi-Function Input A",
+    "did_count": 54,
+    "routine_count": 7
+  },
+  {
+    "file": "G2415741.mdx",
+    "size": 1139972,
+    "ecu_name": "IPC - Power Liftgate (POT)/Power Sliding Door Chime",
+    "did_count": 155,
+    "routine_count": 19
+  },
+  {
+    "file": "G2416422.mdx",
+    "size": 1513141,
+    "ecu_name": "Telematics SIM-Card ICC Number",
+    "did_count": 115,
+    "routine_count": 9
+  },
+  {
+    "file": "G2427591.mdx",
+    "size": 1692099,
+    "ecu_name": "Lost Communication With Anti-Lock Brake System (ABS) Control Module \"A\"",
+    "did_count": 239,
+    "routine_count": 16
+  },
+  {
+    "file": "G2427628.mdx",
+    "size": 2300917,
+    "ecu_name": "Image Processing Module \"A\"",
+    "did_count": 322,
+    "routine_count": 42
+  },
+  {
+    "file": "G2443442.mdx",
+    "size": 744133,
+    "ecu_name": "HVAC Control Module",
+    "did_count": 93,
+    "routine_count": 14
+  },
+  {
+    "file": "G2443449.mdx",
+    "size": 1746424,
+    "ecu_name": "Occupant Classification Sensor Status",
+    "did_count": 186,
+    "routine_count": 9
+  },
+  {
+    "file": "G2443451.mdx",
+    "size": 435668,
+    "ecu_name": "Steering Column Control Module",
+    "did_count": 70,
+    "routine_count": 9
+  },
+  {
+    "file": "G2443676.mdx",
+    "size": 521269,
+    "ecu_name": "Lost Communication With Anti-Lock Brake System (ABS) Control Module \"A\"",
+    "did_count": 104,
+    "routine_count": 15
+  },
+  {
+    "file": "G2443680.mdx",
+    "size": 623382,
+    "ecu_name": "On Vehicle Telematics Protocol(OVTP) Key Management Negative Response Codes",
+    "did_count": 106,
+    "routine_count": 10
+  },
+  {
+    "file": "G2443688.mdx",
+    "size": 1425523,
+    "ecu_name": "IPC - Power Liftgate (POT)/Power Sliding Door Chime",
+    "did_count": 179,
+    "routine_count": 18
+  },
+  {
+    "file": "G2471368.mdx",
+    "size": 2732824,
+    "ecu_name": "Gateway Network Protection (GNP) Mode 4 Ignition Cycle Counter",
+    "did_count": 172,
+    "routine_count": 9
+  },
+  {
+    "file": "G2488515.mdx",
+    "size": 3065664,
+    "ecu_name": "Invalid Data Received From Image Processing Module A",
+    "did_count": 212,
+    "routine_count": 15
+  },
+  {
+    "file": "G2498037.mdx",
+    "size": 807613,
+    "ecu_name": "Driveline Control Module Transfer Case Unit Control Circuit Driver",
+    "did_count": 107,
+    "routine_count": 17
+  },
+  {
+    "file": "G2498267.mdx",
+    "size": 2930294,
+    "ecu_name": "Trailer Stability Control",
+    "did_count": 145,
+    "routine_count": 17
+  },
+  {
+    "file": "G2498324.mdx",
+    "size": 4006120,
+    "ecu_name": "Fuel Pump Primary Circuit",
+    "did_count": 613,
+    "routine_count": 27
+  }
+]

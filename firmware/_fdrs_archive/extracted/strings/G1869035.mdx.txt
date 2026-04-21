@@ -1,0 +1,225 @@
+# G1869035.mdx  size=15,454 B  records=224
+0x00000866	session_01
+0x00000872	defaultSession
+0x0000088e	session_03
+0x0000089a	extendedDiagnosticSession
+0x000008c7	service_22
+0x000008d3	ReadDataByIdentifier
+0x000009b5	did_0010_subfield_1_data_def
+0x000009e0	did_0010_subfield_1_subfield_1
+0x00000a00	Pressure Transducer
+0x00000a69	did_0010_subfield_2_data_def
+0x00000a94	did_0010_subfield_2_subfield_2
+0x00000ab4	Vacuum Transducer
+0x00000acf	did_0010
+0x00000ad9	Pressure and Vacuum Transducer
+0x00000b80	did_0001_subfield_1_data_def
+0x00000bab	did_0001_subfield_1_subfield_1
+0x00000bcb	Red Probe
+0x00000bde	did_0001
+0x00000be8	Red Probe
+0x00000c7a	did_0002_subfield_1_data_def
+0x00000ca5	did_0002_subfield_1_subfield_1
+0x00000cc5	Blue Probe
+0x00000cd9	did_0002
+0x00000ce3	Blue Probe
+0x00000d76	did_0003_subfield_1_data_def
+0x00000da1	did_0003_subfield_1_subfield_1
+0x00000dc1	Yellow Probe
+0x00000dd7	did_0003
+0x00000de1	Yellow Probe
+0x00000e76	did_0004_subfield_1_data_def
+0x00000ea1	did_0004_subfield_1_subfield_1
+0x00000ec1	Green Probe
+0x00000ed6	did_0004
+0x00000ee0	Green Probe
+0x00000f74	did_0005_subfield_1_data_def
+0x00000f9f	did_0005_subfield_1_subfield_1
+0x00000fbf	Red Tick Probe
+0x00000fd7	did_0005
+0x00000fe1	Red Tick Probe
+0x00001078	did_0006_subfield_1_data_def
+0x000010a3	did_0006_subfield_1_subfield_1
+0x000010c3	50 Amp Current Probe
+0x000010e1	did_0006
+0x000010eb	50 Amp Current Probe
+0x00001188	did_0007_subfield_1_data_def
+0x000011b3	did_0007_subfield_1_subfield_1
+0x000011d3	500 Amp Current Probe
+0x000011f2	did_0007
+0x000011fc	500 Amp Current Probe
+0x0000129a	did_0008_subfield_1_data_def
+0x000012c5	did_0008_subfield_1_subfield_1
+0x000012e5	Temperature Probe
+0x00001300	did_0008
+0x0000130a	Temperature Probe
+0x000013a4	did_0012_subfield_1_data_def
+0x000013cf	did_0012_subfield_1_subfield_1
+0x000013ef	BNC Connector
+0x00001406	did_0012
+0x00001410	BNC Connector
+0x000014a6	did_0013_subfield_1_data_def
+0x000014d1	did_0013_subfield_1_subfield_1
+0x000014f1	Diagnostic Link Connector Pins
+0x00001519	did_0013
+0x00001523	Diagnostic Link Connector Pins
+0x0000155d	General Signal Failure
+0x00001575	ftb_02
+0x00001600	Vehicle Communication and Measurement Module
+0x0000163a	VCMM
+0x0000167c	session_01
+0x00001688	defaultSession
+0x000016a4	session_03
+0x000016b0	extendedDiagnosticSession
+0x000016dd	service_10
+0x000016e9	DiagnosticSessionControl
+0x00001777	session_01
+0x00001783	defaultSession
+0x0000179f	session_03
+0x000017ab	extendedDiagnosticSession
+0x000017d8	service_22
+0x000017e4	ReadDataByIdentifier
+0x00001889	session_01
+0x00001895	defaultSession
+0x000018b1	session_03
+0x000018bd	extendedDiagnosticSession
+0x000018ea	service_22
+0x000018f6	ReadDataByIdentifier
+0x000019d8	did_0010_subfield_1_data_def
+0x00001a03	did_0010_subfield_1_subfield_1
+0x00001a23	Pressure Transducer
+0x00001a8c	did_0010_subfield_2_data_def
+0x00001ab7	did_0010_subfield_2_subfield_2
+0x00001ad7	Vacuum Transducer
+0x00001af2	did_0010
+0x00001afc	Pressure and Vacuum Transducer
+0x00001bbb	session_01
+0x00001bc7	defaultSession
+0x00001be3	session_03
+0x00001bef	extendedDiagnosticSession
+0x00001c1c	service_22
+0x00001c28	ReadDataByIdentifier
+0x00001d0a	did_0001_subfield_1_data_def
+0x00001d35	did_0001_subfield_1_subfield_1
+0x00001d55	Red Probe
+0x00001d68	did_0001
+0x00001d72	Red Probe
+0x00001e07	session_01
+0x00001e13	defaultSession
+0x00001e2f	session_03
+0x00001e3b	extendedDiagnosticSession
+0x00001e68	service_22
+0x00001e74	ReadDataByIdentifier
+0x00001f56	did_0002_subfield_1_data_def
+0x00001f81	did_0002_subfield_1_subfield_1
+0x00001fa1	Blue Probe
+0x00001fb5	did_0002
+0x00001fbf	Blue Probe
+0x00002056	session_01
+0x00002062	defaultSession
+0x0000207e	session_03
+0x0000208a	extendedDiagnosticSession
+0x000020b7	service_22
+0x000020c3	ReadDataByIdentifier
+0x000021a5	did_0003_subfield_1_data_def
+0x000021d0	did_0003_subfield_1_subfield_1
+0x000021f0	Yellow Probe
+0x00002206	did_0003
+0x00002210	Yellow Probe
+0x000022ab	session_01
+0x000022b7	defaultSession
+0x000022d3	session_03
+0x000022df	extendedDiagnosticSession
+0x0000230c	service_22
+0x00002318	ReadDataByIdentifier
+0x000023fa	did_0004_subfield_1_data_def
+0x00002425	did_0004_subfield_1_subfield_1
+0x00002445	Green Probe
+0x0000245a	did_0004
+0x00002464	Green Probe
+0x000024fd	session_01
+0x00002509	defaultSession
+0x00002525	session_03
+0x00002531	extendedDiagnosticSession
+0x0000255e	service_22
+0x0000256a	ReadDataByIdentifier
+0x0000264c	did_0005_subfield_1_data_def
+0x00002677	did_0005_subfield_1_subfield_1
+0x00002697	Red Tick Probe
+0x000026af	did_0005
+0x000026b9	Red Tick Probe
+0x00002758	session_01
+0x00002764	defaultSession
+0x00002780	session_03
+0x0000278c	extendedDiagnosticSession
+0x000027b9	service_22
+0x000027c5	ReadDataByIdentifier
+0x000028a7	did_0006_subfield_1_data_def
+0x000028d2	did_0006_subfield_1_subfield_1
+0x000028f2	50 Amp Current Probe
+0x00002910	did_0006
+0x0000291a	50 Amp Current Probe
+0x000029c5	session_01
+0x000029d1	defaultSession
+0x000029ed	session_03
+0x000029f9	extendedDiagnosticSession
+0x00002a26	service_22
+0x00002a32	ReadDataByIdentifier
+0x00002b14	did_0007_subfield_1_data_def
+0x00002b3f	did_0007_subfield_1_subfield_1
+0x00002b5f	500 Amp Current Probe
+0x00002b7e	did_0007
+0x00002b88	500 Amp Current Probe
+0x00002c35	session_01
+0x00002c41	defaultSession
+0x00002c5d	session_03
+0x00002c69	extendedDiagnosticSession
+0x00002c96	service_22
+0x00002ca2	ReadDataByIdentifier
+0x00002d84	did_0008_subfield_1_data_def
+0x00002daf	did_0008_subfield_1_subfield_1
+0x00002dcf	Temperature Probe
+0x00002dea	did_0008
+0x00002df4	Temperature Probe
+0x00002e99	session_01
+0x00002ea5	defaultSession
+0x00002ec1	session_03
+0x00002ecd	extendedDiagnosticSession
+0x00002efa	service_22
+0x00002f06	ReadDataByIdentifier
+0x00002fe8	did_0012_subfield_1_data_def
+0x00003013	did_0012_subfield_1_subfield_1
+0x00003033	BNC Connector
+0x0000304a	did_0012
+0x00003054	BNC Connector
+0x000030f1	session_01
+0x000030fd	defaultSession
+0x00003119	session_03
+0x00003125	extendedDiagnosticSession
+0x00003152	service_22
+0x0000315e	ReadDataByIdentifier
+0x00003240	did_0013_subfield_1_data_def
+0x0000326b	did_0013_subfield_1_subfield_1
+0x0000328b	Diagnostic Link Connector Pins
+0x000032b3	did_0013
+0x000032bd	Diagnostic Link Connector Pins
+0x0000333d	session_01
+0x00003349	defaultSession
+0x0000338b	session_02
+0x00003397	programmingSession
+0x000033e1	session_03
+0x000033ed	extendedDiagnosticSession
+0x00003569	pll_1
+0x000035e0	session_01
+0x000035ec	defaultSession
+0x00003608	session_03
+0x00003614	extendedDiagnosticSession
+0x00003674	nrc_10
+0x0000367c	generalReject
+0x000036dc	service_10
+0x000036e8	DiagnosticSessionControl
+0x00003739	service_22
+0x00003745	ReadDataByIdentifier
+0x00003777	session_02
+0x00003783	programmingSession
+0x000038cf	pll_1

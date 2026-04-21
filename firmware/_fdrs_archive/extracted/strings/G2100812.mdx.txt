@@ -1,0 +1,2522 @@
+# G2100812.mdx  size=186,757 B  records=2520
+0x00000a18	session_01
+0x00000a24	defaultSession
+0x00000b2f	session_03
+0x00000b3b	extendedDiagnosticSession
+0x00000b5b	service_22_p4_max_00
+0x00000cce	session_02
+0x00000cda	programmingSession
+0x00000cf3	service_22_p4_max_01
+0x00000d56	nrc_13
+0x00000d5e	incorrectMessageLengthOrInvalidFormat
+0x00000d9c	nrc_31
+0x00000da4	requestOutOfRange
+0x00000dd0	service_22
+0x00000ddc	ReadDataByIdentifier
+0x00000e73	Key out
+0x00000e7c	did_411f_subfield_1_data_def_enum_1
+0x00000eab	Key in
+0x00000eb3	did_411f_subfield_1_data_def_enum_2
+0x00000ee2	Accessory
+0x00000eed	did_411f_subfield_1_data_def_enum_3
+0x00000f1c	Ignition
+0x00000f26	did_411f_subfield_1_data_def_enum_4
+0x00000f55	Crank
+0x00000f5c	did_411f_subfield_1_data_def_enum_5
+0x00000f8b	Key in OFF position
+0x00000fa0	did_411f_subfield_1_data_def_enum_6
+0x00000fcf	Key In and Accessory Position
+0x00000fee	did_411f_subfield_1_data_def_enum_7
+0x0000101d	Key In and Run Position
+0x00001036	did_411f_subfield_1_data_def_enum_8
+0x00001065	Key In and Start Position
+0x00001080	did_411f_subfield_1_data_def_enum_9
+0x000010af	Key In and Off Position
+0x000010c8	did_411f_subfield_1_data_def_enum_10
+0x000010f8	Key Out and Accessory Position
+0x00001118	did_411f_subfield_1_data_def_enum_11
+0x00001148	Key Out and Run Position
+0x00001162	did_411f_subfield_1_data_def_enum_12
+0x00001192	Key Out and Start Position
+0x000011ae	did_411f_subfield_1_data_def_enum_13
+0x000011de	Key Out and Off Position
+0x000011f8	did_411f_subfield_1_data_def_enum_14
+0x00001228	Unknown
+0x00001231	did_411f_subfield_1_data_def_enum_15
+0x00001261	Invalid
+0x0000126a	did_411f_subfield_1_data_def_enum_16
+0x0000129d	did_411f_subfield_1_data_def
+0x000012c8	did_411F_subfield_1
+0x000012dd	Key Position
+0x000012f3	did_411F
+0x000012fd	Key Position
+0x0000154f	session_01
+0x0000155b	defaultSession
+0x00001666	session_03
+0x00001672	extendedDiagnosticSession
+0x00001692	service_22_p4_max_00
+0x00001805	session_02
+0x00001811	programmingSession
+0x0000182a	service_22_p4_max_01
+0x0000188d	nrc_13
+0x00001895	incorrectMessageLengthOrInvalidFormat
+0x000018d3	nrc_31
+0x000018db	requestOutOfRange
+0x00001907	service_22
+0x00001913	ReadDataByIdentifier
+0x000019aa	No (False)
+0x000019b6	did_804e_subfield_1_data_def_enum_1
+0x000019e5	Yes (True)
+0x000019f1	did_804e_subfield_1_data_def_enum_2
+0x00001a23	did_804e_subfield_1_data_def
+0x00001a4e	did_804E_subfield_1
+0x00001a63	Charging Phone
+0x00001a9c	did_804e_subfield_2_data_def_enum_1
+0x00001acf	did_804e_subfield_2_data_def_enum_2
+0x00001b01	did_804e_subfield_2_data_def
+0x00001b2c	did_804E_subfield_2
+0x00001b41	Charging Complete
+0x00001b7d	did_804e_subfield_3_data_def_enum_1
+0x00001bb0	did_804e_subfield_3_data_def_enum_2
+0x00001be2	did_804e_subfield_3_data_def
+0x00001c0d	did_804E_subfield_3
+0x00001c22	Metal Object on Pad with No Phone Present
+0x00001c76	did_804e_subfield_4_data_def_enum_1
+0x00001ca9	did_804e_subfield_4_data_def_enum_2
+0x00001cdb	did_804e_subfield_4_data_def
+0x00001d06	did_804E_subfield_4
+0x00001d1b	Charging Not Successful Due to Metal Object
+0x00001d71	did_804e_subfield_5_data_def_enum_1
+0x00001da4	did_804e_subfield_5_data_def_enum_2
+0x00001dd6	did_804e_subfield_5_data_def
+0x00001e01	did_804E_subfield_5
+0x00001e16	Phone Removed while Charging
+0x00001e5d	did_804e_subfield_6_data_def_enum_1
+0x00001e90	did_804e_subfield_6_data_def_enum_2
+0x00001ec2	did_804e_subfield_6_data_def
+0x00001eed	did_804E_subfield_6
+0x00001f02	Phone Misaligned on Charging Pad
+0x00001f4d	did_804e_subfield_7_data_def_enum_1
+0x00001f80	did_804e_subfield_7_data_def_enum_2
+0x00001fb2	did_804e_subfield_7_data_def
+0x00001fdd	did_804E_subfield_7
+0x00001ff2	Phone Stopped Charging Due to Overheat
+0x00002043	did_804e_subfield_8_data_def_enum_1
+0x00002076	did_804e_subfield_8_data_def_enum_2
+0x000020a8	did_804e_subfield_8_data_def
+0x000020d3	did_804E_subfield_8
+0x000020e8	Phone Stops Charging Because of Loss of Efficiency
+0x00002145	did_804e_subfield_9_data_def_enum_1
+0x00002178	did_804e_subfield_9_data_def_enum_2
+0x000021aa	did_804e_subfield_9_data_def
+0x000021d5	did_804E_subfield_9
+0x000021ea	Phone Removed While Wifi Connected but not Connected to a Device
+0x00002255	did_804e_subfield_10_data_def_enum_1
+0x00002289	did_804e_subfield_10_data_def_enum_2
+0x000022bc	did_804e_subfield_10_data_def
+0x000022e8	did_804E_subfield_10
+0x000022fe	Pad Stops Charging Because PEPS Antenna Searching for PEPS Key
+0x00002367	did_804e_subfield_11_data_def_enum_1
+0x0000239b	did_804e_subfield_11_data_def_enum_2
+0x000023ce	did_804e_subfield_11_data_def
+0x000023fa	did_804E_subfield_11
+0x00002410	Band Interference
+0x0000244c	did_804e_subfield_12_data_def_enum_1
+0x00002480	did_804e_subfield_12_data_def_enum_2
+0x000024b3	did_804e_subfield_12_data_def
+0x000024df	did_804E_subfield_12
+0x000024f5	Eliminated AM Noise and Session Active
+0x00002546	did_804e_subfield_13_data_def_enum_1
+0x0000257a	did_804e_subfield_13_data_def_enum_2
+0x000025ad	did_804e_subfield_13_data_def
+0x000025d9	did_804E_subfield_13
+0x000025ef	Reduced Phone Charging Power due to AM Band
+0x00002623	This DID provides status flags for the current operational state of WACM.
+0x0000266e	did_804E
+0x00002678	Charging Module Status
+0x000028de	session_01
+0x000028ea	defaultSession
+0x000029f5	session_03
+0x00002a01	extendedDiagnosticSession
+0x00002a21	service_22_p4_max_00
+0x00002b94	session_02
+0x00002ba0	programmingSession
+0x00002bb9	service_22_p4_max_01
+0x00002c1c	nrc_13
+0x00002c24	incorrectMessageLengthOrInvalidFormat
+0x00002c62	nrc_31
+0x00002c6a	requestOutOfRange
+0x00002c96	service_22
+0x00002ca2	ReadDataByIdentifier
+0x00002d3d	Default Session
+0x00002d4e	did_d100_subfield_1_data_def_enum_1
+0x00002d7d	Programming Session
+0x00002d92	did_d100_subfield_1_data_def_enum_2
+0x00002dc1	Extended Diagnostic Session
+0x00002dde	did_d100_subfield_1_data_def_enum_3
+0x00002e0d	Safety System Diagnostic Session
+0x00002e2f	did_d100_subfield_1_data_def_enum_4
+0x00002e5e	EOL Extended Diagnostic Session
+0x00002e7f	did_d100_subfield_1_data_def_enum_5
+0x00002eaf	did_d100_subfield_1_data_def_enum_6
+0x00002edf	did_d100_subfield_1_data_def_enum_7
+0x00002f0f	did_d100_subfield_1_data_def_enum_8
+0x00002f3f	did_d100_subfield_1_data_def_enum_9
+0x00002f6f	did_d100_subfield_1_data_def_enum_10
+0x00002fa0	did_d100_subfield_1_data_def_enum_11
+0x00002fd1	did_d100_subfield_1_data_def_enum_12
+0x00003002	did_d100_subfield_1_data_def_enum_13
+0x00003033	did_d100_subfield_1_data_def_enum_14
+0x00003064	did_d100_subfield_1_data_def_enum_15
+0x00003095	did_d100_subfield_1_data_def_enum_16
+0x000030c6	did_d100_subfield_1_data_def_enum_17
+0x000030f7	did_d100_subfield_1_data_def_enum_18
+0x00003128	did_d100_subfield_1_data_def_enum_19
+0x00003159	did_d100_subfield_1_data_def_enum_20
+0x0000318a	did_d100_subfield_1_data_def_enum_21
+0x000031bb	did_d100_subfield_1_data_def_enum_22
+0x000031ec	did_d100_subfield_1_data_def_enum_23
+0x0000321d	did_d100_subfield_1_data_def_enum_24
+0x0000324e	did_d100_subfield_1_data_def_enum_25
+0x0000327f	did_d100_subfield_1_data_def_enum_26
+0x000032b0	did_d100_subfield_1_data_def_enum_27
+0x000032e1	did_d100_subfield_1_data_def_enum_28
+0x00003312	did_d100_subfield_1_data_def_enum_29
+0x00003343	did_d100_subfield_1_data_def_enum_30
+0x00003374	did_d100_subfield_1_data_def_enum_31
+0x000033a5	did_d100_subfield_1_data_def_enum_32
+0x000033d6	did_d100_subfield_1_data_def_enum_33
+0x00003407	did_d100_subfield_1_data_def_enum_34
+0x00003438	did_d100_subfield_1_data_def_enum_35
+0x00003469	did_d100_subfield_1_data_def_enum_36
+0x0000349c	did_d100_subfield_1_data_def
+0x000034c7	did_D100_subfield_1
+0x000034dc	Active Diagnostic Session
+0x000034ff	did_D100
+0x00003509	Active Diagnostic Session
+0x00003775	session_01
+0x00003781	defaultSession
+0x0000388c	session_03
+0x00003898	extendedDiagnosticSession
+0x000038b8	service_22_p4_max_00
+0x00003a2b	session_02
+0x00003a37	programmingSession
+0x00003a50	service_22_p4_max_01
+0x00003ab3	nrc_13
+0x00003abb	incorrectMessageLengthOrInvalidFormat
+0x00003af9	nrc_31
+0x00003b01	requestOutOfRange
+0x00003b2d	service_22
+0x00003b39	ReadDataByIdentifier
+0x00003c1d	did_d111_subfield_1_data_def
+0x00003c48	did_D111_subfield_1
+0x00003c5d	ECU Power Supply Voltage
+0x00003c7f	did_D111
+0x00003c89	ECU Power Supply Voltage
+0x00003ef3	session_01
+0x00003eff	defaultSession
+0x0000400a	session_03
+0x00004016	extendedDiagnosticSession
+0x00004036	service_22_p4_max_00
+0x000041a9	session_02
+0x000041b5	programmingSession
+0x000041ce	service_22_p4_max_01
+0x00004231	nrc_13
+0x00004239	incorrectMessageLengthOrInvalidFormat
+0x00004277	nrc_31
+0x0000427f	requestOutOfRange
+0x000042ab	service_22
+0x000042b7	ReadDataByIdentifier
+0x0000439b	did_d700_subfield_1_data_def
+0x000043c6	did_D700_subfield_1
+0x000043db	Power ON reset counter
+0x00004447	did_d700_subfield_2_data_def
+0x00004472	did_D700_subfield_2
+0x00004487	Illegal op code counter
+0x000044f4	did_d700_subfield_3_data_def
+0x0000451f	did_D700_subfield_3
+0x00004534	Watchdog timer reset counter
+0x000045a6	did_d700_subfield_4_data_def
+0x000045d1	did_D700_subfield_4
+0x000045e6	Data Range Failure counter
+0x0000469c	did_D700
+0x000046a6	Critical Software Parameter Monitoring #1
+0x00004932	session_01
+0x0000493e	defaultSession
+0x00004a49	session_03
+0x00004a55	extendedDiagnosticSession
+0x00004a75	service_22_p4_max_00
+0x00004be8	session_02
+0x00004bf4	programmingSession
+0x00004c0d	service_22_p4_max_01
+0x00004c70	nrc_13
+0x00004c78	incorrectMessageLengthOrInvalidFormat
+0x00004cb6	nrc_31
+0x00004cbe	requestOutOfRange
+0x00004cea	service_22
+0x00004cf6	ReadDataByIdentifier
+0x00004dda	did_d701_subfield_1_data_def
+0x00004e05	did_D701_subfield_1
+0x00004e1a	Stack Overflow Counter
+0x00004e86	did_d701_subfield_2_data_def
+0x00004eb1	did_D701_subfield_2
+0x00004ec6	Loop-Time overflow or scheduler idle time overflow Counter
+0x00004f56	did_d701_subfield_3_data_def
+0x00004f81	did_D701_subfield_3
+0x00004f96	Minimum Idle-Time
+0x00004ffd	did_d701_subfield_4_data_def
+0x00005028	did_D701_subfield_4
+0x0000503d	Reserved
+0x000050e1	did_D701
+0x000050eb	Critical Software Parameter Monitoring #2
+0x00005377	session_01
+0x00005383	defaultSession
+0x0000548e	session_03
+0x0000549a	extendedDiagnosticSession
+0x000054ba	service_22_p4_max_00
+0x0000562d	session_02
+0x00005639	programmingSession
+0x00005652	service_22_p4_max_01
+0x000056b5	nrc_13
+0x000056bd	incorrectMessageLengthOrInvalidFormat
+0x000056fb	nrc_31
+0x00005703	requestOutOfRange
+0x0000572f	service_22
+0x0000573b	ReadDataByIdentifier
+0x000057de	Present
+0x000057e7	did_de00_subfield_1_data_def_enum_1
+0x00005816	Not Present
+0x00005823	did_de00_subfield_1_data_def_enum_2
+0x00005853	0x00
+0x0000585a	did_de00_subfield_1_data_def
+0x00005885	did_DE00_subfield_1
+0x0000589a	FCDIM Module Present in the Vehicle Network
+0x000058f0	did_de00_subfield_2_data_def_enum_1
+0x00005923	did_de00_subfield_2_data_def_enum_2
+0x00005958	did_de00_subfield_2_data_def
+0x00005983	did_DE00_subfield_2
+0x00005998	ACM Module Present in the Vehicle Network
+0x000059ca	This DID is used to disable generic Diagnostics of the WACM.
+0x00005a08	did_DE00
+0x00005a12	Wireless Accessory Charger Configuration
+0x00005c9c	session_01
+0x00005ca8	defaultSession
+0x00005db3	session_03
+0x00005dbf	extendedDiagnosticSession
+0x00005ddf	service_22_p4_max_00
+0x00005f52	session_02
+0x00005f5e	programmingSession
+0x00005f77	service_22_p4_max_01
+0x00005fda	nrc_13
+0x00005fe2	incorrectMessageLengthOrInvalidFormat
+0x00006020	nrc_31
+0x00006028	requestOutOfRange
+0x00006054	service_22
+0x00006060	ReadDataByIdentifier
+0x00006103	Disable
+0x0000610c	did_de01_subfield_1_data_def_enum_1
+0x0000613b	Enable
+0x00006143	did_de01_subfield_1_data_def_enum_2
+0x00006173	0x01
+0x0000617a	did_de01_subfield_1_data_def
+0x000061a5	did_DE01_subfield_1
+0x000061ba	Charging Not In Progress Indicator (CNIPEN)
+0x00006210	did_de01_subfield_2_data_def_enum_1
+0x00006243	did_de01_subfield_2_data_def_enum_2
+0x00006278	did_de01_subfield_2_data_def
+0x000062a3	did_DE01_subfield_2
+0x000062b8	Charging In Progress Indicator (CIPEN)
+0x00006309	did_de01_subfield_3_data_def_enum_1
+0x0000633c	did_de01_subfield_3_data_def_enum_2
+0x00006371	did_de01_subfield_3_data_def
+0x0000639c	did_DE01_subfield_3
+0x000063b1	Charging Complete Indicator (CCEN)
+0x000063fe	did_de01_subfield_4_data_def_enum_1
+0x00006431	did_de01_subfield_4_data_def_enum_2
+0x00006466	did_de01_subfield_4_data_def
+0x00006491	did_DE01_subfield_4
+0x000064a6	Metal Object Detected Indicator (MODEN)
+0x000064f8	did_de01_subfield_5_data_def_enum_1
+0x0000652b	did_de01_subfield_5_data_def_enum_2
+0x00006560	did_de01_subfield_5_data_def
+0x0000658b	did_DE01_subfield_5
+0x000065a0	Over Temperature Indicator (OTMEN)
+0x00006658	did_DE01
+0x00006662	Human Machine Interface (HMI) Configuration
+0x000068f2	session_01
+0x000068fe	defaultSession
+0x00006a09	session_03
+0x00006a15	extendedDiagnosticSession
+0x00006a35	service_22_p4_max_00
+0x00006ba8	session_02
+0x00006bb4	programmingSession
+0x00006bcd	service_22_p4_max_01
+0x00006c30	nrc_13
+0x00006c38	incorrectMessageLengthOrInvalidFormat
+0x00006c76	nrc_31
+0x00006c7e	requestOutOfRange
+0x00006caa	service_22
+0x00006cb6	ReadDataByIdentifier
+0x00006d59	Disable
+0x00006d62	did_de02_subfield_1_data_def_enum_1
+0x00006d91	Enable
+0x00006d99	did_de02_subfield_1_data_def_enum_2
+0x00006dc9	0x01
+0x00006dd0	did_de02_subfield_1_data_def
+0x00006dfb	did_DE02_subfield_1
+0x00006e10	Over Temperature Limit (OTLEN)
+0x00006e59	did_de02_subfield_2_data_def_enum_1
+0x00006e8c	did_de02_subfield_2_data_def_enum_2
+0x00006ec1	did_de02_subfield_2_data_def
+0x00006eec	did_DE02_subfield_2
+0x00006f01	Over Temperature Hysteresis (OTHEN)
+0x00006f2d	This ECU Configuration DID allows the ability to enable/disable the WACM overtemperature features.
+0x00006f91	did_DE02
+0x00006f9b	Transmitter Temperature Configuration
+0x0000721f	session_01
+0x0000722b	defaultSession
+0x00007336	session_03
+0x00007342	extendedDiagnosticSession
+0x00007362	service_22_p4_max_00
+0x000074d5	session_02
+0x000074e1	programmingSession
+0x000074fa	service_22_p4_max_01
+0x0000755d	nrc_13
+0x00007565	incorrectMessageLengthOrInvalidFormat
+0x000075a3	nrc_31
+0x000075ab	requestOutOfRange
+0x000075d7	service_22
+0x000075e3	ReadDataByIdentifier
+0x00007686	Disable
+0x0000768f	did_de03_subfield_1_data_def_enum_1
+0x000076be	Enable
+0x000076c6	did_de03_subfield_1_data_def_enum_2
+0x000076f6	0x01
+0x000076fd	did_de03_subfield_1_data_def
+0x00007728	did_DE03_subfield_1
+0x0000773d	PEPS Avoidance Feature (PEPSEN)
+0x00007783	Charging feature disabled during PEPS query
+0x000077b0	did_de03_subfield_2_data_def_enum_1
+0x000077df	Frequency is shifted during PEPS query
+0x00007807	did_de03_subfield_2_data_def_enum_2
+0x00007837	0x00
+0x0000783e	did_de03_subfield_2_data_def
+0x00007869	did_DE03_subfield_2
+0x0000787e	PEPS Avoidance Type (PEPSTP)
+0x000078c1	Disabled
+0x000078cb	did_de03_subfield_3_data_def_enum_1
+0x000078fa	Enabled
+0x00007903	did_de03_subfield_3_data_def_enum_2
+0x00007938	did_de03_subfield_3_data_def
+0x00007963	did_DE03_subfield_3
+0x00007978	AM Avoidance Feature (AMAEN)
+0x0000799d	This ECU Configuration DID allows the ability to enable/disable radio frequency avoidance operation.
+0x00007a03	did_DE03
+0x00007a0d	Radio Frequency Avoidance Operation
+0x00007c8d	session_01
+0x00007c99	defaultSession
+0x00007da4	session_03
+0x00007db0	extendedDiagnosticSession
+0x00007dd0	service_22_p4_max_00
+0x00007f43	session_02
+0x00007f4f	programmingSession
+0x00007f68	service_22_p4_max_01
+0x00007fcb	nrc_13
+0x00007fd3	incorrectMessageLengthOrInvalidFormat
+0x00008011	nrc_31
+0x00008019	requestOutOfRange
+0x00008045	service_22
+0x00008051	ReadDataByIdentifier
+0x000080e8	Null
+0x000080ee	did_ee00_subfield_1_data_def_enum_1
+0x0000811d	Standby / Load Shed
+0x00008132	did_ee00_subfield_1_data_def_enum_2
+0x00008161	Object Detection Phase
+0x00008179	did_ee00_subfield_1_data_def_enum_3
+0x000081a8	Technology Selection Phase
+0x000081c4	did_ee00_subfield_1_data_def_enum_4
+0x000081f3	ID & Configuration Phase
+0x0000820d	did_ee00_subfield_1_data_def_enum_5
+0x0000823c	Power Transfer Phase
+0x00008252	did_ee00_subfield_1_data_def_enum_6
+0x00008281	End Power Transfer
+0x00008295	did_ee00_subfield_1_data_def_enum_7
+0x000082c4	Foreign Object
+0x000082d4	did_ee00_subfield_1_data_def_enum_8
+0x00008303	TX Over Temperature
+0x00008318	did_ee00_subfield_1_data_def_enum_9
+0x00008347	Self-Test Phase
+0x00008358	did_ee00_subfield_1_data_def_enum_10
+0x00008388	Idle Object Detection Phase
+0x000083a5	did_ee00_subfield_1_data_def_enum_11
+0x000083d5	Not Available / Unknown
+0x000083ee	did_ee00_subfield_1_data_def_enum_12
+0x00008421	did_ee00_subfield_1_data_def
+0x0000844c	did_EE00_subfield_1
+0x00008461	Tx State Machine
+0x0000849c	did_ee00_subfield_2_data_def_enum_1
+0x000084cb	Qi
+0x000084cf	did_ee00_subfield_2_data_def_enum_2
+0x000084fe	PMA
+0x00008503	did_ee00_subfield_2_data_def_enum_3
+0x00008532	Not available / Unknown
+0x0000854b	did_ee00_subfield_2_data_def_enum_4
+0x0000857d	did_ee00_subfield_2_data_def
+0x000085a8	did_EE00_subfield_2
+0x000085bd	Tx Active Technology Mode
+0x000086f1	did_EE00
+0x000086fb	State and Charging Mode
+0x00008963	session_01
+0x0000896f	defaultSession
+0x00008a7a	session_03
+0x00008a86	extendedDiagnosticSession
+0x00008aa6	service_22_p4_max_00
+0x00008c19	session_02
+0x00008c25	programmingSession
+0x00008c3e	service_22_p4_max_01
+0x00008ca1	nrc_13
+0x00008ca9	incorrectMessageLengthOrInvalidFormat
+0x00008ce7	nrc_31
+0x00008cef	requestOutOfRange
+0x00008d1b	service_22
+0x00008d27	ReadDataByIdentifier
+0x00008dbe	Null
+0x00008dc4	did_ee01_subfield_1_data_def_enum_1
+0x00008df3	Inductive Coil 1
+0x00008e05	did_ee01_subfield_1_data_def_enum_2
+0x00008e34	Inductive Coil 2 (Cntr.)
+0x00008e4e	did_ee01_subfield_1_data_def_enum_3
+0x00008e7d	Inductive Coil 3
+0x00008e8f	did_ee01_subfield_1_data_def_enum_4
+0x00008ec0	Not Availiable / Unknown
+0x00008eda	did_ee01_subfield_1_data_def_enum_5
+0x00008f0c	did_ee01_subfield_1_data_def
+0x00008f37	did_EE01_subfield_1
+0x00008f4c	Tx Active Coil
+0x00008fcf	did_ee01_subfield_2_data_def
+0x00008ffa	did_EE01_subfield_2
+0x0000900f	Tx Operational Frequency
+0x00009030	This DID provides WACM charger information for the current charge session in progress.
+0x00009088	did_EE01
+0x00009092	Charge Session Status
+0x000092f6	session_01
+0x00009302	defaultSession
+0x0000940d	session_03
+0x00009419	extendedDiagnosticSession
+0x00009439	service_22_p4_max_00
+0x000095ac	session_02
+0x000095b8	programmingSession
+0x000095d1	service_22_p4_max_01
+0x00009634	nrc_13
+0x0000963c	incorrectMessageLengthOrInvalidFormat
+0x0000967a	nrc_31
+0x00009682	requestOutOfRange
+0x000096ae	service_22
+0x000096ba	ReadDataByIdentifier
+0x0000979e	did_ee02_subfield_1_data_def
+0x000097c9	did_EE02_subfield_1
+0x000097de	Tx Temperature
+0x00009813	False
+0x0000981a	did_ee02_subfield_2_data_def_enum_1
+0x00009849	True
+0x0000984f	did_ee02_subfield_2_data_def_enum_2
+0x00009881	did_ee02_subfield_2_data_def
+0x000098ac	did_EE02_subfield_2
+0x000098c1	Tx Normal Temperature Range
+0x00009907	did_ee02_subfield_3_data_def_enum_1
+0x0000993a	did_ee02_subfield_3_data_def_enum_2
+0x0000996c	did_ee02_subfield_3_data_def
+0x00009997	did_EE02_subfield_3
+0x000099ac	Tx Over Temperature Range
+0x000099f0	did_ee02_subfield_4_data_def_enum_1
+0x00009a23	did_ee02_subfield_4_data_def_enum_2
+0x00009a55	did_ee02_subfield_4_data_def
+0x00009a80	did_EE02_subfield_4
+0x00009a95	Tx Over Temperature Flag
+0x00009ad8	did_ee02_subfield_5_data_def_enum_1
+0x00009b0b	did_ee02_subfield_5_data_def_enum_2
+0x00009b3d	did_ee02_subfield_5_data_def
+0x00009b68	did_EE02_subfield_5
+0x00009b7d	Tx Cool Down Range
+0x00009bba	did_ee02_subfield_6_data_def_enum_1
+0x00009bed	did_ee02_subfield_6_data_def_enum_2
+0x00009c1f	did_ee02_subfield_6_data_def
+0x00009c4a	did_EE02_subfield_6
+0x00009c5f	Tx Hysteresis Temperature Range
+0x00009d63	did_EE02
+0x00009d6d	Temperature Data
+0x00009fc7	session_01
+0x00009fd3	defaultSession
+0x0000a0de	session_03
+0x0000a0ea	extendedDiagnosticSession
+0x0000a10a	service_22_p4_max_00
+0x0000a27d	session_02
+0x0000a289	programmingSession
+0x0000a2a2	service_22_p4_max_01
+0x0000a305	nrc_13
+0x0000a30d	incorrectMessageLengthOrInvalidFormat
+0x0000a34b	nrc_31
+0x0000a353	requestOutOfRange
+0x0000a37f	service_22
+0x0000a38b	ReadDataByIdentifier
+0x0000a46f	did_ee03_subfield_1_data_def
+0x0000a49a	did_EE03_subfield_1
+0x0000a4af	ECU Power Supply Voltage 2
+0x0000a4d3	did_EE03
+0x0000a4dd	ECU Power Supply Voltage 2
+0x0000a74b	session_01
+0x0000a757	defaultSession
+0x0000a862	session_03
+0x0000a86e	extendedDiagnosticSession
+0x0000a88e	service_22_p4_max_00
+0x0000aa01	session_02
+0x0000aa0d	programmingSession
+0x0000aa26	service_22_p4_max_01
+0x0000aa89	nrc_13
+0x0000aa91	incorrectMessageLengthOrInvalidFormat
+0x0000aacf	nrc_31
+0x0000aad7	requestOutOfRange
+0x0000ab03	service_22
+0x0000ab0f	ReadDataByIdentifier
+0x0000abf3	did_ee10_subfield_1_data_def
+0x0000ac1e	did_EE10_subfield_1
+0x0000ac33	Ping Signal Strength with No Device - Coil 1
+0x0000acb5	did_ee10_subfield_2_data_def
+0x0000ace0	did_EE10_subfield_2
+0x0000acf5	Ping Signal Strength with No Device - Coil 2 (Cntr.)
+0x0000ad7f	did_ee10_subfield_3_data_def
+0x0000adaa	did_EE10_subfield_3
+0x0000adbf	Ping Signal Strength with No Device - Coil 3
+0x0000adf4	This DID provides resonant analog ping sensor data with no valid receiver present.
+0x0000ae48	did_EE10
+0x0000ae52	Ping Signals Strength with No Device
+0x0000b0d4	session_01
+0x0000b0e0	defaultSession
+0x0000b1eb	session_03
+0x0000b1f7	extendedDiagnosticSession
+0x0000b217	service_22_p4_max_00
+0x0000b38a	session_02
+0x0000b396	programmingSession
+0x0000b3af	service_22_p4_max_01
+0x0000b412	nrc_13
+0x0000b41a	incorrectMessageLengthOrInvalidFormat
+0x0000b458	nrc_31
+0x0000b460	requestOutOfRange
+0x0000b48c	service_22
+0x0000b498	ReadDataByIdentifier
+0x0000b57c	did_ee11_subfield_1_data_def
+0x0000b5a7	did_EE11_subfield_1
+0x0000b5bc	Ping Signal Strength with Device - Coil 1
+0x0000b63b	did_ee11_subfield_2_data_def
+0x0000b666	did_EE11_subfield_2
+0x0000b67b	Ping Signal Strength with Device - Coil 2 (Cntr.)
+0x0000b702	did_ee11_subfield_3_data_def
+0x0000b72d	did_EE11_subfield_3
+0x0000b742	Ping Signal Strength with Device - Coil 3
+0x0000b774	This DID provides resonant analog ping sensor data with a valid receiver present.
+0x0000b7c7	did_EE11
+0x0000b7d1	Ping Signals Strength with Device
+0x0000ba4d	session_01
+0x0000ba59	defaultSession
+0x0000bb64	session_03
+0x0000bb70	extendedDiagnosticSession
+0x0000bb90	service_22_p4_max_00
+0x0000bd03	session_02
+0x0000bd0f	programmingSession
+0x0000bd28	service_22_p4_max_01
+0x0000bd8b	nrc_13
+0x0000bd93	incorrectMessageLengthOrInvalidFormat
+0x0000bdd1	nrc_31
+0x0000bdd9	requestOutOfRange
+0x0000be05	service_22
+0x0000be11	ReadDataByIdentifier
+0x0000bef5	did_ee12_subfield_1_data_def
+0x0000bf20	did_EE12_subfield_1
+0x0000bf35	Ping Signal Strength with Device removed - Coil 1
+0x0000bfbc	did_ee12_subfield_2_data_def
+0x0000bfe7	did_EE12_subfield_2
+0x0000bffc	Ping Signal Strength with Device removed - Coil 2 (Cntr.)
+0x0000c08b	did_ee12_subfield_3_data_def
+0x0000c0b6	did_EE12_subfield_3
+0x0000c0cb	Ping Signal Strength with Device removed - Coil 3
+0x0000c105	This DID provides resonant analog ping sensor data with after a valid receiver is removed.
+0x0000c161	did_EE12
+0x0000c16b	Ping Signals Strength with Device Removed
+0x0000c3f7	session_01
+0x0000c403	defaultSession
+0x0000c50e	session_03
+0x0000c51a	extendedDiagnosticSession
+0x0000c53a	service_22_p4_max_00
+0x0000c6ad	session_02
+0x0000c6b9	programmingSession
+0x0000c6d2	service_22_p4_max_01
+0x0000c735	nrc_13
+0x0000c73d	incorrectMessageLengthOrInvalidFormat
+0x0000c77b	nrc_31
+0x0000c783	requestOutOfRange
+0x0000c7af	service_22
+0x0000c7bb	ReadDataByIdentifier
+0x0000c89f	did_ee13_subfield_1_data_def
+0x0000c8ca	did_EE13_subfield_1
+0x0000c8df	Coil 1 Detection Indicator
+0x0000c94f	did_ee13_subfield_2_data_def
+0x0000c97a	did_EE13_subfield_2
+0x0000c98f	Coil 2 Detection Indicator
+0x0000c9ff	did_ee13_subfield_3_data_def
+0x0000ca2a	did_EE13_subfield_3
+0x0000ca3f	Coil 3 Detection Indicator
+0x0000cb7a	did_EE13
+0x0000cb84	Resonant Analog Ping Detector Counters
+0x0000ce0a	session_01
+0x0000ce16	defaultSession
+0x0000cf21	session_03
+0x0000cf2d	extendedDiagnosticSession
+0x0000cf4d	service_22_p4_max_00
+0x0000d0c0	session_02
+0x0000d0cc	programmingSession
+0x0000d0e5	service_22_p4_max_01
+0x0000d148	nrc_13
+0x0000d150	incorrectMessageLengthOrInvalidFormat
+0x0000d18e	nrc_31
+0x0000d196	requestOutOfRange
+0x0000d1c2	service_22
+0x0000d1ce	ReadDataByIdentifier
+0x0000d2b2	did_ee14_subfield_1_data_def
+0x0000d2dd	did_EE14_subfield_1
+0x0000d2f2	Wireless Charging Dropout Feature Counter
+0x0000d42b	did_EE14
+0x0000d435	Wireless Charging Dropout Feature Counter
+0x0000d6c1	session_01
+0x0000d6cd	defaultSession
+0x0000d7d8	session_03
+0x0000d7e4	extendedDiagnosticSession
+0x0000d804	service_22_p4_max_00
+0x0000d977	session_02
+0x0000d983	programmingSession
+0x0000d99c	service_22_p4_max_01
+0x0000d9ff	nrc_13
+0x0000da07	incorrectMessageLengthOrInvalidFormat
+0x0000da45	nrc_31
+0x0000da4d	requestOutOfRange
+0x0000da79	service_22
+0x0000da85	ReadDataByIdentifier
+0x0000db69	did_ee15_subfield_1_data_def
+0x0000db94	did_EE15_subfield_1
+0x0000dba9	PEPS Events
+0x0000dbdb	Inactive
+0x0000dbe5	did_ee15_subfield_2_data_def_enum_1
+0x0000dc14	Active
+0x0000dc1c	did_ee15_subfield_2_data_def_enum_2
+0x0000dc4e	did_ee15_subfield_2_data_def
+0x0000dc79	did_EE15_subfield_2
+0x0000dc8e	PEPS Input Logic State
+0x0000de7a	did_EE15
+0x0000de84	PEPS Events
+0x0000e0d4	session_01
+0x0000e0e0	defaultSession
+0x0000e1eb	session_03
+0x0000e1f7	extendedDiagnosticSession
+0x0000e217	service_22_p4_max_00
+0x0000e38a	session_02
+0x0000e396	programmingSession
+0x0000e3af	service_22_p4_max_01
+0x0000e412	nrc_13
+0x0000e41a	incorrectMessageLengthOrInvalidFormat
+0x0000e458	nrc_31
+0x0000e460	requestOutOfRange
+0x0000e48c	service_22
+0x0000e498	ReadDataByIdentifier
+0x0000e57c	did_ee20_subfield_1_data_def
+0x0000e5a7	did_EE20_subfield_1
+0x0000e5bc	DC Voltage Supply Measurement
+0x0000e62f	did_ee20_subfield_2_data_def
+0x0000e65a	did_EE20_subfield_2
+0x0000e66f	DC Current Supply Measurement
+0x0000e695	This DID provides sensor data for the DC/DC converter.
+0x0000e6cd	did_EE20
+0x0000e6d7	DC/DC Sensors Data
+0x0000e935	session_01
+0x0000e941	defaultSession
+0x0000ea4c	session_03
+0x0000ea58	extendedDiagnosticSession
+0x0000ea78	service_22_p4_max_00
+0x0000ebeb	session_02
+0x0000ebf7	programmingSession
+0x0000ec10	service_22_p4_max_01
+0x0000ec73	nrc_13
+0x0000ec7b	incorrectMessageLengthOrInvalidFormat
+0x0000ecb9	nrc_31
+0x0000ecc1	requestOutOfRange
+0x0000eced	service_22
+0x0000ecf9	ReadDataByIdentifier
+0x0000eddd	did_ee21_subfield_1_data_def
+0x0000ee08	did_EE21_subfield_1
+0x0000ee1d	Inductive Sensors AC Current Data
+0x0000ee47	This DID provides sensor data for the inductive inverter.
+0x0000ee82	did_EE21
+0x0000ee8c	Inductive Sensors AC Current Data
+0x0000f108	session_01
+0x0000f114	defaultSession
+0x0000f21f	session_03
+0x0000f22b	extendedDiagnosticSession
+0x0000f24b	service_22_p4_max_00
+0x0000f3be	session_02
+0x0000f3ca	programmingSession
+0x0000f3e3	service_22_p4_max_01
+0x0000f446	nrc_13
+0x0000f44e	incorrectMessageLengthOrInvalidFormat
+0x0000f48c	nrc_31
+0x0000f494	requestOutOfRange
+0x0000f4c0	service_22
+0x0000f4cc	ReadDataByIdentifier
+0x0000f5b0	did_ee23_subfield_1_data_def
+0x0000f5db	did_EE23_subfield_1
+0x0000f5f0	Transmitted Power
+0x0000f657	did_ee23_subfield_2_data_def
+0x0000f682	did_EE23_subfield_2
+0x0000f697	Received Power
+0x0000f6fb	did_ee23_subfield_3_data_def
+0x0000f726	did_EE23_subfield_3
+0x0000f73b	FOD Threshold Limit
+0x0000f757	This DID provides the measured and calculated system power.
+0x0000f794	did_EE23
+0x0000f79e	FOD Information
+0x0000f81a	iocp0
+0x0000f821	returnControlToECU
+0x0000f83f	iocp3
+0x0000f846	shortTermAdjustment
+0x0000f978	session_03
+0x0000f984	extendedDiagnosticSession
+0x0000f9a4	service_2F_p4_max_00
+0x0000f9d6	service_2F_params_1
+0x0000fa0e	nrc_13
+0x0000fa16	incorrectMessageLengthOrInvalidFormat
+0x0000fa54	nrc_31
+0x0000fa5c	requestOutOfRange
+0x0000fa86	nrc_7F
+0x0000fa8e	serviceNotSupportedInActiveSession
+0x0000facb	service_2F
+0x0000fad7	InputOutputControlByIdentifier
+0x0000fcf5	session_01
+0x0000fd01	defaultSession
+0x0000fd1a	service_22_p4_max_00
+0x0000fe8d	session_02
+0x0000fe99	programmingSession
+0x0000feb2	service_22_p4_max_01
+0x0000ff37	service_22
+0x0000ff43	ReadDataByIdentifier
+0x0000ffd8	Device in Normal Mode
+0x0000ffef	did_ee31_subfield_1_data_def_enum_1
+0x0001001e	Device in Sleep Mode
+0x00010034	did_ee31_subfield_1_data_def_enum_2
+0x00010066	did_ee31_subfield_1_data_def
+0x00010091	did_EE31_subfield_1
+0x000100a6	Sleep Mode Command
+0x000100c2	did_EE31
+0x000100cc	Power Mode Control
+0x0001032a	session_01
+0x00010336	defaultSession
+0x00010441	session_03
+0x0001044d	extendedDiagnosticSession
+0x0001046d	service_22_p4_max_00
+0x000105e0	session_02
+0x000105ec	programmingSession
+0x00010605	service_22_p4_max_01
+0x00010668	nrc_13
+0x00010670	incorrectMessageLengthOrInvalidFormat
+0x000106ae	nrc_31
+0x000106b6	requestOutOfRange
+0x000106e2	service_22
+0x000106ee	ReadDataByIdentifier
+0x000107b3	did_f110_subfield_1_data_def
+0x000107de	did_F110_subfield_1
+0x000107f3	Subsystem Specific Diagnostic Specification Part Number
+0x00010833	This DID is used to report the ECU's Part 2 Spec WERS Part Number (e.g., DS-1234-ABCD-AA).
+0x0001088f	did_F110
+0x00010899	Subsystem Specific Diagnostic Specification Part Number
+0x00010b41	session_01
+0x00010b4d	defaultSession
+0x00010c58	session_03
+0x00010c64	extendedDiagnosticSession
+0x00010c84	service_22_p4_max_00
+0x00010df7	session_02
+0x00010e03	programmingSession
+0x00010e1c	service_22_p4_max_01
+0x00010e7f	nrc_13
+0x00010e87	incorrectMessageLengthOrInvalidFormat
+0x00010ec5	nrc_31
+0x00010ecd	requestOutOfRange
+0x00010ef9	service_22
+0x00010f05	ReadDataByIdentifier
+0x00010fce	did_f111_subfield_1_data_def
+0x00010ff9	did_F111_subfield_1
+0x0001100e	ECU Core Assembly Number
+0x00011030	did_F111
+0x0001103a	ECU Core Assembly Number
+0x000112a4	session_01
+0x000112b0	defaultSession
+0x000113bb	session_03
+0x000113c7	extendedDiagnosticSession
+0x000113e7	service_22_p4_max_00
+0x0001155a	session_02
+0x00011566	programmingSession
+0x0001157f	service_22_p4_max_01
+0x000115e2	nrc_13
+0x000115ea	incorrectMessageLengthOrInvalidFormat
+0x00011628	nrc_31
+0x00011630	requestOutOfRange
+0x0001165c	service_22
+0x00011668	ReadDataByIdentifier
+0x00011731	did_f113_subfield_1_data_def
+0x0001175c	did_F113_subfield_1
+0x00011771	ECU Delivery Assembly Number
+0x00011797	did_F113
+0x000117a1	ECU Delivery Assembly Number
+0x00011a13	session_01
+0x00011a1f	defaultSession
+0x00011b2a	session_03
+0x00011b36	extendedDiagnosticSession
+0x00011b56	service_22_p4_max_00
+0x00011cc9	session_02
+0x00011cd5	programmingSession
+0x00011cee	service_22_p4_max_01
+0x00011d51	nrc_13
+0x00011d59	incorrectMessageLengthOrInvalidFormat
+0x00011d97	nrc_31
+0x00011d9f	requestOutOfRange
+0x00011dcb	service_22
+0x00011dd7	ReadDataByIdentifier
+0x00011e9c	did_f124_subfield_1_data_def
+0x00011ec7	did_F124_subfield_1
+0x00011edc	ECU Calibration Data #1 Number
+0x00011f04	did_F124
+0x00011f0e	ECU Calibration Data #1 Number
+0x00012184	session_01
+0x00012190	defaultSession
+0x0001229b	session_03
+0x000122a7	extendedDiagnosticSession
+0x000122c7	service_22_p4_max_00
+0x0001243a	session_02
+0x00012446	programmingSession
+0x0001245f	service_22_p4_max_01
+0x000124c2	nrc_13
+0x000124ca	incorrectMessageLengthOrInvalidFormat
+0x00012508	nrc_31
+0x00012510	requestOutOfRange
+0x0001253c	service_22
+0x00012548	ReadDataByIdentifier
+0x000125df	Vector
+0x000125e7	did_f15f_subfield_1_data_def_enum_1
+0x00012619	did_f15f_subfield_1_data_def
+0x00012644	did_F15F_subfield_1
+0x00012659	NOS Generation Tool Supplier
+0x00012695	did_f15f_subfield_2_data_def
+0x000126c0	did_F15F_subfield_2
+0x000126d5	NOS Generation Tool Version Number
+0x00012701	did_F15F
+0x0001270b	NOS Generation Tool Version Number
+0x00012989	session_01
+0x00012995	defaultSession
+0x00012aa0	session_03
+0x00012aac	extendedDiagnosticSession
+0x00012acc	service_22_p4_max_00
+0x00012c3f	session_02
+0x00012c4b	programmingSession
+0x00012c64	service_22_p4_max_01
+0x00012cc7	nrc_13
+0x00012ccf	incorrectMessageLengthOrInvalidFormat
+0x00012d0d	nrc_31
+0x00012d15	requestOutOfRange
+0x00012d41	service_22
+0x00012d4d	ReadDataByIdentifier
+0x00012de2	SWDL 31808456 Issue P01
+0x00012dfb	did_f162_subfield_1_data_def_enum_1
+0x00012e2a	SWDL 31808456 Issue 001
+0x00012e43	did_f162_subfield_1_data_def_enum_2
+0x00012e72	SWDL 31808456 Issue 002
+0x00012e8b	did_f162_subfield_1_data_def_enum_3
+0x00012eba	SWDL 31808456 Issue 003
+0x00012ed3	did_f162_subfield_1_data_def_enum_4
+0x00012f02	SWDL 31808456 Issue 004
+0x00012f1b	did_f162_subfield_1_data_def_enum_5
+0x00012f4a	SWDL 31808456 Issue 005
+0x00012f63	did_f162_subfield_1_data_def_enum_6
+0x00012f92	SWDL 00.06.15.002-006
+0x00012fa9	did_f162_subfield_1_data_def_enum_7
+0x00012fd8	SWDL 00.06.15.002-007
+0x00012fef	did_f162_subfield_1_data_def_enum_8
+0x00013021	did_f162_subfield_1_data_def
+0x0001304c	did_F162_subfield_1
+0x00013061	Software Download Specification Version
+0x00013092	did_F162
+0x0001309c	Software Download Specification Version
+0x00013324	session_01
+0x00013330	defaultSession
+0x0001343b	session_03
+0x00013447	extendedDiagnosticSession
+0x00013467	service_22_p4_max_00
+0x000135da	session_02
+0x000135e6	programmingSession
+0x000135ff	service_22_p4_max_01
+0x00013662	nrc_13
+0x0001366a	incorrectMessageLengthOrInvalidFormat
+0x000136a8	nrc_31
+0x000136b0	requestOutOfRange
+0x000136dc	service_22
+0x000136e8	ReadDataByIdentifier
+0x0001377f	GGDS 31810161 Issue 001
+0x00013798	did_f163_subfield_1_data_def_enum_1
+0x000137c7	GGDS 31810161 Issue 002
+0x000137e0	did_f163_subfield_1_data_def_enum_2
+0x0001380f	GGDS 31810161 Issue 003
+0x00013828	did_f163_subfield_1_data_def_enum_3
+0x00013857	GGDS 00.06.15.001-004
+0x0001386e	did_f163_subfield_1_data_def_enum_4
+0x0001389d	GGDS 00.06.15.001-005
+0x000138b4	did_f163_subfield_1_data_def_enum_5
+0x000138e6	did_f163_subfield_1_data_def
+0x00013911	did_F163_subfield_1
+0x00013926	Diagnostic Specification Version
+0x00013950	did_F163
+0x0001395a	Diagnostic Specification Version
+0x00013bd4	session_01
+0x00013be0	defaultSession
+0x00013ceb	session_03
+0x00013cf7	extendedDiagnosticSession
+0x00013d17	service_22_p4_max_00
+0x00013e8a	session_02
+0x00013e96	programmingSession
+0x00013eaf	service_22_p4_max_01
+0x00013f12	nrc_13
+0x00013f1a	incorrectMessageLengthOrInvalidFormat
+0x00013f58	nrc_31
+0x00013f60	requestOutOfRange
+0x00013f8c	service_22
+0x00013f98	ReadDataByIdentifier
+0x0001405b	did_f166_subfield_1_data_def
+0x00014086	did_F166_subfield_1
+0x0001409b	Year
+0x000140cc	did_f166_subfield_2_data_def
+0x000140f7	did_F166_subfield_2
+0x0001410c	Month
+0x0001413e	did_f166_subfield_3_data_def
+0x00014169	did_F166_subfield_3
+0x0001417e	Day
+0x000141ae	did_f166_subfield_4_data_def
+0x000141d9	did_F166_subfield_4
+0x000141ee	Release Version
+0x00014207	did_F166
+0x00014211	NOS Message Database #1 Version Number
+0x00014497	session_01
+0x000144a3	defaultSession
+0x000145ae	session_03
+0x000145ba	extendedDiagnosticSession
+0x000145da	service_22_p4_max_00
+0x0001474d	session_02
+0x00014759	programmingSession
+0x00014772	service_22_p4_max_01
+0x000147d5	nrc_13
+0x000147dd	incorrectMessageLengthOrInvalidFormat
+0x0001481b	nrc_31
+0x00014823	requestOutOfRange
+0x0001484f	service_22
+0x0001485b	ReadDataByIdentifier
+0x000148f0	Vector
+0x000148f8	did_f17c_subfield_1_data_def_enum_1
+0x0001492a	did_f17c_subfield_1_data_def
+0x00014955	did_F17C_subfield_1
+0x0001496a	NOS Bootloader Generation Tool Supplier
+0x000149b1	did_f17c_subfield_2_data_def
+0x000149dc	did_F17C_subfield_2
+0x000149f1	NOS Bootloader Generation Tool Version Number
+0x00014a28	did_F17C
+0x00014a32	NOS Bootloader Generation Tool Version Number
+0x00014cc6	session_01
+0x00014cd2	defaultSession
+0x00014ddd	session_03
+0x00014de9	extendedDiagnosticSession
+0x00014e09	service_22_p4_max_00
+0x00014f7c	session_02
+0x00014f88	programmingSession
+0x00014fa1	service_22_p4_max_01
+0x00015004	nrc_13
+0x0001500c	incorrectMessageLengthOrInvalidFormat
+0x0001504a	nrc_31
+0x00015052	requestOutOfRange
+0x0001507e	service_22
+0x0001508a	ReadDataByIdentifier
+0x00015170	did_f180_subfield_1_data_def
+0x0001519b	did_F180_subfield_1
+0x000151b0	Number Of Modules (ISO14229 compatibility - always set to 01h)
+0x00015243	did_f180_subfield_2_data_def
+0x0001526e	did_F180_subfield_2
+0x00015283	Boot Software Identifcation Data (Part no. of the bootloader)
+0x000152ca	did_F180
+0x000152d4	Boot Software Identification
+0x00015546	session_01
+0x00015552	defaultSession
+0x0001565d	session_03
+0x00015669	extendedDiagnosticSession
+0x00015689	service_22_p4_max_00
+0x000157fc	session_02
+0x00015808	programmingSession
+0x00015821	service_22_p4_max_01
+0x00015884	nrc_13
+0x0001588c	incorrectMessageLengthOrInvalidFormat
+0x000158ca	nrc_31
+0x000158d2	requestOutOfRange
+0x000158fe	service_22
+0x0001590a	ReadDataByIdentifier
+0x000159cf	did_f188_subfield_1_data_def
+0x000159fa	did_F188_subfield_1
+0x00015a0f	Vehicle Manufacturer ECU Software Number
+0x00015a41	did_F188
+0x00015a4b	Vehicle Manufacturer ECU Software Number
+0x00015cd5	session_01
+0x00015ce1	defaultSession
+0x00015dec	session_03
+0x00015df8	extendedDiagnosticSession
+0x00015e18	service_22_p4_max_00
+0x00015f8b	session_02
+0x00015f97	programmingSession
+0x00015fb0	service_22_p4_max_01
+0x00016013	nrc_13
+0x0001601b	incorrectMessageLengthOrInvalidFormat
+0x00016059	nrc_31
+0x00016061	requestOutOfRange
+0x0001608d	service_22
+0x00016099	ReadDataByIdentifier
+0x00016160	did_f18c_subfield_1_data_def
+0x0001618b	did_F18C_subfield_1
+0x000161a0	ECU Serial Number
+0x000161bb	did_F18C
+0x000161c5	ECU Serial Number
+0x000163a0	session_02
+0x000163ac	programmingSession
+0x000163c7	service_27_sf_01
+0x000163d9	requestSeed
+0x00016403	service_27_sf_02
+0x00016415	sendKey
+0x00016422	This security level is used to execute the required download services for a WACM reprogramming session.
+0x0001648b	security_01
+0x00016498	Send Key (Security Level 0x01)
+0x000164bb	Ford_Production_Encryption_Prg_2012
+0x000164e0	fb_01
+0x0001661b	session_03
+0x00016627	extendedDiagnosticSession
+0x00016649	service_27_sf_03
+0x0001665b	requestSeed
+0x00016685	service_27_sf_04
+0x00016697	sendKey
+0x000166a4	This security level is used to perform WACM special configurations and to restore WACM to its initial ECU Configuration state.
+0x00016724	security_03
+0x00016731	Send Key (Security Level 0x03)
+0x00016754	Ford_Production_Encryption_App_2012
+0x00016779	fb_03
+0x000167dc	op_cycle_1
+0x00016a18	5000 ms
+0x00016a3b	No Sub Type Information
+0x00016a54	ftb_00
+0x00016a75	dtc_C140_fi_0
+0x00016a89	Lost Communication With Body Control Module
+0x00016ab6	dtc_C140
+0x00016b32	op_cycle_1
+0x00016c0a	Passengers may notice noise on certain AM radio stations (where harmonics of WACM interfere with the tuned radio station).
+0x00016d39	5000 ms
+0x00016d5c	No Sub Type Information
+0x00016d75	ftb_00
+0x00016d96	dtc_C184_fi_0
+0x00016daa	Lost Communication With Radio
+0x00016dc9	dtc_C184
+0x00016df0	 � �S � �S�    �� �      �o@     �_@ : �����  � ����� �  8  ����� ��� � ����
+op_cycle_1� ����� The WACM cannot determine the Infotainment Power mode and will no longer use this signal to active the wireless charging feature.��� The wireless charging feature may not function when the infotainment is on if ignition is off. The WACM uses either the ignition status or the infotainment power status to activate the wireless charging feature.��� Fail: Set when 0x2E3 message is missing for more than five (5)
+0x0001703d	5000ms
+0x0001705f	No Sub Type Information
+0x00017078	ftb_00
+0x00017099	dtc_C253_fi_0
+0x000170ad	Lost Communication With Accessory Protocol Interface Module
+0x000170ea	dtc_C253
+0x00017166	op_cycle_2
+0x00017176	No fault action.
+0x00017188	WACM may not operate correctly.
+0x00017257	100 ms
+0x00017279	Not Programmed
+0x00017289	ftb_51
+0x000172a9	None
+0x000172af	dtc_E01A_fi_0
+0x000172c3	Control Module Main Calibration Data
+0x000172e9	dtc_E01A
+0x00017365	op_cycle_2
+0x00017375	No fault action. The WACM and the wireless charging feature will function as configured by supplier manufacturing EOL.
+0x000173ed	WACM features may not be enabled / disabled as defined by VOP EOL for specific platform.
+0x000174e4	100 ms
+0x00017506	No Sub Type Information
+0x0001751f	ftb_00
+0x0001753f	None
+0x00017545	dtc_E100_fi_0
+0x00017559	Initial Configuration Not Complete
+0x0001757d	dtc_E100
+0x000175f9	op_cycle_2
+0x00017609	No fault action.
+0x0001776f	100 ms
+0x00017791	No Sub Type Information
+0x000177aa	ftb_00
+0x000177cb	dtc_E101_fi_0
+0x000177df	Control Module Configuration Incompatible
+0x0001780a	dtc_E101
+0x00017886	op_cycle_2
+0x00017896	No fault action.
+0x000178a8	May result in intermittent operation.
+0x0001798e	100 ms
+0x000179b0	General Checksum Failure
+0x000179ca	ftb_41
+0x000179ea	None
+0x000179f0	dtc_F000_fi_0
+0x00017a48	The WACM will proceed to implement EEPROM write sequence to other memory location.
+0x00017c4b	General Memory Failure
+0x00017c63	ftb_42
+0x00017c87	dtc_F000_fi_1
+0x00017f5b	500 ms
+0x00017f7d	Internal Electronic Failure
+0x00017f9a	ftb_49
+0x00017fbe	dtc_F000_fi_2
+0x00017fd2	Control Module
+0x00017fe2	dtc_F000
+0x0001805e	op_cycle_2
+0x00018310	100 ms
+0x00018332	Circuit Voltage Below Threshold
+0x00018353	ftb_16
+0x00018373	J1-01
+0x0001837a	dtc_F003_fi_0
+0x0001868d	Circuit Voltage Above Threshold
+0x000186ae	ftb_17
+0x000186d2	dtc_F003_fi_1
+0x000186e6	Battery Voltage
+0x000186f7	dtc_F003
+0x00018734	Wireless Accessory Charging Module
+0x00018764	WACM
+0x000187a4	mem_00
+0x000187ac	Primary Bootloader
+0x0001881a	mem_01
+0x00018822	Calibration
+0x00018884	mem_02
+0x0001888c	Strategy
+0x000188e6	mem_03
+0x000188ee	Secondary Bootloader
+0x000189a7	Type 2
+0x000189af	routine_0202_results_resp_param__param_0_resp_sub_item_bit_1_data_def_enum_1
+0x00018a0a	routine_0202_results_resp_param__param_0_resp_sub_item_bit_1_data_def
+0x00018a5e	routine_0202_results_resp_param__param_0_resp_sub_item_bit_1
+0x00018a9c	RoutineType
+0x00018ace	completed
+0x00018ad9	routine_0202_results_resp_param__param_0_resp_sub_item_bit_2_data_def_enum_1
+0x00018b31	aborted
+0x00018b3a	routine_0202_results_resp_param__param_0_resp_sub_item_bit_2_data_def_enum_2
+0x00018b92	active
+0x00018b9a	routine_0202_results_resp_param__param_0_resp_sub_item_bit_2_data_def_enum_3
+0x00018bf5	routine_0202_results_resp_param__param_0_resp_sub_item_bit_2_data_def
+0x00018c49	routine_0202_results_resp_param__param_0_resp_sub_item_bit_2
+0x00018c87	RoutineStatus
+0x00018c9f	RoutineInfo
+0x00018cde	routine_0202_results_resp_param__param_1_resp_sub_item_bit_1_data_def
+0x00018d32	routine_0202_results_resp_param__param_1_resp_sub_item_bit_1
+0x00018d70	On-Demand DTCs
+0x00018d8b	Response Additional Data
+0x00018def	routine_0202_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x00018e40	routine_0202_param_1_start_resp_1_routinetype_resp_data_def
+0x00018e8a	routine_0202_param_1_start_resp_1_subfield_1
+0x00018eb8	RoutineType
+0x00018eee	routine_0202_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x00018f42	routine_0202_param_1_start_resp_1_routinestatus_resp_data_def_enum_2
+0x00018f96	routine_0202_param_1_start_resp_1_routinestatus_resp_data_def_enum_3
+0x00018fe9	routine_0202_param_1_start_resp_1_routinestatus_resp_data_def
+0x00019035	routine_0202_param_1_start_resp_1_subfield_2
+0x00019063	RoutineStatus
+0x0001909a	routine_0202
+0x000190a8	On-Demand Self-Test
+0x00019177	Type 1
+0x0001917f	routine_020b_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x000191d0	routine_020b_param_1_start_resp_1_routinetype_resp_data_def
+0x0001921a	routine_020B_param_1_start_resp_1_subfield_1
+0x00019248	RoutineType
+0x0001927a	completed
+0x00019285	routine_020b_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x000192d8	routine_020b_param_1_start_resp_1_routinestatus_resp_data_def
+0x00019324	routine_020B_param_1_start_resp_1_subfield_2
+0x00019352	RoutineStatus
+0x0001936a	RoutineInfo
+0x00019392	routine_020B
+0x000193a0	Restore Initial ECU Configuration To Not Complete State
+0x000194af	routine_routine_0301_start_req_1_subfield_1_bit_0_req_data_def
+0x000194fc	routine_routine_0301_start_req_1_subfield_1
+0x00019529	Memory Address
+0x00019542	Request Additional Data
+0x00019597	Type 1
+0x0001959f	routine_0301_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x000195f0	routine_0301_param_1_start_resp_1_routinetype_resp_data_def
+0x0001963a	routine_0301_param_1_start_resp_1_subfield_1
+0x00019668	RoutineType
+0x0001969a	completed
+0x000196a5	routine_0301_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x000196f8	routine_0301_param_1_start_resp_1_routinestatus_resp_data_def
+0x00019744	routine_0301_param_1_start_resp_1_subfield_2
+0x00019772	RoutineStatus
+0x0001978a	RoutineInfo
+0x000197b2	routine_0301
+0x000197c0	Activate Secondary Boot-loader
+0x000198a5	Type 1
+0x000198ad	routine_0304_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x000198fe	routine_0304_param_1_start_resp_1_routinetype_resp_data_def
+0x00019948	routine_0304_param_1_start_resp_1_subfield_1
+0x00019976	RoutineType
+0x000199a8	completed
+0x000199b3	routine_0304_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x00019a06	routine_0304_param_1_start_resp_1_routinestatus_resp_data_def
+0x00019a52	routine_0304_param_1_start_resp_1_subfield_2
+0x00019a80	RoutineStatus
+0x00019a98	RoutineInfo
+0x00019ad3	Valid Application Software is NOT Present
+0x00019afe	routine_0304_param_2_start_resp_1_application_status_resp_data_def_enum_1
+0x00019b53	Valid Application Software is Present
+0x00019b7a	routine_0304_param_2_start_resp_1_application_status_resp_data_def_enum_2
+0x00019bd2	routine_0304_param_2_start_resp_1_application_status_resp_data_def
+0x00019c23	routine_0304_param_2_start_resp_1_subfield_1
+0x00019c51	Application Status
+0x00019c6e	Response Additional Data
+0x00019ca3	routine_0304
+0x00019cb1	Check Valid Application
+0x00019d82	routine_routine_ff00_start_req_1_subfield_1_bit_0_req_data_def
+0x00019dcf	routine_routine_FF00_start_req_1_subfield_1
+0x00019dfc	Memory Address
+0x00019e2a	routine_routine_ff00_start_req_1_subfield_2_bit_1_req_data_def
+0x00019e77	routine_routine_FF00_start_req_1_subfield_2
+0x00019ea4	Memory Size
+0x00019eba	Request Additional Data
+0x00019f0f	Type 1
+0x00019f17	routine_ff00_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x00019f68	routine_ff00_param_1_start_resp_1_routinetype_resp_data_def
+0x00019fb2	routine_FF00_param_1_start_resp_1_subfield_1
+0x00019fe0	RoutineType
+0x0001a012	completed
+0x0001a01d	routine_ff00_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x0001a070	routine_ff00_param_1_start_resp_1_routinestatus_resp_data_def
+0x0001a0bc	routine_FF00_param_1_start_resp_1_subfield_2
+0x0001a0ea	RoutineStatus
+0x0001a102	RoutineInfo
+0x0001a12a	routine_FF00
+0x0001a138	Flash Erase
+0x0001a1f1	routine_routine_ff01_start_req_1_subfield_1_bit_0_req_data_def
+0x0001a23e	routine_routine_FF01_start_req_1_subfield_1
+0x0001a26b	Memory Address
+0x0001a299	routine_routine_ff01_start_req_1_subfield_2_bit_1_req_data_def
+0x0001a2e6	routine_routine_FF01_start_req_1_subfield_2
+0x0001a313	Memory Size
+0x0001a329	Request Additional Data
+0x0001a37e	Type 1
+0x0001a386	routine_ff01_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x0001a3d7	routine_ff01_param_1_start_resp_1_routinetype_resp_data_def
+0x0001a421	routine_FF01_param_1_start_resp_1_subfield_1
+0x0001a44f	RoutineType
+0x0001a481	completed
+0x0001a48c	routine_ff01_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x0001a4df	routine_ff01_param_1_start_resp_1_routinestatus_resp_data_def
+0x0001a52b	routine_FF01_param_1_start_resp_1_subfield_2
+0x0001a559	RoutineStatus
+0x0001a571	RoutineInfo
+0x0001a5a5	routine_ff01_param_2_start_resp_1_checksum_resp_data_def
+0x0001a5ec	routine_FF01_param_2_start_resp_1_subfield_1
+0x0001a61a	Checksum
+0x0001a62d	Response Additional Data
+0x0001a662	routine_FF01
+0x0001a670	Check Programming Dependencies
+0x0001a8a3	session_01
+0x0001a8af	defaultSession
+0x0001a9ba	session_03
+0x0001a9c6	extendedDiagnosticSession
+0x0001ab45	session_02
+0x0001ab51	programmingSession
+0x0001abb0	nrc_11
+0x0001abb8	serviceNotSupported
+0x0001abda	nrc_12
+0x0001abe2	subFunctionNotSupported
+0x0001ac08	nrc_13
+0x0001ac10	incorrectMessageLengthOrInvalidFormat
+0x0001ac44	nrc_21
+0x0001ac4c	busyRepeatRequest
+0x0001ac6c	nrc_22
+0x0001ac74	conditionsNotCorrect
+0x0001ac97	nrc_24
+0x0001ac9f	requestSequenceError
+0x0001acc2	nrc_31
+0x0001acca	requestOutOfRange
+0x0001acea	nrc_33
+0x0001acf2	securityAccessDenied
+0x0001ad15	nrc_35
+0x0001ad1d	invalidKey
+0x0001ad36	nrc_71
+0x0001ad3e	transferDataSuspended
+0x0001ad62	nrc_72
+0x0001ad6a	generalProgrammingFailure
+0x0001ad92	nrc_73
+0x0001ad9a	wrongBlockSequenceCounter
+0x0001adc2	nrc_78
+0x0001adca	requestCorrectlyReceived-ResponsePending
+0x0001ae01	nrc_7E
+0x0001ae09	subFunctionNotSupportedInActiveSession
+0x0001ae3e	nrc_7F
+0x0001ae46	serviceNotSupportedInActiveSession
+0x0001ae77	nrc_92
+0x0001ae7f	voltageTooHigh
+0x0001ae9c	nrc_93
+0x0001aea4	voltageTooLow
+0x0001aee7	service_27_sf_01
+0x0001aef9	requestSeed
+0x0001af25	service_27_sf_02
+0x0001af37	sendKey
+0x0001af44	This security level is used to execute the required download services for a WACM reprogramming session.
+0x0001afad	security_01
+0x0001afba	Send Key (Security Level 0x01)
+0x0001b000	service_27_sf_03
+0x0001b035	service_27_sf_04
+0x0001b04f	This security level is used to perform WACM special configurations and to restore WACM to its initial ECU Configuration state.
+0x0001b0cf	security_03
+0x0001b0dc	Send Key (Security Level 0x03)
+0x0001b130	service_10_p4_max_00
+0x0001b158	service_10_p4_max_01
+0x0001b1cd	service_10
+0x0001b1d9	DiagnosticSessionControl
+0x0001b215	service_10_sf_01
+0x0001b246	service_10_sf_02
+0x0001b273	service_10_sf_03
+0x0001b2bf	service_11_p4_max_00
+0x0001b2e7	service_11_p4_max_01
+0x0001b34e	service_11
+0x0001b35a	ECUReset
+0x0001b385	service_11_sf_01
+0x0001b397	hardReset
+0x0001b3dd	service_14_p4_max_00
+0x0001b473	service_14
+0x0001b47f	ClearDiagnosticInformation
+0x0001b4c3	service_19_p4_max_00
+0x0001b542	service_19
+0x0001b54e	ReadDTCInformation
+0x0001b57f	service_19_sf_01
+0x0001b591	reportNumberOfDTCByStatusMask
+0x0001b5c7	service_19_sf_02
+0x0001b5d9	reportDTCByStatusMask
+0x0001b607	service_19_sf_06
+0x0001b619	reportDTCExtDataRecordByDTCNumber
+0x0001b653	service_19_sf_0a
+0x0001b665	reportSupportedDTC
+0x0001b6b2	service_22_p4_max_00
+0x0001b6da	service_22_p4_max_01
+0x0001b75d	service_22
+0x0001b769	ReadDataByIdentifier
+0x0001b7a5	service_27_p4_max_00
+0x0001b7cd	service_27_p4_max_01
+0x0001b86a	service_27
+0x0001b876	SecurityAccess
+0x0001b8d5	service_2E_p4_max_00
+0x0001b944	service_2E
+0x0001b950	WriteDataByIdentifier
+0x0001b98d	service_2F_p4_max_00
+0x0001b9bf	iocp0
+0x0001b9c6	returnControlToECU
+0x0001b9e4	iocp3
+0x0001b9eb	shortTermAdjustment
+0x0001ba06	service_2F_params_1
+0x0001ba6c	service_2F
+0x0001ba78	InputOutputControlByIdentifier
+0x0001bac0	service_31_p4_max_00
+0x0001baec	service_31_p4_max_01
+0x0001bb97	service_31
+0x0001bba3	RoutineControl
+0x0001bbd2	service_31_sf_01
+0x0001bbe4	startRoutine
+0x0001bc07	service_31_sf_03
+0x0001bc19	requestRoutineResults
+0x0001bc69	service_34_p4_max_00
+0x0001bca6	No Compression Method and No Encryption Method
+0x0001bd5d	service_34
+0x0001bd69	RequestDownload
+0x0001bda2	service_36_p4_max_00
+0x0001be2d	service_36
+0x0001be39	TransferData
+0x0001be6f	service_37_p4_max_00
+0x0001beec	service_37
+0x0001bef8	RequestTransferExit
+0x0001bf35	service_3E_p4_max_00
+0x0001bf5d	service_3E_p4_max_01
+0x0001bfc4	service_3E
+0x0001bfd0	TesterPresent
+0x0001c000	service_3E_sf_00
+0x0001c012	zeroSubFunction
+0x0001c05c	service_85_p4_max_00
+0x0001c0e7	service_85
+0x0001c0f3	ControlDTCSetting
+0x0001c121	service_85_sf_01
+0x0001c133	on
+0x0001c14c	service_85_sf_02
+0x0001c15e	off
+0x0001c2c8	pll_1
+0x0001c4bf	session_02
+0x0001c4cb	programmingSession
+0x0001c4e6	service_27_sf_01
+0x0001c4f8	requestSeed
+0x0001c522	service_27_sf_02
+0x0001c534	sendKey
+0x0001c541	This security level is used to execute the required download services for a WACM reprogramming session.
+0x0001c5aa	security_01
+0x0001c5b7	Send Key (Security Level 0x01)
+0x0001c729	session_03
+0x0001c735	extendedDiagnosticSession
+0x0001c757	service_27_sf_03
+0x0001c769	requestSeed
+0x0001c793	service_27_sf_04
+0x0001c7a5	sendKey
+0x0001c7b2	This security level is used to perform WACM special configurations and to restore WACM to its initial ECU Configuration state.
+0x0001c832	security_03
+0x0001c83f	Send Key (Security Level 0x03)
+0x0001c9c7	pll_1
+0x0001cbf8	session_01
+0x0001cc04	defaultSession
+0x0001cd0f	session_03
+0x0001cd1b	extendedDiagnosticSession
+0x0001cd3b	service_10_p4_max_00
+0x0001ceae	session_02
+0x0001ceba	programmingSession
+0x0001ced3	service_10_p4_max_01
+0x0001cf1a	nrc_12
+0x0001cf22	subFunctionNotSupported
+0x0001cf52	nrc_13
+0x0001cf5a	incorrectMessageLengthOrInvalidFormat
+0x0001cf98	nrc_7E
+0x0001cfa0	subFunctionNotSupportedInActiveSession
+0x0001cfe1	service_10
+0x0001cfed	DiagnosticSessionControl
+0x0001d029	service_10_sf_01
+0x0001d05a	service_10_sf_02
+0x0001d087	service_10_sf_03
+0x0001d2d2	session_01
+0x0001d2de	defaultSession
+0x0001d3e9	session_03
+0x0001d3f5	extendedDiagnosticSession
+0x0001d415	service_11_p4_max_00
+0x0001d588	session_02
+0x0001d594	programmingSession
+0x0001d5ad	service_11_p4_max_01
+0x0001d5f4	nrc_12
+0x0001d5fc	subFunctionNotSupported
+0x0001d62c	nrc_13
+0x0001d634	incorrectMessageLengthOrInvalidFormat
+0x0001d674	service_11
+0x0001d680	ECUReset
+0x0001d6ab	service_11_sf_01
+0x0001d6bd	hardReset
+0x0001d8f2	session_01
+0x0001d8fe	defaultSession
+0x0001da09	session_03
+0x0001da15	extendedDiagnosticSession
+0x0001da35	service_14_p4_max_00
+0x0001da8f	nrc_11
+0x0001da97	serviceNotSupported
+0x0001dac3	nrc_13
+0x0001dacb	incorrectMessageLengthOrInvalidFormat
+0x0001db09	nrc_31
+0x0001db11	requestOutOfRange
+0x0001db3b	nrc_78
+0x0001db43	requestCorrectlyReceived-ResponsePending
+0x0001db86	service_14
+0x0001db92	ClearDiagnosticInformation
+0x0001ddd7	session_01
+0x0001dde3	defaultSession
+0x0001deee	session_03
+0x0001defa	extendedDiagnosticSession
+0x0001df1a	service_19_p4_max_00
+0x0001df5d	nrc_11
+0x0001df65	serviceNotSupported
+0x0001df91	nrc_12
+0x0001df99	subFunctionNotSupported
+0x0001dfc9	nrc_13
+0x0001dfd1	incorrectMessageLengthOrInvalidFormat
+0x0001e00f	nrc_31
+0x0001e017	requestOutOfRange
+0x0001e043	service_19
+0x0001e04f	ReadDTCInformation
+0x0001e080	service_19_sf_01
+0x0001e092	reportNumberOfDTCByStatusMask
+0x0001e0c8	service_19_sf_02
+0x0001e0da	reportDTCByStatusMask
+0x0001e108	service_19_sf_06
+0x0001e11a	reportDTCExtDataRecordByDTCNumber
+0x0001e154	service_19_sf_0a
+0x0001e166	reportSupportedDTC
+0x0001e3ac	session_01
+0x0001e3b8	defaultSession
+0x0001e4c3	session_03
+0x0001e4cf	extendedDiagnosticSession
+0x0001e4ef	service_22_p4_max_00
+0x0001e662	session_02
+0x0001e66e	programmingSession
+0x0001e687	service_22_p4_max_01
+0x0001e6ea	nrc_13
+0x0001e6f2	incorrectMessageLengthOrInvalidFormat
+0x0001e730	nrc_31
+0x0001e738	requestOutOfRange
+0x0001e764	service_22
+0x0001e770	ReadDataByIdentifier
+0x0001e8e1	session_03
+0x0001e8ed	extendedDiagnosticSession
+0x0001e90d	service_27_p4_max_00
+0x0001ea80	session_02
+0x0001ea8c	programmingSession
+0x0001eaa5	service_27_p4_max_01
+0x0001eae8	nrc_12
+0x0001eaf0	subFunctionNotSupported
+0x0001eb20	nrc_13
+0x0001eb28	incorrectMessageLengthOrInvalidFormat
+0x0001eb66	nrc_24
+0x0001eb6e	requestSequenceError
+0x0001eb9b	nrc_35
+0x0001eba3	invalidKey
+0x0001ebc6	nrc_7E
+0x0001ebce	subFunctionNotSupportedInActiveSession
+0x0001ec0d	nrc_7F
+0x0001ec15	serviceNotSupportedInActiveSession
+0x0001ec52	service_27
+0x0001ec5e	SecurityAccess
+0x0001ec89	service_27_sf_01
+0x0001ec9b	requestSeed
+0x0001ecbd	service_27_sf_02
+0x0001eccf	sendKey
+0x0001eceb	service_27_sf_03
+0x0001ed14	service_27_sf_04
+0x0001ee92	session_03
+0x0001ee9e	extendedDiagnosticSession
+0x0001eebe	service_2E_p4_max_00
+0x0001eefd	nrc_13
+0x0001ef05	incorrectMessageLengthOrInvalidFormat
+0x0001ef43	nrc_31
+0x0001ef4b	requestOutOfRange
+0x0001ef75	nrc_78
+0x0001ef7d	requestCorrectlyReceived-ResponsePending
+0x0001efc0	service_2E
+0x0001efcc	WriteDataByIdentifier
+0x0001f13f	session_03
+0x0001f14b	extendedDiagnosticSession
+0x0001f16b	service_2F_p4_max_00
+0x0001f19d	iocp0
+0x0001f1a4	returnControlToECU
+0x0001f1c2	iocp3
+0x0001f1c9	shortTermAdjustment
+0x0001f1e4	service_2F_params_1
+0x0001f21a	nrc_13
+0x0001f222	incorrectMessageLengthOrInvalidFormat
+0x0001f260	nrc_31
+0x0001f268	requestOutOfRange
+0x0001f292	nrc_7F
+0x0001f29a	serviceNotSupportedInActiveSession
+0x0001f2d7	service_2F
+0x0001f2e3	InputOutputControlByIdentifier
+0x0001f46a	session_03
+0x0001f476	extendedDiagnosticSession
+0x0001f496	service_31_p4_max_00
+0x0001f60d	session_02
+0x0001f619	programmingSession
+0x0001f632	service_31_p4_max_01
+0x0001f675	nrc_12
+0x0001f67d	subFunctionNotSupported
+0x0001f6ad	nrc_13
+0x0001f6b5	incorrectMessageLengthOrInvalidFormat
+0x0001f6f3	nrc_21
+0x0001f6fb	busyRepeatRequest
+0x0001f725	nrc_24
+0x0001f72d	requestSequenceError
+0x0001f75a	nrc_31
+0x0001f762	requestOutOfRange
+0x0001f78c	nrc_78
+0x0001f794	requestCorrectlyReceived-ResponsePending
+0x0001f7d5	nrc_7E
+0x0001f7dd	subFunctionNotSupportedInActiveSession
+0x0001f81e	service_31
+0x0001f82a	RoutineControl
+0x0001f857	service_31_sf_01
+0x0001f869	startRoutine
+0x0001f88a	service_31_sf_03
+0x0001f89c	requestRoutineResults
+0x0001fa74	session_02
+0x0001fa80	programmingSession
+0x0001fa99	service_34_p4_max_00
+0x0001fad6	No Compression Method and No Encryption Method
+0x0001fb33	nrc_13
+0x0001fb3b	incorrectMessageLengthOrInvalidFormat
+0x0001fb79	nrc_22
+0x0001fb81	conditionsNotCorrect
+0x0001fbae	nrc_31
+0x0001fbb6	requestOutOfRange
+0x0001fbe0	nrc_33
+0x0001fbe8	securityAccessDenied
+0x0001fc15	nrc_78
+0x0001fc1d	requestCorrectlyReceived-ResponsePending
+0x0001fc5e	nrc_7F
+0x0001fc66	serviceNotSupportedInActiveSession
+0x0001fca3	service_34
+0x0001fcaf	RequestDownload
+0x0001fe71	session_02
+0x0001fe7d	programmingSession
+0x0001fe96	service_36_p4_max_00
+0x0001fed5	nrc_13
+0x0001fedd	incorrectMessageLengthOrInvalidFormat
+0x0001ff1b	nrc_24
+0x0001ff23	requestSequenceError
+0x0001ff50	nrc_73
+0x0001ff58	wrongBlockSequenceCounter
+0x0001ff8a	nrc_78
+0x0001ff92	requestCorrectlyReceived-ResponsePending
+0x0001ffd3	nrc_7F
+0x0001ffdb	serviceNotSupportedInActiveSession
+0x00020018	service_36
+0x00020024	TransferData
+0x000201e0	session_02
+0x000201ec	programmingSession
+0x00020205	service_37_p4_max_00
+0x00020244	nrc_13
+0x0002024c	incorrectMessageLengthOrInvalidFormat
+0x0002028a	nrc_24
+0x00020292	requestSequenceError
+0x000202bf	nrc_78
+0x000202c7	requestCorrectlyReceived-ResponsePending
+0x00020308	nrc_7F
+0x00020310	serviceNotSupportedInActiveSession
+0x0002034d	service_37
+0x00020359	RequestTransferExit
+0x00020590	session_01
+0x0002059c	defaultSession
+0x000206a7	session_03
+0x000206b3	extendedDiagnosticSession
+0x000206d3	service_3E_p4_max_00
+0x00020846	session_02
+0x00020852	programmingSession
+0x0002086b	service_3E_p4_max_01
+0x000208b2	nrc_12
+0x000208ba	subFunctionNotSupported
+0x000208ea	nrc_13
+0x000208f2	incorrectMessageLengthOrInvalidFormat
+0x00020932	service_3E
+0x0002093e	TesterPresent
+0x0002096e	service_3E_sf_00
+0x00020980	zeroSubFunction
+0x00020af8	session_03
+0x00020b04	extendedDiagnosticSession
+0x00020b24	service_85_p4_max_00
+0x00020b63	nrc_11
+0x00020b6b	serviceNotSupported
+0x00020b97	nrc_12
+0x00020b9f	subFunctionNotSupported
+0x00020bcf	nrc_13
+0x00020bd7	incorrectMessageLengthOrInvalidFormat
+0x00020c15	nrc_78
+0x00020c1d	requestCorrectlyReceived-ResponsePending
+0x00020c5e	nrc_7F
+0x00020c66	serviceNotSupportedInActiveSession
+0x00020ca3	service_85
+0x00020caf	ControlDTCSetting
+0x00020cdb	service_85_sf_01
+0x00020ced	on
+0x00020d04	service_85_sf_02
+0x00020d16	off
+0x00020f30	session_01
+0x00020f3c	defaultSession
+0x000210c6	session_02
+0x000210d2	programmingSession
+0x0002120b	session_03
+0x00021217	extendedDiagnosticSession
+0x00021466	session_01
+0x00021472	defaultSession
+0x0002157d	session_03
+0x00021589	extendedDiagnosticSession
+0x000215a9	service_22_p4_max_00
+0x0002171c	session_02
+0x00021728	programmingSession
+0x00021741	service_22_p4_max_01
+0x000217a4	nrc_13
+0x000217ac	incorrectMessageLengthOrInvalidFormat
+0x000217ea	nrc_31
+0x000217f2	requestOutOfRange
+0x0002181e	service_22
+0x0002182a	ReadDataByIdentifier
+0x000218c1	Key out
+0x000218ca	did_411f_subfield_1_data_def_enum_1
+0x000218f9	Key in
+0x00021901	did_411f_subfield_1_data_def_enum_2
+0x00021930	Accessory
+0x0002193b	did_411f_subfield_1_data_def_enum_3
+0x0002196a	Ignition
+0x00021974	did_411f_subfield_1_data_def_enum_4
+0x000219a3	Crank
+0x000219aa	did_411f_subfield_1_data_def_enum_5
+0x000219d9	Key in OFF position
+0x000219ee	did_411f_subfield_1_data_def_enum_6
+0x00021a1d	Key In and Accessory Position
+0x00021a3c	did_411f_subfield_1_data_def_enum_7
+0x00021a6b	Key In and Run Position
+0x00021a84	did_411f_subfield_1_data_def_enum_8
+0x00021ab3	Key In and Start Position
+0x00021ace	did_411f_subfield_1_data_def_enum_9
+0x00021afd	Key In and Off Position
+0x00021b16	did_411f_subfield_1_data_def_enum_10
+0x00021b46	Key Out and Accessory Position
+0x00021b66	did_411f_subfield_1_data_def_enum_11
+0x00021b96	Key Out and Run Position
+0x00021bb0	did_411f_subfield_1_data_def_enum_12
+0x00021be0	Key Out and Start Position
+0x00021bfc	did_411f_subfield_1_data_def_enum_13
+0x00021c2c	Key Out and Off Position
+0x00021c46	did_411f_subfield_1_data_def_enum_14
+0x00021c76	Unknown
+0x00021c7f	did_411f_subfield_1_data_def_enum_15
+0x00021caf	Invalid
+0x00021cb8	did_411f_subfield_1_data_def_enum_16
+0x00021ceb	did_411f_subfield_1_data_def
+0x00021d16	did_411F_subfield_1
+0x00021d2b	Key Position
+0x00021d41	did_411F
+0x00021d4b	Key Position
+0x00021db7	No (False)
+0x00021dc3	did_804e_subfield_1_data_def_enum_1
+0x00021df2	Yes (True)
+0x00021dfe	did_804e_subfield_1_data_def_enum_2
+0x00021e30	did_804e_subfield_1_data_def
+0x00021e5b	did_804E_subfield_1
+0x00021e70	Charging Phone
+0x00021ea9	did_804e_subfield_2_data_def_enum_1
+0x00021edc	did_804e_subfield_2_data_def_enum_2
+0x00021f0e	did_804e_subfield_2_data_def
+0x00021f39	did_804E_subfield_2
+0x00021f4e	Charging Complete
+0x00021f8a	did_804e_subfield_3_data_def_enum_1
+0x00021fbd	did_804e_subfield_3_data_def_enum_2
+0x00021fef	did_804e_subfield_3_data_def
+0x0002201a	did_804E_subfield_3
+0x0002202f	Metal Object on Pad with No Phone Present
+0x00022083	did_804e_subfield_4_data_def_enum_1
+0x000220b6	did_804e_subfield_4_data_def_enum_2
+0x000220e8	did_804e_subfield_4_data_def
+0x00022113	did_804E_subfield_4
+0x00022128	Charging Not Successful Due to Metal Object
+0x0002217e	did_804e_subfield_5_data_def_enum_1
+0x000221b1	did_804e_subfield_5_data_def_enum_2
+0x000221e3	did_804e_subfield_5_data_def
+0x0002220e	did_804E_subfield_5
+0x00022223	Phone Removed while Charging
+0x0002226a	did_804e_subfield_6_data_def_enum_1
+0x0002229d	did_804e_subfield_6_data_def_enum_2
+0x000222cf	did_804e_subfield_6_data_def
+0x000222fa	did_804E_subfield_6
+0x0002230f	Phone Misaligned on Charging Pad
+0x0002235a	did_804e_subfield_7_data_def_enum_1
+0x0002238d	did_804e_subfield_7_data_def_enum_2
+0x000223bf	did_804e_subfield_7_data_def
+0x000223ea	did_804E_subfield_7
+0x000223ff	Phone Stopped Charging Due to Overheat
+0x00022450	did_804e_subfield_8_data_def_enum_1
+0x00022483	did_804e_subfield_8_data_def_enum_2
+0x000224b5	did_804e_subfield_8_data_def
+0x000224e0	did_804E_subfield_8
+0x000224f5	Phone Stops Charging Because of Loss of Efficiency
+0x00022552	did_804e_subfield_9_data_def_enum_1
+0x00022585	did_804e_subfield_9_data_def_enum_2
+0x000225b7	did_804e_subfield_9_data_def
+0x000225e2	did_804E_subfield_9
+0x000225f7	Phone Removed While Wifi Connected but not Connected to a Device
+0x00022662	did_804e_subfield_10_data_def_enum_1
+0x00022696	did_804e_subfield_10_data_def_enum_2
+0x000226c9	did_804e_subfield_10_data_def
+0x000226f5	did_804E_subfield_10
+0x0002270b	Pad Stops Charging Because PEPS Antenna Searching for PEPS Key
+0x00022774	did_804e_subfield_11_data_def_enum_1
+0x000227a8	did_804e_subfield_11_data_def_enum_2
+0x000227db	did_804e_subfield_11_data_def
+0x00022807	did_804E_subfield_11
+0x0002281d	Band Interference
+0x00022859	did_804e_subfield_12_data_def_enum_1
+0x0002288d	did_804e_subfield_12_data_def_enum_2
+0x000228c0	did_804e_subfield_12_data_def
+0x000228ec	did_804E_subfield_12
+0x00022902	Eliminated AM Noise and Session Active
+0x00022953	did_804e_subfield_13_data_def_enum_1
+0x00022987	did_804e_subfield_13_data_def_enum_2
+0x000229ba	did_804e_subfield_13_data_def
+0x000229e6	did_804E_subfield_13
+0x000229fc	Reduced Phone Charging Power due to AM Band
+0x00022a30	This DID provides status flags for the current operational state of WACM.
+0x00022a7b	did_804E
+0x00022a85	Charging Module Status
+0x00022aff	Default Session
+0x00022b10	did_d100_subfield_1_data_def_enum_1
+0x00022b3f	Programming Session
+0x00022b54	did_d100_subfield_1_data_def_enum_2
+0x00022b83	Extended Diagnostic Session
+0x00022ba0	did_d100_subfield_1_data_def_enum_3
+0x00022bcf	Safety System Diagnostic Session
+0x00022bf1	did_d100_subfield_1_data_def_enum_4
+0x00022c20	EOL Extended Diagnostic Session
+0x00022c41	did_d100_subfield_1_data_def_enum_5
+0x00022c71	did_d100_subfield_1_data_def_enum_6
+0x00022ca1	did_d100_subfield_1_data_def_enum_7
+0x00022cd1	did_d100_subfield_1_data_def_enum_8
+0x00022d01	did_d100_subfield_1_data_def_enum_9
+0x00022d31	did_d100_subfield_1_data_def_enum_10
+0x00022d62	did_d100_subfield_1_data_def_enum_11
+0x00022d93	did_d100_subfield_1_data_def_enum_12
+0x00022dc4	did_d100_subfield_1_data_def_enum_13
+0x00022df5	did_d100_subfield_1_data_def_enum_14
+0x00022e26	did_d100_subfield_1_data_def_enum_15
+0x00022e57	did_d100_subfield_1_data_def_enum_16
+0x00022e88	did_d100_subfield_1_data_def_enum_17
+0x00022eb9	did_d100_subfield_1_data_def_enum_18
+0x00022eea	did_d100_subfield_1_data_def_enum_19
+0x00022f1b	did_d100_subfield_1_data_def_enum_20
+0x00022f4c	did_d100_subfield_1_data_def_enum_21
+0x00022f7d	did_d100_subfield_1_data_def_enum_22
+0x00022fae	did_d100_subfield_1_data_def_enum_23
+0x00022fdf	did_d100_subfield_1_data_def_enum_24
+0x00023010	did_d100_subfield_1_data_def_enum_25
+0x00023041	did_d100_subfield_1_data_def_enum_26
+0x00023072	did_d100_subfield_1_data_def_enum_27
+0x000230a3	did_d100_subfield_1_data_def_enum_28
+0x000230d4	did_d100_subfield_1_data_def_enum_29
+0x00023105	did_d100_subfield_1_data_def_enum_30
+0x00023136	did_d100_subfield_1_data_def_enum_31
+0x00023167	did_d100_subfield_1_data_def_enum_32
+0x00023198	did_d100_subfield_1_data_def_enum_33
+0x000231c9	did_d100_subfield_1_data_def_enum_34
+0x000231fa	did_d100_subfield_1_data_def_enum_35
+0x0002322b	did_d100_subfield_1_data_def_enum_36
+0x0002325e	did_d100_subfield_1_data_def
+0x00023289	did_D100_subfield_1
+0x0002329e	Active Diagnostic Session
+0x000232c1	did_D100
+0x000232cb	Active Diagnostic Session
+0x00023391	did_d111_subfield_1_data_def
+0x000233bc	did_D111_subfield_1
+0x000233d1	ECU Power Supply Voltage
+0x000233f3	did_D111
+0x000233fd	ECU Power Supply Voltage
+0x000234a4	did_d700_subfield_1_data_def
+0x000234cf	did_D700_subfield_1
+0x000234e4	Power ON reset counter
+0x00023550	did_d700_subfield_2_data_def
+0x0002357b	did_D700_subfield_2
+0x00023590	Illegal op code counter
+0x000235fd	did_d700_subfield_3_data_def
+0x00023628	did_D700_subfield_3
+0x0002363d	Watchdog timer reset counter
+0x000236af	did_d700_subfield_4_data_def
+0x000236da	did_D700_subfield_4
+0x000236ef	Data Range Failure counter
+0x000237a5	did_D700
+0x000237af	Critical Software Parameter Monitoring #1
+0x00023867	did_d701_subfield_1_data_def
+0x00023892	did_D701_subfield_1
+0x000238a7	Stack Overflow Counter
+0x00023913	did_d701_subfield_2_data_def
+0x0002393e	did_D701_subfield_2
+0x00023953	Loop-Time overflow or scheduler idle time overflow Counter
+0x000239e3	did_d701_subfield_3_data_def
+0x00023a0e	did_D701_subfield_3
+0x00023a23	Minimum Idle-Time
+0x00023a8a	did_d701_subfield_4_data_def
+0x00023ab5	did_D701_subfield_4
+0x00023aca	Reserved
+0x00023b6e	did_D701
+0x00023b78	Critical Software Parameter Monitoring #2
+0x00023c0d	Present
+0x00023c16	did_de00_subfield_1_data_def_enum_1
+0x00023c45	Not Present
+0x00023c52	did_de00_subfield_1_data_def_enum_2
+0x00023c82	0x00
+0x00023c89	did_de00_subfield_1_data_def
+0x00023cb4	did_DE00_subfield_1
+0x00023cc9	FCDIM Module Present in the Vehicle Network
+0x00023d1f	did_de00_subfield_2_data_def_enum_1
+0x00023d52	did_de00_subfield_2_data_def_enum_2
+0x00023d87	did_de00_subfield_2_data_def
+0x00023db2	did_DE00_subfield_2
+0x00023dc7	ACM Module Present in the Vehicle Network
+0x00023df9	This DID is used to disable generic Diagnostics of the WACM.
+0x00023e37	did_DE00
+0x00023e41	Wireless Accessory Charger Configuration
+0x00023ed5	Disable
+0x00023ede	did_de01_subfield_1_data_def_enum_1
+0x00023f0d	Enable
+0x00023f15	did_de01_subfield_1_data_def_enum_2
+0x00023f45	0x01
+0x00023f4c	did_de01_subfield_1_data_def
+0x00023f77	did_DE01_subfield_1
+0x00023f8c	Charging Not In Progress Indicator (CNIPEN)
+0x00023fe2	did_de01_subfield_2_data_def_enum_1
+0x00024015	did_de01_subfield_2_data_def_enum_2
+0x0002404a	did_de01_subfield_2_data_def
+0x00024075	did_DE01_subfield_2
+0x0002408a	Charging In Progress Indicator (CIPEN)
+0x000240db	did_de01_subfield_3_data_def_enum_1
+0x0002410e	did_de01_subfield_3_data_def_enum_2
+0x00024143	did_de01_subfield_3_data_def
+0x0002416e	did_DE01_subfield_3
+0x00024183	Charging Complete Indicator (CCEN)
+0x000241d0	did_de01_subfield_4_data_def_enum_1
+0x00024203	did_de01_subfield_4_data_def_enum_2
+0x00024238	did_de01_subfield_4_data_def
+0x00024263	did_DE01_subfield_4
+0x00024278	Metal Object Detected Indicator (MODEN)
+0x000242ca	did_de01_subfield_5_data_def_enum_1
+0x000242fd	did_de01_subfield_5_data_def_enum_2
+0x00024332	did_de01_subfield_5_data_def
+0x0002435d	did_DE01_subfield_5
+0x00024372	Over Temperature Indicator (OTMEN)
+0x0002442a	did_DE01
+0x00024434	Human Machine Interface (HMI) Configuration
+0x000244cf	did_de02_subfield_1_data_def_enum_1
+0x00024502	did_de02_subfield_1_data_def_enum_2
+0x00024537	did_de02_subfield_1_data_def
+0x00024562	did_DE02_subfield_1
+0x00024577	Over Temperature Limit (OTLEN)
+0x000245c0	did_de02_subfield_2_data_def_enum_1
+0x000245f3	did_de02_subfield_2_data_def_enum_2
+0x00024628	did_de02_subfield_2_data_def
+0x00024653	did_DE02_subfield_2
+0x00024668	Over Temperature Hysteresis (OTHEN)
+0x00024694	This ECU Configuration DID allows the ability to enable/disable the WACM overtemperature features.
+0x000246f8	did_DE02
+0x00024702	Transmitter Temperature Configuration
+0x00024797	did_de03_subfield_1_data_def_enum_1
+0x000247ca	did_de03_subfield_1_data_def_enum_2
+0x000247ff	did_de03_subfield_1_data_def
+0x0002482a	did_DE03_subfield_1
+0x0002483f	PEPS Avoidance Feature (PEPSEN)
+0x00024885	Charging feature disabled during PEPS query
+0x000248b2	did_de03_subfield_2_data_def_enum_1
+0x000248e1	Frequency is shifted during PEPS query
+0x00024909	did_de03_subfield_2_data_def_enum_2
+0x0002493e	did_de03_subfield_2_data_def
+0x00024969	did_DE03_subfield_2
+0x0002497e	PEPS Avoidance Type (PEPSTP)
+0x000249c1	Disabled
+0x000249cb	did_de03_subfield_3_data_def_enum_1
+0x000249fa	Enabled
+0x00024a03	did_de03_subfield_3_data_def_enum_2
+0x00024a38	did_de03_subfield_3_data_def
+0x00024a63	did_DE03_subfield_3
+0x00024a78	AM Avoidance Feature (AMAEN)
+0x00024a9d	This ECU Configuration DID allows the ability to enable/disable radio frequency avoidance operation.
+0x00024b03	did_DE03
+0x00024b0d	Radio Frequency Avoidance Operation
+0x00024b90	Null
+0x00024b96	did_ee00_subfield_1_data_def_enum_1
+0x00024bc5	Standby / Load Shed
+0x00024bda	did_ee00_subfield_1_data_def_enum_2
+0x00024c09	Object Detection Phase
+0x00024c21	did_ee00_subfield_1_data_def_enum_3
+0x00024c50	Technology Selection Phase
+0x00024c6c	did_ee00_subfield_1_data_def_enum_4
+0x00024c9b	ID & Configuration Phase
+0x00024cb5	did_ee00_subfield_1_data_def_enum_5
+0x00024ce4	Power Transfer Phase
+0x00024cfa	did_ee00_subfield_1_data_def_enum_6
+0x00024d29	End Power Transfer
+0x00024d3d	did_ee00_subfield_1_data_def_enum_7
+0x00024d6c	Foreign Object
+0x00024d7c	did_ee00_subfield_1_data_def_enum_8
+0x00024dab	TX Over Temperature
+0x00024dc0	did_ee00_subfield_1_data_def_enum_9
+0x00024def	Self-Test Phase
+0x00024e00	did_ee00_subfield_1_data_def_enum_10
+0x00024e30	Idle Object Detection Phase
+0x00024e4d	did_ee00_subfield_1_data_def_enum_11
+0x00024e7d	Not Available / Unknown
+0x00024e96	did_ee00_subfield_1_data_def_enum_12
+0x00024ec9	did_ee00_subfield_1_data_def
+0x00024ef4	did_EE00_subfield_1
+0x00024f09	Tx State Machine
+0x00024f44	did_ee00_subfield_2_data_def_enum_1
+0x00024f73	Qi
+0x00024f77	did_ee00_subfield_2_data_def_enum_2
+0x00024fa6	PMA
+0x00024fab	did_ee00_subfield_2_data_def_enum_3
+0x00024fda	Not available / Unknown
+0x00024ff3	did_ee00_subfield_2_data_def_enum_4
+0x00025025	did_ee00_subfield_2_data_def
+0x00025050	did_EE00_subfield_2
+0x00025065	Tx Active Technology Mode
+0x00025199	did_EE00
+0x000251a3	State and Charging Mode
+0x0002521e	did_ee01_subfield_1_data_def_enum_1
+0x0002524d	Inductive Coil 1
+0x0002525f	did_ee01_subfield_1_data_def_enum_2
+0x0002528e	Inductive Coil 2 (Cntr.)
+0x000252a8	did_ee01_subfield_1_data_def_enum_3
+0x000252d7	Inductive Coil 3
+0x000252e9	did_ee01_subfield_1_data_def_enum_4
+0x0002531a	Not Availiable / Unknown
+0x00025334	did_ee01_subfield_1_data_def_enum_5
+0x00025366	did_ee01_subfield_1_data_def
+0x00025391	did_EE01_subfield_1
+0x000253a6	Tx Active Coil
+0x0002540b	did_ee01_subfield_2_data_def
+0x00025436	did_EE01_subfield_2
+0x0002544b	Tx Operational Frequency
+0x0002546c	This DID provides WACM charger information for the current charge session in progress.
+0x000254c4	did_EE01
+0x000254ce	Charge Session Status
+0x00025572	did_ee02_subfield_1_data_def
+0x0002559d	did_EE02_subfield_1
+0x000255b2	Tx Temperature
+0x000255e7	False
+0x000255ee	did_ee02_subfield_2_data_def_enum_1
+0x0002561d	True
+0x00025623	did_ee02_subfield_2_data_def_enum_2
+0x00025655	did_ee02_subfield_2_data_def
+0x00025680	did_EE02_subfield_2
+0x00025695	Tx Normal Temperature Range
+0x000256db	did_ee02_subfield_3_data_def_enum_1
+0x0002570e	did_ee02_subfield_3_data_def_enum_2
+0x00025740	did_ee02_subfield_3_data_def
+0x0002576b	did_EE02_subfield_3
+0x00025780	Tx Over Temperature Range
+0x000257c4	did_ee02_subfield_4_data_def_enum_1
+0x000257f7	did_ee02_subfield_4_data_def_enum_2
+0x00025829	did_ee02_subfield_4_data_def
+0x00025854	did_EE02_subfield_4
+0x00025869	Tx Over Temperature Flag
+0x000258ac	did_ee02_subfield_5_data_def_enum_1
+0x000258df	did_ee02_subfield_5_data_def_enum_2
+0x00025911	did_ee02_subfield_5_data_def
+0x0002593c	did_EE02_subfield_5
+0x00025951	Tx Cool Down Range
+0x0002598e	did_ee02_subfield_6_data_def_enum_1
+0x000259c1	did_ee02_subfield_6_data_def_enum_2
+0x000259f3	did_ee02_subfield_6_data_def
+0x00025a1e	did_EE02_subfield_6
+0x00025a33	Tx Hysteresis Temperature Range
+0x00025b37	did_EE02
+0x00025b41	Temperature Data
+0x00025be0	did_ee03_subfield_1_data_def
+0x00025c0b	did_EE03_subfield_1
+0x00025c20	ECU Power Supply Voltage 2
+0x00025c44	did_EE03
+0x00025c4e	ECU Power Supply Voltage 2
+0x00025cf7	did_ee10_subfield_1_data_def
+0x00025d22	did_EE10_subfield_1
+0x00025d37	Ping Signal Strength with No Device - Coil 1
+0x00025db9	did_ee10_subfield_2_data_def
+0x00025de4	did_EE10_subfield_2
+0x00025df9	Ping Signal Strength with No Device - Coil 2 (Cntr.)
+0x00025e83	did_ee10_subfield_3_data_def
+0x00025eae	did_EE10_subfield_3
+0x00025ec3	Ping Signal Strength with No Device - Coil 3
+0x00025ef8	This DID provides resonant analog ping sensor data with no valid receiver present.
+0x00025f4c	did_EE10
+0x00025f56	Ping Signals Strength with No Device
+0x00026009	did_ee11_subfield_1_data_def
+0x00026034	did_EE11_subfield_1
+0x00026049	Ping Signal Strength with Device - Coil 1
+0x000260c8	did_ee11_subfield_2_data_def
+0x000260f3	did_EE11_subfield_2
+0x00026108	Ping Signal Strength with Device - Coil 2 (Cntr.)
+0x0002618f	did_ee11_subfield_3_data_def
+0x000261ba	did_EE11_subfield_3
+0x000261cf	Ping Signal Strength with Device - Coil 3
+0x00026201	This DID provides resonant analog ping sensor data with a valid receiver present.
+0x00026254	did_EE11
+0x0002625e	Ping Signals Strength with Device
+0x0002630e	did_ee12_subfield_1_data_def
+0x00026339	did_EE12_subfield_1
+0x0002634e	Ping Signal Strength with Device removed - Coil 1
+0x000263d5	did_ee12_subfield_2_data_def
+0x00026400	did_EE12_subfield_2
+0x00026415	Ping Signal Strength with Device removed - Coil 2 (Cntr.)
+0x000264a4	did_ee12_subfield_3_data_def
+0x000264cf	did_EE12_subfield_3
+0x000264e4	Ping Signal Strength with Device removed - Coil 3
+0x0002651e	This DID provides resonant analog ping sensor data with after a valid receiver is removed.
+0x0002657a	did_EE12
+0x00026584	Ping Signals Strength with Device Removed
+0x0002663c	did_ee13_subfield_1_data_def
+0x00026667	did_EE13_subfield_1
+0x0002667c	Coil 1 Detection Indicator
+0x000266ec	did_ee13_subfield_2_data_def
+0x00026717	did_EE13_subfield_2
+0x0002672c	Coil 2 Detection Indicator
+0x0002679c	did_ee13_subfield_3_data_def
+0x000267c7	did_EE13_subfield_3
+0x000267dc	Coil 3 Detection Indicator
+0x00026917	did_EE13
+0x00026921	Resonant Analog Ping Detector Counters
+0x000269d6	did_ee14_subfield_1_data_def
+0x00026a01	did_EE14_subfield_1
+0x00026a16	Wireless Charging Dropout Feature Counter
+0x00026b4f	did_EE14
+0x00026b59	Wireless Charging Dropout Feature Counter
+0x00026c11	did_ee15_subfield_1_data_def
+0x00026c3c	did_EE15_subfield_1
+0x00026c51	PEPS Events
+0x00026c83	Inactive
+0x00026c8d	did_ee15_subfield_2_data_def_enum_1
+0x00026cbc	Active
+0x00026cc4	did_ee15_subfield_2_data_def_enum_2
+0x00026cf6	did_ee15_subfield_2_data_def
+0x00026d21	did_EE15_subfield_2
+0x00026d36	PEPS Input Logic State
+0x00026f22	did_EE15
+0x00026f2c	PEPS Events
+0x00026fc6	did_ee20_subfield_1_data_def
+0x00026ff1	did_EE20_subfield_1
+0x00027006	DC Voltage Supply Measurement
+0x00027079	did_ee20_subfield_2_data_def
+0x000270a4	did_EE20_subfield_2
+0x000270b9	DC Current Supply Measurement
+0x000270df	This DID provides sensor data for the DC/DC converter.
+0x00027117	did_EE20
+0x00027121	DC/DC Sensors Data
+0x000271c2	did_ee21_subfield_1_data_def
+0x000271ed	did_EE21_subfield_1
+0x00027202	Inductive Sensors AC Current Data
+0x0002722c	This DID provides sensor data for the inductive inverter.
+0x00027267	did_EE21
+0x00027271	Inductive Sensors AC Current Data
+0x00027321	did_ee23_subfield_1_data_def
+0x0002734c	did_EE23_subfield_1
+0x00027361	Transmitted Power
+0x000273c8	did_ee23_subfield_2_data_def
+0x000273f3	did_EE23_subfield_2
+0x00027408	Received Power
+0x0002746c	did_ee23_subfield_3_data_def
+0x00027497	did_EE23_subfield_3
+0x000274ac	FOD Threshold Limit
+0x000274c8	This DID provides the measured and calculated system power.
+0x00027505	did_EE23
+0x0002750f	FOD Information
+0x00027540	iocp0
+0x00027547	returnControlToECU
+0x00027565	iocp3
+0x0002756c	shortTermAdjustment
+0x000275ac	service_2F_p4_max_00
+0x000275e2	service_2F_params_1
+0x00027638	nrc_7F
+0x00027640	serviceNotSupportedInActiveSession
+0x0002767d	service_2F
+0x00027689	InputOutputControlByIdentifier
+0x00027707	Device in Normal Mode
+0x0002771e	did_ee31_subfield_1_data_def_enum_1
+0x0002774d	Device in Sleep Mode
+0x00027763	did_ee31_subfield_1_data_def_enum_2
+0x00027795	did_ee31_subfield_1_data_def
+0x000277c0	did_EE31_subfield_1
+0x000277d5	Sleep Mode Command
+0x000277f1	did_EE31
+0x000277fb	Power Mode Control
+0x0002789b	did_f110_subfield_1_data_def
+0x000278c6	did_F110_subfield_1
+0x000278db	Subsystem Specific Diagnostic Specification Part Number
+0x0002791b	This DID is used to report the ECU's Part 2 Spec WERS Part Number (e.g., DS-1234-ABCD-AA).
+0x00027977	did_F110
+0x00027981	Subsystem Specific Diagnostic Specification Part Number
+0x00027a24	did_f111_subfield_1_data_def
+0x00027a4f	did_F111_subfield_1
+0x00027a64	ECU Core Assembly Number
+0x00027a86	did_F111
+0x00027a90	ECU Core Assembly Number
+0x00027b14	did_f113_subfield_1_data_def
+0x00027b3f	did_F113_subfield_1
+0x00027b54	ECU Delivery Assembly Number
+0x00027b7a	did_F113
+0x00027b84	ECU Delivery Assembly Number
+0x00027c08	did_f124_subfield_1_data_def
+0x00027c33	did_F124_subfield_1
+0x00027c48	ECU Calibration Data #1 Number
+0x00027c70	did_F124
+0x00027c7a	ECU Calibration Data #1 Number
+0x00027cf8	Vector
+0x00027d00	did_f15f_subfield_1_data_def_enum_1
+0x00027d32	did_f15f_subfield_1_data_def
+0x00027d5d	did_F15F_subfield_1
+0x00027d72	NOS Generation Tool Supplier
+0x00027dae	did_f15f_subfield_2_data_def
+0x00027dd9	did_F15F_subfield_2
+0x00027dee	NOS Generation Tool Version Number
+0x00027e1a	did_F15F
+0x00027e24	NOS Generation Tool Version Number
+0x00027ea4	SWDL 31808456 Issue P01
+0x00027ebd	did_f162_subfield_1_data_def_enum_1
+0x00027eec	SWDL 31808456 Issue 001
+0x00027f05	did_f162_subfield_1_data_def_enum_2
+0x00027f34	SWDL 31808456 Issue 002
+0x00027f4d	did_f162_subfield_1_data_def_enum_3
+0x00027f7c	SWDL 31808456 Issue 003
+0x00027f95	did_f162_subfield_1_data_def_enum_4
+0x00027fc4	SWDL 31808456 Issue 004
+0x00027fdd	did_f162_subfield_1_data_def_enum_5
+0x0002800c	SWDL 31808456 Issue 005
+0x00028025	did_f162_subfield_1_data_def_enum_6
+0x00028054	SWDL 00.06.15.002-006
+0x0002806b	did_f162_subfield_1_data_def_enum_7
+0x0002809a	SWDL 00.06.15.002-007
+0x000280b1	did_f162_subfield_1_data_def_enum_8
+0x000280e3	did_f162_subfield_1_data_def
+0x0002810e	did_F162_subfield_1
+0x00028123	Software Download Specification Version
+0x00028154	did_F162
+0x0002815e	Software Download Specification Version
+0x000281e5	GGDS 31810161 Issue 001
+0x000281fe	did_f163_subfield_1_data_def_enum_1
+0x0002822d	GGDS 31810161 Issue 002
+0x00028246	did_f163_subfield_1_data_def_enum_2
+0x00028275	GGDS 31810161 Issue 003
+0x0002828e	did_f163_subfield_1_data_def_enum_3
+0x000282bd	GGDS 00.06.15.001-004
+0x000282d4	did_f163_subfield_1_data_def_enum_4
+0x00028303	GGDS 00.06.15.001-005
+0x0002831a	did_f163_subfield_1_data_def_enum_5
+0x0002834c	did_f163_subfield_1_data_def
+0x00028377	did_F163_subfield_1
+0x0002838c	Diagnostic Specification Version
+0x000283b6	did_F163
+0x000283c0	Diagnostic Specification Version
+0x00028446	did_f166_subfield_1_data_def
+0x00028471	did_F166_subfield_1
+0x00028486	Year
+0x000284b7	did_f166_subfield_2_data_def
+0x000284e2	did_F166_subfield_2
+0x000284f7	Month
+0x00028529	did_f166_subfield_3_data_def
+0x00028554	did_F166_subfield_3
+0x00028569	Day
+0x00028599	did_f166_subfield_4_data_def
+0x000285c4	did_F166_subfield_4
+0x000285d9	Release Version
+0x000285f2	did_F166
+0x000285fc	NOS Message Database #1 Version Number
+0x00028684	did_f17c_subfield_1_data_def_enum_1
+0x000286b6	did_f17c_subfield_1_data_def
+0x000286e1	did_F17C_subfield_1
+0x000286f6	NOS Bootloader Generation Tool Supplier
+0x0002873d	did_f17c_subfield_2_data_def
+0x00028768	did_F17C_subfield_2
+0x0002877d	NOS Bootloader Generation Tool Version Number
+0x000287b4	did_F17C
+0x000287be	NOS Bootloader Generation Tool Version Number
+0x0002887c	did_f180_subfield_1_data_def
+0x000288a7	did_F180_subfield_1
+0x000288bc	Number Of Modules (ISO14229 compatibility - always set to 01h)
+0x00028929	did_f180_subfield_2_data_def
+0x00028954	did_F180_subfield_2
+0x00028969	Boot Software Identifcation Data (Part no. of the bootloader)
+0x000289b0	did_F180
+0x000289ba	Boot Software Identification
+0x00028a3e	did_f188_subfield_1_data_def
+0x00028a69	did_F188_subfield_1
+0x00028a7e	Vehicle Manufacturer ECU Software Number
+0x00028ab0	did_F188
+0x00028aba	Vehicle Manufacturer ECU Software Number
+0x00028b4c	did_f18c_subfield_1_data_def
+0x00028b77	did_F18C_subfield_1
+0x00028b8c	ECU Serial Number
+0x00028ba7	did_F18C
+0x00028bb1	ECU Serial Number
+0x00028c2f	edr_02_record_0_subfield_0_data_def
+0x00028c61	edr_02_record_0_subfield_0
+0x00028d68	edr_02
+0x00028d70	Operation cycle counter #2
+0x00028de8	edr_10_record_1_subfield_0_data_def
+0x00028e1a	edr_10_record_1_subfield_0
+0x00028f11	edr_10
+0x00028f19	DTC Fault Detection Counter
+0x00028f4b	No Sub Type Information
+0x00028f64	ftb_00
+0x00028f75	Not Programmed
+0x00028f85	ftb_51
+0x00028f96	General Checksum Failure
+0x00028fb0	ftb_41
+0x00028fc1	General Memory Failure
+0x00028fd9	ftb_42
+0x00028fea	Internal Electronic Failure
+0x00029007	ftb_49
+0x00029018	Circuit Voltage Below Threshold
+0x00029039	ftb_16
+0x0002904a	Circuit Voltage Above Threshold
+0x0002906b	ftb_17
+0x00029086	op_cycle_1
+0x0002909b	op_cycle_2
+0x000293a7	5000 ms
+0x000293de	dtc_C140_fi_0
+0x000293f2	Lost Communication With Body Control Module
+0x0002941f	dtc_C140
+0x00029547	Passengers may notice noise on certain AM radio stations (where harmonics of WACM interfere with the tuned radio station).
+0x000296aa	dtc_C184_fi_0
+0x000296be	Lost Communication With Radio
+0x000296dd	dtc_C184
+0x00029925	5000ms
+0x0002995b	dtc_C253_fi_0
+0x0002996f	Lost Communication With Accessory Protocol Interface Module
+0x000299ac	dtc_C253
+0x00029a0c	No fault action.
+0x00029a1e	WACM may not operate correctly.
+0x00029aed	100 ms
+0x00029b22	None
+0x00029b28	dtc_E01A_fi_0
+0x00029b3c	Control Module Main Calibration Data
+0x00029b62	dtc_E01A
+0x00029bc2	No fault action. The WACM and the wireless charging feature will function as configured by supplier manufacturing EOL.
+0x00029c3a	WACM features may not be enabled / disabled as defined by VOP EOL for specific platform.
+0x00029d6a	dtc_E100_fi_0
+0x00029d7e	Initial Configuration Not Complete
+0x00029da2	dtc_E100
+0x00029f90	dtc_E101_fi_0
+0x00029fa4	Control Module Configuration Incompatible
+0x00029fcf	dtc_E101
+0x0002a035	May result in intermittent operation.
+0x0002a154	dtc_F000_fi_0
+0x0002a1ae	The WACM will proceed to implement EEPROM write sequence to other memory location.
+0x0002a3cc	dtc_F000_fi_1
+0x0002a6a2	500 ms
+0x0002a6dd	dtc_F000_fi_2
+0x0002a6f1	Control Module
+0x0002a701	dtc_F000
+0x0002aa36	J1-01
+0x0002aa3d	dtc_F003_fi_0
+0x0002ad6d	dtc_F003_fi_1
+0x0002ad81	Battery Voltage
+0x0002ad92	dtc_F003
+0x0002add0	mem_00
+0x0002add8	Primary Bootloader
+0x0002ae16	mem_01
+0x0002ae1e	Calibration
+0x0002ae57	mem_02
+0x0002ae5f	Strategy
+0x0002ae93	mem_03
+0x0002ae9b	Secondary Bootloader
+0x0002af12	Type 2
+0x0002af1a	routine_0202_results_resp_param__param_0_resp_sub_item_bit_1_data_def_enum_1
+0x0002af75	routine_0202_results_resp_param__param_0_resp_sub_item_bit_1_data_def
+0x0002afc9	routine_0202_results_resp_param__param_0_resp_sub_item_bit_1
+0x0002b007	RoutineType
+0x0002b039	completed
+0x0002b044	routine_0202_results_resp_param__param_0_resp_sub_item_bit_2_data_def_enum_1
+0x0002b09c	aborted
+0x0002b0a5	routine_0202_results_resp_param__param_0_resp_sub_item_bit_2_data_def_enum_2
+0x0002b0fd	active
+0x0002b105	routine_0202_results_resp_param__param_0_resp_sub_item_bit_2_data_def_enum_3
+0x0002b160	routine_0202_results_resp_param__param_0_resp_sub_item_bit_2_data_def
+0x0002b1b4	routine_0202_results_resp_param__param_0_resp_sub_item_bit_2
+0x0002b1f2	RoutineStatus
+0x0002b20a	RoutineInfo
+0x0002b249	routine_0202_results_resp_param__param_1_resp_sub_item_bit_1_data_def
+0x0002b29d	routine_0202_results_resp_param__param_1_resp_sub_item_bit_1
+0x0002b2db	On-Demand DTCs
+0x0002b2f6	Response Additional Data
+0x0002b35e	routine_0202_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x0002b3af	routine_0202_param_1_start_resp_1_routinetype_resp_data_def
+0x0002b3f9	routine_0202_param_1_start_resp_1_subfield_1
+0x0002b427	RoutineType
+0x0002b45f	routine_0202_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x0002b4b5	routine_0202_param_1_start_resp_1_routinestatus_resp_data_def_enum_2
+0x0002b50b	routine_0202_param_1_start_resp_1_routinestatus_resp_data_def_enum_3
+0x0002b55e	routine_0202_param_1_start_resp_1_routinestatus_resp_data_def
+0x0002b5aa	routine_0202_param_1_start_resp_1_subfield_2
+0x0002b5d8	RoutineStatus
+0x0002b611	routine_0202
+0x0002b61f	On-Demand Self-Test
+0x0002b6a0	Type 1
+0x0002b6a8	routine_020b_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x0002b6f9	routine_020b_param_1_start_resp_1_routinetype_resp_data_def
+0x0002b743	routine_020B_param_1_start_resp_1_subfield_1
+0x0002b771	RoutineType
+0x0002b7a9	routine_020b_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x0002b7fc	routine_020b_param_1_start_resp_1_routinestatus_resp_data_def
+0x0002b848	routine_020B_param_1_start_resp_1_subfield_2
+0x0002b876	RoutineStatus
+0x0002b8af	routine_020B
+0x0002b8bd	Restore Initial ECU Configuration To Not Complete State
+0x0002b95a	routine_routine_0301_start_req_1_subfield_1_bit_0_req_data_def
+0x0002b9a7	routine_routine_0301_start_req_1_subfield_1
+0x0002b9d4	Memory Address
+0x0002b9ed	Request Additional Data
+0x0002ba48	routine_0301_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x0002ba99	routine_0301_param_1_start_resp_1_routinetype_resp_data_def
+0x0002bae3	routine_0301_param_1_start_resp_1_subfield_1
+0x0002bb11	RoutineType
+0x0002bb49	routine_0301_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x0002bb9c	routine_0301_param_1_start_resp_1_routinestatus_resp_data_def
+0x0002bbe8	routine_0301_param_1_start_resp_1_subfield_2
+0x0002bc16	RoutineStatus
+0x0002bc4f	routine_0301
+0x0002bc5d	Activate Secondary Boot-loader
+0x0002bcef	routine_0304_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x0002bd40	routine_0304_param_1_start_resp_1_routinetype_resp_data_def
+0x0002bd8a	routine_0304_param_1_start_resp_1_subfield_1
+0x0002bdb8	RoutineType
+0x0002bdf0	routine_0304_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x0002be43	routine_0304_param_1_start_resp_1_routinestatus_resp_data_def
+0x0002be8f	routine_0304_param_1_start_resp_1_subfield_2
+0x0002bebd	RoutineStatus
+0x0002bf09	Valid Application Software is NOT Present
+0x0002bf34	routine_0304_param_2_start_resp_1_application_status_resp_data_def_enum_1
+0x0002bf89	Valid Application Software is Present
+0x0002bfb0	routine_0304_param_2_start_resp_1_application_status_resp_data_def_enum_2
+0x0002c008	routine_0304_param_2_start_resp_1_application_status_resp_data_def
+0x0002c059	routine_0304_param_2_start_resp_1_subfield_1
+0x0002c087	Application Status
+0x0002c0c5	routine_0304
+0x0002c0d3	Check Valid Application
+0x0002c152	routine_routine_ff00_start_req_1_subfield_1_bit_0_req_data_def
+0x0002c19f	routine_routine_FF00_start_req_1_subfield_1
+0x0002c1cc	Memory Address
+0x0002c1fa	routine_routine_ff00_start_req_1_subfield_2_bit_1_req_data_def
+0x0002c247	routine_routine_FF00_start_req_1_subfield_2
+0x0002c274	Memory Size
+0x0002c2d2	routine_ff00_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x0002c323	routine_ff00_param_1_start_resp_1_routinetype_resp_data_def
+0x0002c36d	routine_FF00_param_1_start_resp_1_subfield_1
+0x0002c39b	RoutineType
+0x0002c3d3	routine_ff00_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x0002c426	routine_ff00_param_1_start_resp_1_routinestatus_resp_data_def
+0x0002c472	routine_FF00_param_1_start_resp_1_subfield_2
+0x0002c4a0	RoutineStatus
+0x0002c4d9	routine_FF00
+0x0002c4e7	Flash Erase
+0x0002c55a	routine_routine_ff01_start_req_1_subfield_1_bit_0_req_data_def
+0x0002c5a7	routine_routine_FF01_start_req_1_subfield_1
+0x0002c5d4	Memory Address
+0x0002c602	routine_routine_ff01_start_req_1_subfield_2_bit_1_req_data_def
+0x0002c64f	routine_routine_FF01_start_req_1_subfield_2
+0x0002c67c	Memory Size
+0x0002c6da	routine_ff01_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x0002c72b	routine_ff01_param_1_start_resp_1_routinetype_resp_data_def
+0x0002c775	routine_FF01_param_1_start_resp_1_subfield_1
+0x0002c7a3	RoutineType
+0x0002c7db	routine_ff01_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x0002c82e	routine_ff01_param_1_start_resp_1_routinestatus_resp_data_def
+0x0002c87a	routine_FF01_param_1_start_resp_1_subfield_2
+0x0002c8a8	RoutineStatus
+0x0002c8ed	routine_ff01_param_2_start_resp_1_checksum_resp_data_def
+0x0002c934	routine_FF01_param_2_start_resp_1_subfield_1
+0x0002c962	Checksum
+0x0002c996	routine_FF01
+0x0002c9a4	Check Programming Dependencies
+0x0002ca1b	service_27_sf_01
+0x0002ca2d	requestSeed
+0x0002ca59	service_27_sf_02
+0x0002ca6b	sendKey
+0x0002ca78	This security level is used to execute the required download services for a WACM reprogramming session.
+0x0002cae1	security_01
+0x0002caee	Send Key (Security Level 0x01)
+0x0002cb11	Ford_Production_Encryption_Prg_2012
+0x0002cb36	fb_01
+0x0002cb6c	service_27_sf_03
+0x0002cba3	service_27_sf_04
+0x0002cbbf	This security level is used to perform WACM special configurations and to restore WACM to its initial ECU Configuration state.
+0x0002cc3f	security_03
+0x0002cc4c	Send Key (Security Level 0x03)
+0x0002cc6f	Ford_Production_Encryption_App_2012
+0x0002cc94	fb_03

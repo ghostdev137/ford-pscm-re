@@ -1,0 +1,5529 @@
+# G2031289.mdx  size=322,903 B  records=5528
+0x0000094d	session_03
+0x00000959	extendedDiagnosticSession
+0x0000097b	service_27_sf_03
+0x0000098d	requestSeed
+0x000009b7	service_27_sf_04
+0x000009c9	sendKey
+0x000009d6	Used for I/O control
+0x000009ec	security_03
+0x000009f9	Send Key (Security Level 0x03)
+0x00000a3f	service_23_p4_max_00
+0x00000aa3	nrc_13
+0x00000aab	incorrectMessageLengthOrInvalidFormat
+0x00000ae9	nrc_31
+0x00000af1	requestOutOfRange
+0x00000b1d	service_23
+0x00000b29	ReadMemoryByAddress
+0x00000b51	mem_00
+0x00000b59	Register
+0x00000be0	mem_03
+0x00000be8	Strategy
+0x00000d4c	pll_1
+0x00000dff	op_cycle_1
+0x00000e32	SAS goes to status=fault
+0x00000e4c	Steering Angle Sensor dropps functionality.
+0x00000f64	Once every 10 ms
+0x00000f90	Internal Electronic Failure
+0x00000fad	ftb_49
+0x00000fcd	C2.4; C2.5 CAN
+0x00000fdd	dtc_5B00_fi_0
+0x0000105a	Steering Angle Sensor dropps functionality.
+0x00001175	Signal Calculation Failure
+0x00001191	ftb_61
+0x000011b5	dtc_5B00_fi_1
+0x00001232	Steering Angle Sensor dropps functionality.
+0x00001319	Signal Compare Failure
+0x00001331	ftb_62
+0x00001355	dtc_5B00_fi_2
+0x000013d2	Steering Angle Sensor dropps functionality.
+0x000014e2	Once every 10 ms.
+0x0000150f	Signal Plausibility Failure
+0x0000152c	ftb_64
+0x00001550	dtc_5B00_fi_3
+0x000015cd	Steering Angle Sensor dropps functionality.
+0x000016b3	Invalid Serial Data Received
+0x000016d1	ftb_81
+0x000016f5	dtc_5B00_fi_4
+0x00001772	Steering Angle Sensor dropps functionality.
+0x00001858	Signal Above Allowable Range
+0x00001876	ftb_85
+0x0000189a	dtc_5B00_fi_5
+0x00001917	Steering Angle Sensor dropps functionality.
+0x000019eb	Test runs every 10ms.
+0x00001a1c	Performance or Incorrect Operation
+0x00001a40	ftb_92
+0x00001a64	dtc_5B00_fi_6
+0x00001ae1	Steering Angle Sensor dropps functionality.
+0x00001c00	Component Internal Failure
+0x00001c1c	ftb_96
+0x00001c40	dtc_5B00_fi_7
+0x00001c54	Steering Angle Sensor
+0x00001c6b	dtc_5B00
+0x00001ccf	op_cycle_1
+0x00001d02	DTC will be logged.
+0x00001d17	Rain sensor wiping does not work or intermittently work.
+0x00001dd9	Once every 50 ms.
+0x00001e06	General Electrical Failure
+0x00001e22	ftb_01
+0x00001e42	C2.2 LIN
+0x00001e4c	dtc_90AD_fi_0
+0x00001ec9	Rain sensor wiping does not work or intermittently not work.
+0x00001f07	Fail: LIN signal RSMInput_Status == "Yes". Pass: LIN signal RSMInput_Status != "Yes"
+0x00001f7c	General Signal Failure
+0x00001f94	ftb_02
+0x00001fb8	dtc_90AD_fi_1
+0x00002035	Rain sensor wiping does not work or intermittently not work.
+0x00002125	Bus Signal / Message Failure
+0x00002143	ftb_08
+0x00002167	dtc_90AD_fi_2
+0x000021e4	Rain sensor wiping does not work or intermittently not work.
+0x00002222	Fail: LIN signal RSMECU_Output_Status == "ECU Fault". Pass: LIN signal RSMECU_Output_Status != "ECU Fault"
+0x000022ad	Internal Electronic Failure
+0x000022ca	ftb_49
+0x000022ee	dtc_90AD_fi_3
+0x00002369	DTC will be logged
+0x0000237d	Rain sensor wiping does not work.
+0x000023a0	Fail: LIN signal RSMConfig_Status == "Not Configured". Pass: LIN signal RSMConfig_Status != "Not Configured"
+0x0000242d	Not Configured
+0x0000243d	ftb_55
+0x00002461	dtc_90AD_fi_4
+0x00002570	Every time message is received.
+0x000025ab	Component or System Operating Conditions
+0x000025d5	ftb_9A
+0x000025f9	dtc_90AD_fi_5
+0x0000260d	Rain Sensor
+0x0000261a	dtc_90AD
+0x0000267e	op_cycle_1
+0x000026b1	Restart is performed, DTC is set, CCS is dropped.
+0x000026e4	SCCM will drop CCS functionality.
+0x00002707	Fail: At least one system fault occurs. Pass: No system fault occurs.
+0x0000274f	At start up of SCCM and cyclically for some faults.
+0x0000279e	System Internal Failure
+0x000027b7	ftb_04
+0x000027d8	dtc_912B_fi_0
+0x00002853	DTC will be set and DID that contains the corrupt data will not return expected value.
+0x000028ab	DID is logged. DID that contains corrupt data, returns negative response.
+0x00002982	Once every 10 ms.
+0x000029af	Data Memory Failure
+0x000029c4	ftb_44
+0x000029e5	dtc_912B_fi_1
+0x00002af7	ECU application is not started.
+0x00002be2	Program Memory Failure
+0x00002bfa	ftb_45
+0x00002c1b	dtc_912B_fi_2
+0x00002c96	Default configuration will be taken.
+0x00002d59	Fail: At least one of the configuration shadows is corrupt. Pass: All configuration shadows are ok.
+0x00002ddd	Calibration / Parameter Memory Failure
+0x00002e05	ftb_46
+0x00002e26	dtc_912B_fi_3
+0x00002e3a	Steering Wheel Module
+0x00002e51	dtc_912B
+0x00002eb5	op_cycle_1
+0x00002ee8	DTC will be logged.
+0x00002efd	Wiping will only work in FAST wiping position.
+0x00002fb7	Every time message is received.
+0x00002ff2	General Electrical Failure
+0x0000300e	ftb_01
+0x0000302e	C2.2 LIN
+0x00003038	dtc_9131_fi_0
+0x000030b5	Wiping will only work in FAST position.
+0x000030de	Fail: LIN signal SFWMECU_Input_Status == "Yes". Pass: LIN signal SFWMECU_Input_Status != "Yes".
+0x00003140	Once every 50 ms.
+0x0000316d	General Signal Failure
+0x00003185	ftb_02
+0x000031a9	dtc_9131_fi_1
+0x00003226	Wiping is not working.
+0x000032f2	Bus Signal / Message Failure
+0x00003310	ftb_08
+0x00003334	dtc_9131_fi_2
+0x000033b1	Wiping will work only in FAST wiping position.
+0x000033e1	Fail: LIN signal SFWMECU_Output_Status == "ECU Fault". Pass: LIN signal SFWMECU_Output_Status != "ECU Fault".
+0x0000346f	Internal Electronic Failure
+0x0000348c	ftb_49
+0x000034b0	dtc_9131_fi_3
+0x0000352d	Wiping will only work in the FAST wiping position.
+0x00003561	Fail: LIN signal SFWMConfig_Status == "Not Configured". Pass: LIN signal SFWMConfig_Status != "Not Configured".
+0x000035f1	Not Configured
+0x00003601	ftb_55
+0x00003625	dtc_9131_fi_4
+0x000036a2	Wiping will work only in the FAST wiping position.
+0x00003784	Component or System Operating Conditions
+0x000037ae	ftb_9A
+0x000037d2	dtc_9131_fi_5
+0x000037e6	Wiper motor module
+0x000037fa	dtc_9131
+0x0000385e	op_cycle_1
+0x00003891	Corresponding CAN outputs will be set to "Not pressed".
+0x000039b0	Fail: Invalid signal has been detected fo at least 500ms. Pass: Signals are ok.
+0x00003a02	Once every 500ms.
+0x00003a2f	Component Internal Failure
+0x00003a4b	ftb_96
+0x00003a6b	Carrier.B.4; Carrier.B.5
+0x00003a85	dtc_924C_fi_0
+0x00003b00	Corresponding CAN output signals are set to "OFF".
+0x00003b34	Turn Indicator will be switched off (CAN output will not be updated until fault state is not active any more).
+0x00003ba4	Fail: Input signal has not changed for at least 2 min. Pass: Stalk switch released for at least 40ms.
+0x00003c0c	Once every 2 min.
+0x00003c39	Stuck On
+0x00003c43	ftb_9E
+0x00003c67	dtc_924C_fi_1
+0x00003c7b	Turn Indicator Stalk Switch Pack
+0x00003c9d	dtc_924C
+0x00003d01	op_cycle_1
+0x00003d34	Set LIN output signals to "OFF".
+0x00003d56	Wiper will be switched off. (LIN output will not be updated until fault state is not active any more).
+0x00003dbe	Voltage at connector pin is <= 0.005252V
+0x00003de9	Once every 40 ms.
+0x00003e16	Circuit Short To Ground
+0x00003e2f	ftb_11
+0x00003e4f	Carrier.C.4; Carrier.C.5
+0x00003e69	dtc_924E_fi_0
+0x00003ee6	Wiper will be switched off. (LIN output will not be updated until fault state is not active any more).
+0x00003f4e	Voltage at connector pins is >=4.89999V
+0x00003f96	Circuit Open
+0x00003fa4	ftb_13
+0x00003fc8	dtc_924E_fi_1
+0x00004043	DTC is logged.
+0x00004053	Wiper will be switched off. (LIN output will not be updated until fault state is not active any more).
+0x000041b7	Not Configured
+0x000041c7	ftb_55
+0x000041e7	Carrier.C.10
+0x000041f5	dtc_924E_fi_2
+0x00004272	Wiper will be switched off. (LIN output will not be updated until fault state is not active any more).
+0x000042da	Fail: Measured voltage at a connector pin is our of range.
+0x00004335	Component Internal Failure
+0x00004351	ftb_96
+0x00004375	dtc_924E_fi_3
+0x000043f2	Wiper will be switched off. (LIN output will not be updated until fault state is not active any more).
+0x0000445a	Input signal at at least one of the connector pins has not changed for at least 2 minutes.
+0x000044b7	Once every 2 min.
+0x000044e4	Stuck On
+0x000044ee	ftb_9E
+0x0000450e	Carrier.C.2; Carrier.C.8; Carrier.C.9
+0x00004535	dtc_924E_fi_4
+0x00004549	Wiper Stalk Switch Pack
+0x00004562	dtc_924E
+0x000045c6	op_cycle_1
+0x000045f9	Corresponding CAN signals are set to "Not pressed".
+0x0000462e	Steering Wheel Left Switch Pack is deactivated in "unpressed" state.
+0x00004782	Once every 40 ms.
+0x000047af	Circuit Short To Ground
+0x000047c8	ftb_11
+0x000047e8	C3.7; C3.8; C3.9; C3.10
+0x00004801	dtc_937F_fi_0
+0x0000487c	Corresponding CAN signals are set to "Not pressed".
+0x000048b1	Steering Wheel Left Switch Pack is deactivated in "unpressed" state.
+0x00004a13	Circuit Open
+0x00004a21	ftb_13
+0x00004a45	dtc_937F_fi_1
+0x00004ac0	Corresponding CAN signals are set to "Not pressed".
+0x00004af5	Steering Wheel Left Switch Pack is deactivated in "unpressed" state.
+0x00004b3b	Fail: Measured voltage is out of range for at least 40ms. Pass: Measured Trip switch voltage is valid for at least 40ms.
+0x00004bd4	Component Internal Failure
+0x00004bf0	ftb_96
+0x00004c14	dtc_937F_fi_2
+0x00004c8f	CAN output signals will be set to "Not pressed".
+0x00004cc1	Steering Wheel Left Switch Pack is deactivated in "unpressed" state.
+0x00004d07	Fail: A/D value for Steering Wheel Left Switch Pack hasn't changed for 2 min. Pass: Buttons released for 10 s.
+0x00004d78	Once every 2 min.
+0x00004da5	Stuck On
+0x00004daf	ftb_9E
+0x00004dd3	dtc_937F_fi_3
+0x00004de7	Steering Wheel Left Switch Pack
+0x00004e08	dtc_937F
+0x00004e6c	op_cycle_1
+0x00004e9f	CAN signals are set to "Init" and "Inactive".
+0x00004ece	Steering Wheel Right Switch Pack is deactivated in "unpressed" state.
+0x00005023	Once every 40 ms.
+0x00005050	Circuit Short To Ground
+0x00005069	ftb_11
+0x00005089	C3.11; C3.12; C3.13; C3.14
+0x000050a5	dtc_9380_fi_0
+0x00005120	CAN signals are set to "Init" and "Inactive".
+0x0000514f	Steering Wheel Right Switch Pack is deactivated in "unpressed" state.
+0x000052b2	Circuit Open
+0x000052c0	ftb_13
+0x000052e4	dtc_9380_fi_1
+0x0000535f	CAN signals are set to "Init" and "Inactive".
+0x0000538e	Steering Wheel Right Switch Pack is deactivated in "unpressed" state.
+0x0000548c	Component Internal Failure
+0x000054a8	ftb_96
+0x000054cc	dtc_9380_fi_2
+0x00005547	CAN signals are set to "Init" and "Inactive".
+0x00005576	Steering Wheel Right Switch Pack is deactivated in "unpressed" state.
+0x000055bd	Fail: A/D value for Steering Wheel Right Switch Pack hasn't changed for 2 min. Pass: Button released for 10 s.
+0x0000562e	Once every 2 min.
+0x0000565b	Stuck On
+0x00005665	ftb_9E
+0x00005689	dtc_9380_fi_3
+0x0000569d	Steering Wheel Right Switch Pack
+0x000056bf	dtc_9380
+0x00005723	op_cycle_1
+0x00005756	DTC is set.
+0x00005763	Lane Keeping Aid System will be deactivated.
+0x00005825	Once every 40 ms.
+0x00005852	Not Configured
+0x00005862	ftb_55
+0x00005882	Carrier.B.5
+0x0000588f	dtc_9385_fi_0
+0x000058a3	Lane Keeping Aid System
+0x000058bc	dtc_9385
+0x00005920	op_cycle_1
+0x00005955	See Function Specification for this node.
+0x00005980	Fail: If bit 4 of LINStatus Byte is set to 1. Pass: If bit 4 of LINStatus Byte is set to 0.
+0x000059de	TBD - required for continuous DTCs
+0x00005a1c	General Electrical Failure
+0x00005a38	ftb_01
+0x00005a58	C2.2 LIN
+0x00005a62	dtc_93AD_fi_0
+0x00005adf	See Function Specification for this node.
+0x00005b0a	Fail: If bit 2 of LINStatus Byte is set to 1. Pass: If bit 2 of LINStatus Byte is set to 0.
+0x00005b86	General Signal Failure
+0x00005b9e	ftb_02
+0x00005bc2	dtc_93AD_fi_1
+0x00005c3f	See Function Specification for this node.
+0x00005c6a	Fail: SWVA_L1_P0x has not been received for at least 5 seconds. Pass: SWVA_L1_P0x has has been received for at least 10ms.
+0x00005d05	Bus Signal / Message Failure
+0x00005d23	ftb_08
+0x00005d47	dtc_93AD_fi_2
+0x00005dc4	See Function Specification for this node.
+0x00005def	Fail: LIN 1 SWVA signal SWVADiagShortToGround = 0x1
+0x00005e25	Once every 20 ms.
+0x00005e52	Circuit Short To Ground
+0x00005e6b	ftb_11
+0x00005e8f	dtc_93AD_fi_3
+0x00005f0c	See Function Specification for this node.
+0x00005f37	Fail: LIN 1 SWVA signal SWVADiagOpenCircuit = 0x1
+0x00005f89	Circuit Open
+0x00005f97	ftb_13
+0x00005fbb	dtc_93AD_fi_4
+0x00006038	See Function Specification for this node.
+0x00006063	Fail: LIN 1 SWVA signal SWVADiagVoltageOutOfRange = 0x1
+0x000060bb	Circuit Voltage Out of Range
+0x000060d9	ftb_1C
+0x000060fd	dtc_93AD_fi_5
+0x0000617a	See Function Specification for this node.
+0x000061a5	Fail: If bit 3 and bit 4 of LINStatus Byte is set to 1. Pass: If bit 3 and bit 4 of LINStatus Byte is set to 0.
+0x00006235	Internal Electronic Failure
+0x00006252	ftb_49
+0x00006276	dtc_93AD_fi_6
+0x000062f3	See Function Specification for this node.
+0x0000631e	Fail: If bit 5 of LINStatus Byte is set to 1 (SWVA_L1_P0x.SWVAConfig_Status==1). Pass: If bit 5 of LINStatus Byte is set to 0.
+0x000063bd	Not Configured
+0x000063cd	ftb_55
+0x000063f1	dtc_93AD_fi_7
+0x0000646e	See Function Specification for this node.
+0x00006499	LIN 1 SWVA signal SWVADiagActuatorStuck = 0x1
+0x000064e7	Actuator Stuck
+0x000064f7	ftb_71
+0x0000651b	dtc_93AD_fi_8
+0x00006598	See Function Specification for this node.
+0x000065c3	LIN 1 SWVA signal SWVADiagCompIntFailure = 0x1
+0x00006612	Component Internal Failure
+0x0000662e	ftb_96
+0x00006652	dtc_93AD_fi_9
+0x000066cf	See Function Specification for this node.
+0x0000679f	Component or System Operating Conditions
+0x000067c9	ftb_9A
+0x000067ed	dtc_93AD_fi_10
+0x00006802	Steering Wheel Vibration Actuator
+0x00006825	dtc_93AD
+0x00006889	op_cycle_1
+0x000068bc	Ignition status is set to "OFF"; "HeadLghtHiPrmsn_D_Stat" signal is set to 0x0.
+0x0000690d	AutoHighBeam is deactivated.
+0x00006a0f	Once every 5s for setting and 5ms for clearing.
+0x00006a5a	No Sub Type Information
+0x00006a73	ftb_00
+0x00006a93	C2.4; C2.5 CAN
+0x00006aa3	dtc_C140_fi_0
+0x00006ab7	Lost Communication With Body Control Module
+0x00006ae4	dtc_C140
+0x00006b48	op_cycle_1
+0x00006b7d	Infotainment switches are not working, turn indicator is not working, cluster switches are not working.
+0x00006c9c	Once every 5s for setting and 5ms for clearing.
+0x00006ce7	No Sub Type Information
+0x00006d00	ftb_00
+0x00006d20	C2.4; C2.5 CAN
+0x00006d30	dtc_C146_fi_0
+0x00006d44	Lost Communication With Gateway "A"
+0x00006d69	dtc_C146
+0x00006dcd	op_cycle_1
+0x00006e02	Cluster switches are not working.
+0x00006ef8	Once every 5s for setting and 5ms for clearing.
+0x00006f43	No Sub Type Information
+0x00006f5c	ftb_00
+0x00006f7c	C2.4; C2.5 CAN
+0x00006f8c	dtc_C155_fi_0
+0x00006fa0	Lost Communication With Instrument Panel Cluster (IPC) Control Module
+0x00006fe7	dtc_C155
+0x0000704b	op_cycle_1
+0x0000707e	"AhbHiBeam_D_Rq" signal is set to 0x0.
+0x000070a6	AHB is deactivated. LaneKeepingAid is not working.
+0x0000717e	Once every 5s for setting and 5ms for clearing.
+0x000071c9	No Sub Type Information
+0x000071e2	ftb_00
+0x00007202	C2.4; C2.5 CAN
+0x00007212	dtc_C23A_fi_0
+0x00007226	Lost Communication With Image Processing Module A
+0x00007259	dtc_C23A
+0x000072bd	op_cycle_1
+0x000072f0	"AhbStatGfhbFdbk_D_Actl" signal is set to 0x00; "AhbHiBeam_D_Rq" is set to 0x0
+0x00007340	AHB is deactivated.
+0x00007415	Once every 1s for setting and 5ms for clearing.
+0x00007460	No Sub Type Information
+0x00007479	ftb_00
+0x00007499	C2.4; C2.5 CAN
+0x000074a9	dtc_C241_fi_0
+0x000074bd	Lost Communication With Headlamp Control Module "A"
+0x000074f2	dtc_C241
+0x00007556	op_cycle_1
+0x00007589	No fault action, only DTC logging.
+0x000075ad	DTC is set.
+0x000075ba	Fail: If signal does not contain "OK". Pass: Signal equals to "OK".
+0x00007600	Once every 20ms for setting and 20ms for clearing.
+0x0000764e	Signal Invalid
+0x0000765e	ftb_86
+0x0000767e	C2.4; C2.5 CAN
+0x0000768e	dtc_C415_fi_0
+0x0000770f	Fail: Will be set if ECU misses message for at least 100ms. Pass: At least one message received.
+0x00007772	Once every 100ms for setting. For clearing: Once message is received.
+0x000077d3	Missing Message
+0x000077e4	ftb_87
+0x00007808	dtc_C415_fi_1
+0x0000781c	Invalid Data Received From Anti-Lock Brake System (ABS) Control Module "A"
+0x00007868	dtc_C415
+0x000078cc	op_cycle_1
+0x000078ff	Ignition Status signal is set to 0x0.
+0x00007926	AHB is deactivated. TurnIndicator is not working.
+0x00007a11	Once every 5s for setting and 5ms for clearing.
+0x00007a5c	No Sub Type Information
+0x00007a75	ftb_00
+0x00007a95	C2.4; C2.5 CAN
+0x00007aa5	dtc_C422_fi_0
+0x00007ab9	Invalid Data Received From Body Control Module
+0x00007ae9	dtc_C422
+0x00007b4d	op_cycle_1
+0x00007b80	"AhbHiBeam_D_Rq" signal is set to 0x0.
+0x00007ba8	AHB is deactivated.
+0x00007c6d	Once every 5s for setting and 5ms for clearing.
+0x00007cb8	No Sub Type Information
+0x00007cd1	ftb_00
+0x00007cf1	C2.4; C2.5 CAN
+0x00007d01	dtc_C53B_fi_0
+0x00007d15	Invalid Data Received From Image Processing Module A
+0x00007d4b	dtc_C53B
+0x00007daf	op_cycle_1
+0x00007de2	Default configuration will be taken.
+0x00007e08	Initial configuration is active.
+0x00007e2a	Module configuration hasn't been written yet.
+0x00007e5a	Once every 40 ms
+0x00007e86	No Sub Type Information
+0x00007e9f	ftb_00
+0x00007ec0	dtc_E100_fi_0
+0x00007ed4	Initial Configuration Not Complete
+0x00007ef8	dtc_E100
+0x00007f5c	op_cycle_1
+0x00007f8f	DTC will be set
+0x00007fa0	DTC is set
+0x00008126	Once every 5s for setting and 5ms for clearing.
+0x00008171	No Sub Type Information
+0x0000818a	ftb_00
+0x000081aa	C2.4; C2.5 CAN
+0x000081ba	dtc_E101_fi_0
+0x000081ce	Control Module Configuration Incompatible
+0x000081f9	dtc_E101
+0x0000825d	op_cycle_1
+0x00008290	Default configuration will be used.
+0x000082b7	Fail: Module configuration data is corrupted.
+0x000082e7	Once every 40 ms.
+0x00008314	No Sub Type Information
+0x0000832d	ftb_00
+0x0000834e	dtc_E200_fi_0
+0x00008362	Control Module Configuration Memory Corrupt
+0x0000838f	dtc_E200
+0x000083f3	op_cycle_1
+0x00008426	No DTC logging any more.
+0x00008440	Module is not fully operable
+0x0000845e	Voltage at connector pin < 10V.
+0x00008480	Once every 40 ms.
+0x000084ad	System Voltage Low
+0x000084c1	ftb_A2
+0x000084e1	C2.1 PWR KL30
+0x000084f0	dtc_F003_fi_0
+0x0000856d	Module is not fully operable.
+0x0000858c	Voltage at connector pin > 15.5V.
+0x000085ce	System Voltage High
+0x000085e3	ftb_A3
+0x00008607	dtc_F003_fi_1
+0x0000861b	Battery Voltage
+0x0000862c	dtc_F003
+0x000087ba	session_02
+0x000087c6	programmingSession
+0x000087e1	service_27_sf_01
+0x000087f3	requestSeed
+0x0000881d	service_27_sf_02
+0x0000882f	sendKey
+0x0000883d	security_01
+0x0000884a	Send Key (Security Level 0x01)
+0x000089bc	session_03
+0x000089c8	extendedDiagnosticSession
+0x000089ea	service_27_sf_03
+0x000089fc	requestSeed
+0x00008a26	service_27_sf_04
+0x00008a38	sendKey
+0x00008a45	Used for I/O control
+0x00008a5b	security_03
+0x00008a68	Send Key (Security Level 0x03)
+0x00008c7d	session_01
+0x00008c89	defaultSession
+0x00008e13	session_02
+0x00008e1f	programmingSession
+0x00008f58	session_03
+0x00008f64	extendedDiagnosticSession
+0x00009131	session_02
+0x0000913d	programmingSession
+0x00009158	service_27_sf_01
+0x0000916a	requestSeed
+0x00009194	service_27_sf_02
+0x000091a6	sendKey
+0x000091b4	security_01
+0x000091c1	Send Key (Security Level 0x01)
+0x000091e4	Ford_Production_Encryption_Prg_2012
+0x00009209	fb_01
+0x00009344	session_03
+0x00009350	extendedDiagnosticSession
+0x00009372	service_27_sf_03
+0x00009384	requestSeed
+0x000093ae	service_27_sf_04
+0x000093c0	sendKey
+0x000093cd	Used for I/O control
+0x000093e3	security_03
+0x000093f0	Send Key (Security Level 0x03)
+0x00009413	Ford_Production_Encryption_App_2012
+0x00009438	fb_03
+0x000094be	Type 2
+0x000094c6	routine_0202_results_resp_param__param_0_resp_sub_item_bit_1_data_def_enum_1
+0x00009521	routine_0202_results_resp_param__param_0_resp_sub_item_bit_1_data_def
+0x00009575	routine_0202_results_resp_param__param_0_resp_sub_item_bit_1
+0x000095b3	RoutineType
+0x000095e5	completed
+0x000095f0	routine_0202_results_resp_param__param_0_resp_sub_item_bit_2_data_def_enum_1
+0x00009648	aborted
+0x00009651	routine_0202_results_resp_param__param_0_resp_sub_item_bit_2_data_def_enum_2
+0x000096a9	active
+0x000096b1	routine_0202_results_resp_param__param_0_resp_sub_item_bit_2_data_def_enum_3
+0x0000970c	routine_0202_results_resp_param__param_0_resp_sub_item_bit_2_data_def
+0x00009760	routine_0202_results_resp_param__param_0_resp_sub_item_bit_2
+0x0000979e	RoutineStatus
+0x000097b6	RoutineInfo
+0x000097f5	routine_0202_results_resp_param__param_1_resp_sub_item_bit_1_data_def
+0x00009849	routine_0202_results_resp_param__param_1_resp_sub_item_bit_1
+0x00009887	On-Demand DTCs
+0x000098a2	Response Additional Data
+0x00009906	routine_0202_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x00009957	routine_0202_param_1_start_resp_1_routinetype_resp_data_def
+0x000099a1	routine_0202_param_1_start_resp_1_subfield_1
+0x000099cf	RoutineType
+0x00009a05	routine_0202_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x00009a59	routine_0202_param_1_start_resp_1_routinestatus_resp_data_def_enum_2
+0x00009aad	routine_0202_param_1_start_resp_1_routinestatus_resp_data_def_enum_3
+0x00009b00	routine_0202_param_1_start_resp_1_routinestatus_resp_data_def
+0x00009b4c	routine_0202_param_1_start_resp_1_subfield_2
+0x00009b7a	RoutineStatus
+0x00009bb1	routine_0202
+0x00009bbf	On-Demand Self-Test
+0x00009c8e	Type 1
+0x00009c96	routine_020b_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x00009ce7	routine_020b_param_1_start_resp_1_routinetype_resp_data_def
+0x00009d31	routine_020B_param_1_start_resp_1_subfield_1
+0x00009d5f	RoutineType
+0x00009d91	completed
+0x00009d9c	routine_020b_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x00009def	routine_020b_param_1_start_resp_1_routinestatus_resp_data_def
+0x00009e3b	routine_020B_param_1_start_resp_1_subfield_2
+0x00009e69	RoutineStatus
+0x00009e81	RoutineInfo
+0x00009ea9	routine_020B
+0x00009eb7	Restore Initial ECU Configuration To Not Complete State
+0x00009fc4	routine_routine_0301_start_req_1_subfield_1_bit_0_req_data_def
+0x0000a011	routine_routine_0301_start_req_1_subfield_1
+0x0000a03e	Memory Address
+0x0000a057	Request Additional Data
+0x0000a0ac	Type 1
+0x0000a0b4	routine_0301_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x0000a105	routine_0301_param_1_start_resp_1_routinetype_resp_data_def
+0x0000a14f	routine_0301_param_1_start_resp_1_subfield_1
+0x0000a17d	RoutineType
+0x0000a1af	completed
+0x0000a1ba	routine_0301_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x0000a20d	routine_0301_param_1_start_resp_1_routinestatus_resp_data_def
+0x0000a259	routine_0301_param_1_start_resp_1_subfield_2
+0x0000a287	RoutineStatus
+0x0000a29f	RoutineInfo
+0x0000a2c7	routine_0301
+0x0000a2d5	Activate Secondary Boot-loader
+0x0000a3b8	Type 1
+0x0000a3c0	routine_0304_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x0000a411	routine_0304_param_1_start_resp_1_routinetype_resp_data_def
+0x0000a45b	routine_0304_param_1_start_resp_1_subfield_1
+0x0000a489	RoutineType
+0x0000a4bb	completed
+0x0000a4c6	routine_0304_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x0000a519	routine_0304_param_1_start_resp_1_routinestatus_resp_data_def
+0x0000a565	routine_0304_param_1_start_resp_1_subfield_2
+0x0000a593	RoutineStatus
+0x0000a5ab	RoutineInfo
+0x0000a5e6	Valid Application Software is NOT Present
+0x0000a611	routine_0304_param_2_start_resp_1_application_status_resp_data_def_enum_1
+0x0000a666	Valid Application Software is Present
+0x0000a68d	routine_0304_param_2_start_resp_1_application_status_resp_data_def_enum_2
+0x0000a6e5	routine_0304_param_2_start_resp_1_application_status_resp_data_def
+0x0000a736	routine_0304_param_2_start_resp_1_subfield_1
+0x0000a764	Application Status
+0x0000a781	Response Additional Data
+0x0000a7b6	routine_0304
+0x0000a7c4	Check Valid Application
+0x0000a881	Type 2
+0x0000a889	routine_203a_results_resp_param__param_0_resp_sub_item_bit_1_data_def_enum_1
+0x0000a8e4	routine_203a_results_resp_param__param_0_resp_sub_item_bit_1_data_def
+0x0000a938	routine_203A_results_resp_param__param_0_resp_sub_item_bit_1
+0x0000a976	RoutineType
+0x0000a9a8	completed
+0x0000a9b3	routine_203a_results_resp_param__param_0_resp_sub_item_bit_2_data_def_enum_1
+0x0000aa0b	aborted
+0x0000aa14	routine_203a_results_resp_param__param_0_resp_sub_item_bit_2_data_def_enum_2
+0x0000aa6c	active
+0x0000aa74	routine_203a_results_resp_param__param_0_resp_sub_item_bit_2_data_def_enum_3
+0x0000aacf	routine_203a_results_resp_param__param_0_resp_sub_item_bit_2_data_def
+0x0000ab23	routine_203A_results_resp_param__param_0_resp_sub_item_bit_2
+0x0000ab61	RoutineStatus
+0x0000ab79	RoutineInfo
+0x0000abd0	routine_203a_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x0000ac21	routine_203a_param_1_start_resp_1_routinetype_resp_data_def
+0x0000ac6b	routine_203A_param_1_start_resp_1_subfield_1
+0x0000ac99	RoutineType
+0x0000accf	routine_203a_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x0000ad23	routine_203a_param_1_start_resp_1_routinestatus_resp_data_def_enum_2
+0x0000ad77	routine_203a_param_1_start_resp_1_routinestatus_resp_data_def_enum_3
+0x0000adca	routine_203a_param_1_start_resp_1_routinestatus_resp_data_def
+0x0000ae16	routine_203A_param_1_start_resp_1_subfield_2
+0x0000ae44	RoutineStatus
+0x0000ae7b	routine_203A
+0x0000ae89	Configure Private Sub Nodes And Collect Private Sub Node Part Numbers
+0x0000afb6	routine_routine_ff00_start_req_1_subfield_1_bit_0_req_data_def
+0x0000b003	routine_routine_FF00_start_req_1_subfield_1
+0x0000b030	Memory Address
+0x0000b05e	routine_routine_ff00_start_req_1_subfield_2_bit_1_req_data_def
+0x0000b0ab	routine_routine_FF00_start_req_1_subfield_2
+0x0000b0d8	Memory Size
+0x0000b0ee	Request Additional Data
+0x0000b143	Type 1
+0x0000b14b	routine_ff00_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x0000b19c	routine_ff00_param_1_start_resp_1_routinetype_resp_data_def
+0x0000b1e6	routine_FF00_param_1_start_resp_1_subfield_1
+0x0000b214	RoutineType
+0x0000b246	completed
+0x0000b251	routine_ff00_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x0000b2a4	routine_ff00_param_1_start_resp_1_routinestatus_resp_data_def
+0x0000b2f0	routine_FF00_param_1_start_resp_1_subfield_2
+0x0000b31e	RoutineStatus
+0x0000b336	RoutineInfo
+0x0000b35e	routine_FF00
+0x0000b36c	Flash Erase
+0x0000b423	routine_routine_ff01_start_req_1_subfield_1_bit_0_req_data_def
+0x0000b470	routine_routine_FF01_start_req_1_subfield_1
+0x0000b49d	Memory Address
+0x0000b4cb	routine_routine_ff01_start_req_1_subfield_2_bit_1_req_data_def
+0x0000b518	routine_routine_FF01_start_req_1_subfield_2
+0x0000b545	Memory Size
+0x0000b55b	Request Additional Data
+0x0000b5b0	Type 1
+0x0000b5b8	routine_ff01_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x0000b609	routine_ff01_param_1_start_resp_1_routinetype_resp_data_def
+0x0000b653	routine_FF01_param_1_start_resp_1_subfield_1
+0x0000b681	RoutineType
+0x0000b6b3	completed
+0x0000b6be	routine_ff01_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x0000b711	routine_ff01_param_1_start_resp_1_routinestatus_resp_data_def
+0x0000b75d	routine_FF01_param_1_start_resp_1_subfield_2
+0x0000b78b	RoutineStatus
+0x0000b7a3	RoutineInfo
+0x0000b7d7	routine_ff01_param_2_start_resp_1_checksum_resp_data_def
+0x0000b81e	routine_FF01_param_2_start_resp_1_subfield_1
+0x0000b84c	Checksum
+0x0000b85f	Response Additional Data
+0x0000b894	routine_FF01
+0x0000b8a2	Check Programming Dependencies
+0x0000bad9	session_01
+0x0000bae5	defaultSession
+0x0000bbf0	session_03
+0x0000bbfc	extendedDiagnosticSession
+0x0000bc1c	service_10_p4_max_00
+0x0000bd8f	session_02
+0x0000bd9b	programmingSession
+0x0000bdb4	service_10_p4_max_01
+0x0000bdfb	nrc_12
+0x0000be03	subFunctionNotSupported
+0x0000be33	nrc_13
+0x0000be3b	incorrectMessageLengthOrInvalidFormat
+0x0000be7b	service_10
+0x0000be87	DiagnosticSessionControl
+0x0000bec3	service_10_sf_01
+0x0000bef4	service_10_sf_02
+0x0000bf21	service_10_sf_03
+0x0000c16c	session_01
+0x0000c178	defaultSession
+0x0000c283	session_03
+0x0000c28f	extendedDiagnosticSession
+0x0000c2af	service_11_p4_max_00
+0x0000c422	session_02
+0x0000c42e	programmingSession
+0x0000c447	service_11_p4_max_01
+0x0000c48e	nrc_12
+0x0000c496	subFunctionNotSupported
+0x0000c4c6	nrc_13
+0x0000c4ce	incorrectMessageLengthOrInvalidFormat
+0x0000c50e	service_11
+0x0000c51a	ECUReset
+0x0000c545	service_11_sf_01
+0x0000c557	hardReset
+0x0000c78c	session_01
+0x0000c798	defaultSession
+0x0000c8a3	session_03
+0x0000c8af	extendedDiagnosticSession
+0x0000c8cf	service_14_p4_max_00
+0x0000c929	nrc_11
+0x0000c931	serviceNotSupported
+0x0000c95d	nrc_13
+0x0000c965	incorrectMessageLengthOrInvalidFormat
+0x0000c9a3	nrc_31
+0x0000c9ab	requestOutOfRange
+0x0000c9d5	nrc_78
+0x0000c9dd	requestCorrectlyReceived-ResponsePending
+0x0000ca20	service_14
+0x0000ca2c	ClearDiagnosticInformation
+0x0000cc71	session_01
+0x0000cc7d	defaultSession
+0x0000cd88	session_03
+0x0000cd94	extendedDiagnosticSession
+0x0000cdb4	service_19_p4_max_00
+0x0000cdf7	nrc_11
+0x0000cdff	serviceNotSupported
+0x0000ce2b	nrc_12
+0x0000ce33	subFunctionNotSupported
+0x0000ce63	nrc_13
+0x0000ce6b	incorrectMessageLengthOrInvalidFormat
+0x0000cea9	nrc_31
+0x0000ceb1	requestOutOfRange
+0x0000cedd	service_19
+0x0000cee9	ReadDTCInformation
+0x0000cf1a	service_19_sf_01
+0x0000cf2c	reportNumberOfDTCByStatusMask
+0x0000cf62	service_19_sf_02
+0x0000cf74	reportDTCByStatusMask
+0x0000cfa2	service_19_sf_04
+0x0000cfb4	reportDTCSnapshotRecordByDTCNumber
+0x0000cfef	service_19_sf_06
+0x0000d001	reportDTCExtDataRecordByDTCNumber
+0x0000d03b	service_19_sf_0a
+0x0000d04d	reportSupportedDTC
+0x0000d293	session_01
+0x0000d29f	defaultSession
+0x0000d3aa	session_03
+0x0000d3b6	extendedDiagnosticSession
+0x0000d3d6	service_22_p4_max_00
+0x0000d549	session_02
+0x0000d555	programmingSession
+0x0000d56e	service_22_p4_max_01
+0x0000d5d1	nrc_13
+0x0000d5d9	incorrectMessageLengthOrInvalidFormat
+0x0000d617	nrc_14
+0x0000d61f	responseTooLong
+0x0000d647	nrc_22
+0x0000d64f	conditionsNotCorrect
+0x0000d67c	nrc_31
+0x0000d684	requestOutOfRange
+0x0000d6ae	nrc_88
+0x0000d6b6	vehicleSpeedTooHigh
+0x0000d6e2	nrc_92
+0x0000d6ea	voltageTooHigh
+0x0000d711	nrc_93
+0x0000d719	voltageTooLow
+0x0000d741	service_22
+0x0000d74d	ReadDataByIdentifier
+0x0000d8be	session_03
+0x0000d8ca	extendedDiagnosticSession
+0x0000d8ea	service_23_p4_max_00
+0x0000d94e	nrc_13
+0x0000d956	incorrectMessageLengthOrInvalidFormat
+0x0000d994	nrc_31
+0x0000d99c	requestOutOfRange
+0x0000d9c8	service_23
+0x0000d9d4	ReadMemoryByAddress
+0x0000db43	session_03
+0x0000db4f	extendedDiagnosticSession
+0x0000db6f	service_27_p4_max_00
+0x0000dce2	session_02
+0x0000dcee	programmingSession
+0x0000dd07	service_27_p4_max_01
+0x0000dd4a	nrc_12
+0x0000dd52	subFunctionNotSupported
+0x0000dd82	nrc_13
+0x0000dd8a	incorrectMessageLengthOrInvalidFormat
+0x0000ddc8	nrc_24
+0x0000ddd0	requestSequenceError
+0x0000ddfd	nrc_35
+0x0000de05	invalidKey
+0x0000de28	nrc_7E
+0x0000de30	subFunctionNotSupportedInActiveSession
+0x0000de6f	nrc_7F
+0x0000de77	serviceNotSupportedInActiveSession
+0x0000deb4	service_27
+0x0000dec0	SecurityAccess
+0x0000deeb	service_27_sf_01
+0x0000defd	requestSeed
+0x0000df1f	service_27_sf_02
+0x0000df31	sendKey
+0x0000df4d	service_27_sf_03
+0x0000df76	service_27_sf_04
+0x0000e0f2	session_03
+0x0000e0fe	extendedDiagnosticSession
+0x0000e11e	service_2A_p4_max_00
+0x0000e164	sendAtSlowRate
+0x0000e189	sendAtMediumRate
+0x0000e1b0	sendAtFastRate
+0x0000e1d5	stopSending
+0x0000e20d	nrc_13
+0x0000e215	incorrectMessageLengthOrInvalidFormat
+0x0000e253	nrc_31
+0x0000e25b	requestOutOfRange
+0x0000e285	nrc_7F
+0x0000e28d	serviceNotSupportedInActiveSession
+0x0000e2ca	service_2A
+0x0000e2d6	ReadDataByPeriodicIdentifier
+0x0000e457	session_03
+0x0000e463	extendedDiagnosticSession
+0x0000e483	service_2C_p4_max_00
+0x0000e4e9	nrc_12
+0x0000e4f1	subFunctionNotSupported
+0x0000e521	nrc_13
+0x0000e529	incorrectMessageLengthOrInvalidFormat
+0x0000e567	nrc_31
+0x0000e56f	requestOutOfRange
+0x0000e59b	service_2C
+0x0000e5a7	DynamicallyDefineDataIdentifier
+0x0000e5e1	service_2C_sf_01
+0x0000e5f3	defineByIdentifier
+0x0000e61a	service_2C_sf_02
+0x0000e62c	defineByMemoryAddress
+0x0000e656	service_2C_sf_03
+0x0000e668	clearDynamicallyDefinedDataIdentifier
+0x0000e808	session_03
+0x0000e814	extendedDiagnosticSession
+0x0000e834	service_2E_p4_max_00
+0x0000e873	nrc_13
+0x0000e87b	incorrectMessageLengthOrInvalidFormat
+0x0000e8b9	nrc_22
+0x0000e8c1	conditionsNotCorrect
+0x0000e8ee	nrc_31
+0x0000e8f6	requestOutOfRange
+0x0000e920	nrc_78
+0x0000e928	requestCorrectlyReceived-ResponsePending
+0x0000e96b	service_2E
+0x0000e977	WriteDataByIdentifier
+0x0000eaea	session_03
+0x0000eaf6	extendedDiagnosticSession
+0x0000eb16	service_2F_p4_max_00
+0x0000eb48	iocp0
+0x0000eb4f	returnControlToECU
+0x0000eb6d	iocp3
+0x0000eb74	shortTermAdjustment
+0x0000eb8f	service_2F_params_1
+0x0000ebc5	nrc_11
+0x0000ebcd	serviceNotSupported
+0x0000ebf9	nrc_13
+0x0000ec01	incorrectMessageLengthOrInvalidFormat
+0x0000ec3f	nrc_31
+0x0000ec47	requestOutOfRange
+0x0000ec71	nrc_7F
+0x0000ec79	serviceNotSupportedInActiveSession
+0x0000ecb6	service_2F
+0x0000ecc2	InputOutputControlByIdentifier
+0x0000ee49	session_03
+0x0000ee55	extendedDiagnosticSession
+0x0000ee75	service_31_p4_max_00
+0x0000efec	session_02
+0x0000eff8	programmingSession
+0x0000f011	service_31_p4_max_01
+0x0000f054	nrc_12
+0x0000f05c	subFunctionNotSupported
+0x0000f08c	nrc_13
+0x0000f094	incorrectMessageLengthOrInvalidFormat
+0x0000f0d2	nrc_21
+0x0000f0da	busyRepeatRequest
+0x0000f104	nrc_22
+0x0000f10c	conditionsNotCorrect
+0x0000f139	nrc_24
+0x0000f141	requestSequenceError
+0x0000f16e	nrc_31
+0x0000f176	requestOutOfRange
+0x0000f1a0	nrc_33
+0x0000f1a8	securityAccessDenied
+0x0000f1d5	nrc_72
+0x0000f1dd	generalProgrammingFailure
+0x0000f20f	nrc_78
+0x0000f217	requestCorrectlyReceived-ResponsePending
+0x0000f258	nrc_7F
+0x0000f260	serviceNotSupportedInActiveSession
+0x0000f29d	service_31
+0x0000f2a9	RoutineControl
+0x0000f2d6	service_31_sf_01
+0x0000f2e8	startRoutine
+0x0000f309	service_31_sf_03
+0x0000f31b	requestRoutineResults
+0x0000f4f3	session_02
+0x0000f4ff	programmingSession
+0x0000f518	service_34_p4_max_00
+0x0000f555	No Compression Method and No Encryption Method
+0x0000f5b2	nrc_13
+0x0000f5ba	incorrectMessageLengthOrInvalidFormat
+0x0000f5f8	nrc_22
+0x0000f600	conditionsNotCorrect
+0x0000f62d	nrc_31
+0x0000f635	requestOutOfRange
+0x0000f65f	nrc_33
+0x0000f667	securityAccessDenied
+0x0000f694	nrc_78
+0x0000f69c	requestCorrectlyReceived-ResponsePending
+0x0000f6dd	nrc_7F
+0x0000f6e5	serviceNotSupportedInActiveSession
+0x0000f722	service_34
+0x0000f72e	RequestDownload
+0x0000f8f0	session_02
+0x0000f8fc	programmingSession
+0x0000f915	service_36_p4_max_00
+0x0000f954	nrc_13
+0x0000f95c	incorrectMessageLengthOrInvalidFormat
+0x0000f99a	nrc_24
+0x0000f9a2	requestSequenceError
+0x0000f9cf	nrc_73
+0x0000f9d7	wrongBlockSequenceCounter
+0x0000fa09	nrc_78
+0x0000fa11	requestCorrectlyReceived-ResponsePending
+0x0000fa52	nrc_7F
+0x0000fa5a	serviceNotSupportedInActiveSession
+0x0000fa97	service_36
+0x0000faa3	TransferData
+0x0000fc5f	session_02
+0x0000fc6b	programmingSession
+0x0000fc84	service_37_p4_max_00
+0x0000fcc3	nrc_13
+0x0000fccb	incorrectMessageLengthOrInvalidFormat
+0x0000fd09	nrc_24
+0x0000fd11	requestSequenceError
+0x0000fd3e	nrc_78
+0x0000fd46	requestCorrectlyReceived-ResponsePending
+0x0000fd87	nrc_7F
+0x0000fd8f	serviceNotSupportedInActiveSession
+0x0000fdcc	service_37
+0x0000fdd8	RequestTransferExit
+0x0000ff49	session_03
+0x0000ff55	extendedDiagnosticSession
+0x0000ff75	service_3D_p4_max_00
+0x0000ffd9	nrc_13
+0x0000ffe1	incorrectMessageLengthOrInvalidFormat
+0x0001001f	nrc_31
+0x00010027	requestOutOfRange
+0x00010051	nrc_33
+0x00010059	securityAccessDenied
+0x00010086	nrc_78
+0x0001008e	requestCorrectlyReceived-ResponsePending
+0x000100d1	service_3D
+0x000100dd	WriteMemoryByAddress
+0x00010316	session_01
+0x00010322	defaultSession
+0x0001042d	session_03
+0x00010439	extendedDiagnosticSession
+0x00010459	service_3E_p4_max_00
+0x000105cc	session_02
+0x000105d8	programmingSession
+0x000105f1	service_3E_p4_max_01
+0x00010638	nrc_12
+0x00010640	subFunctionNotSupported
+0x00010670	nrc_13
+0x00010678	incorrectMessageLengthOrInvalidFormat
+0x000106b8	service_3E
+0x000106c4	TesterPresent
+0x000106f4	service_3E_sf_00
+0x00010706	zeroSubFunction
+0x0001087e	session_03
+0x0001088a	extendedDiagnosticSession
+0x000108aa	service_85_p4_max_00
+0x000108e9	nrc_11
+0x000108f1	serviceNotSupported
+0x0001091d	nrc_12
+0x00010925	subFunctionNotSupported
+0x00010955	nrc_13
+0x0001095d	incorrectMessageLengthOrInvalidFormat
+0x0001099b	nrc_78
+0x000109a3	requestCorrectlyReceived-ResponsePending
+0x000109e4	nrc_7F
+0x000109ec	serviceNotSupportedInActiveSession
+0x00010a29	service_85
+0x00010a35	ControlDTCSetting
+0x00010a61	service_85_sf_01
+0x00010a73	on
+0x00010a8a	service_85_sf_02
+0x00010a9c	off
+0x00010d09	session_01
+0x00010d15	defaultSession
+0x00010e20	session_03
+0x00010e2c	extendedDiagnosticSession
+0x00010fa9	session_02
+0x00010fb5	programmingSession
+0x00011014	nrc_10
+0x0001101c	generalReject
+0x00011038	nrc_11
+0x00011040	serviceNotSupported
+0x00011062	nrc_12
+0x0001106a	subFunctionNotSupported
+0x00011090	nrc_13
+0x00011098	incorrectMessageLengthOrInvalidFormat
+0x000110cc	nrc_14
+0x000110d4	responseTooLong
+0x000110f2	nrc_21
+0x000110fa	busyRepeatRequest
+0x0001111a	nrc_22
+0x00011122	conditionsNotCorrect
+0x00011145	nrc_24
+0x0001114d	requestSequenceError
+0x00011170	nrc_31
+0x00011178	requestOutOfRange
+0x00011198	nrc_33
+0x000111a0	securityAccessDenied
+0x000111c3	nrc_35
+0x000111cb	invalidKey
+0x000111e4	nrc_36
+0x000111ec	exceedNumberOfAttempts
+0x00011211	nrc_70
+0x00011219	uploadDownloadNotAccepted
+0x00011241	nrc_71
+0x00011249	transferDataSuspended
+0x0001126d	nrc_72
+0x00011275	generalProgrammingFailure
+0x0001129d	nrc_73
+0x000112a5	wrongBlockSequenceCounter
+0x000112cd	nrc_78
+0x000112d5	requestCorrectlyReceived-ResponsePending
+0x0001130c	nrc_7E
+0x00011314	subFunctionNotSupportedInActiveSession
+0x00011349	nrc_7F
+0x00011351	serviceNotSupportedInActiveSession
+0x00011382	nrc_86
+0x0001138a	temperatureTooHigh
+0x000113ab	nrc_87
+0x000113b3	temperatureTooLow
+0x000113d3	nrc_88
+0x000113db	vehicleSpeedTooHigh
+0x000113fd	nrc_92
+0x00011405	voltageTooHigh
+0x00011422	nrc_93
+0x0001142a	voltageTooLow
+0x0001146d	service_27_sf_01
+0x0001147f	requestSeed
+0x000114ab	service_27_sf_02
+0x000114bd	sendKey
+0x000114cb	security_01
+0x000114d8	Send Key (Security Level 0x01)
+0x0001151e	service_27_sf_03
+0x00011553	service_27_sf_04
+0x0001156d	Used for I/O control
+0x00011583	security_03
+0x00011590	Send Key (Security Level 0x03)
+0x000115e4	service_10_p4_max_00
+0x0001160c	service_10_p4_max_01
+0x00011673	service_10
+0x0001167f	DiagnosticSessionControl
+0x000116bb	service_10_sf_01
+0x000116ec	service_10_sf_02
+0x00011719	service_10_sf_03
+0x00011765	service_11_p4_max_00
+0x0001178d	service_11_p4_max_01
+0x000117f4	service_11
+0x00011800	ECUReset
+0x0001182b	service_11_sf_01
+0x0001183d	hardReset
+0x00011883	service_14_p4_max_00
+0x00011919	service_14
+0x00011925	ClearDiagnosticInformation
+0x00011969	service_19_p4_max_00
+0x000119e8	service_19
+0x000119f4	ReadDTCInformation
+0x00011a25	service_19_sf_01
+0x00011a37	reportNumberOfDTCByStatusMask
+0x00011a6d	service_19_sf_02
+0x00011a7f	reportDTCByStatusMask
+0x00011aad	service_19_sf_04
+0x00011abf	reportDTCSnapshotRecordByDTCNumber
+0x00011afa	service_19_sf_06
+0x00011b0c	reportDTCExtDataRecordByDTCNumber
+0x00011b46	service_19_sf_0a
+0x00011b58	reportSupportedDTC
+0x00011ba5	service_22_p4_max_00
+0x00011bcd	service_22_p4_max_01
+0x00011c96	service_22
+0x00011ca2	ReadDataByIdentifier
+0x00011cde	service_23_p4_max_00
+0x00011d64	service_23
+0x00011d70	ReadMemoryByAddress
+0x00011dab	service_27_p4_max_00
+0x00011dd3	service_27_p4_max_01
+0x00011e70	service_27
+0x00011e7c	SecurityAccess
+0x00011ed9	service_2A_p4_max_00
+0x00011f1f	sendAtSlowRate
+0x00011f44	sendAtMediumRate
+0x00011f6b	sendAtFastRate
+0x00011f90	stopSending
+0x00011ff8	service_2A
+0x00012004	ReadDataByPeriodicIdentifier
+0x00012048	service_2C_p4_max_00
+0x000120de	service_2C
+0x000120ea	DynamicallyDefineDataIdentifier
+0x00012126	service_2C_sf_01
+0x00012138	defineByIdentifier
+0x00012161	service_2C_sf_02
+0x00012173	defineByMemoryAddress
+0x0001219f	service_2C_sf_03
+0x000121b1	clearDynamicallyDefinedDataIdentifier
+0x00012211	service_2E_p4_max_00
+0x0001228e	service_2E
+0x0001229a	WriteDataByIdentifier
+0x000122d7	service_2F_p4_max_00
+0x00012309	iocp0
+0x00012310	returnControlToECU
+0x0001232e	iocp3
+0x00012335	shortTermAdjustment
+0x00012350	service_2F_params_1
+0x000123c4	service_2F
+0x000123d0	InputOutputControlByIdentifier
+0x00012418	service_31_p4_max_00
+0x00012444	service_31_p4_max_01
+0x00012519	service_31
+0x00012525	RoutineControl
+0x00012554	service_31_sf_01
+0x00012566	startRoutine
+0x00012589	service_31_sf_03
+0x0001259b	requestRoutineResults
+0x000125eb	service_34_p4_max_00
+0x00012628	No Compression Method and No Encryption Method
+0x000126df	service_34
+0x000126eb	RequestDownload
+0x00012724	service_36_p4_max_00
+0x000127af	service_36
+0x000127bb	TransferData
+0x000127f1	service_37_p4_max_00
+0x0001286e	service_37
+0x0001287a	RequestTransferExit
+0x000128b7	service_3D_p4_max_00
+0x00012959	service_3D
+0x00012965	WriteMemoryByAddress
+0x000129a3	service_3E_p4_max_00
+0x000129cb	service_3E_p4_max_01
+0x00012a32	service_3E
+0x00012a3e	TesterPresent
+0x00012a6e	service_3E_sf_00
+0x00012a80	zeroSubFunction
+0x00012aca	service_85_p4_max_00
+0x00012b55	service_85
+0x00012b61	ControlDTCSetting
+0x00012b8f	service_85_sf_01
+0x00012ba1	on
+0x00012bba	service_85_sf_02
+0x00012bcc	off
+0x00012d36	pll_1
+0x00012fbb	session_01
+0x00012fc7	defaultSession
+0x000130d2	session_03
+0x000130de	extendedDiagnosticSession
+0x000130fe	service_22_p4_max_00
+0x00013271	session_02
+0x0001327d	programmingSession
+0x00013296	service_22_p4_max_01
+0x000132f9	nrc_13
+0x00013301	incorrectMessageLengthOrInvalidFormat
+0x0001333f	nrc_14
+0x00013347	responseTooLong
+0x0001336f	nrc_22
+0x00013377	conditionsNotCorrect
+0x000133a4	nrc_31
+0x000133ac	requestOutOfRange
+0x000133d6	nrc_88
+0x000133de	vehicleSpeedTooHigh
+0x0001340a	nrc_92
+0x00013412	voltageTooHigh
+0x00013439	nrc_93
+0x00013441	voltageTooLow
+0x00013469	service_22
+0x00013475	ReadDataByIdentifier
+0x00013559	did_3302_subfield_1_data_def
+0x00013584	did_3302_subfield_1
+0x00013599	Steering Wheel Angle
+0x000135b7	did_3302
+0x000135c1	Steering Wheel Angle
+0x00013821	session_01
+0x0001382d	defaultSession
+0x00013938	session_03
+0x00013944	extendedDiagnosticSession
+0x00013964	service_22_p4_max_00
+0x00013ad7	session_02
+0x00013ae3	programmingSession
+0x00013afc	service_22_p4_max_01
+0x00013b5f	nrc_13
+0x00013b67	incorrectMessageLengthOrInvalidFormat
+0x00013ba5	nrc_14
+0x00013bad	responseTooLong
+0x00013bd5	nrc_22
+0x00013bdd	conditionsNotCorrect
+0x00013c0a	nrc_31
+0x00013c12	requestOutOfRange
+0x00013c3c	nrc_88
+0x00013c44	vehicleSpeedTooHigh
+0x00013c70	nrc_92
+0x00013c78	voltageTooHigh
+0x00013c9f	nrc_93
+0x00013ca7	voltageTooLow
+0x00013ccf	service_22
+0x00013cdb	ReadDataByIdentifier
+0x00013dbf	did_3306_subfield_1_data_def
+0x00013dea	did_3306_subfield_1
+0x00013dff	Steering Wheel Angle
+0x00013e6b	did_3306_subfield_2_data_def
+0x00013e96	did_3306_subfield_2
+0x00013eab	Steering Wheel Angle Velocity
+0x00013f1e	did_3306_subfield_3_data_def
+0x00013f49	did_3306_subfield_3
+0x00013f5e	Steering Wheel Angle Counter
+0x00013fd0	did_3306_subfield_4_data_def
+0x00013ffb	did_3306_subfield_4
+0x00014010	Steering Wheel Angle Check Sum
+0x00014086	did_3306_subfield_5_data_def
+0x000140b1	did_3306_subfield_5
+0x000140c6	Steering Wheel Angle Change Rate Short Filtered
+0x0001411c	Left turn (counter clockwise)
+0x0001413b	did_3306_subfield_6_data_def_enum_1
+0x0001416a	Right turn (clockwise)
+0x00014182	did_3306_subfield_6_data_def_enum_2
+0x000141b4	did_3306_subfield_6_data_def
+0x000141df	did_3306_subfield_6
+0x000141f4	Steering Wheel Angle Steering direction
+0x00014246	did_3306_subfield_7_data_def_enum_1
+0x00014279	did_3306_subfield_7_data_def_enum_2
+0x000142ab	did_3306_subfield_7_data_def
+0x000142d6	did_3306_subfield_7
+0x000142eb	Steering Wheel Angle Velocity/Steering direction
+0x00014342	Correct calculated steering angle signals
+0x0001436d	did_3306_subfield_8_data_def_enum_1
+0x0001439c	ECU not initialized
+0x000143b1	did_3306_subfield_8_data_def_enum_2
+0x000143e0	Fault detected
+0x000143f0	did_3306_subfield_8_data_def_enum_3
+0x00014422	did_3306_subfield_8_data_def
+0x0001444d	did_3306_subfield_8
+0x00014462	Steering Wheel Angle Sensor/Status
+0x0001448e	did_3306
+0x00014498	Steering Wheel Angle Sensor Signals
+0x00014716	session_01
+0x00014722	defaultSession
+0x0001482d	session_03
+0x00014839	extendedDiagnosticSession
+0x00014859	service_22_p4_max_00
+0x000149cc	session_02
+0x000149d8	programmingSession
+0x000149f1	service_22_p4_max_01
+0x00014a54	nrc_13
+0x00014a5c	incorrectMessageLengthOrInvalidFormat
+0x00014a9a	nrc_14
+0x00014aa2	responseTooLong
+0x00014aca	nrc_22
+0x00014ad2	conditionsNotCorrect
+0x00014aff	nrc_31
+0x00014b07	requestOutOfRange
+0x00014b31	nrc_88
+0x00014b39	vehicleSpeedTooHigh
+0x00014b65	nrc_92
+0x00014b6d	voltageTooHigh
+0x00014b94	nrc_93
+0x00014b9c	voltageTooLow
+0x00014bc4	service_22
+0x00014bd0	ReadDataByIdentifier
+0x00014cb4	did_402a_subfield_1_data_def
+0x00014cdf	did_402A_subfield_1
+0x00014cf4	Vehicle Battery Voltage
+0x00014d15	did_402A
+0x00014d1f	Vehicle Battery Voltage
+0x00014da9	iocp0
+0x00014db0	returnControlToECU
+0x00014dce	iocp3
+0x00014dd5	shortTermAdjustment
+0x00014f03	session_03
+0x00014f0f	extendedDiagnosticSession
+0x00014f31	service_27_sf_03
+0x00014f43	requestSeed
+0x00014f6d	service_27_sf_04
+0x00014f7f	sendKey
+0x00014f8c	Used for I/O control
+0x00014fa2	security_03
+0x00014faf	Send Key (Security Level 0x03)
+0x00014ff5	service_2F_p4_max_00
+0x00015027	service_2F_params_1
+0x0001505d	nrc_11
+0x00015065	serviceNotSupported
+0x00015091	nrc_13
+0x00015099	incorrectMessageLengthOrInvalidFormat
+0x000150d7	nrc_31
+0x000150df	requestOutOfRange
+0x00015109	nrc_7F
+0x00015111	serviceNotSupportedInActiveSession
+0x0001514e	service_2F
+0x0001515a	InputOutputControlByIdentifier
+0x00015376	session_01
+0x00015382	defaultSession
+0x00015399	service_22_p4_max_00
+0x0001550c	session_02
+0x00015518	programmingSession
+0x00015531	service_22_p4_max_01
+0x000155a4	nrc_14
+0x000155ac	responseTooLong
+0x000155d4	nrc_22
+0x000155dc	conditionsNotCorrect
+0x00015617	nrc_88
+0x0001561f	vehicleSpeedTooHigh
+0x0001564b	nrc_92
+0x00015653	voltageTooHigh
+0x0001567a	nrc_93
+0x00015682	voltageTooLow
+0x000156aa	service_22
+0x000156b6	ReadDataByIdentifier
+0x0001574d	Off
+0x00015752	did_4128_subfield_1_data_def_enum_1
+0x00015781	On
+0x00015785	did_4128_subfield_1_data_def_enum_2
+0x000157b7	did_4128_subfield_1_data_def
+0x000157e2	did_4128_subfield_1
+0x000157f7	Cruise Set + Switch
+0x00015831	False
+0x00015838	did_4128_subfield_2_data_def_enum_1
+0x00015867	True
+0x0001586d	did_4128_subfield_2_data_def_enum_2
+0x0001589f	did_4128_subfield_2_data_def
+0x000158ca	did_4128_subfield_2
+0x000158df	Cruise Switch Null State -Cruise Control Multi-Function Input A
+0x00015949	did_4128_subfield_3_data_def_enum_1
+0x0001597c	did_4128_subfield_3_data_def_enum_2
+0x000159ae	did_4128_subfield_3_data_def
+0x000159d9	did_4128_subfield_3
+0x000159ee	Cruise Resume Switch
+0x00015a2d	did_4128_subfield_4_data_def_enum_1
+0x00015a60	did_4128_subfield_4_data_def_enum_2
+0x00015a92	did_4128_subfield_4_data_def
+0x00015abd	did_4128_subfield_4
+0x00015ad2	Cruise Cancel Switch
+0x00015b11	did_4128_subfield_5_data_def_enum_1
+0x00015b44	did_4128_subfield_5_data_def_enum_2
+0x00015b76	did_4128_subfield_5_data_def
+0x00015ba1	did_4128_subfield_5
+0x00015bb6	Cruise On/Off/Cancel Switch
+0x00015bfc	did_4128_subfield_6_data_def_enum_1
+0x00015c2f	did_4128_subfield_6_data_def_enum_2
+0x00015c61	did_4128_subfield_6_data_def
+0x00015c8c	did_4128_subfield_6
+0x00015ca1	Cruise On/Off Switch
+0x00015ce0	did_4128_subfield_7_data_def_enum_1
+0x00015d13	did_4128_subfield_7_data_def_enum_2
+0x00015d45	did_4128_subfield_7_data_def
+0x00015d70	did_4128_subfield_7
+0x00015d85	Cruise Off Switch
+0x00015dc1	did_4128_subfield_8_data_def_enum_1
+0x00015df4	did_4128_subfield_8_data_def_enum_2
+0x00015e26	did_4128_subfield_8_data_def
+0x00015e51	did_4128_subfield_8
+0x00015e66	Cruise On Switch
+0x00015e9d	No
+0x00015ea1	did_4128_subfield_9_data_def_enum_1
+0x00015ed0	Yes
+0x00015ed5	did_4128_subfield_9_data_def_enum_2
+0x00015f07	did_4128_subfield_9_data_def
+0x00015f32	did_4128_subfield_9
+0x00015f47	Cruise Control Circuit Switch Fault
+0x00015f95	did_4128_subfield_10_data_def_enum_1
+0x00015fc9	did_4128_subfield_10_data_def_enum_2
+0x00015ffc	did_4128_subfield_10_data_def
+0x00016028	did_4128_subfield_10
+0x0001603e	Adaptive Speed Limiter Device (ASLD) On/Off Switch
+0x0001609b	did_4128_subfield_11_data_def_enum_1
+0x000160cf	did_4128_subfield_11_data_def_enum_2
+0x00016102	did_4128_subfield_11_data_def
+0x0001612e	did_4128_subfield_11
+0x00016144	Cruise Cancel Resume Switch
+0x0001618a	did_4128_subfield_12_data_def_enum_1
+0x000161be	did_4128_subfield_12_data_def_enum_2
+0x000161f1	did_4128_subfield_12_data_def
+0x0001621d	did_4128_subfield_12
+0x00016233	Cruise Gap Switch
+0x0001626f	did_4128_subfield_13_data_def_enum_1
+0x000162a3	did_4128_subfield_13_data_def_enum_2
+0x000162d6	did_4128_subfield_13_data_def
+0x00016302	did_4128_subfield_13
+0x00016318	Cruise Time Gap minus Switch
+0x0001635f	did_4128_subfield_14_data_def_enum_1
+0x00016393	did_4128_subfield_14_data_def_enum_2
+0x000163c6	did_4128_subfield_14_data_def
+0x000163f2	did_4128_subfield_14
+0x00016408	Cruise Time Gap + Switch
+0x0001644b	did_4128_subfield_15_data_def_enum_1
+0x0001647f	did_4128_subfield_15_data_def_enum_2
+0x000164b2	did_4128_subfield_15_data_def
+0x000164de	did_4128_subfield_15
+0x000164f4	Cruise Set - Switch
+0x00016532	did_4128_subfield_16_data_def_enum_1
+0x00016566	did_4128_subfield_16_data_def_enum_2
+0x00016599	did_4128_subfield_16_data_def
+0x000165c5	did_4128_subfield_16
+0x000165db	Traffic Jam Assist Switch
+0x000165fd	Only one button can be controlled per diagnostic service 0x2F request.
+0x00016645	did_4128
+0x0001664f	Cruise control switches
+0x000166d9	iocp0
+0x000166e0	returnControlToECU
+0x000166fe	iocp3
+0x00016705	shortTermAdjustment
+0x00016833	session_03
+0x0001683f	extendedDiagnosticSession
+0x00016861	service_27_sf_03
+0x00016873	requestSeed
+0x0001689d	service_27_sf_04
+0x000168af	sendKey
+0x000168bc	Used for I/O control
+0x000168d2	security_03
+0x000168df	Send Key (Security Level 0x03)
+0x00016925	service_2F_p4_max_00
+0x00016957	service_2F_params_1
+0x0001698d	nrc_11
+0x00016995	serviceNotSupported
+0x000169c1	nrc_13
+0x000169c9	incorrectMessageLengthOrInvalidFormat
+0x00016a07	nrc_31
+0x00016a0f	requestOutOfRange
+0x00016a39	nrc_7F
+0x00016a41	serviceNotSupportedInActiveSession
+0x00016a7e	service_2F
+0x00016a8a	InputOutputControlByIdentifier
+0x00016ca6	session_01
+0x00016cb2	defaultSession
+0x00016cc9	service_22_p4_max_00
+0x00016e3c	session_02
+0x00016e48	programmingSession
+0x00016e61	service_22_p4_max_01
+0x00016ed4	nrc_14
+0x00016edc	responseTooLong
+0x00016f04	nrc_22
+0x00016f0c	conditionsNotCorrect
+0x00016f47	nrc_88
+0x00016f4f	vehicleSpeedTooHigh
+0x00016f7b	nrc_92
+0x00016f83	voltageTooHigh
+0x00016faa	nrc_93
+0x00016fb2	voltageTooLow
+0x00016fda	service_22
+0x00016fe6	ReadDataByIdentifier
+0x0001707d	Not Pressed
+0x0001708a	did_41fa_subfield_1_data_def_enum_1
+0x000170b9	Pressed
+0x000170c2	did_41fa_subfield_1_data_def_enum_2
+0x000170f1	Unused
+0x000170f9	did_41fa_subfield_1_data_def_enum_3
+0x00017128	Invalid
+0x00017131	did_41fa_subfield_1_data_def_enum_4
+0x00017163	did_41fa_subfield_1_data_def
+0x0001718e	did_41FA_subfield_1
+0x000171a3	Lane Assist Switch Status
+0x000171c6	did_41FA
+0x000171d0	Lane Assist Switch Status
+0x0001725e	iocp0
+0x00017265	returnControlToECU
+0x00017283	iocp3
+0x0001728a	shortTermAdjustment
+0x000173b8	session_03
+0x000173c4	extendedDiagnosticSession
+0x000173e6	service_27_sf_03
+0x000173f8	requestSeed
+0x00017422	service_27_sf_04
+0x00017434	sendKey
+0x00017441	Used for I/O control
+0x00017457	security_03
+0x00017464	Send Key (Security Level 0x03)
+0x000174aa	service_2F_p4_max_00
+0x000174dc	service_2F_params_1
+0x00017512	nrc_11
+0x0001751a	serviceNotSupported
+0x00017546	nrc_13
+0x0001754e	incorrectMessageLengthOrInvalidFormat
+0x0001758c	nrc_31
+0x00017594	requestOutOfRange
+0x000175be	nrc_7F
+0x000175c6	serviceNotSupportedInActiveSession
+0x00017603	service_2F
+0x0001760f	InputOutputControlByIdentifier
+0x0001782b	session_01
+0x00017837	defaultSession
+0x0001784e	service_22_p4_max_00
+0x000179c1	session_02
+0x000179cd	programmingSession
+0x000179e6	service_22_p4_max_01
+0x00017a59	nrc_14
+0x00017a61	responseTooLong
+0x00017a89	nrc_22
+0x00017a91	conditionsNotCorrect
+0x00017acc	nrc_88
+0x00017ad4	vehicleSpeedTooHigh
+0x00017b00	nrc_92
+0x00017b08	voltageTooHigh
+0x00017b2f	nrc_93
+0x00017b37	voltageTooLow
+0x00017b5f	service_22
+0x00017b6b	ReadDataByIdentifier
+0x00017c02	Off
+0x00017c07	did_7150_subfield_1_data_def_enum_1
+0x00017c36	On
+0x00017c3a	did_7150_subfield_1_data_def_enum_2
+0x00017c6c	did_7150_subfield_1_data_def
+0x00017c97	did_7150_subfield_1
+0x00017cac	Autolights Switch
+0x00017ce8	did_7150_subfield_2_data_def_enum_1
+0x00017d1b	did_7150_subfield_2_data_def_enum_2
+0x00017d4d	did_7150_subfield_2_data_def
+0x00017d78	did_7150_subfield_2
+0x00017d8d	Flash to Pass Switch
+0x00017dcc	did_7150_subfield_3_data_def_enum_1
+0x00017dff	did_7150_subfield_3_data_def_enum_2
+0x00017e31	did_7150_subfield_3_data_def
+0x00017e5c	did_7150_subfield_3
+0x00017e71	Headlamp High Beam Switch
+0x00017eb5	did_7150_subfield_4_data_def_enum_1
+0x00017ee8	did_7150_subfield_4_data_def_enum_2
+0x00017f1a	did_7150_subfield_4_data_def
+0x00017f45	did_7150_subfield_4
+0x00017f5a	Headlamp Low Beam Switch
+0x00017f9d	did_7150_subfield_5_data_def_enum_1
+0x00017fd0	did_7150_subfield_5_data_def_enum_2
+0x00018002	did_7150_subfield_5_data_def
+0x0001802d	did_7150_subfield_5
+0x00018042	Sidelights Switch
+0x0001807e	did_7150_subfield_6_data_def_enum_1
+0x000180b1	did_7150_subfield_6_data_def_enum_2
+0x000180e3	did_7150_subfield_6_data_def
+0x0001810e	did_7150_subfield_6
+0x00018123	Hazard Warning Switch
+0x00018163	did_7150_subfield_7_data_def_enum_1
+0x00018196	did_7150_subfield_7_data_def_enum_2
+0x000181c8	did_7150_subfield_7_data_def
+0x000181f3	did_7150_subfield_7
+0x00018208	Direction Indicator Switch Right Hand
+0x00018258	did_7150_subfield_8_data_def_enum_1
+0x0001828b	did_7150_subfield_8_data_def_enum_2
+0x000182bd	did_7150_subfield_8_data_def
+0x000182e8	did_7150_subfield_8
+0x000182fd	Direction Indicator Switch Left Hand
+0x0001834c	did_7150_subfield_9_data_def_enum_1
+0x0001837f	did_7150_subfield_9_data_def_enum_2
+0x000183b1	did_7150_subfield_9_data_def
+0x000183dc	did_7150_subfield_9
+0x000183f1	Direction Indicator Switch Right Hand Lane Change
+0x0001844d	did_7150_subfield_10_data_def_enum_1
+0x00018481	did_7150_subfield_10_data_def_enum_2
+0x000184b4	did_7150_subfield_10_data_def
+0x000184e0	did_7150_subfield_10
+0x000184f6	Direction Indicator Switch Left Hand Lane Change
+0x00018551	did_7150_subfield_11_data_def_enum_1
+0x00018585	did_7150_subfield_11_data_def_enum_2
+0x000185b8	did_7150_subfield_11_data_def
+0x000185e4	did_7150_subfield_11
+0x000185fa	Brake Lamp Switch
+0x00018636	did_7150_subfield_12_data_def_enum_1
+0x0001866a	did_7150_subfield_12_data_def_enum_2
+0x0001869d	did_7150_subfield_12_data_def
+0x000186c9	did_7150_subfield_12
+0x000186df	Special Vehicle Function
+0x00018722	did_7150_subfield_13_data_def_enum_1
+0x00018756	did_7150_subfield_13_data_def_enum_2
+0x00018789	did_7150_subfield_13_data_def
+0x000187b5	did_7150_subfield_13
+0x000187cb	Auxiliary Driving Lamp Switch
+0x000187f2	did_7150
+0x000187fc	External Lighting System Input Signal Status
+0x000188b2	iocp0
+0x000188b9	returnControlToECU
+0x000188d7	iocp3
+0x000188de	shortTermAdjustment
+0x00018a0c	session_03
+0x00018a18	extendedDiagnosticSession
+0x00018a3a	service_27_sf_03
+0x00018a4c	requestSeed
+0x00018a76	service_27_sf_04
+0x00018a88	sendKey
+0x00018a95	Used for I/O control
+0x00018aab	security_03
+0x00018ab8	Send Key (Security Level 0x03)
+0x00018afe	service_2F_p4_max_00
+0x00018b30	service_2F_params_1
+0x00018b66	nrc_11
+0x00018b6e	serviceNotSupported
+0x00018b9a	nrc_13
+0x00018ba2	incorrectMessageLengthOrInvalidFormat
+0x00018be0	nrc_31
+0x00018be8	requestOutOfRange
+0x00018c12	nrc_7F
+0x00018c1a	serviceNotSupportedInActiveSession
+0x00018c57	service_2F
+0x00018c63	InputOutputControlByIdentifier
+0x00018e7f	session_01
+0x00018e8b	defaultSession
+0x00018ea2	service_22_p4_max_00
+0x00019015	session_02
+0x00019021	programmingSession
+0x0001903a	service_22_p4_max_01
+0x000190ad	nrc_14
+0x000190b5	responseTooLong
+0x000190dd	nrc_22
+0x000190e5	conditionsNotCorrect
+0x00019120	nrc_88
+0x00019128	vehicleSpeedTooHigh
+0x00019154	nrc_92
+0x0001915c	voltageTooHigh
+0x00019183	nrc_93
+0x0001918b	voltageTooLow
+0x000191b3	service_22
+0x000191bf	ReadDataByIdentifier
+0x00019256	Left Arrow Released
+0x0001926b	did_803c_subfield_1_data_def_enum_1
+0x0001929a	Left Arrow Pressed
+0x000192ae	did_803c_subfield_1_data_def_enum_2
+0x000192dd	Left Arrow Hold Short
+0x000192f4	did_803c_subfield_1_data_def_enum_3
+0x00019323	Left Arrow Hold Long
+0x00019339	did_803c_subfield_1_data_def_enum_4
+0x0001936b	did_803c_subfield_1_data_def
+0x00019396	did_803C_subfield_1
+0x000193ab	Left Arrow
+0x000193dc	Right Arrow Released
+0x000193f2	did_803c_subfield_2_data_def_enum_1
+0x00019421	Right Arrow Pressed
+0x00019436	did_803c_subfield_2_data_def_enum_2
+0x00019465	Right Arrow Hold Short
+0x0001947d	did_803c_subfield_2_data_def_enum_3
+0x000194ac	Right Arrow Hold Long
+0x000194c3	did_803c_subfield_2_data_def_enum_4
+0x000194f5	did_803c_subfield_2_data_def
+0x00019520	did_803C_subfield_2
+0x00019535	Right Arrow
+0x00019567	Up Arrow Relelased
+0x0001957b	did_803c_subfield_3_data_def_enum_1
+0x000195aa	Up Arrow Pressed
+0x000195bc	did_803c_subfield_3_data_def_enum_2
+0x000195eb	Up Arrow Hold Short
+0x00019600	did_803c_subfield_3_data_def_enum_3
+0x0001962f	Up Arrow Hold Long
+0x00019643	did_803c_subfield_3_data_def_enum_4
+0x00019675	did_803c_subfield_3_data_def
+0x000196a0	did_803C_subfield_3
+0x000196b5	Up Arrow
+0x000196e4	Down Arrow Released
+0x000196f9	did_803c_subfield_4_data_def_enum_1
+0x00019728	Down Arrow Pressed
+0x0001973c	did_803c_subfield_4_data_def_enum_2
+0x0001976b	Down Arrow Hold Short
+0x00019782	did_803c_subfield_4_data_def_enum_3
+0x000197b1	Down Arrow Hold Long
+0x000197c7	did_803c_subfield_4_data_def_enum_4
+0x000197f9	did_803c_subfield_4_data_def
+0x00019824	did_803C_subfield_4
+0x00019839	Down Arrow
+0x0001986a	Ok Button Released
+0x0001987e	did_803c_subfield_5_data_def_enum_1
+0x000198ad	Ok Button Pressed
+0x000198c0	did_803c_subfield_5_data_def_enum_2
+0x000198ef	Ok Button Hold Short
+0x00019905	did_803c_subfield_5_data_def_enum_3
+0x00019934	Ok Button Hold Long
+0x00019949	did_803c_subfield_5_data_def_enum_4
+0x0001997b	did_803c_subfield_5_data_def
+0x000199a6	did_803C_subfield_5
+0x000199bb	Ok Button
+0x000199e4	did_803c_subfield_6_data_def
+0x00019a0f	did_803C_subfield_6
+0x00019a24	Unused 1
+0x00019a4c	did_803c_subfield_7_data_def
+0x00019a77	did_803C_subfield_7
+0x00019a8c	Unused 2
+0x00019ab4	did_803c_subfield_8_data_def
+0x00019adf	did_803C_subfield_8
+0x00019af4	Unused 3
+0x00019b05	Only one button can be controlled per diagnostic service 0x2F request.
+0x00019b4d	did_803C
+0x00019b57	Left Cursor Buttons
+0x00019bdb	iocp0
+0x00019be2	returnControlToECU
+0x00019c00	iocp3
+0x00019c07	shortTermAdjustment
+0x00019d35	session_03
+0x00019d41	extendedDiagnosticSession
+0x00019d63	service_27_sf_03
+0x00019d75	requestSeed
+0x00019d9f	service_27_sf_04
+0x00019db1	sendKey
+0x00019dbe	Used for I/O control
+0x00019dd4	security_03
+0x00019de1	Send Key (Security Level 0x03)
+0x00019e27	service_2F_p4_max_00
+0x00019e59	service_2F_params_1
+0x00019e8f	nrc_11
+0x00019e97	serviceNotSupported
+0x00019ec3	nrc_13
+0x00019ecb	incorrectMessageLengthOrInvalidFormat
+0x00019f09	nrc_31
+0x00019f11	requestOutOfRange
+0x00019f3b	nrc_7F
+0x00019f43	serviceNotSupportedInActiveSession
+0x00019f80	service_2F
+0x00019f8c	InputOutputControlByIdentifier
+0x0001a1a8	session_01
+0x0001a1b4	defaultSession
+0x0001a1cb	service_22_p4_max_00
+0x0001a33e	session_02
+0x0001a34a	programmingSession
+0x0001a363	service_22_p4_max_01
+0x0001a3d6	nrc_14
+0x0001a3de	responseTooLong
+0x0001a406	nrc_22
+0x0001a40e	conditionsNotCorrect
+0x0001a449	nrc_88
+0x0001a451	vehicleSpeedTooHigh
+0x0001a47d	nrc_92
+0x0001a485	voltageTooHigh
+0x0001a4ac	nrc_93
+0x0001a4b4	voltageTooLow
+0x0001a4dc	service_22
+0x0001a4e8	ReadDataByIdentifier
+0x0001a57f	Inactive
+0x0001a589	did_833c_subfield_1_data_def_enum_1
+0x0001a5b8	Active
+0x0001a5c0	did_833c_subfield_1_data_def_enum_2
+0x0001a5f2	did_833c_subfield_1_data_def
+0x0001a61d	did_833C_subfield_1
+0x0001a632	Volume + Switch
+0x0001a66c	did_833c_subfield_2_data_def_enum_1
+0x0001a69f	did_833c_subfield_2_data_def_enum_2
+0x0001a6d1	did_833c_subfield_2_data_def
+0x0001a6fc	did_833C_subfield_2
+0x0001a711	Volume - Switch
+0x0001a74b	did_833c_subfield_3_data_def_enum_1
+0x0001a77e	did_833c_subfield_3_data_def_enum_2
+0x0001a7b0	did_833c_subfield_3_data_def
+0x0001a7db	did_833C_subfield_3
+0x0001a7f0	Media Button
+0x0001a827	did_833c_subfield_4_data_def_enum_1
+0x0001a85a	did_833c_subfield_4_data_def_enum_2
+0x0001a88c	did_833c_subfield_4_data_def
+0x0001a8b7	did_833C_subfield_4
+0x0001a8cc	Voice Switch
+0x0001a903	did_833c_subfield_5_data_def_enum_1
+0x0001a936	did_833c_subfield_5_data_def_enum_2
+0x0001a968	did_833c_subfield_5_data_def
+0x0001a993	did_833C_subfield_5
+0x0001a9a8	Seek + Switch
+0x0001a9e0	did_833c_subfield_6_data_def_enum_1
+0x0001aa13	did_833c_subfield_6_data_def_enum_2
+0x0001aa45	did_833c_subfield_6_data_def
+0x0001aa70	did_833C_subfield_6
+0x0001aa85	Seek - Switch
+0x0001aabd	did_833c_subfield_7_data_def_enum_1
+0x0001aaf0	did_833c_subfield_7_data_def_enum_2
+0x0001ab22	did_833c_subfield_7_data_def
+0x0001ab4d	did_833C_subfield_7
+0x0001ab62	Mode Switch
+0x0001ab98	did_833c_subfield_8_data_def_enum_1
+0x0001abcb	did_833c_subfield_8_data_def_enum_2
+0x0001abfd	did_833c_subfield_8_data_def
+0x0001ac28	did_833C_subfield_8
+0x0001ac3d	Mute Button
+0x0001ac73	did_833c_subfield_9_data_def_enum_1
+0x0001aca6	did_833c_subfield_9_data_def_enum_2
+0x0001acd8	did_833c_subfield_9_data_def
+0x0001ad03	did_833C_subfield_9
+0x0001ad18	Ok Button
+0x0001ad4c	did_833c_subfield_10_data_def_enum_1
+0x0001ad80	did_833c_subfield_10_data_def_enum_2
+0x0001adb3	did_833c_subfield_10_data_def
+0x0001addf	did_833C_subfield_10
+0x0001adf5	Cellular Phone
+0x0001ae2e	did_833c_subfield_11_data_def_enum_1
+0x0001ae62	did_833c_subfield_11_data_def_enum_2
+0x0001ae95	did_833c_subfield_11_data_def
+0x0001aec1	did_833C_subfield_11
+0x0001aed7	Menu + Button
+0x0001af0f	did_833c_subfield_12_data_def_enum_1
+0x0001af43	did_833c_subfield_12_data_def_enum_2
+0x0001af76	did_833c_subfield_12_data_def
+0x0001afa2	did_833C_subfield_12
+0x0001afb8	Menu - Button
+0x0001aff0	did_833c_subfield_13_data_def_enum_1
+0x0001b024	did_833c_subfield_13_data_def_enum_2
+0x0001b057	did_833c_subfield_13_data_def
+0x0001b083	did_833C_subfield_13
+0x0001b099	Send Button
+0x0001b0cf	did_833c_subfield_14_data_def_enum_1
+0x0001b103	did_833c_subfield_14_data_def_enum_2
+0x0001b136	did_833c_subfield_14_data_def
+0x0001b162	did_833C_subfield_14
+0x0001b178	End Button
+0x0001b18b	Only one button can be controlled per diagnostic service 0x2F request.
+0x0001b1d3	did_833C
+0x0001b1dd	Steering Column Audio Switches
+0x0001b277	iocp0
+0x0001b27e	returnControlToECU
+0x0001b29c	iocp3
+0x0001b2a3	shortTermAdjustment
+0x0001b3d1	session_03
+0x0001b3dd	extendedDiagnosticSession
+0x0001b3ff	service_27_sf_03
+0x0001b411	requestSeed
+0x0001b43b	service_27_sf_04
+0x0001b44d	sendKey
+0x0001b45a	Used for I/O control
+0x0001b470	security_03
+0x0001b47d	Send Key (Security Level 0x03)
+0x0001b4c3	service_2F_p4_max_00
+0x0001b4f5	service_2F_params_1
+0x0001b52b	nrc_11
+0x0001b533	serviceNotSupported
+0x0001b55f	nrc_13
+0x0001b567	incorrectMessageLengthOrInvalidFormat
+0x0001b5a5	nrc_31
+0x0001b5ad	requestOutOfRange
+0x0001b5d7	nrc_7F
+0x0001b5df	serviceNotSupportedInActiveSession
+0x0001b61c	service_2F
+0x0001b628	InputOutputControlByIdentifier
+0x0001b844	session_01
+0x0001b850	defaultSession
+0x0001b867	service_22_p4_max_00
+0x0001b9da	session_02
+0x0001b9e6	programmingSession
+0x0001b9ff	service_22_p4_max_01
+0x0001ba72	nrc_14
+0x0001ba7a	responseTooLong
+0x0001baa2	nrc_22
+0x0001baaa	conditionsNotCorrect
+0x0001bae5	nrc_88
+0x0001baed	vehicleSpeedTooHigh
+0x0001bb19	nrc_92
+0x0001bb21	voltageTooHigh
+0x0001bb48	nrc_93
+0x0001bb50	voltageTooLow
+0x0001bb78	service_22
+0x0001bb84	ReadDataByIdentifier
+0x0001bc1b	Off
+0x0001bc20	did_a460_subfield_1_data_def_enum_1
+0x0001bc4f	On
+0x0001bc53	did_a460_subfield_1_data_def_enum_2
+0x0001bc85	did_a460_subfield_1_data_def
+0x0001bcb0	did_A460_subfield_1
+0x0001bcc5	Not Assigned
+0x0001bcfc	did_a460_subfield_2_data_def_enum_1
+0x0001bd2f	did_a460_subfield_2_data_def_enum_2
+0x0001bd61	did_a460_subfield_2_data_def
+0x0001bd8c	did_A460_subfield_2
+0x0001bda1	Front Wiper Park Position Switch
+0x0001bdec	did_a460_subfield_3_data_def_enum_1
+0x0001be1f	did_a460_subfield_3_data_def_enum_2
+0x0001be51	did_a460_subfield_3_data_def
+0x0001be7c	did_A460_subfield_3
+0x0001be91	Front Wiper Intermittent Data 3
+0x0001bedb	did_a460_subfield_4_data_def_enum_1
+0x0001bf0e	did_a460_subfield_4_data_def_enum_2
+0x0001bf40	did_a460_subfield_4_data_def
+0x0001bf6b	did_A460_subfield_4
+0x0001bf80	Front Wiper Intermittent Data 2
+0x0001bfca	did_a460_subfield_5_data_def_enum_1
+0x0001bffd	did_a460_subfield_5_data_def_enum_2
+0x0001c02f	did_a460_subfield_5_data_def
+0x0001c05a	did_A460_subfield_5
+0x0001c06f	Front Wiper Intermittent Data 1
+0x0001c0b9	did_a460_subfield_6_data_def_enum_1
+0x0001c0ec	did_a460_subfield_6_data_def_enum_2
+0x0001c11e	did_a460_subfield_6_data_def
+0x0001c149	did_A460_subfield_6
+0x0001c15e	Front Wiper Intermittent Switch
+0x0001c1a8	did_a460_subfield_7_data_def_enum_1
+0x0001c1db	did_a460_subfield_7_data_def_enum_2
+0x0001c20d	did_a460_subfield_7_data_def
+0x0001c238	did_A460_subfield_7
+0x0001c24d	Front Wiper Fast Switch
+0x0001c28f	did_a460_subfield_8_data_def_enum_1
+0x0001c2c2	did_a460_subfield_8_data_def_enum_2
+0x0001c2f4	did_a460_subfield_8_data_def
+0x0001c31f	did_A460_subfield_8
+0x0001c334	Front Wiper Slow Switch
+0x0001c376	did_a460_subfield_9_data_def_enum_1
+0x0001c3a9	did_a460_subfield_9_data_def_enum_2
+0x0001c3db	did_a460_subfield_9_data_def
+0x0001c406	did_A460_subfield_9
+0x0001c41b	Front Wiper Limp Home Mode
+0x0001c460	did_a460_subfield_10_data_def_enum_1
+0x0001c494	did_a460_subfield_10_data_def_enum_2
+0x0001c4c7	did_a460_subfield_10_data_def
+0x0001c4f3	did_A460_subfield_10
+0x0001c509	Rear Wiper Delay 2
+0x0001c546	did_a460_subfield_11_data_def_enum_1
+0x0001c57a	did_a460_subfield_11_data_def_enum_2
+0x0001c5ad	did_a460_subfield_11_data_def
+0x0001c5d9	did_A460_subfield_11
+0x0001c5ef	Rear Wiper Delay 1
+0x0001c62c	did_a460_subfield_12_data_def_enum_1
+0x0001c660	did_a460_subfield_12_data_def_enum_2
+0x0001c693	did_a460_subfield_12_data_def
+0x0001c6bf	did_A460_subfield_12
+0x0001c6d5	Rear Wiper Wash Switch
+0x0001c716	did_a460_subfield_13_data_def_enum_1
+0x0001c74a	did_a460_subfield_13_data_def_enum_2
+0x0001c77d	did_a460_subfield_13_data_def
+0x0001c7a9	did_A460_subfield_13
+0x0001c7bf	Rear Wiper OFF Switch
+0x0001c7ff	did_a460_subfield_14_data_def_enum_1
+0x0001c833	did_a460_subfield_14_data_def_enum_2
+0x0001c866	did_a460_subfield_14_data_def
+0x0001c892	did_A460_subfield_14
+0x0001c8a8	Rear Wiper Intermittent Switch
+0x0001c8f1	did_a460_subfield_15_data_def_enum_1
+0x0001c925	did_a460_subfield_15_data_def_enum_2
+0x0001c958	did_a460_subfield_15_data_def
+0x0001c984	did_A460_subfield_15
+0x0001c99a	Rear Wiper Park Position Switch
+0x0001c9e4	did_a460_subfield_16_data_def_enum_1
+0x0001ca18	did_a460_subfield_16_data_def_enum_2
+0x0001ca4b	did_a460_subfield_16_data_def
+0x0001ca77	did_A460_subfield_16
+0x0001ca8d	Rear Wiper Switch
+0x0001cac9	did_a460_subfield_17_data_def_enum_1
+0x0001cafd	did_a460_subfield_17_data_def_enum_2
+0x0001cb30	did_a460_subfield_17_data_def
+0x0001cb5c	did_A460_subfield_17
+0x0001cb72	Front Wiper Intermittent Data 7
+0x0001cbbc	did_a460_subfield_18_data_def_enum_1
+0x0001cbf0	did_a460_subfield_18_data_def_enum_2
+0x0001cc23	did_a460_subfield_18_data_def
+0x0001cc4f	did_A460_subfield_18
+0x0001cc65	Front Wiper Intermittent Data 6
+0x0001ccaf	did_a460_subfield_19_data_def_enum_1
+0x0001cce3	did_a460_subfield_19_data_def_enum_2
+0x0001cd16	did_a460_subfield_19_data_def
+0x0001cd42	did_A460_subfield_19
+0x0001cd58	Front Wiper Intermittent Data 5
+0x0001cda2	did_a460_subfield_20_data_def_enum_1
+0x0001cdd6	did_a460_subfield_20_data_def_enum_2
+0x0001ce09	did_a460_subfield_20_data_def
+0x0001ce35	did_A460_subfield_20
+0x0001ce4b	Front Wiper Intermittent Data 4
+0x0001ce95	did_a460_subfield_21_data_def_enum_1
+0x0001cec9	did_a460_subfield_21_data_def_enum_2
+0x0001cefc	did_a460_subfield_21_data_def
+0x0001cf28	did_A460_subfield_21
+0x0001cf3e	Single Stroke
+0x0001cf76	did_a460_subfield_22_data_def_enum_1
+0x0001cfaa	did_a460_subfield_22_data_def_enum_2
+0x0001cfdd	did_a460_subfield_22_data_def
+0x0001d009	did_A460_subfield_22
+0x0001d01f	Rain Sensor Switch
+0x0001d03b	did_A460
+0x0001d045	Windscreen Wipers System Input Signal Status
+0x0001d0fb	iocp0
+0x0001d102	returnControlToECU
+0x0001d120	iocp3
+0x0001d127	shortTermAdjustment
+0x0001d255	session_03
+0x0001d261	extendedDiagnosticSession
+0x0001d283	service_27_sf_03
+0x0001d295	requestSeed
+0x0001d2bf	service_27_sf_04
+0x0001d2d1	sendKey
+0x0001d2de	Used for I/O control
+0x0001d2f4	security_03
+0x0001d301	Send Key (Security Level 0x03)
+0x0001d347	service_2F_p4_max_00
+0x0001d379	service_2F_params_1
+0x0001d3af	nrc_11
+0x0001d3b7	serviceNotSupported
+0x0001d3e3	nrc_13
+0x0001d3eb	incorrectMessageLengthOrInvalidFormat
+0x0001d429	nrc_31
+0x0001d431	requestOutOfRange
+0x0001d45b	nrc_7F
+0x0001d463	serviceNotSupportedInActiveSession
+0x0001d4a0	service_2F
+0x0001d4ac	InputOutputControlByIdentifier
+0x0001d6c8	session_01
+0x0001d6d4	defaultSession
+0x0001d6eb	service_22_p4_max_00
+0x0001d85e	session_02
+0x0001d86a	programmingSession
+0x0001d883	service_22_p4_max_01
+0x0001d8f6	nrc_14
+0x0001d8fe	responseTooLong
+0x0001d926	nrc_22
+0x0001d92e	conditionsNotCorrect
+0x0001d969	nrc_88
+0x0001d971	vehicleSpeedTooHigh
+0x0001d99d	nrc_92
+0x0001d9a5	voltageTooHigh
+0x0001d9cc	nrc_93
+0x0001d9d4	voltageTooLow
+0x0001d9fc	service_22
+0x0001da08	ReadDataByIdentifier
+0x0001da9f	Off
+0x0001daa4	did_a462_subfield_1_data_def_enum_1
+0x0001dad3	On
+0x0001dad7	did_a462_subfield_1_data_def_enum_2
+0x0001db09	did_a462_subfield_1_data_def
+0x0001db34	did_A462_subfield_1
+0x0001db49	Front Washer Switch
+0x0001db87	did_a462_subfield_2_data_def_enum_1
+0x0001dbba	did_a462_subfield_2_data_def_enum_2
+0x0001dbec	did_a462_subfield_2_data_def
+0x0001dc17	did_A462_subfield_2
+0x0001dc2c	Rear Washer Switch
+0x0001dc48	did_A462
+0x0001dc52	Windscreen Washer System Input Signal Status
+0x0001dee4	session_01
+0x0001def0	defaultSession
+0x0001dffb	session_03
+0x0001e007	extendedDiagnosticSession
+0x0001e027	service_22_p4_max_00
+0x0001e19a	session_02
+0x0001e1a6	programmingSession
+0x0001e1bf	service_22_p4_max_01
+0x0001e222	nrc_13
+0x0001e22a	incorrectMessageLengthOrInvalidFormat
+0x0001e268	nrc_14
+0x0001e270	responseTooLong
+0x0001e298	nrc_22
+0x0001e2a0	conditionsNotCorrect
+0x0001e2cd	nrc_31
+0x0001e2d5	requestOutOfRange
+0x0001e2ff	nrc_88
+0x0001e307	vehicleSpeedTooHigh
+0x0001e333	nrc_92
+0x0001e33b	voltageTooHigh
+0x0001e362	nrc_93
+0x0001e36a	voltageTooLow
+0x0001e392	service_22
+0x0001e39e	ReadDataByIdentifier
+0x0001e439	Default Session
+0x0001e44a	did_d100_subfield_1_data_def_enum_1
+0x0001e479	Programming Session
+0x0001e48e	did_d100_subfield_1_data_def_enum_2
+0x0001e4bd	Extended Diagnostic Session
+0x0001e4da	did_d100_subfield_1_data_def_enum_3
+0x0001e509	Safety System Diagnostic Session
+0x0001e52b	did_d100_subfield_1_data_def_enum_4
+0x0001e55a	EOL Extended Diagnostic Session
+0x0001e57b	did_d100_subfield_1_data_def_enum_5
+0x0001e5ab	did_d100_subfield_1_data_def_enum_6
+0x0001e5db	did_d100_subfield_1_data_def_enum_7
+0x0001e60b	did_d100_subfield_1_data_def_enum_8
+0x0001e63b	did_d100_subfield_1_data_def_enum_9
+0x0001e66b	did_d100_subfield_1_data_def_enum_10
+0x0001e69c	did_d100_subfield_1_data_def_enum_11
+0x0001e6cd	did_d100_subfield_1_data_def_enum_12
+0x0001e6fe	did_d100_subfield_1_data_def_enum_13
+0x0001e72f	did_d100_subfield_1_data_def_enum_14
+0x0001e760	did_d100_subfield_1_data_def_enum_15
+0x0001e791	did_d100_subfield_1_data_def_enum_16
+0x0001e7c2	did_d100_subfield_1_data_def_enum_17
+0x0001e7f3	did_d100_subfield_1_data_def_enum_18
+0x0001e824	did_d100_subfield_1_data_def_enum_19
+0x0001e855	did_d100_subfield_1_data_def_enum_20
+0x0001e886	did_d100_subfield_1_data_def_enum_21
+0x0001e8b7	did_d100_subfield_1_data_def_enum_22
+0x0001e8e8	did_d100_subfield_1_data_def_enum_23
+0x0001e919	did_d100_subfield_1_data_def_enum_24
+0x0001e94a	did_d100_subfield_1_data_def_enum_25
+0x0001e97b	did_d100_subfield_1_data_def_enum_26
+0x0001e9ac	did_d100_subfield_1_data_def_enum_27
+0x0001e9dd	did_d100_subfield_1_data_def_enum_28
+0x0001ea0e	did_d100_subfield_1_data_def_enum_29
+0x0001ea3f	did_d100_subfield_1_data_def_enum_30
+0x0001ea70	did_d100_subfield_1_data_def_enum_31
+0x0001eaa1	did_d100_subfield_1_data_def_enum_32
+0x0001ead2	did_d100_subfield_1_data_def_enum_33
+0x0001eb03	did_d100_subfield_1_data_def_enum_34
+0x0001eb34	did_d100_subfield_1_data_def_enum_35
+0x0001eb65	did_d100_subfield_1_data_def_enum_36
+0x0001eb98	did_d100_subfield_1_data_def
+0x0001ebc3	did_D100_subfield_1
+0x0001ebd8	Active Diagnostic Session
+0x0001ebfb	did_D100
+0x0001ec05	Active Diagnostic Session
+0x0001ee71	session_01
+0x0001ee7d	defaultSession
+0x0001ef88	session_03
+0x0001ef94	extendedDiagnosticSession
+0x0001efb4	service_22_p4_max_00
+0x0001f127	session_02
+0x0001f133	programmingSession
+0x0001f14c	service_22_p4_max_01
+0x0001f1af	nrc_13
+0x0001f1b7	incorrectMessageLengthOrInvalidFormat
+0x0001f1f5	nrc_14
+0x0001f1fd	responseTooLong
+0x0001f225	nrc_22
+0x0001f22d	conditionsNotCorrect
+0x0001f25a	nrc_31
+0x0001f262	requestOutOfRange
+0x0001f28c	nrc_88
+0x0001f294	vehicleSpeedTooHigh
+0x0001f2c0	nrc_92
+0x0001f2c8	voltageTooHigh
+0x0001f2ef	nrc_93
+0x0001f2f7	voltageTooLow
+0x0001f31f	service_22
+0x0001f32b	ReadDataByIdentifier
+0x0001f40f	did_d115_subfield_1_data_def
+0x0001f43a	did_D115_subfield_1
+0x0001f44f	Vehicle Speed
+0x0001f466	did_D115
+0x0001f470	Vehicle Speed
+0x0001f6c4	session_01
+0x0001f6d0	defaultSession
+0x0001f7db	session_03
+0x0001f7e7	extendedDiagnosticSession
+0x0001f807	service_22_p4_max_00
+0x0001f97a	session_02
+0x0001f986	programmingSession
+0x0001f99f	service_22_p4_max_01
+0x0001fa02	nrc_13
+0x0001fa0a	incorrectMessageLengthOrInvalidFormat
+0x0001fa48	nrc_14
+0x0001fa50	responseTooLong
+0x0001fa78	nrc_22
+0x0001fa80	conditionsNotCorrect
+0x0001faad	nrc_31
+0x0001fab5	requestOutOfRange
+0x0001fadf	nrc_88
+0x0001fae7	vehicleSpeedTooHigh
+0x0001fb13	nrc_92
+0x0001fb1b	voltageTooHigh
+0x0001fb42	nrc_93
+0x0001fb4a	voltageTooLow
+0x0001fb72	service_22
+0x0001fb7e	ReadDataByIdentifier
+0x0001fc6e	did_d700_subfield_1_data_def
+0x0001fc99	did_D700_subfield_1
+0x0001fcae	Power ON reset counter
+0x0001fd1a	did_d700_subfield_2_data_def
+0x0001fd45	did_D700_subfield_2
+0x0001fd5a	Illegal op code counter
+0x0001fdc7	did_d700_subfield_3_data_def
+0x0001fdf2	did_D700_subfield_3
+0x0001fe07	Watchdog timer reset counter
+0x0001fe79	did_d700_subfield_4_data_def
+0x0001fea4	did_D700_subfield_4
+0x0001feb9	Data Range Failure counter
+0x0001fedd	did_D700
+0x0001fee7	Critical Software Parameter Monitoring #1
+0x00020173	session_01
+0x0002017f	defaultSession
+0x0002028a	session_03
+0x00020296	extendedDiagnosticSession
+0x000202b6	service_22_p4_max_00
+0x00020429	session_02
+0x00020435	programmingSession
+0x0002044e	service_22_p4_max_01
+0x000204b1	nrc_13
+0x000204b9	incorrectMessageLengthOrInvalidFormat
+0x000204f7	nrc_14
+0x000204ff	responseTooLong
+0x00020527	nrc_22
+0x0002052f	conditionsNotCorrect
+0x0002055c	nrc_31
+0x00020564	requestOutOfRange
+0x0002058e	nrc_88
+0x00020596	vehicleSpeedTooHigh
+0x000205c2	nrc_92
+0x000205ca	voltageTooHigh
+0x000205f1	nrc_93
+0x000205f9	voltageTooLow
+0x00020621	service_22
+0x0002062d	ReadDataByIdentifier
+0x0002071d	did_d701_subfield_1_data_def
+0x00020748	did_D701_subfield_1
+0x0002075d	Stack Overflow Counter
+0x000207c9	did_d701_subfield_2_data_def
+0x000207f4	did_D701_subfield_2
+0x00020809	Loop-Time overflow or scheduler idle time overflow Counter
+0x00020899	did_d701_subfield_3_data_def
+0x000208c4	did_D701_subfield_3
+0x000208d9	Minimum Idle-Time
+0x00020940	did_d701_subfield_4_data_def
+0x0002096b	did_D701_subfield_4
+0x00020980	Reserved
+0x00020992	did_D701
+0x0002099c	Critical Software Parameter Monitoring #2
+0x00020c28	session_01
+0x00020c34	defaultSession
+0x00020d3f	session_03
+0x00020d4b	extendedDiagnosticSession
+0x00020d6b	service_22_p4_max_00
+0x00020ede	session_02
+0x00020eea	programmingSession
+0x00020f03	service_22_p4_max_01
+0x00020f66	nrc_13
+0x00020f6e	incorrectMessageLengthOrInvalidFormat
+0x00020fac	nrc_14
+0x00020fb4	responseTooLong
+0x00020fdc	nrc_22
+0x00020fe4	conditionsNotCorrect
+0x00021011	nrc_31
+0x00021019	requestOutOfRange
+0x00021043	nrc_88
+0x0002104b	vehicleSpeedTooHigh
+0x00021077	nrc_92
+0x0002107f	voltageTooHigh
+0x000210a6	nrc_93
+0x000210ae	voltageTooLow
+0x000210d6	service_22
+0x000210e2	ReadDataByIdentifier
+0x000211c7	did_dd00_subfield_1_data_def
+0x000211f2	did_DD00_subfield_1
+0x00021207	Global Real Time
+0x00021221	did_DD00
+0x0002122b	Global Real Time
+0x00021485	session_01
+0x00021491	defaultSession
+0x0002159c	session_03
+0x000215a8	extendedDiagnosticSession
+0x000215c8	service_22_p4_max_00
+0x0002173b	session_02
+0x00021747	programmingSession
+0x00021760	service_22_p4_max_01
+0x000217c3	nrc_13
+0x000217cb	incorrectMessageLengthOrInvalidFormat
+0x00021809	nrc_14
+0x00021811	responseTooLong
+0x00021839	nrc_22
+0x00021841	conditionsNotCorrect
+0x0002186e	nrc_31
+0x00021876	requestOutOfRange
+0x000218a0	nrc_88
+0x000218a8	vehicleSpeedTooHigh
+0x000218d4	nrc_92
+0x000218dc	voltageTooHigh
+0x00021903	nrc_93
+0x0002190b	voltageTooLow
+0x00021933	service_22
+0x0002193f	ReadDataByIdentifier
+0x00021a23	did_dd02_subfield_1_data_def
+0x00021a4e	did_DD02_subfield_1
+0x00021a63	Main ECU Voltage Supply
+0x00021a84	did_DD02
+0x00021a8e	Main ECU Voltage Supply
+0x00021cf6	session_01
+0x00021d02	defaultSession
+0x00021e0d	session_03
+0x00021e19	extendedDiagnosticSession
+0x00021e39	service_22_p4_max_00
+0x00021fac	session_02
+0x00021fb8	programmingSession
+0x00021fd1	service_22_p4_max_01
+0x00022034	nrc_13
+0x0002203c	incorrectMessageLengthOrInvalidFormat
+0x0002207a	nrc_14
+0x00022082	responseTooLong
+0x000220aa	nrc_22
+0x000220b2	conditionsNotCorrect
+0x000220df	nrc_31
+0x000220e7	requestOutOfRange
+0x00022111	nrc_88
+0x00022119	vehicleSpeedTooHigh
+0x00022145	nrc_92
+0x0002214d	voltageTooHigh
+0x00022174	nrc_93
+0x0002217c	voltageTooLow
+0x000221a4	service_22
+0x000221b0	ReadDataByIdentifier
+0x00022294	did_dd09_subfield_1_data_def
+0x000222bf	did_DD09_subfield_1
+0x000222d4	Vehicle Speed
+0x000222eb	did_DD09
+0x000222f5	Vehicle Speed
+0x00022549	session_01
+0x00022555	defaultSession
+0x00022660	session_03
+0x0002266c	extendedDiagnosticSession
+0x0002268c	service_22_p4_max_00
+0x000227ff	session_02
+0x0002280b	programmingSession
+0x00022824	service_22_p4_max_01
+0x00022887	nrc_13
+0x0002288f	incorrectMessageLengthOrInvalidFormat
+0x000228cd	nrc_14
+0x000228d5	responseTooLong
+0x000228fd	nrc_22
+0x00022905	conditionsNotCorrect
+0x00022932	nrc_31
+0x0002293a	requestOutOfRange
+0x00022964	nrc_88
+0x0002296c	vehicleSpeedTooHigh
+0x00022998	nrc_92
+0x000229a0	voltageTooHigh
+0x000229c7	nrc_93
+0x000229cf	voltageTooLow
+0x000229f7	service_22
+0x00022a03	ReadDataByIdentifier
+0x00022a9a	Powerpack Off - Torque Not Available
+0x00022ac0	did_dd0a_subfield_1_data_def_enum_1
+0x00022aef	Powerpack On - Torque Not Available
+0x00022b14	did_dd0a_subfield_1_data_def_enum_2
+0x00022b43	Powerpack Start In Progress - Torque Not Available
+0x00022b77	did_dd0a_subfield_1_data_def_enum_3
+0x00022ba6	Powerpack On - Torque Available
+0x00022bc7	did_dd0a_subfield_1_data_def_enum_4
+0x00022bf8	Not Received
+0x00022c06	did_dd0a_subfield_1_data_def_enum_5
+0x00022c38	did_dd0a_subfield_1_data_def
+0x00022c63	did_DD0A_subfield_1
+0x00022c78	Powerpack Torque Status
+0x00022cb6	Unknown
+0x00022cbf	did_dd0a_subfield_2_data_def_enum_1
+0x00022cee	Off
+0x00022cf3	did_dd0a_subfield_2_data_def_enum_2
+0x00022d22	Accessory
+0x00022d2d	did_dd0a_subfield_2_data_def_enum_3
+0x00022d5c	Run
+0x00022d61	did_dd0a_subfield_2_data_def_enum_4
+0x00022d90	Start
+0x00022d97	did_dd0a_subfield_2_data_def_enum_5
+0x00022dc6	Invalid
+0x00022dcf	did_dd0a_subfield_2_data_def_enum_6
+0x00022e04	did_dd0a_subfield_2_data_def_enum_7
+0x00022e36	did_dd0a_subfield_2_data_def
+0x00022e61	did_DD0A_subfield_2
+0x00022e76	Ignition Status
+0x00022eac	Not Supported
+0x00022ebb	did_dd0a_subfield_3_data_def_enum_1
+0x00022eea	Supported
+0x00022ef5	did_dd0a_subfield_3_data_def_enum_2
+0x00022f24	Not Supported Imminent
+0x00022f3c	did_dd0a_subfield_3_data_def_enum_3
+0x00022f6b	Low Voltage Event In Progress
+0x00022f8a	did_dd0a_subfield_3_data_def_enum_4
+0x00022fb9	Fault Limited
+0x00022fc8	did_dd0a_subfield_3_data_def_enum_5
+0x00022ffd	did_dd0a_subfield_3_data_def_enum_6
+0x0002302f	did_dd0a_subfield_3_data_def
+0x0002305a	did_DD0A_subfield_3
+0x0002306f	Electric Power Status
+0x0002308e	did_DD0A
+0x00023098	Diagnostic Vehicle Mode
+0x00023300	session_01
+0x0002330c	defaultSession
+0x00023417	session_03
+0x00023423	extendedDiagnosticSession
+0x00023443	service_22_p4_max_00
+0x000235b6	session_02
+0x000235c2	programmingSession
+0x000235db	service_22_p4_max_01
+0x0002363e	nrc_13
+0x00023646	incorrectMessageLengthOrInvalidFormat
+0x00023684	nrc_14
+0x0002368c	responseTooLong
+0x000236b4	nrc_22
+0x000236bc	conditionsNotCorrect
+0x000236e9	nrc_31
+0x000236f1	requestOutOfRange
+0x0002371b	nrc_88
+0x00023723	vehicleSpeedTooHigh
+0x0002374f	nrc_92
+0x00023757	voltageTooHigh
+0x0002377e	nrc_93
+0x00023786	voltageTooLow
+0x000237ae	service_22
+0x000237ba	ReadDataByIdentifier
+0x0002385d	Disable
+0x00023866	did_de00_subfield_1_data_def_enum_1
+0x00023895	Enable
+0x0002389d	did_de00_subfield_1_data_def_enum_2
+0x000238cd	0x01
+0x000238d4	did_de00_subfield_1_data_def
+0x000238ff	did_DE00_subfield_1
+0x00023914	SCMSpeedDependentEnable_Cfg
+0x0002395a	did_de00_subfield_2_data_def_enum_1
+0x0002398d	did_de00_subfield_2_data_def_enum_2
+0x000239bd	0x00
+0x000239c4	did_de00_subfield_2_data_def
+0x000239ef	did_DE00_subfield_2
+0x00023a04	SCMInit_AutoWipeOnReset_Cfg
+0x00023a4a	did_de00_subfield_3_data_def_enum_1
+0x00023a7d	did_de00_subfield_3_data_def_enum_2
+0x00023ab2	did_de00_subfield_3_data_def
+0x00023add	did_DE00_subfield_3
+0x00023af2	SCMInit_OfftoAutoWipe_Cfg
+0x00023b36	did_de00_subfield_4_data_def_enum_1
+0x00023b69	did_de00_subfield_4_data_def_enum_2
+0x00023b9e	did_de00_subfield_4_data_def
+0x00023bc9	did_DE00_subfield_4
+0x00023bde	SCMRrWipeLiftgateAjarEnable_Cfg
+0x00023c1d	did_de00_subfield_5_data_def
+0x00023c48	did_DE00_subfield_5
+0x00023c5d	SCMRainSensorID_Cfg
+0x00023c90	did_de00_subfield_6_data_def
+0x00023cbb	did_DE00_subfield_6
+0x00023cd0	SCMWindshieldType_Cfg
+0x00023d0c	1500msec
+0x00023d16	did_de00_subfield_7_data_def_enum_1
+0x00023d45	1750msec
+0x00023d4f	did_de00_subfield_7_data_def_enum_2
+0x00023d7e	2000msec
+0x00023d88	did_de00_subfield_7_data_def_enum_3
+0x00023db7	2250msec
+0x00023dc1	did_de00_subfield_7_data_def_enum_4
+0x00023df0	2500msec
+0x00023dfa	did_de00_subfield_7_data_def_enum_5
+0x00023e29	2750msec
+0x00023e33	did_de00_subfield_7_data_def_enum_6
+0x00023e62	3000msec
+0x00023e6c	did_de00_subfield_7_data_def_enum_7
+0x00023e9b	3250msec
+0x00023ea5	did_de00_subfield_7_data_def_enum_8
+0x00023ed4	3500msec
+0x00023ede	did_de00_subfield_7_data_def_enum_9
+0x00023f0d	3750msec
+0x00023f17	did_de00_subfield_7_data_def_enum_10
+0x00023f47	4000msec
+0x00023f51	did_de00_subfield_7_data_def_enum_11
+0x00023f81	4250msec
+0x00023f8b	did_de00_subfield_7_data_def_enum_12
+0x00023fbb	4500msec
+0x00023fc5	did_de00_subfield_7_data_def_enum_13
+0x00023ff5	4750msec
+0x00023fff	did_de00_subfield_7_data_def_enum_14
+0x0002402f	5000msec
+0x00024039	did_de00_subfield_7_data_def_enum_15
+0x00024069	5250msec
+0x00024073	did_de00_subfield_7_data_def_enum_16
+0x000240a4	0x02
+0x000240ab	did_de00_subfield_7_data_def
+0x000240d6	did_DE00_subfield_7
+0x000240eb	SCMRrWipeTime_Cfg
+0x00024123	1s
+0x00024127	did_de00_subfield_8_data_def_enum_1
+0x00024156	2s
+0x0002415a	did_de00_subfield_8_data_def_enum_2
+0x00024189	3s
+0x0002418d	did_de00_subfield_8_data_def_enum_3
+0x000241bc	4s
+0x000241c0	did_de00_subfield_8_data_def_enum_4
+0x000241f5	did_de00_subfield_8_data_def
+0x00024220	did_DE00_subfield_8
+0x00024235	SCMCourtesyWipeTime_Cfg
+0x00024273	600msec
+0x0002427c	did_de00_subfield_9_data_def_enum_1
+0x000242ab	800msec
+0x000242b4	did_de00_subfield_9_data_def_enum_2
+0x000242e3	1000msec
+0x000242ed	did_de00_subfield_9_data_def_enum_3
+0x0002431c	1200msec
+0x00024326	did_de00_subfield_9_data_def_enum_4
+0x00024355	1400msec
+0x0002435f	did_de00_subfield_9_data_def_enum_5
+0x0002438e	1600msec
+0x00024398	did_de00_subfield_9_data_def_enum_6
+0x000243c7	1800msec
+0x000243d1	did_de00_subfield_9_data_def_enum_7
+0x00024404	did_de00_subfield_9_data_def_enum_8
+0x00024439	did_de00_subfield_9_data_def
+0x00024464	did_DE00_subfield_9
+0x00024479	SCMHdlpWashOnTime_Cfg
+0x000244b9	did_de00_subfield_10_data_def_enum_1
+0x000244ed	did_de00_subfield_10_data_def_enum_2
+0x00024521	did_de00_subfield_10_data_def_enum_3
+0x00024555	did_de00_subfield_10_data_def_enum_4
+0x0002458b	did_de00_subfield_10_data_def
+0x000245b7	did_DE00_subfield_10
+0x000245cd	SCMHdlpWashOffTime_Cfg
+0x0002460a	100msec
+0x00024613	did_de00_subfield_11_data_def_enum_1
+0x00024643	250msec
+0x0002464c	did_de00_subfield_11_data_def_enum_2
+0x0002467c	400msec
+0x00024685	did_de00_subfield_11_data_def_enum_3
+0x000246b5	550msec
+0x000246be	did_de00_subfield_11_data_def_enum_4
+0x000246f4	did_de00_subfield_11_data_def
+0x00024720	did_DE00_subfield_11
+0x00024736	SCMWashB4WipeTime_Cfg
+0x00024772	8 sec (yes)
+0x0002477f	did_de00_subfield_12_data_def_enum_1
+0x000247af	10 sec (no)
+0x000247bc	did_de00_subfield_12_data_def_enum_2
+0x000247f2	did_de00_subfield_12_data_def
+0x0002481e	did_DE00_subfield_12
+0x00024834	SCMRrWipePos1_Cfg
+0x0002486c	0 sec (no)
+0x00024878	did_de00_subfield_13_data_def_enum_1
+0x000248a8	5 sec (yes)
+0x000248b5	did_de00_subfield_13_data_def_enum_2
+0x000248eb	did_de00_subfield_13_data_def
+0x00024917	did_DE00_subfield_13
+0x0002492d	SCMRrWipePos2_Cfg
+0x00024965	POS-1
+0x0002496c	did_de00_subfield_14_data_def_enum_1
+0x0002499c	POS-2
+0x000249a3	did_de00_subfield_14_data_def_enum_2
+0x000249d3	POS-3
+0x000249da	did_de00_subfield_14_data_def_enum_3
+0x00024a0a	POS-4
+0x00024a11	did_de00_subfield_14_data_def_enum_4
+0x00024a41	POS-5
+0x00024a48	did_de00_subfield_14_data_def_enum_5
+0x00024a78	POS-6
+0x00024a7f	did_de00_subfield_14_data_def_enum_6
+0x00024aaf	Unused
+0x00024ab7	did_de00_subfield_14_data_def_enum_7
+0x00024aeb	did_de00_subfield_14_data_def_enum_8
+0x00024b21	did_de00_subfield_14_data_def
+0x00024b4d	did_DE00_subfield_14
+0x00024b63	FWIntermittentMechPos1
+0x00024ba4	did_de00_subfield_15_data_def_enum_1
+0x00024bd8	did_de00_subfield_15_data_def_enum_2
+0x00024c0c	did_de00_subfield_15_data_def_enum_3
+0x00024c40	did_de00_subfield_15_data_def_enum_4
+0x00024c74	did_de00_subfield_15_data_def_enum_5
+0x00024ca8	did_de00_subfield_15_data_def_enum_6
+0x00024cdc	did_de00_subfield_15_data_def_enum_7
+0x00024d10	did_de00_subfield_15_data_def_enum_8
+0x00024d46	did_de00_subfield_15_data_def
+0x00024d72	did_DE00_subfield_15
+0x00024d88	FWIntermittentMechPos2
+0x00024dc9	did_de00_subfield_16_data_def_enum_1
+0x00024dfd	did_de00_subfield_16_data_def_enum_2
+0x00024e31	did_de00_subfield_16_data_def_enum_3
+0x00024e65	did_de00_subfield_16_data_def_enum_4
+0x00024e99	did_de00_subfield_16_data_def_enum_5
+0x00024ecd	did_de00_subfield_16_data_def_enum_6
+0x00024f01	did_de00_subfield_16_data_def_enum_7
+0x00024f35	did_de00_subfield_16_data_def_enum_8
+0x00024f66	0x04
+0x00024f6d	did_de00_subfield_16_data_def
+0x00024f99	did_DE00_subfield_16
+0x00024faf	FWIntermittentMechPos3
+0x00024ff0	did_de00_subfield_17_data_def_enum_1
+0x00025024	did_de00_subfield_17_data_def_enum_2
+0x00025058	did_de00_subfield_17_data_def_enum_3
+0x0002508c	did_de00_subfield_17_data_def_enum_4
+0x000250c0	did_de00_subfield_17_data_def_enum_5
+0x000250f4	did_de00_subfield_17_data_def_enum_6
+0x00025128	did_de00_subfield_17_data_def_enum_7
+0x0002515c	did_de00_subfield_17_data_def_enum_8
+0x0002518d	0x05
+0x00025194	did_de00_subfield_17_data_def
+0x000251c0	did_DE00_subfield_17
+0x000251d6	FWIntermittentMechPos4
+0x00025260	did_de00_subfield_18_data_def
+0x0002528c	did_DE00_subfield_18
+0x000252a2	AHBC_prevention_time
+0x0002530c	did_de00_subfield_19_data_def
+0x00025338	did_DE00_subfield_19
+0x0002534e	AHBC_Waiting_time_after_flash
+0x00025392	Config 1
+0x0002539c	did_de00_subfield_20_data_def_enum_1
+0x000253cc	Config 2
+0x000253d6	did_de00_subfield_20_data_def_enum_2
+0x0002540c	did_de00_subfield_20_data_def
+0x00025438	did_DE00_subfield_20
+0x0002544e	FrontWashWipe
+0x00025482	No
+0x00025486	did_de00_subfield_21_data_def_enum_1
+0x000254b6	Yes
+0x000254bb	did_de00_subfield_21_data_def_enum_2
+0x000254f1	did_de00_subfield_21_data_def
+0x0002551d	did_DE00_subfield_21
+0x00025533	SCMNeutralDisableAutoWipe_Cfg
+0x0002555a	did_DE00
+0x00025564	Customer Data
+0x000257b8	session_01
+0x000257c4	defaultSession
+0x000258cf	session_03
+0x000258db	extendedDiagnosticSession
+0x000258fb	service_22_p4_max_00
+0x00025a6e	session_02
+0x00025a7a	programmingSession
+0x00025a93	service_22_p4_max_01
+0x00025af6	nrc_13
+0x00025afe	incorrectMessageLengthOrInvalidFormat
+0x00025b3c	nrc_14
+0x00025b44	responseTooLong
+0x00025b6c	nrc_22
+0x00025b74	conditionsNotCorrect
+0x00025ba1	nrc_31
+0x00025ba9	requestOutOfRange
+0x00025bd3	nrc_88
+0x00025bdb	vehicleSpeedTooHigh
+0x00025c07	nrc_92
+0x00025c0f	voltageTooHigh
+0x00025c36	nrc_93
+0x00025c3e	voltageTooLow
+0x00025c66	service_22
+0x00025c72	ReadDataByIdentifier
+0x00025d15	Disable
+0x00025d1e	did_de01_subfield_1_data_def_enum_1
+0x00025d4d	Enable
+0x00025d55	did_de01_subfield_1_data_def_enum_2
+0x00025d85	0x00
+0x00025d8c	did_de01_subfield_1_data_def
+0x00025db7	did_DE01_subfield_1
+0x00025dcc	RSM_Present
+0x00025dfe	ECE market
+0x00025e0a	did_de01_subfield_2_data_def_enum_1
+0x00025e39	Non ECE market
+0x00025e49	did_de01_subfield_2_data_def_enum_2
+0x00025e78	reserved
+0x00025e82	did_de01_subfield_2_data_def_enum_3
+0x00025eb5	did_de01_subfield_2_data_def_enum_4
+0x00025eea	did_de01_subfield_2_data_def
+0x00025f15	did_DE01_subfield_2
+0x00025f2a	Variant_Market
+0x00025f5f	No
+0x00025f63	did_de01_subfield_3_data_def_enum_1
+0x00025f92	Yes
+0x00025f97	did_de01_subfield_3_data_def_enum_2
+0x00025fcc	did_de01_subfield_3_data_def
+0x00025ff7	did_DE01_subfield_3
+0x0002600c	LightSensor_Present
+0x00026046	B515MCA
+0x0002604f	did_de01_subfield_4_data_def_enum_1
+0x0002607e	B479
+0x00026084	did_de01_subfield_4_data_def_enum_2
+0x000260b3	C519
+0x000260b9	did_de01_subfield_4_data_def_enum_3
+0x000260ec	did_de01_subfield_4_data_def_enum_4
+0x0002611f	did_de01_subfield_4_data_def_enum_5
+0x00026152	did_de01_subfield_4_data_def_enum_6
+0x00026185	did_de01_subfield_4_data_def_enum_7
+0x000261b8	did_de01_subfield_4_data_def_enum_8
+0x000261e8	0x01
+0x000261ef	did_de01_subfield_4_data_def
+0x0002621a	did_DE01_subfield_4
+0x0002622f	HSW Carline
+0x00026265	did_de01_subfield_5_data_def_enum_1
+0x00026298	did_de01_subfield_5_data_def_enum_2
+0x000262cd	did_de01_subfield_5_data_def
+0x000262f8	did_DE01_subfield_5
+0x0002630d	WithRearWiper
+0x00026341	No Switch
+0x0002634c	did_de01_subfield_6_data_def_enum_1
+0x0002637b	H1BT-9E740-A*
+0x0002638a	did_de01_subfield_6_data_def_enum_2
+0x000263b9	H1BT-9E740-B*
+0x000263c8	did_de01_subfield_6_data_def_enum_3
+0x000263f7	H1BT-9E740-C*
+0x00026406	did_de01_subfield_6_data_def_enum_4
+0x00026435	H1BT-9E740-D*
+0x00026444	did_de01_subfield_6_data_def_enum_5
+0x00026473	H1BT-9E740-E*
+0x00026482	did_de01_subfield_6_data_def_enum_6
+0x000264b1	GN15-9E740-A*
+0x000264c0	did_de01_subfield_6_data_def_enum_7
+0x000264ef	GN15-9E740-B*
+0x000264fe	did_de01_subfield_6_data_def_enum_8
+0x0002652d	GN15-9E740-C*
+0x0002653c	did_de01_subfield_6_data_def_enum_9
+0x0002656b	GN15-14K147-A*
+0x0002657b	did_de01_subfield_6_data_def_enum_10
+0x000265ab	JX7T-9E740-A*
+0x000265ba	did_de01_subfield_6_data_def_enum_11
+0x000265ea	JX7T-9E740-B*
+0x000265f9	did_de01_subfield_6_data_def_enum_12
+0x0002662d	did_de01_subfield_6_data_def_enum_13
+0x0002665d	KT1T-14K147-A* / GK4T-9E740-A*
+0x0002667d	did_de01_subfield_6_data_def_enum_14
+0x000266ad	KT1T-14K147-A* / KT1T-9E740-C*
+0x000266cd	did_de01_subfield_6_data_def_enum_15
+0x000266fd	KT1T-14K147-A* / BK2T-9E740-A*
+0x0002671d	did_de01_subfield_6_data_def_enum_16
+0x0002674d	KT1T-14K147-A* / BK2T-9E740-B*
+0x0002676d	did_de01_subfield_6_data_def_enum_17
+0x000267a1	did_de01_subfield_6_data_def_enum_18
+0x000267d5	did_de01_subfield_6_data_def_enum_19
+0x00026809	did_de01_subfield_6_data_def_enum_20
+0x0002683d	did_de01_subfield_6_data_def_enum_21
+0x00026871	did_de01_subfield_6_data_def_enum_22
+0x000268a5	did_de01_subfield_6_data_def_enum_23
+0x000268d9	did_de01_subfield_6_data_def_enum_24
+0x0002690d	did_de01_subfield_6_data_def_enum_25
+0x00026941	did_de01_subfield_6_data_def_enum_26
+0x00026975	did_de01_subfield_6_data_def_enum_27
+0x000269a9	did_de01_subfield_6_data_def_enum_28
+0x000269dd	did_de01_subfield_6_data_def_enum_29
+0x00026a11	did_de01_subfield_6_data_def_enum_30
+0x00026a45	did_de01_subfield_6_data_def_enum_31
+0x00026a79	did_de01_subfield_6_data_def_enum_32
+0x00026aaf	did_de01_subfield_6_data_def
+0x00026ada	did_DE01_subfield_6
+0x00026aef	SteeringWheelSwitchLeft
+0x00026b2d	No switch
+0x00026b38	did_de01_subfield_7_data_def_enum_1
+0x00026b67	H1BT-14K147-A*
+0x00026b77	did_de01_subfield_7_data_def_enum_2
+0x00026ba6	H1BT-14K147-B*
+0x00026bb6	did_de01_subfield_7_data_def_enum_3
+0x00026be5	GJ5T-14K147-A*
+0x00026bf5	did_de01_subfield_7_data_def_enum_4
+0x00026c24	GJ5T-14K147-C*
+0x00026c34	did_de01_subfield_7_data_def_enum_5
+0x00026c63	JX7T-14K147-A*
+0x00026c73	did_de01_subfield_7_data_def_enum_6
+0x00026ca2	DM5T-14K147-D*
+0x00026cb2	did_de01_subfield_7_data_def_enum_7
+0x00026ce5	did_de01_subfield_7_data_def_enum_8
+0x00026d18	did_de01_subfield_7_data_def_enum_9
+0x00026d4b	did_de01_subfield_7_data_def_enum_10
+0x00026d7f	did_de01_subfield_7_data_def_enum_11
+0x00026db3	did_de01_subfield_7_data_def_enum_12
+0x00026de7	did_de01_subfield_7_data_def_enum_13
+0x00026e1b	did_de01_subfield_7_data_def_enum_14
+0x00026e4f	did_de01_subfield_7_data_def_enum_15
+0x00026e83	did_de01_subfield_7_data_def_enum_16
+0x00026eb7	did_de01_subfield_7_data_def_enum_17
+0x00026eeb	did_de01_subfield_7_data_def_enum_18
+0x00026f1f	did_de01_subfield_7_data_def_enum_19
+0x00026f53	did_de01_subfield_7_data_def_enum_20
+0x00026f87	did_de01_subfield_7_data_def_enum_21
+0x00026fbb	did_de01_subfield_7_data_def_enum_22
+0x00026fef	did_de01_subfield_7_data_def_enum_23
+0x00027023	did_de01_subfield_7_data_def_enum_24
+0x00027057	did_de01_subfield_7_data_def_enum_25
+0x0002708b	did_de01_subfield_7_data_def_enum_26
+0x000270bf	did_de01_subfield_7_data_def_enum_27
+0x000270f3	did_de01_subfield_7_data_def_enum_28
+0x00027127	did_de01_subfield_7_data_def_enum_29
+0x0002715b	did_de01_subfield_7_data_def_enum_30
+0x0002718f	did_de01_subfield_7_data_def_enum_31
+0x000271c3	did_de01_subfield_7_data_def_enum_32
+0x000271f9	did_de01_subfield_7_data_def
+0x00027224	did_DE01_subfield_7
+0x00027239	SteeringWheelSwitchRight
+0x0002727c	did_de01_subfield_8_data_def_enum_1
+0x000272af	did_de01_subfield_8_data_def_enum_2
+0x000272e4	did_de01_subfield_8_data_def
+0x0002730f	did_DE01_subfield_8
+0x00027324	WithLaneKeepingAid
+0x0002735d	Undefined
+0x00027368	did_de01_subfield_9_data_def_enum_1
+0x00027397	No AHB feature
+0x000273a7	did_de01_subfield_9_data_def_enum_2
+0x000273d6	AHBC
+0x000273dc	did_de01_subfield_9_data_def_enum_3
+0x0002740b	GFHB
+0x00027411	did_de01_subfield_9_data_def_enum_4
+0x00027446	did_de01_subfield_9_data_def
+0x00027471	did_DE01_subfield_9
+0x00027486	AHB_Feature
+0x0002749b	did_DE01
+0x000274a5	Static Data
+0x000276f5	session_01
+0x00027701	defaultSession
+0x0002780c	session_03
+0x00027818	extendedDiagnosticSession
+0x00027838	service_22_p4_max_00
+0x000279ab	session_02
+0x000279b7	programmingSession
+0x000279d0	service_22_p4_max_01
+0x00027a33	nrc_13
+0x00027a3b	incorrectMessageLengthOrInvalidFormat
+0x00027a79	nrc_14
+0x00027a81	responseTooLong
+0x00027aa9	nrc_22
+0x00027ab1	conditionsNotCorrect
+0x00027ade	nrc_31
+0x00027ae6	requestOutOfRange
+0x00027b10	nrc_88
+0x00027b18	vehicleSpeedTooHigh
+0x00027b44	nrc_92
+0x00027b4c	voltageTooHigh
+0x00027b73	nrc_93
+0x00027b7b	voltageTooLow
+0x00027ba3	service_22
+0x00027baf	ReadDataByIdentifier
+0x00027c52	Disable
+0x00027c5b	did_de02_subfield_1_data_def_enum_1
+0x00027c8a	Enable
+0x00027c92	did_de02_subfield_1_data_def_enum_2
+0x00027cc2	0x00
+0x00027cc9	did_de02_subfield_1_data_def
+0x00027cf4	did_DE02_subfield_1
+0x00027d09	SCMCourtesyWipeEnable_Cfg
+0x00027d4d	did_de02_subfield_2_data_def_enum_1
+0x00027d80	did_de02_subfield_2_data_def_enum_2
+0x00027db5	did_de02_subfield_2_data_def
+0x00027de0	did_DE02_subfield_2
+0x00027df5	SCMRainSensingEnable_Cfg
+0x00027e38	did_de02_subfield_3_data_def_enum_1
+0x00027e6b	did_de02_subfield_3_data_def_enum_2
+0x00027e9b	0x01
+0x00027ea2	did_de02_subfield_3_data_def
+0x00027ecd	did_DE02_subfield_3
+0x00027ee2	SCMRrWipeReverseWipe_Cfg
+0x00027f04	did_DE02
+0x00027f0e	Dynamic Data
+0x00028160	session_01
+0x0002816c	defaultSession
+0x00028277	session_03
+0x00028283	extendedDiagnosticSession
+0x000282a3	service_22_p4_max_00
+0x00028416	session_02
+0x00028422	programmingSession
+0x0002843b	service_22_p4_max_01
+0x0002849e	nrc_13
+0x000284a6	incorrectMessageLengthOrInvalidFormat
+0x000284e4	nrc_14
+0x000284ec	responseTooLong
+0x00028514	nrc_22
+0x0002851c	conditionsNotCorrect
+0x00028549	nrc_31
+0x00028551	requestOutOfRange
+0x0002857b	nrc_88
+0x00028583	vehicleSpeedTooHigh
+0x000285af	nrc_92
+0x000285b7	voltageTooHigh
+0x000285de	nrc_93
+0x000285e6	voltageTooLow
+0x0002860e	service_22
+0x0002861a	ReadDataByIdentifier
+0x000286aa	did_ee04_subfield_1_data_def
+0x000286d5	did_EE04_subfield_1
+0x000286ea	Wiper Switch Pack Status
+0x0002870c	did_EE04
+0x00028716	Wiper Switch Pack Status
+0x00028980	session_01
+0x0002898c	defaultSession
+0x00028a97	session_03
+0x00028aa3	extendedDiagnosticSession
+0x00028ac3	service_22_p4_max_00
+0x00028c36	session_02
+0x00028c42	programmingSession
+0x00028c5b	service_22_p4_max_01
+0x00028cbe	nrc_13
+0x00028cc6	incorrectMessageLengthOrInvalidFormat
+0x00028d04	nrc_14
+0x00028d0c	responseTooLong
+0x00028d34	nrc_22
+0x00028d3c	conditionsNotCorrect
+0x00028d69	nrc_31
+0x00028d71	requestOutOfRange
+0x00028d9b	nrc_88
+0x00028da3	vehicleSpeedTooHigh
+0x00028dcf	nrc_92
+0x00028dd7	voltageTooHigh
+0x00028dfe	nrc_93
+0x00028e06	voltageTooLow
+0x00028e2e	service_22
+0x00028e3a	ReadDataByIdentifier
+0x00028ece	did_ee05_subfield_1_data_def
+0x00028ef9	did_EE05_subfield_1
+0x00028f0e	Index
+0x00028f37	did_ee05_subfield_2_data_def
+0x00028f62	did_EE05_subfield_2
+0x00028f77	Byte 0
+0x00028fa1	did_ee05_subfield_3_data_def
+0x00028fcc	did_EE05_subfield_3
+0x00028fe1	Byte 1
+0x0002900b	did_ee05_subfield_4_data_def
+0x00029036	did_EE05_subfield_4
+0x0002904b	Byte 2
+0x00029075	did_ee05_subfield_5_data_def
+0x000290a0	did_EE05_subfield_5
+0x000290b5	Byte 3
+0x000290df	did_ee05_subfield_6_data_def
+0x0002910a	did_EE05_subfield_6
+0x0002911f	Byte 4
+0x00029149	did_ee05_subfield_7_data_def
+0x00029174	did_EE05_subfield_7
+0x00029189	Byte 5
+0x000291b3	did_ee05_subfield_8_data_def
+0x000291de	did_EE05_subfield_8
+0x000291f3	Byte 6
+0x0002921d	did_ee05_subfield_9_data_def
+0x00029248	did_EE05_subfield_9
+0x0002925d	Byte 7
+0x00029287	did_ee05_subfield_10_data_def
+0x000292b3	did_EE05_subfield_10
+0x000292c9	Byte 8
+0x000292f3	did_ee05_subfield_11_data_def
+0x0002931f	did_EE05_subfield_11
+0x00029335	Byte 9
+0x0002935f	did_ee05_subfield_12_data_def
+0x0002938b	did_EE05_subfield_12
+0x000293a1	Byte 10
+0x000293cc	did_ee05_subfield_13_data_def
+0x000293f8	did_EE05_subfield_13
+0x0002940e	Byte 11
+0x00029439	did_ee05_subfield_14_data_def
+0x00029465	did_EE05_subfield_14
+0x0002947b	Byte 12
+0x000294a6	did_ee05_subfield_15_data_def
+0x000294d2	did_EE05_subfield_15
+0x000294e8	Byte 13
+0x00029513	did_ee05_subfield_16_data_def
+0x0002953f	did_EE05_subfield_16
+0x00029555	Byte 14
+0x00029580	did_ee05_subfield_17_data_def
+0x000295ac	did_EE05_subfield_17
+0x000295c2	Byte 15
+0x000295ed	did_ee05_subfield_18_data_def
+0x00029619	did_EE05_subfield_18
+0x0002962f	Byte 16
+0x0002965a	did_ee05_subfield_19_data_def
+0x00029686	did_EE05_subfield_19
+0x0002969c	Byte 17
+0x000296c7	did_ee05_subfield_20_data_def
+0x000296f3	did_EE05_subfield_20
+0x00029709	Byte 18
+0x00029734	did_ee05_subfield_21_data_def
+0x00029760	did_EE05_subfield_21
+0x00029776	Byte 19
+0x000297a1	did_ee05_subfield_22_data_def
+0x000297cd	did_EE05_subfield_22
+0x000297e3	Byte 20
+0x0002980e	did_ee05_subfield_23_data_def
+0x0002983a	did_EE05_subfield_23
+0x00029850	Byte 21
+0x0002987b	did_ee05_subfield_24_data_def
+0x000298a7	did_EE05_subfield_24
+0x000298bd	Byte 22
+0x000298e8	did_ee05_subfield_25_data_def
+0x00029914	did_EE05_subfield_25
+0x0002992a	Byte 23
+0x00029955	did_ee05_subfield_26_data_def
+0x00029981	did_EE05_subfield_26
+0x00029997	Byte 24
+0x000299c2	did_ee05_subfield_27_data_def
+0x000299ee	did_EE05_subfield_27
+0x00029a04	Byte 25
+0x00029a2f	did_ee05_subfield_28_data_def
+0x00029a5b	did_EE05_subfield_28
+0x00029a71	Byte 26
+0x00029a9c	did_ee05_subfield_29_data_def
+0x00029ac8	did_EE05_subfield_29
+0x00029ade	Byte 27
+0x00029b09	did_ee05_subfield_30_data_def
+0x00029b35	did_EE05_subfield_30
+0x00029b4b	Byte 28
+0x00029b76	did_ee05_subfield_31_data_def
+0x00029ba2	did_EE05_subfield_31
+0x00029bb8	Byte 29
+0x00029be3	did_ee05_subfield_32_data_def
+0x00029c0f	did_EE05_subfield_32
+0x00029c25	Byte 30
+0x00029c50	did_ee05_subfield_33_data_def
+0x00029c7c	did_EE05_subfield_33
+0x00029c92	Byte 31
+0x00029cbd	did_ee05_subfield_34_data_def
+0x00029ce9	did_EE05_subfield_34
+0x00029cff	Byte 32
+0x00029d2a	did_ee05_subfield_35_data_def
+0x00029d56	did_EE05_subfield_35
+0x00029d6c	Byte 33
+0x00029d97	did_ee05_subfield_36_data_def
+0x00029dc3	did_EE05_subfield_36
+0x00029dd9	Byte 34
+0x00029e04	did_ee05_subfield_37_data_def
+0x00029e30	did_EE05_subfield_37
+0x00029e46	Byte 35
+0x00029e6d	did_ee05_subfield_38_data_def
+0x00029e99	did_EE05_subfield_38
+0x00029eaf	Byte 36
+0x00029ed6	did_ee05_subfield_39_data_def
+0x00029f02	did_EE05_subfield_39
+0x00029f18	Byte 37
+0x00029f3f	did_ee05_subfield_40_data_def
+0x00029f6b	did_EE05_subfield_40
+0x00029f81	Byte 38
+0x00029fa8	did_ee05_subfield_41_data_def
+0x00029fd4	did_EE05_subfield_41
+0x00029fea	Byte 39
+0x0002a011	did_ee05_subfield_42_data_def
+0x0002a03d	did_EE05_subfield_42
+0x0002a053	Byte 40
+0x0002a07a	did_ee05_subfield_43_data_def
+0x0002a0a6	did_EE05_subfield_43
+0x0002a0bc	Byte 41
+0x0002a0e3	did_ee05_subfield_44_data_def
+0x0002a10f	did_EE05_subfield_44
+0x0002a125	Byte 42
+0x0002a14c	did_ee05_subfield_45_data_def
+0x0002a178	did_EE05_subfield_45
+0x0002a18e	Byte 43
+0x0002a1b5	did_ee05_subfield_46_data_def
+0x0002a1e1	did_EE05_subfield_46
+0x0002a1f7	Byte 44
+0x0002a21e	did_ee05_subfield_47_data_def
+0x0002a24a	did_EE05_subfield_47
+0x0002a260	Byte 45
+0x0002a287	did_ee05_subfield_48_data_def
+0x0002a2b3	did_EE05_subfield_48
+0x0002a2c9	Byte 46
+0x0002a2f0	did_ee05_subfield_49_data_def
+0x0002a31c	did_EE05_subfield_49
+0x0002a332	Byte 47
+0x0002a359	did_ee05_subfield_50_data_def
+0x0002a385	did_EE05_subfield_50
+0x0002a39b	Byte 48
+0x0002a3c2	did_ee05_subfield_51_data_def
+0x0002a3ee	did_EE05_subfield_51
+0x0002a404	Byte 49
+0x0002a42b	did_ee05_subfield_52_data_def
+0x0002a457	did_EE05_subfield_52
+0x0002a46d	Byte 50
+0x0002a494	did_ee05_subfield_53_data_def
+0x0002a4c0	did_EE05_subfield_53
+0x0002a4d6	Byte 51
+0x0002a4e7	did_EE05
+0x0002a4f1	Wiper Switch Pack Status Shadow
+0x0002a769	session_01
+0x0002a775	defaultSession
+0x0002a880	session_03
+0x0002a88c	extendedDiagnosticSession
+0x0002a8ac	service_22_p4_max_00
+0x0002aa1f	session_02
+0x0002aa2b	programmingSession
+0x0002aa44	service_22_p4_max_01
+0x0002aaa7	nrc_13
+0x0002aaaf	incorrectMessageLengthOrInvalidFormat
+0x0002aaed	nrc_14
+0x0002aaf5	responseTooLong
+0x0002ab1d	nrc_22
+0x0002ab25	conditionsNotCorrect
+0x0002ab52	nrc_31
+0x0002ab5a	requestOutOfRange
+0x0002ab84	nrc_88
+0x0002ab8c	vehicleSpeedTooHigh
+0x0002abb8	nrc_92
+0x0002abc0	voltageTooHigh
+0x0002abe7	nrc_93
+0x0002abef	voltageTooLow
+0x0002ac17	service_22
+0x0002ac23	ReadDataByIdentifier
+0x0002acb7	did_ee06_subfield_1_data_def
+0x0002ace2	did_EE06_subfield_1
+0x0002acf7	Data01
+0x0002ad21	did_ee06_subfield_2_data_def
+0x0002ad4c	did_EE06_subfield_2
+0x0002ad61	Data02
+0x0002ad8b	did_ee06_subfield_3_data_def
+0x0002adb6	did_EE06_subfield_3
+0x0002adcb	Data03
+0x0002adf5	did_ee06_subfield_4_data_def
+0x0002ae20	did_EE06_subfield_4
+0x0002ae35	Data04
+0x0002ae5f	did_ee06_subfield_5_data_def
+0x0002ae8a	did_EE06_subfield_5
+0x0002ae9f	Data05
+0x0002aec9	did_ee06_subfield_6_data_def
+0x0002aef4	did_EE06_subfield_6
+0x0002af09	Data06
+0x0002af33	did_ee06_subfield_7_data_def
+0x0002af5e	did_EE06_subfield_7
+0x0002af73	Data07
+0x0002af9d	did_ee06_subfield_8_data_def
+0x0002afc8	did_EE06_subfield_8
+0x0002afdd	Data08
+0x0002b007	did_ee06_subfield_9_data_def
+0x0002b032	did_EE06_subfield_9
+0x0002b047	Data09
+0x0002b071	did_ee06_subfield_10_data_def
+0x0002b09d	did_EE06_subfield_10
+0x0002b0b3	Data10
+0x0002b0dd	did_ee06_subfield_11_data_def
+0x0002b109	did_EE06_subfield_11
+0x0002b11f	Data11
+0x0002b149	did_ee06_subfield_12_data_def
+0x0002b175	did_EE06_subfield_12
+0x0002b18b	Data12
+0x0002b1b5	did_ee06_subfield_13_data_def
+0x0002b1e1	did_EE06_subfield_13
+0x0002b1f7	Data13
+0x0002b21d	did_ee06_subfield_14_data_def
+0x0002b249	did_EE06_subfield_14
+0x0002b25f	Data14
+0x0002b285	did_ee06_subfield_15_data_def
+0x0002b2b1	did_EE06_subfield_15
+0x0002b2c7	Data15
+0x0002b2ed	did_ee06_subfield_16_data_def
+0x0002b319	did_EE06_subfield_16
+0x0002b32f	Data16
+0x0002b355	did_ee06_subfield_17_data_def
+0x0002b381	did_EE06_subfield_17
+0x0002b397	Data17
+0x0002b3bd	did_ee06_subfield_18_data_def
+0x0002b3e9	did_EE06_subfield_18
+0x0002b3ff	Data18
+0x0002b425	did_ee06_subfield_19_data_def
+0x0002b451	did_EE06_subfield_19
+0x0002b467	Data19
+0x0002b48d	did_ee06_subfield_20_data_def
+0x0002b4b9	did_EE06_subfield_20
+0x0002b4cf	Data20
+0x0002b4f5	did_ee06_subfield_21_data_def
+0x0002b521	did_EE06_subfield_21
+0x0002b537	Data21
+0x0002b547	did_EE06
+0x0002b551	Data Set 0
+0x0002b79f	session_01
+0x0002b7ab	defaultSession
+0x0002b8b6	session_03
+0x0002b8c2	extendedDiagnosticSession
+0x0002b8e2	service_22_p4_max_00
+0x0002ba55	session_02
+0x0002ba61	programmingSession
+0x0002ba7a	service_22_p4_max_01
+0x0002badd	nrc_13
+0x0002bae5	incorrectMessageLengthOrInvalidFormat
+0x0002bb23	nrc_14
+0x0002bb2b	responseTooLong
+0x0002bb53	nrc_22
+0x0002bb5b	conditionsNotCorrect
+0x0002bb88	nrc_31
+0x0002bb90	requestOutOfRange
+0x0002bbba	nrc_88
+0x0002bbc2	vehicleSpeedTooHigh
+0x0002bbee	nrc_92
+0x0002bbf6	voltageTooHigh
+0x0002bc1d	nrc_93
+0x0002bc25	voltageTooLow
+0x0002bc4d	service_22
+0x0002bc59	ReadDataByIdentifier
+0x0002bd1e	did_f110_subfield_1_data_def
+0x0002bd49	did_F110_subfield_1
+0x0002bd5e	Subsystem Specific Diagnostic Specification Part Number
+0x0002bd9e	This DID is used to report the ECU's Part 2 Spec WERS Part Number (e.g., DS-1234-ABCD-AA).
+0x0002bdfa	did_F110
+0x0002be04	Subsystem Specific Diagnostic Specification Part Number
+0x0002c0ac	session_01
+0x0002c0b8	defaultSession
+0x0002c1c3	session_03
+0x0002c1cf	extendedDiagnosticSession
+0x0002c1ef	service_22_p4_max_00
+0x0002c362	session_02
+0x0002c36e	programmingSession
+0x0002c387	service_22_p4_max_01
+0x0002c3ea	nrc_13
+0x0002c3f2	incorrectMessageLengthOrInvalidFormat
+0x0002c430	nrc_14
+0x0002c438	responseTooLong
+0x0002c460	nrc_22
+0x0002c468	conditionsNotCorrect
+0x0002c495	nrc_31
+0x0002c49d	requestOutOfRange
+0x0002c4c7	nrc_88
+0x0002c4cf	vehicleSpeedTooHigh
+0x0002c4fb	nrc_92
+0x0002c503	voltageTooHigh
+0x0002c52a	nrc_93
+0x0002c532	voltageTooLow
+0x0002c55a	service_22
+0x0002c566	ReadDataByIdentifier
+0x0002c62f	did_f111_subfield_1_data_def
+0x0002c65a	did_F111_subfield_1
+0x0002c66f	ECU Core Assembly Number
+0x0002c691	did_F111
+0x0002c69b	ECU Core Assembly Number
+0x0002c905	session_01
+0x0002c911	defaultSession
+0x0002ca1c	session_03
+0x0002ca28	extendedDiagnosticSession
+0x0002ca48	service_22_p4_max_00
+0x0002cbbb	session_02
+0x0002cbc7	programmingSession
+0x0002cbe0	service_22_p4_max_01
+0x0002cc43	nrc_13
+0x0002cc4b	incorrectMessageLengthOrInvalidFormat
+0x0002cc89	nrc_14
+0x0002cc91	responseTooLong
+0x0002ccb9	nrc_22
+0x0002ccc1	conditionsNotCorrect
+0x0002ccee	nrc_31
+0x0002ccf6	requestOutOfRange
+0x0002cd20	nrc_88
+0x0002cd28	vehicleSpeedTooHigh
+0x0002cd54	nrc_92
+0x0002cd5c	voltageTooHigh
+0x0002cd83	nrc_93
+0x0002cd8b	voltageTooLow
+0x0002cdb3	service_22
+0x0002cdbf	ReadDataByIdentifier
+0x0002ce88	did_f113_subfield_1_data_def
+0x0002ceb3	did_F113_subfield_1
+0x0002cec8	ECU Delivery Assembly Number
+0x0002ceee	did_F113
+0x0002cef8	ECU Delivery Assembly Number
+0x0002d16a	session_01
+0x0002d176	defaultSession
+0x0002d281	session_03
+0x0002d28d	extendedDiagnosticSession
+0x0002d2ad	service_22_p4_max_00
+0x0002d420	session_02
+0x0002d42c	programmingSession
+0x0002d445	service_22_p4_max_01
+0x0002d4a8	nrc_13
+0x0002d4b0	incorrectMessageLengthOrInvalidFormat
+0x0002d4ee	nrc_14
+0x0002d4f6	responseTooLong
+0x0002d51e	nrc_22
+0x0002d526	conditionsNotCorrect
+0x0002d553	nrc_31
+0x0002d55b	requestOutOfRange
+0x0002d585	nrc_88
+0x0002d58d	vehicleSpeedTooHigh
+0x0002d5b9	nrc_92
+0x0002d5c1	voltageTooHigh
+0x0002d5e8	nrc_93
+0x0002d5f0	voltageTooLow
+0x0002d618	service_22
+0x0002d624	ReadDataByIdentifier
+0x0002d6e9	did_f129_subfield_1_data_def
+0x0002d714	did_F129_subfield_1
+0x0002d729	Private Sub Node #1 Part Number
+0x0002d752	did_F129
+0x0002d75c	Private Sub Node #1 Part Number
+0x0002d9d4	session_01
+0x0002d9e0	defaultSession
+0x0002daeb	session_03
+0x0002daf7	extendedDiagnosticSession
+0x0002db17	service_22_p4_max_00
+0x0002dc8a	session_02
+0x0002dc96	programmingSession
+0x0002dcaf	service_22_p4_max_01
+0x0002dd12	nrc_13
+0x0002dd1a	incorrectMessageLengthOrInvalidFormat
+0x0002dd58	nrc_14
+0x0002dd60	responseTooLong
+0x0002dd88	nrc_22
+0x0002dd90	conditionsNotCorrect
+0x0002ddbd	nrc_31
+0x0002ddc5	requestOutOfRange
+0x0002ddef	nrc_88
+0x0002ddf7	vehicleSpeedTooHigh
+0x0002de23	nrc_92
+0x0002de2b	voltageTooHigh
+0x0002de52	nrc_93
+0x0002de5a	voltageTooLow
+0x0002de82	service_22
+0x0002de8e	ReadDataByIdentifier
+0x0002df53	did_f12a_subfield_1_data_def
+0x0002df7e	did_F12A_subfield_1
+0x0002df93	Private Sub Node #2 Part Number
+0x0002dfbc	did_F12A
+0x0002dfc6	Private Sub Node #2 Part Number
+0x0002e23e	session_01
+0x0002e24a	defaultSession
+0x0002e355	session_03
+0x0002e361	extendedDiagnosticSession
+0x0002e381	service_22_p4_max_00
+0x0002e4f4	session_02
+0x0002e500	programmingSession
+0x0002e519	service_22_p4_max_01
+0x0002e57c	nrc_13
+0x0002e584	incorrectMessageLengthOrInvalidFormat
+0x0002e5c2	nrc_14
+0x0002e5ca	responseTooLong
+0x0002e5f2	nrc_22
+0x0002e5fa	conditionsNotCorrect
+0x0002e627	nrc_31
+0x0002e62f	requestOutOfRange
+0x0002e659	nrc_88
+0x0002e661	vehicleSpeedTooHigh
+0x0002e68d	nrc_92
+0x0002e695	voltageTooHigh
+0x0002e6bc	nrc_93
+0x0002e6c4	voltageTooLow
+0x0002e6ec	service_22
+0x0002e6f8	ReadDataByIdentifier
+0x0002e7bd	did_f12b_subfield_1_data_def
+0x0002e7e8	did_F12B_subfield_1
+0x0002e7fd	Private Sub Node #3 Part Number
+0x0002e826	did_F12B
+0x0002e830	Private Sub Node #3 Part Number
+0x0002eaa8	session_01
+0x0002eab4	defaultSession
+0x0002ebbf	session_03
+0x0002ebcb	extendedDiagnosticSession
+0x0002ebeb	service_22_p4_max_00
+0x0002ed5e	session_02
+0x0002ed6a	programmingSession
+0x0002ed83	service_22_p4_max_01
+0x0002ede6	nrc_13
+0x0002edee	incorrectMessageLengthOrInvalidFormat
+0x0002ee2c	nrc_14
+0x0002ee34	responseTooLong
+0x0002ee5c	nrc_22
+0x0002ee64	conditionsNotCorrect
+0x0002ee91	nrc_31
+0x0002ee99	requestOutOfRange
+0x0002eec3	nrc_88
+0x0002eecb	vehicleSpeedTooHigh
+0x0002eef7	nrc_92
+0x0002eeff	voltageTooHigh
+0x0002ef26	nrc_93
+0x0002ef2e	voltageTooLow
+0x0002ef56	service_22
+0x0002ef62	ReadDataByIdentifier
+0x0002eff9	Vector
+0x0002f001	did_f15f_subfield_1_data_def_enum_1
+0x0002f033	did_f15f_subfield_1_data_def
+0x0002f05e	did_F15F_subfield_1
+0x0002f073	NOS Generation Tool Supplier
+0x0002f0af	did_f15f_subfield_2_data_def
+0x0002f0da	did_F15F_subfield_2
+0x0002f0ef	NOS Generation Tool Version Number
+0x0002f11b	did_F15F
+0x0002f125	NOS Generation Tool Version Number
+0x0002f3a3	session_01
+0x0002f3af	defaultSession
+0x0002f4ba	session_03
+0x0002f4c6	extendedDiagnosticSession
+0x0002f4e6	service_22_p4_max_00
+0x0002f659	session_02
+0x0002f665	programmingSession
+0x0002f67e	service_22_p4_max_01
+0x0002f6e1	nrc_13
+0x0002f6e9	incorrectMessageLengthOrInvalidFormat
+0x0002f727	nrc_14
+0x0002f72f	responseTooLong
+0x0002f757	nrc_22
+0x0002f75f	conditionsNotCorrect
+0x0002f78c	nrc_31
+0x0002f794	requestOutOfRange
+0x0002f7be	nrc_88
+0x0002f7c6	vehicleSpeedTooHigh
+0x0002f7f2	nrc_92
+0x0002f7fa	voltageTooHigh
+0x0002f821	nrc_93
+0x0002f829	voltageTooLow
+0x0002f851	service_22
+0x0002f85d	ReadDataByIdentifier
+0x0002f8f2	SWDL 31808456 Issue P01
+0x0002f90b	did_f162_subfield_1_data_def_enum_1
+0x0002f93a	SWDL 31808456 Issue 001
+0x0002f953	did_f162_subfield_1_data_def_enum_2
+0x0002f982	SWDL 31808456 Issue 002
+0x0002f99b	did_f162_subfield_1_data_def_enum_3
+0x0002f9ca	SWDL 31808456 Issue 003
+0x0002f9e3	did_f162_subfield_1_data_def_enum_4
+0x0002fa12	SWDL 31808456 Issue 004
+0x0002fa2b	did_f162_subfield_1_data_def_enum_5
+0x0002fa5a	SWDL 31808456 Issue 005
+0x0002fa73	did_f162_subfield_1_data_def_enum_6
+0x0002faa2	SWDL 00.06.15.002-006
+0x0002fab9	did_f162_subfield_1_data_def_enum_7
+0x0002faeb	did_f162_subfield_1_data_def
+0x0002fb16	did_F162_subfield_1
+0x0002fb2b	Software Download Specification Version
+0x0002fb5c	did_F162
+0x0002fb66	Software Download Specification Version
+0x0002fdee	session_01
+0x0002fdfa	defaultSession
+0x0002ff05	session_03
+0x0002ff11	extendedDiagnosticSession
+0x0002ff31	service_22_p4_max_00
+0x000300a4	session_02
+0x000300b0	programmingSession
+0x000300c9	service_22_p4_max_01
+0x0003012c	nrc_13
+0x00030134	incorrectMessageLengthOrInvalidFormat
+0x00030172	nrc_14
+0x0003017a	responseTooLong
+0x000301a2	nrc_22
+0x000301aa	conditionsNotCorrect
+0x000301d7	nrc_31
+0x000301df	requestOutOfRange
+0x00030209	nrc_88
+0x00030211	vehicleSpeedTooHigh
+0x0003023d	nrc_92
+0x00030245	voltageTooHigh
+0x0003026c	nrc_93
+0x00030274	voltageTooLow
+0x0003029c	service_22
+0x000302a8	ReadDataByIdentifier
+0x0003033f	GGDS 31810161 Issue 001
+0x00030358	did_f163_subfield_1_data_def_enum_1
+0x00030387	GGDS 31810161 Issue 002
+0x000303a0	did_f163_subfield_1_data_def_enum_2
+0x000303cf	GGDS 31810161 Issue 003
+0x000303e8	did_f163_subfield_1_data_def_enum_3
+0x00030417	GGDS 00.06.15.001-004
+0x0003042e	did_f163_subfield_1_data_def_enum_4
+0x00030460	did_f163_subfield_1_data_def
+0x0003048b	did_F163_subfield_1
+0x000304a0	Diagnostic Specification Version
+0x000304ca	did_F163
+0x000304d4	Diagnostic Specification Version
+0x0003074e	session_01
+0x0003075a	defaultSession
+0x00030865	session_03
+0x00030871	extendedDiagnosticSession
+0x00030891	service_22_p4_max_00
+0x00030a04	session_02
+0x00030a10	programmingSession
+0x00030a29	service_22_p4_max_01
+0x00030a8c	nrc_13
+0x00030a94	incorrectMessageLengthOrInvalidFormat
+0x00030ad2	nrc_14
+0x00030ada	responseTooLong
+0x00030b02	nrc_22
+0x00030b0a	conditionsNotCorrect
+0x00030b37	nrc_31
+0x00030b3f	requestOutOfRange
+0x00030b69	nrc_88
+0x00030b71	vehicleSpeedTooHigh
+0x00030b9d	nrc_92
+0x00030ba5	voltageTooHigh
+0x00030bcc	nrc_93
+0x00030bd4	voltageTooLow
+0x00030bfc	service_22
+0x00030c08	ReadDataByIdentifier
+0x00030ccb	did_f166_subfield_1_data_def
+0x00030cf6	did_F166_subfield_1
+0x00030d0b	Year
+0x00030d3c	did_f166_subfield_2_data_def
+0x00030d67	did_F166_subfield_2
+0x00030d7c	Month
+0x00030dae	did_f166_subfield_3_data_def
+0x00030dd9	did_F166_subfield_3
+0x00030dee	Day
+0x00030e1e	did_f166_subfield_4_data_def
+0x00030e49	did_F166_subfield_4
+0x00030e5e	Release Version
+0x00030e77	did_F166
+0x00030e81	NOS Message Database #1 Version Number
+0x00031107	session_01
+0x00031113	defaultSession
+0x0003121e	session_03
+0x0003122a	extendedDiagnosticSession
+0x0003124a	service_22_p4_max_00
+0x000313bd	session_02
+0x000313c9	programmingSession
+0x000313e2	service_22_p4_max_01
+0x00031445	nrc_13
+0x0003144d	incorrectMessageLengthOrInvalidFormat
+0x0003148b	nrc_14
+0x00031493	responseTooLong
+0x000314bb	nrc_22
+0x000314c3	conditionsNotCorrect
+0x000314f0	nrc_31
+0x000314f8	requestOutOfRange
+0x00031522	nrc_88
+0x0003152a	vehicleSpeedTooHigh
+0x00031556	nrc_92
+0x0003155e	voltageTooHigh
+0x00031585	nrc_93
+0x0003158d	voltageTooLow
+0x000315b5	service_22
+0x000315c1	ReadDataByIdentifier
+0x00031656	Vector
+0x0003165e	did_f17c_subfield_1_data_def_enum_1
+0x00031690	did_f17c_subfield_1_data_def
+0x000316bb	did_F17C_subfield_1
+0x000316d0	NOS Bootloader Generation Tool Supplier
+0x00031717	did_f17c_subfield_2_data_def
+0x00031742	did_F17C_subfield_2
+0x00031757	NOS Bootloader Generation Tool Version Number
+0x0003178e	did_F17C
+0x00031798	NOS Bootloader Generation Tool Version Number
+0x00031a2c	session_01
+0x00031a38	defaultSession
+0x00031b43	session_03
+0x00031b4f	extendedDiagnosticSession
+0x00031b6f	service_22_p4_max_00
+0x00031ce2	session_02
+0x00031cee	programmingSession
+0x00031d07	service_22_p4_max_01
+0x00031d6a	nrc_13
+0x00031d72	incorrectMessageLengthOrInvalidFormat
+0x00031db0	nrc_14
+0x00031db8	responseTooLong
+0x00031de0	nrc_22
+0x00031de8	conditionsNotCorrect
+0x00031e15	nrc_31
+0x00031e1d	requestOutOfRange
+0x00031e47	nrc_88
+0x00031e4f	vehicleSpeedTooHigh
+0x00031e7b	nrc_92
+0x00031e83	voltageTooHigh
+0x00031eaa	nrc_93
+0x00031eb2	voltageTooLow
+0x00031eda	service_22
+0x00031ee6	ReadDataByIdentifier
+0x00031fcc	did_f180_subfield_1_data_def
+0x00031ff7	did_F180_subfield_1
+0x0003200c	Number Of Modules (ISO14229 compatibility - always set to 01h)
+0x0003209f	did_f180_subfield_2_data_def
+0x000320ca	did_F180_subfield_2
+0x000320df	Boot Software Identifcation Data (Part no. of the bootloader)
+0x00032126	did_F180
+0x00032130	Boot Software Identification
+0x000323a2	session_01
+0x000323ae	defaultSession
+0x000324b9	session_03
+0x000324c5	extendedDiagnosticSession
+0x000324e5	service_22_p4_max_00
+0x00032658	session_02
+0x00032664	programmingSession
+0x0003267d	service_22_p4_max_01
+0x000326e0	nrc_13
+0x000326e8	incorrectMessageLengthOrInvalidFormat
+0x00032726	nrc_14
+0x0003272e	responseTooLong
+0x00032756	nrc_22
+0x0003275e	conditionsNotCorrect
+0x0003278b	nrc_31
+0x00032793	requestOutOfRange
+0x000327bd	nrc_88
+0x000327c5	vehicleSpeedTooHigh
+0x000327f1	nrc_92
+0x000327f9	voltageTooHigh
+0x00032820	nrc_93
+0x00032828	voltageTooLow
+0x00032850	service_22
+0x0003285c	ReadDataByIdentifier
+0x00032921	did_f188_subfield_1_data_def
+0x0003294c	did_F188_subfield_1
+0x00032961	Vehicle Manufacturer ECU Software Number
+0x00032993	did_F188
+0x0003299d	Vehicle Manufacturer ECU Software Number
+0x00032c27	session_01
+0x00032c33	defaultSession
+0x00032d3e	session_03
+0x00032d4a	extendedDiagnosticSession
+0x00032d6a	service_22_p4_max_00
+0x00032edd	session_02
+0x00032ee9	programmingSession
+0x00032f02	service_22_p4_max_01
+0x00032f65	nrc_13
+0x00032f6d	incorrectMessageLengthOrInvalidFormat
+0x00032fab	nrc_14
+0x00032fb3	responseTooLong
+0x00032fdb	nrc_22
+0x00032fe3	conditionsNotCorrect
+0x00033010	nrc_31
+0x00033018	requestOutOfRange
+0x00033042	nrc_88
+0x0003304a	vehicleSpeedTooHigh
+0x00033076	nrc_92
+0x0003307e	voltageTooHigh
+0x000330a5	nrc_93
+0x000330ad	voltageTooLow
+0x000330d5	service_22
+0x000330e1	ReadDataByIdentifier
+0x000331a8	did_f18c_subfield_1_data_def
+0x000331d3	did_F18C_subfield_1
+0x000331e8	ECU Serial Number
+0x00033203	did_F18C
+0x0003320d	ECU Serial Number
+0x00033475	session_01
+0x00033481	defaultSession
+0x0003358c	session_03
+0x00033598	extendedDiagnosticSession
+0x000335b8	service_22_p4_max_00
+0x0003372b	session_02
+0x00033737	programmingSession
+0x00033750	service_22_p4_max_01
+0x000337b3	nrc_13
+0x000337bb	incorrectMessageLengthOrInvalidFormat
+0x000337f9	nrc_14
+0x00033801	responseTooLong
+0x00033829	nrc_22
+0x00033831	conditionsNotCorrect
+0x0003385e	nrc_31
+0x00033866	requestOutOfRange
+0x00033890	nrc_88
+0x00033898	vehicleSpeedTooHigh
+0x000338c4	nrc_92
+0x000338cc	voltageTooHigh
+0x000338f3	nrc_93
+0x000338fb	voltageTooLow
+0x00033923	service_22
+0x0003392f	ReadDataByIdentifier
+0x00033984	did_F200
+0x0003398e	DynamicPeriodicDidNo0
+0x00033bfe	session_01
+0x00033c0a	defaultSession
+0x00033d15	session_03
+0x00033d21	extendedDiagnosticSession
+0x00033d41	service_22_p4_max_00
+0x00033eb4	session_02
+0x00033ec0	programmingSession
+0x00033ed9	service_22_p4_max_01
+0x00033f3c	nrc_13
+0x00033f44	incorrectMessageLengthOrInvalidFormat
+0x00033f82	nrc_14
+0x00033f8a	responseTooLong
+0x00033fb2	nrc_22
+0x00033fba	conditionsNotCorrect
+0x00033fe7	nrc_31
+0x00033fef	requestOutOfRange
+0x00034019	nrc_88
+0x00034021	vehicleSpeedTooHigh
+0x0003404d	nrc_92
+0x00034055	voltageTooHigh
+0x0003407c	nrc_93
+0x00034084	voltageTooLow
+0x000340ac	service_22
+0x000340b8	ReadDataByIdentifier
+0x0003410d	did_F201
+0x00034117	DynamicPeriodicDidNo1
+0x00034387	session_01
+0x00034393	defaultSession
+0x0003449e	session_03
+0x000344aa	extendedDiagnosticSession
+0x000344ca	service_22_p4_max_00
+0x0003463d	session_02
+0x00034649	programmingSession
+0x00034662	service_22_p4_max_01
+0x000346c5	nrc_13
+0x000346cd	incorrectMessageLengthOrInvalidFormat
+0x0003470b	nrc_14
+0x00034713	responseTooLong
+0x0003473b	nrc_22
+0x00034743	conditionsNotCorrect
+0x00034770	nrc_31
+0x00034778	requestOutOfRange
+0x000347a2	nrc_88
+0x000347aa	vehicleSpeedTooHigh
+0x000347d6	nrc_92
+0x000347de	voltageTooHigh
+0x00034805	nrc_93
+0x0003480d	voltageTooLow
+0x00034835	service_22
+0x00034841	ReadDataByIdentifier
+0x00034896	did_F202
+0x000348a0	DynamicPeriodicDidNo2
+0x00034b10	session_01
+0x00034b1c	defaultSession
+0x00034c27	session_03
+0x00034c33	extendedDiagnosticSession
+0x00034c53	service_22_p4_max_00
+0x00034dc6	session_02
+0x00034dd2	programmingSession
+0x00034deb	service_22_p4_max_01
+0x00034e4e	nrc_13
+0x00034e56	incorrectMessageLengthOrInvalidFormat
+0x00034e94	nrc_14
+0x00034e9c	responseTooLong
+0x00034ec4	nrc_22
+0x00034ecc	conditionsNotCorrect
+0x00034ef9	nrc_31
+0x00034f01	requestOutOfRange
+0x00034f2b	nrc_88
+0x00034f33	vehicleSpeedTooHigh
+0x00034f5f	nrc_92
+0x00034f67	voltageTooHigh
+0x00034f8e	nrc_93
+0x00034f96	voltageTooLow
+0x00034fbe	service_22
+0x00034fca	ReadDataByIdentifier
+0x0003501f	did_F203
+0x00035029	DynamicPeriodicDidNo3
+0x00035299	session_01
+0x000352a5	defaultSession
+0x000353b0	session_03
+0x000353bc	extendedDiagnosticSession
+0x000353dc	service_22_p4_max_00
+0x0003554f	session_02
+0x0003555b	programmingSession
+0x00035574	service_22_p4_max_01
+0x000355d7	nrc_13
+0x000355df	incorrectMessageLengthOrInvalidFormat
+0x0003561d	nrc_14
+0x00035625	responseTooLong
+0x0003564d	nrc_22
+0x00035655	conditionsNotCorrect
+0x00035682	nrc_31
+0x0003568a	requestOutOfRange
+0x000356b4	nrc_88
+0x000356bc	vehicleSpeedTooHigh
+0x000356e8	nrc_92
+0x000356f0	voltageTooHigh
+0x00035717	nrc_93
+0x0003571f	voltageTooLow
+0x00035747	service_22
+0x00035753	ReadDataByIdentifier
+0x000357a8	did_F204
+0x000357b2	DynamicPeriodicDidNo4
+0x00035a17	session_01
+0x00035a23	defaultSession
+0x00035b2e	session_03
+0x00035b3a	extendedDiagnosticSession
+0x00035b5a	service_22_p4_max_00
+0x00035ccd	session_02
+0x00035cd9	programmingSession
+0x00035cf2	service_22_p4_max_01
+0x00035d55	nrc_13
+0x00035d5d	incorrectMessageLengthOrInvalidFormat
+0x00035d9b	nrc_14
+0x00035da3	responseTooLong
+0x00035dcb	nrc_22
+0x00035dd3	conditionsNotCorrect
+0x00035e00	nrc_31
+0x00035e08	requestOutOfRange
+0x00035e32	nrc_88
+0x00035e3a	vehicleSpeedTooHigh
+0x00035e66	nrc_92
+0x00035e6e	voltageTooHigh
+0x00035e95	nrc_93
+0x00035e9d	voltageTooLow
+0x00035ec5	service_22
+0x00035ed1	ReadDataByIdentifier
+0x00035fb5	did_3302_subfield_1_data_def
+0x00035fe0	did_3302_subfield_1
+0x00035ff5	Steering Wheel Angle
+0x00036013	did_3302
+0x0003601d	Steering Wheel Angle
+0x000360be	did_3306_subfield_1_data_def
+0x000360e9	did_3306_subfield_1
+0x000360fe	Steering Wheel Angle
+0x0003616a	did_3306_subfield_2_data_def
+0x00036195	did_3306_subfield_2
+0x000361aa	Steering Wheel Angle Velocity
+0x0003621d	did_3306_subfield_3_data_def
+0x00036248	did_3306_subfield_3
+0x0003625d	Steering Wheel Angle Counter
+0x000362cf	did_3306_subfield_4_data_def
+0x000362fa	did_3306_subfield_4
+0x0003630f	Steering Wheel Angle Check Sum
+0x00036385	did_3306_subfield_5_data_def
+0x000363b0	did_3306_subfield_5
+0x000363c5	Steering Wheel Angle Change Rate Short Filtered
+0x0003641b	Left turn (counter clockwise)
+0x0003643a	did_3306_subfield_6_data_def_enum_1
+0x00036469	Right turn (clockwise)
+0x00036481	did_3306_subfield_6_data_def_enum_2
+0x000364b3	did_3306_subfield_6_data_def
+0x000364de	did_3306_subfield_6
+0x000364f3	Steering Wheel Angle Steering direction
+0x00036545	did_3306_subfield_7_data_def_enum_1
+0x00036578	did_3306_subfield_7_data_def_enum_2
+0x000365aa	did_3306_subfield_7_data_def
+0x000365d5	did_3306_subfield_7
+0x000365ea	Steering Wheel Angle Velocity/Steering direction
+0x00036641	Correct calculated steering angle signals
+0x0003666c	did_3306_subfield_8_data_def_enum_1
+0x0003669b	ECU not initialized
+0x000366b0	did_3306_subfield_8_data_def_enum_2
+0x000366df	Fault detected
+0x000366ef	did_3306_subfield_8_data_def_enum_3
+0x00036721	did_3306_subfield_8_data_def
+0x0003674c	did_3306_subfield_8
+0x00036761	Steering Wheel Angle Sensor/Status
+0x0003678d	did_3306
+0x00036797	Steering Wheel Angle Sensor Signals
+0x00036847	did_402a_subfield_1_data_def
+0x00036872	did_402A_subfield_1
+0x00036887	Vehicle Battery Voltage
+0x000368a8	did_402A
+0x000368b2	Vehicle Battery Voltage
+0x000368e9	iocp0
+0x000368f0	returnControlToECU
+0x0003690e	iocp3
+0x00036915	shortTermAdjustment
+0x00036953	service_27_sf_03
+0x00036965	requestSeed
+0x00036991	service_27_sf_04
+0x000369a3	sendKey
+0x000369b0	Used for I/O control
+0x000369c6	security_03
+0x000369d3	Send Key (Security Level 0x03)
+0x00036a1b	service_2F_p4_max_00
+0x00036a51	service_2F_params_1
+0x00036a8b	nrc_11
+0x00036a93	serviceNotSupported
+0x00036adb	nrc_7F
+0x00036ae3	serviceNotSupportedInActiveSession
+0x00036b20	service_2F
+0x00036b2c	InputOutputControlByIdentifier
+0x00036bac	Off
+0x00036bb1	did_4128_subfield_1_data_def_enum_1
+0x00036be0	On
+0x00036be4	did_4128_subfield_1_data_def_enum_2
+0x00036c16	did_4128_subfield_1_data_def
+0x00036c41	did_4128_subfield_1
+0x00036c56	Cruise Set + Switch
+0x00036c90	False
+0x00036c97	did_4128_subfield_2_data_def_enum_1
+0x00036cc6	True
+0x00036ccc	did_4128_subfield_2_data_def_enum_2
+0x00036cfe	did_4128_subfield_2_data_def
+0x00036d29	did_4128_subfield_2
+0x00036d3e	Cruise Switch Null State -Cruise Control Multi-Function Input A
+0x00036da8	did_4128_subfield_3_data_def_enum_1
+0x00036ddb	did_4128_subfield_3_data_def_enum_2
+0x00036e0d	did_4128_subfield_3_data_def
+0x00036e38	did_4128_subfield_3
+0x00036e4d	Cruise Resume Switch
+0x00036e8c	did_4128_subfield_4_data_def_enum_1
+0x00036ebf	did_4128_subfield_4_data_def_enum_2
+0x00036ef1	did_4128_subfield_4_data_def
+0x00036f1c	did_4128_subfield_4
+0x00036f31	Cruise Cancel Switch
+0x00036f70	did_4128_subfield_5_data_def_enum_1
+0x00036fa3	did_4128_subfield_5_data_def_enum_2
+0x00036fd5	did_4128_subfield_5_data_def
+0x00037000	did_4128_subfield_5
+0x00037015	Cruise On/Off/Cancel Switch
+0x0003705b	did_4128_subfield_6_data_def_enum_1
+0x0003708e	did_4128_subfield_6_data_def_enum_2
+0x000370c0	did_4128_subfield_6_data_def
+0x000370eb	did_4128_subfield_6
+0x00037100	Cruise On/Off Switch
+0x0003713f	did_4128_subfield_7_data_def_enum_1
+0x00037172	did_4128_subfield_7_data_def_enum_2
+0x000371a4	did_4128_subfield_7_data_def
+0x000371cf	did_4128_subfield_7
+0x000371e4	Cruise Off Switch
+0x00037220	did_4128_subfield_8_data_def_enum_1
+0x00037253	did_4128_subfield_8_data_def_enum_2
+0x00037285	did_4128_subfield_8_data_def
+0x000372b0	did_4128_subfield_8
+0x000372c5	Cruise On Switch
+0x000372fc	No
+0x00037300	did_4128_subfield_9_data_def_enum_1
+0x0003732f	Yes
+0x00037334	did_4128_subfield_9_data_def_enum_2
+0x00037366	did_4128_subfield_9_data_def
+0x00037391	did_4128_subfield_9
+0x000373a6	Cruise Control Circuit Switch Fault
+0x000373f4	did_4128_subfield_10_data_def_enum_1
+0x00037428	did_4128_subfield_10_data_def_enum_2
+0x0003745b	did_4128_subfield_10_data_def
+0x00037487	did_4128_subfield_10
+0x0003749d	Adaptive Speed Limiter Device (ASLD) On/Off Switch
+0x000374fa	did_4128_subfield_11_data_def_enum_1
+0x0003752e	did_4128_subfield_11_data_def_enum_2
+0x00037561	did_4128_subfield_11_data_def
+0x0003758d	did_4128_subfield_11
+0x000375a3	Cruise Cancel Resume Switch
+0x000375e9	did_4128_subfield_12_data_def_enum_1
+0x0003761d	did_4128_subfield_12_data_def_enum_2
+0x00037650	did_4128_subfield_12_data_def
+0x0003767c	did_4128_subfield_12
+0x00037692	Cruise Gap Switch
+0x000376ce	did_4128_subfield_13_data_def_enum_1
+0x00037702	did_4128_subfield_13_data_def_enum_2
+0x00037735	did_4128_subfield_13_data_def
+0x00037761	did_4128_subfield_13
+0x00037777	Cruise Time Gap minus Switch
+0x000377be	did_4128_subfield_14_data_def_enum_1
+0x000377f2	did_4128_subfield_14_data_def_enum_2
+0x00037825	did_4128_subfield_14_data_def
+0x00037851	did_4128_subfield_14
+0x00037867	Cruise Time Gap + Switch
+0x000378aa	did_4128_subfield_15_data_def_enum_1
+0x000378de	did_4128_subfield_15_data_def_enum_2
+0x00037911	did_4128_subfield_15_data_def
+0x0003793d	did_4128_subfield_15
+0x00037953	Cruise Set - Switch
+0x00037991	did_4128_subfield_16_data_def_enum_1
+0x000379c5	did_4128_subfield_16_data_def_enum_2
+0x000379f8	did_4128_subfield_16_data_def
+0x00037a24	did_4128_subfield_16
+0x00037a3a	Traffic Jam Assist Switch
+0x00037a5c	Only one button can be controlled per diagnostic service 0x2F request.
+0x00037aa4	did_4128
+0x00037aae	Cruise control switches
+0x00037b50	Not Pressed
+0x00037b5d	did_41fa_subfield_1_data_def_enum_1
+0x00037b8c	Pressed
+0x00037b95	did_41fa_subfield_1_data_def_enum_2
+0x00037bc4	Unused
+0x00037bcc	did_41fa_subfield_1_data_def_enum_3
+0x00037bfb	Invalid
+0x00037c04	did_41fa_subfield_1_data_def_enum_4
+0x00037c36	did_41fa_subfield_1_data_def
+0x00037c61	did_41FA_subfield_1
+0x00037c76	Lane Assist Switch Status
+0x00037c99	did_41FA
+0x00037ca3	Lane Assist Switch Status
+0x00037d4b	did_7150_subfield_1_data_def_enum_1
+0x00037d7e	did_7150_subfield_1_data_def_enum_2
+0x00037db0	did_7150_subfield_1_data_def
+0x00037ddb	did_7150_subfield_1
+0x00037df0	Autolights Switch
+0x00037e2c	did_7150_subfield_2_data_def_enum_1
+0x00037e5f	did_7150_subfield_2_data_def_enum_2
+0x00037e91	did_7150_subfield_2_data_def
+0x00037ebc	did_7150_subfield_2
+0x00037ed1	Flash to Pass Switch
+0x00037f10	did_7150_subfield_3_data_def_enum_1
+0x00037f43	did_7150_subfield_3_data_def_enum_2
+0x00037f75	did_7150_subfield_3_data_def
+0x00037fa0	did_7150_subfield_3
+0x00037fb5	Headlamp High Beam Switch
+0x00037ff9	did_7150_subfield_4_data_def_enum_1
+0x0003802c	did_7150_subfield_4_data_def_enum_2
+0x0003805e	did_7150_subfield_4_data_def
+0x00038089	did_7150_subfield_4
+0x0003809e	Headlamp Low Beam Switch
+0x000380e1	did_7150_subfield_5_data_def_enum_1
+0x00038114	did_7150_subfield_5_data_def_enum_2
+0x00038146	did_7150_subfield_5_data_def
+0x00038171	did_7150_subfield_5
+0x00038186	Sidelights Switch
+0x000381c2	did_7150_subfield_6_data_def_enum_1
+0x000381f5	did_7150_subfield_6_data_def_enum_2
+0x00038227	did_7150_subfield_6_data_def
+0x00038252	did_7150_subfield_6
+0x00038267	Hazard Warning Switch
+0x000382a7	did_7150_subfield_7_data_def_enum_1
+0x000382da	did_7150_subfield_7_data_def_enum_2
+0x0003830c	did_7150_subfield_7_data_def
+0x00038337	did_7150_subfield_7
+0x0003834c	Direction Indicator Switch Right Hand
+0x0003839c	did_7150_subfield_8_data_def_enum_1
+0x000383cf	did_7150_subfield_8_data_def_enum_2
+0x00038401	did_7150_subfield_8_data_def
+0x0003842c	did_7150_subfield_8
+0x00038441	Direction Indicator Switch Left Hand
+0x00038490	did_7150_subfield_9_data_def_enum_1
+0x000384c3	did_7150_subfield_9_data_def_enum_2
+0x000384f5	did_7150_subfield_9_data_def
+0x00038520	did_7150_subfield_9
+0x00038535	Direction Indicator Switch Right Hand Lane Change
+0x00038591	did_7150_subfield_10_data_def_enum_1
+0x000385c5	did_7150_subfield_10_data_def_enum_2
+0x000385f8	did_7150_subfield_10_data_def
+0x00038624	did_7150_subfield_10
+0x0003863a	Direction Indicator Switch Left Hand Lane Change
+0x00038695	did_7150_subfield_11_data_def_enum_1
+0x000386c9	did_7150_subfield_11_data_def_enum_2
+0x000386fc	did_7150_subfield_11_data_def
+0x00038728	did_7150_subfield_11
+0x0003873e	Brake Lamp Switch
+0x0003877a	did_7150_subfield_12_data_def_enum_1
+0x000387ae	did_7150_subfield_12_data_def_enum_2
+0x000387e1	did_7150_subfield_12_data_def
+0x0003880d	did_7150_subfield_12
+0x00038823	Special Vehicle Function
+0x00038866	did_7150_subfield_13_data_def_enum_1
+0x0003889a	did_7150_subfield_13_data_def_enum_2
+0x000388cd	did_7150_subfield_13_data_def
+0x000388f9	did_7150_subfield_13
+0x0003890f	Auxiliary Driving Lamp Switch
+0x00038936	did_7150
+0x00038940	External Lighting System Input Signal Status
+0x000389f9	Left Arrow Released
+0x00038a0e	did_803c_subfield_1_data_def_enum_1
+0x00038a3d	Left Arrow Pressed
+0x00038a51	did_803c_subfield_1_data_def_enum_2
+0x00038a80	Left Arrow Hold Short
+0x00038a97	did_803c_subfield_1_data_def_enum_3
+0x00038ac6	Left Arrow Hold Long
+0x00038adc	did_803c_subfield_1_data_def_enum_4
+0x00038b0e	did_803c_subfield_1_data_def
+0x00038b39	did_803C_subfield_1
+0x00038b4e	Left Arrow
+0x00038b7f	Right Arrow Released
+0x00038b95	did_803c_subfield_2_data_def_enum_1
+0x00038bc4	Right Arrow Pressed
+0x00038bd9	did_803c_subfield_2_data_def_enum_2
+0x00038c08	Right Arrow Hold Short
+0x00038c20	did_803c_subfield_2_data_def_enum_3
+0x00038c4f	Right Arrow Hold Long
+0x00038c66	did_803c_subfield_2_data_def_enum_4
+0x00038c98	did_803c_subfield_2_data_def
+0x00038cc3	did_803C_subfield_2
+0x00038cd8	Right Arrow
+0x00038d0a	Up Arrow Relelased
+0x00038d1e	did_803c_subfield_3_data_def_enum_1
+0x00038d4d	Up Arrow Pressed
+0x00038d5f	did_803c_subfield_3_data_def_enum_2
+0x00038d8e	Up Arrow Hold Short
+0x00038da3	did_803c_subfield_3_data_def_enum_3
+0x00038dd2	Up Arrow Hold Long
+0x00038de6	did_803c_subfield_3_data_def_enum_4
+0x00038e18	did_803c_subfield_3_data_def
+0x00038e43	did_803C_subfield_3
+0x00038e58	Up Arrow
+0x00038e87	Down Arrow Released
+0x00038e9c	did_803c_subfield_4_data_def_enum_1
+0x00038ecb	Down Arrow Pressed
+0x00038edf	did_803c_subfield_4_data_def_enum_2
+0x00038f0e	Down Arrow Hold Short
+0x00038f25	did_803c_subfield_4_data_def_enum_3
+0x00038f54	Down Arrow Hold Long
+0x00038f6a	did_803c_subfield_4_data_def_enum_4
+0x00038f9c	did_803c_subfield_4_data_def
+0x00038fc7	did_803C_subfield_4
+0x00038fdc	Down Arrow
+0x0003900d	Ok Button Released
+0x00039021	did_803c_subfield_5_data_def_enum_1
+0x00039050	Ok Button Pressed
+0x00039063	did_803c_subfield_5_data_def_enum_2
+0x00039092	Ok Button Hold Short
+0x000390a8	did_803c_subfield_5_data_def_enum_3
+0x000390d7	Ok Button Hold Long
+0x000390ec	did_803c_subfield_5_data_def_enum_4
+0x0003911e	did_803c_subfield_5_data_def
+0x00039149	did_803C_subfield_5
+0x0003915e	Ok Button
+0x00039187	did_803c_subfield_6_data_def
+0x000391b2	did_803C_subfield_6
+0x000391c7	Unused 1
+0x000391ef	did_803c_subfield_7_data_def
+0x0003921a	did_803C_subfield_7
+0x0003922f	Unused 2
+0x00039257	did_803c_subfield_8_data_def
+0x00039282	did_803C_subfield_8
+0x00039297	Unused 3
+0x000392a8	Only one button can be controlled per diagnostic service 0x2F request.
+0x000392f0	did_803C
+0x000392fa	Left Cursor Buttons
+0x0003939a	Inactive
+0x000393a4	did_833c_subfield_1_data_def_enum_1
+0x000393d3	Active
+0x000393db	did_833c_subfield_1_data_def_enum_2
+0x0003940d	did_833c_subfield_1_data_def
+0x00039438	did_833C_subfield_1
+0x0003944d	Volume + Switch
+0x00039487	did_833c_subfield_2_data_def_enum_1
+0x000394ba	did_833c_subfield_2_data_def_enum_2
+0x000394ec	did_833c_subfield_2_data_def
+0x00039517	did_833C_subfield_2
+0x0003952c	Volume - Switch
+0x00039566	did_833c_subfield_3_data_def_enum_1
+0x00039599	did_833c_subfield_3_data_def_enum_2
+0x000395cb	did_833c_subfield_3_data_def
+0x000395f6	did_833C_subfield_3
+0x0003960b	Media Button
+0x00039642	did_833c_subfield_4_data_def_enum_1
+0x00039675	did_833c_subfield_4_data_def_enum_2
+0x000396a7	did_833c_subfield_4_data_def
+0x000396d2	did_833C_subfield_4
+0x000396e7	Voice Switch
+0x0003971e	did_833c_subfield_5_data_def_enum_1
+0x00039751	did_833c_subfield_5_data_def_enum_2
+0x00039783	did_833c_subfield_5_data_def
+0x000397ae	did_833C_subfield_5
+0x000397c3	Seek + Switch
+0x000397fb	did_833c_subfield_6_data_def_enum_1
+0x0003982e	did_833c_subfield_6_data_def_enum_2
+0x00039860	did_833c_subfield_6_data_def
+0x0003988b	did_833C_subfield_6
+0x000398a0	Seek - Switch
+0x000398d8	did_833c_subfield_7_data_def_enum_1
+0x0003990b	did_833c_subfield_7_data_def_enum_2
+0x0003993d	did_833c_subfield_7_data_def
+0x00039968	did_833C_subfield_7
+0x0003997d	Mode Switch
+0x000399b3	did_833c_subfield_8_data_def_enum_1
+0x000399e6	did_833c_subfield_8_data_def_enum_2
+0x00039a18	did_833c_subfield_8_data_def
+0x00039a43	did_833C_subfield_8
+0x00039a58	Mute Button
+0x00039a8e	did_833c_subfield_9_data_def_enum_1
+0x00039ac1	did_833c_subfield_9_data_def_enum_2
+0x00039af3	did_833c_subfield_9_data_def
+0x00039b1e	did_833C_subfield_9
+0x00039b33	Ok Button
+0x00039b67	did_833c_subfield_10_data_def_enum_1
+0x00039b9b	did_833c_subfield_10_data_def_enum_2
+0x00039bce	did_833c_subfield_10_data_def
+0x00039bfa	did_833C_subfield_10
+0x00039c10	Cellular Phone
+0x00039c49	did_833c_subfield_11_data_def_enum_1
+0x00039c7d	did_833c_subfield_11_data_def_enum_2
+0x00039cb0	did_833c_subfield_11_data_def
+0x00039cdc	did_833C_subfield_11
+0x00039cf2	Menu + Button
+0x00039d2a	did_833c_subfield_12_data_def_enum_1
+0x00039d5e	did_833c_subfield_12_data_def_enum_2
+0x00039d91	did_833c_subfield_12_data_def
+0x00039dbd	did_833C_subfield_12
+0x00039dd3	Menu - Button
+0x00039e0b	did_833c_subfield_13_data_def_enum_1
+0x00039e3f	did_833c_subfield_13_data_def_enum_2
+0x00039e72	did_833c_subfield_13_data_def
+0x00039e9e	did_833C_subfield_13
+0x00039eb4	Send Button
+0x00039eea	did_833c_subfield_14_data_def_enum_1
+0x00039f1e	did_833c_subfield_14_data_def_enum_2
+0x00039f51	did_833c_subfield_14_data_def
+0x00039f7d	did_833C_subfield_14
+0x00039f93	End Button
+0x00039fa6	Only one button can be controlled per diagnostic service 0x2F request.
+0x00039fee	did_833C
+0x00039ff8	Steering Column Audio Switches
+0x0003a0a7	did_a460_subfield_1_data_def_enum_1
+0x0003a0da	did_a460_subfield_1_data_def_enum_2
+0x0003a10c	did_a460_subfield_1_data_def
+0x0003a137	did_A460_subfield_1
+0x0003a14c	Not Assigned
+0x0003a183	did_a460_subfield_2_data_def_enum_1
+0x0003a1b6	did_a460_subfield_2_data_def_enum_2
+0x0003a1e8	did_a460_subfield_2_data_def
+0x0003a213	did_A460_subfield_2
+0x0003a228	Front Wiper Park Position Switch
+0x0003a273	did_a460_subfield_3_data_def_enum_1
+0x0003a2a6	did_a460_subfield_3_data_def_enum_2
+0x0003a2d8	did_a460_subfield_3_data_def
+0x0003a303	did_A460_subfield_3
+0x0003a318	Front Wiper Intermittent Data 3
+0x0003a362	did_a460_subfield_4_data_def_enum_1
+0x0003a395	did_a460_subfield_4_data_def_enum_2
+0x0003a3c7	did_a460_subfield_4_data_def
+0x0003a3f2	did_A460_subfield_4
+0x0003a407	Front Wiper Intermittent Data 2
+0x0003a451	did_a460_subfield_5_data_def_enum_1
+0x0003a484	did_a460_subfield_5_data_def_enum_2
+0x0003a4b6	did_a460_subfield_5_data_def
+0x0003a4e1	did_A460_subfield_5
+0x0003a4f6	Front Wiper Intermittent Data 1
+0x0003a540	did_a460_subfield_6_data_def_enum_1
+0x0003a573	did_a460_subfield_6_data_def_enum_2
+0x0003a5a5	did_a460_subfield_6_data_def
+0x0003a5d0	did_A460_subfield_6
+0x0003a5e5	Front Wiper Intermittent Switch
+0x0003a62f	did_a460_subfield_7_data_def_enum_1
+0x0003a662	did_a460_subfield_7_data_def_enum_2
+0x0003a694	did_a460_subfield_7_data_def
+0x0003a6bf	did_A460_subfield_7
+0x0003a6d4	Front Wiper Fast Switch
+0x0003a716	did_a460_subfield_8_data_def_enum_1
+0x0003a749	did_a460_subfield_8_data_def_enum_2
+0x0003a77b	did_a460_subfield_8_data_def
+0x0003a7a6	did_A460_subfield_8
+0x0003a7bb	Front Wiper Slow Switch
+0x0003a7fd	did_a460_subfield_9_data_def_enum_1
+0x0003a830	did_a460_subfield_9_data_def_enum_2
+0x0003a862	did_a460_subfield_9_data_def
+0x0003a88d	did_A460_subfield_9
+0x0003a8a2	Front Wiper Limp Home Mode
+0x0003a8e7	did_a460_subfield_10_data_def_enum_1
+0x0003a91b	did_a460_subfield_10_data_def_enum_2
+0x0003a94e	did_a460_subfield_10_data_def
+0x0003a97a	did_A460_subfield_10
+0x0003a990	Rear Wiper Delay 2
+0x0003a9cd	did_a460_subfield_11_data_def_enum_1
+0x0003aa01	did_a460_subfield_11_data_def_enum_2
+0x0003aa34	did_a460_subfield_11_data_def
+0x0003aa60	did_A460_subfield_11
+0x0003aa76	Rear Wiper Delay 1
+0x0003aab3	did_a460_subfield_12_data_def_enum_1
+0x0003aae7	did_a460_subfield_12_data_def_enum_2
+0x0003ab1a	did_a460_subfield_12_data_def
+0x0003ab46	did_A460_subfield_12
+0x0003ab5c	Rear Wiper Wash Switch
+0x0003ab9d	did_a460_subfield_13_data_def_enum_1
+0x0003abd1	did_a460_subfield_13_data_def_enum_2
+0x0003ac04	did_a460_subfield_13_data_def
+0x0003ac30	did_A460_subfield_13
+0x0003ac46	Rear Wiper OFF Switch
+0x0003ac86	did_a460_subfield_14_data_def_enum_1
+0x0003acba	did_a460_subfield_14_data_def_enum_2
+0x0003aced	did_a460_subfield_14_data_def
+0x0003ad19	did_A460_subfield_14
+0x0003ad2f	Rear Wiper Intermittent Switch
+0x0003ad78	did_a460_subfield_15_data_def_enum_1
+0x0003adac	did_a460_subfield_15_data_def_enum_2
+0x0003addf	did_a460_subfield_15_data_def
+0x0003ae0b	did_A460_subfield_15
+0x0003ae21	Rear Wiper Park Position Switch
+0x0003ae6b	did_a460_subfield_16_data_def_enum_1
+0x0003ae9f	did_a460_subfield_16_data_def_enum_2
+0x0003aed2	did_a460_subfield_16_data_def
+0x0003aefe	did_A460_subfield_16
+0x0003af14	Rear Wiper Switch
+0x0003af50	did_a460_subfield_17_data_def_enum_1
+0x0003af84	did_a460_subfield_17_data_def_enum_2
+0x0003afb7	did_a460_subfield_17_data_def
+0x0003afe3	did_A460_subfield_17
+0x0003aff9	Front Wiper Intermittent Data 7
+0x0003b043	did_a460_subfield_18_data_def_enum_1
+0x0003b077	did_a460_subfield_18_data_def_enum_2
+0x0003b0aa	did_a460_subfield_18_data_def
+0x0003b0d6	did_A460_subfield_18
+0x0003b0ec	Front Wiper Intermittent Data 6
+0x0003b136	did_a460_subfield_19_data_def_enum_1
+0x0003b16a	did_a460_subfield_19_data_def_enum_2
+0x0003b19d	did_a460_subfield_19_data_def
+0x0003b1c9	did_A460_subfield_19
+0x0003b1df	Front Wiper Intermittent Data 5
+0x0003b229	did_a460_subfield_20_data_def_enum_1
+0x0003b25d	did_a460_subfield_20_data_def_enum_2
+0x0003b290	did_a460_subfield_20_data_def
+0x0003b2bc	did_A460_subfield_20
+0x0003b2d2	Front Wiper Intermittent Data 4
+0x0003b31c	did_a460_subfield_21_data_def_enum_1
+0x0003b350	did_a460_subfield_21_data_def_enum_2
+0x0003b383	did_a460_subfield_21_data_def
+0x0003b3af	did_A460_subfield_21
+0x0003b3c5	Single Stroke
+0x0003b3fd	did_a460_subfield_22_data_def_enum_1
+0x0003b431	did_a460_subfield_22_data_def_enum_2
+0x0003b464	did_a460_subfield_22_data_def
+0x0003b490	did_A460_subfield_22
+0x0003b4a6	Rain Sensor Switch
+0x0003b4c2	did_A460
+0x0003b4cc	Windscreen Wipers System Input Signal Status
+0x0003b589	did_a462_subfield_1_data_def_enum_1
+0x0003b5bc	did_a462_subfield_1_data_def_enum_2
+0x0003b5ee	did_a462_subfield_1_data_def
+0x0003b619	did_A462_subfield_1
+0x0003b62e	Front Washer Switch
+0x0003b66c	did_a462_subfield_2_data_def_enum_1
+0x0003b69f	did_a462_subfield_2_data_def_enum_2
+0x0003b6d1	did_a462_subfield_2_data_def
+0x0003b6fc	did_A462_subfield_2
+0x0003b711	Rear Washer Switch
+0x0003b72d	did_A462
+0x0003b737	Windscreen Washer System Input Signal Status
+0x0003b7c7	Default Session
+0x0003b7d8	did_d100_subfield_1_data_def_enum_1
+0x0003b807	Programming Session
+0x0003b81c	did_d100_subfield_1_data_def_enum_2
+0x0003b84b	Extended Diagnostic Session
+0x0003b868	did_d100_subfield_1_data_def_enum_3
+0x0003b897	Safety System Diagnostic Session
+0x0003b8b9	did_d100_subfield_1_data_def_enum_4
+0x0003b8e8	EOL Extended Diagnostic Session
+0x0003b909	did_d100_subfield_1_data_def_enum_5
+0x0003b939	did_d100_subfield_1_data_def_enum_6
+0x0003b969	did_d100_subfield_1_data_def_enum_7
+0x0003b999	did_d100_subfield_1_data_def_enum_8
+0x0003b9c9	did_d100_subfield_1_data_def_enum_9
+0x0003b9f9	did_d100_subfield_1_data_def_enum_10
+0x0003ba2a	did_d100_subfield_1_data_def_enum_11
+0x0003ba5b	did_d100_subfield_1_data_def_enum_12
+0x0003ba8c	did_d100_subfield_1_data_def_enum_13
+0x0003babd	did_d100_subfield_1_data_def_enum_14
+0x0003baee	did_d100_subfield_1_data_def_enum_15
+0x0003bb1f	did_d100_subfield_1_data_def_enum_16
+0x0003bb50	did_d100_subfield_1_data_def_enum_17
+0x0003bb81	did_d100_subfield_1_data_def_enum_18
+0x0003bbb2	did_d100_subfield_1_data_def_enum_19
+0x0003bbe3	did_d100_subfield_1_data_def_enum_20
+0x0003bc14	did_d100_subfield_1_data_def_enum_21
+0x0003bc45	did_d100_subfield_1_data_def_enum_22
+0x0003bc76	did_d100_subfield_1_data_def_enum_23
+0x0003bca7	did_d100_subfield_1_data_def_enum_24
+0x0003bcd8	did_d100_subfield_1_data_def_enum_25
+0x0003bd09	did_d100_subfield_1_data_def_enum_26
+0x0003bd3a	did_d100_subfield_1_data_def_enum_27
+0x0003bd6b	did_d100_subfield_1_data_def_enum_28
+0x0003bd9c	did_d100_subfield_1_data_def_enum_29
+0x0003bdcd	did_d100_subfield_1_data_def_enum_30
+0x0003bdfe	did_d100_subfield_1_data_def_enum_31
+0x0003be2f	did_d100_subfield_1_data_def_enum_32
+0x0003be60	did_d100_subfield_1_data_def_enum_33
+0x0003be91	did_d100_subfield_1_data_def_enum_34
+0x0003bec2	did_d100_subfield_1_data_def_enum_35
+0x0003bef3	did_d100_subfield_1_data_def_enum_36
+0x0003bf26	did_d100_subfield_1_data_def
+0x0003bf51	did_D100_subfield_1
+0x0003bf66	Active Diagnostic Session
+0x0003bf89	did_D100
+0x0003bf93	Active Diagnostic Session
+0x0003c03b	did_d115_subfield_1_data_def
+0x0003c066	did_D115_subfield_1
+0x0003c07b	Vehicle Speed
+0x0003c092	did_D115
+0x0003c09c	Vehicle Speed
+0x0003c144	did_d700_subfield_1_data_def
+0x0003c16f	did_D700_subfield_1
+0x0003c184	Power ON reset counter
+0x0003c1f0	did_d700_subfield_2_data_def
+0x0003c21b	did_D700_subfield_2
+0x0003c230	Illegal op code counter
+0x0003c29d	did_d700_subfield_3_data_def
+0x0003c2c8	did_D700_subfield_3
+0x0003c2dd	Watchdog timer reset counter
+0x0003c34f	did_d700_subfield_4_data_def
+0x0003c37a	did_D700_subfield_4
+0x0003c38f	Data Range Failure counter
+0x0003c3b3	did_D700
+0x0003c3bd	Critical Software Parameter Monitoring #1
+0x0003c481	did_d701_subfield_1_data_def
+0x0003c4ac	did_D701_subfield_1
+0x0003c4c1	Stack Overflow Counter
+0x0003c52d	did_d701_subfield_2_data_def
+0x0003c558	did_D701_subfield_2
+0x0003c56d	Loop-Time overflow or scheduler idle time overflow Counter
+0x0003c5fd	did_d701_subfield_3_data_def
+0x0003c628	did_D701_subfield_3
+0x0003c63d	Minimum Idle-Time
+0x0003c6a4	did_d701_subfield_4_data_def
+0x0003c6cf	did_D701_subfield_4
+0x0003c6e4	Reserved
+0x0003c6f6	did_D701
+0x0003c700	Critical Software Parameter Monitoring #2
+0x0003c7b9	did_dd00_subfield_1_data_def
+0x0003c7e4	did_DD00_subfield_1
+0x0003c7f9	Global Real Time
+0x0003c813	did_DD00
+0x0003c81d	Global Real Time
+0x0003c8bc	did_dd02_subfield_1_data_def
+0x0003c8e7	did_DD02_subfield_1
+0x0003c8fc	Main ECU Voltage Supply
+0x0003c91d	did_DD02
+0x0003c927	Main ECU Voltage Supply
+0x0003c9cd	did_dd09_subfield_1_data_def
+0x0003c9f8	did_DD09_subfield_1
+0x0003ca0d	Vehicle Speed
+0x0003ca24	did_DD09
+0x0003ca90	Powerpack Off - Torque Not Available
+0x0003cab6	did_dd0a_subfield_1_data_def_enum_1
+0x0003cae5	Powerpack On - Torque Not Available
+0x0003cb0a	did_dd0a_subfield_1_data_def_enum_2
+0x0003cb39	Powerpack Start In Progress - Torque Not Available
+0x0003cb6d	did_dd0a_subfield_1_data_def_enum_3
+0x0003cb9c	Powerpack On - Torque Available
+0x0003cbbd	did_dd0a_subfield_1_data_def_enum_4
+0x0003cbee	Not Received
+0x0003cbfc	did_dd0a_subfield_1_data_def_enum_5
+0x0003cc2e	did_dd0a_subfield_1_data_def
+0x0003cc59	did_DD0A_subfield_1
+0x0003cc6e	Powerpack Torque Status
+0x0003ccac	Unknown
+0x0003ccb5	did_dd0a_subfield_2_data_def_enum_1
+0x0003cce8	did_dd0a_subfield_2_data_def_enum_2
+0x0003cd17	Accessory
+0x0003cd22	did_dd0a_subfield_2_data_def_enum_3
+0x0003cd51	Run
+0x0003cd56	did_dd0a_subfield_2_data_def_enum_4
+0x0003cd85	Start
+0x0003cd8c	did_dd0a_subfield_2_data_def_enum_5
+0x0003cdbf	did_dd0a_subfield_2_data_def_enum_6
+0x0003cdf4	did_dd0a_subfield_2_data_def_enum_7
+0x0003ce26	did_dd0a_subfield_2_data_def
+0x0003ce51	did_DD0A_subfield_2
+0x0003ce66	Ignition Status
+0x0003ce9c	Not Supported
+0x0003ceab	did_dd0a_subfield_3_data_def_enum_1
+0x0003ceda	Supported
+0x0003cee5	did_dd0a_subfield_3_data_def_enum_2
+0x0003cf14	Not Supported Imminent
+0x0003cf2c	did_dd0a_subfield_3_data_def_enum_3
+0x0003cf5b	Low Voltage Event In Progress
+0x0003cf7a	did_dd0a_subfield_3_data_def_enum_4
+0x0003cfa9	Fault Limited
+0x0003cfb8	did_dd0a_subfield_3_data_def_enum_5
+0x0003cfed	did_dd0a_subfield_3_data_def_enum_6
+0x0003d01f	did_dd0a_subfield_3_data_def
+0x0003d04a	did_DD0A_subfield_3
+0x0003d05f	Electric Power Status
+0x0003d07e	did_DD0A
+0x0003d088	Diagnostic Vehicle Mode
+0x0003d10b	Disable
+0x0003d114	did_de00_subfield_1_data_def_enum_1
+0x0003d143	Enable
+0x0003d14b	did_de00_subfield_1_data_def_enum_2
+0x0003d17b	0x01
+0x0003d182	did_de00_subfield_1_data_def
+0x0003d1ad	did_DE00_subfield_1
+0x0003d1c2	SCMSpeedDependentEnable_Cfg
+0x0003d208	did_de00_subfield_2_data_def_enum_1
+0x0003d23b	did_de00_subfield_2_data_def_enum_2
+0x0003d26b	0x00
+0x0003d272	did_de00_subfield_2_data_def
+0x0003d29d	did_DE00_subfield_2
+0x0003d2b2	SCMInit_AutoWipeOnReset_Cfg
+0x0003d2f8	did_de00_subfield_3_data_def_enum_1
+0x0003d32b	did_de00_subfield_3_data_def_enum_2
+0x0003d360	did_de00_subfield_3_data_def
+0x0003d38b	did_DE00_subfield_3
+0x0003d3a0	SCMInit_OfftoAutoWipe_Cfg
+0x0003d3e4	did_de00_subfield_4_data_def_enum_1
+0x0003d417	did_de00_subfield_4_data_def_enum_2
+0x0003d44c	did_de00_subfield_4_data_def
+0x0003d477	did_DE00_subfield_4
+0x0003d48c	SCMRrWipeLiftgateAjarEnable_Cfg
+0x0003d4cb	did_de00_subfield_5_data_def
+0x0003d4f6	did_DE00_subfield_5
+0x0003d50b	SCMRainSensorID_Cfg
+0x0003d53e	did_de00_subfield_6_data_def
+0x0003d569	did_DE00_subfield_6
+0x0003d57e	SCMWindshieldType_Cfg
+0x0003d5ba	1500msec
+0x0003d5c4	did_de00_subfield_7_data_def_enum_1
+0x0003d5f3	1750msec
+0x0003d5fd	did_de00_subfield_7_data_def_enum_2
+0x0003d62c	2000msec
+0x0003d636	did_de00_subfield_7_data_def_enum_3
+0x0003d665	2250msec
+0x0003d66f	did_de00_subfield_7_data_def_enum_4
+0x0003d69e	2500msec
+0x0003d6a8	did_de00_subfield_7_data_def_enum_5
+0x0003d6d7	2750msec
+0x0003d6e1	did_de00_subfield_7_data_def_enum_6
+0x0003d710	3000msec
+0x0003d71a	did_de00_subfield_7_data_def_enum_7
+0x0003d749	3250msec
+0x0003d753	did_de00_subfield_7_data_def_enum_8
+0x0003d782	3500msec
+0x0003d78c	did_de00_subfield_7_data_def_enum_9
+0x0003d7bb	3750msec
+0x0003d7c5	did_de00_subfield_7_data_def_enum_10
+0x0003d7f5	4000msec
+0x0003d7ff	did_de00_subfield_7_data_def_enum_11
+0x0003d82f	4250msec
+0x0003d839	did_de00_subfield_7_data_def_enum_12
+0x0003d869	4500msec
+0x0003d873	did_de00_subfield_7_data_def_enum_13
+0x0003d8a3	4750msec
+0x0003d8ad	did_de00_subfield_7_data_def_enum_14
+0x0003d8dd	5000msec
+0x0003d8e7	did_de00_subfield_7_data_def_enum_15
+0x0003d917	5250msec
+0x0003d921	did_de00_subfield_7_data_def_enum_16
+0x0003d952	0x02
+0x0003d959	did_de00_subfield_7_data_def
+0x0003d984	did_DE00_subfield_7
+0x0003d999	SCMRrWipeTime_Cfg
+0x0003d9d1	1s
+0x0003d9d5	did_de00_subfield_8_data_def_enum_1
+0x0003da04	2s
+0x0003da08	did_de00_subfield_8_data_def_enum_2
+0x0003da37	3s
+0x0003da3b	did_de00_subfield_8_data_def_enum_3
+0x0003da6a	4s
+0x0003da6e	did_de00_subfield_8_data_def_enum_4
+0x0003daa3	did_de00_subfield_8_data_def
+0x0003dace	did_DE00_subfield_8
+0x0003dae3	SCMCourtesyWipeTime_Cfg
+0x0003db21	600msec
+0x0003db2a	did_de00_subfield_9_data_def_enum_1
+0x0003db59	800msec
+0x0003db62	did_de00_subfield_9_data_def_enum_2
+0x0003db91	1000msec
+0x0003db9b	did_de00_subfield_9_data_def_enum_3
+0x0003dbca	1200msec
+0x0003dbd4	did_de00_subfield_9_data_def_enum_4
+0x0003dc03	1400msec
+0x0003dc0d	did_de00_subfield_9_data_def_enum_5
+0x0003dc3c	1600msec
+0x0003dc46	did_de00_subfield_9_data_def_enum_6
+0x0003dc75	1800msec
+0x0003dc7f	did_de00_subfield_9_data_def_enum_7
+0x0003dcb2	did_de00_subfield_9_data_def_enum_8
+0x0003dce9	did_de00_subfield_9_data_def
+0x0003dd14	did_DE00_subfield_9
+0x0003dd29	SCMHdlpWashOnTime_Cfg
+0x0003dd6b	did_de00_subfield_10_data_def_enum_1
+0x0003dda1	did_de00_subfield_10_data_def_enum_2
+0x0003ddd7	did_de00_subfield_10_data_def_enum_3
+0x0003de0d	did_de00_subfield_10_data_def_enum_4
+0x0003de43	did_de00_subfield_10_data_def
+0x0003de6f	did_DE00_subfield_10
+0x0003de85	SCMHdlpWashOffTime_Cfg
+0x0003dec2	100msec
+0x0003decb	did_de00_subfield_11_data_def_enum_1
+0x0003defb	250msec
+0x0003df04	did_de00_subfield_11_data_def_enum_2
+0x0003df34	400msec
+0x0003df3d	did_de00_subfield_11_data_def_enum_3
+0x0003df6d	550msec
+0x0003df76	did_de00_subfield_11_data_def_enum_4
+0x0003dfac	did_de00_subfield_11_data_def
+0x0003dfd8	did_DE00_subfield_11
+0x0003dfee	SCMWashB4WipeTime_Cfg
+0x0003e02a	8 sec (yes)
+0x0003e037	did_de00_subfield_12_data_def_enum_1
+0x0003e067	10 sec (no)
+0x0003e074	did_de00_subfield_12_data_def_enum_2
+0x0003e0aa	did_de00_subfield_12_data_def
+0x0003e0d6	did_DE00_subfield_12
+0x0003e0ec	SCMRrWipePos1_Cfg
+0x0003e124	0 sec (no)
+0x0003e130	did_de00_subfield_13_data_def_enum_1
+0x0003e160	5 sec (yes)
+0x0003e16d	did_de00_subfield_13_data_def_enum_2
+0x0003e1a3	did_de00_subfield_13_data_def
+0x0003e1cf	did_DE00_subfield_13
+0x0003e1e5	SCMRrWipePos2_Cfg
+0x0003e21d	POS-1
+0x0003e224	did_de00_subfield_14_data_def_enum_1
+0x0003e254	POS-2
+0x0003e25b	did_de00_subfield_14_data_def_enum_2
+0x0003e28b	POS-3
+0x0003e292	did_de00_subfield_14_data_def_enum_3
+0x0003e2c2	POS-4
+0x0003e2c9	did_de00_subfield_14_data_def_enum_4
+0x0003e2f9	POS-5
+0x0003e300	did_de00_subfield_14_data_def_enum_5
+0x0003e330	POS-6
+0x0003e337	did_de00_subfield_14_data_def_enum_6
+0x0003e36b	did_de00_subfield_14_data_def_enum_7
+0x0003e39f	did_de00_subfield_14_data_def_enum_8
+0x0003e3d5	did_de00_subfield_14_data_def
+0x0003e401	did_DE00_subfield_14
+0x0003e417	FWIntermittentMechPos1
+0x0003e45a	did_de00_subfield_15_data_def_enum_1
+0x0003e490	did_de00_subfield_15_data_def_enum_2
+0x0003e4c6	did_de00_subfield_15_data_def_enum_3
+0x0003e4fc	did_de00_subfield_15_data_def_enum_4
+0x0003e532	did_de00_subfield_15_data_def_enum_5
+0x0003e568	did_de00_subfield_15_data_def_enum_6
+0x0003e59c	did_de00_subfield_15_data_def_enum_7
+0x0003e5d0	did_de00_subfield_15_data_def_enum_8
+0x0003e608	did_de00_subfield_15_data_def
+0x0003e634	did_DE00_subfield_15
+0x0003e64a	FWIntermittentMechPos2
+0x0003e68d	did_de00_subfield_16_data_def_enum_1
+0x0003e6c3	did_de00_subfield_16_data_def_enum_2
+0x0003e6f9	did_de00_subfield_16_data_def_enum_3
+0x0003e72f	did_de00_subfield_16_data_def_enum_4
+0x0003e765	did_de00_subfield_16_data_def_enum_5
+0x0003e79b	did_de00_subfield_16_data_def_enum_6
+0x0003e7cf	did_de00_subfield_16_data_def_enum_7
+0x0003e803	did_de00_subfield_16_data_def_enum_8
+0x0003e834	0x04
+0x0003e83b	did_de00_subfield_16_data_def
+0x0003e867	did_DE00_subfield_16
+0x0003e87d	FWIntermittentMechPos3
+0x0003e8c0	did_de00_subfield_17_data_def_enum_1
+0x0003e8f6	did_de00_subfield_17_data_def_enum_2
+0x0003e92c	did_de00_subfield_17_data_def_enum_3
+0x0003e962	did_de00_subfield_17_data_def_enum_4
+0x0003e998	did_de00_subfield_17_data_def_enum_5
+0x0003e9ce	did_de00_subfield_17_data_def_enum_6
+0x0003ea02	did_de00_subfield_17_data_def_enum_7
+0x0003ea36	did_de00_subfield_17_data_def_enum_8
+0x0003ea67	0x05
+0x0003ea6e	did_de00_subfield_17_data_def
+0x0003ea9a	did_DE00_subfield_17
+0x0003eab0	FWIntermittentMechPos4
+0x0003eb1c	did_de00_subfield_18_data_def
+0x0003eb48	did_DE00_subfield_18
+0x0003eb5e	AHBC_prevention_time
+0x0003ebc8	did_de00_subfield_19_data_def
+0x0003ebf4	did_DE00_subfield_19
+0x0003ec0a	AHBC_Waiting_time_after_flash
+0x0003ec4e	Config 1
+0x0003ec58	did_de00_subfield_20_data_def_enum_1
+0x0003ec88	Config 2
+0x0003ec92	did_de00_subfield_20_data_def_enum_2
+0x0003ecc8	did_de00_subfield_20_data_def
+0x0003ecf4	did_DE00_subfield_20
+0x0003ed0a	FrontWashWipe
+0x0003ed42	did_de00_subfield_21_data_def_enum_1
+0x0003ed76	did_de00_subfield_21_data_def_enum_2
+0x0003edac	did_de00_subfield_21_data_def
+0x0003edd8	did_DE00_subfield_21
+0x0003edee	SCMNeutralDisableAutoWipe_Cfg
+0x0003ee15	did_DE00
+0x0003ee1f	Customer Data
+0x0003ee9c	did_de01_subfield_1_data_def_enum_1
+0x0003eecf	did_de01_subfield_1_data_def_enum_2
+0x0003ef04	did_de01_subfield_1_data_def
+0x0003ef2f	did_DE01_subfield_1
+0x0003ef44	RSM_Present
+0x0003ef76	ECE market
+0x0003ef82	did_de01_subfield_2_data_def_enum_1
+0x0003efb1	Non ECE market
+0x0003efc1	did_de01_subfield_2_data_def_enum_2
+0x0003eff0	reserved
+0x0003effa	did_de01_subfield_2_data_def_enum_3
+0x0003f02f	did_de01_subfield_2_data_def_enum_4
+0x0003f064	did_de01_subfield_2_data_def
+0x0003f08f	did_DE01_subfield_2
+0x0003f0a4	Variant_Market
+0x0003f0dd	did_de01_subfield_3_data_def_enum_1
+0x0003f110	did_de01_subfield_3_data_def_enum_2
+0x0003f145	did_de01_subfield_3_data_def
+0x0003f170	did_DE01_subfield_3
+0x0003f185	LightSensor_Present
+0x0003f1bf	B515MCA
+0x0003f1c8	did_de01_subfield_4_data_def_enum_1
+0x0003f1f7	B479
+0x0003f1fd	did_de01_subfield_4_data_def_enum_2
+0x0003f22c	C519
+0x0003f232	did_de01_subfield_4_data_def_enum_3
+0x0003f267	did_de01_subfield_4_data_def_enum_4
+0x0003f29c	did_de01_subfield_4_data_def_enum_5
+0x0003f2d1	did_de01_subfield_4_data_def_enum_6
+0x0003f306	did_de01_subfield_4_data_def_enum_7
+0x0003f33b	did_de01_subfield_4_data_def_enum_8
+0x0003f370	did_de01_subfield_4_data_def
+0x0003f39b	did_DE01_subfield_4
+0x0003f3b0	HSW Carline
+0x0003f3e6	did_de01_subfield_5_data_def_enum_1
+0x0003f419	did_de01_subfield_5_data_def_enum_2
+0x0003f44e	did_de01_subfield_5_data_def
+0x0003f479	did_DE01_subfield_5
+0x0003f48e	WithRearWiper
+0x0003f4c2	No Switch
+0x0003f4cd	did_de01_subfield_6_data_def_enum_1
+0x0003f4fc	H1BT-9E740-A*
+0x0003f50b	did_de01_subfield_6_data_def_enum_2
+0x0003f53a	H1BT-9E740-B*
+0x0003f549	did_de01_subfield_6_data_def_enum_3
+0x0003f578	H1BT-9E740-C*
+0x0003f587	did_de01_subfield_6_data_def_enum_4
+0x0003f5b6	H1BT-9E740-D*
+0x0003f5c5	did_de01_subfield_6_data_def_enum_5
+0x0003f5f4	H1BT-9E740-E*
+0x0003f603	did_de01_subfield_6_data_def_enum_6
+0x0003f632	GN15-9E740-A*
+0x0003f641	did_de01_subfield_6_data_def_enum_7
+0x0003f670	GN15-9E740-B*
+0x0003f67f	did_de01_subfield_6_data_def_enum_8
+0x0003f6ae	GN15-9E740-C*
+0x0003f6bd	did_de01_subfield_6_data_def_enum_9
+0x0003f6ec	GN15-14K147-A*
+0x0003f6fc	did_de01_subfield_6_data_def_enum_10
+0x0003f72c	JX7T-9E740-A*
+0x0003f73b	did_de01_subfield_6_data_def_enum_11
+0x0003f76b	JX7T-9E740-B*
+0x0003f77a	did_de01_subfield_6_data_def_enum_12
+0x0003f7b0	did_de01_subfield_6_data_def_enum_13
+0x0003f7e0	KT1T-14K147-A* / GK4T-9E740-A*
+0x0003f800	did_de01_subfield_6_data_def_enum_14
+0x0003f830	KT1T-14K147-A* / KT1T-9E740-C*
+0x0003f850	did_de01_subfield_6_data_def_enum_15
+0x0003f880	KT1T-14K147-A* / BK2T-9E740-A*
+0x0003f8a0	did_de01_subfield_6_data_def_enum_16
+0x0003f8d0	KT1T-14K147-A* / BK2T-9E740-B*
+0x0003f8f0	did_de01_subfield_6_data_def_enum_17
+0x0003f926	did_de01_subfield_6_data_def_enum_18
+0x0003f95c	did_de01_subfield_6_data_def_enum_19
+0x0003f992	did_de01_subfield_6_data_def_enum_20
+0x0003f9c8	did_de01_subfield_6_data_def_enum_21
+0x0003f9fe	did_de01_subfield_6_data_def_enum_22
+0x0003fa34	did_de01_subfield_6_data_def_enum_23
+0x0003fa6a	did_de01_subfield_6_data_def_enum_24
+0x0003faa0	did_de01_subfield_6_data_def_enum_25
+0x0003fad6	did_de01_subfield_6_data_def_enum_26
+0x0003fb0c	did_de01_subfield_6_data_def_enum_27
+0x0003fb42	did_de01_subfield_6_data_def_enum_28
+0x0003fb78	did_de01_subfield_6_data_def_enum_29
+0x0003fbae	did_de01_subfield_6_data_def_enum_30
+0x0003fbe4	did_de01_subfield_6_data_def_enum_31
+0x0003fc1a	did_de01_subfield_6_data_def_enum_32
+0x0003fc50	did_de01_subfield_6_data_def
+0x0003fc7b	did_DE01_subfield_6
+0x0003fc90	SteeringWheelSwitchLeft
+0x0003fcce	No switch
+0x0003fcd9	did_de01_subfield_7_data_def_enum_1
+0x0003fd08	H1BT-14K147-A*
+0x0003fd18	did_de01_subfield_7_data_def_enum_2
+0x0003fd47	H1BT-14K147-B*
+0x0003fd57	did_de01_subfield_7_data_def_enum_3
+0x0003fd86	GJ5T-14K147-A*
+0x0003fd96	did_de01_subfield_7_data_def_enum_4
+0x0003fdc5	GJ5T-14K147-C*
+0x0003fdd5	did_de01_subfield_7_data_def_enum_5
+0x0003fe04	JX7T-14K147-A*
+0x0003fe14	did_de01_subfield_7_data_def_enum_6
+0x0003fe43	DM5T-14K147-D*
+0x0003fe53	did_de01_subfield_7_data_def_enum_7
+0x0003fe88	did_de01_subfield_7_data_def_enum_8
+0x0003febd	did_de01_subfield_7_data_def_enum_9
+0x0003fef2	did_de01_subfield_7_data_def_enum_10
+0x0003ff28	did_de01_subfield_7_data_def_enum_11
+0x0003ff5e	did_de01_subfield_7_data_def_enum_12
+0x0003ff94	did_de01_subfield_7_data_def_enum_13
+0x0003ffca	did_de01_subfield_7_data_def_enum_14
+0x00040000	did_de01_subfield_7_data_def_enum_15
+0x00040036	did_de01_subfield_7_data_def_enum_16
+0x0004006c	did_de01_subfield_7_data_def_enum_17
+0x000400a2	did_de01_subfield_7_data_def_enum_18
+0x000400d8	did_de01_subfield_7_data_def_enum_19
+0x0004010e	did_de01_subfield_7_data_def_enum_20
+0x00040144	did_de01_subfield_7_data_def_enum_21
+0x0004017a	did_de01_subfield_7_data_def_enum_22
+0x000401b0	did_de01_subfield_7_data_def_enum_23
+0x000401e6	did_de01_subfield_7_data_def_enum_24
+0x0004021c	did_de01_subfield_7_data_def_enum_25
+0x00040252	did_de01_subfield_7_data_def_enum_26
+0x00040288	did_de01_subfield_7_data_def_enum_27
+0x000402be	did_de01_subfield_7_data_def_enum_28
+0x000402f4	did_de01_subfield_7_data_def_enum_29
+0x0004032a	did_de01_subfield_7_data_def_enum_30
+0x00040360	did_de01_subfield_7_data_def_enum_31
+0x00040396	did_de01_subfield_7_data_def_enum_32
+0x000403cc	did_de01_subfield_7_data_def
+0x000403f7	did_DE01_subfield_7
+0x0004040c	SteeringWheelSwitchRight
+0x0004044f	did_de01_subfield_8_data_def_enum_1
+0x00040482	did_de01_subfield_8_data_def_enum_2
+0x000404b7	did_de01_subfield_8_data_def
+0x000404e2	did_DE01_subfield_8
+0x000404f7	WithLaneKeepingAid
+0x00040530	Undefined
+0x0004053b	did_de01_subfield_9_data_def_enum_1
+0x0004056a	No AHB feature
+0x0004057a	did_de01_subfield_9_data_def_enum_2
+0x000405a9	AHBC
+0x000405af	did_de01_subfield_9_data_def_enum_3
+0x000405de	GFHB
+0x000405e4	did_de01_subfield_9_data_def_enum_4
+0x00040619	did_de01_subfield_9_data_def
+0x00040644	did_DE01_subfield_9
+0x00040659	AHB_Feature
+0x0004066e	did_DE01
+0x00040678	Static Data
+0x000406f3	did_de02_subfield_1_data_def_enum_1
+0x00040726	did_de02_subfield_1_data_def_enum_2
+0x0004075b	did_de02_subfield_1_data_def
+0x00040786	did_DE02_subfield_1
+0x0004079b	SCMCourtesyWipeEnable_Cfg
+0x000407df	did_de02_subfield_2_data_def_enum_1
+0x00040812	did_de02_subfield_2_data_def_enum_2
+0x00040847	did_de02_subfield_2_data_def
+0x00040872	did_DE02_subfield_2
+0x00040887	SCMRainSensingEnable_Cfg
+0x000408ca	did_de02_subfield_3_data_def_enum_1
+0x000408fd	did_de02_subfield_3_data_def_enum_2
+0x00040932	did_de02_subfield_3_data_def
+0x0004095d	did_DE02_subfield_3
+0x00040972	SCMRrWipeReverseWipe_Cfg
+0x00040994	did_DE02
+0x0004099e	Dynamic Data
+0x00040a03	did_ee04_subfield_1_data_def
+0x00040a2e	did_EE04_subfield_1
+0x00040a43	Wiper Switch Pack Status
+0x00040a65	did_EE04
+0x00040a6f	Wiper Switch Pack Status
+0x00040ae4	did_ee05_subfield_1_data_def
+0x00040b0f	did_EE05_subfield_1
+0x00040b24	Index
+0x00040b4d	did_ee05_subfield_2_data_def
+0x00040b78	did_EE05_subfield_2
+0x00040b8d	Byte 0
+0x00040bb7	did_ee05_subfield_3_data_def
+0x00040be2	did_EE05_subfield_3
+0x00040bf7	Byte 1
+0x00040c21	did_ee05_subfield_4_data_def
+0x00040c4c	did_EE05_subfield_4
+0x00040c61	Byte 2
+0x00040c8b	did_ee05_subfield_5_data_def
+0x00040cb6	did_EE05_subfield_5
+0x00040ccb	Byte 3
+0x00040cf5	did_ee05_subfield_6_data_def
+0x00040d20	did_EE05_subfield_6
+0x00040d35	Byte 4
+0x00040d5f	did_ee05_subfield_7_data_def
+0x00040d8a	did_EE05_subfield_7
+0x00040d9f	Byte 5
+0x00040dc9	did_ee05_subfield_8_data_def
+0x00040df4	did_EE05_subfield_8
+0x00040e09	Byte 6
+0x00040e33	did_ee05_subfield_9_data_def
+0x00040e5e	did_EE05_subfield_9
+0x00040e73	Byte 7
+0x00040e9d	did_ee05_subfield_10_data_def
+0x00040ec9	did_EE05_subfield_10
+0x00040edf	Byte 8
+0x00040f09	did_ee05_subfield_11_data_def
+0x00040f35	did_EE05_subfield_11
+0x00040f4b	Byte 9
+0x00040f75	did_ee05_subfield_12_data_def
+0x00040fa1	did_EE05_subfield_12
+0x00040fb7	Byte 10
+0x00040fe2	did_ee05_subfield_13_data_def
+0x0004100e	did_EE05_subfield_13
+0x00041024	Byte 11
+0x0004104f	did_ee05_subfield_14_data_def
+0x0004107b	did_EE05_subfield_14
+0x00041091	Byte 12
+0x000410bc	did_ee05_subfield_15_data_def
+0x000410e8	did_EE05_subfield_15
+0x000410fe	Byte 13
+0x00041129	did_ee05_subfield_16_data_def
+0x00041155	did_EE05_subfield_16
+0x0004116b	Byte 14
+0x00041196	did_ee05_subfield_17_data_def
+0x000411c2	did_EE05_subfield_17
+0x000411d8	Byte 15
+0x00041203	did_ee05_subfield_18_data_def
+0x0004122f	did_EE05_subfield_18
+0x00041245	Byte 16
+0x00041270	did_ee05_subfield_19_data_def
+0x0004129c	did_EE05_subfield_19
+0x000412b2	Byte 17
+0x000412dd	did_ee05_subfield_20_data_def
+0x00041309	did_EE05_subfield_20
+0x0004131f	Byte 18
+0x0004134a	did_ee05_subfield_21_data_def
+0x00041376	did_EE05_subfield_21
+0x0004138c	Byte 19
+0x000413b7	did_ee05_subfield_22_data_def
+0x000413e3	did_EE05_subfield_22
+0x000413f9	Byte 20
+0x00041424	did_ee05_subfield_23_data_def
+0x00041450	did_EE05_subfield_23
+0x00041466	Byte 21
+0x00041491	did_ee05_subfield_24_data_def
+0x000414bd	did_EE05_subfield_24
+0x000414d3	Byte 22
+0x000414fe	did_ee05_subfield_25_data_def
+0x0004152a	did_EE05_subfield_25
+0x00041540	Byte 23
+0x0004156b	did_ee05_subfield_26_data_def
+0x00041597	did_EE05_subfield_26
+0x000415ad	Byte 24
+0x000415d8	did_ee05_subfield_27_data_def
+0x00041604	did_EE05_subfield_27
+0x0004161a	Byte 25
+0x00041645	did_ee05_subfield_28_data_def
+0x00041671	did_EE05_subfield_28
+0x00041687	Byte 26
+0x000416b2	did_ee05_subfield_29_data_def
+0x000416de	did_EE05_subfield_29
+0x000416f4	Byte 27
+0x0004171f	did_ee05_subfield_30_data_def
+0x0004174b	did_EE05_subfield_30
+0x00041761	Byte 28
+0x0004178c	did_ee05_subfield_31_data_def
+0x000417b8	did_EE05_subfield_31
+0x000417ce	Byte 29
+0x000417f9	did_ee05_subfield_32_data_def
+0x00041825	did_EE05_subfield_32
+0x0004183b	Byte 30
+0x00041866	did_ee05_subfield_33_data_def
+0x00041892	did_EE05_subfield_33
+0x000418a8	Byte 31
+0x000418d3	did_ee05_subfield_34_data_def
+0x000418ff	did_EE05_subfield_34
+0x00041915	Byte 32
+0x00041940	did_ee05_subfield_35_data_def
+0x0004196c	did_EE05_subfield_35
+0x00041982	Byte 33
+0x000419ad	did_ee05_subfield_36_data_def
+0x000419d9	did_EE05_subfield_36
+0x000419ef	Byte 34
+0x00041a1a	did_ee05_subfield_37_data_def
+0x00041a46	did_EE05_subfield_37
+0x00041a5c	Byte 35
+0x00041a83	did_ee05_subfield_38_data_def
+0x00041aaf	did_EE05_subfield_38
+0x00041ac5	Byte 36
+0x00041aec	did_ee05_subfield_39_data_def
+0x00041b18	did_EE05_subfield_39
+0x00041b2e	Byte 37
+0x00041b55	did_ee05_subfield_40_data_def
+0x00041b81	did_EE05_subfield_40
+0x00041b97	Byte 38
+0x00041bbe	did_ee05_subfield_41_data_def
+0x00041bea	did_EE05_subfield_41
+0x00041c00	Byte 39
+0x00041c27	did_ee05_subfield_42_data_def
+0x00041c53	did_EE05_subfield_42
+0x00041c69	Byte 40
+0x00041c90	did_ee05_subfield_43_data_def
+0x00041cbc	did_EE05_subfield_43
+0x00041cd2	Byte 41
+0x00041cf9	did_ee05_subfield_44_data_def
+0x00041d25	did_EE05_subfield_44
+0x00041d3b	Byte 42
+0x00041d62	did_ee05_subfield_45_data_def
+0x00041d8e	did_EE05_subfield_45
+0x00041da4	Byte 43
+0x00041dcb	did_ee05_subfield_46_data_def
+0x00041df7	did_EE05_subfield_46
+0x00041e0d	Byte 44
+0x00041e34	did_ee05_subfield_47_data_def
+0x00041e60	did_EE05_subfield_47
+0x00041e76	Byte 45
+0x00041e9d	did_ee05_subfield_48_data_def
+0x00041ec9	did_EE05_subfield_48
+0x00041edf	Byte 46
+0x00041f06	did_ee05_subfield_49_data_def
+0x00041f32	did_EE05_subfield_49
+0x00041f48	Byte 47
+0x00041f6f	did_ee05_subfield_50_data_def
+0x00041f9b	did_EE05_subfield_50
+0x00041fb1	Byte 48
+0x00041fd8	did_ee05_subfield_51_data_def
+0x00042004	did_EE05_subfield_51
+0x0004201a	Byte 49
+0x00042041	did_ee05_subfield_52_data_def
+0x0004206d	did_EE05_subfield_52
+0x00042083	Byte 50
+0x000420aa	did_ee05_subfield_53_data_def
+0x000420d6	did_EE05_subfield_53
+0x000420ec	Byte 51
+0x000420fd	did_EE05
+0x00042107	Wiper Switch Pack Status Shadow
+0x00042183	did_ee06_subfield_1_data_def
+0x000421ae	did_EE06_subfield_1
+0x000421c3	Data01
+0x000421ed	did_ee06_subfield_2_data_def
+0x00042218	did_EE06_subfield_2
+0x0004222d	Data02
+0x00042257	did_ee06_subfield_3_data_def
+0x00042282	did_EE06_subfield_3
+0x00042297	Data03
+0x000422c1	did_ee06_subfield_4_data_def
+0x000422ec	did_EE06_subfield_4
+0x00042301	Data04
+0x0004232b	did_ee06_subfield_5_data_def
+0x00042356	did_EE06_subfield_5
+0x0004236b	Data05
+0x00042395	did_ee06_subfield_6_data_def
+0x000423c0	did_EE06_subfield_6
+0x000423d5	Data06
+0x000423ff	did_ee06_subfield_7_data_def
+0x0004242a	did_EE06_subfield_7
+0x0004243f	Data07
+0x00042469	did_ee06_subfield_8_data_def
+0x00042494	did_EE06_subfield_8
+0x000424a9	Data08
+0x000424d3	did_ee06_subfield_9_data_def
+0x000424fe	did_EE06_subfield_9
+0x00042513	Data09
+0x0004253d	did_ee06_subfield_10_data_def
+0x00042569	did_EE06_subfield_10
+0x0004257f	Data10
+0x000425a9	did_ee06_subfield_11_data_def
+0x000425d5	did_EE06_subfield_11
+0x000425eb	Data11
+0x00042615	did_ee06_subfield_12_data_def
+0x00042641	did_EE06_subfield_12
+0x00042657	Data12
+0x00042681	did_ee06_subfield_13_data_def
+0x000426ad	did_EE06_subfield_13
+0x000426c3	Data13
+0x000426e9	did_ee06_subfield_14_data_def
+0x00042715	did_EE06_subfield_14
+0x0004272b	Data14
+0x00042751	did_ee06_subfield_15_data_def
+0x0004277d	did_EE06_subfield_15
+0x00042793	Data15
+0x000427b9	did_ee06_subfield_16_data_def
+0x000427e5	did_EE06_subfield_16
+0x000427fb	Data16
+0x00042821	did_ee06_subfield_17_data_def
+0x0004284d	did_EE06_subfield_17
+0x00042863	Data17
+0x00042889	did_ee06_subfield_18_data_def
+0x000428b5	did_EE06_subfield_18
+0x000428cb	Data18
+0x000428f1	did_ee06_subfield_19_data_def
+0x0004291d	did_EE06_subfield_19
+0x00042933	Data19
+0x00042959	did_ee06_subfield_20_data_def
+0x00042985	did_EE06_subfield_20
+0x0004299b	Data20
+0x000429c1	did_ee06_subfield_21_data_def
+0x000429ed	did_EE06_subfield_21
+0x00042a03	Data21
+0x00042a13	did_EE06
+0x00042a1d	Data Set 0
+0x00042ab5	did_f110_subfield_1_data_def
+0x00042ae0	did_F110_subfield_1
+0x00042af5	Subsystem Specific Diagnostic Specification Part Number
+0x00042b35	This DID is used to report the ECU's Part 2 Spec WERS Part Number (e.g., DS-1234-ABCD-AA).
+0x00042b91	did_F110
+0x00042b9b	Subsystem Specific Diagnostic Specification Part Number
+0x00042c3e	did_f111_subfield_1_data_def
+0x00042c69	did_F111_subfield_1
+0x00042c7e	ECU Core Assembly Number
+0x00042ca0	did_F111
+0x00042caa	ECU Core Assembly Number
+0x00042d2e	did_f113_subfield_1_data_def
+0x00042d59	did_F113_subfield_1
+0x00042d6e	ECU Delivery Assembly Number
+0x00042d94	did_F113
+0x00042d9e	ECU Delivery Assembly Number
+0x00042e22	did_f129_subfield_1_data_def
+0x00042e4d	did_F129_subfield_1
+0x00042e62	Private Sub Node #1 Part Number
+0x00042e8b	did_F129
+0x00042e95	Private Sub Node #1 Part Number
+0x00042f1c	did_f12a_subfield_1_data_def
+0x00042f47	did_F12A_subfield_1
+0x00042f5c	Private Sub Node #2 Part Number
+0x00042f85	did_F12A
+0x00042f8f	Private Sub Node #2 Part Number
+0x00043016	did_f12b_subfield_1_data_def
+0x00043041	did_F12B_subfield_1
+0x00043056	Private Sub Node #3 Part Number
+0x0004307f	did_F12B
+0x00043089	Private Sub Node #3 Part Number
+0x00043108	Vector
+0x00043110	did_f15f_subfield_1_data_def_enum_1
+0x00043142	did_f15f_subfield_1_data_def
+0x0004316d	did_F15F_subfield_1
+0x00043182	NOS Generation Tool Supplier
+0x000431be	did_f15f_subfield_2_data_def
+0x000431e9	did_F15F_subfield_2
+0x000431fe	NOS Generation Tool Version Number
+0x0004322a	did_F15F
+0x00043234	NOS Generation Tool Version Number
+0x000432b4	SWDL 31808456 Issue P01
+0x000432cd	did_f162_subfield_1_data_def_enum_1
+0x000432fc	SWDL 31808456 Issue 001
+0x00043315	did_f162_subfield_1_data_def_enum_2
+0x00043344	SWDL 31808456 Issue 002
+0x0004335d	did_f162_subfield_1_data_def_enum_3
+0x0004338c	SWDL 31808456 Issue 003
+0x000433a5	did_f162_subfield_1_data_def_enum_4
+0x000433d4	SWDL 31808456 Issue 004
+0x000433ed	did_f162_subfield_1_data_def_enum_5
+0x0004341c	SWDL 31808456 Issue 005
+0x00043435	did_f162_subfield_1_data_def_enum_6
+0x00043464	SWDL 00.06.15.002-006
+0x0004347b	did_f162_subfield_1_data_def_enum_7
+0x000434ad	did_f162_subfield_1_data_def
+0x000434d8	did_F162_subfield_1
+0x000434ed	Software Download Specification Version
+0x0004351e	did_F162
+0x00043528	Software Download Specification Version
+0x000435af	GGDS 31810161 Issue 001
+0x000435c8	did_f163_subfield_1_data_def_enum_1
+0x000435f7	GGDS 31810161 Issue 002
+0x00043610	did_f163_subfield_1_data_def_enum_2
+0x0004363f	GGDS 31810161 Issue 003
+0x00043658	did_f163_subfield_1_data_def_enum_3
+0x00043687	GGDS 00.06.15.001-004
+0x0004369e	did_f163_subfield_1_data_def_enum_4
+0x000436d0	did_f163_subfield_1_data_def
+0x000436fb	did_F163_subfield_1
+0x00043710	Diagnostic Specification Version
+0x0004373a	did_F163
+0x00043744	Diagnostic Specification Version
+0x000437ca	did_f166_subfield_1_data_def
+0x000437f5	did_F166_subfield_1
+0x0004380a	Year
+0x0004383b	did_f166_subfield_2_data_def
+0x00043866	did_F166_subfield_2
+0x0004387b	Month
+0x000438ad	did_f166_subfield_3_data_def
+0x000438d8	did_F166_subfield_3
+0x000438ed	Day
+0x0004391d	did_f166_subfield_4_data_def
+0x00043948	did_F166_subfield_4
+0x0004395d	Release Version
+0x00043976	did_F166
+0x00043980	NOS Message Database #1 Version Number
+0x00043a0a	did_f17c_subfield_1_data_def_enum_1
+0x00043a3c	did_f17c_subfield_1_data_def
+0x00043a67	did_F17C_subfield_1
+0x00043a7c	NOS Bootloader Generation Tool Supplier
+0x00043ac3	did_f17c_subfield_2_data_def
+0x00043aee	did_F17C_subfield_2
+0x00043b03	NOS Bootloader Generation Tool Version Number
+0x00043b3a	did_F17C
+0x00043b44	NOS Bootloader Generation Tool Version Number
+0x00043c02	did_f180_subfield_1_data_def
+0x00043c2d	did_F180_subfield_1
+0x00043c42	Number Of Modules (ISO14229 compatibility - always set to 01h)
+0x00043caf	did_f180_subfield_2_data_def
+0x00043cda	did_F180_subfield_2
+0x00043cef	Boot Software Identifcation Data (Part no. of the bootloader)
+0x00043d36	did_F180
+0x00043d40	Boot Software Identification
+0x00043dc4	did_f188_subfield_1_data_def
+0x00043def	did_F188_subfield_1
+0x00043e04	Vehicle Manufacturer ECU Software Number
+0x00043e36	did_F188
+0x00043e40	Vehicle Manufacturer ECU Software Number
+0x00043ed2	did_f18c_subfield_1_data_def
+0x00043efd	did_F18C_subfield_1
+0x00043f12	ECU Serial Number
+0x00043f2d	did_F18C
+0x00043f37	ECU Serial Number
+0x00043f93	did_F200
+0x00043f9d	DynamicPeriodicDidNo0
+0x00043ffd	did_F201
+0x00044007	DynamicPeriodicDidNo1
+0x00044067	did_F202
+0x00044071	DynamicPeriodicDidNo2
+0x000440d1	did_F203
+0x000440db	DynamicPeriodicDidNo3
+0x0004413b	did_F204
+0x00044145	DynamicPeriodicDidNo4
+0x000441c7	edr_02_record_0_subfield_0_data_def
+0x000441f9	edr_02_record_0_subfield_0
+0x00044300	edr_02
+0x00044308	Operation cycle counter #2
+0x00044380	edr_10_record_1_subfield_0_data_def
+0x000443b2	edr_10_record_1_subfield_0
+0x000444a9	edr_10
+0x000444b1	DTC Fault Detection Counter
+0x000444e3	Internal Electronic Failure
+0x00044500	ftb_49
+0x00044511	Signal Calculation Failure
+0x0004452d	ftb_61
+0x0004453e	Signal Compare Failure
+0x00044556	ftb_62
+0x00044567	Signal Plausibility Failure
+0x00044584	ftb_64
+0x00044595	Invalid Serial Data Received
+0x000445b3	ftb_81
+0x000445c4	Signal Above Allowable Range
+0x000445e2	ftb_85
+0x000445f3	Performance or Incorrect Operation
+0x00044617	ftb_92
+0x00044628	Component Internal Failure
+0x00044644	ftb_96
+0x00044655	General Electrical Failure
+0x00044671	ftb_01
+0x00044682	General Signal Failure
+0x0004469a	ftb_02
+0x000446ab	Bus Signal / Message Failure
+0x000446c9	ftb_08
+0x000446da	Not Configured
+0x000446ea	ftb_55
+0x000446fb	Component or System Operating Conditions
+0x00044725	ftb_9A
+0x00044736	System Internal Failure
+0x0004474f	ftb_04
+0x00044760	Data Memory Failure
+0x00044775	ftb_44
+0x00044786	Program Memory Failure
+0x0004479e	ftb_45
+0x000447af	Calibration / Parameter Memory Failure
+0x000447d7	ftb_46
+0x000447e8	Stuck On
+0x000447f2	ftb_9E
+0x00044803	Circuit Short To Ground
+0x0004481c	ftb_11
+0x0004482d	Circuit Open
+0x0004483b	ftb_13
+0x0004484c	Circuit Voltage Out of Range
+0x0004486a	ftb_1C
+0x0004487b	Actuator Stuck
+0x0004488b	ftb_71
+0x0004489c	No Sub Type Information
+0x000448b5	ftb_00
+0x000448c6	Signal Invalid
+0x000448d6	ftb_86
+0x000448e7	Missing Message
+0x000448f8	ftb_87
+0x00044909	System Voltage Low
+0x0004491d	ftb_A2
+0x0004492e	System Voltage High
+0x00044943	ftb_A3
+0x0004495e	op_cycle_1
+0x0004497f	The first time since DTC information was cleared or the DTC was aged that DTC status bit 3 (confirmedDTC) is set to 1.
+0x000449f7	snapshot_10
+0x00044b39	SAS goes to status=fault
+0x00044b53	Steering Angle Sensor dropps functionality.
+0x00044c6b	Once every 10 ms
+0x00044cac	C2.4; C2.5 CAN
+0x00044cbc	dtc_5B00_fi_0
+0x00044d41	Steering Angle Sensor dropps functionality.
+0x00044e79	dtc_5B00_fi_1
+0x00044efe	Steering Angle Sensor dropps functionality.
+0x00045002	dtc_5B00_fi_2
+0x00045087	Steering Angle Sensor dropps functionality.
+0x00045197	Once every 10 ms.
+0x000451df	dtc_5B00_fi_3
+0x00045264	Steering Angle Sensor dropps functionality.
+0x00045367	dtc_5B00_fi_4
+0x000453ec	Steering Angle Sensor dropps functionality.
+0x000454ef	dtc_5B00_fi_5
+0x00045574	Steering Angle Sensor dropps functionality.
+0x00045648	Test runs every 10ms.
+0x00045694	dtc_5B00_fi_6
+0x00045719	Steering Angle Sensor dropps functionality.
+0x00045855	dtc_5B00_fi_7
+0x00045869	Steering Angle Sensor
+0x00045880	dtc_5B00
+0x00045905	DTC will be logged.
+0x0004591a	Rain sensor wiping does not work or intermittently work.
+0x000459dc	Once every 50 ms.
+0x00045a1e	C2.2 LIN
+0x00045a28	dtc_90AD_fi_0
+0x00045aad	Rain sensor wiping does not work or intermittently not work.
+0x00045aeb	Fail: LIN signal RSMInput_Status == "Yes". Pass: LIN signal RSMInput_Status != "Yes"
+0x00045b7d	dtc_90AD_fi_1
+0x00045c02	Rain sensor wiping does not work or intermittently not work.
+0x00045d0f	dtc_90AD_fi_2
+0x00045d94	Rain sensor wiping does not work or intermittently not work.
+0x00045dd2	Fail: LIN signal RSMECU_Output_Status == "ECU Fault". Pass: LIN signal RSMECU_Output_Status != "ECU Fault"
+0x00045e7a	dtc_90AD_fi_3
+0x00045ef9	DTC will be logged
+0x00045f0d	Rain sensor wiping does not work.
+0x00045f30	Fail: LIN signal RSMConfig_Status == "Not Configured". Pass: LIN signal RSMConfig_Status != "Not Configured"
+0x00045fda	dtc_90AD_fi_4
+0x000460f3	Every time message is received.
+0x00046149	dtc_90AD_fi_5
+0x0004615d	Rain Sensor
+0x0004616a	dtc_90AD
+0x000461ef	Restart is performed, DTC is set, CCS is dropped.
+0x00046222	SCCM will drop CCS functionality.
+0x00046245	Fail: At least one system fault occurs. Pass: No system fault occurs.
+0x0004628d	At start up of SCCM and cyclically for some faults.
+0x000462f2	dtc_912B_fi_0
+0x00046371	DTC will be set and DID that contains the corrupt data will not return expected value.
+0x000463c9	DID is logged. DID that contains corrupt data, returns negative response.
+0x000464d6	dtc_912B_fi_1
+0x000465ec	ECU application is not started.
+0x000466ef	dtc_912B_fi_2
+0x0004676e	Default configuration will be taken.
+0x00046831	Fail: At least one of the configuration shadows is corrupt. Pass: All configuration shadows are ok.
+0x000468cd	dtc_912B_fi_3
+0x000468e1	Steering Wheel Module
+0x000468f8	dtc_912B
+0x00046983	Wiping will only work in FAST wiping position.
+0x00046a78	dtc_9131_fi_0
+0x00046afd	Wiping will only work in FAST position.
+0x00046b26	Fail: LIN signal SFWMECU_Input_Status == "Yes". Pass: LIN signal SFWMECU_Input_Status != "Yes".
+0x00046bc3	dtc_9131_fi_1
+0x00046c48	Wiping is not working.
+0x00046d31	dtc_9131_fi_2
+0x00046db6	Wiping will work only in FAST wiping position.
+0x00046de6	Fail: LIN signal SFWMECU_Output_Status == "ECU Fault". Pass: LIN signal SFWMECU_Output_Status != "ECU Fault".
+0x00046e91	dtc_9131_fi_3
+0x00046f16	Wiping will only work in the FAST wiping position.
+0x00046f4a	Fail: LIN signal SFWMConfig_Status == "Not Configured". Pass: LIN signal SFWMConfig_Status != "Not Configured".
+0x00046ff7	dtc_9131_fi_4
+0x0004707c	Wiping will work only in the FAST wiping position.
+0x0004717b	dtc_9131_fi_5
+0x0004718f	Wiper motor module
+0x000471a3	dtc_9131
+0x00047228	Corresponding CAN outputs will be set to "Not pressed".
+0x00047347	Fail: Invalid signal has been detected fo at least 500ms. Pass: Signals are ok.
+0x00047399	Once every 500ms.
+0x000473db	Carrier.B.4; Carrier.B.5
+0x000473f5	dtc_924C_fi_0
+0x00047474	Corresponding CAN output signals are set to "OFF".
+0x000474a8	Turn Indicator will be switched off (CAN output will not be updated until fault state is not active any more).
+0x00047518	Fail: Input signal has not changed for at least 2 min. Pass: Stalk switch released for at least 40ms.
+0x00047580	Once every 2 min.
+0x000475c8	dtc_924C_fi_1
+0x000475dc	Turn Indicator Stalk Switch Pack
+0x000475fe	dtc_924C
+0x00047683	Set LIN output signals to "OFF".
+0x000476a5	Wiper will be switched off. (LIN output will not be updated until fault state is not active any more).
+0x0004770d	Voltage at connector pin is <= 0.005252V
+0x00047738	Once every 40 ms.
+0x0004777a	Carrier.C.4; Carrier.C.5
+0x00047794	dtc_924E_fi_0
+0x00047819	Wiper will be switched off. (LIN output will not be updated until fault state is not active any more).
+0x00047881	Voltage at connector pins is >=4.89999V
+0x000478e6	dtc_924E_fi_1
+0x00047965	DTC is logged.
+0x00047975	Wiper will be switched off. (LIN output will not be updated until fault state is not active any more).
+0x00047af0	Carrier.C.10
+0x00047afe	dtc_924E_fi_2
+0x00047b83	Wiper will be switched off. (LIN output will not be updated until fault state is not active any more).
+0x00047beb	Fail: Measured voltage at a connector pin is our of range.
+0x00047c63	dtc_924E_fi_3
+0x00047ce8	Wiper will be switched off. (LIN output will not be updated until fault state is not active any more).
+0x00047d50	Input signal at at least one of the connector pins has not changed for at least 2 minutes.
+0x00047de2	Carrier.C.2; Carrier.C.8; Carrier.C.9
+0x00047e09	dtc_924E_fi_4
+0x00047e1d	Wiper Stalk Switch Pack
+0x00047e36	dtc_924E
+0x00047ebb	Corresponding CAN signals are set to "Not pressed".
+0x00047ef0	Steering Wheel Left Switch Pack is deactivated in "unpressed" state.
+0x00048079	C3.7; C3.8; C3.9; C3.10
+0x00048092	dtc_937F_fi_0
+0x00048111	Corresponding CAN signals are set to "Not pressed".
+0x00048146	Steering Wheel Left Switch Pack is deactivated in "unpressed" state.
+0x000482c5	dtc_937F_fi_1
+0x00048344	Corresponding CAN signals are set to "Not pressed".
+0x00048379	Steering Wheel Left Switch Pack is deactivated in "unpressed" state.
+0x000483bf	Fail: Measured voltage is out of range for at least 40ms. Pass: Measured Trip switch voltage is valid for at least 40ms.
+0x00048475	dtc_937F_fi_2
+0x000484f4	CAN output signals will be set to "Not pressed".
+0x00048526	Steering Wheel Left Switch Pack is deactivated in "unpressed" state.
+0x0004856c	Fail: A/D value for Steering Wheel Left Switch Pack hasn't changed for 2 min. Pass: Buttons released for 10 s.
+0x00048618	dtc_937F_fi_3
+0x0004862c	Steering Wheel Left Switch Pack
+0x0004864d	dtc_937F
+0x000486d2	CAN signals are set to "Init" and "Inactive".
+0x00048701	Steering Wheel Right Switch Pack is deactivated in "unpressed" state.
+0x0004888b	C3.11; C3.12; C3.13; C3.14
+0x000488a7	dtc_9380_fi_0
+0x00048926	CAN signals are set to "Init" and "Inactive".
+0x00048955	Steering Wheel Right Switch Pack is deactivated in "unpressed" state.
+0x00048ad5	dtc_9380_fi_1
+0x00048b54	CAN signals are set to "Init" and "Inactive".
+0x00048b83	Steering Wheel Right Switch Pack is deactivated in "unpressed" state.
+0x00048c9e	dtc_9380_fi_2
+0x00048d1d	CAN signals are set to "Init" and "Inactive".
+0x00048d4c	Steering Wheel Right Switch Pack is deactivated in "unpressed" state.
+0x00048d93	Fail: A/D value for Steering Wheel Right Switch Pack hasn't changed for 2 min. Pass: Button released for 10 s.
+0x00048e3f	dtc_9380_fi_3
+0x00048e53	Steering Wheel Right Switch Pack
+0x00048e75	dtc_9380
+0x00048efa	DTC is set.
+0x00048f07	Lane Keeping Aid System will be deactivated.
+0x00048ffe	Carrier.B.5
+0x0004900b	dtc_9385_fi_0
+0x0004901f	Lane Keeping Aid System
+0x00049038	dtc_9385
+0x000490c1	See Function Specification for this node.
+0x000490ec	Fail: If bit 4 of LINStatus Byte is set to 1. Pass: If bit 4 of LINStatus Byte is set to 0.
+0x0004914a	TBD - required for continuous DTCs
+0x000491a3	dtc_93AD_fi_0
+0x00049226	See Function Specification for this node.
+0x00049251	Fail: If bit 2 of LINStatus Byte is set to 1. Pass: If bit 2 of LINStatus Byte is set to 0.
+0x000492ea	dtc_93AD_fi_1
+0x0004936d	See Function Specification for this node.
+0x00049398	Fail: SWVA_L1_P0x has not been received for at least 5 seconds. Pass: SWVA_L1_P0x has has been received for at least 10ms.
+0x00049450	dtc_93AD_fi_2
+0x000494d3	See Function Specification for this node.
+0x000494fe	Fail: LIN 1 SWVA signal SWVADiagShortToGround = 0x1
+0x00049534	Once every 20 ms.
+0x0004957c	dtc_93AD_fi_3
+0x000495ff	See Function Specification for this node.
+0x0004962a	Fail: LIN 1 SWVA signal SWVADiagOpenCircuit = 0x1
+0x00049699	dtc_93AD_fi_4
+0x0004971c	See Function Specification for this node.
+0x00049747	Fail: LIN 1 SWVA signal SWVADiagVoltageOutOfRange = 0x1
+0x000497bc	dtc_93AD_fi_5
+0x0004983f	See Function Specification for this node.
+0x0004986a	Fail: If bit 3 and bit 4 of LINStatus Byte is set to 1. Pass: If bit 3 and bit 4 of LINStatus Byte is set to 0.
+0x00049917	dtc_93AD_fi_6
+0x0004999a	See Function Specification for this node.
+0x000499c5	Fail: If bit 5 of LINStatus Byte is set to 1 (SWVA_L1_P0x.SWVAConfig_Status==1). Pass: If bit 5 of LINStatus Byte is set to 0.
+0x00049a81	dtc_93AD_fi_7
+0x00049b04	See Function Specification for this node.
+0x00049b2f	LIN 1 SWVA signal SWVADiagActuatorStuck = 0x1
+0x00049b9a	dtc_93AD_fi_8
+0x00049c1d	See Function Specification for this node.
+0x00049c48	LIN 1 SWVA signal SWVADiagCompIntFailure = 0x1
+0x00049cb4	dtc_93AD_fi_9
+0x00049d37	See Function Specification for this node.
+0x00049e24	dtc_93AD_fi_10
+0x00049e39	Steering Wheel Vibration Actuator
+0x00049e5c	dtc_93AD
+0x00049ee1	Ignition status is set to "OFF"; "HeadLghtHiPrmsn_D_Stat" signal is set to 0x0.
+0x00049f32	AutoHighBeam is deactivated.
+0x0004a034	Once every 5s for setting and 5ms for clearing.
+0x0004a09a	dtc_C140_fi_0
+0x0004a0ae	Lost Communication With Body Control Module
+0x0004a0db	dtc_C140
+0x0004a164	Infotainment switches are not working, turn indicator is not working, cluster switches are not working.
+0x0004a283	Once every 5s for setting and 5ms for clearing.
+0x0004a2e9	dtc_C146_fi_0
+0x0004a2fd	Lost Communication With Gateway "A"
+0x0004a322	dtc_C146
+0x0004a3ab	Cluster switches are not working.
+0x0004a4a1	Once every 5s for setting and 5ms for clearing.
+0x0004a507	dtc_C155_fi_0
+0x0004a51b	Lost Communication With Instrument Panel Cluster (IPC) Control Module
+0x0004a562	dtc_C155
+0x0004a5e7	"AhbHiBeam_D_Rq" signal is set to 0x0.
+0x0004a60f	AHB is deactivated. LaneKeepingAid is not working.
+0x0004a6e7	Once every 5s for setting and 5ms for clearing.
+0x0004a74d	dtc_C23A_fi_0
+0x0004a761	Lost Communication With Image Processing Module A
+0x0004a794	dtc_C23A
+0x0004a819	"AhbStatGfhbFdbk_D_Actl" signal is set to 0x00; "AhbHiBeam_D_Rq" is set to 0x0
+0x0004a869	AHB is deactivated.
+0x0004a93e	Once every 1s for setting and 5ms for clearing.
+0x0004a9a4	dtc_C241_fi_0
+0x0004a9b8	Lost Communication With Headlamp Control Module "A"
+0x0004a9ed	dtc_C241
+0x0004aa72	No fault action, only DTC logging.
+0x0004aa9c	Fail: If signal does not contain "OK". Pass: Signal equals to "OK".
+0x0004aae2	Once every 20ms for setting and 20ms for clearing.
+0x0004ab4b	dtc_C415_fi_0
+0x0004abd6	Fail: Will be set if ECU misses message for at least 100ms. Pass: At least one message received.
+0x0004ac39	Once every 100ms for setting. For clearing: Once message is received.
+0x0004acb5	dtc_C415_fi_1
+0x0004acc9	Invalid Data Received From Anti-Lock Brake System (ABS) Control Module "A"
+0x0004ad15	dtc_C415
+0x0004ad9a	Ignition Status signal is set to 0x0.
+0x0004adc1	AHB is deactivated. TurnIndicator is not working.
+0x0004aeac	Once every 5s for setting and 5ms for clearing.
+0x0004af12	dtc_C422_fi_0
+0x0004af26	Invalid Data Received From Body Control Module
+0x0004af56	dtc_C422
+0x0004b097	Once every 5s for setting and 5ms for clearing.
+0x0004b0fd	dtc_C53B_fi_0
+0x0004b111	Invalid Data Received From Image Processing Module A
+0x0004b147	dtc_C53B
+0x0004b1d2	Initial configuration is active.
+0x0004b1f4	Module configuration hasn't been written yet.
+0x0004b224	Once every 40 ms
+0x0004b266	dtc_E100_fi_0
+0x0004b27a	Initial Configuration Not Complete
+0x0004b29e	dtc_E100
+0x0004b323	DTC will be set
+0x0004b334	DTC is set
+0x0004b4ba	Once every 5s for setting and 5ms for clearing.
+0x0004b520	dtc_E101_fi_0
+0x0004b534	Control Module Configuration Incompatible
+0x0004b55f	dtc_E101
+0x0004b5e4	Default configuration will be used.
+0x0004b60f	Fail: Module configuration data is corrupted.
+0x0004b675	dtc_E200_fi_0
+0x0004b689	Control Module Configuration Memory Corrupt
+0x0004b6b6	dtc_E200
+0x0004b73b	No DTC logging any more.
+0x0004b755	Module is not fully operable
+0x0004b773	Voltage at connector pin < 10V.
+0x0004b7ca	C2.1 PWR KL30
+0x0004b7d9	dtc_F003_fi_0
+0x0004b85e	Module is not fully operable.
+0x0004b87d	Voltage at connector pin > 15.5V.
+0x0004b8dc	dtc_F003_fi_1
+0x0004b8f0	Battery Voltage
+0x0004b901	dtc_F003
+0x0004b960	service_23_p4_max_00
+0x0004b9e6	service_23
+0x0004b9f2	ReadMemoryByAddress
+0x0004ba1c	mem_00
+0x0004ba24	Register
+0x0004ba6c	mem_01
+0x0004ba74	RAM
+0x0004bac3	mem_02
+0x0004bacb	Data Flash
+0x0004bb01	mem_03
+0x0004bb09	Strategy
+0x0004bb74	Type 2
+0x0004bb7c	routine_0202_results_resp_param__param_0_resp_sub_item_bit_1_data_def_enum_1
+0x0004bbd7	routine_0202_results_resp_param__param_0_resp_sub_item_bit_1_data_def
+0x0004bc2b	routine_0202_results_resp_param__param_0_resp_sub_item_bit_1
+0x0004bc69	RoutineType
+0x0004bc9b	completed
+0x0004bca6	routine_0202_results_resp_param__param_0_resp_sub_item_bit_2_data_def_enum_1
+0x0004bcfe	aborted
+0x0004bd07	routine_0202_results_resp_param__param_0_resp_sub_item_bit_2_data_def_enum_2
+0x0004bd5f	active
+0x0004bd67	routine_0202_results_resp_param__param_0_resp_sub_item_bit_2_data_def_enum_3
+0x0004bdc2	routine_0202_results_resp_param__param_0_resp_sub_item_bit_2_data_def
+0x0004be16	routine_0202_results_resp_param__param_0_resp_sub_item_bit_2
+0x0004be54	RoutineStatus
+0x0004be6c	RoutineInfo
+0x0004beab	routine_0202_results_resp_param__param_1_resp_sub_item_bit_1_data_def
+0x0004beff	routine_0202_results_resp_param__param_1_resp_sub_item_bit_1
+0x0004bf3d	On-Demand DTCs
+0x0004bf58	Response Additional Data
+0x0004bfc0	routine_0202_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x0004c011	routine_0202_param_1_start_resp_1_routinetype_resp_data_def
+0x0004c05b	routine_0202_param_1_start_resp_1_subfield_1
+0x0004c089	RoutineType
+0x0004c0c1	routine_0202_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x0004c117	routine_0202_param_1_start_resp_1_routinestatus_resp_data_def_enum_2
+0x0004c16d	routine_0202_param_1_start_resp_1_routinestatus_resp_data_def_enum_3
+0x0004c1c0	routine_0202_param_1_start_resp_1_routinestatus_resp_data_def
+0x0004c20c	routine_0202_param_1_start_resp_1_subfield_2
+0x0004c23a	RoutineStatus
+0x0004c273	routine_0202
+0x0004c281	On-Demand Self-Test
+0x0004c302	Type 1
+0x0004c30a	routine_020b_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x0004c35b	routine_020b_param_1_start_resp_1_routinetype_resp_data_def
+0x0004c3a5	routine_020B_param_1_start_resp_1_subfield_1
+0x0004c3d3	RoutineType
+0x0004c40b	routine_020b_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x0004c45e	routine_020b_param_1_start_resp_1_routinestatus_resp_data_def
+0x0004c4aa	routine_020B_param_1_start_resp_1_subfield_2
+0x0004c4d8	RoutineStatus
+0x0004c511	routine_020B
+0x0004c51f	Restore Initial ECU Configuration To Not Complete State
+0x0004c5ba	routine_routine_0301_start_req_1_subfield_1_bit_0_req_data_def
+0x0004c607	routine_routine_0301_start_req_1_subfield_1
+0x0004c634	Memory Address
+0x0004c64d	Request Additional Data
+0x0004c6a8	routine_0301_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x0004c6f9	routine_0301_param_1_start_resp_1_routinetype_resp_data_def
+0x0004c743	routine_0301_param_1_start_resp_1_subfield_1
+0x0004c771	RoutineType
+0x0004c7a9	routine_0301_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x0004c7fc	routine_0301_param_1_start_resp_1_routinestatus_resp_data_def
+0x0004c848	routine_0301_param_1_start_resp_1_subfield_2
+0x0004c876	RoutineStatus
+0x0004c8af	routine_0301
+0x0004c8bd	Activate Secondary Boot-loader
+0x0004c94d	routine_0304_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x0004c99e	routine_0304_param_1_start_resp_1_routinetype_resp_data_def
+0x0004c9e8	routine_0304_param_1_start_resp_1_subfield_1
+0x0004ca16	RoutineType
+0x0004ca4e	routine_0304_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x0004caa1	routine_0304_param_1_start_resp_1_routinestatus_resp_data_def
+0x0004caed	routine_0304_param_1_start_resp_1_subfield_2
+0x0004cb1b	RoutineStatus
+0x0004cb67	Valid Application Software is NOT Present
+0x0004cb92	routine_0304_param_2_start_resp_1_application_status_resp_data_def_enum_1
+0x0004cbe7	Valid Application Software is Present
+0x0004cc0e	routine_0304_param_2_start_resp_1_application_status_resp_data_def_enum_2
+0x0004cc66	routine_0304_param_2_start_resp_1_application_status_resp_data_def
+0x0004ccb7	routine_0304_param_2_start_resp_1_subfield_1
+0x0004cce5	Application Status
+0x0004cd23	routine_0304
+0x0004cd31	Check Valid Application
+0x0004cda2	routine_203a_results_resp_param__param_0_resp_sub_item_bit_1_data_def_enum_1
+0x0004cdfd	routine_203a_results_resp_param__param_0_resp_sub_item_bit_1_data_def
+0x0004ce51	routine_203A_results_resp_param__param_0_resp_sub_item_bit_1
+0x0004ce8f	RoutineType
+0x0004cec7	routine_203a_results_resp_param__param_0_resp_sub_item_bit_2_data_def_enum_1
+0x0004cf25	routine_203a_results_resp_param__param_0_resp_sub_item_bit_2_data_def_enum_2
+0x0004cf83	routine_203a_results_resp_param__param_0_resp_sub_item_bit_2_data_def_enum_3
+0x0004cfde	routine_203a_results_resp_param__param_0_resp_sub_item_bit_2_data_def
+0x0004d032	routine_203A_results_resp_param__param_0_resp_sub_item_bit_2
+0x0004d070	RoutineStatus
+0x0004d0dc	routine_203a_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x0004d12d	routine_203a_param_1_start_resp_1_routinetype_resp_data_def
+0x0004d177	routine_203A_param_1_start_resp_1_subfield_1
+0x0004d1a5	RoutineType
+0x0004d1dd	routine_203a_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x0004d233	routine_203a_param_1_start_resp_1_routinestatus_resp_data_def_enum_2
+0x0004d289	routine_203a_param_1_start_resp_1_routinestatus_resp_data_def_enum_3
+0x0004d2dc	routine_203a_param_1_start_resp_1_routinestatus_resp_data_def
+0x0004d328	routine_203A_param_1_start_resp_1_subfield_2
+0x0004d356	RoutineStatus
+0x0004d38f	routine_203A
+0x0004d39d	Configure Private Sub Nodes And Collect Private Sub Node Part Numbers
+0x0004d44a	routine_routine_ff00_start_req_1_subfield_1_bit_0_req_data_def
+0x0004d497	routine_routine_FF00_start_req_1_subfield_1
+0x0004d4c4	Memory Address
+0x0004d4f2	routine_routine_ff00_start_req_1_subfield_2_bit_1_req_data_def
+0x0004d53f	routine_routine_FF00_start_req_1_subfield_2
+0x0004d56c	Memory Size
+0x0004d5ca	routine_ff00_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x0004d61b	routine_ff00_param_1_start_resp_1_routinetype_resp_data_def
+0x0004d665	routine_FF00_param_1_start_resp_1_subfield_1
+0x0004d693	RoutineType
+0x0004d6cb	routine_ff00_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x0004d71e	routine_ff00_param_1_start_resp_1_routinestatus_resp_data_def
+0x0004d76a	routine_FF00_param_1_start_resp_1_subfield_2
+0x0004d798	RoutineStatus
+0x0004d7d1	routine_FF00
+0x0004d7df	Flash Erase
+0x0004d850	routine_routine_ff01_start_req_1_subfield_1_bit_0_req_data_def
+0x0004d89d	routine_routine_FF01_start_req_1_subfield_1
+0x0004d8ca	Memory Address
+0x0004d8f8	routine_routine_ff01_start_req_1_subfield_2_bit_1_req_data_def
+0x0004d945	routine_routine_FF01_start_req_1_subfield_2
+0x0004d972	Memory Size
+0x0004d9d0	routine_ff01_param_1_start_resp_1_routinetype_resp_data_def_enum_1
+0x0004da21	routine_ff01_param_1_start_resp_1_routinetype_resp_data_def
+0x0004da6b	routine_FF01_param_1_start_resp_1_subfield_1
+0x0004da99	RoutineType
+0x0004dad1	routine_ff01_param_1_start_resp_1_routinestatus_resp_data_def_enum_1
+0x0004db24	routine_ff01_param_1_start_resp_1_routinestatus_resp_data_def
+0x0004db70	routine_FF01_param_1_start_resp_1_subfield_2
+0x0004db9e	RoutineStatus
+0x0004dbe3	routine_ff01_param_2_start_resp_1_checksum_resp_data_def
+0x0004dc2a	routine_FF01_param_2_start_resp_1_subfield_1
+0x0004dc58	Checksum
+0x0004dc8c	routine_FF01
+0x0004dc9a	Check Programming Dependencies
+0x0004dd15	service_27_sf_01
+0x0004dd4a	service_27_sf_02
+0x0004dd65	security_01
+0x0004dd72	Send Key (Security Level 0x01)
+0x0004dd95	Ford_Production_Encryption_Prg_2012
+0x0004ddba	fb_01
+0x0004ddd1	Ford_Production_Encryption_App_2012
+0x0004ddf6	fb_03

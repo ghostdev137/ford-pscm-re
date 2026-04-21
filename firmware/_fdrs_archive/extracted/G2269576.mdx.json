@@ -1,0 +1,43 @@
+{
+  "file": "G2269576.mdx",
+  "size": 197946,
+  "records": 3323,
+  "ecu_name": "Door Ajar Hardwired Input Indicates That A Door Is Ajar",
+  "did_count": 25,
+  "dids": {
+    "1E12": "Gear Commanded",
+    "1EF4": "Shift By Wire (SBW) Bitmapped DID",
+    "D100": "Active Diagnostic Session",
+    "D111": "ECU Power Supply Voltage",
+    "F110": "Subsystem Specific Diagnostic Specification Part Number",
+    "F111": "ECU Core Assembly Number",
+    "F113": "ECU Delivery Assembly Number",
+    "F124": "ECU Calibration Data #1 Number",
+    "F15F": "NOS Generation Tool Version Number",
+    "F162": "Software Download Specification Version",
+    "F163": "Diagnostic Specification Version",
+    "F166": "NOS Message Database #1 Version Number",
+    "F167": "NOS Message Database #2 Version Number",
+    "F17C": "NOS Bootloader Generation Tool Version Number",
+    "F180": "Boot Software Identification",
+    "F188": "Vehicle Manufacturer ECU Software Number",
+    "F18C": "ECU Serial Number",
+    "FD00": "Intensity Calibration",
+    "FD01": "Weight Factor",
+    "FD02": "Enhanced Dimming Algorithm",
+    "FD03": "Battery Save Timer",
+    "FD04": "GSM Info DID_1",
+    "FD05": "GSM Info DID_2",
+    "FD06": "GSM Info DID_3",
+    "FD07": "GSM Info DID_4"
+  },
+  "routine_count": 5,
+  "routines": {
+    "0202": "On-Demand Self-Test",
+    "0301": "Activate Secondary Boot-loader",
+    "0304": "Check Valid Application",
+    "FF00": "Flash Erase",
+    "FF01": "Check Programming Dependencies"
+  },
+  "part_numbers": []
+}
